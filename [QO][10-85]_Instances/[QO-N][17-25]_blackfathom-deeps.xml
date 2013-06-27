@@ -1,0 +1,632 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO-N][17-25]_blackfathom-deeps</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>0.1</MinDurability>
+	<MinFreeBagSlots>0</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />	
+	</AvoidMobs>
+	
+	<Blackspots>
+		<Blackspot X="3002.708" Y="-4146.23" Z="101.4122" Radius="5" />
+		<Blackspot X="-311.9305" Y="73.58769" Z="-53.34798" Radius="6.041618" />
+		<Blackspot X="-354.1103" Y="35.91866" Z="-59.80756" Radius="10" />
+		<Blackspot X="-151.5376" Y="396.4401" Z="-37.62136" Radius="3" />
+	</Blackspots>
+	
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+
+	<Factions>
+	</Factions>
+	
+	<ProtectedItems>	
+	</ProtectedItems>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+		
+		<!-- Booster -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="UserSettings"
+							UseMount="True" 
+							UseFlightPaths="True" 
+							LootMobs="False" 
+							SkinMobs="False" 
+							PullDistance="25" 
+							LootRadius="1" 
+							KillBetweenHotspots="True" 
+							FindVendorsAutomatically="False" />
+
+			<!-- Infinite loop -->
+			<While Condition="true" >		
+				<!-- If we are inside Blackfathom Deeps, run out to reset -->
+				<If Condition="Me.MapId == 48">
+					<CustomBehavior File="Message" Text="Blackfathom Deeps detected. Running out to reset." LogColor="Cyan" />
+						
+					<If Condition="Me.X &lt; -352.5026" >
+						<CustomBehavior File="Message" Text="We are above the jumping platforms. Running down." LogColor="Cyan" />
+							
+						<!-- Run to the edge of the platform -->
+						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
+						
+						<!-- Force ourselves to run off of it -->
+						<CustomBehavior File="MyCTM" X="-273.533" Y="71.30302" Z="-58.51636" />
+					</If>
+					
+					<!-- Run to the instance entrance -->
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+						
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-149.7285" Y="113.4777" Z="-40.73384" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="15000" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+				</If>
+						
+				<!-- If we are outside Blackfathom Deeps (Ashenvale) -->
+				<If Condition="Me.MapId == 1">		
+					<!-- If we are in the box, reset the instance -->
+					<If Condition="Me.X &gt; 4236.979 &amp;&amp; Me.X &lt; 4259.337 &amp;&amp; Me.Y &lt; 748.4534 &amp;&amp; Me.Y &gt; 725.4507" >
+						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+						<CustomBehavior File="Message" Text="Resetting instance, 1 of 2." LogColor="Cyan" />
+						
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />	
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
+						
+						<!-- Allow for an Honorbuddy pulse -->
+						<CustomBehavior File="WaitTimer" WaitTime="200" />
+						
+						<!-- The second reset confirms we are safe to enter the instance -->
+						<CustomBehavior File="Message" Text="Resetting instance, 2 of 2." LogColor="Cyan" />
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />	
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
+						
+						<CustomBehavior File="Message" Text="Instance reset." LogColor="Cyan" />
+						
+						<!-- Run back in the Blackfathom Deeps portal -->
+						<CustomBehavior File="MyCTM" X="4250.304" Y="749.9905" Z="-23.02605" />
+						
+						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
+						
+						<CustomBehavior File="WaitTimer" WaitTime="15000" />
+						
+						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+					</If>				
+				</If>
+
+				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
+				<If Condition="Me.MapId == 48">
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryAction="InputEnabled_Continue" 
+									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
+									Title="WARNING" />
+				
+					<!-- Pull the whole area that the RAF will run through and make it safe -->
+					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="-162.2226" Y="77.74496" Z="-46.09991" />
+						<Hotspot X="-178.6414" Y="51.10044" Z="-49.86693" />
+						<Hotspot X="-180.1864" Y="57.98803" Z="-50.13209" />
+						<Hotspot X="-202.7628" Y="44.08078" Z="-52.515" />
+						<Hotspot X="-236.7738" Y="28.40125" Z="-54.44094" />
+						<Hotspot X="-261.8488" Y="20.46928" Z="-56.31853" />
+						<Hotspot X="-285.3141" Y="15.53012" Z="-57.26279" />
+						<Hotspot X="-282.5669" Y="6.566112" Z="-56.90094" />
+						<Hotspot X="-283.4402" Y="13.79" Z="-57.09724" />
+						<Hotspot X="-266.0276" Y="23.12366" Z="-57.06292" />
+						<Hotspot X="-251.8335" Y="41.66481" Z="-55.25898" />
+						<Hotspot X="-250.9604" Y="56.55597" Z="-53.26148" />
+						<Hotspot X="-270.5946" Y="76.88715" Z="-57.64729" />
+						<Hotspot X="-259.8341" Y="45.30516" Z="-55.5802" />
+						<Hotspot X="-254.6241" Y="31.26841" Z="-55.89838" />
+						<Hotspot X="-218.8425" Y="36.71986" Z="-53.51281" />
+						<Hotspot X="-183.9777" Y="54.45207" Z="-50.2688" />
+						<Hotspot X="-189.6269" Y="72.41666" Z="-48.64544" />
+					</CustomBehavior>
+					<RunTo X="-189.6269" Y="72.41666" Z="-48.64544" />
+					
+					<RunTo X="-266.9157" Y="33.50784" Z="-58.06705" />
+						
+					<!-- Swim through the water -->
+					<CustomBehavior File="MyCTM" X="-281.1979" Y="46.98925" Z="-67.0153" />	
+					<CustomBehavior File="MyCTM" X="-310.6942" Y="63.39418" Z="-59.80751" />
+					<CustomBehavior File="MyCTM" X="-328.114" Y="70.66751" Z="-59.8075" />
+					<CustomBehavior File="MyCTM" X="-335.3923" Y="81.74883" Z="-59.79328" />
+					
+					<RunTo X="-330.1867" Y="95.93851" Z="-59.08392" />
+					<RunTo X="-319.9561" Y="102.2125" Z="-58.65718" />
+					<RunTo X="-311.1952" Y="95.12193" Z="-58.83924" />
+					<RunTo X="-324.9161" Y="101.2409" Z="-58.74074" />
+					<RunTo X="-331.5215" Y="94.29758" Z="-59.17643" />
+					<RunTo X="-333.6324" Y="82.30185" Z="-59.43855" />
+						
+					<!-- Go up mountain -->
+					<CustomBehavior File="MyCTM" X="-356.6548" Y="73.96896" Z="-58.16689" />
+					<CustomBehavior File="MyCTM" X="-354.3861" Y="85.91518" Z="-50.8546" />
+					<CustomBehavior File="MyCTM" X="-350.4613" Y="90.59668" Z="-46.50981" />
+					<CustomBehavior File="MyCTM" X="-351.8185" Y="96.67211" Z="-42.88773" />
+					<CustomBehavior File="MyCTM" X="-353.7418" Y="101.9532" Z="-45.69148" />
+					<CustomBehavior File="MyCTM" X="-343.1473" Y="109.0681" Z="-50.93742" />	
+						
+					<!-- Kill more to keep the RAFs safe -->
+					<RunTo X="-340.3394" Y="110.7734" Z="-51.1693" />
+					<RunTo X="-351.4738" Y="135.739" Z="-50.73345" />
+					<RunTo X="-315.1967" Y="125.0679" Z="-49.27084" />
+					<RunTo X="-294.4937" Y="112.0529" Z="-53.561" />
+					<RunTo X="-290.2426" Y="88.24177" Z="-52.15187" />
+					<RunTo X="-298.6885" Y="114.214" Z="-53.21594" />
+					<RunTo X="-329.8088" Y="126.4282" Z="-48.91853" />
+					
+					<RunTo X="-327.5833" Y="122.4001" Z="-49.16407" />
+					<RunTo X="-346.868" Y="128.8755" Z="-50.96721" />
+					<RunTo X="-365.4253" Y="136.56" Z="-51.97074" />
+						
+					<!-- Pull the instance -->
+					<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="-382.5011" Y="147.2178" Z="-55.66775" />
+						<Hotspot X="-397.859" Y="160.9376" Z="-56.82362" />
+						<Hotspot X="-405.8447" Y="170.1677" Z="-56.96679" />
+						<Hotspot X="-391.0263" Y="179.8922" Z="-57.13927" />
+						<Hotspot X="-376.6362" Y="193.5435" Z="-60.78188" />
+						<Hotspot X="-362.9409" Y="206.9325" Z="-66.83324" />
+						<Hotspot X="-349.6231" Y="222.0291" Z="-68.67172" />
+						<Hotspot X="-336.6732" Y="226.9265" Z="-67.37093" />
+						<Hotspot X="-347.3487" Y="206.4792" Z="-59.59663" />
+						<Hotspot X="-367.8069" Y="208.0534" Z="-63.68121" />
+						<Hotspot X="-372.3108" Y="227.6448" Z="-61.81693" />
+						<Hotspot X="-378.3392" Y="246.1876" Z="-67.95734" />
+						<Hotspot X="-382.6608" Y="265.4714" Z="-72.83397" />
+						<Hotspot X="-369.4548" Y="279.9678" Z="-78.22565" />
+						<Hotspot X="-353.7899" Y="292.5916" Z="-75.20853" />
+						<Hotspot X="-341.5477" Y="305.4269" Z="-65.74838" />
+						<Hotspot X="-330.5222" Y="320.3479" Z="-58.07664" />
+						<Hotspot X="-314.8773" Y="333.1293" Z="-54.19738" />
+						<Hotspot X="-330.7384" Y="345.6739" Z="-53.57992" />
+						<Hotspot X="-343.271" Y="361.481" Z="-54.31293" />
+						<Hotspot X="-351.4478" Y="380.4872" Z="-54.30458" />
+						<Hotspot X="-347.2553" Y="400.3463" Z="-54.06141" />
+						<Hotspot X="-327.9109" Y="407.8347" Z="-55.81305" />
+						<Hotspot X="-308.1978" Y="413.9106" Z="-57.09951" />
+						<Hotspot X="-322.275" Y="399.2017" Z="-55.53006" />
+						<Hotspot X="-334.2526" Y="383.1791" Z="-54.02959" />
+						<Hotspot X="-345.3092" Y="365.7895" Z="-54.35646" />
+						<Hotspot X="-339.4692" Y="346.3956" Z="-53.57915" />
+						<Hotspot X="-332.5522" Y="327.7259" Z="-57.5281" />
+						<Hotspot X="-342.1176" Y="310.6595" Z="-62.35714" />
+						<Hotspot X="-352.3387" Y="297.3265" Z="-73.37648" />
+						<Hotspot X="-366.4686" Y="283.4921" Z="-78.03474" />
+						<Hotspot X="-384.1498" Y="274.8434" Z="-73.83816" />
+						<Hotspot X="-402.6326" Y="279.8961" Z="-67.96461" />
+						<Hotspot X="-406.8004" Y="299.425" Z="-66.70038" />
+						<Hotspot X="-409.71" Y="319.3073" Z="-65.56842" />
+						<Hotspot X="-420.405" Y="302.1666" Z="-64.15517" />
+						<Hotspot X="-428.0914" Y="283.789" Z="-67.53373" />
+						<Hotspot X="-448.0499" Y="285.7845" Z="-64.55667" />
+						<Hotspot X="-467.0006" Y="292.2437" Z="-62.90928" />
+						<Hotspot X="-476.8033" Y="274.3704" Z="-62.90928" />
+						<Hotspot X="-487.1793" Y="257.1752" Z="-62.88517" />
+						<Hotspot X="-489.6167" Y="237.3469" Z="-59.99189" />
+						<Hotspot X="-482.1587" Y="218.7073" Z="-54.42938" />
+						<Hotspot X="-494.2671" Y="202.7937" Z="-57.53446" />
+						<Hotspot X="-514.2162" Y="201.2292" Z="-62.25624" />
+						<Hotspot X="-525.9652" Y="217.8859" Z="-62.88071" />
+						<Hotspot X="-542.6243" Y="229.2539" Z="-61.9188" />
+						<Hotspot X="-561.8955" Y="223.8149" Z="-58.98886" />
+						<Hotspot X="-580.4418" Y="230.0295" Z="-53.49062" />
+						<Hotspot X="-600.2985" Y="228.0946" Z="-50.93115" />
+						<Hotspot X="-612.8848" Y="244.2369" Z="-51.02195" />
+						<Hotspot X="-614.447" Y="250.7469" Z="-49.83864" />
+						<Hotspot X="-621.7445" Y="245.2186" Z="-48.7846" />
+						<Hotspot X="-615.8605" Y="224.1336" Z="-51.63162" />
+						<Hotspot X="-619.2125" Y="203.8866" Z="-51.58895" />
+						<Hotspot X="-608.8752" Y="186.1996" Z="-53.68069" />
+						<Hotspot X="-607.6176" Y="179.9964" Z="-54.29869" />
+						<Hotspot X="-619.8871" Y="187.4615" Z="-53.4468" />
+						<Hotspot X="-625.437" Y="175.0221" Z="-54.90476" />
+						<Hotspot X="-633.7138" Y="156.8025" Z="-57.24603" />
+						<Hotspot X="-642.2729" Y="139.8975" Z="-58.14999" />
+						<Hotspot X="-639.4279" Y="137.4077" Z="-58.25492" />
+						<Hotspot X="-628.3788" Y="137.3823" Z="-57.7889" />
+						<Hotspot X="-632.5801" Y="118.0504" Z="-58.07367" />
+						<Hotspot X="-634.2813" Y="98.10284" Z="-57.22771" />
+						<Hotspot X="-626.8201" Y="78.86579" Z="-56.31728" />
+						<Hotspot X="-618.6261" Y="60.59105" Z="-55.78951" />
+						<Hotspot X="-613.6395" Y="41.07035" Z="-54.1707" />
+						<Hotspot X="-610.5458" Y="31.98048" Z="-52.8478" />
+						<Hotspot X="-593.5461" Y="43.45551" Z="-52.30119" />
+						<Hotspot X="-586.4813" Y="49.27845" Z="-51.5985" />
+						<Hotspot X="-599.6088" Y="24.41575" Z="-50.73453" />
+						<Hotspot X="-603.7227" Y="22.19736" Z="-50.27949" />
+						<Hotspot X="-581.199" Y="16.55901" Z="-48.99676" />
+						<Hotspot X="-568.9821" Y="0.1875417" Z="-46.83049" />
+						<Hotspot X="-549.345" Y="-2.962649" Z="-42.97119" />
+						<Hotspot X="-529.3085" Y="-4.613152" Z="-41.00968" />
+						<Hotspot X="-510.0291" Y="-0.7156522" Z="-44.84879" />
+						<Hotspot X="-510.0381" Y="-0.484828" Z="-44.82487" />
+						<Hotspot X="-511.0934" Y="19.66905" Z="-45.39195" />
+						<Hotspot X="-515.0363" Y="35.11009" Z="-46.26384" />
+						<Hotspot X="-510.7085" Y="-1.067735" Z="-44.83783" />
+						<Hotspot X="-510.2899" Y="-8.100794" Z="-44.74226" />
+						<Hotspot X="-490.9069" Y="-5.842477" Z="-46.86916" />
+						<Hotspot X="-476.1993" Y="-4.128897" Z="-48.02539" />
+						<Hotspot X="-471.5341" Y="1.156939" Z="-48.07458" />
+						<Hotspot X="-454.4733" Y="13.25525" Z="-48.09761" />
+						<Hotspot X="-449.8034" Y="16.85813" Z="-48.08226" />
+						<Hotspot X="-434.5764" Y="8.497609" Z="-48.1244" />
+						<Hotspot X="-422.1978" Y="1.700977" Z="-47.87806" />
+						<Hotspot X="-414.9009" Y="13.53897" Z="-48.20502" />
+						<Hotspot X="-401.8655" Y="29.57752" Z="-48.38131" />
+						<Hotspot X="-401.7128" Y="29.76104" Z="-48.36238" />
+						<Hotspot X="-410.749" Y="41.75969" Z="-48.08351" />
+						<Hotspot X="-420.3495" Y="37.88266" Z="-48.33583" />
+						<Hotspot X="-439.462" Y="31.51571" Z="-48.16504" />
+						<Hotspot X="-439.462" Y="31.51571" Z="-48.16504" />
+						<Hotspot X="-439.4286" Y="12.09748" Z="-48.00719" />
+						<Hotspot X="-446.6178" Y="12.63395" Z="-48.00198" />
+						<Hotspot X="-466.2735" Y="10.81506" Z="-48.17719" />
+						<Hotspot X="-466.5894" Y="10.46748" Z="-48.17111" />
+						<Hotspot X="-483.6592" Y="-1.32939" Z="-47.45498" />
+						<Hotspot X="-502.0204" Y="-9.132942" Z="-45.76598" />
+						<Hotspot X="-510.9707" Y="-12.93683" Z="-44.21662" />
+						<Hotspot X="-509.8412" Y="-27.94017" Z="-44.00001" />
+						<Hotspot X="-509.6953" Y="-38.00039" Z="-43.13609" />
+						<Hotspot X="-496.0836" Y="-36.27315" Z="-43.65903" />
+						<Hotspot X="-492.1148" Y="-37.41376" Z="-44.10452" />
+						<Hotspot X="-473.4987" Y="-42.22406" Z="-38.30727" />
+						<Hotspot X="-454.6587" Y="-38.75383" Z="-32.55341" />
+						<Hotspot X="-453.9601" Y="-38.69903" Z="-32.40734" />
+						<Hotspot X="-474.5188" Y="-40.56186" Z="-38.9991" />
+						<Hotspot X="-488.4326" Y="-45.53078" Z="-43.59285" />
+						<Hotspot X="-493.2251" Y="-46.35929" Z="-43.7565" />
+						<Hotspot X="-506.6868" Y="-49.72206" Z="-42.22058" />
+						<Hotspot X="-506.6868" Y="-49.72206" Z="-42.22063" />
+						<Hotspot X="-505.3546" Y="-62.5301" Z="-42.70716" />
+						<Hotspot X="-505.3094" Y="-73.33538" Z="-44.12123" />
+						<Hotspot X="-498.6445" Y="-81.57483" Z="-44.15172" />
+						<Hotspot X="-495.6682" Y="-84.88381" Z="-44.14283" />
+						<Hotspot X="-479.2315" Y="-86.25004" Z="-40.84616" />
+						<Hotspot X="-475.2571" Y="-86.58586" Z="-40.0644" />
+						<Hotspot X="-498.4599" Y="-83.58912" Z="-44.15122" />
+						<Hotspot X="-498.9901" Y="-82.52844" Z="-44.15122" />
+						<Hotspot X="-508.0358" Y="-63.70329" Z="-42.68887" />
+						<Hotspot X="-516.4438" Y="-44.82257" Z="-41.97769" />
+						<Hotspot X="-518.2134" Y="-41.48156" Z="-41.76586" />
+						<Hotspot X="-536.9774" Y="-42.74113" Z="-39.46895" />
+						<Hotspot X="-556.9379" Y="-42.74475" Z="-38.0577" />
+						<Hotspot X="-576.7816" Y="-40.59399" Z="-34.14675" />
+						<Hotspot X="-596.4385" Y="-36.19413" Z="-28.66779" />
+						<Hotspot X="-612.0609" Y="-23.8317" Z="-23.782" />
+						<Hotspot X="-622.5805" Y="-10.22657" Z="-22.82474" />
+						<Hotspot X="-626.067" Y="-22.38712" Z="-21.58135" />
+						<Hotspot X="-631.8722" Y="-20.49907" Z="-19.68272" />
+						<Hotspot X="-651.2713" Y="-15.0174" Z="-17.68825" />
+						<Hotspot X="-661.1119" Y="-8.186028" Z="-19.47647" />
+						<Hotspot X="-665.5882" Y="-0.1282422" Z="-21.15705" />
+						<Hotspot X="-675.8856" Y="16.1514" Z="-27.8271" />
+						<Hotspot X="-687.5208" Y="32.40243" Z="-30.88104" />
+						<Hotspot X="-693.1757" Y="39.63187" Z="-30.77962" />
+						<Hotspot X="-706.0556" Y="40.71097" Z="-30.80155" />
+						<Hotspot X="-717.2614" Y="42.07203" Z="-29.94193" />
+						<Hotspot X="-725.2815" Y="35.20122" Z="-30.09518" />
+						<Hotspot X="-741.9103" Y="22.52018" Z="-30.25619" />
+						<Hotspot X="-757.6467" Y="10.25181" Z="-28.845" />
+						<Hotspot X="-769.3355" Y="-0.3451681" Z="-29.31828" />
+						<Hotspot X="-748.442" Y="8.167184" Z="-30.03243" />
+						<Hotspot X="-737.4288" Y="7.627631" Z="-30.0145" />
+						<Hotspot X="-720.9958" Y="6.54531" Z="-30.03256" />
+						<Hotspot X="-721.0962" Y="-3.810705" Z="-32.96499" />
+						<Hotspot X="-720.8563" Y="-23.99659" Z="-37.73828" />
+						<Hotspot X="-720.5463" Y="-29.1154" Z="-37.73469" />
+						<Hotspot X="-701.5228" Y="-28.74244" Z="-31.64285" />
+						<Hotspot X="-693.0733" Y="-28.6327" Z="-30.03311" />
+						<Hotspot X="-693.6132" Y="-46.70656" Z="-30.03452" />
+						<Hotspot X="-694.1664" Y="-28.71814" Z="-30.03452" />
+						<Hotspot X="-721.0512" Y="-29.03846" Z="-37.73427" />
+						<Hotspot X="-721.2899" Y="-29.0413" Z="-37.73427" />
+						<Hotspot X="-719.998" Y="-49.02633" Z="-37.73427" />
+						<Hotspot X="-720.7468" Y="-69.37416" Z="-37.73427" />
+						<Hotspot X="-721.4407" Y="-89.3577" Z="-36.41806" />
+						<Hotspot X="-721.4823" Y="-106.8874" Z="-30.08043" />
+						<Hotspot X="-730.3805" Y="-106.1109" Z="-30.09565" />
+						<Hotspot X="-743.5222" Y="-105.7721" Z="-30.06392" />
+						<Hotspot X="-719.8024" Y="-105.874" Z="-30.09082" />
+						<Hotspot X="-720.492" Y="-89.03944" Z="-36.57817" />
+						<Hotspot X="-720.4114" Y="-68.37521" Z="-37.73444" />
+						<Hotspot X="-721.3064" Y="-57.73928" Z="-37.73444" />
+						<Hotspot X="-737.364" Y="-58.49867" Z="-33.36044" />
+						<Hotspot X="-757.2581" Y="-57.77052" Z="-29.92953" />
+						<Hotspot X="-778.1656" Y="-57.28059" Z="-29.86603" />
+						<Hotspot X="-799.0057" Y="-57.09181" Z="-29.6824" />
+						<Hotspot X="-819.6426" Y="-57.50482" Z="-29.68277" />
+						<Hotspot X="-819.8735" Y="-57.49995" Z="-29.68277" />
+						<Hotspot X="-815.8597" Y="-76.29122" Z="-29.72491" />
+						<Hotspot X="-815.5303" Y="-77.16273" Z="-29.32016" />
+						<Hotspot X="-813.0611" Y="-97.31849" Z="-25.69894" />
+						<Hotspot X="-812.6408" Y="-99.86335" Z="-25.77365" />
+						<Hotspot X="-818.8177" Y="-101.1839" Z="-25.84434" />
+						<Hotspot X="-818.822" Y="-108.1332" Z="-25.87007" />
+						<Hotspot X="-830.368" Y="-107.9432" Z="-25.87007" />
+						<Hotspot X="-835.5899" Y="-108.2025" Z="-25.87007" />
+						<Hotspot X="-835.905" Y="-126.9361" Z="-25.87007" />
+						<Hotspot X="-837.0969" Y="-126.8754" Z="-25.87007" />
+						<Hotspot X="-843.8567" Y="-126.907" Z="-25.87007" />
+						<Hotspot X="-840.5986" Y="-145.5687" Z="-25.87007" />
+						<Hotspot X="-844.8885" Y="-145.3326" Z="-25.87007" />
+						<Hotspot X="-857.1419" Y="-146.6189" Z="-25.87007" />
+						<Hotspot X="-856.5854" Y="-161.9452" Z="-25.87007" />
+						<Hotspot X="-856.2674" Y="-177.4147" Z="-25.87007" />
+						<Hotspot X="-844.1687" Y="-177.5081" Z="-25.87008" />
+						<Hotspot X="-843.997" Y="-177.674" Z="-25.87008" />
+						<Hotspot X="-827.709" Y="-190.3144" Z="-25.87008" />
+						<Hotspot X="-819.7233" Y="-196.0383" Z="-25.90872" />
+						<Hotspot X="-807.9282" Y="-194.3202" Z="-25.87146" />
+						<Hotspot X="-803.9343" Y="-194.1203" Z="-25.87146" />
+						<Hotspot X="-802.9183" Y="-185.409" Z="-25.87146" />
+						<Hotspot X="-793.5223" Y="-180.4136" Z="-25.87146" />
+						<Hotspot X="-781.7201" Y="-173.0783" Z="-25.87146" />
+						<Hotspot X="-782.1458" Y="-163.9252" Z="-25.87146" />
+						<Hotspot X="-783.0059" Y="-144.6806" Z="-25.87146" />
+						<Hotspot X="-786.4961" Y="-144.2318" Z="-25.87146" />
+						<Hotspot X="-794.1714" Y="-143.2449" Z="-25.87146" />
+						<Hotspot X="-794.3851" Y="-129.0307" Z="-25.87146" />
+						<Hotspot X="-799.0802" Y="-128.6804" Z="-25.87146" />
+						<Hotspot X="-819.0831" Y="-127.1879" Z="-25.87146" />
+						<Hotspot X="-837.1433" Y="-125.8403" Z="-25.87146" />
+						<Hotspot X="-836.8412" Y="-117.63" Z="-25.87146" />
+						<Hotspot X="-836.5034" Y="-108.4501" Z="-25.87146" />
+						<Hotspot X="-818.5681" Y="-108.3195" Z="-25.87146" />
+						<Hotspot X="-800.0113" Y="-108.2441" Z="-25.87146" />
+						<Hotspot X="-817.8595" Y="-108.5572" Z="-25.87146" />
+						<Hotspot X="-817.585" Y="-91.68867" Z="-25.68278" />
+						<Hotspot X="-816.2846" Y="-87.91798" Z="-26.28648" />
+						<Hotspot X="-815.991" Y="-67.86539" Z="-29.69448" />
+						<Hotspot X="-814.9894" Y="-57.1138" Z="-29.68658" />
+						<Hotspot X="-798.0923" Y="-57.95984" Z="-29.68273" />
+						<Hotspot X="-777.7756" Y="-57.09532" Z="-29.8772" />
+						<Hotspot X="-757.0208" Y="-58.03175" Z="-29.93039" />
+						<Hotspot X="-736.9912" Y="-58.51679" Z="-33.54683" />
+						<Hotspot X="-720.7798" Y="-58.90937" Z="-37.73492" />
+						<Hotspot X="-721.144" Y="-46.43649" Z="-37.73492" />
+						<Hotspot X="-720.5383" Y="-25.81927" Z="-37.73492" />
+						<Hotspot X="-721.275" Y="-5.654402" Z="-33.88733" />
+						<Hotspot X="-721.5214" Y="2.781204" Z="-30.03327" />
+						<Hotspot X="-725.0285" Y="13.78313" Z="-30.03327" />
+						<Hotspot X="-727.5768" Y="31.08633" Z="-30.36414" />
+						<Hotspot X="-722.5059" Y="34.01265" Z="-30.40612" />
+						<Hotspot X="-702.8819" Y="41.22632" Z="-31.13801" />
+						<Hotspot X="-685.0785" Y="30.60188" Z="-30.76167" />
+						<Hotspot X="-673.2425" Y="14.62221" Z="-27.00843" />
+						<Hotspot X="-663.0826" Y="-1.733817" Z="-20.68527" />
+						<Hotspot X="-654.8198" Y="-15.96845" Z="-17.73549" />
+						<Hotspot X="-650.6505" Y="-17.55449" Z="-17.78784" />
+						<Hotspot X="-631.9746" Y="-24.65892" Z="-20.21827" />
+						<Hotspot X="-626.9008" Y="-26.58902" Z="-21.51035" />
+						<Hotspot X="-621.3458" Y="-41.82409" Z="-22.49162" />
+						<Hotspot X="-621.1902" Y="-42.2509" Z="-22.56201" />
+						<Hotspot X="-603.3313" Y="-32.19088" Z="-25.57931" />
+						<Hotspot X="-603.1301" Y="-32.0775" Z="-25.59955" />
+						<Hotspot X="-586.1553" Y="-40.83875" Z="-31.86065" />
+						<Hotspot X="-567.2289" Y="-47.34044" Z="-35.92059" />
+						<Hotspot X="-547.3436" Y="-45.55873" Z="-38.72718" />
+						<Hotspot X="-527.408" Y="-43.56086" Z="-40.07124" />
+						<Hotspot X="-507.2503" Y="-41.54073" Z="-43.62271" />
+						<Hotspot X="-506.7906" Y="-41.49467" Z="-43.69669" />
+						<Hotspot X="-510.9151" Y="-21.57386" Z="-44.3627" />
+						<Hotspot X="-510.3391" Y="-5.575928" Z="-44.92999" />
+						<Hotspot X="-521.7884" Y="-4.839118" Z="-42.92921" />
+						<Hotspot X="-541.7824" Y="-3.552421" Z="-41.72627" />
+						<Hotspot X="-561.3868" Y="-0.5420393" Z="-45.59109" />
+						<Hotspot X="-578.2703" Y="10.18791" Z="-48.95976" />
+						<Hotspot X="-593.8597" Y="22.94525" Z="-49.45999" />
+						<Hotspot X="-608.013" Y="37.02817" Z="-53.02232" />
+						<Hotspot X="-616.7124" Y="54.80703" Z="-56.46168" />
+						<Hotspot X="-626.3297" Y="72.47618" Z="-55.26154" />
+						<Hotspot X="-634.4843" Y="90.70085" Z="-57.0517" />
+						<Hotspot X="-639.6581" Y="110.0675" Z="-57.67274" />
+						<Hotspot X="-640.1034" Y="130.6826" Z="-58.26953" />
+						<Hotspot X="-638.3621" Y="150.82" Z="-57.83282" />
+						<Hotspot X="-628.7894" Y="169.0866" Z="-55.75471" />
+						<Hotspot X="-618.7449" Y="186.3271" Z="-53.52849" />
+						<Hotspot X="-611.1862" Y="199.9033" Z="-50.90494" />
+						<Hotspot X="-618.7333" Y="206.9869" Z="-51.35625" />
+						<Hotspot X="-623.7183" Y="215.4893" Z="-51.06147" />
+						<Hotspot X="-612.2726" Y="226.3596" Z="-51.52569" />
+						<Hotspot X="-603.2221" Y="234.955" Z="-51.09636" />
+						<Hotspot X="-592.8839" Y="231.8736" Z="-51.39608" />
+						<Hotspot X="-573.0922" Y="229.3405" Z="-55.99643" />
+						<Hotspot X="-572.186" Y="229.2051" Z="-56.26571" />
+						<Hotspot X="-553.4963" Y="225.366" Z="-58.91701" />
+						<Hotspot X="-533.5269" Y="221.9239" Z="-57.66763" />
+						<Hotspot X="-514.1608" Y="216.4173" Z="-57.66763" />
+						<Hotspot X="-495.5557" Y="208.6672" Z="-57.66763" />
+						<Hotspot X="-480.1372" Y="202.3668" Z="-54.01929" />
+						<Hotspot X="-477.1117" Y="201.1404" Z="-53.86381" />
+						<Hotspot X="-457.9585" Y="193.3768" Z="-53.17417" />
+						<Hotspot X="-455.5608" Y="192.405" Z="-53.16113" />
+						<Hotspot X="-445.7117" Y="209.8524" Z="-52.70795" />
+						<Hotspot X="-435.787" Y="227.434" Z="-53.11341" />
+						<Hotspot X="-434.4054" Y="229.8814" Z="-53.17725" />
+						<Hotspot X="-423.4724" Y="210.6321" Z="-52.95886" />
+						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
+					</CustomBehavior>
+				</If>	
+			</While>	
+		</If>
+		
+		<!-- RAF Toons -->
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="UserSettings" 
+							UseMount="True" 
+							UseFlightPaths="True" 
+							LootMobs="False" 
+							SkinMobs="False" 
+							PullDistance="1" 
+							LootRadius="1"
+							KillBetweenHotspots="False" 
+							FindVendorsAutomatically="False" />
+							
+			<!-- Infinite loop -->
+			<While Condition="true" >	
+			
+				<!-- If we are inside Blackfathom Deeps, run out to reset -->
+				<If Condition="Me.MapId == 48">
+					<CustomBehavior File="Message" Text="Blackfathom Deeps detected. Running out to reset." LogColor="Cyan" />
+						
+					<If Condition="Me.X &lt; -352.5026" >
+						<CustomBehavior File="Message" Text="We are above the jumping platforms. Running down." LogColor="Cyan" />
+							
+						<!-- Run to the edge of the platform -->
+						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
+						
+						<!-- Force ourselves to run off of it -->
+						<CustomBehavior File="MyCTM" X="-273.533" Y="71.30302" Z="-58.51636" />
+					</If>
+					
+					<!-- Run to the instance entrance -->
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+						
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-149.7285" Y="113.4777" Z="-40.73384" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="15000" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+				
+				</If>
+			
+				<!-- If we are outside of Blackfathom Deeps (Ashenvale) -->
+				<If Condition="Me.MapId == 1">									
+					<!-- If we are in the box -->
+					<If Condition="Me.X &gt; 4236.979 &amp;&amp; Me.X &lt; 4259.337 &amp;&amp; Me.Y &lt; 748.4534 &amp;&amp; Me.Y &gt; 725.4507" >
+						<!-- If we are between levels 25-37 -->
+						<If Condition="Me.Level &gt;= 25 &amp;&amp; Me.Level &lt;= 37" >
+							<CustomBehavior File="UserDialog" 
+											AllowBotStop="False" 
+											SoundCue="Exclamation" 
+											SoundCueInterval="15" 
+											ExpiryAction="InputEnabled_Continue" 
+											Text="This character is in the recommended level range to run Razorfen Kraul (25-37). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
+											Title="WARNING" />
+						
+							<!-- Otherwise we are too high -->
+							<ElseIf Condition="Me.Level &gt; 37">
+								<CustomBehavior File="UserDialog" 
+												AllowBotStop="False" 
+												SoundCue="Exclamation" 
+												SoundCueInterval="15" 
+												ExpiryAction="InputEnabled_Continue" 
+												Text="This character is above level 37 and is not in the recommended level range to run this instance (17-25). By choosing to continue, you acknowledge that you may not receive the intended experience gains." 
+												Title="WARNING" />
+							</ElseIf>
+						</If>
+						
+						<CustomBehavior File="Message" Text="Waiting 10 seconds." LogColor="Cyan" />
+						<CustomBehavior File="WaitTimer" WaitTime="10000" />
+						
+						<!-- Go inside the Blackfathom Deeps portal -->
+						<CustomBehavior File="MyCTM" X="4250.304" Y="749.9905" Z="-23.02605" />
+						
+						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="cyan" />
+						<CustomBehavior File="WaitTimer" WaitTime="15000" />
+						
+						<RunTo X="-150.6137" Y="103.5056" Z="-40.39671" />
+					</If>				
+				</If>
+				
+				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
+				<If Condition="Me.MapId == 48">
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryAction="InputEnabled_Continue" 
+									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
+									Title="WARNING" />
+						
+					<CustomBehavior File="Message" Text="We have 16.6 minutes in timers. Avoiding instance lock from this point, do not touch." LogColor="Red" />	
+					
+					<CustomBehavior File="Message" Text="Waiting 80 seconds, entrance." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="80000" />
+						
+					<RunTo X="-160.8972" Y="77.59564" Z="-46.0715" />
+					<RunTo X="-195.9623" Y="47.303" Z="-52.69039" />
+					<RunTo X="-236.1606" Y="30.95604" Z="-54.72799" />
+					<RunTo X="-261.6381" Y="59.04369" Z="-55.6091" />
+
+					<CustomBehavior File="Message" Text="Waiting 70 seconds, 1 of 1." LogColor="cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="70000" />
+					
+					<CustomBehavior File="MyCTM" X="-299.8195" Y="65.63107" Z="-59.83585" />
+					<CustomBehavior File="MyCTM" X="-316.6834" Y="64.10133" Z="-59.83585" />
+					<CustomBehavior File="MyCTM" X="-332.0847" Y="76.87205" Z="-59.85128" />
+					<CustomBehavior File="MyCTM" X="-330.5505" Y="92.59331" Z="-59.16409" />
+					
+					<CustomBehavior File="Message" Text="Waiting 120 seconds, 1 of 3." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="120000" />
+
+					<CustomBehavior File="Message" Text="Waiting 120 seconds, 2 of 3." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="120000" />
+					
+					<CustomBehavior File="Message" Text="Waiting 120 seconds, 3 of 3." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="120000" />
+					
+					<!-- Go up mountain -->
+					<CustomBehavior File="MyCTM" X="-342.8687" Y="73.32179" Z="-60.35067" />
+					<CustomBehavior File="MyCTM" X="-356.6548" Y="73.96896" Z="-58.16689" />
+					<CustomBehavior File="MyCTM" X="-354.3861" Y="85.91518" Z="-50.8546" />
+					<CustomBehavior File="MyCTM" X="-350.4613" Y="90.59668" Z="-46.50981" />
+					<CustomBehavior File="MyCTM" X="-351.8185" Y="96.67211" Z="-42.88773" />
+					<CustomBehavior File="MyCTM" X="-353.7418" Y="101.9532" Z="-45.69148" />
+					<CustomBehavior File="MyCTM" X="-343.1473" Y="109.0681" Z="-50.93742" />	
+				
+					<CustomBehavior File="Message" Text="Waiting 135 seconds, 1 of 1." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="135000" />
+					
+					<!-- run behind crab -->
+					<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
+					
+					<CustomBehavior File="Message" Text="Waiting 150 seconds, 1 of 2." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="150000" />
+					
+					<CustomBehavior File="Message" Text="Waiting 150 seconds, 2 of 2." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="150000" />
+					
+					<!-- Run to the edge of the platform -->
+					<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
+						
+					<!-- Force ourselves to run off of it -->
+					<CustomBehavior File="MyCTM" X="-273.533" Y="71.30302" Z="-58.51636" />
+				</If>		
+			</While>
+		</If>
+	</QuestOrder>
+</HBProfile>
+

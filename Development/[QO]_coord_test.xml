@@ -1,0 +1,57 @@
+<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>Coord Test</Name>
+
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+   
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>True</MailPurple>
+
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
+	<SellBlue>True</SellBlue>
+	<SellPurple>False</SellPurple>
+
+	<TargetElites>True</TargetElites>
+   
+	<AvoidMobs>
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />           
+	</AvoidMobs>
+   
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+
+	<Vendors>
+	</Vendors>
+
+	<ProtectedItems>
+	</ProtectedItems>
+   
+			<ClearVendor />
+			<ClearMailbox />
+       
+	<QuestOrder>
+	
+		<CustomBehavior File="UserSettings" 
+						UseMount="True" 
+						LootMobs="False" 
+						SkinMobs="False" 
+						PullDistance="25" 
+						KillBetweenHotspots="True" 
+						FindVendorsAutomatically="False" />
+						
+		
+	</QuestOrder>
+ 
+ 
+</HBProfile>

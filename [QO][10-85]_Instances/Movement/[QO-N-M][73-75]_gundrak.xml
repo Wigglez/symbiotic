@@ -1,0 +1,298 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO-N-M][73-75]_gundrak</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>		
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+		<Mob Name="Drakkari Guardian" Entry="26620" />
+		<Mob Name="Drakkari Frenzy" Entry="29834"  />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>
+		<Item name="Book of Glyph Mastery" entry="45912" />
+		<Item name="Frostweave Cloth" entry="33470" />		
+	</ProtectedItems>
+
+	<Factions>16</Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+	<CustomBehavior File="UserSettings" UseMount="True" MountDistance="20" LootRadius="1" UseFlightPaths="True" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="1" KillBetweenHotspots="False" RessAtSpiritHealers="False" FindVendorsAutomatically="False" LogoutForInactivity="True" />
+			 	
+
+				<If Condition="Me.MapId == 571" >
+					<If Condition="Me.X &lt; 4819.964 &amp;&amp; Me.X &gt; 4737.752 &amp;&amp; Me.Y &lt; -2000.14 &amp;&amp; Me.Y &gt; -2050.412" >
+						<CustomBehavior File="Message" Text="I am outside the Drak'Tharon Keep portal, flying to Gundrak." LogColor="Lime" />
+						<RunTo X="4883.622" Y="-2060.747" Z="250.0509" />
+					</If>
+				</If>	
+				
+				<If Condition="Me.MapId == 571" >
+					<If Condition="Me.X &gt; 6975.555 || Me.X &lt; 6940.883 || Me.Y &gt; -4394.594 || Me.Y &lt; -4431.571" >
+						<CustomBehavior File="Message" Text="Flying to Zim' Torga." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />				
+						<CustomBehavior File="FlyTo" X="5760.913" Y="-3556.947" Z="386.6781" />
+						<CustomBehavior File="ForcedDismount" />
+						<CustomBehavior File="ForcedMount" MountType="Ground" />
+							<RunTo X="5760.913" Y="-3556.947" Z="386.6781" />
+						<CustomBehavior File="Message" Text="Setting my Heartstone @ the innkeep." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" MobId="29583" X="5761.111" Y="-3562.792" Z="387.0504" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<RunTo X="5760.913" Y="-3556.947" Z="386.6781" />
+						<CustomBehavior File="FlyTo" X="5772.513" Y="-3580.623" Z="538.9045" />
+						<CustomBehavior File="MyCTM" X="6859.742" Y="-4459.997" Z="611.2068" />
+						<CustomBehavior File="MyCTM" X="6955.24" Y="-4416.92" Z="450.0226" />
+						<CustomBehavior File="ForcedDismount" />
+					</If>
+				</If>
+													
+				<If Condition="Me.ZoneId == 4416" >
+					<CustomBehavior File="Message" Text="You started the bot with me inside Gundrak. Running out to reset the dungeon." LogColor="Lime" />
+						<RunTo X="1891.823" Y="649.8093" Z="176.6732" />
+					<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
+					<CustomBehavior File="WaitTimer" WaitTime="12000" GoalText="TimeRemaining}" />
+					<CustomBehavior File="Message" Text="I'm outside Gundrak." LogColor="Lime" />
+						<RunTo X="6955.24" Y="-4416.92" Z="450.0226" />	
+				</If>
+
+				
+	<While Condition="true" >
+		
+				<If Condition="Me.ZoneId == 66" >
+					<If Condition="Me.X &lt; 6975.555 &amp;&amp; Me.X &gt; 6940.883 &amp;&amp; Me.Y &lt; -4394.594 &amp;&amp; Me.Y &gt; -4431.571" >
+						<CustomBehavior File="Message" Text="I am resetting Gundrak." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />				
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances();" /> 
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> <!-- Changes the instanceto to "normal" , if it was on "heroic" for the first run -->
+						<CustomBehavior File="Message" Text="I have reset ." LogColor="Lime" />
+							<RunTo X="6955.24" Y="-4416.92" Z="450.0226" />
+						<CustomBehavior File="MyCTM" X="6973.431" Y="-4399.899" Z="441.576" />
+						<CustomBehavior File="Message" Text="Waiting for the dungeon to load.." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="12000" GoalText="TimeRemaining}" />
+						<If Condition="Me.ZoneId == 4416" >
+							<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
+								Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
+						</If>
+					</If>
+				</If>					
+				                                       <!-- gundrak script -->
+				<If Condition="Me.ZoneId == 4416" >
+					<CustomBehavior File="UserSettings" UseMount="True" MountDistance="100"   LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="45" KillBetweenHotspots="True" LogoutForInactivity="True" />
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="1882.32" Y="631.027" Z="176.6959" />
+						<Hotspot X="1871.933" Y="631.027" Z="176.6663" />
+						<Hotspot X="1860.965" Y="640.8922" Z="176.6767" />
+						<Hotspot X="1845.775" Y="642.2281" Z="170.5325" />
+						<Hotspot X="1830.544" Y="641.8077" Z="159.9439" />
+						<Hotspot X="1827.679" Y="627.7567" Z="153.3377" />
+						<Hotspot X="1839.076" Y="621.5598" Z="149.2859" />
+						<Hotspot X="1851.6" Y="627.2713" Z="144.0674" />
+						<Hotspot X="1850.914" Y="642.0597" Z="135.5406" />
+						<Hotspot X="1836.546" Y="643.5953" Z="130.9945" />
+						<Hotspot X="1826.002" Y="634.0477" Z="129.2715" />
+						<Hotspot X="1811.153" Y="632.2237" Z="129.1984" />
+						<Hotspot X="1795.731" Y="632.9388" Z="124.6672" />
+						<Hotspot X="1783.386" Y="609.2051" Z="124.4784" />
+						<Hotspot X="1765.406" Y="614.665" Z="124.4714" />
+						<Hotspot X="1780.294" Y="633.6547" Z="124.331" />
+						<Hotspot X="1768.403" Y="641.4805" Z="124.2315" />
+						<Hotspot X="1767.526" Y="656.8239" Z="126.4477" />
+						<Hotspot X="1764.638" Y="671.7421" Z="129.2168" />
+						<Hotspot X="1775.211" Y="675.9483" Z="129.2168" />
+					</CustomBehavior>
+						<Runto X="1775.211" Y="675.9483" Z="129.2168" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					<CustomBehavior File="InteractWith" MobId="192518" ObjectType="Gameobject" Range="4.75" NumOfTimes="1"  X="1775.293" Y="679.6804" Z="129.236084" />
+						<Runto X="1774.019" Y="656.2551" Z="124.6041" />
+						<Runto X="1769.124" Y="642.1248" Z="124.2258" />
+						<Runto X="1755.203" Y="635.7755" Z="124.4845" />
+						<Runto X="1739.827" Y="634.6395" Z="129.1958" />
+						<Runto X="1724.539" Y="633.744" Z="129.1985" />
+						<Runto X="1709.353" Y="635.2092" Z="129.8695" />
+						<Runto X="1695.527" Y="640.812" Z="127.7914" />
+						<Runto X="1690.961" Y="626.7676" Z="126.9473" />
+						<Runto X="1677.253" Y="625.3416" Z="123.6659" />
+						<Runto X="1661.973" Y="624.1739" Z="127.5938" />
+						<Runto X="1649.535" Y="632.5823" Z="127.9492" />
+						<Runto X="1644.664" Y="646.637" Z="126.9364" />
+						<Runto X="1655.18" Y="652.5103" Z="127.0078" />
+						<Runto X="1666.745" Y="645.8804" Z="127.9751" />
+						<Runto X="1657.654" Y="639.5535" Z="130.3607" />
+						<Runto X="1647.317" Y="650.8778" Z="126.9116" />
+						<Runto X="1634.749" Y="658.8377" Z="126.8637" />
+						<Runto X="1619.349" Y="658.8312" Z="128.1519" />
+						<Runto X="1611.736" Y="671.2351" Z="130.2439" />
+						<Runto X="1616.766" Y="684.9951" Z="138.6463" />
+						<Runto X="1630.611" Y="687.7112" Z="139.9761" />
+						<Runto X="1637.76" Y="674.7885" Z="131.5192" />
+						<Runto X="1632.073" Y="661.8829" Z="128.6885" />
+						<Runto X="1627.889" Y="675.6744" Z="134.5656" />
+						<Runto X="1626.004" Y="691.0827" Z="141.3781" />
+						<Runto X="1625.524" Y="706.3978" Z="142.7834" />
+						<Runto X="1623.544" Y="721.6855" Z="142.7834" />
+						<Runto X="1620.479" Y="736.7563" Z="142.7861" />
+						<Runto X="1617.902" Y="751.4349" Z="142.7861" />
+						<Runto X="1630.755" Y="754.9066" Z="142.7861" />
+						<Runto X="1643.035" Y="745.6679" Z="142.7861" />
+						<Runto X="1657.663" Y="742.2356" Z="142.7861" />
+						<Runto X="1673.066" Y="743.4844" Z="142.7861" />
+						<Runto X="1683.52" Y="744.1744" Z="142.7861" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					<CustomBehavior File="InteractWith" MobId="192520" ObjectType="Gameobject" Range="4.75" NumOfTimes="1"  X="1693.50891" Y="743.595032" Z="142.787628" />	
+						<Runto X="1652.502" Y="743.4088" Z="142.786" />
+						<Runto X="1642.372" Y="741.9178" Z="142.7863" />
+						<Runto X="1629.296" Y="733.7405" Z="142.7863" />
+						<Runto X="1615.375" Y="727.5838" Z="142.7883" />
+						<Runto X="1600.065" Y="726.8058" Z="142.7837" />
+						<Runto X="1584.673" Y="726.673" Z="142.7837" />
+						<Runto X="1574.991" Y="719.3359" Z="142.959" />
+						<Runto X="1582.79" Y="725.7448" Z="142.7833" />
+						<Runto X="1598.222" Y="726.6785" Z="142.7833" />
+						<Runto X="1613.55" Y="727.4326" Z="142.7833" />
+						<Runto X="1623.014" Y="738.145" Z="142.7862" />
+						<Runto X="1625.254" Y="753.3188" Z="142.7862" />
+						<Runto X="1626.749" Y="768.6726" Z="142.7821" />
+						<Runto X="1625.714" Y="784" Z="142.7821" />
+						<Runto X="1616.182" Y="795.8361" Z="143.9572" />
+						<Runto X="1601.463" Y="800.1022" Z="146.0335" />
+						<Runto X="1591.305" Y="810.9849" Z="149.1257" />
+						<Runto X="1584.088" Y="824.4503" Z="151.312" />
+						<Runto X="1578.481" Y="838.7628" Z="153.5884" />
+						<Runto X="1574.453" Y="853.5059" Z="155.2178" />
+						<Runto X="1578.832" Y="868.2292" Z="153.438" />
+						<Runto X="1587.35" Y="880.829" Z="151.4532" />
+						<Runto X="1600.84" Y="888.2814" Z="148.9375" />
+						<Runto X="1614.676" Y="894.8763" Z="147.1546" />
+						<Runto X="1629.255" Y="899.8721" Z="145.4532" />
+						<Runto X="1643.084" Y="897.4747" Z="144.6175" />
+						<Runto X="1649.913" Y="883.7679" Z="140.7472" />
+						<Runto X="1659.723" Y="873.5202" Z="138.5972" />
+						<Runto X="1667.928" Y="885.2753" Z="137.737" />
+						<Runto X="1679.203" Y="893.8074" Z="134.3602" />
+						<Runto X="1694.396" Y="892.8835" Z="133.1392" />
+						<Runto X="1704.281" Y="881.7709" Z="131.1341" />
+						<Runto X="1706.38" Y="866.5119" Z="130.0249" />
+						<Runto X="1710.958" Y="852.7603" Z="129.2587" />
+						<Runto X="1725.556" Y="850.3176" Z="129.1983" />
+						<Runto X="1740.151" Y="854.4121" Z="129.1983" />
+						<Runto X="1745.995" Y="868.6597" Z="129.1979" />
+						<Runto X="1758.892" Y="867.7363" Z="125.6572" />
+						<Runto X="1768.653" Y="855.9767" Z="123.4686" />
+						<Runto X="1773.059" Y="809.4829" Z="129.2176" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+					<CustomBehavior File="InteractWith" MobId="192519" ObjectType="Gameobject" Range="4.75" NumOfTimes="1"  X="1772.21936" Y="804.9631" Z="129.236084" />
+						<Runto X="1773.059" Y="809.4829" Z="129.2176" />
+					<CustomBehavior File="UserSettings" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="1" KillBetweenHotspots="False"  />
+						<CustomBehavior File="MyCTM" X="1783.559" Y="807.6131" Z="129.2168" />
+						<CustomBehavior File="MyCTM" X="1771.958" Y="796.1882" Z="129.1945" />
+						<CustomBehavior File="MyCTM" X="1766.184" Y="787.9755" Z="110.273" />
+						<CustomBehavior File="MyCTM" X="1760.579" Y="780.444" Z="106.6398" />
+						<CustomBehavior File="MyCTM" X="1754.19" Y="772.4545" Z="108.3139" />
+						<CustomBehavior File="MyCTM" X="1744.499" Y="769.1779" Z="108.3139" />
+						<CustomBehavior File="MyCTM" X="1736.5" Y="763.4684" Z="110.3822" />
+						<CustomBehavior File="MyCTM" X="1736.555" Y="762.1" Z="111.4853" />
+						<CustomBehavior File="MyCTM" X="1743.867" Y="751.5961" Z="118.0925" />
+						<CustomBehavior File="MyCTM" X="1744.018" Y="744.3135" Z="118.7643" />	
+					<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="1774.845" Y="743.4786" Z="119.4396" />
+						<Hotspot X="1825.372" Y="743.6552" Z="123.9302" />
+						<Hotspot X="1846.621" Y="743.3987" Z="135.9355" />
+						<Hotspot X="1846.621" Y="743.3987" Z="135.9355" />
+						<Hotspot X="1855.507" Y="749.6066" Z="136.0321" />
+					</CustomBehavior>
+					
+					<CustomBehavior File="UserSettings" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="20" KillBetweenHotspots="True"  />						
+						<Runto X="1869.559" Y="756.0958" Z="136.0924" />
+						<Runto X="1884.245" Y="759.3804" Z="135.9655" />
+						<Runto X="1882.728" Y="746.9779" Z="136.1497" />
+						<Runto X="1871.707" Y="736.2951" Z="136.2275" />
+						<Runto X="1879.984" Y="726.6392" Z="135.8859" />
+						<Runto X="1891.867" Y="735.5474" Z="136.1753" />
+						<Runto X="1902.8" Y="744.778" Z="136.3956" />
+						<Runto X="1918.197" Y="743.1361" Z="136.509" />
+						<Runto X="1931.652" Y="747.3772" Z="136.5468" />
+						<Runto X="1934.971" Y="762.3549" Z="135.431" />
+						<Runto X="1939.035" Y="777.1903" Z="135.1394" />
+						<Runto X="1943.855" Y="791.7267" Z="135.8208" />
+						<Runto X="1947.714" Y="806.5994" Z="135.3866" />
+						<Runto X="1948.342" Y="822.0237" Z="135.2822" />
+						<Runto X="1960.919" Y="828.7188" Z="135.2584" />
+						<Runto X="1973.146" Y="835.0508" Z="135.254" />													
+																
+					<If Condition="(Me.FreeBagSlots &lt; 4) || (Me.LowestDurabilityPercent &lt; 0.3)" >
+						<CustomBehavior File="UserSettings" UseMount="True" MountDistance="100"  UseFlightPaths="True" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="30" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LogoutForInactivity="True" />
+						<CustomBehavior File="Message" Text="I have detected that my bags are full or my gear is about to break. Going to hearth, repair and mail." LogColor="Lime" />
+						<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
+						<CustomBehavior File="WaitTimer" WaitTime="20000" GoalText="Waiting for hearth*{TimeRemaining}" />
+						<If Condition="Me.ZoneId != 4416" >							
+							<CustomBehavior File="Message" Text="Succesfully hearthed to The Argent Stand, moving to the repair vendor, mailing and then flying back to Utgarde Keep." LogColor="Lime" />						
+								<RunTo X="5400.814" Y="-2631.667" Z="303.9555" />
+							<SetVendor>
+								<Vendors>
+									<Vendor Name="Ba'kari" Entry="28855" Type="Repair" X="5769.661" Y="-3572.947" Z="387.239" />
+								</Vendors>
+							</SetVendor>
+							<SetMailbox>
+								<Mailboxes>
+									<Mailbox X="5416.961" Y="-2622.984" Z="307.0123" />
+								</Mailboxes>
+							</SetMailbox>
+				
+							<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
+							
+							<CustomBehavior File="ForcedMount" MountType="Flying" />
+							<CustomBehavior File="FlyTo" X="5772.513" Y="-3580.623" Z="538.9045" />
+							<CustomBehavior File="MyCTM" X="6859.742" Y="-4459.997" Z="611.2068" />
+							<CustomBehavior File="MyCTM" X="6955.24" Y="-4416.92" Z="450.0226" />
+							<CustomBehavior File="ForcedDismount" />
+						</If>
+						<If Condition="Me.ZoneId == 4416" >
+							<CustomBehavior File="Message" Text="My gear is broke and my hearth is on cool down. You need to repair my gear. Stopping the bot" LogColor="Lime" />
+							<CustomBehavior File="UserSettings" StopBot="true" />
+						</If>
+				    </If>
+					<If Condition="Me.ZoneId == 4416" >
+						<CustomBehavior File="MyCTM" X="1980.249" Y="840.2476" Z="135.2105" />
+						<CustomBehavior File="WaitTimer" WaitTime="12000" GoalText="TimeRemaining}" />
+						<CustomBehavior File="Message" Text="I'm outside Gundrak." LogColor="Lime" />
+							
+						<CustomBehavior File="FlyTo" X="6955.24" Y="-4416.92" Z="450.0226" />
+						<CustomBehavior File="ForcedDismount" />
+					</If>
+				</If>								
+		</While>	
+	</QuestOrder>
+
+
+</HBProfile>

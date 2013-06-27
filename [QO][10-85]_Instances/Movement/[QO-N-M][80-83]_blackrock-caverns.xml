@@ -1,0 +1,410 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO-N-M][80-83]_blackrock-caverns</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>91</MaxLevel>
+   
+	<MinDurability>0.2</MinDurability>
+	<MinFreeBagSlots>0</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>True</MailGreen>
+	<MailBlue>True</MailBlue>
+	<MailPurple>True</MailPurple>
+   
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>	 
+		<Mob Name="Bellows Slave" Entry="40084" />
+		<Mob Name="Twilight Zealot" Entry="50284" />
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+		<Mob Name="Conflagration" Entry="39994" />
+		<Mob Name="Karsh Steelbender" Entry="39698" />
+		<Mob Name="Shadow of Obsidius" Entry="40817" />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>
+		<Item name="Berto's Staff" entry="55789" />
+		<Item name="Acanthia's Lost Pendant" entry="55791" />
+		<Item name="Snub-Nosed Pistol" entry="66953" />
+		<Item name="Toxidunk Dagger" entry="55790" />
+		
+	</ProtectedItems>
+
+	<Factions></Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+		<CustomBehavior File="UserSettings" LootMobs="False" PullDistance="15" KillBetweenHotspots="True" LogoutForInactivity="False" />
+		
+			
+				
+				<If Condition="Me.MapId == 571" >
+					<If Condition="Me.X &lt; 9200 &amp;&amp; Me.X &gt; 9100 &amp;&amp; Me.Y &lt; -1200 &amp;&amp; Me.Y &gt; -1450" >
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="Message" Text="I am outside the Halls of Lightning. I need to be in Eastern Kingdoms. I am flying to Howling Fjord to use the zeppelin." LogColor="Lime" />
+						<CustomBehavior File="FlyTo" X="9034.697" Y="-1279.319" Z="1235.71" />
+						<CustomBehavior File="MyCTM" X="8256.144" Y="-1494.825" Z="1327.501" />
+						<CustomBehavior File="MyCTM" X="7689.197" Y="-1742.022" Z="1402.006" />
+						<CustomBehavior File="MyCTM" X="7323.021" Y="-1775.107" Z="1405.479" />
+						<CustomBehavior File="FlyTo" X="1975.742" Y="-6097.156" Z="67.15653" />
+						<CustomBehavior File="ForcedDismount" />
+							<CustomBehavior File="UseTransport"
+										TransportId="181689"
+										WaitAtX="1975.742" WaitAtY="-6097.156" WaitAtZ="67.15653" 
+										TransportStartX="1989.352" TransportStartY="-6082.7763" TransportStartZ="85.59"
+										TransportEndX="2056.4926" TransportEndY="381.6347" TransportEndZ="100.3620"
+										StandOnX="1981.518" StandOnY="-6091.462" StandOnZ="67.73104" 
+										GetOffX="2061.187" GetOffY="365.3284" GetOffZ="82.52013" />
+								<RunTo X="2061.187" Y="365.3284" Z="82.52013" />
+							<CustomBehavior File="WaitTimer" WaitTime="3000" />
+					</If>	
+				</If> 
+				
+				<If Condition="Me.MapId == 571" >
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+					<CustomBehavior File="Message" Text="I am in Northrend. I need to be in Eastern Kingdoms. I am flying to Howling Fjord to use the zeppelin." LogColor="Lime" />
+					<CustomBehavior File="FlyTo" X="1975.742" Y="-6097.156" Z="67.15653" />
+					<CustomBehavior File="ForcedDismount" />
+						<CustomBehavior File="UseTransport"
+									TransportId="181689"
+									WaitAtX="1975.742" WaitAtY="-6097.156" WaitAtZ="67.15653" 
+									TransportStartX="1989.352" TransportStartY="-6082.7763" TransportStartZ="85.59"
+									TransportEndX="2056.4926" TransportEndY="381.6347" TransportEndZ="100.3620"
+									StandOnX="1981.518" StandOnY="-6091.462" StandOnZ="67.73104" 
+									GetOffX="2061.187" GetOffY="365.3284" GetOffZ="82.52013" />
+							<RunTo X="2061.187" Y="365.3284" Z="82.52013" />
+						<CustomBehavior File="WaitTimer" WaitTime="3000" />	
+				</If>
+
+		
+	  		<If Condition="Me.MapId == 0" >
+					<If Condition="Me.X &gt; -7565.834 || Me.X &lt; -7582.962 || Me.Y &gt; -1297.568 || Me.Y &lt; -1328.157" >
+					    <CustomBehavior File="Message" Text="Flying to Iron Summit." LogColor="Lime" />
+						<CustomBehavior File="FlyTo" X="-7055.345" Y="-1169.117" Z="367.7985" />
+						<CustomBehavior File="MyCTM" X="-7082.817" Y="-1200.897" Z="324.3429" />
+					    <CustomBehavior File="ForcedDismount" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" MobId="47942" X="-7085.53" Y="-1202.19" Z="323.9875" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="FlyTo" X="-7055.345" Y="-1169.117" Z="367.7985" />
+						<CustomBehavior File="FlyTo" X="-7026.463" Y="-1167.348" Z="330.1842" />
+						<CustomBehavior File="FlyTo" X="-7266.007" Y="-1079.092" Z="330.1813" />
+						<CustomBehavior File="FlyTo" X="-7357.313" Y="-1105.71" Z="289.1118" />
+						<CustomBehavior File="FlyTo" X="-7387.54" Y="-1095.781" Z="286.0019" />
+						<CustomBehavior File="FlyTo" X="-7410.136" Y="-1104.439" Z="283.8856" />
+						<CustomBehavior File="FlyTo" X="-7422.178" Y="-1058.209" Z="284.652" />
+						<CustomBehavior File="FlyTo" X="-7484.591" Y="-1072.432" Z="265.4184" />
+						<CustomBehavior File="FlyTo" X="-7622.67" Y="-1187.98" Z="279.2121" />
+						<CustomBehavior File="FlyTo" X="-7615.435" Y="-1238.362" Z="233.5286" />
+						<CustomBehavior File="ForcedDismount" />
+							<RunTo X="-7571.14" Y="-1324.96" Z="245.538" /> 
+					</If>
+				</If>
+		
+
+		 
+				<If Condition="Me.ZoneId == 4926" >
+					<CustomBehavior File="Message" Text="You started the bot with me inside the dungeon. I'm leaving the dungeon so I can reset it." LogColor="Lime" />
+						<RunTo X="210.0881" Y="1117.478" Z="206.6087" />
+					<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />					
+					<CustomBehavior File="WaitTimer" WaitTime="15000" GoalText="{TimeRemaining}" />						
+					<CustomBehavior File="Message" Text="I have exited Blackrock Caverns." LogColor="Lime" />
+				</If>
+				
+
+		
+		 <While Condition="true" > 
+
+					<If Condition="Me.X &lt; -7565.834 &amp;&amp; Me.X &gt; -7582.962 &amp;&amp; Me.Y &lt; -1297.568 &amp;&amp; Me.Y &gt; -1328.157" >
+						<CustomBehavior File="Message" Text="I am resetting the dungeon." LogColor="Lime" />					
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" /> 
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
+                        <CustomBehavior File="Message" Text="Blackrock Caverns has been reset." LogColor="Lime" />						
+					<!--	<CustomBehavior File="GoThruPortal" X="-7570.119" Y="-1330.23" Z="245.5394" />	-->
+						<CustomBehavior File="MyCTM" X="-7568.929" Y="-1330.149" Z="245.5389" />
+						<CustomBehavior File="Message" Text="I am waiting for the dungeon to load." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="15000" />
+						<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
+							Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
+                    </If>
+								<!--	Blackrock Caverns Dungeon Script  -->
+
+					<If Condition="Me.ZoneId == 4926" >   
+							<RunTo X="209.7385" Y="1121.928" Z="206.5331" />
+							<RunTo X="210.3211" Y="1111.572" Z="207.9436" />
+							<RunTo X="209.8928" Y="1096.372" Z="208.2025" />
+							<RunTo X="209.3714" Y="1080.926" Z="205.7306" />
+							<RunTo X="209.3671" Y="1065.544" Z="205.7919" />
+							<RunTo X="208.6794" Y="1050.351" Z="204.9683" />
+							<RunTo X="202.5787" Y="1036.31" Z="202.6022" />
+							<RunTo X="197.386" Y="1022.437" Z="200.2038" />
+						<CustomBehavior File="WaitTimer" WaitTime="5000" />	
+							
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
+							<Hotspot X="199.8561" Y="1002.561" Z="195.8362" />
+							<Hotspot X="196.2266" Y="992.9333" Z="194.0982" />
+							<Hotspot X="185.6276" Y="981.6625" Z="191.3386" />
+							<Hotspot X="179.8048" Y="967.7333" Z="190.7222" />
+							<Hotspot X="179.3339" Y="952.4896" Z="190.7501" />
+							<Hotspot X="182.9131" Y="937.5031" Z="191.4065" />
+							<Hotspot X="188.5739" Y="923.3288" Z="191.4197" />
+							<Hotspot X="194.8155" Y="909.1775" Z="190.8173" />
+							<Hotspot X="195.9843" Y="906.3643" Z="190.8019" />
+							<Hotspot X="192.0094" Y="919.3655" Z="191.1985" />
+							<Hotspot X="186.23" Y="931.7672" Z="191.4178" />
+							<Hotspot X="180.5863" Y="941.6605" Z="191.0694" />
+							<Hotspot X="178.6258" Y="956.527" Z="190.7347" />
+							<Hotspot X="179.5955" Y="971.7946" Z="190.7112" />
+							<Hotspot X="191.3942" Y="978.7667" Z="191.1506" />
+							<Hotspot X="206.7292" Y="976.6942" Z="190.962" />
+							<Hotspot X="221.6732" Y="979.7725" Z="190.9801" />
+							<Hotspot X="235.3749" Y="986.911" Z="191.0147" />
+							<Hotspot X="248.9595" Y="993.6834" Z="191.0643" />
+							<Hotspot X="254.6748" Y="989.1599" Z="190.9051" />
+						</CustomBehavior>
+							<RunTo X="254.6748" Y="989.1599" Z="190.9051" />
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
+							<Hotspot X="247.1111" Y="994.381" Z="190.9109" />
+							<Hotspot X="237.6606" Y="989.5172" Z="191.0062" />
+							<Hotspot X="225.5973" Y="980.1571" Z="191.0036" />
+							<Hotspot X="212.1857" Y="972.5045" Z="191.0446" />
+							<Hotspot X="204.8198" Y="959.8273" Z="190.9473" />
+							<Hotspot X="206.731" Y="949.7406" Z="190.9486" />
+							<Hotspot X="209.2345" Y="941.3771" Z="191.038" />		
+						</CustomBehavior>
+						<CustomBehavior File="WaitTimer" WaitTime="25000" />
+							<RunTo X="209.2345" Y="941.3771" Z="191.038" />
+						
+							<RunTo X="204.362" Y="918.1984" Z="190.8572" />
+							<RunTo X="245.8909" Y="910.1664" Z="190.9933" />
+						<CustomBehavior File="WaitTimer" WaitTime="20000" /> 
+						
+							<RunTo X="270.3274" Y="920.4586" Z="190.9426" />
+							<RunTo X="289.2339" Y="947.9077" Z="190.8464" />
+							<RunTo X="438.9374" Y="949.2231" Z="195.9377" />
+							<RunTo X="479.9425" Y="942.3689" Z="184.4184" />
+							<RunTo X="483.3052" Y="925.2673" Z="182.3459" />
+							<RunTo X="498.6935" Y="909.0118" Z="181.6266" />
+							<RunTo X="544.9418" Y="906.5479" Z="169.562" />
+							<RunTo X="544.4475" Y="872.0214" Z="175.2767"  />
+						<CustomBehavior File="WaitTimer" WaitTime="10000" />	<!-- 1st evolved -->
+
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">				
+							<Hotspot X="548.9484" Y="894.4949" Z="169.461" />
+							<Hotspot X="549.306" Y="883.7236" Z="171.0475" />
+							<Hotspot X="548.3585" Y="868.3019" Z="175.5455" />
+							<Hotspot X="547.8716" Y="854.7202" Z="175.5455" />
+							<Hotspot X="558.3754" Y="854.4298" Z="175.5455" />
+							<Hotspot X="569.7168" Y="851.4167" Z="175.5455" />
+							<Hotspot X="579.8912" Y="852.3669" Z="175.5455" />
+						</CustomBehavior>	
+							<RunTo X="579.8912" Y="852.3669" Z="175.5455" />
+							
+							<RunTo X="594.8422" Y="856.1454" Z="175.5455" />
+							<RunTo X="600.4661" Y="864.9443" Z="175.5455" />
+							<RunTo X="599.6548" Y="880.4064" Z="171.9834" />
+							<RunTo X="599.322" Y="895.8876" Z="169.5619" />
+							<RunTo X="598.9889" Y="911.3841" Z="169.5619" />
+							<RunTo X="598.6611" Y="926.6343" Z="167.5097" />
+							<RunTo X="599.9641" Y="942.0784" Z="161.2823" />
+							<RunTo X="599.3113" Y="949.3316" Z="158.3803" />	
+						<CustomBehavior File="WaitTimer" WaitTime="10000" />	
+						
+						
+							<RunTo X="592.3403" Y="957.8831" Z="155.3386" />
+							<RunTo X="587.9935" Y="958.7643" Z="155.3246" />
+						<CustomBehavior File="WaitTimer" WaitTime="3000" />	
+						<CustomBehavior File="RunMacro" Macro="/cleartarget" NumOfTimes="1" WaitTime="0"/>
+							<RunTo X="573.4862" Y="947.7557" Z="155.3387" />
+							
+							<RunTo X="572.9967" Y="986.8652" Z="155.3536" />	<!-- 2nd boss -->
+						
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
+							<Hotspot X="580.7888" Y="911.4374" Z="155.375" />
+							<Hotspot X="573.8965" Y="951.6671" Z="155.335" />
+							<Hotspot X="573.2142" Y="941.585" Z="155.3454" />
+							<Hotspot X="572.3692" Y="926.3701" Z="155.3625" />
+							<Hotspot X="572.2526" Y="916.147" Z="155.3719" />
+							<Hotspot X="577.3098" Y="901.5767" Z="155.3737" />
+							<Hotspot X="569.2124" Y="895.5789" Z="155.374" />
+							<Hotspot X="555.609" Y="899.8464" Z="155.374" />
+							<Hotspot X="563.6275" Y="892.9275" Z="155.374" />
+							<Hotspot X="573.9445" Y="891.0607" Z="155.374" />
+							<Hotspot X="578.1917" Y="876.2393" Z="155.4649" />
+							<Hotspot X="582.7935" Y="861.6141" Z="155.4982" />
+						</CustomBehavior>						
+							<RunTo X="582.7935" Y="861.6141" Z="155.4982" />
+									
+							<RunTo X="527.4926" Y="862.9028" Z="134.1862" />
+							<RunTo X="480.6285" Y="865.5416" Z="125.9629" />
+							<RunTo X="483.7773" Y="838.1469" Z="119.3196" />
+							<RunTo X="479.6304" Y="810.6265" Z="113.8427" />
+							<RunTo X="459.333" Y="814.2651" Z="113.2653" />
+							<RunTo X="413.6755" Y="815.737" Z="103.4985" />
+						<CustomBehavior File="WaitTimer" WaitTime="25000" />	<!-- raz bridge -->
+						
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">						
+							<Hotspot X="391.8902" Y="816.9343" Z="103.213" />
+							<Hotspot X="381.9075" Y="817.7241" Z="104.2302" />
+							<Hotspot X="366.4616" Y="817.8115" Z="105.6636" />
+							<Hotspot X="350.9851" Y="817.7209" Z="104.5999" />
+							<Hotspot X="335.7502" Y="816.8069" Z="102.692" />
+							<Hotspot X="320.2746" Y="816.0844" Z="103.5508" />
+							<Hotspot X="304.9723" Y="816.4686" Z="103.5508" />
+							<Hotspot X="289.4573" Y="816.4846" Z="102.0867" />
+							
+						</CustomBehavior>
+							<RunTo X="289.4573" Y="816.4846" Z="102.0867" />			
+							
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
+							<Hotspot X="265.7058" Y="802.8722" Z="95.3577" />
+							<Hotspot X="265.4511" Y="806.8174" Z="95.365" />
+							<Hotspot X="269.9643" Y="782.051" Z="95.35232" />
+							<Hotspot X="259.8304" Y="761.5193" Z="95.35065" />
+							<Hotspot X="232.3768" Y="752.0417" Z="95.35396" />
+							<Hotspot X="210.3768" Y="767.9302" Z="95.34937" />
+							<Hotspot X="206.2502" Y="793.3376" Z="95.35109" />
+							<Hotspot X="223.8645" Y="815.2313" Z="95.35411" />
+							<Hotspot X="253.3846" Y="813.6948" Z="95.3542" />
+							<Hotspot X="269.7212" Y="791.6653" Z="95.3525" />
+							<Hotspot X="275.0826" Y="839.3882" Z="95.90626" />
+							<Hotspot X="254.9576" Y="835" Z="95.90612" />
+							<Hotspot X="215.6195" Y="834.6447" Z="95.87959" />
+							<Hotspot X="199.6035" Y="819.8431" Z="95.94883" />
+							<Hotspot X="199.0455" Y="795.6295" Z="95.94883" />
+							<Hotspot X="190.1454" Y="789.6726" Z="95.94883" />
+							<Hotspot X="188.968" Y="788.5626" Z="95.95039" />
+							<Hotspot X="189.4911" Y="798.355" Z="95.95039" />
+							<Hotspot X="199.9321" Y="755.728" Z="95.94883" />
+							<Hotspot X="227.8402" Y="746.7127" Z="95.94883" />
+							<Hotspot X="206.1492" Y="742.8594" Z="98.14687" />
+						</CustomBehavior>					
+							<RunTo X="206.1492" Y="742.8594" Z="98.14687" />
+							<RunTo X="219.8912" Y="700.68" Z="105.119" />
+							<RunTo X="214.1207" Y="708.3411" Z="106.2571" />
+							<RunTo X="199.2803" Y="704.8806" Z="106.9434" />
+							<RunTo X="191.9314" Y="697.2652" Z="107.2723" />
+							<RunTo X="200.6745" Y="693.6757" Z="103.2863" />
+							<RunTo X="211.7035" Y="691.8989" Z="101.2822" />
+							<RunTo X="211.9562" Y="677.4935" Z="96.81372" />
+							<RunTo X="212.0185" Y="667.4366" Z="93.67924" />
+							<RunTo X="209.311"  Y="652.6993" Z="88.68478" />
+							<RunTo X="209.8773" Y="673.3712" Z="95.2543" />
+						<CustomBehavior File="WaitTimer" WaitTime="10000" />	<!-- Waiting for Patrol -->
+							
+							<RunTo X="205.4987" Y="637.6912" Z="83.92505" />
+										
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
+							<Hotspot X="205.4987" Y="637.6912" Z="83.92505" />
+							<Hotspot X="204.3725" Y="627.4755" Z="80.86344" />
+							<Hotspot X="207.452"  Y="612.4864" Z="75.89989" />
+							<Hotspot X="212.1872" Y="597.8234" Z="75.47828" />
+							<Hotspot X="222.8615" Y="587.2358" Z="74.96107" />
+							<Hotspot X="235.7567" Y="585.9848" Z="74.92152" />
+						</CustomBehavior>	
+						<RunTo X="235.7567" Y="585.9848" Z="74.92152"  />
+						
+						<RunTo X="205.9522" Y="610.0801" Z="75.37602"  />
+
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
+							<Hotspot X="235.9118" Y="583.2875" Z="74.7317" />
+							<Hotspot X="252.2386" Y="574.6146" Z="72.41893" />
+							<Hotspot X="278.7801" Y="559.0505" Z="69.40541" />
+							<Hotspot X="268.7357" Y="541.786"  Z="70.06152" />
+							<Hotspot X="254.5984" Y="549.3127" Z="72.86932" />
+							<Hotspot X="228.0464" Y="561.1564" Z="74.79462" />
+						</CustomBehavior>						
+							<RunTo X="228.0464" Y="561.1564" Z="74.79462" />
+
+
+
+										 
+					<If Condition="(Me.FreeBagSlots &lt; 10) || (Me.LowestDurabilityPercent &lt; 0.5)" > <!-- Will go vendor/repair if needed -->
+					  <CustomBehavior File="Message" Text="I have detected that my bags are full or my gear is about to break. Going to hearth, repair and mail." LogColor="Lime" />
+					  <CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
+					  <CustomBehavior File="WaitTimer" WaitTime="12000" GoalText="Waiting for hearth*{TimeRemaining}" />
+						<If Condition="Me.ZoneId == 51" >
+							<CustomBehavior File="Message" Text="Succesfully hearthed, moving to the repair vendor." LogColor="Lime" />      
+							<SetVendor>
+								<Vendors>
+									<Vendor Name="Fergus Gravelsmash" Entry="47937" Type="Repair" X="-7093.68" Y="-1268.31" Z="270.4857" />
+								</Vendors>
+							</SetVendor>
+							<SetMailbox>
+								<Mailboxes>
+									<Mailbox X="-7112.374" Y="-1200.006" Z="306.9484" />
+								</Mailboxes>
+							</SetMailbox>
+							<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
+							<CustomBehavior File="FlyTo" X="-7055.345" Y="-1169.117" Z="367.7985" />
+							<CustomBehavior File="FlyTo" X="-7026.463" Y="-1167.348" Z="330.1842" />
+							<CustomBehavior File="FlyTo" X="-7266.007" Y="-1079.092" Z="330.1813" />
+							<CustomBehavior File="FlyTo" X="-7357.313" Y="-1105.71" Z="289.1118" />
+							<CustomBehavior File="FlyTo" X="-7387.54" Y="-1095.781" Z="286.0019" />
+							<CustomBehavior File="FlyTo" X="-7410.136" Y="-1104.439" Z="283.8856" />
+							<CustomBehavior File="FlyTo" X="-7422.178" Y="-1058.209" Z="284.652" />
+							<CustomBehavior File="FlyTo" X="-7484.591" Y="-1072.432" Z="265.4184" />
+							<CustomBehavior File="FlyTo" X="-7622.67" Y="-1187.98" Z="279.2121" />
+							<CustomBehavior File="FlyTo" X="-7615.435" Y="-1238.362" Z="233.5286" />
+							<CustomBehavior File="ForcedDismount" />
+								<RunTo X="-7571.14" Y="-1324.96" Z="245.538" />
+						</If>  
+					</If>  
+				 
+					<If Condition="Me.ZoneId == 4926" >
+						<CustomBehavior File="Message" Text="Moving to the exit portal to reset the dungeon." LogColor="Lime" />
+						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
+							<Hotspot X="205.5905" Y="691.4601" Z="100.9083" />
+							<Hotspot X="204.6995" Y="704.7968" Z="105.4235" />
+							<Hotspot X="205.9498" Y="716.8342" Z="104.7057" />
+							<Hotspot X="203.3335" Y="738.4233" Z="99.15915" />
+							<Hotspot X="200.8005" Y="750.1005" Z="95.95052" />
+							<Hotspot X="195.9898" Y="761.1983" Z="95.95044" />
+							<Hotspot X="191.2454" Y="791.3779" Z="95.95044" />
+							<Hotspot X="205.9132" Y="824.0614" Z="95.95034" />
+							<Hotspot X="220.8633" Y="832.7221" Z="95.89455" />
+							<Hotspot X="228.0623" Y="836.8289" Z="95.9052" />
+							<Hotspot X="282.3746" Y="836.691"  Z="95.9204" />
+							<Hotspot X="285.6898" Y="840.3246" Z="95.92465" />
+							</CustomBehavior>
+								<RunTo X="285.6898" Y="840.3246" Z="95.92465" />
+								<RunTo X="287.7756" Y="843.0558" Z="95.92262"  />
+
+						 	<CustomBehavior File="BasicInteractWith" MobId="51340" />
+
+							<CustomBehavior File="WaitTimer" WaitTime="10000" />
+
+						<RunTo X="210.0881" Y="1117.478" Z="206.6087" />
+							<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />					
+							<CustomBehavior File="WaitTimer" WaitTime="15000" GoalText="{TimeRemaining}" />						
+							<CustomBehavior File="Message" Text="I have exited Blackrock Caverns." LogColor="Lime" />
+
+					</If>
+				</If>
+
+	 	</While> 
+	
+	</QuestOrder>
+
+
+</HBProfile>
+

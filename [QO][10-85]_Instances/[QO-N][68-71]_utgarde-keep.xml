@@ -1,0 +1,420 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO-N][68-71]_utgarde-keep</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>91</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs> 
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+		<Mob Name="Skarvald the Constructor" Entry="27390" />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>
+		<Item name="Book of Glyph Mastery" entry="45912" />
+		<Item name="Frostweave Cloth" entry="33470" />		
+	</ProtectedItems>
+
+	<Factions>9999</Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+	<CustomBehavior File="UserSettings" UseMount="True" MountDistance="100" LootRadius="1" UseFlightPaths="True" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="15" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LogoutForInactivity="True" />
+	
+         		<If Condition="Me.MapId == 530" >
+					<CustomBehavior File="Message" Text="I am in Outlands. I need to be in Northrend. Taking the portal to Orgrimmar." LogColor="Lime" />
+						<CustomBehavior File="FlyTo" X="-207.0576" Y="1061.266" Z="131.8319" />
+						<CustomBehavior File="MyCTM" X="-161.6812" Y="969.8339" Z="54.28342" />
+						<CustomBehavior File="ForcedDismount" />
+						<CustomBehavior File="InteractWith" MobId="195140" ObjectType="Gameobject" Range="4.75" NumOfTimes="1"  WaitTime="1" X="-161.317764" Y="965.409851" Z="54.29044" />
+						<CustomBehavior File="WaitTimer" WaitTime="12000" />
+							<RunTo X="1867.542" Y="-4247.844" Z="37.15219" />
+				</If>			
+							
+				<If Condition="Me.MapId == 1" >
+					<CustomBehavior File="Message" Text="Taking the zeppelin to Tristfall Glades." LogColor="Lime" />
+					<CustomBehavior File="FlyTo" X="1853.676" Y="-4405.566" Z="163.4607" />
+					<CustomBehavior File="MyCTM" X="1839.576" Y="-4386.935" Z="135.2322" />
+					<CustomBehavior File="ForcedDismount" />
+					
+					<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
+						Text="Main Character - Honorbuddy has big issues using this zeppelin. Use this zeppelin to Tristfal Glades. Once you are in Tristfall Glades get off the zeppelin, then press continue." Title="WARNING" />
+				<!--	<CustomBehavior File="UseTransport"
+								TransportId="164871"
+								WaitAtX="1838.7" WaitAtY="-4386.035" WaitAtZ="135.2322" 
+								TransportStartX="1833.509" TransportStartY="-4391.543" TransportStartZ="152.7679"
+								TransportEndX="2062.376" TransportEndY="292.998047" TransportEndZ="114.670547"
+								StandOnX="1835.301" StandOnY="-4390" StandOnZ="135.8167" 
+								GetOffX="2068.327" GetOffY="286.5359" GetOffZ="97.0316" />
+						<RunTo X="2066.644" Y="284.8394" Z="97.03147" />
+					<CustomBehavior File="WaitTimer" WaitTime="3000" />	-->
+				</If>
+				
+				<If Condition="Me.MapId == 0" >
+					<CustomBehavior File="Message" Text="I am in Eastern Kingdoms, taking the zeppelin to Howling Fjord." LogColor="Lime" />
+					<CustomBehavior File="FlyTo" X="2130.206" Y="358.567" Z="139.7405" />
+					<CustomBehavior File="MyCTM" X="2061.187" Y="365.3284" Z="82.52013" />
+					<CustomBehavior File="ForcedDismount" />
+					<CustomBehavior File="UseTransport"
+								TransportId="181689"
+								WaitAtX="2061.187" WaitAtY="365.3284" WaitAtZ="82.52013" 
+								TransportStartX="2056.4926" TransportStartY="381.6347" TransportStartZ="100.3620"
+								TransportEndX="1989.352" TransportEndY="-6082.7763" TransportEndZ="85.59"
+								StandOnX="2060.598" StandOnY="370.0439" StandOnZ="82.48199" 
+								GetOffX="1973.536" GetOffY="-6099.92" GetOffZ="67.15816" />
+						<RunTo X="1973.536" Y="-6099.92" Z="67.15816" />
+					<CustomBehavior File="WaitTimer" WaitTime="3000" />	
+				</If>
+						
+				<If Condition="Me.MapId == 571" >
+					<If Condition="Me.X &gt; 1233 || Me.X &lt; 1219 || Me.Y &gt; -4850 || Me.Y &lt; -4876" >
+						<CustomBehavior File="Message" Text="Flying to Vengeance Landing." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />				
+						<CustomBehavior File="FlyTo" X="1897.919" Y="-6167.353" Z="23.33252" />
+						<CustomBehavior File="ForcedDismount" />
+							<RunTo X="1874.132" Y="-6216.75" Z="13.09511" />
+						<CustomBehavior File="Message" Text="Setting my Heartstone @ the innkeep." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" MobId="24342" X="1873.319" Y="-6218.146" Z="13.1017" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<RunTo X="1897.919" Y="-6167.353" Z="23.33252" />
+						<CustomBehavior File="ForcedMount" MountType="Flying" />
+						<CustomBehavior File="FlyTo" X="925.6739" Y="-4947.2" Z="181.4508" />
+						<CustomBehavior File="MyCTM" X="1099.332" Y="-4903.567" Z="41.24844" />
+							<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />
+					</If>
+				</If>
+						
+                    <If Condition="Me.ZoneId == 206" >
+						<CustomBehavior File="Message" Text="You started the bot with me inside the Utgarde Keep. Running out to reset the dungeon." LogColor="Lime" />
+						<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
+						<CustomBehavior File="GoThruPortal" X="144.7174" Y="-88.65063" Z="12.55168" />
+						<CustomBehavior File="WaitTimer" WaitTime="10000"  />
+						<CustomBehavior File="Message" Text="I'm outside Utgarde Keep's portal." LogColor="Lime" />
+							<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />	
+					</If>					 
+		
+		<While Condition="true" >
+		
+				<If Condition="Me.ZoneId == 495" >	
+					<If Condition="Me.X &lt; 1233 &amp;&amp; Me.X &gt; 1219 &amp;&amp; Me.Y &lt; -4850 &amp;&amp; Me.Y &gt; -4876" >
+						<CustomBehavior File="Message" Text="I am resetting Utgarde Keep." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />				
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances();" />
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />				
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances();" />
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
+						<CustomBehavior File="Message" Text="I have reset Utgarde Keep." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="MyCTM" X="1236.349" Y="-4859.548" Z="41.2481" /> 
+						<CustomBehavior File="Message" Text="Waiting for the dungeon to load.." LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" WaitTime="12000" />
+					</If>
+				</If>					
+				                                       <!-- utgarde keep script -->
+				<If Condition="Me.ZoneId == 206" >
+					<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
+						Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
+					<CustomBehavior File="UserSettings" UseMount="False" MountDistance="100"  UseFlightPaths="True" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="20" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LogoutForInactivity="True" />
+					
+					<CustomBehavior File="Message" Text="Making the first pull. I will bring the mobs back to the entrance." LogColor="Lime" />	
+					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="213.8321" Y="-70.14931" Z="24.67863" />
+						<Hotspot X="211.8005" Y="-63.53887" Z="24.67723" />
+						<Hotspot X="213.8321" Y="-70.14931" Z="24.67863" />
+						<Hotspot X="256.5943" Y="-56.66477" Z="24.67863" />
+						<Hotspot X="262.2035" Y="-76.4168" Z="24.67863" />
+						<Hotspot X="275.4586" Y="-72.68003" Z="24.67863" />
+						<Hotspot X="260.1421" Y="-24.01424" Z="24.67863" />
+						<Hotspot X="245.6189" Y="-29.59543" Z="24.67863" />
+						<Hotspot X="263.3174" Y="-77.30338" Z="24.67863" />
+						<Hotspot X="275.3572" Y="-72.3905" Z="24.67863" />
+						<Hotspot X="260.4525" Y="-32.10674" Z="24.67863" />
+						<Hotspot X="265.3538" Y="-44.06175" Z="24.67863" />
+						<Hotspot X="302.6844" Y="-32.29393" Z="24.67863" />
+						<Hotspot X="347.3361" Y="-43.15633" Z="24.00234" />
+						<Hotspot X="344.8769" Y="-56.28492" Z="22.75585" />
+						<Hotspot X="373.2949" Y="-47.87452" Z="22.75491" />
+						<Hotspot X="394.6169" Y="-24.34318" Z="22.75497" />
+						<Hotspot X="377.9221" Y="14.67487" Z="22.75498" />
+						<Hotspot X="346.9099" Y="11.25798" Z="23.15994" />
+						<Hotspot X="332.4107" Y="4.246859" Z="22.75493" />
+						<Hotspot X="311.4501" Y="-34.06949" Z="23.9972" />
+						<Hotspot X="217.9778" Y="-65.42838" Z="24.67714" />	<!-- first pull -->
+					</CustomBehavior>
+						<RunTo X="379.5761" Y="92.57767" Z="30.74255" />
+					<CustomBehavior File="Message" Text="Waiting 20 seconds for the RAF toons." LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					
+					<CustomBehavior File="Message" Text="Making the second pull. I will bring the mobs back to holding pens." LogColor="Lime" />
+					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="303.4074" Y="-36.52009" Z="24.67714" />
+						<Hotspot X="334.6617" Y="-2.317854" Z="23.71884" />
+						<Hotspot X="375.7434" Y="54.51939" Z="24.67715" />
+						<Hotspot X="378.4034" Y="96.93214" Z="30.74201" />
+						<Hotspot X="372.9707" Y="109.5051" Z="30.76534" />
+						<Hotspot X="332.9503" Y="99.41934" Z="31.77379" />
+						<Hotspot X="394.8943" Y="152.7196" Z="30.77553" />
+						<Hotspot X="347.4019" Y="152.708" Z="30.76187" />
+						<Hotspot X="378.1225" Y="193.4275" Z="30.77703" />
+						<Hotspot X="311.2886" Y="167.6455" Z="31.83943" />
+						<Hotspot X="297.6784" Y="190.9105" Z="30.78524" />
+						<Hotspot X="312.4614" Y="204.3104" Z="30.80993" />
+						<Hotspot X="338.843" Y="211.3674" Z="30.80802" />
+						<Hotspot X="334.1553" Y="228.6019" Z="30.74176" />
+						<Hotspot X="328.1893" Y="256.2272" Z="30.74505" />
+						<Hotspot X="260.2061" Y="230.2994" Z="42.86858" />
+						<Hotspot X="220.4768" Y="202.2016" Z="40.91338" />
+						<Hotspot X="208.232" Y="194.7377" Z="40.81639" />
+						<Hotspot X="186.6176" Y="200.0523" Z="40.815" />
+						<Hotspot X="175.4613" Y="230.5942" Z="40.89105" />
+						<Hotspot X="205.5625" Y="243.2418" Z="40.81621" />
+						<Hotspot X="264.2813" Y="232.4106" Z="42.86852" />
+						<Hotspot X="325.3766" Y="244.4091" Z="30.74981" />
+						<Hotspot X="333.2068" Y="233.605" Z="30.74177" />
+						<Hotspot X="367.3187" Y="201.1672" Z="30.77672" />
+						<Hotspot X="387.1059" Y="142.4938" Z="30.77672" />
+						<Hotspot X="373.6233" Y="108.8145" Z="30.7661" />	<!-- 1st boss -->
+					</CustomBehavior>
+						<RunTo X="164.9713" Y="251.8156" Z="42.8671" />
+					<CustomBehavior File="Message" Text="Waiting 20 seconds for the RAF toons." LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					
+					<CustomBehavior File="Message" Text="Making the third pull. I will bring the mobs back to exit of the first boss." LogColor="Lime" />
+					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="164.3844" Y="251.4998" Z="42.86708" />
+						<Hotspot X="156.263" Y="262.437" Z="42.86708" />
+						<Hotspot X="152.6716" Y="274.3954" Z="42.86845" />
+						<Hotspot X="145.5285" Y="281.9425" Z="42.86843" />
+						<Hotspot X="131.9523" Y="277.9404" Z="42.86843" />
+						<Hotspot X="108.1697" Y="264.7857" Z="42.86931" />
+						<Hotspot X="76.26962" Y="256.5412" Z="42.86827" />
+						<Hotspot X="74.30482" Y="239.4852" Z="46.29891" />
+						<Hotspot X="68.22604" Y="217.4755" Z="49.37963" />
+						<Hotspot X="100.2346" Y="186.9409" Z="49.37059" />
+						<Hotspot X="98.91861" Y="213.2633" Z="49.37987" />
+						<Hotspot X="100.4479" Y="232.3862" Z="45.07539" />
+						<Hotspot X="110.0135" Y="238.3228" Z="42.86596" />
+						<Hotspot X="109.4707" Y="243.0379" Z="42.8662" />
+						<Hotspot X="117.2305" Y="245.3718" Z="42.86681" />
+						<Hotspot X="122.3731" Y="261.315" Z="42.86292" />
+						<Hotspot X="90.35777" Y="239.5368" Z="43.84955" />
+						<Hotspot X="78.29166" Y="183.7141" Z="49.34802" />
+						<Hotspot X="65.19492" Y="184.2551" Z="49.35368" />
+						<Hotspot X="75.72437" Y="188.1602" Z="49.33588" />
+						<Hotspot X="96.65749" Y="122.2983" Z="65.49617" />
+						<Hotspot X="104.8542" Y="97.3483" Z="65.47974" />
+						<Hotspot X="119.3459" Y="76.41425" Z="65.70358" />
+						<Hotspot X="134.9743" Y="61.52494" Z="65.69785" />
+						<Hotspot X="172.8561" Y="75.68172" Z="74.26418" />
+						<Hotspot X="134.0288" Y="60.93989" Z="65.69518" />						
+						<Hotspot X="102.3749" Y="103.3262" Z="65.4437" />
+						<Hotspot X="79.16436" Y="174.5297" Z="49.43301" />
+						<Hotspot X="88.23293" Y="232.197" Z="47.07755" />
+						<Hotspot X="129.6866" Y="275.3195" Z="42.86695" />
+						<Hotspot X="129.9439" Y="252.5754" Z="42.86695" />
+						<Hotspot X="129.4798" Y="262.634" Z="42.86704" />
+					</CustomBehavior>
+						<RunTo X="102.7919" Y="102.4629" Z="65.44128" />
+					<CustomBehavior File="Message" Text="Waiting 20 seconds for the RAF toons." LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					
+						<RunTo X="127.4344" Y="86.18207" Z="65.71516" />
+					<CustomBehavior File="Message" Text="Making the fourth pull. I will bring the mobs back to the top of the stairs." LogColor="Lime" />	
+					<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="129.9581" Y="57.84093" Z="65.69229" />
+						<Hotspot X="115.8798" Y="43.16305" Z="65.69426" />
+						<Hotspot X="101.9041" Y="63.39111" Z="65.70306" />
+						<Hotspot X="85.34956" Y="112.4448" Z="87.29088" />
+						<Hotspot X="112.2305" Y="120.2462" Z="87.3008" />
+						<Hotspot X="130.0821" Y="60.5466" Z="109.0258" />
+						<Hotspot X="113.2275" Y="62.76673" Z="109.0089" />
+						<Hotspot X="100.7703" Y="59.12055" Z="109.0075" />
+						<Hotspot X="95.60764" Y="49.71687" Z="109.0075" />
+						<Hotspot X="71.50854" Y="41.09267" Z="115.0669" />
+						<Hotspot X="24.47115" Y="23.08125" Z="115.0305" />
+						<Hotspot X="29.86797" Y="12.8354" Z="115.0305" />
+						<Hotspot X="24.39579" Y="1.313544" Z="115.0305" />
+						<Hotspot X="29.17651" Y="5.2541" Z="115.0294" />
+						<Hotspot X="43.58093" Y="-30.76119" Z="118.7756" />
+						<Hotspot X="43.14997" Y="-34.47012" Z="118.7756" />
+						<Hotspot X="52.21222" Y="-4.288969" Z="118.7753" />
+						<Hotspot X="41.80385" Y="14.87928" Z="115.0286" />
+						<Hotspot X="43.1389" Y="31.42365" Z="115.0286" />
+						<Hotspot X="94.98144" Y="48.87812" Z="109.0055" />
+						<Hotspot X="112.701" Y="54.42099" Z="109.012" />
+						<Hotspot X="100.3439" Y="58.76351" Z="109.0078" />
+					</CustomBehavior>
+					
+					
+					
+						<RunTo X="51.20044" Y="-24.84236" Z="118.7753" /> <!-- 2nd boss -->
+					<CustomBehavior File="Message" Text="Waiting 20 seconds for the RAF toons." LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					<CustomBehavior File="Message" Text="Making the fifth pull. I will kill the second boss here." LogColor="Lime" />
+
+					<CustomBehavior File="TargetAndMoveToMob" MobId="24201" MoveWithinMaxRangeOfMob="35" WaitForNpcs="false" />
+					<If Condition="(Me.CurrentTarget != null) &amp;&amp; (Me.CurrentTarget.Entry == 24201)">
+						<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+										EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
+										EventX="112.0226" EventY="-40.28646" EventZ="118.8607"
+										MoveOutOfGroundEffectAuraId1="111111"
+										MoveAwayFromMobCastingSpellId1="111111"
+										MoveAwayFromMobWithAuraId1="111111">
+							<Safespots>
+								<Hotspot X="52.01812" Y="-25.90106" Z="118.7753" />
+							</Safespots>
+						</CustomBehavior>
+					</If>
+					<!--
+					<CustomBehavior File="TargetAndMoveToMob" MobId="24201" MoveWithinMaxRangeOfMob="1" WaitForNpcs="false" X="52.01812" Y="-25.90106" Z="118.7753" />
+					-->
+					
+					<!--
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+						EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
+						EventX="112.0226" EventY="-40.28646" EventZ="118.8607"
+						MoveOutOfGroundEffectAuraId1="111111"
+						MoveAwayFromMobCastingSpellId1="111111"
+						MoveAwayFromMobWithAuraId1="111111">
+							<Safespots>
+								<Hotspot X="52.01812" Y="-25.90106" Z="118.7753" />
+							</Safespots>
+					</CustomBehavior>
+					-->
+						<RunTo X="154.7174" Y="-23.78415" Z="135.011" />
+					<CustomBehavior File="Message" Text="Waiting 20 seconds for the RAF toons." LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					
+					<CustomBehavior File="Message" Text="Making the sixth pull. I will pull all the remaining mobs to the bottom of the stairs in front of the cubicles." LogColor="Lime" />
+					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="180.2251" Y="-15.6732" Z="134.9601" />
+						<Hotspot X="216.5424" Y="7.762163" Z="135.2041" />
+						<Hotspot X="242.4117" Y="17.82071" Z="135.1842" />
+						<Hotspot X="226.5831" Y="-11.29091" Z="135.1979" />
+						<Hotspot X="199.9417" Y="-24.08861" Z="149.3412" />
+						<Hotspot X="175.9614" Y="-25.2799" Z="156.857" />
+						<Hotspot X="173.185" Y="-7.440678" Z="156.8184" />
+						<Hotspot X="215.7719" Y="6.616975" Z="178.5074" />
+						<Hotspot X="238.5275" Y="14.08377" Z="178.5074" />
+						<Hotspot X="251.3626" Y="-8.363195" Z="178.5074" />
+						<Hotspot X="239.4951" Y="-16.27777" Z="178.5074" />
+						<Hotspot X="257.389" Y="-68.62282" Z="190.6188" />
+						<Hotspot X="266.6494" Y="-102.3287" Z="190.3846" />
+						<Hotspot X="274.7509" Y="-142.0875" Z="190.2936" />
+						<Hotspot X="224.5584" Y="-167.879" Z="190.3762" />
+						<Hotspot X="198.7394" Y="-157.2959" Z="190.4635" />
+						<Hotspot X="154.537" Y="-176.8395" Z="180.502" />
+						<Hotspot X="154.6942" Y="-175.6617" Z="180.5018" />
+						<Hotspot X="204.8052" Y="-160.9473" Z="190.4649" />
+						<Hotspot X="221.3474" Y="-166.4232" Z="190.3946" />
+						<Hotspot X="224.2148" Y="-172.0928" Z="190.415" />
+						<Hotspot X="230.0391" Y="-161.5408" Z="190.0642" />
+						<Hotspot X="261.4235" Y="-153.2237" Z="190.1335" />
+						<Hotspot X="277.0658" Y="-122.8666" Z="190.4109" />
+						<Hotspot X="256.5445" Y="-67.02887" Z="190.6269" />
+						
+					</CustomBehavior>
+						<RunTo X="258.525" Y="-68.95338" Z="190.6" />
+						<RunTo X="280.1768" Y="-123.3313" Z="190.4255" />
+						<RunTo X="263.9279" Y="-157.7875" Z="190.1811" />
+						<RunTo X="198.493" Y="-157.6447" Z="190.4501" />
+						<RunTo X="161.4477" Y="-185.8495" Z="180.4978" />
+						<RunTo X="217.6483" Y="-286.0809" Z="180.4645" />
+					<CustomBehavior File="Message" Text="Waiting 20 seconds for the RAF toons." LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					
+					<CustomBehavior File="Message" Text="Pulling the last boss." LogColor="Lime" />	
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+						EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="23954"
+						EventX="242.6771" EventY="-333.5949" EventZ="180.4546"
+						MoveOutOfGroundEffectAuraId1="111111"
+						MoveAwayFromMobCastingSpellId1="111111"
+						MoveAwayFromMobWithAuraId1="111111">
+							<Safespots>
+								<Hotspot X="52.01812" Y="-25.90106" Z="118.7753" />
+							</Safespots>
+					</CustomBehavior>
+					<CustomBehavior File="WaitTimer" WaitTime="30000" />
+						
+					<CustomBehavior File="Message" Text="Leaving the instance so I can reset it." LogColor="Lime" />	
+						<Runto X="142.596" Y="-127.7582" Z="169.8036" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+                    <CustomBehavior File="Message" Text="I'm jumping off" LogColor="Lime" />					
+					<CustomBehavior File="MyCTM" X="134.2079" Y="-110.6276" Z="86.49059" />
+					<CustomBehavior File="MyCTM" X="133.6719" Y="-134.6064" Z="88.38535" />
+					<CustomBehavior File="MyCTM" X="134.357" Y="-138.7504" Z="90.10663" />
+					<CustomBehavior File="MyCTM" X="147.9691" Y="-150.0082" Z="94.20315" />
+					<CustomBehavior File="MyCTM" X="163.1097" Y="-166.5825" Z="6.92928" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+                    <CustomBehavior File="MyCTM" X="149.6457" Y="-170.1505" Z="6.410619" />					
+					<CustomBehavior File="MyCTM" X="182.3466" Y="-158.4426" Z="10.8668" />
+					<CustomBehavior File="MyCTM" X="209.9772" Y="-138.8611" Z="8.918727" />
+						<Runto X="195.6414" Y="-119.478" Z="8.71515" />
+					<CustomBehavior File="MyCTM" X="147.53" Y="-88.8372" Z="12.55168" />
+					<CustomBehavior File="WaitTimer" WaitTime="12000" />
+					<CustomBehavior File="Message" Text="I'm outside Utgarde Keep's portal." LogColor="Lime" />
+						<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />
+											
+					<If Condition="(Me.FreeBagSlots &lt; 4) || (Me.LowestDurabilityPercent &lt; 0.3)" >
+						<CustomBehavior File="UserSettings" UseMount="True" MountDistance="100"  UseFlightPaths="True" LootMobs="False" SkinMobs="False" NinjaSkin="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="30" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LogoutForInactivity="True" />
+						<CustomBehavior File="Message" Text="I have detected that my bags are full or my gear is about to break. Going to hearth, repair and mail." LogColor="Lime" />
+						<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
+						<CustomBehavior File="WaitTimer" WaitTime="12000" GoalText="Waiting for hearth*{TimeRemaining}" />
+							<RunTo  X="1423.686" Y="-3232.819" Z="162.4644" />
+						<CustomBehavior File="Message" Text="Succesfully hearthed to Westguard, moving to the repair vendor, mailing and then flying back to Utgarde Keep." LogColor="Lime" />						
+						
+						<SetVendor>
+							<Vendors>
+								<Vendor Name="Alexis Walker" Entry="24347" Type="Repair" X="1951.365" Y="-6189.404" Z="24.16475" />
+							</Vendors>
+						</SetVendor>
+						<SetMailbox>
+							<Mailboxes>
+								<Mailbox X="1889.222" Y="-6170.316" Z="23.78429" />
+							</Mailboxes>
+						</SetMailbox>
+			
+						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
+						
+						<CustomBehavior File="FlyTo" X="1376.707" Y="-3352.291" Z="263.9062" />
+						<CustomBehavior File="MyCTM" X="1194.613" Y="-3924.122" Z="330.6891" />
+						<CustomBehavior File="MyCTM" X="925.6739" Y="-4947.2" Z="181.4508" />
+						<CustomBehavior File="MyCTM" X="1099.332" Y="-4903.567" Z="41.24844" />
+							<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />
+				    </If>
+				</If>								
+		</While>	
+	</QuestOrder>
+
+
+</HBProfile>
+

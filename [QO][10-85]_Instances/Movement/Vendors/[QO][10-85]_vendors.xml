@@ -1,0 +1,72 @@
+﻿<HBProfile creator="Botanist + Wiggles" version="1.0">
+	<Name>[QO][10-85]_vendors</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>True</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>False</TargetElites>
+	
+	<AvoidMobs>		 
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+
+	<ProtectedItems>
+	</ProtectedItems>
+	
+	<ClearVendor />
+	<ClearMailbox />
+	
+	<QuestOrder>
+		
+		<CustomBehavior File="ForceSetVendor" 
+						DoMail="False" 
+						DoRepair="True" 
+						DoSell="False" 
+						DoTrain="False" />
+
+		<!-- ******************************************************* WESTFALL *************************************************************** -->
+		<If Condition="Me.ZoneId == 40">	
+			<!-- If I am in westfall, I successfully hearthed to vendor -->
+			<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+			<SetVendor>
+				<Vendors>
+					<Vendor Name="William MacGregor" Entry="1668" Type="Repair" X="-10653.31" Y="996.5868" Z="32.87417" />
+				</Vendors>
+			</SetVendor>
+			
+			
+			<!-- We are done vendoring, load the movement profile -->
+			<If Condition="Me.DurabilityPercent &gt; 0.8" >
+				<CustomBehavior File="Message" Text="Repairing complete, moving back to the instance." LogColor="Fuchsia" />
+				<CustomBehavior File="LoadProfile" ProfileName="..\[QO-A-M][10-17]_deadmines" />
+			</If>
+			
+		</If>
+
+	</QuestOrder>
+
+</HBProfile>
+
