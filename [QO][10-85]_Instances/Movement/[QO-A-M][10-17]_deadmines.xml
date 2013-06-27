@@ -67,6 +67,7 @@
 									Text="Main Character - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
 									Title="WARNING" />	
 
+					
 					<!-- If we have our Hearthstone, use it -->
 					<If Condition="HasItem(6948)">
 						<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
@@ -93,43 +94,46 @@
 				
 					<CustomBehavior File="Message" Text="Flying to Westfall." LogColor="Lime" />
 					
-					<If Condition="!HasQuest(26322) &amp;&amp; !IsQuestCompleted(26322)" >
-						<!-- Fly to the innkeep in the wooden building -->
-						<CustomBehavior File="FlyTo" X="-10640.08" Y="1157.555" Z="33.34619" />							
-						<CustomBehavior File="ForcedDismount" />
-						
-						<!-- Run inside the inn -->
-						<RunTo X="-10650.05" Y="1165.21" Z="34.5228" />
-						
-						<!-- Set hearthstone -->
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="SetHearthstone" MobId="8931" X="-10653.28" Y="1166.431" Z="34.50462" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						
-						<!-- Run outside the inn -->
-						<RunTo X="-10640.08" Y="1157.555" Z="33.34619" />	
-					</If>
 					
-					<!-- In eastern kingdoms, outside of the instance box and the quest is complete -->
-					<If Condition="!HasQuest(26322) &amp;&amp; IsQuestCompleted(26322)">
-						<!-- Fly to the innkeep in the tower -->
-						<CustomBehavior File="FlyTo" X="-10510.34" Y="1053.079" Z="59.25743" />							
-						<CustomBehavior File="ForcedDismount" />
+					<If Condition="Me.HearthstoneAreaId != 108" >
+						<If Condition="!HasQuest(26322) &amp;&amp; !IsQuestCompleted(26322)" >
+							<!-- Fly to the innkeep in the wooden building -->
+							<CustomBehavior File="FlyTo" X="-10640.08" Y="1157.555" Z="33.34619" />							
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Run inside the inn -->
+							<RunTo X="-10650.05" Y="1165.21" Z="34.5228" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" MobId="8931" X="-10653.28" Y="1166.431" Z="34.50462" />
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							
+							<!-- Run outside the inn -->
+							<RunTo X="-10640.08" Y="1157.555" Z="33.34619" />	
+						</If>
 						
-						<!-- Run inside the inn -->
-						<RunTo X="-10503.31" Y="1031.031" Z="60.52037" />
-						
-						<!-- Set hearthstone -->
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="SetHearthstone" MobId="8931" X="-10501.87" Y="1028.536" Z="60.52414" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						
-						<!-- Run outside the inn -->
-						<RunTo X="-10510.34" Y="1053.079" Z="59.25743" />
+						<!-- In eastern kingdoms, outside of the instance box and the quest is complete -->
+						<If Condition="!HasQuest(26322) &amp;&amp; IsQuestCompleted(26322)">
+							<!-- Fly to the innkeep in the tower -->
+							<CustomBehavior File="FlyTo" X="-10510.34" Y="1053.079" Z="59.25743" />							
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Run inside the inn -->
+							<RunTo X="-10503.31" Y="1031.031" Z="60.52037" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" MobId="8931" X="-10501.87" Y="1028.536" Z="60.52414" />
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							
+							<!-- Run outside the inn -->
+							<RunTo X="-10510.34" Y="1053.079" Z="59.25743" />
+						</If>
 					</If>
 					
 					<!-- Fly to the rendezvous location -->
