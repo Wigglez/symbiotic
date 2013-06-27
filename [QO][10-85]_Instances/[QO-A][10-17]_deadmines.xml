@@ -376,8 +376,8 @@
 						</CustomBehavior>
 						<RunTo X="-26.25278" Y="-799.5648" Z="19.33159" />
 						
-						<RunTo X="-20.2766" Y="-805.9719" Z="19.65616" />
 							
+						<!-- clearing the rear of the ship -->
 						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
 							<Hotspot X="-20.52452" Y="-810.2443" Z="19.63242" />
 							<Hotspot X="-14.88052" Y="-816.5654" Z="19.97551" />
@@ -389,16 +389,10 @@
 							<Hotspot X="-104.4598" Y="-848.5499" Z="16.98378" />
 							<Hotspot X="-122.6975" Y="-834.8643" Z="16.87684" />
 							<Hotspot X="-123.906" Y="-824.0209" Z="16.90465" />
-							<Hotspot X="-123.3827" Y="-833.8629" Z="16.8834" />
-							<Hotspot X="-98.62786" Y="-851.525" Z="17.06517" />
-							<Hotspot X="-56.27564" Y="-857.4503" Z="18.10091" />
-							<Hotspot X="-30.55412" Y="-845.0414" Z="19.16103" />
-							<Hotspot X="-15.37491" Y="-816.926" Z="19.94331" />
-							<Hotspot X="-19.36817" Y="-808.1791" Z="19.70831" />
-							<Hotspot X="-28.00746" Y="-799.6909" Z="19.23467" />
 						</CustomBehavior>	
-						<Runto X="-28.00746" Y="-799.6909" Z="19.23467" />
+						<Runto X="-27.9015" Y="-798.5767" Z="19.23848" />
 							
+						<!-- clearing the top of the ship, skipping the last boss -->	
 						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
 							<Hotspot X="-31.3322" Y="-796.9626" Z="19.06272" />
 							<Hotspot X="-43.86604" Y="-788.2316" Z="18.51168" />
@@ -431,6 +425,7 @@
 						</CustomBehavior>
 						<Runto X="-83.54121" Y="-819.3344" Z="39.50004" />
 							
+						<!-- Moving to the cannon to jump dowm to the deck below -->
 						<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">
 							<Hotspot X="-76.72224" Y="-819.9684" Z="40.03604" />
 							<Hotspot X="-52.98059" Y="-809.5904" Z="42.22857" />
@@ -440,8 +435,10 @@
 						</CustomBehavior>	
 						<RunTo X="-38.3437" Y="-797.7328" Z="39.33328" />
 							
+						<!-- jump to the lower deck -->	
 						<CustomBehavior File="MyCTM" X="-24.16962" Y="-797.9286" Z="19.44403" />
 							
+						<!-- Move to the door entering the cavern -->	
 						<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">	
 							<Hotspot X="-1.975269" Y="-780.8501" Z="9.979088" />
 							<Hotspot X="-2.915008" Y="-755.7633" Z="8.806682" />
@@ -452,13 +449,12 @@
 							<Hotspot X="-102.1683" Y="-655.8776" Z="7.422467" />
 						</CustomBehavior>	
 						<RunTo X="-102.1683" Y="-655.8776" Z="7.422467" />
-							
-						<CustomBehavior File="WaitTimer" WaitTime="3000" />
+													
 						
+						<!-- Move to the door at the top of the foundry -->						
 						<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
 						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-						
+						<!-- opens the foundry door -->
 						<CustomBehavior File="InteractWith" 
 										MobId="17154" 
 										ObjectType="Gameobject" 
