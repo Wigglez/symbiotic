@@ -543,7 +543,7 @@
 						<CustomBehavior File="WaitTimer" WaitTime="40000" />
 						
 						<!-- moving closer to the first pull -->
-						<RunTo X="-146.3766" Y="-401.974" Z="57.14294" />
+						<RunTo X="-118.2137" Y="-398.463" Z="57.40186" />
 						
 						<!-- waiting for the first pull to complete -->
 						<CustomBehavior File="Message" Text="Waiting 20 seconds, 1st pull." LogColor="Cyan" />
@@ -597,16 +597,19 @@
 						<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
 						
 						<!-- Waiting for the booster to clear a path to the big cannon -->
-						<CustomBehavior File="Message" Text="Waiting 115 seconds, bottom door." LogColor="Cyan" />	
-						<CustomBehavior File="WaitTimer" WaitTime="115000" />
+						<CustomBehavior File="Message" Text="Waiting 80 seconds, bottom door." LogColor="Cyan" />	
+						<CustomBehavior File="WaitTimer" WaitTime="80000" />
 						
 						<!-- Running to the big cannon -->
 						<RunTo X="-99.24007" Y="-650.1745" Z="6.978131" />
 						<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
 						
 						<!-- Waiting for the booster to clear the ship -->
-						<CustomBehavior File="Message" Text="Waiting 265 seconds, ship's door." LogColor="Cyan" />
-						<CustomBehavior File="WaitTimer" WaitTime="265000" />
+						<CustomBehavior File="Message" Text="Waiting 210 seconds, ship's door." LogColor="Cyan" />
+						<CustomBehavior File="WaitTimer" WaitTime="210000" />
+						
+						<!-- moving past the big xannon so we don't get stuck -->
+						<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
 						
 						<!-- cycle -->
 					</If>
