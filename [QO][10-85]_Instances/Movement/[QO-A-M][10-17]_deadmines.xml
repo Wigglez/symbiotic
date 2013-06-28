@@ -56,7 +56,7 @@
 							FindVendorsAutomatically="False" />
 							
 			<!-- Are we in the instance box and is our gears durability ok -->		
-			<If Condition="Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1678.776 &amp;&amp; Me.X &lt; -11201.54 &amp;&amp; Me.X &gt; -11213.74" >
+			<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
 				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 					<CustomBehavior File="UserDialog" 
 									AllowBotStop="False" 
@@ -89,7 +89,7 @@
 			</If>
 			
 			<!-- In eastern kingdoms, outside of the instance box and the quest is incomplete -->
-			<If Condition="Me.Y &lt; 1653.415 || Me.Y &gt; 1678.776 || Me.X &gt; -11201.54 || Me.X &lt; -11213.74" >
+			<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
 				<If Condition="Me.MapId == 0" >
 				
 					<CustomBehavior File="Message" Text="Flying to Westfall." LogColor="Lime" />
@@ -159,7 +159,7 @@
 					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
 					
 					<!-- Inside the instance box, load the Deadmines profile -->
-					<If Condition="Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1678.776 &amp;&amp; Me.X &lt; -11201.54 &amp;&amp; Me.X &gt; -11213.74" >
+					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
 						<CustomBehavior File="LoadProfile" ProfileName="..\[QO-A][10-17]_deadmines" />
 					</If>
 				</If>		
@@ -183,7 +183,7 @@
 							
 							
 			<!-- Outside the instance box -->				
-			<If Condition="Me.Y &lt; 1653.415 || Me.Y &gt; 1678.776 || Me.X &gt; -11201.54 || Me.X &lt; -11213.74" >
+			<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
 				<CustomBehavior File="Message" Text="Moving to Westfall." LogColor="Lime" />
 				
 				<!-- Bridge entering Westfall -->
@@ -221,7 +221,7 @@
 				<RunTo X="-11208" Y="1676.41" Z="24.5716" />
 					
 				<!-- Inside the instance box, load the Deadmines profile -->	
-				<If Condition="Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1678.776 &amp;&amp; Me.X &lt; -11201.54 &amp;&amp; Me.X &gt; -11213.74" >
+				<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
 					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-A][10-17]_deadmines" />
 				</If>
 					
