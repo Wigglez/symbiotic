@@ -48,573 +48,576 @@
 		<ClearMailbox />
 		
 		
-			<!-- *******************************************************  Booster ************************************************************** -->
-			<If Condition="Me.Level &gt;= 90">
-				<CustomBehavior File="UserSettings"
-								UseMount="True" 
-								UseFlightPaths="True" 
-								LootMobs="False" 
-								SkinMobs="False" 
-								PullDistance="25" 
-								LootRadius="1" 
-								KillBetweenHotspots="True" 
-								FindVendorsAutomatically="False" />
-			 
-				<!-- Infinite loop -->
-				<While Condition="true" >	
-					<!-- If we are inside Deadmines, run out to reset -->
-					<If Condition="Me.MapId == 36">
-						<CustomBehavior File="Message" Text="Deadmines detected. Running out to reset." LogColor="Cyan" />					
-							
-						<!-- Run to the instance entrance -->
-						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-							
-						<!-- Go through the portal -->
-						<CustomBehavior File="MyCTM" X="-13.03915" Y="-386.0322" Z="62.78151" />
-						<CustomBehavior File="GoThruPortal" X="-14.50672" Y="-389.0634" Z="63.28239" />
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="UserSettings"
+							UseMount="True" 
+							UseFlightPaths="True" 
+							LootMobs="False" 
+							SkinMobs="False" 
+							PullDistance="25" 
+							LootRadius="1" 
+							KillBetweenHotspots="True" 
+							FindVendorsAutomatically="False" 
+							LogoutForInactivity="False" />
+		 
+			<!-- Infinite loop -->
+			<While Condition="true" >	
+				<!-- If we are inside Deadmines, run out to reset -->
+				<If Condition="Me.MapId == 36">
+					<CustomBehavior File="Message" Text="Deadmines detected. Running out to reset." LogColor="Cyan" />					
 						
-						<!-- Make sure we ran to the right spot outside the portal -->
-						<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-					</If>
+					<!-- Run to the instance entrance -->
+					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+						
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-13.03915" Y="-386.0322" Z="62.78151" />
+					<CustomBehavior File="GoThruPortal" X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
-					<!-- If we are outside Deadmines (Westfall) -->
-					<If Condition="Me.MapId == 0" >	
-						<!-- If we are not in the box, load the movement profile -->
-						<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
-							<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />	
+					<!-- Make sure we ran to the right spot outside the portal -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+				</If>
+				
+				<!-- If we are outside Deadmines (Westfall) -->
+				<If Condition="Me.MapId == 0" >	
+					<!-- If we are not in the box, load the movement profile -->
+					<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
+						<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />	
+						<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
+					</If>
+				
+					<!-- If we are in the box -->
+					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
+						<CustomBehavior File="Message" Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." LogColor="Cyan" />	
+						<!-- Check durability, load the movement profile -->
+						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 							<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
 						</If>
 					
-						<!-- If we are in the box -->
-						<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
-							<CustomBehavior File="Message" Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." LogColor="Cyan" />	
-							<!-- Check durability, load the movement profile -->
-							<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-								<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
-							</If>
+						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+						<CustomBehavior File="Message" Text="Resetting instance, 1 of 2." LogColor="Cyan" />
 						
-							<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-							<CustomBehavior File="Message" Text="Resetting instance, 1 of 2." LogColor="Cyan" />
-							
-							<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
-							<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
-							
-							<!-- Allow for an Honorbuddy pulse -->
-							<CustomBehavior File="WaitTimer" WaitTime="200" />
-							
-							<!-- The second reset confirms we are safe to enter the instance -->
-							<CustomBehavior File="Message" Text="Resetting instance, 2 of 2." LogColor="Cyan" />
-							<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
-							<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
-							
-							<CustomBehavior File="Message" Text="Instance reset." LogColor="Cyan" />
-							
-							<!-- Run back in the Deadmines portal -->
-							<CustomBehavior File="MyCTM" X="-11208.34" Y="1680.56" Z="23.87232" />
-							
-							<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
-							
-							<CustomBehavior File="WaitTimer" WaitTime="15000" />
-							
-							<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-						</If>		
-					</If>
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
+						
+						<!-- Allow for an Honorbuddy pulse -->
+						<CustomBehavior File="WaitTimer" WaitTime="200" />
+						
+						<!-- The second reset confirms we are safe to enter the instance -->
+						<CustomBehavior File="Message" Text="Resetting instance, 2 of 2." LogColor="Cyan" />
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
+						
+						<CustomBehavior File="Message" Text="Instance reset." LogColor="Cyan" />
+						
+						<!-- Run back in the Deadmines portal -->
+						<CustomBehavior File="MyCTM" X="-11208.34" Y="1680.56" Z="23.87232" />
+						
+						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
+						
+						<CustomBehavior File="WaitTimer" WaitTime="15000" />
+						
+						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+					</If>		
+				</If>
+				
+				<!-- If we are inside Deadmines and have checked our reset -->
+				<If Condition="Me.MapId == 36">
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryAction="InputEnabled_Continue" 
+									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
+									Title="WARNING" />
 					
-					<!-- If we are inside Deadmines and have checked our reset -->
-					<If Condition="Me.MapId == 36">
-						<CustomBehavior File="UserDialog" 
-										AllowBotStop="False" 
-										SoundCue="Exclamation" 
-										SoundCueInterval="15" 
-										ExpiryAction="InputEnabled_Continue" 
-										Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
-										Title="WARNING" />
-						
-						<!-- clearing all mobs to the first boss -->
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-26.83352" Y="-376.1732" Z="60.02905" />
-							<Hotspot X="-33.06363" Y="-374.3263" Z="58.93636" />
-							<Hotspot X="-46.53148" Y="-378.8216" Z="55.49294" />
-							<Hotspot X="-56.79873" Y="-380.5832" Z="54.0836" />
-							<Hotspot X="-72.11098" Y="-380.4375" Z="54.77505" />
-							<Hotspot X="-86.03907" Y="-374.1007" Z="57.12459" />
-							<Hotspot X="-96.86881" Y="-374.7969" Z="58.25466" />
-							<Hotspot X="-100.9324" Y="-388.5808" Z="58.08402" />
-							<Hotspot X="-90.81838" Y="-398.3108" Z="58.6805" />
-							<Hotspot X="-101.2063" Y="-399.0786" Z="58.70216" />
-							<Hotspot X="-110.5071" Y="-394.0714" Z="57.29652" />
-							<Hotspot X="-124.4945" Y="-393.4195" Z="58.62679" />
-							<Hotspot X="-126.7299" Y="-405.3917" Z="58.32526" />
-							<Hotspot X="-119.4958" Y="-418.9292" Z="57.17984" />
-							<Hotspot X="-109.2423" Y="-429.9661" Z="55.34615" />
-							<Hotspot X="-113.0404" Y="-444.58" Z="55.48384" />
-							<Hotspot X="-117.7164" Y="-434.8428" Z="54.95197" />
-							<Hotspot X="-115.4352" Y="-421.5178" Z="56.35978" />
-							<Hotspot X="-126.0068" Y="-410.2118" Z="57.81732" />
-							<Hotspot X="-137.5326" Y="-409.0974" Z="58.38539" />
-							<Hotspot X="-153.3046" Y="-401.1145" Z="56.78183" />
-							<Hotspot X="-167.3985" Y="-398.4933" Z="57.29219" />
-							<Hotspot X="-177.3625" Y="-410.0078" Z="55.97114" />
-							<Hotspot X="-187.6651" Y="-426.5118" Z="53.9437" />
-							<Hotspot X="-193.9504" Y="-440.176" Z="53.51677" />
-							<Hotspot X="-192.3704" Y="-449.936" Z="54.43877" />
-						</CustomBehavior>
-						<RunTo X="-192.3704" Y="-449.936" Z="54.43877" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="3000" />	
+					<!-- clearing all mobs to the first boss -->
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="-26.83352" Y="-376.1732" Z="60.02905" />
+						<Hotspot X="-33.06363" Y="-374.3263" Z="58.93636" />
+						<Hotspot X="-46.53148" Y="-378.8216" Z="55.49294" />
+						<Hotspot X="-56.79873" Y="-380.5832" Z="54.0836" />
+						<Hotspot X="-72.11098" Y="-380.4375" Z="54.77505" />
+						<Hotspot X="-86.03907" Y="-374.1007" Z="57.12459" />
+						<Hotspot X="-96.86881" Y="-374.7969" Z="58.25466" />
+						<Hotspot X="-100.9324" Y="-388.5808" Z="58.08402" />
+						<Hotspot X="-90.81838" Y="-398.3108" Z="58.6805" />
+						<Hotspot X="-101.2063" Y="-399.0786" Z="58.70216" />
+						<Hotspot X="-110.5071" Y="-394.0714" Z="57.29652" />
+						<Hotspot X="-124.4945" Y="-393.4195" Z="58.62679" />
+						<Hotspot X="-126.7299" Y="-405.3917" Z="58.32526" />
+						<Hotspot X="-119.4958" Y="-418.9292" Z="57.17984" />
+						<Hotspot X="-109.2423" Y="-429.9661" Z="55.34615" />
+						<Hotspot X="-113.0404" Y="-444.58" Z="55.48384" />
+						<Hotspot X="-117.7164" Y="-434.8428" Z="54.95197" />
+						<Hotspot X="-115.4352" Y="-421.5178" Z="56.35978" />
+						<Hotspot X="-126.0068" Y="-410.2118" Z="57.81732" />
+						<Hotspot X="-137.5326" Y="-409.0974" Z="58.38539" />
+						<Hotspot X="-153.3046" Y="-401.1145" Z="56.78183" />
+						<Hotspot X="-167.3985" Y="-398.4933" Z="57.29219" />
+						<Hotspot X="-177.3625" Y="-410.0078" Z="55.97114" />
+						<Hotspot X="-187.6651" Y="-426.5118" Z="53.9437" />
+						<Hotspot X="-193.9504" Y="-440.176" Z="53.51677" />
+						<Hotspot X="-192.3704" Y="-449.936" Z="54.43877" />
+					</CustomBehavior>
+					<RunTo X="-192.3704" Y="-449.936" Z="54.43877" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="3000" />	
 
-						<!-- Clearing the cave bunny + monkey room -->
-						<RunTo X="-189.784" Y="-467.1871" Z="54.14226" />
-						<RunTo X="-188.2088" Y="-477.5831" Z="54.04776" />
-						<RunTo X="-193.7357" Y="-491.501" Z="53.59171" />
-						<RunTo X="-188.2225" Y="-501.9361" Z="52.63238" />
-						<RunTo X="-173.4403" Y="-503.5245" Z="54.3697" />
-						<RunTo X="-158.6151" Y="-506.9561" Z="53.33582" />
-						<RunTo X="-151.9234" Y="-519.7235" Z="52.64346" />
-						<RunTo X="-148.083" Y="-530.6323" Z="50.72704" />
-						<RunTo X="-155.5192" Y="-523.9391" Z="51.84337" />
-						<RunTo X="-157.7648" Y="-509.6339" Z="53.32336" />
-						<RunTo X="-172.3126" Y="-504.9801" Z="54.03728" />
-						<RunTo X="-183.1392" Y="-494.7179" Z="53.77271" />
-						<RunTo X="-185.4037" Y="-479.5077" Z="54.04181" />
-						<RunTo X="-187.618" Y="-489.5293" Z="54.04743" />
-						<RunTo X="-191.561" Y="-503.5848" Z="53.07443" />
-						<RunTo X="-206.5777" Y="-506.1066" Z="51.77118" />
-						<RunTo X="-217.6303" Y="-502.1198" Z="50.72357" />
-						<RunTo X="-218.6082" Y="-497.679" Z="48.9954" />
-						<RunTo X="-221.0848" Y="-488.52" Z="48.67664" />
-						<RunTo X="-220.3154" Y="-487.7871" Z="48.71264" />
-						<RunTo X="-228.4447" Y="-485.8205" Z="48.69048" />
-						<RunTo X="-234.746" Y="-487.5258" Z="48.54272" />
-						<RunTo X="-243.1284" Y="-482.5194" Z="48.82872" />
-						<RunTo X="-257.6659" Y="-482.5565" Z="49.44861" />	
+					<!-- Clearing the cave bunny + monkey room -->
+					<RunTo X="-189.784" Y="-467.1871" Z="54.14226" />
+					<RunTo X="-188.2088" Y="-477.5831" Z="54.04776" />
+					<RunTo X="-193.7357" Y="-491.501" Z="53.59171" />
+					<RunTo X="-188.2225" Y="-501.9361" Z="52.63238" />
+					<RunTo X="-173.4403" Y="-503.5245" Z="54.3697" />
+					<RunTo X="-158.6151" Y="-506.9561" Z="53.33582" />
+					<RunTo X="-151.9234" Y="-519.7235" Z="52.64346" />
+					<RunTo X="-148.083" Y="-530.6323" Z="50.72704" />
+					<RunTo X="-155.5192" Y="-523.9391" Z="51.84337" />
+					<RunTo X="-157.7648" Y="-509.6339" Z="53.32336" />
+					<RunTo X="-172.3126" Y="-504.9801" Z="54.03728" />
+					<RunTo X="-183.1392" Y="-494.7179" Z="53.77271" />
+					<RunTo X="-185.4037" Y="-479.5077" Z="54.04181" />
+					<RunTo X="-187.618" Y="-489.5293" Z="54.04743" />
+					<RunTo X="-191.561" Y="-503.5848" Z="53.07443" />
+					<RunTo X="-206.5777" Y="-506.1066" Z="51.77118" />
+					<RunTo X="-217.6303" Y="-502.1198" Z="50.72357" />
+					<RunTo X="-218.6082" Y="-497.679" Z="48.9954" />
+					<RunTo X="-221.0848" Y="-488.52" Z="48.67664" />
+					<RunTo X="-220.3154" Y="-487.7871" Z="48.71264" />
+					<RunTo X="-228.4447" Y="-485.8205" Z="48.69048" />
+					<RunTo X="-234.746" Y="-487.5258" Z="48.54272" />
+					<RunTo X="-243.1284" Y="-482.5194" Z="48.82872" />
+					<RunTo X="-257.6659" Y="-482.5565" Z="49.44861" />	
 
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							
-						<!-- opening heavy door 17153 into Helix's room -->
-						<CustomBehavior File="InteractWith"
-										MobId="17153" 
-										ObjectType="Gameobject" 
-										Range="4.75" 
-										NumOfTimes="1"  
-										WaitTime="1" 
-										X="-262.713745" Y="-482.361084" Z="49.43531" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
 						
-						<!-- ENTER HELIX'S ROOM -->
-						<RunTo X="-267.4973" Y="-481.8291" Z="49.25309" />
-											
-						<!-- clearing mobs in the room -->
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-276.0996" Y="-483.5373" Z="48.68264" />
-							<Hotspot X="-290.0585" Y="-490.4711" Z="49.87199" />
-							<Hotspot X="-301.8099" Y="-516.5173" Z="51.66095" />
-							<Hotspot X="-298.8353" Y="-511.4071" Z="50.1995" />
-							<Hotspot X="-300.0636" Y="-505.8767" Z="49.38919" />
-							<Hotspot X="-290.0915" Y="-490.7462" Z="49.88458" />
-							<Hotspot X="-278.4925" Y="-497.9591" Z="49.55719" />
-							<Hotspot X="-282.1774" Y="-512.9896" Z="49.23433" />
-							<Hotspot X="-274.7015" Y="-518.2503" Z="49.73911" />
-						</CustomBehavior>
-						
-						<!-- Engage and kill Helix Gearbreaker -->
-						<CustomBehavior File="RunMacro" Macro="/tar Helix Gearbreaker" />
-						<CustomBehavior File="RunMacro" Macro="/startattack Helix Gearbreaker" />				
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-						<CustomBehavior File="RunMacro" Macro="/tar Helix Gearbreaker" />
-						<CustomBehavior File="RunMacro" Macro="/startattack Helix Gearbreaker" />				
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-
-						<!-- run to the room entrance -->
-						<RunTo X="-268.1307" Y="-482.5477" Z="49.19214" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-						
-						<!-- opening heavy door 17153 into Helix's room  FOR THE RAF TOONS-->
-						<CustomBehavior File="InteractWith" 
-										MobId="17153" 
-										ObjectType="Gameobject" 
-										Range="4.75" 
-										NumOfTimes="1"  
-										WaitTime="1" 
-										X="-262.713745" Y="-482.361084" Z="49.43531" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						
-						<!-- moving to the exit door -->
-						<RunTo X="-289.9005" Y="-544.0559" Z="49.44535" />
-						
-						<!-- clearing the keg room -->
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-289.9005" Y="-544.0559" Z="49.44535" />
-							<Hotspot X="-285.073" Y="-553.1115" Z="49.44674" />
-							<Hotspot X="-288.9636" Y="-562.9924" Z="49.0107" />
-							<Hotspot X="-294.5558" Y="-571.5174" Z="48.6021" />
-							<Hotspot X="-305.6169" Y="-581.5509" Z="48.43512" />
-							<Hotspot X="-299.6419" Y="-590.2422" Z="48.13741" />
-							<Hotspot X="-303.9183" Y="-601.4552" Z="47.77555" />
-							<Hotspot X="-295.6866" Y="-607.1664" Z="47.58765" />
-							<Hotspot X="-288.9436" Y="-599.3224" Z="47.89572" />
-							<Hotspot X="-279.8745" Y="-595.4619" Z="50.78487" />
-							<Hotspot X="-272.4757" Y="-586.8866" Z="50.54903" />
-							<Hotspot X="-269.3878" Y="-577.0342" Z="50.19818" />
-							<Hotspot X="-259.7761" Y="-573.2104" Z="50.74782" />
-							<Hotspot X="-248.6693" Y="-578.6204" Z="51.14859" />
-							<Hotspot X="-246.5466" Y="-578.6382" Z="51.14859" />
-						</CustomBehavior>
-						<RunTo X="-246.5466" Y="-578.6382" Z="51.14859" />
-							
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-						
-						<!-- opening heavy door 17154 into the foundry -->
-						<CustomBehavior File="InteractWith" 
-										MobId="17154" 
-										ObjectType="Gameobject" 
-										Range="4.75" 
-										NumOfTimes="1"  
-										WaitTime="1" 
-										X="-242.96521" Y="-578.561035" Z="51.1366043" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-						
-						<!-- Clearing the foundry -->
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-235.0225" Y="-578.5293" Z="51.22744" />
-							<Hotspot X="-227.8732" Y="-570.9562" Z="51.23149" />
-							<Hotspot X="-219.0329" Y="-558.5974" Z="51.22995" />
-							<Hotspot X="-204.5879" Y="-553.8146" Z="51.22995" />
-							<Hotspot X="-190.67" Y="-559.8043" Z="51.22995" />
-							<Hotspot X="-182.13" Y="-572.0795" Z="49.00368" />
-							<Hotspot X="-181.6212" Y="-587.1185" Z="42.58506" />
-							<Hotspot X="-189.6651" Y="-599.5464" Z="36.53077" />
-							<Hotspot X="-203.5571" Y="-606.2019" Z="30.29339" />
-							<Hotspot X="-218.2982" Y="-602.616" Z="24.01671" />
-							<Hotspot X="-230.3324" Y="-593.3027" Z="19.41858" />
-							<Hotspot X="-235.5155" Y="-579.7137" Z="19.30652" />
-							<Hotspot X="-231.6915" Y="-565.1757" Z="19.30652" />
-							<Hotspot X="-220.0965" Y="-554.9551" Z="19.30652" />
-							<Hotspot X="-205.3483" Y="-552.0089" Z="19.30652" />
-							<Hotspot X="-190.5453" Y="-556.0366" Z="19.30652" />
-							<Hotspot X="-179.9666" Y="-566.8791" Z="19.30831" />
-							<Hotspot X="-186.0055" Y="-579.1028" Z="20.977" />
-							<Hotspot X="-198.1653" Y="-588.0043" Z="20.977" />
-							<Hotspot X="-205.8684" Y="-595.4613" Z="20.9768" />
-							<Hotspot X="-213.2614" Y="-586.4579" Z="20.9768" />
-							<Hotspot X="-224.035" Y="-592.2531" Z="20.09909" />
-							<Hotspot X="-234.8427" Y="-583.6089" Z="19.30651" />
-							<Hotspot X="-231.1023" Y="-568.8948" Z="19.30651" />
-							<Hotspot X="-218.7984" Y="-561.6298" Z="19.66751" />
-							<Hotspot X="-210.18" Y="-568.1779" Z="20.97696" />
-						</CustomBehavior>
-						<RunTo X="-210.2982" Y="-568.5117" Z="20.97688" />
-						
-						<CustomBehavior File="Message" Text="We are waiting to get the boss to aggro. Blame Botanist if this fucks up." LogColor="Cyan" />
-						<CustomBehavior File="WaitTimer" WaitTime="45000" />
-						
-						<!-- clearing the path to the big cannon -->
-							<RunTo X="-171.5674" Y="-580.0723" Z="19.31439" />
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-177.7443" Y="-579.2161" Z="19.31002" />
-							<Hotspot X="-167.5223" Y="-580.3922" Z="19.31481" />
-							<Hotspot X="-157.7141" Y="-583.1476" Z="19.31046" />
-							<Hotspot X="-144.8596" Y="-583.3582" Z="18.80226" />
-							<Hotspot X="-138.2241" Y="-574.5064" Z="18.80553" />
-							<Hotspot X="-133.8951" Y="-589.1031" Z="18.64474" />
-							<Hotspot X="-133.9016" Y="-603.1843" Z="15.49269" />
-							<Hotspot X="-132.0683" Y="-614.4753" Z="13.17442" />
-							<Hotspot X="-121.8342" Y="-616.2962" Z="13.76309" />
-							<Hotspot X="-106.6984" Y="-615.298" Z="14.05768" />
-							<Hotspot X="-117.0698" Y="-617.7417" Z="13.93783" />
-							<Hotspot X="-127.3421" Y="-626.049" Z="13.25266" />
-							<Hotspot X="-135.2281" Y="-633.7773" Z="14.47421" />
-							<Hotspot X="-122.8011" Y="-636.2034" Z="12.72044" />
-							<Hotspot X="-111.3222" Y="-643.7597" Z="9.197114" />
-							<Hotspot X="-106.422" Y="-654.6807" Z="7.423776" />
-						</CustomBehavior>
-						<RunTo X="-106.422" Y="-654.6807" Z="7.423776" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-						
-						<!-- interacting with the big cannon -->
-						<CustomBehavior File="InteractWith" 
-										MobId="16398" 
-										ObjectType="Gameobject" 
-										Range="4.75" 
-										NumOfTimes="1"  
-										WaitTime="1" 
-										X="-107.561668" Y="-659.6737" Z="7.21211052" />
+					<!-- opening heavy door 17153 into Helix's room -->
+					<CustomBehavior File="InteractWith"
+									MobId="17153" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									WaitTime="1" 
+									X="-262.713745" Y="-482.361084" Z="49.43531" />
+					
+					<!-- ENTER HELIX'S ROOM -->
+					<RunTo X="-267.4973" Y="-481.8291" Z="49.25309" />
 										
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						
-						<!-- moving to the door and waiting for the entrance guards -->
-						<RunTo X="-101.284" Y="-653.9721" Z="7.422448" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="5000" />	
-						
-						<!-- clearing the path to the gangplank -->
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">			
-							<Hotspot X="-99.02342" Y="-658.9495" Z="7.422226" />
-							<Hotspot X="-98.81014" Y="-674.3585" Z="7.421044" />
-							<Hotspot X="-93.74633" Y="-688.7126" Z="8.027484" />
-							<Hotspot X="-92.97439" Y="-703.9512" Z="8.933599" />
-							<Hotspot X="-102.6214" Y="-715.5364" Z="8.793398" />
-							<Hotspot X="-93.18476" Y="-724.1393" Z="8.527748" />
-							<Hotspot X="-77.89355" Y="-726.2267" Z="8.91581" />
-							<Hotspot X="-62.72651" Y="-728.1534" Z="8.508743" />
-							<Hotspot X="-49.83744" Y="-721.025" Z="8.71579" />
-							<Hotspot X="-42.4246" Y="-731.2755" Z="9.028157" />
-							<Hotspot X="-31.938" Y="-732.0733" Z="8.488211" />
-							<Hotspot X="-20.56069" Y="-741.4548" Z="9.102344" />
-							<Hotspot X="-9.291871" Y="-751.7664" Z="9.094791" />
-							<Hotspot X="-4.921676" Y="-765.5611" Z="9.07488" />
-							<Hotspot X="-2.652072" Y="-780.1899" Z="9.951032" />
-							<Hotspot X="-14.20859" Y="-789.8606" Z="15.33831" />
-							<Hotspot X="-26.25278" Y="-799.5648" Z="19.33159" />
-						</CustomBehavior>
-						<RunTo X="-26.25278" Y="-799.5648" Z="19.33159" />
-						
-							
-						<!-- clearing the rear of the ship -->
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-20.52452" Y="-810.2443" Z="19.63242" />
-							<Hotspot X="-14.88052" Y="-816.5654" Z="19.97551" />
-							<Hotspot X="-22.25083" Y="-834.1003" Z="19.56441" />
-							<Hotspot X="-30.29148" Y="-843.8741" Z="19.16625" />
-							<Hotspot X="-39.65561" Y="-851.2426" Z="18.74237" />
-							<Hotspot X="-51.64512" Y="-856.0854" Z="18.26875" />
-							<Hotspot X="-81.83317" Y="-856.7485" Z="17.37288" />
-							<Hotspot X="-104.4598" Y="-848.5499" Z="16.98378" />
-							<Hotspot X="-122.6975" Y="-834.8643" Z="16.87684" />
-							<Hotspot X="-123.906" Y="-824.0209" Z="16.90465" />
-						</CustomBehavior>	
-						<Runto X="-27.9015" Y="-798.5767" Z="19.23848" />
-							
-						<!-- clearing the top of the ship, skipping the last boss -->	
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-							<Hotspot X="-31.3322" Y="-796.9626" Z="19.06272" />
-							<Hotspot X="-43.86604" Y="-788.2316" Z="18.51168" />
-							<Hotspot X="-58.15515" Y="-782.6337" Z="17.9861" />
-							<Hotspot X="-73.10715" Y="-781.572" Z="17.54654" />
-							<Hotspot X="-87.7492" Y="-786.3683" Z="17.23514" />
-							<Hotspot X="-101.6221" Y="-790.7941" Z="17.02438" />
-							<Hotspot X="-114.8794" Y="-798.7469" Z="16.9225" />
-							<Hotspot X="-124.5336" Y="-809.6588" Z="16.87215" />
-							<Hotspot X="-122.9477" Y="-799.45" Z="16.78906" />
-							<Hotspot X="-115.4625" Y="-787.9359" Z="17.27979" />
-							<Hotspot X="-101.5201" Y="-781.2766" Z="22.11819" />
-							<Hotspot X="-87.29786" Y="-778.5327" Z="26.74419" />
-							<Hotspot X="-75.24685" Y="-785.9716" Z="26.14742" />
-							<Hotspot X="-85.54771" Y="-787.5909" Z="26.17927" />
-							<Hotspot X="-100.2489" Y="-790.4482" Z="28.03909" />
-							<Hotspot X="-99.04527" Y="-804.2945" Z="30.69968" />
-							<Hotspot X="-84.93843" Y="-798.5908" Z="37.32835" />
-							<Hotspot X="-71.7127" Y="-790.9733" Z="39.27783" />
-							<Hotspot X="-56.27118" Y="-791.6086" Z="38.85359" />
-							<Hotspot X="-42.51555" Y="-796.2142" Z="39.34597" />
-							<Hotspot X="-41.87161" Y="-798.449" Z="39.31561" />
-							<Hotspot X="-66.47214" Y="-793.5493" Z="39.50296" />
-							<Hotspot X="-90.60645" Y="-799.8885" Z="35.01756" />
-							<Hotspot X="-98.99164" Y="-804.0187" Z="30.71152" />
-							<Hotspot X="-104.687" Y="-793.3242" Z="28.14153" />
-							<Hotspot X="-82.1254" Y="-782.1797" Z="26.52121" />
-							<Hotspot X="-88.73714" Y="-777.5153" Z="26.28935" />
-							<Hotspot X="-102.3766" Y="-780.2588" Z="22.19656" />
-							<Hotspot X="-121.5953" Y="-793.8953" Z="16.9083" />
-							<Hotspot X="-115.6697" Y="-800.1013" Z="16.93368" />
-							<Hotspot X="-94.76049" Y="-787.6947" Z="17.11716" />
-							<Hotspot X="-70.60361" Y="-782.7341" Z="17.61426" />
-							<Hotspot X="-51.02776" Y="-785.3269" Z="18.23941" />
-							<Hotspot X="-65.21016" Y="-782.4417" Z="17.76253" />
-						</CustomBehavior>
-						<Runto X="-65.21016" Y="-782.4417" Z="17.76253" />
-							
-						<!-- Move to the door entering the cavern -->
-						<Runto X="-1.975269" Y="-780.8501" Z="9.979088" />	
-						<RunTo X="-102.1683" Y="-655.8776" Z="7.422467" />
-													
-						<!-- Move to the door at the top of the foundry -->						
-						<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
-						
-						<!-- opens the foundry door -->
-						<CustomBehavior File="InteractWith" 
-										MobId="17154" 
-										ObjectType="Gameobject" 
-										Range="4.75" 
-										NumOfTimes="1"  
-										WaitTime="1" 
-										X="-244.5276" Y="-578.5715" Z="51.14911" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					</If>
-				</While>	
-			</If>
-			
-			<!-- *******************************************************  RAF Toons ************************************************************** -->
-			<If Condition="Me.Level &lt;= 85">
-				<CustomBehavior File="UserSettings" 
-								UseMount="True" 
-								UseFlightPaths="True" 
-								LootMobs="False" 
-								SkinMobs="False" 
-								PullDistance="1" 
-								LootRadius="1"
-								KillBetweenHotspots="False" 
-								FindVendorsAutomatically="False" />
-								
-				<!-- Infinite loop -->
-				<While Condition="true" >	
-					<!-- If we are inside Deadmines, run out to reset -->
-					<If Condition="Me.MapId == 36">
-						<CustomBehavior File="Message" Text="Deadmines detected. Running out to reset." LogColor="Cyan" />					
-							
-						<!-- Run to the instance entrance -->
-						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-							
-						<!-- Go through the portal -->
-						<CustomBehavior File="MyCTM" X="-13.03915" Y="-386.0322" Z="62.78151" />
-						<CustomBehavior File="GoThruPortal" X="-14.50672" Y="-389.0634" Z="63.28239" />
-						
-						<!-- Make sure we ran to the right spot outside the portal -->
-						<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-					</If>
+					<!-- clearing mobs in the room -->
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="-276.0996" Y="-483.5373" Z="48.68264" />
+						<Hotspot X="-290.0585" Y="-490.4711" Z="49.87199" />
+						<Hotspot X="-301.8099" Y="-516.5173" Z="51.66095" />
+						<Hotspot X="-298.8353" Y="-511.4071" Z="50.1995" />
+						<Hotspot X="-300.0636" Y="-505.8767" Z="49.38919" />
+						<Hotspot X="-290.0915" Y="-490.7462" Z="49.88458" />
+						<Hotspot X="-278.4925" Y="-497.9591" Z="49.55719" />
+						<Hotspot X="-282.1774" Y="-512.9896" Z="49.23433" />
+						<Hotspot X="-274.7015" Y="-518.2503" Z="49.73911" />
+					</CustomBehavior>
 					
-					<!-- If we are outside of Deadmines (Westfall) -->
-					<If Condition="Me.MapId == 0">		
-						<!-- If we aren't in the box, load movement profile -->
-						<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1653.415 || Me.Y &gt; 1690 " >
-							<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />
-							<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
-						</If>
+					<!-- Engage and kill Helix Gearbreaker -->
+					<CustomBehavior File="RunMacro" Macro="/tar Helix Gearbreaker" />
+					<CustomBehavior File="RunMacro" Macro="/startattack Helix Gearbreaker" />				
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					<CustomBehavior File="RunMacro" Macro="/tar Helix Gearbreaker" />
+					<CustomBehavior File="RunMacro" Macro="/startattack Helix Gearbreaker" />				
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+
+					<!-- run to the room entrance -->
+					<RunTo X="-268.1307" Y="-482.5477" Z="49.19214" />
 					
-						<!-- If we are in the box -->
-						<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1690" >
-							<CustomBehavior File="Message" Text="Portal detected nearby. Checking our level and proceeding to enter the instance." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					
+					<!-- opening heavy door 17153 into Helix's room  FOR THE RAF TOONS-->
+					<CustomBehavior File="InteractWith" 
+									MobId="17153" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									WaitTime="1" 
+									X="-262.713745" Y="-482.361084" Z="49.43531" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+					
+					<!-- moving to the exit door -->
+					<RunTo X="-289.9005" Y="-544.0559" Z="49.44535" />
+					
+					<!-- clearing the keg room -->
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="-289.9005" Y="-544.0559" Z="49.44535" />
+						<Hotspot X="-285.073" Y="-553.1115" Z="49.44674" />
+						<Hotspot X="-288.9636" Y="-562.9924" Z="49.0107" />
+						<Hotspot X="-294.5558" Y="-571.5174" Z="48.6021" />
+						<Hotspot X="-305.6169" Y="-581.5509" Z="48.43512" />
+						<Hotspot X="-299.6419" Y="-590.2422" Z="48.13741" />
+						<Hotspot X="-303.9183" Y="-601.4552" Z="47.77555" />
+						<Hotspot X="-295.6866" Y="-607.1664" Z="47.58765" />
+						<Hotspot X="-288.9436" Y="-599.3224" Z="47.89572" />
+						<Hotspot X="-279.8745" Y="-595.4619" Z="50.78487" />
+						<Hotspot X="-272.4757" Y="-586.8866" Z="50.54903" />
+						<Hotspot X="-269.3878" Y="-577.0342" Z="50.19818" />
+						<Hotspot X="-259.7761" Y="-573.2104" Z="50.74782" />
+						<Hotspot X="-248.6693" Y="-578.6204" Z="51.14859" />
+						<Hotspot X="-246.5466" Y="-578.6382" Z="51.14859" />
+					</CustomBehavior>
+					<RunTo X="-246.5466" Y="-578.6382" Z="51.14859" />
 						
-							<!-- If we are between levels 17-25 -->
-							<If Condition="Me.Level &gt;= 17 &amp;&amp; Me.Level &lt;= 25" >
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					
+					<!-- opening heavy door 17154 into the foundry -->
+					<CustomBehavior File="InteractWith" 
+									MobId="17154" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									WaitTime="1" 
+									X="-242.96521" Y="-578.561035" Z="51.1366043" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					
+					<!-- Clearing the foundry -->
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="-235.0225" Y="-578.5293" Z="51.22744" />
+						<Hotspot X="-227.8732" Y="-570.9562" Z="51.23149" />
+						<Hotspot X="-219.0329" Y="-558.5974" Z="51.22995" />
+						<Hotspot X="-204.5879" Y="-553.8146" Z="51.22995" />
+						<Hotspot X="-190.67" Y="-559.8043" Z="51.22995" />
+						<Hotspot X="-182.13" Y="-572.0795" Z="49.00368" />
+						<Hotspot X="-181.6212" Y="-587.1185" Z="42.58506" />
+						<Hotspot X="-189.6651" Y="-599.5464" Z="36.53077" />
+						<Hotspot X="-203.5571" Y="-606.2019" Z="30.29339" />
+						<Hotspot X="-218.2982" Y="-602.616" Z="24.01671" />
+						<Hotspot X="-230.3324" Y="-593.3027" Z="19.41858" />
+						<Hotspot X="-235.5155" Y="-579.7137" Z="19.30652" />
+						<Hotspot X="-231.6915" Y="-565.1757" Z="19.30652" />
+						<Hotspot X="-220.0965" Y="-554.9551" Z="19.30652" />
+						<Hotspot X="-205.3483" Y="-552.0089" Z="19.30652" />
+						<Hotspot X="-190.5453" Y="-556.0366" Z="19.30652" />
+						<Hotspot X="-179.9666" Y="-566.8791" Z="19.30831" />
+						<Hotspot X="-186.0055" Y="-579.1028" Z="20.977" />
+						<Hotspot X="-198.1653" Y="-588.0043" Z="20.977" />
+						<Hotspot X="-205.8684" Y="-595.4613" Z="20.9768" />
+						<Hotspot X="-213.2614" Y="-586.4579" Z="20.9768" />
+						<Hotspot X="-224.035" Y="-592.2531" Z="20.09909" />
+						<Hotspot X="-234.8427" Y="-583.6089" Z="19.30651" />
+						<Hotspot X="-231.1023" Y="-568.8948" Z="19.30651" />
+						<Hotspot X="-218.7984" Y="-561.6298" Z="19.66751" />
+						<Hotspot X="-210.18" Y="-568.1779" Z="20.97696" />
+					</CustomBehavior>
+					<RunTo X="-210.2982" Y="-568.5117" Z="20.97688" />
+					
+					<CustomBehavior File="Message" Text="We are waiting to get the boss to aggro. Blame Botanist if this fucks up." LogColor="Cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="45000" />
+					
+					<!-- clearing the path to the big cannon -->
+						<RunTo X="-171.5674" Y="-580.0723" Z="19.31439" />
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="-177.7443" Y="-579.2161" Z="19.31002" />
+						<Hotspot X="-167.5223" Y="-580.3922" Z="19.31481" />
+						<Hotspot X="-157.7141" Y="-583.1476" Z="19.31046" />
+						<Hotspot X="-144.8596" Y="-583.3582" Z="18.80226" />
+						<Hotspot X="-138.2241" Y="-574.5064" Z="18.80553" />
+						<Hotspot X="-133.8951" Y="-589.1031" Z="18.64474" />
+						<Hotspot X="-133.9016" Y="-603.1843" Z="15.49269" />
+						<Hotspot X="-132.0683" Y="-614.4753" Z="13.17442" />
+						<Hotspot X="-121.8342" Y="-616.2962" Z="13.76309" />
+						<Hotspot X="-106.6984" Y="-615.298" Z="14.05768" />
+						<Hotspot X="-117.0698" Y="-617.7417" Z="13.93783" />
+						<Hotspot X="-127.3421" Y="-626.049" Z="13.25266" />
+						<Hotspot X="-135.2281" Y="-633.7773" Z="14.47421" />
+						<Hotspot X="-122.8011" Y="-636.2034" Z="12.72044" />
+						<Hotspot X="-111.3222" Y="-643.7597" Z="9.197114" />
+						<Hotspot X="-106.422" Y="-654.6807" Z="7.423776" />
+					</CustomBehavior>
+					<RunTo X="-106.422" Y="-654.6807" Z="7.423776" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />	
+					
+					<!-- interacting with the big cannon -->
+					<CustomBehavior File="InteractWith" 
+									MobId="16398" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									WaitTime="1" 
+									X="-107.561668" Y="-659.6737" Z="7.21211052" />
+									
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+					
+					<!-- moving to the door and waiting for the entrance guards -->
+					<RunTo X="-101.284" Y="-653.9721" Z="7.422448" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="5000" />	
+					
+					<!-- clearing the path to the gangplank -->
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">			
+						<Hotspot X="-99.02342" Y="-658.9495" Z="7.422226" />
+						<Hotspot X="-98.81014" Y="-674.3585" Z="7.421044" />
+						<Hotspot X="-93.74633" Y="-688.7126" Z="8.027484" />
+						<Hotspot X="-92.97439" Y="-703.9512" Z="8.933599" />
+						<Hotspot X="-102.6214" Y="-715.5364" Z="8.793398" />
+						<Hotspot X="-93.18476" Y="-724.1393" Z="8.527748" />
+						<Hotspot X="-77.89355" Y="-726.2267" Z="8.91581" />
+						<Hotspot X="-62.72651" Y="-728.1534" Z="8.508743" />
+						<Hotspot X="-49.83744" Y="-721.025" Z="8.71579" />
+						<Hotspot X="-42.4246" Y="-731.2755" Z="9.028157" />
+						<Hotspot X="-31.938" Y="-732.0733" Z="8.488211" />
+						<Hotspot X="-20.56069" Y="-741.4548" Z="9.102344" />
+						<Hotspot X="-9.291871" Y="-751.7664" Z="9.094791" />
+						<Hotspot X="-4.921676" Y="-765.5611" Z="9.07488" />
+						<Hotspot X="-2.652072" Y="-780.1899" Z="9.951032" />
+						<Hotspot X="-14.20859" Y="-789.8606" Z="15.33831" />
+						<Hotspot X="-26.25278" Y="-799.5648" Z="19.33159" />
+					</CustomBehavior>
+					<RunTo X="-26.25278" Y="-799.5648" Z="19.33159" />
+					
+						
+					<!-- clearing the rear of the ship -->
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+						<Hotspot X="-20.52452" Y="-810.2443" Z="19.63242" />
+						<Hotspot X="-14.88052" Y="-816.5654" Z="19.97551" />
+						<Hotspot X="-22.25083" Y="-834.1003" Z="19.56441" />
+						<Hotspot X="-30.29148" Y="-843.8741" Z="19.16625" />
+						<Hotspot X="-39.65561" Y="-851.2426" Z="18.74237" />
+						<Hotspot X="-51.64512" Y="-856.0854" Z="18.26875" />
+						<Hotspot X="-81.83317" Y="-856.7485" Z="17.37288" />
+						<Hotspot X="-104.4598" Y="-848.5499" Z="16.98378" />
+						<Hotspot X="-122.6975" Y="-834.8643" Z="16.87684" />
+						<Hotspot X="-123.906" Y="-824.0209" Z="16.90465" />
+					</CustomBehavior>	
+					<Runto X="-27.9015" Y="-798.5767" Z="19.23848" />
+						
+					<!-- clearing the top of the ship, skipping the last boss -->	
+					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="-31.3322" Y="-796.9626" Z="19.06272" />
+						<Hotspot X="-43.86604" Y="-788.2316" Z="18.51168" />
+						<Hotspot X="-58.15515" Y="-782.6337" Z="17.9861" />
+						<Hotspot X="-73.10715" Y="-781.572" Z="17.54654" />
+						<Hotspot X="-87.7492" Y="-786.3683" Z="17.23514" />
+						<Hotspot X="-101.6221" Y="-790.7941" Z="17.02438" />
+						<Hotspot X="-114.8794" Y="-798.7469" Z="16.9225" />
+						<Hotspot X="-124.5336" Y="-809.6588" Z="16.87215" />
+						<Hotspot X="-122.9477" Y="-799.45" Z="16.78906" />
+						<Hotspot X="-115.4625" Y="-787.9359" Z="17.27979" />
+						<Hotspot X="-101.5201" Y="-781.2766" Z="22.11819" />
+						<Hotspot X="-87.29786" Y="-778.5327" Z="26.74419" />
+						<Hotspot X="-75.24685" Y="-785.9716" Z="26.14742" />
+						<Hotspot X="-85.54771" Y="-787.5909" Z="26.17927" />
+						<Hotspot X="-100.2489" Y="-790.4482" Z="28.03909" />
+						<Hotspot X="-99.04527" Y="-804.2945" Z="30.69968" />
+						<Hotspot X="-84.93843" Y="-798.5908" Z="37.32835" />
+						<Hotspot X="-71.7127" Y="-790.9733" Z="39.27783" />
+						<Hotspot X="-56.27118" Y="-791.6086" Z="38.85359" />
+						<Hotspot X="-42.51555" Y="-796.2142" Z="39.34597" />
+						<Hotspot X="-41.87161" Y="-798.449" Z="39.31561" />
+						<Hotspot X="-66.47214" Y="-793.5493" Z="39.50296" />
+						<Hotspot X="-90.60645" Y="-799.8885" Z="35.01756" />
+						<Hotspot X="-98.99164" Y="-804.0187" Z="30.71152" />
+						<Hotspot X="-104.687" Y="-793.3242" Z="28.14153" />
+						<Hotspot X="-82.1254" Y="-782.1797" Z="26.52121" />
+						<Hotspot X="-88.73714" Y="-777.5153" Z="26.28935" />
+						<Hotspot X="-102.3766" Y="-780.2588" Z="22.19656" />
+						<Hotspot X="-121.5953" Y="-793.8953" Z="16.9083" />
+						<Hotspot X="-115.6697" Y="-800.1013" Z="16.93368" />
+						<Hotspot X="-94.76049" Y="-787.6947" Z="17.11716" />
+						<Hotspot X="-70.60361" Y="-782.7341" Z="17.61426" />
+						<Hotspot X="-51.02776" Y="-785.3269" Z="18.23941" />
+						<Hotspot X="-65.21016" Y="-782.4417" Z="17.76253" />
+					</CustomBehavior>
+					<Runto X="-65.21016" Y="-782.4417" Z="17.76253" />
+						
+					<!-- Move to the door entering the cavern -->
+					<Runto X="-1.975269" Y="-780.8501" Z="9.979088" />	
+					<RunTo X="-102.1683" Y="-655.8776" Z="7.422467" />
+												
+					<!-- Move to the door at the top of the foundry -->						
+					<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
+					
+					<!-- opens the foundry door -->
+					<CustomBehavior File="InteractWith" 
+									MobId="17154" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									WaitTime="1" 
+									X="-244.5276" Y="-578.5715" Z="51.14911" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+				</If>
+			</While>	
+		</If>
+		
+		<!-- *******************************************************  RAF Toons ************************************************************** -->
+		<If Condition="Me.Level &lt;= 85">
+		
+			<CustomBehavior File="UserSettings" 
+							UseMount="True" 
+							UseFlightPaths="True" 
+							LootMobs="False" 
+							SkinMobs="False" 
+							PullDistance="1" 
+							LootRadius="1"
+							KillBetweenHotspots="False" 
+							FindVendorsAutomatically="False" 
+							LogoutForInactivity="False" />
+							
+			<!-- Infinite loop -->
+			<While Condition="true" >	
+				<!-- If we are inside Deadmines, run out to reset -->
+				<If Condition="Me.MapId == 36">
+					<CustomBehavior File="Message" Text="Deadmines detected. Running out to reset." LogColor="Cyan" />					
+						
+					<!-- Run to the instance entrance -->
+					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+						
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-13.03915" Y="-386.0322" Z="62.78151" />
+					<CustomBehavior File="GoThruPortal" X="-14.50672" Y="-389.0634" Z="63.28239" />
+					
+					<!-- Make sure we ran to the right spot outside the portal -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+				</If>
+				
+				<!-- If we are outside of Deadmines (Westfall) -->
+				<If Condition="Me.MapId == 0">		
+					<!-- If we aren't in the box, load movement profile -->
+					<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1653.415 || Me.Y &gt; 1690 " >
+						<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />
+						<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
+					</If>
+				
+					<!-- If we are in the box -->
+					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1690" >
+						<CustomBehavior File="Message" Text="Portal detected nearby. Checking our level and proceeding to enter the instance." LogColor="Cyan" />	
+					
+						<!-- If we are between levels 17-25 -->
+						<If Condition="Me.Level &gt;= 17 &amp;&amp; Me.Level &lt;= 25" >
+							<CustomBehavior File="UserDialog" 
+											AllowBotStop="False" 
+											SoundCue="Exclamation" 
+											SoundCueInterval="15" 
+											ExpiryAction="InputEnabled_Continue" 
+											Text="This character is in the recommended level range to run Blackfathom Deeps (17-25). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
+											Title="WARNING" />
+						
+							<!-- Otherwise we are too high -->
+							<ElseIf Condition="Me.Level &gt; 25">
 								<CustomBehavior File="UserDialog" 
 												AllowBotStop="False" 
 												SoundCue="Exclamation" 
 												SoundCueInterval="15" 
 												ExpiryAction="InputEnabled_Continue" 
-												Text="This character is in the recommended level range to run Blackfathom Deeps (17-25). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
+												Text="This character is above level 25 and is not in the recommended level range to run this instance (10-17). By choosing to continue, you acknowledge that you may not receive the intended experience gains." 
 												Title="WARNING" />
+							</ElseIf>
+						</If>
+						
+						<CustomBehavior File="Message" Text="Waiting 10 seconds." LogColor="Cyan" />
+						<CustomBehavior File="WaitTimer" WaitTime="10000" />
+						
+						<!-- Go inside the Deadmines portal -->
+						<CustomBehavior File="MyCTM" X="-11208.34" Y="1680.56" Z="23.87232" />
+						
+						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
+						
+						<CustomBehavior File="WaitTimer" WaitTime="15000" />
+						
+						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+					</If>				
+				</If>
+				
+				<!-- If we are inside Deadmines and have checked our reset -->
+				<If Condition="Me.MapId == 36" >		
 							
-								<!-- Otherwise we are too high -->
-								<ElseIf Condition="Me.Level &gt; 25">
-									<CustomBehavior File="UserDialog" 
-													AllowBotStop="False" 
-													SoundCue="Exclamation" 
-													SoundCueInterval="15" 
-													ExpiryAction="InputEnabled_Continue" 
-													Text="This character is above level 25 and is not in the recommended level range to run this instance (10-17). By choosing to continue, you acknowledge that you may not receive the intended experience gains." 
-													Title="WARNING" />
-								</ElseIf>
-							</If>
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryAction="InputEnabled_Continue" 
+									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
+									Title="WARNING" />
 							
-							<CustomBehavior File="Message" Text="Waiting 10 seconds." LogColor="Cyan" />
-							<CustomBehavior File="WaitTimer" WaitTime="10000" />
-							
-							<!-- Go inside the Deadmines portal -->
-							<CustomBehavior File="MyCTM" X="-11208.34" Y="1680.56" Z="23.87232" />
-							
-							<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
-							
-							<CustomBehavior File="WaitTimer" WaitTime="15000" />
-							
-							<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-						</If>				
-					</If>
+					<CustomBehavior File="Message" Text="We have 9.1 minutes in timers with plenty of walking time. Avoiding instance lock from this point, do not touch." LogColor="yellow" />	
 					
-					<!-- If we are inside Deadmines and have checked our reset -->
-					<If Condition="Me.MapId == 36" >		
-								
-						<CustomBehavior File="UserDialog" 
-										AllowBotStop="False" 
-										SoundCue="Exclamation" 
-										SoundCueInterval="15" 
-										ExpiryAction="InputEnabled_Continue" 
-										Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
-										Title="WARNING" />
-								
-						<CustomBehavior File="Message" Text="We have 10.5 minutes in timers with plenty of walking time. Avoiding instance lock from this point, do not touch." LogColor="yellow" />	
+					<!-- waiting near the entrance for the booster to clear the way -->
+					<CustomBehavior File="Message" Text="Waiting 40 seconds, entrance." LogColor="Cyan" />		   
+					<CustomBehavior File="WaitTimer" WaitTime="40000" />
+					
+					<!-- moving closer to the first pull -->
+					<RunTo X="-118.2137" Y="-398.463" Z="57.40186" />
+					
+					<!-- waiting for the first pull to complete -->
+					<CustomBehavior File="Message" Text="Waiting 20 seconds, 1st pull." LogColor="Cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					
+					<!-- Moving to the first bosses room -->
+					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />
+					
+					<CustomBehavior File="Message" Text="Waiting 60 seconds, 2nd pull." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="60000" />
+					
+					<!-- Moving to Helix's door -->
+					<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
+					
+					<!-- Waiting for the booster to kill Helix -->
+					<CustomBehavior File="Message" Text="Waiting 50 seconds, before Helix Gearbreaker." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="50000" />
+					
+					 <!-- Moving to the kegroom door -->
+					<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
+					
+					<!-- Waiting for the booster to clear the keg room -->
+					<CustomBehavior File="Message" Text="Waiting 50 seconds, door after Helix Gearbreaker." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="50000" />
+					
+					<!-- 220 seconds in timers at this point -->
+					
+					<!-- Moving to the foundry door -->
+					<RunTo X="-232.6577" Y="-578.0146" Z="51.22633" />
+					
+					<!-- Waiting for the booster to kill Foe Reaper -->
+					<CustomBehavior File="Message" Text="Waiting 40 seconds, foundry door." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="40000" />
 						
-						<!-- waiting near the entrance for the booster to clear the way -->
-						<CustomBehavior File="Message" Text="Waiting 40 seconds, entrance." LogColor="Cyan" />		   
-						<CustomBehavior File="WaitTimer" WaitTime="40000" />
-						
-						<!-- moving closer to the first pull -->
-						<RunTo X="-118.2137" Y="-398.463" Z="57.40186" />
-						
-						<!-- waiting for the first pull to complete -->
-						<CustomBehavior File="Message" Text="Waiting 20 seconds, 1st pull." LogColor="Cyan" />
-						<CustomBehavior File="WaitTimer" WaitTime="20000" />
-						
-						<!-- Moving to the first bosses room -->
-						<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />
-						
-						<CustomBehavior File="Message" Text="Waiting 60 seconds, 2nd pull." LogColor="Cyan" />	
-						<CustomBehavior File="WaitTimer" WaitTime="60000" />
-						
-						<!-- Moving to Helix's door -->
-						<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
-						
-						<!-- Waiting for the booster to kill Helix -->
-						<CustomBehavior File="Message" Text="Waiting 50 seconds, before Helix Gearbreaker." LogColor="Cyan" />	
-						<CustomBehavior File="WaitTimer" WaitTime="50000" />
-						
-						 <!-- Moving to the kegroom door -->
-						<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
-						
-						<!-- Waiting for the booster to clear the keg room -->
-						<CustomBehavior File="Message" Text="Waiting 50 seconds, door after Helix Gearbreaker." LogColor="Cyan" />	
-						<CustomBehavior File="WaitTimer" WaitTime="50000" />
-						
-						<!-- 220 seconds in timers at this point -->
-						
-						<!-- Moving to the foundry door -->
-						<RunTo X="-232.6577" Y="-578.0146" Z="51.22633" />
-						
-						<!-- Waiting for the booster to kill Foe Reaper -->
-						<CustomBehavior File="Message" Text="Waiting 40 seconds, foundry door." LogColor="Cyan" />	
-						<CustomBehavior File="WaitTimer" WaitTime="40000" />
-							
-						<!-- Running to the exit of the foundry -->		
-						<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">	
-							<Hotspot X="-233.4223" Y="-578.9639" Z="51.22836" />
-							<Hotspot X="-224.5538" Y="-560.98" Z="51.22935" />
-							<Hotspot X="-205.1647" Y="-552.2297" Z="51.22935" />
-							<Hotspot X="-182.1089" Y="-566.8971" Z="51.01614" />
-							<Hotspot X="-180.1718" Y="-588.8973" Z="42.2102" />
-							<Hotspot X="-197.1153" Y="-605.3293" Z="32.76764" />
-							<Hotspot X="-223.923" Y="-601.0953" Z="22.18594" />
-							<Hotspot X="-220.4107" Y="-587.1436" Z="20.97689" />
-							<Hotspot X="-202.2292" Y="-590.7361" Z="20.97689" />
-							<Hotspot X="-190.7324" Y="-579.336" Z="20.97689" />
-							<Hotspot X="-173.0081" Y="-579.7811" Z="19.31267" />
-						</CustomBehavior>	
+					<!-- Running to the exit of the foundry -->		
+					<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">	
+						<Hotspot X="-233.4223" Y="-578.9639" Z="51.22836" />
+						<Hotspot X="-224.5538" Y="-560.98" Z="51.22935" />
+						<Hotspot X="-205.1647" Y="-552.2297" Z="51.22935" />
+						<Hotspot X="-182.1089" Y="-566.8971" Z="51.01614" />
+						<Hotspot X="-180.1718" Y="-588.8973" Z="42.2102" />
+						<Hotspot X="-197.1153" Y="-605.3293" Z="32.76764" />
+						<Hotspot X="-223.923" Y="-601.0953" Z="22.18594" />
+						<Hotspot X="-220.4107" Y="-587.1436" Z="20.97689" />
+						<Hotspot X="-202.2292" Y="-590.7361" Z="20.97689" />
+						<Hotspot X="-190.7324" Y="-579.336" Z="20.97689" />
+						<Hotspot X="-173.0081" Y="-579.7811" Z="19.31267" />
+					</CustomBehavior>	
 
-						<!-- Moving to the lower foundry door -->
-						<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
-						
-						<!-- Waiting for the booster to clear a path to the big cannon -->
-						<CustomBehavior File="Message" Text="Waiting 80 seconds, bottom door." LogColor="Cyan" />	
-						<CustomBehavior File="WaitTimer" WaitTime="80000" />
-						
-						<!-- Running to the big cannon -->
-						<RunTo X="-99.24007" Y="-650.1745" Z="6.978131" />
-						<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
-						
-						<!-- Waiting for the booster to clear the ship -->
-						<CustomBehavior File="Message" Text="Waiting 210 seconds, ship's door." LogColor="Cyan" />
-						<CustomBehavior File="WaitTimer" WaitTime="210000" />
-						
-						<!-- moving past the big xannon so we don't get stuck -->
-						<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
-						
-						<!-- cycle -->
-					</If>
-				</While>
-			</If>
+					<!-- Moving to the lower foundry door -->
+					<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
+					
+					<!-- Waiting for the booster to clear a path to the big cannon -->
+					<CustomBehavior File="Message" Text="Waiting 80 seconds, bottom door." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="80000" />
+					
+					<!-- Running to the big cannon -->
+					<RunTo X="-99.24007" Y="-650.1745" Z="6.978131" />
+					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
+					
+					<!-- Waiting for the booster to clear the ship -->
+					<CustomBehavior File="Message" Text="Waiting 210 seconds, ship's door." LogColor="Cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="210000" />
+					
+					<!-- moving past the big xannon so we don't get stuck -->
+					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
+					
+					<!-- cycle -->
+				</If>
+			</While>
+		</If>
 	</QuestOrder>
 </HBProfile>
 

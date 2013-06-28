@@ -4,8 +4,8 @@
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
    
-	<MinDurability>0.1</MinDurability>
-	<MinFreeBagSlots>0</MinFreeBagSlots>
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
 	<MailGrey>False</MailGrey>
 	<MailWhite>False</MailWhite>
@@ -31,7 +31,7 @@
 		<Blackspot X="-354.1103" Y="35.91866" Z="-59.80756" Radius="10" />
 		<Blackspot X="-151.5376" Y="396.4401" Z="-37.62136" Radius="3" />
 	</Blackspots>
-	
+
 	<Mailboxes>
 	</Mailboxes>
  
@@ -48,7 +48,8 @@
 		<ClearVendor />
 		<ClearMailbox />
 		
-		<!-- Booster -->
+		
+		<!-- *******************************************************  Booster ************************************************************** -->
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="UserSettings"
 							UseMount="True" 
@@ -58,10 +59,11 @@
 							PullDistance="25" 
 							LootRadius="1" 
 							KillBetweenHotspots="True" 
-							FindVendorsAutomatically="False" />
-
+							FindVendorsAutomatically="False" 
+							LogoutForInactivity="False" />
+		 
 			<!-- Infinite loop -->
-			<While Condition="true" >		
+			<While Condition="true" >	
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" Text="Blackfathom Deeps detected. Running out to reset." LogColor="Cyan" />
@@ -87,15 +89,27 @@
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 				</If>
-						
+				
 				<!-- If we are outside Blackfathom Deeps (Ashenvale) -->
 				<If Condition="Me.MapId == 1">		
-					<!-- If we are in the box, reset the instance -->
-					<If Condition="Me.X &gt; 4236.979 &amp;&amp; Me.X &lt; 4259.337 &amp;&amp; Me.Y &lt; 748.4534 &amp;&amp; Me.Y &gt; 725.4507" >
+					<!-- If we are not in the box, load the movement profile -->
+					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+						<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />	
+						<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
+					</If>
+				
+					<!-- If we are in the box -->
+					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+						<CustomBehavior File="Message" Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." LogColor="Cyan" />	
+						<!-- Check durability, load the movement profile -->
+						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
+							<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
+						</If>
+					
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" Text="Resetting instance, 1 of 2." LogColor="Cyan" />
 						
-						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />	
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
 						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
 						
 						<!-- Allow for an Honorbuddy pulse -->
@@ -103,8 +117,8 @@
 						
 						<!-- The second reset confirms we are safe to enter the instance -->
 						<CustomBehavior File="Message" Text="Resetting instance, 2 of 2." LogColor="Cyan" />
-						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />	
-						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
+						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
 						
 						<CustomBehavior File="Message" Text="Instance reset." LogColor="Cyan" />
 						
@@ -116,9 +130,9 @@
 						<CustomBehavior File="WaitTimer" WaitTime="15000" />
 						
 						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-					</If>				
+					</If>		
 				</If>
-
+				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="UserDialog" 
@@ -128,7 +142,7 @@
 									ExpiryAction="InputEnabled_Continue" 
 									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
 									Title="WARNING" />
-				
+									
 					<!-- Pull the whole area that the RAF will run through and make it safe -->
 					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
 						<Hotspot X="-162.2226" Y="77.74496" Z="-46.09991" />
@@ -480,8 +494,9 @@
 			</While>	
 		</If>
 		
-		<!-- RAF Toons -->
+		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
+
 			<CustomBehavior File="UserSettings" 
 							UseMount="True" 
 							UseFlightPaths="True" 
@@ -490,11 +505,11 @@
 							PullDistance="1" 
 							LootRadius="1"
 							KillBetweenHotspots="False" 
-							FindVendorsAutomatically="False" />
+							FindVendorsAutomatically="False" 
+							LogoutForInactivity="False" />
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-			
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" Text="Blackfathom Deeps detected. Running out to reset." LogColor="Cyan" />
@@ -511,21 +526,28 @@
 					
 					<!-- Run to the instance entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-						
+					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-149.7285" Y="113.4777" Z="-40.73384" />
+					<CustomBehavior File="MyCTM" X="-149.7285" Y="113.4777" Z="-40.73384" /> 
 					
 					<CustomBehavior File="WaitTimer" WaitTime="15000" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-				
 				</If>
-			
+				
 				<!-- If we are outside of Blackfathom Deeps (Ashenvale) -->
-				<If Condition="Me.MapId == 1">									
+				<If Condition="Me.MapId == 1">		
+					<!-- If we are not in the box, load the movement profile -->
+					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+						<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />	
+						<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
+					</If>
+				
 					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; 4236.979 &amp;&amp; Me.X &lt; 4259.337 &amp;&amp; Me.Y &lt; 748.4534 &amp;&amp; Me.Y &gt; 725.4507" >
+					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+						<CustomBehavior File="Message" Text="Portal detected nearby. Checking our level and proceeding to enter the instance." LogColor="Cyan" />	
+					
 						<!-- If we are between levels 25-37 -->
 						<If Condition="Me.Level &gt;= 25 &amp;&amp; Me.Level &lt;= 37" >
 							<CustomBehavior File="UserDialog" 
@@ -557,12 +579,13 @@
 						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="cyan" />
 						<CustomBehavior File="WaitTimer" WaitTime="15000" />
 						
-						<RunTo X="-150.6137" Y="103.5056" Z="-40.39671" />
+						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					</If>				
 				</If>
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
-				<If Condition="Me.MapId == 48">
+				<If Condition="Me.MapId == 48" >		
+							
 					<CustomBehavior File="UserDialog" 
 									AllowBotStop="False" 
 									SoundCue="Exclamation" 
@@ -570,8 +593,8 @@
 									ExpiryAction="InputEnabled_Continue" 
 									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
 									Title="WARNING" />
-						
-					<CustomBehavior File="Message" Text="We have 16.6 minutes in timers. Avoiding instance lock from this point, do not touch." LogColor="Red" />	
+							
+					<CustomBehavior File="Message" Text="We have 15.8 minutes in timers. Avoiding instance lock from this point, do not touch." LogColor="Yellow" />	
 					
 					<CustomBehavior File="Message" Text="Waiting 80 seconds, entrance." LogColor="cyan" />
 					<CustomBehavior File="WaitTimer" WaitTime="80000" />
@@ -616,8 +639,8 @@
 					<CustomBehavior File="Message" Text="Waiting 150 seconds, 1 of 2." LogColor="cyan" />
 					<CustomBehavior File="WaitTimer" WaitTime="150000" />
 					
-					<CustomBehavior File="Message" Text="Waiting 150 seconds, 2 of 2." LogColor="cyan" />
-					<CustomBehavior File="WaitTimer" WaitTime="150000" />
+					<CustomBehavior File="Message" Text="Waiting 180 seconds, 2 of 2." LogColor="cyan" />
+					<CustomBehavior File="WaitTimer" WaitTime="180000" />
 					
 					<!-- Run to the edge of the platform -->
 					<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />

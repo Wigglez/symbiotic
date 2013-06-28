@@ -4,8 +4,8 @@
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
    
-	<MinDurability>0.1</MinDurability>
-	<MinFreeBagSlots>0</MinFreeBagSlots>
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
 	<MailGrey>False</MailGrey>
 	<MailWhite>False</MailWhite>
@@ -26,6 +26,7 @@
 	</AvoidMobs>
 	
 	<Blackspots>
+		<Blackspot X="-140.0314" Y="-405.6042" Z="58.6548" Radius="1" />
 	</Blackspots>
 
 	<Mailboxes>
@@ -34,17 +35,16 @@
 	<Vendors>
 	</Vendors>
 
-	<Factions>
-	</Factions>
+	<Factions></Factions>
 	
-	<ProtectedItems>
+	<ProtectedItems>	
 	</ProtectedItems>
 	
 	<QuestOrder>
 		<ClearVendor />
 		<ClearMailbox />
 		
-		<!-- Booster -->
+		<!-- *******************************************************  Booster ************************************************************** -->
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="UserSettings"
 							UseMount="True" 
@@ -54,8 +54,9 @@
 							PullDistance="25" 
 							LootRadius="1" 
 							KillBetweenHotspots="True" 
-							FindVendorsAutomatically="False" />
-							
+							FindVendorsAutomatically="False" 
+							LogoutForInactivity="False" />
+		 
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- If we are inside Wailing Caverns, run out to reset -->
@@ -73,11 +74,23 @@
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 				</If>	
-			
+				
 				<!-- If we are outside Wailing Caverns (Northern Barrens) -->
-				<If Condition="Me.MapId == 1" >			
-					<!-- If we are in the box, reset the instance -->
-					<If Condition="Me.X &gt; -742.2633 &amp;&amp; Me.X &lt; -712.625 &amp;&amp; Me.Y &lt; -2203.933 &amp;&amp; Me.Y &gt; -2232.507" >
+				<If Condition="Me.MapId == 1" >	
+					<!-- If we are not in the box, load the movement profile -->
+					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
+						<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />	
+						<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
+					</If>
+				
+					<!-- If we are in the box -->
+					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+						<CustomBehavior File="Message" Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." LogColor="Cyan" />	
+						<!-- Check durability, load the movement profile -->
+						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
+							<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
+						</If>
+					
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" Text="Resetting instance, 1 of 2." LogColor="Cyan" />
 						
@@ -89,12 +102,11 @@
 						
 						<!-- The second reset confirms we are safe to enter the instance -->
 						<CustomBehavior File="Message" Text="Resetting instance, 2 of 2." LogColor="Cyan" />
-						
 						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
+						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
 						
 						<CustomBehavior File="Message" Text="Instance reset. Killing exterior to ensure RAF toon safety." LogColor="Cyan" />
-						
+					
 						<!-- Make sure we have a huge pull range to get all mobs possible -->
 						<CustomBehavior File="UserSettings" PullDistance="45" />
 						
@@ -124,16 +136,18 @@
 						
 						<!-- set pull distance back to normal -->
 						<CustomBehavior File="UserSettings" PullDistance="25" />
-							
+						
 						<!-- Run back in the Wailing Caverns portal -->
 						<CustomBehavior File="MyCTM" X="-744.4048" Y="-2216.026" Z="15.71743" />
 						
 						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
 						
 						<CustomBehavior File="WaitTimer" WaitTime="15000" />
-					</If>				
+						
+						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+					</If>		
 				</If>
-
+				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
 					<CustomBehavior File="UserDialog" 
@@ -143,7 +157,7 @@
 									ExpiryAction="InputEnabled_Continue" 
 									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
 									Title="WARNING" />
-											
+					
 					<!-- Kill everything close to the RAF toons to make sure they remain safe -->
 					<RunTo X="-155.279" Y="127.8867" Z="-75.00844" />
 					<RunTo X="-142.9643" Y="128.0304" Z="-77.16277" />
@@ -465,9 +479,10 @@
 				</If>	
 			</While>
 		</If>
-
-		<!-- RAF Toons -->
+		
+		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
+		
 			<CustomBehavior File="UserSettings" 
 							UseMount="True" 
 							UseFlightPaths="True" 
@@ -476,8 +491,9 @@
 							PullDistance="1" 
 							LootRadius="1"
 							KillBetweenHotspots="False" 
-							FindVendorsAutomatically="False" />
-				
+							FindVendorsAutomatically="False" 
+							LogoutForInactivity="False"/>
+							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- If we are inside Wailing Caverns, run out to reset -->
@@ -495,12 +511,20 @@
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 				</If>	
-			
+				
 				<!-- If we are outside of Wailing Caverns (Northern Barrens) -->
-				<If Condition="Me.MapId == 1" >	
-					<!-- If we are in the box -->				
-					<If Condition="Me.X &gt; -742.2633 &amp;&amp; Me.X &lt; -712.625 &amp;&amp; Me.Y &lt; -2203.933 &amp;&amp; Me.Y &gt; -2232.507" >
-						<!-- If we are between levels 17-25, prompt the user to load the next profile -->
+				<If Condition="Me.MapId == 1" >		
+					<!-- If we are not in the box, load the movement profile -->
+					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
+						<CustomBehavior File="Message" Text="Distance from portal is not within our proximity, initializing movement to get there." LogColor="Cyan" />	
+						<CustomBehavior File="LoadProfile" ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
+					</If>
+				
+					<!-- If we are in the box -->
+					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+						<CustomBehavior File="Message" Text="Portal detected nearby. Checking our level and proceeding to enter the instance." LogColor="Cyan" />	
+					
+						<!-- If we are between levels 17-25 -->
 						<If Condition="Me.Level &gt;= 17 &amp;&amp; Me.Level &lt;= 25" >
 							<CustomBehavior File="UserDialog" 
 											AllowBotStop="False" 
@@ -510,6 +534,7 @@
 											Text="This character is in the recommended level range to run Blackfathom Deeps (17-25). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
 											Title="WARNING" />
 						
+							<!-- Otherwise we are too high -->
 							<ElseIf Condition="Me.Level &gt; 25">
 								<CustomBehavior File="UserDialog" 
 												AllowBotStop="False" 
@@ -530,9 +555,10 @@
 						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Cyan" />
 						<CustomBehavior File="WaitTimer" WaitTime="15000" />
 						
-					</If>
+						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+					</If>				
 				</If>
-
+				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
 					<CustomBehavior File="UserDialog" 
@@ -543,7 +569,7 @@
 									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
 									Title="WARNING" />
 											
-					<CustomBehavior File="Message" Text="We have 16 minutes in timers. Avoiding instance lock from this point, do not touch." LogColor="Red" />	
+					<CustomBehavior File="Message" Text="We have 16 minutes in timers. Avoiding instance lock from this point, do not touch." LogColor="Yellow" />	
 											
 					<RunTo X="-128.5944" Y="130.6777" Z="-78.58882" />
 					<RunTo X="-111.9876" Y="145.7799" Z="-80.99899" />
@@ -568,8 +594,8 @@
 					<CustomBehavior File="Message" Text="Waiting 150 seconds, 4 of 6." LogColor="Cyan" />	
 					<CustomBehavior File="WaitTimer" WaitTime="150000" />
 						
-					<CustomBehavior File="Message" Text="Waiting 150 seconds, 5 of 6." LogColor="Cyan" />	
-					<CustomBehavior File="WaitTimer" WaitTime="150000" />
+					<CustomBehavior File="Message" Text="Waiting 180 seconds, 5 of 6." LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" WaitTime="180000" />
 					
 					<RunTo X="-98.36909" Y="188.1169" Z="-78.13828" />
 						
