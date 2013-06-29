@@ -333,7 +333,7 @@
 				<RunTo X="-744.7985" Y="-2028.176" Z="137.5862" />
 				<RunTo X="-787.2625" Y="-2032.571" Z="128.7428" />
 
-				<!-- jump from skull to rendezvous point -->
+				<!-- Jump from skull to rendezvous point -->
 				<CustomBehavior File="MyCTM" X="-787.2625" Y="-2032.571" Z="128.7428" />
 				<CustomBehavior File="MyCTM" X="-822.9109" Y="-2032.883" Z="118.7538" />
 				
@@ -349,8 +349,8 @@
 				<CustomBehavior File="Message" Text="Allowing the booster to be a boss and clear the way for us, do not touch." LogColor="Yellow" />				
 				
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->
-				<CustomBehavior File="Message" Text="Waiting 90 seconds for the booster to clear a path to the water pool." LogColor="Lime" />	
-				<CustomBehavior File="WaitTimer" WaitTime="90000" />						
+				<CustomBehavior File="Message" Text="Waiting 165 seconds for the booster to clear a path to the water pool." LogColor="Lime" />	
+				<CustomBehavior File="WaitTimer" WaitTime="165000" />						
 				
 				<!-- Jump to the cave entrance -->			
 				<CustomBehavior File="MyCTM" X="-855.0632" Y="-2026.661" Z="83.83394" />
@@ -370,8 +370,8 @@
 				<CustomBehavior File="NoCombatMoveTo" X="-574.7474" Y="-2078.626" Z="53.81164" />
 
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->		
-				<CustomBehavior File="Message" Text="Waiting 90 seconds for the booster to clear a path to the instance portal." LogColor="Lime" />	
-				<CustomBehavior File="WaitTimer" WaitTime="90000" />						
+				<CustomBehavior File="Message" Text="Waiting 130 seconds for the booster to clear a path to the instance portal." LogColor="Lime" />	
+				<CustomBehavior File="WaitTimer" WaitTime="130000" />						
 				
 				<CustomBehavior File="MyCTM" X="-574.4584" Y="-2090.842" Z="50.13843" />
 				<CustomBehavior File="MyCTM" X="-592.1352" Y="-2129.417" Z="51.1222" />
