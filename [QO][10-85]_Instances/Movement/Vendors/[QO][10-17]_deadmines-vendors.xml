@@ -1,5 +1,5 @@
-﻿<HBProfile creator="Botanist + Wiggles" version="1.0">
-	<Name>[QO][10-85]_vendors</Name>
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO][10-17]_deadmines-vendors</Name>
    
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
@@ -47,44 +47,33 @@
 						DoSell="False" 
 						DoTrain="False" />
 
-		<!-- ******************************* ALLIANCE ******************************* -->
+		<!-- ******************************* ALLIANCE LOCATIONS ******************************* -->
 		<If Condition="Me.IsAlliance">
-			<!-- ******************************* WESTFALL ******************************* -->
+			<!-- \\\\\\\\\\\\\\\ WESTFALL /////////////// -->
 			<If Condition="Me.ZoneId == 40">	
 				<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
 				<SetVendor>
 					<Vendors>
+						<!-- Sentinel Hill -->
 						<Vendor Name="William MacGregor" Entry="1668" Type="Repair" X="-10653.31" Y="996.5868" Z="32.87417" />
 					</Vendors>
 				</SetVendor>
 				
 				<!-- We are done vendoring, load the movement profile -->
 				<If Condition="Me.DurabilityPercent &gt; 0.8" >
-					<CustomBehavior File="Message" Text="Repairing complete, moving back to the instance." LogColor="Fuchsia" />
+					<CustomBehavior File="Message" Text="Repairing complete, moving back to Deadmines." LogColor="Fuchsia" />
 					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-A-M][10-17]_deadmines" />
 				</If>
 			</If>
+			
+			<!-- ******************************* HORDE LOCATIONS ******************************* -->
+			<ElseIf Condition="Me.IsHorde">
+				
+			</ElseIf>
 		</If>
 		
-		<!-- ******************************* HORDE ******************************* -->
-		<If Condition="Me.IsHorde">
-			<!-- ******************************* NORTHERN BARRENS ******************************* -->
-			<If Condition="Me.ZoneId == 17">	
-				<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
-				<SetVendor>
-					<Vendors>
-						<Vendor Name="Halija Whitestrider" Entry="3486" Type="Repair" X="-539.8406" Y="-2672.23" Z="95.78806" />
-					</Vendors>
-				</SetVendor>
-				
-				<!-- We are done vendoring, load the movement profile -->
-				<If Condition="Me.DurabilityPercent &gt; 0.8" >
-					<CustomBehavior File="Message" Text="Repairing complete, moving back to the instance." LogColor="Fuchsia" />
-					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-H-M][10-17]_wailing-caverns" />
-				</If>
-			</If>
-		</If>
-
+		<!-- ******************************* NEUTRAL LOCATIONS ******************************* -->
+		
 	</QuestOrder>
 </HBProfile>
 

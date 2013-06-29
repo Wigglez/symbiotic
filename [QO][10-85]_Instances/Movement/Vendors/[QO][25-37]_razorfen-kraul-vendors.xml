@@ -1,0 +1,96 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO][25-37]_razorfen-kraul-vendors</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>True</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>False</TargetElites>
+	
+	<AvoidMobs>		 
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+
+	<ProtectedItems>
+	</ProtectedItems>
+	
+	<ClearVendor />
+	<ClearMailbox />
+	
+	<QuestOrder>
+		
+		<CustomBehavior File="ForceSetVendor" 
+						DoMail="False" 
+						DoRepair="True" 
+						DoSell="False" 
+						DoTrain="False" />
+
+		<!-- ******************************* ALLIANCE LOCATIONS ******************************* -->
+		<If Condition="Me.IsAlliance">
+			<!-- \\\\\\\\\\\\\\\ SOUTHERN BARRENS /////////////// -->
+			<If Condition="Me.ZoneId == 4709">	
+				<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+				<SetVendor>
+					<Vendors>
+						<!-- Fort Triumph -->
+						
+					</Vendors>
+				</SetVendor>
+				
+				<!-- We are done vendoring, load the movement profile -->
+				<If Condition="Me.DurabilityPercent &gt; 0.8" >
+					<CustomBehavior File="Message" Text="Repairing complete, moving back to Razorfen Kraul." LogColor="Fuchsia" />
+					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-N-M][25-37]_razorfen-kraul" />
+				</If>
+			</If>
+			
+			<!-- ******************************* HORDE LOCATIONS ******************************* -->
+			<ElseIf Condition="Me.IsHorde">
+				<!-- \\\\\\\\\\\\\\\ SOUTHERN BARRENS /////////////// -->
+				<If Condition="Me.ZoneId == 4709">	
+					<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+					<SetVendor>
+						<Vendors>
+							<!-- Desolation Hold -->
+							<Vendor Name="Terndak" Entry="44287" Type="Repair" X="-3267.02" Y="-1714.96" Z="92.3049" />
+						</Vendors>
+					</SetVendor>
+					
+					<!-- We are done vendoring, load the movement profile -->
+					<If Condition="Me.DurabilityPercent &gt; 0.8" >
+						<CustomBehavior File="Message" Text="Repairing complete, moving back to Razorfen Kraul." LogColor="Fuchsia" />
+						<CustomBehavior File="LoadProfile" ProfileName="..\[QO-N-M][25-37]_razorfen-kraul" />
+					</If>
+				</If>
+			</ElseIf>
+		</If>
+		
+		
+		<!-- ******************************* NEUTRAL LOCATIONS ******************************* -->
+		
+		
+	</QuestOrder>
+</HBProfile>
+

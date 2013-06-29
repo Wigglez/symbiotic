@@ -1,0 +1,78 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO][10-17]_wailing-caverns-vendors</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>True</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>False</TargetElites>
+	
+	<AvoidMobs>		 
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+
+	<ProtectedItems>
+	</ProtectedItems>
+	
+	<ClearVendor />
+	<ClearMailbox />
+	
+	<QuestOrder>
+		
+		<CustomBehavior File="ForceSetVendor" 
+						DoMail="False" 
+						DoRepair="True" 
+						DoSell="False" 
+						DoTrain="False" />
+
+		<!-- ******************************* ALLIANCE LOCATIONS ******************************* -->
+		<If Condition="Me.IsAlliance">
+			
+			<!-- ******************************* HORDE LOCATIONS ******************************* -->
+			<ElseIf Condition="Me.IsHorde">
+				<!-- \\\\\\\\\\\\\\\ NORTHERN BARRENS /////////////// -->
+				<If Condition="Me.ZoneId == 17">	
+					<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+					<SetVendor>
+						<Vendors>
+							<!-- Crossroads -->
+							<Vendor Name="Halija Whitestrider" Entry="3486" Type="Repair" X="-539.8406" Y="-2672.23" Z="95.78806" />
+						</Vendors>
+					</SetVendor>
+					
+					<!-- We are done vendoring, load the movement profile -->
+					<If Condition="Me.DurabilityPercent &gt; 0.8" >
+						<CustomBehavior File="Message" Text="Repairing complete, moving back to Wailing Caverns." LogColor="Fuchsia" />
+						<CustomBehavior File="LoadProfile" ProfileName="..\[QO-H-M][10-17]_wailing-caverns" />
+					</If>
+				</If>
+			</ElseIf>
+		</If>
+		
+		<!-- ******************************* NEUTRAL LOCATIONS ******************************* -->
+		
+	</QuestOrder>
+</HBProfile>
+
