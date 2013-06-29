@@ -98,7 +98,7 @@
 					<!-- Checking hearth location  -->
 					<If Condition="Me.HearthstoneAreaId != 380" >
 					
-						<!-- Fly to the innkeep in the wooden building -->
+						<!-- Fly to the innkeep in Crossroads -->
 						<CustomBehavior File="FlyTo" X="-436.0171" Y="-2652.57" Z="95.90172" />							
 						<CustomBehavior File="ForcedDismount" />
 						
@@ -117,7 +117,8 @@
 					</If>
 					
 					<!-- Fly to the rendezvous location -->
-					<CustomBehavior File="FlyTo" X="-893.7863" Y="-2516.694" Z="124.1028" />
+					<CustomBehavior File="FlyTo" X="-822.1351" Y="-2051.266" Z="156.889" />
+					<CustomBehavior File="FlyTo" X="-822.9109" Y="-2032.883" Z="118.7538" />
 					
 					<!-- Userdialog for wait timer at the rendezvous location -->
 					<CustomBehavior File="UserDialog" 
@@ -128,8 +129,9 @@
 									Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Wailing Caverns." 
 									Title="WARNING" />
 					
-					<!-- Clear a path to Wailing Caverns -->							
-					<CustomBehavior File="FlyTo" X="-863.1591" Y="-2432.762" Z="91.66699" />		
+					<!-- Clear the cave entrance -->
+					<CustomBehavior File="FlyTo" X="-861.9078" Y="-2053.188" Z="128.9105" />					
+					<CustomBehavior File="FlyTo" X="-874.9157" Y="-2048.126" Z="81.24489" />		
 					<CustomBehavior File="ForcedDismount" />
 					
 					<CustomBehavior File="UserSettings" 
@@ -140,26 +142,10 @@
 									KillBetweenHotspots="True" 
 									FindVendorsAutomatically="False" 
 									LogoutForInactivity="False" />
-									 
-					<RunTo X="-852.0339" Y="-2452.786" Z="92.80315" />
-					<RunTo X="-815.6991" Y="-2444.866" Z="94.38224" />
-					<RunTo X="-804.2856" Y="-2395.605" Z="93.89355" />
-					<RunTo X="-780.0939" Y="-2364.74" Z="91.66789" />
-					<RunTo X="-817.7755" Y="-2317.323" Z="93.51447" />
-					<RunTo X="-846.1703" Y="-2241.18" Z="91.66682" />
-					<RunTo X="-897.5204" Y="-2214.068" Z="92.52753" />
-					<RunTo X="-902.0153" Y="-2197.024" Z="93.81764" />
-					<RunTo X="-922.234" Y="-2223.641" Z="92.08912" />
-					<RunTo X="-914.2613" Y="-2154.22" Z="93.71262" />
-					<RunTo X="-882.426" Y="-2136.209" Z="94.49391" />
-					<RunTo X="-911.8362" Y="-2103.31" Z="88.38927" />
-					<RunTo X="-886.7564" Y="-2085.571" Z="88.04513" />
-					<RunTo X="-888.315" Y="-2076.77" Z="84.68707" />
-
-					<!-- cave entrance -->
-					<RunTo X="-843.8872" Y="-2036.018" Z="80.35157" />
-					
+									
 					<!-- clearing path to the deep pool -->
+					<RunTo X="-874.9157" Y="-2048.126" Z="81.24489" />
+					<RunTo X="-845.3076" Y="-2036.769" Z="80.62492" />
 					<RunTo X="-817.5399" Y="-2029.739" Z="80.60177" />
 					<RunTo X="-795.4626" Y="-2026.613" Z="80.26579" />
 					<RunTo X="-773.4341" Y="-2021.789" Z="76.40317" />
@@ -256,13 +242,13 @@
 			<!-- Userdialog zone check, the RAF toons must be in Razor Hill to initiate the profile, will stop the bot if not in Razor Hill -->
 			<If Condition="Me.ZoneId != 14" >
 				<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputDisabled_BotStop" 
-									Text="RAF Character - You must be in Razor Hill to run this profile. Please move your character to Razor Hill and restart the bot !!!" 	
-									Title="WARNING" />
+								AllowBotStop="False" 
+								SoundCue="Exclamation" 
+								SoundCueInterval="15" 
+								ExpiryTime="60"
+								ExpiryAction="InputDisabled_BotStop" 
+								Text="RAF Character - You must be in Razor Hill to run this profile. Please move your character to Razor Hill and restart the bot !!!" 	
+								Title="WARNING" />
 			</If>
 					
 			<!-- UserSettings -->		
@@ -307,9 +293,33 @@
 				<!-- Crossroads fp -->
 				<RunTo X="-440.4101" Y="-2598.192" Z="95.90119" />
 					
-				<!-- Rendezvous point at bonfire to let the 90 clear the way in -->
-				<RunTo X="-888.5677" Y="-2516.344" Z="95.61196" />
-					
+				<!-- Moving to rendezvous point -->
+				<RunTo X="-370.8054" Y="-2554.989" Z="95.76238" />
+				<RunTo X="-345.5038" Y="-2510.318" Z="95.03192" />
+				<RunTo X="-311.815" Y="-2324.678" Z="95.19239" />
+				<RunTo X="-375.0289" Y="-2273.022" Z="91.77106" />
+				<RunTo X="-413.6127" Y="-2276.745" Z="99.69715" />
+				<RunTo X="-428.3794" Y="-2275.713" Z="112.3494" />
+				<RunTo X="-444.9724" Y="-2269.12" Z="124.8052" />
+				<RunTo X="-463.2975" Y="-2260.366" Z="139.8785" />
+				<RunTo X="-462.1909" Y="-2259.29" Z="139.3919" />
+				<RunTo X="-495.1521" Y="-2250.546" Z="159.5644" />
+				<RunTo X="-498.952" Y="-2202.804" Z="168.986" />
+				<RunTo X="-524.6493" Y="-2205.024" Z="189.5688" />
+				<RunTo X="-567.3027" Y="-2213.253" Z="211.3178" />
+				
+				<!-- top of the mountain -->
+				<RunTo X="-651.1102" Y="-2174.293" Z="209.5255" />
+				<RunTo X="-682.2842" Y="-2131.344" Z="185.4299" />
+				<RunTo X="-715.8856" Y="-2100.931" Z="161.7306" />
+				<RunTo X="-732.8221" Y="-2067.034" Z="143.1757" />
+				<RunTo X="-744.7985" Y="-2028.176" Z="137.5862" />
+				<RunTo X="-787.2625" Y="-2032.571" Z="128.7428" />
+
+				<!-- jump from skull to rendezvous point -->
+				<CustomBehavior File="MyCTM" X="-787.2625" Y="-2032.571" Z="128.7428" />
+				<CustomBehavior File="MyCTM" X="-822.9109" Y="-2032.883" Z="118.7538" />
+				
 				<!-- Userdialog to for rendezvous -->
 				<CustomBehavior File="UserDialog" 
 								AllowBotStop="False" 
@@ -321,27 +331,15 @@
 					
 				<CustomBehavior File="Message" Text="Allowing the booster to be a boss and clear the way for us, do not touch." LogColor="Yellow" />				
 				
-				<!-- Wait timer to allow the 90 to clear the path to Wailing Caverns -->
-				<CustomBehavior File="Message" Text="Waiting 120 seconds for the booster to clear a path to the cave entrance." LogColor="Lime" />	
-				<CustomBehavior File="WaitTimer" WaitTime="120000" />						
-				
-				<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-					<Hotspot X="-885.0659" Y="-2504.491" Z="96.60329" />
-					<Hotspot X="-838.5757" Y="-2413.716" Z="92.51168" />
-					<Hotspot X="-823.035" Y="-2310.555" Z="93.84141" />
-					<Hotspot X="-842.0552" Y="-2247.033" Z="91.66793" />
-					<Hotspot X="-850.5436" Y="-2170.685" Z="92.33705" />
-					<Hotspot X="-877.2886" Y="-2065.442" Z="83.1242" />
-					<Hotspot X="-869.3866" Y="-2048.107" Z="81.47961" />
-					<Hotspot X="-844.7015" Y="-2036.754" Z="80.51234" />
-				</CustomBehavior>
-				
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->
-				<CustomBehavior File="Message" Text="Waiting 210 seconds for the booster to clear a path to the pool." LogColor="Lime" />					
-				<CustomBehavior File="WaitTimer" WaitTime="210000" />				
+				<CustomBehavior File="Message" Text="Waiting 90 seconds for the booster to clear a path to the water pool." LogColor="Lime" />	
+				<CustomBehavior File="WaitTimer" WaitTime="90000" />						
 				
+				<!-- Jump to the cave entrance -->			
+				<CustomBehavior File="MyCTM" X="-855.0632" Y="-2026.661" Z="83.83394" />
 				
 				<!-- Running up to the water pool -->
+				<CustomBehavior File="NoCombatMoveTo" X="-842.419" Y="-2036.363" Z="80.08213" />
 				<CustomBehavior File="NoCombatMoveTo" X="-816.1318" Y="-2028.385" Z="80.54436" />
 				<CustomBehavior File="NoCombatMoveTo" X="-794.6826" Y="-2025.565" Z="80.07104" />
 				<CustomBehavior File="NoCombatMoveTo" X="-760.21" Y="-2070.979" Z="71.30186" />
@@ -354,10 +352,9 @@
 				<CustomBehavior File="NoCombatMoveTo" X="-580.8381" Y="-2064.165" Z="56.05159" />
 				<CustomBehavior File="NoCombatMoveTo" X="-574.7474" Y="-2078.626" Z="53.81164" />
 
-				
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->		
-				<CustomBehavior File="Message" Text="Waiting 120 seconds for the booster to clear a path to the instance portal." LogColor="Lime" />	
-				<CustomBehavior File="WaitTimer" WaitTime="150000" />						
+				<CustomBehavior File="Message" Text="Waiting 90 seconds for the booster to clear a path to the instance portal." LogColor="Lime" />	
+				<CustomBehavior File="WaitTimer" WaitTime="90000" />						
 				
 				<CustomBehavior File="MyCTM" X="-574.4584" Y="-2090.842" Z="50.13843" />
 				<CustomBehavior File="MyCTM" X="-592.1352" Y="-2129.417" Z="51.1222" />
