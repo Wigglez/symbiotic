@@ -82,9 +82,26 @@
 					<!-- Waiting for the loading screen -->
 					<CustomBehavior File="WaitTimer" WaitTime="20000" />
 					
-					<!-- If we are in westfall, load the vendor profile -->
+					<!-- If we are in westfall, repair -->
 					<If Condition="Me.ZoneId == 40" >
-						<CustomBehavior File="LoadProfile" ProfileName="Vendors\[QO][10-85]_vendors" />
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="False" 
+										DoRepair="True" 
+										DoSell="False" 
+										DoTrain="False" />
+					
+						<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+						<SetVendor>
+							<Vendors>
+								<!-- Sentinel Hill -->
+								<Vendor Name="William MacGregor" Entry="1668" Type="Repair" X="-10653.31" Y="996.5868" Z="32.87417" />
+							</Vendors>
+						</SetVendor>
+						
+						<!-- We are done vendoring, load the movement profile -->
+						<If Condition="Me.DurabilityPercent &gt; 0.8" >
+							<CustomBehavior File="Message" Text="Repairing complete, moving back to Deadmines." LogColor="Fuchsia" />
+						</If>
 					</If>
 				</If>	
 			</If>
