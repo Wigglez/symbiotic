@@ -82,8 +82,8 @@
 					<!-- Waiting for the loading screen -->
 					<CustomBehavior File="WaitTimer" WaitTime="20000" />
 					
-					<!-- If we are in westfall, load the vendor profile -->
-					<If Condition="Me.ZoneId == 40" >
+					<!-- If we are in Northern Barrens, load the vendor profile -->
+					<If Condition="Me.ZoneId == 17" >
 						<CustomBehavior File="LoadProfile" ProfileName="Vendors\[QO][10-85]_vendors" />
 					</If>
 				</If>	
@@ -237,20 +237,6 @@
 					<RunTo X="-621.82" Y="-2202.792" Z="50.61024" />
 					<RunTo X="-632.5716" Y="-2183.499" Z="47.00837" />
 					<RunTo X="-657.0613" Y="-2183.97" Z="41.9343" />
-					<RunTo X="-671.0861" Y="-2192.049" Z="36.69332" />
-					<RunTo X="-680.6235" Y="-2190.357" Z="34.76002" />
-					<RunTo X="-684.0012" Y="-2181.166" Z="33.1307" />
-					<RunTo X="-697.7839" Y="-2191.592" Z="29.3417" />
-					<RunTo X="-715.2296" Y="-2199.625" Z="22.97827" />
-					<RunTo X="-716.1396" Y="-2209.211" Z="21.1716" />
-					<RunTo X="-712.2043" Y="-2228.817" Z="18.17494" />
-					<RunTo X="-686.0572" Y="-2244.075" Z="17.3362" />
-					<RunTo X="-693.8258" Y="-2255.435" Z="16.86273" />
-					<RunTo X="-700.6442" Y="-2258.595" Z="15.98141" />
-					<RunTo X="-702.1838" Y="-2276.153" Z="16.50973" />
-					<RunTo X="-712.2076" Y="-2261.931" Z="14.36053" />
-					<RunTo X="-724.9512" Y="-2248.866" Z="15.97388" />
-					<RunTo X="-728.4616" Y="-2223.447" Z="17.23579" />
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66945" />
 
 					<!-- Inside the instance box, load the Wailing Cavers profile -->
@@ -356,19 +342,18 @@
 				
 				
 				<!-- Running up to the water pool -->
-				<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-					<Hotspot X="-816.1318" Y="-2028.385" Z="80.54436" />
-					<Hotspot X="-794.6826" Y="-2025.565" Z="80.07104" />
-					<Hotspot X="-760.21" Y="-2070.979" Z="71.30186" />
-					<Hotspot X="-739.7421" Y="-2056.071" Z="69.7639" />
-					<Hotspot X="-715.2036" Y="-2047.305" Z="66.22987" />
-					<Hotspot X="-685.0443" Y="-2047.658" Z="65.82668" />
-					<Hotspot X="-650.1683" Y="-2025.976" Z="66.14787" />
-					<Hotspot X="-620.9482" Y="-2023.055" Z="63.15758" />
-					<Hotspot X="-584.3104" Y="-2042.518" Z="57.56756" />
-					<Hotspot X="-580.8381" Y="-2064.165" Z="56.05159" />
-					<Hotspot X="-574.7474" Y="-2078.626" Z="53.81164" />
-				</CustomBehavior>
+				<CustomBehavior File="NoCombatMoveTo" X="-816.1318" Y="-2028.385" Z="80.54436" />
+				<CustomBehavior File="NoCombatMoveTo" X="-794.6826" Y="-2025.565" Z="80.07104" />
+				<CustomBehavior File="NoCombatMoveTo" X="-760.21" Y="-2070.979" Z="71.30186" />
+				<CustomBehavior File="NoCombatMoveTo" X="-739.7421" Y="-2056.071" Z="69.7639" />
+				<CustomBehavior File="NoCombatMoveTo" X="-715.2036" Y="-2047.305" Z="66.22987" />
+				<CustomBehavior File="NoCombatMoveTo" X="-685.0443" Y="-2047.658" Z="65.82668" />
+				<CustomBehavior File="NoCombatMoveTo" X="-650.1683" Y="-2025.976" Z="66.14787" />
+				<CustomBehavior File="NoCombatMoveTo" X="-620.9482" Y="-2023.055" Z="63.15758" />
+				<CustomBehavior File="NoCombatMoveTo" X="-584.3104" Y="-2042.518" Z="57.56756" />
+				<CustomBehavior File="NoCombatMoveTo" X="-580.8381" Y="-2064.165" Z="56.05159" />
+				<CustomBehavior File="NoCombatMoveTo" X="-574.7474" Y="-2078.626" Z="53.81164" />
+
 				
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->		
 				<CustomBehavior File="Message" Text="Waiting 120 seconds for the booster to clear a path to the instance portal." LogColor="Lime" />	
@@ -378,18 +363,16 @@
 				<CustomBehavior File="MyCTM" X="-592.1352" Y="-2129.417" Z="51.1222" />
 				
 				<!-- Running past the water pool and into the instance box -->
-				<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
-					<Hotspot X="-607.9849" Y="-2151.013" Z="51.03981" />
-					<Hotspot X="-604.5501" Y="-2171.912" Z="51.54601" />
-					<Hotspot X="-613.9857" Y="-2182.038" Z="49.74071" />
-					<Hotspot X="-667.1196" Y="-2190.532" Z="38.17731" />
-					<Hotspot X="-711.1055" Y="-2194.019" Z="24.47985" />
-					<Hotspot X="-719.1608" Y="-2206.083" Z="21.33791" />
-					<Hotspot X="-720.6035" Y="-2221.531" Z="17.36246" />
-					<Hotspot X="-728.4053" Y="-2225.891" Z="17.30907" />
-					<Hotspot X="-738.462" Y="-2217.8" Z="16.66931" />
-				</CustomBehavior>
-				
+				<CustomBehavior File="NoCombatMoveTo" X="-607.9849" Y="-2151.013" Z="51.03981" />
+				<CustomBehavior File="NoCombatMoveTo" X="-604.5501" Y="-2171.912" Z="51.54601" />
+				<CustomBehavior File="NoCombatMoveTo" X="-613.9857" Y="-2182.038" Z="49.74071" />
+				<CustomBehavior File="NoCombatMoveTo" X="-667.1196" Y="-2190.532" Z="38.17731" />
+				<CustomBehavior File="NoCombatMoveTo" X="-711.1055" Y="-2194.019" Z="24.47985" />
+				<CustomBehavior File="NoCombatMoveTo" X="-719.1608" Y="-2206.083" Z="21.33791" />
+				<CustomBehavior File="NoCombatMoveTo" X="-720.6035" Y="-2221.531" Z="17.36246" />
+				<CustomBehavior File="NoCombatMoveTo" X="-728.4053" Y="-2225.891" Z="17.30907" />
+				<CustomBehavior File="NoCombatMoveTo" X="-738.462" Y="-2217.8" Z="16.66931" />
+
 				<!-- Inside the instance box, load the Wailing Caverns profile -->
 				<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
 					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-H][10-17]_wailing-caverns" />

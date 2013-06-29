@@ -172,17 +172,30 @@
 
 		<!-- RAF Toons -->
 		<If Condition="Me.Level &lt;= 85">
+		
+			<!-- Userdialog zone check, the RAF toons must be in Goldshire to initiate the profile, will stop the bot if not in Goldshire -->
+			<If Condition="Me.ZoneId != 12" >
+				<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryTime="60"
+									ExpiryAction="InputDisabled_BotStop" 
+									Text="RAF Character - You must be in Goldshire to run this profile. Please move your character to Elwynn Forest and restart the bot !!!" 	
+									Title="WARNING" />
+			</If>
+				
+			<!-- UserSettings -->
 			<CustomBehavior File="UserSettings" 
-							UseFlightPaths="True" 
 							LootMobs="False" 
+							SkinMobs="False" 
 							LootRadius="1" 
 							LootChests="False" 
-							SkinMobs="False" 
 							PullDistance="1" 
 							KillBetweenHotspots="False" 
-							FindVendorsAutomatically="False" />
-							
-							
+							FindVendorsAutomatically="False"
+							LogoutForInactivity="False"	/>
+				
 			<!-- Outside the instance box -->				
 			<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
 				<CustomBehavior File="Message" Text="Moving to Westfall." LogColor="Lime" />
