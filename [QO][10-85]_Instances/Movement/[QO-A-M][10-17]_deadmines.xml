@@ -98,7 +98,7 @@
 							</Vendors>
 						</SetVendor>
 						
-						<!-- We are done vendoring, load the movement profile -->
+						<!-- We are done vendoring -->
 						<If Condition="Me.DurabilityPercent &gt; 0.8" >
 							<CustomBehavior File="Message" Text="Repairing complete, moving back to Deadmines." LogColor="Fuchsia" />
 						</If>

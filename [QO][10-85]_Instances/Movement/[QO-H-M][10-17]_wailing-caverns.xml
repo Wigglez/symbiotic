@@ -82,9 +82,26 @@
 					<!-- Waiting for the loading screen -->
 					<CustomBehavior File="WaitTimer" WaitTime="20000" />
 					
-					<!-- If we are in Northern Barrens, load the vendor profile -->
+					<!-- If we are in Northern Barrens,  repair -->
 					<If Condition="Me.ZoneId == 17" >
-						<CustomBehavior File="LoadProfile" ProfileName="Vendors\[QO][10-85]_vendors" />
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="False" 
+										DoRepair="True" 
+										DoSell="False" 
+										DoTrain="False" />
+								
+						<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+						<SetVendor>
+							<Vendors>
+								<!-- Crossroads -->
+								<Vendor Name="Halija Whitestrider" Entry="3486" Type="Repair" X="-539.8406" Y="-2672.23" Z="95.78806" />
+							</Vendors>
+						</SetVendor>
+						
+						<!-- We are done vendoring -->
+						<If Condition="Me.DurabilityPercent &gt; 0.8" >
+							<CustomBehavior File="Message" Text="Repairing complete, moving back to Wailing Caverns." LogColor="Fuchsia" />
+						</If>
 					</If>
 				</If>	
 			</If>					
