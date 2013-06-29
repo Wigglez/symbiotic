@@ -300,9 +300,13 @@
 				<!-- Run to the Northern Barrens bridge -->
 				<RunTo X="317.3519" Y="-3797.475" Z="21.95525" />
 				
-				<!-- Begin to run like hell when mobs can become a problem -->
+				<!-- Run across the bridge -->
+				<CustomBehavior File="MyCTM" X="312.7606" Y="-3721.271" Z="26.39779" />
+				
+				<!-- Run to the horde camp before the tower -->
 				<RunTo X="116.9753" Y="-3121.707" Z="95.82523" />
 				
+				<!-- Begin to run like hell when mobs can become a problem -->
 				<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
 					<Hotspot X="100.4672" Y="-3067.103" Z="96.9883" />
 					<Hotspot X="94.01588" Y="-3017.355" Z="93.423" />
