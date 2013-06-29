@@ -287,10 +287,10 @@
 				<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
 				
 				<!-- Run to the Northern Barrens bridge -->
-				<RunTo X="317.3519" Y="-3797.475" Z="21.95525" />
+				<RunTo X="281.0421" Y="-3798.895" Z="19.48378" />
 				
-				<!-- Run across the bridge -->
-				<CustomBehavior File="MyCTM" X="312.7606" Y="-3721.271" Z="26.39779" />
+				<!-- Swim across the river -->
+				<CustomBehavior File="MyCTM" X="269.7013" Y="-3721.605" Z="19.61501" />
 				
 				<!-- Run to the horde camp before the tower -->
 				<RunTo X="116.9753" Y="-3121.707" Z="95.82523" />
@@ -310,32 +310,33 @@
 				<!-- Crossroads fp -->
 				<RunTo X="-440.4101" Y="-2598.192" Z="95.90119" />
 					
-				<!-- Moving to rendezvous point -->
-				<RunTo X="-370.8054" Y="-2554.989" Z="95.76238" />
-				<RunTo X="-345.5038" Y="-2510.318" Z="95.03192" />
-				<RunTo X="-311.815" Y="-2324.678" Z="95.19239" />
-				<RunTo X="-375.0289" Y="-2273.022" Z="91.77106" />
-				<RunTo X="-413.6127" Y="-2276.745" Z="99.69715" />
-				<RunTo X="-428.3794" Y="-2275.713" Z="112.3494" />
-				<RunTo X="-444.9724" Y="-2269.12" Z="124.8052" />
-				<RunTo X="-463.2975" Y="-2260.366" Z="139.8785" />
-				<RunTo X="-462.1909" Y="-2259.29" Z="139.3919" />
-				<RunTo X="-495.1521" Y="-2250.546" Z="159.5644" />
-				<RunTo X="-498.952" Y="-2202.804" Z="168.986" />
-				<RunTo X="-524.6493" Y="-2205.024" Z="189.5688" />
-				<RunTo X="-567.3027" Y="-2213.253" Z="211.3178" />
+				<!-- Moving out of crossroads -->
+				<RunTo X="-335.1192" Y="-2356.557" Z="91.85287" />
 				
-				<!-- top of the mountain -->
-				<RunTo X="-651.1102" Y="-2174.293" Z="209.5255" />
-				<RunTo X="-682.2842" Y="-2131.344" Z="185.4299" />
-				<RunTo X="-715.8856" Y="-2100.931" Z="161.7306" />
-				<RunTo X="-732.8221" Y="-2067.034" Z="143.1757" />
-				<RunTo X="-744.7985" Y="-2028.176" Z="137.5862" />
-				<RunTo X="-787.2625" Y="-2032.571" Z="128.7428" />
+				
+				<!-- Moving to the top of the mountain -->
+				<CustomBehavior File="MyCTM" X="-403.7427" Y="-2285.069" Z="94.53511" />
+				<CustomBehavior File="MyCTM" X="-479.0771" Y="-2253.584" Z="154.0482" />
+				<CustomBehavior File="MyCTM" X="-501.3399" Y="-2238.792" Z="160.3741" />
+				<CustomBehavior File="MyCTM" X="-463.8643" Y="-2219.198" Z="130.3389" />
+				<CustomBehavior File="MyCTM" X="-435.5207" Y="-2191.104" Z="131.8416" />
+				<CustomBehavior File="MyCTM" X="-498.793" Y="-2202.333" Z="168.9449" />
+				<CustomBehavior File="MyCTM" X="-510.8374" Y="-2205.101" Z="180.2615" />
+				<CustomBehavior File="MyCTM" X="-523.5939" Y="-2203.066" Z="188.8433" />
+				<CustomBehavior File="MyCTM" X="-535.4635" Y="-2205.008" Z="196.521" />
+				<CustomBehavior File="MyCTM" X="-552.4965" Y="-2213.668" Z="208.7137" />
+				<CustomBehavior File="MyCTM" X="-569.4303" Y="-2214.125" Z="211.333" />
+				<CustomBehavior File="MyCTM" X="-587.4248" Y="-2190.49" Z="211.3356" />
+				<CustomBehavior File="MyCTM" X="-649.8635" Y="-2176.162" Z="210.0945" />
 
-				<!-- Jump from skull to rendezvous point -->
-				<CustomBehavior File="MyCTM" X="-787.2625" Y="-2032.571" Z="128.7428" />
-				<CustomBehavior File="MyCTM" X="-822.9109" Y="-2032.883" Z="118.7538" />
+				<!-- Moving to the skull  -->
+				<CustomBehavior File="MyCTM" X="-682.7202" Y="-2126.432" Z="183.4675" />
+				<CustomBehavior File="MyCTM" X="-714.7794" Y="-2099.706" Z="161.5443" />
+				<CustomBehavior File="MyCTM" X="-733.6051" Y="-2065.038" Z="141.9098" />
+				<CustomBehavior File="MyCTM" X="-738.9916" Y="-2049.278" Z="131.6281" />
+				<CustomBehavior File="MyCTM" X="-767.28" Y="-2016.178" Z="132.9215" />
+				<CustomBehavior File="MyCTM" X="-812.3369" Y="-2052.22" Z="115.4197" />
+				<CustomBehavior File="MyCTM" X="-819.8129" Y="-2025.358" Z="117.2773" />
 				
 				<!-- Userdialog to for rendezvous -->
 				<CustomBehavior File="UserDialog" 
@@ -353,7 +354,7 @@
 				<CustomBehavior File="WaitTimer" WaitTime="165000" />						
 				
 				<!-- Jump to the cave entrance -->			
-				<CustomBehavior File="MyCTM" X="-855.0632" Y="-2026.661" Z="83.83394" />
+				<CustomBehavior File="MyCTM" X="-851.8849" Y="-2019.86" Z="86.17676" />
 				
 				<!-- Running up to the water pool -->
 				<CustomBehavior File="NoCombatMoveTo" X="-842.419" Y="-2036.363" Z="80.08213" />
