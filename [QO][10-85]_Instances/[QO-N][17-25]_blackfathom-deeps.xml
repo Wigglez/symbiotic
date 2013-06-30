@@ -98,7 +98,7 @@
 				</If>
 				
 				<!-- If we are outside Blackfathom Deeps (Ashenvale) -->
-				<If Condition="Me.MapId == 1">		
+				<If Condition="(Me.MapId == 1) || (Me.MapId == 0)">		
 					<!-- If we are not in the box, load the movement profile -->
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
 						<CustomBehavior File="Message" 
@@ -158,7 +158,9 @@
 										WaitTime="15000" />
 						
 						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-					</If>		
+					</If>	
+
+					
 				</If>
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
