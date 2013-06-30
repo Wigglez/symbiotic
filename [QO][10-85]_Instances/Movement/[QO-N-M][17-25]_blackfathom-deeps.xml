@@ -358,67 +358,67 @@
 						<CustomBehavior File="FlyTo" 
 										X="2732.895" Y="-369.8049" Z="187.9785" />
 					</If>
-					
-					<!-- Kalimdor -->
-					<ElseIf Condition="Me.MapId == 1" >
-						<If Condition="Me.IsHorde" >
-						
-							<!-- Checking hearth location  -->
-							<If Condition="Me.HearthstoneAreaId != 2897" >
-							
-								<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
-								<CustomBehavior File="FlyTo" 
-												X="3373.338" Y="988.2792" Z="36.89017" />
-												
-								<!-- front doorway of the inn -->				
-								<CustomBehavior File="FlyTo" 
-												X="3364.353" Y="968.8149" Z="7.404068" />				
-								<CustomBehavior File="ForcedDismount" />
-								
-								<!-- Run inside the inn -->
-								<RunTo X="3360.768" Y="953.8776" Z="7.404068" />
-								
-								<!-- Set hearthstone -->
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="1000" />
-								<CustomBehavior File="Message" 
-												Text="Setting my Hearthstone." 
-												LogColor="Lime" />
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="1000" />
-								<CustomBehavior File="SetHearthstone" 
-												MobId="43606" 
-												X="3360.08" Y="950.816" Z="7.404466" />
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="1000" />
-								
-								<!-- Run outside the inn -->
-								<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
-								
-								<!-- ForcedMount, and fly above the village -->
-								<CustomBehavior File="ForcedMount"
-												MountType="Flying" />
-								<CustomBehavior File="FlyTo" 
-												X="3373.338" Y="988.2792" Z="36.89017" />
-							</If>
-						</If>
-						
-						<!-- Fly to the rendezvous location -->
-						<CustomBehavior File="FlyTo" 
-										X="3957.003" Y="692.6785" Z="30.52476" />
-						
-						<!-- Userdialog for wait timer at the rendezvous location -->
-						<CustomBehavior File="UserDialog" 
-										AllowBotStop="False" 
-										SoundCue="Exclamation" 
-										SoundCueInterval="15" 
-										ExpiryAction="InputEnabled_Continue" 
-										Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
-										Title="WARNING" />
-
-						<!-- Movement from rendezvous to the instance box, universal-->		
-					</ElseIf>
 				</If>
+				
+				<!-- Kalimdor -->
+				<ElseIf Condition="Me.MapId == 1" >
+					<If Condition="Me.IsHorde" >
+					
+						<!-- Checking hearth location  -->
+						<If Condition="Me.HearthstoneAreaId != 2897" >
+						
+							<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
+							<CustomBehavior File="FlyTo" 
+											X="3373.338" Y="988.2792" Z="36.89017" />
+											
+							<!-- front doorway of the inn -->				
+							<CustomBehavior File="FlyTo" 
+											X="3364.353" Y="968.8149" Z="7.404068" />				
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Run inside the inn -->
+							<RunTo X="3360.768" Y="953.8776" Z="7.404068" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="43606" 
+											X="3360.08" Y="950.816" Z="7.404466" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							
+							<!-- Run outside the inn -->
+							<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
+							
+							<!-- ForcedMount, and fly above the village -->
+							<CustomBehavior File="ForcedMount"
+											MountType="Flying" />
+							<CustomBehavior File="FlyTo" 
+											X="3373.338" Y="988.2792" Z="36.89017" />
+						</If>
+					</If>
+				</ElseIf>
+				
+				<!-- Fly to the rendezvous location -->
+				<CustomBehavior File="FlyTo" 
+								X="3957.003" Y="692.6785" Z="30.52476" />
+				
+				<!-- Userdialog for wait timer at the rendezvous location -->
+				<CustomBehavior File="UserDialog" 
+								AllowBotStop="False" 
+								SoundCue="Exclamation" 
+								SoundCueInterval="15" 
+								ExpiryAction="InputEnabled_Continue" 
+								Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
+								Title="WARNING" />
+
+				<!-- Movement from rendezvous to the instance box, universal-->		
 			</If>
 		</If>			
 				
