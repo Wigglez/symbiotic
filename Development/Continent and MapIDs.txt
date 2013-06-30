@@ -1,0 +1,190 @@
+Continent ID List for Profile Writers
+
+0: Eastern Kingdoms
+1: Kalimdor
+
+30: Alterac Valley
+33: Shadowfang Keep
+34: Stormwind Stockade
+36: Deadmines
+37: Azshara Crater
+
+43: Wailing Caverns
+47: Razorfen Kraul
+48: Blackfathom Deeps
+
+70: Uldaman
+
+90: Gnomeregan
+
+109: Sunken Temple
+
+129: Razorfen Downs
+
+169: Emerald Dream
+
+189: Scarlet Monastery
+
+209: Zul'Farrak
+
+229: Blackrock Spire
+
+230: Blackrock Depths
+
+249: Onyxia's Lair
+
+269: Opening of the Dark Portal
+
+289: Scholomance
+
+309: Zul'Gurub
+
+329: Stratholme
+
+349: Maraudon
+
+369: Deeprun Tram
+
+389: Ragefire Chasm
+
+409: Molten Core
+
+429: Dire Maul
+
+449: Alliance PVP Barracks
+
+450: Horde PVP Barracks
+
+469: Blackwing Lair
+
+489: Warsong Gulch
+
+509: Ruins of Ahn'Qiraj
+
+529: Arathi Basin
+
+530: Outland
+531: Ahn'Qiraj Temple
+532: Karazhan
+533: Naxxramas
+534: The Battle for Mount Hyjal
+
+540: Hellfire Citadel: The Shattered Halls
+542: Hellfire Citadel: The Blood Furnace
+543: Hellfire Citadel: Ramparts
+544: Magtheridon's Lair
+545: Coilfang: The Steamvault
+546: Coilfang: The Underbog
+547: Coilfang: The Slave Pens
+548: Coilfang: Serpentshrine Cavern
+
+550: Tempest Keep
+552: Tempest Keep: The Arcatraz
+553: Tempest Keep: The Botanica
+554: Tempest Keep: The Mechanar
+555: Auchindoun: Shadow Labyrinth
+556: Auchindoun: Sethekk Halls
+557: Auchindoun: Mana-Tombs
+558: Auchindoun: Auchenai Crypts
+559: Nagrand Arena
+
+560: The Escape From Durnholde
+562: Blade's Edge Arena
+564: Black Temple
+565: Gruul's Lair
+566: Eye of the Storm
+568: Zul'Aman
+
+571: Northrend
+572: Ruins of Lordaeron
+574: Utgarde Keep
+575: Utgarde Pinnacle
+576: The Nexus
+578: The Oculus
+
+580: The Sunwell
+585: Magister's Terrace
+
+595: The Culling of Stratholme
+599: Halls of Stone
+
+600: Drak'Tharon Keep
+601: Azjol-Nerub
+602: Halls of Lightning
+603: Ulduar
+604: Gundrak
+607: Strand of the Ancients
+608: Violet Hold
+609: Ebon Hold
+
+615: The Obsidian Sanctum
+616: The Eye of Eternity
+617: Dalaran Sewers
+618: The Ring of Valor
+619: Ahn'kahet: The Old Kingdom
+
+624: Vault of Archavon
+628: Isle of Conquest
+
+631: Icecrown Citadel
+632: The Forge of Souls
+637: Abyssal Maw Exterior
+638: Gilneas
+
+643: Throne of the Tides
+644: Halls of Origination
+645: Blackrock Caverns
+646: Deepholm
+648: Lost Isles / Kezan
+649: Trial of the Crusader
+
+650: Trial of the Champion
+654: Gilneas2
+655: GilneasPhase1
+656: GilneasPhase2
+657: The Vortex Pinnacle
+658: Pit of Saron
+659: Lost Isles Volcano Eruption
+
+661: Lost Isles Town in a Box
+668: Halls of Reflection
+669: Blackwing Descent
+
+670: Grim Batol
+671: The Bastion of Twilight
+
+719: Mount Hyjal Phase 1
+
+720: Firelands
+721: Firelands Terrain 2
+723: Stormwind
+724: The Ruby Sanctum
+725: The Stonecore
+726: Twin Peaks
+727: STV Diamond Mine BG
+728: The Battle for Gilneas (Old City Map)
+
+730: Maelstrom Zone
+731: Stonetalon Bomb
+732: Tol Barad
+734: Ahn'Qiraj Terrace
+736: Twilight Highlands Dragonmaw Phase
+739: Vashj'ir Sub - Horde
+
+740: Vashj'ir Sub - Alliance
+742: Vashj'ir Sub - Horde - Circling Abyssal Maw
+743: Vashj'ir Sub - Alliance circling Abyssal Maw
+746: Uldum Phase Oasis
+
+751: Redridge - Orc Bomb
+752: Redridge - Bridge Phase One
+753: Redridge - Bridge Phase Two
+754: Throne of the Four Winds
+755: Lost City of the Tol'vir
+757: Baradin Hold
+759: Uldum Phased Entrance
+760: Twilight Highlands Phased Entrance
+761: The Battle for Gilneas
+762: Twilight Highlands Zeppelin 1
+763: Twilight Highlands Zeppelin 2
+870: Pandaria

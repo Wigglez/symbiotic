@@ -50,11 +50,12 @@
 		
 		
 		<!-- Booster -->
-		<If Condition="Me.Level == 90">
+		<If Condition="Me.Level == 100">
 		
 			<!-- Booster UseerSettings -->
 			<CustomBehavior File="UserSettings" 
-							LootMobs="False" 
+							LootMobs="False"
+							UseFlightPaths="True"
 							SkinMobs="False" 
 							LootRadius="1" 
 							LootChests="False" 
@@ -65,12 +66,12 @@
 						
 			<CustomBehavior File="Message" 
 							Text="Testing inside of the box." 
-							LogColor="Cyan" />
+							LogColor="Lime" />
 			<!-- If we are inside of the box -->
 			<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 				<CustomBehavior File="Message" 
 								Text="We are in the box." 
-								LogColor="Cyan" />
+								LogColor="Lime" />
 				<!-- If we need to repair -->
 				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 				
@@ -87,7 +88,7 @@
 					<If Condition="HasItem(6948)">
 						<CustomBehavior File="Message" 
 										Text="Using Hearthstone." 
-										LogColor="Cyan" />
+										LogColor="Lime" />
 						
 						<CustomBehavior File="Misc\RunLua" 
 										Lua="UseItemByName(6948)" 
@@ -98,7 +99,7 @@
 							
 							<CustomBehavior File="Message" 
 											Text="Using Innkeeper's Daughter." 
-											LogColor="Cyan" />
+											LogColor="Lime" />
 											
 							<CustomBehavior File="Misc\RunLua" 
 											Lua="UseItemByName(64488)" 
@@ -108,7 +109,7 @@
 						<!-- Waiting for the loading screen -->
 						<CustomBehavior File="Message" 
 										Text="We have successfully hearthed. Waiting 20 seconds to load." 
-										LogColor="Cyan" />
+										LogColor="Lime" />
 										
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="20000" />
@@ -184,7 +185,7 @@
 						
 						<CustomBehavior File="Message" 
 										Text="In transit to Blackfathom Deeps." 
-										LogColor="Cyan" />
+										LogColor="Lime" />
 						
 						<!-- Fly above stairs leading to BFD -->
 						<CustomBehavior File="FlyTo" 
@@ -213,136 +214,20 @@
 			
 			<CustomBehavior File="Message" 
 							Text="Testing outside of the box." 
-							LogColor="Cyan" />
+							LogColor="Lime" />
 							
 			<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+				<CustomBehavior File="Message" 
+								Text="We are not in the box." 
+								LogColor="Lime" />
+				
 				<!-- If we are on Kalimdor and need to get to Ashenvale -->
 				<If Condition="Me.MapId == 1" >
-					<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
-					<!-- If our hearthstone is set here, use it -->
-					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
-						<!-- If we have our Hearthstone, use it -->
-						<If Condition="HasItem(6948)">
-							<CustomBehavior File="Message" 
-											Text="Using Hearthstone." 
-											LogColor="Cyan" />
-						
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(6948)" 
-											WaitTime="1000" />
-							
-							<!-- Otherwise use the Innkeeper's Daughter -->
-							<ElseIf Condition="HasItem(64488)">
-								<CustomBehavior File="Message" 
-												Text="Using Innkeeper's Daughter." 
-												LogColor="Cyan" />
-							
-								<CustomBehavior File="Misc\RunLua" 
-												Lua="UseItemByName(64488)" 
-												WaitTime="1000" />
-							</ElseIf>
-							
-							<!-- Waiting for the loading screen -->
-							<CustomBehavior File="Message" 
-											Text="We have successfully hearthed. Waiting 20 seconds to load." 
-											LogColor="Cyan" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
-						</If>
-						
-						<!-- Our hearth isn't set, we need to go to the zone -->
-						<Else>
-							<CustomBehavior File="Message" 
-											Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
-											LogColor="Cyan" />
-							<If Condition="Me.IsAlliance">
-								<!-- Checking hearth location  -->
-								<If Condition="Me.HearthstoneAreaId != 415" >
-								
-									<CustomBehavior File="Message" 
-													Text="Flying to Astranaar." 
-													LogColor="Cyan" />
-								
-									<!-- Fly to the hover point above the innkeep in Astranaar -->
-									<CustomBehavior File="FlyTo" 
-													X="3373.338" Y="988.2792" Z="36.89017" />
-													
-									<!-- front doorway of the inn -->
-									<CustomBehavior File="FlyTo" 
-													X="2734.027" Y="-398.2517" Z="107.9804" />							
-									<CustomBehavior File="ForcedDismount" />
-									
-									<!-- Run inside the inn -->
-									<RunTo X="2776.844" Y="-430.8567" Z="116.5795" />
-									
-									<!-- Set hearthstone -->
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									<CustomBehavior File="Message" 
-													Text="Setting my Hearthstone." 
-													LogColor="Lime" />
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									<CustomBehavior File="SetHearthstone" 
-													MobId="6738" 
-													X="2781.156" Y="-432.9972" Z="116.5812" />
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									
-									<!-- Run outside the inn -->
-									<RunTo X="2734.027" Y="-398.2517" Z="107.9804" />
-									
-									<!-- ForcedMount, and fly above the village -->
-									<CustomBehavior File="ForcedMount"
-													MountType="Flying" />
-									<CustomBehavior File="FlyTo" 
-													X="2732.895" Y="-369.8049" Z="187.9785" />
-								</If>
-								
-								<ElseIf Condition="Me.IsHorde">
-									<CustomBehavior File="Message" 
-													Text="Flying to Zoram'gar Outpost." 
-													LogColor="Cyan" />
-										
-									<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
-									<CustomBehavior File="FlyTo" 
-													X="3373.338" Y="988.2792" Z="36.89017" />
-													
-									<!-- front doorway of the inn -->				
-									<CustomBehavior File="FlyTo" 
-													X="3364.353" Y="968.8149" Z="7.404068" />				
-									<CustomBehavior File="ForcedDismount" />
-									
-									<!-- Run inside the inn -->
-									<RunTo X="3360.768" Y="953.8776" Z="7.404068" />
-									
-									<!-- Set hearthstone -->
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									<CustomBehavior File="Message" 
-													Text="Setting my Hearthstone." 
-													LogColor="Lime" />
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									<CustomBehavior File="SetHearthstone" 
-													MobId="43606" 
-													X="3360.08" Y="950.816" Z="7.404466" />
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									
-									<!-- Run outside the inn -->
-									<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
-								</ElseIf>
-							</If>
-						</Else>
-					</If>
-					
 					<!-- Alliance in EK, move to SW docks-->
 					<ElseIf Condition="Me.MapId == 0">
 						<CustomBehavior File="Message" 
 										Text="We are in Eastern Kingdoms." 
-										LogColor="Cyan" />
+										LogColor="Lime" />
 										
 						<If Condition="Me.IsAlliance">
 							<CustomBehavior File="Message" 
@@ -397,11 +282,130 @@
 											UseMount="True"	/>
 						</If>
 					</ElseIf>
+					
+					<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
+					<!-- If our hearthstone is set here, use it -->
+					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
+						<!-- If we have our Hearthstone, use it -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
 						
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+							
+							<!-- Otherwise use the Innkeeper's Daughter -->
+							<ElseIf Condition="HasItem(64488)">
+								<CustomBehavior File="Message" 
+												Text="Using Innkeeper's Daughter." 
+												LogColor="Lime" />
+							
+								<CustomBehavior File="Misc\RunLua" 
+												Lua="UseItemByName(64488)" 
+												WaitTime="1000" />
+							</ElseIf>
+							
+							<!-- Waiting for the loading screen -->
+							<CustomBehavior File="Message" 
+											Text="We have successfully hearthed. Waiting 20 seconds to load." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+						</If>
+						
+						<!-- Our hearth isn't set, we need to go to the zone -->
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+											LogColor="Lime" />
+							<If Condition="Me.IsAlliance">
+								<!-- Checking hearth location  -->
+								<If Condition="Me.HearthstoneAreaId != 415" >
+								
+									<CustomBehavior File="Message" 
+													Text="Flying to Astranaar." 
+													LogColor="Lime" />
+								
+									<!-- Fly to the hover point above the innkeep in Astranaar -->
+									<CustomBehavior File="FlyTo" 
+													X="2721.863" Y="-385.5038" Z="142.7964" />
+													
+									<!-- front doorway of the inn -->
+									<CustomBehavior File="FlyTo" 
+													X="2740.226" Y="-400.2375" Z="108.7305" />							
+									<CustomBehavior File="ForcedDismount" />
+									
+									<!-- Run inside the inn -->
+									<RunTo X="2776.844" Y="-430.8567" Z="116.5795" />
+									
+									<!-- Set hearthstone -->
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									<CustomBehavior File="Message" 
+													Text="Setting my Hearthstone." 
+													LogColor="Lime" />
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									<CustomBehavior File="SetHearthstone" 
+													MobId="6738" 
+													X="2781.156" Y="-432.9972" Z="116.5812" />
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									
+									<!-- Run outside the inn -->
+									<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
+									
+									<!-- ForcedMount, and fly above the village -->
+									<CustomBehavior File="ForcedMount"
+													MountType="Flying" />
+									<CustomBehavior File="FlyTo" 
+													X="2721.863" Y="-385.5038" Z="142.7964" />
+								</If>
+								
+								<ElseIf Condition="Me.IsHorde">
+									<CustomBehavior File="Message" 
+													Text="Flying to Zoram'gar Outpost." 
+													LogColor="Lime" />
+										
+									<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
+									<CustomBehavior File="FlyTo" 
+													X="3373.338" Y="988.2792" Z="36.89017" />
+													
+									<!-- front doorway of the inn -->				
+									<CustomBehavior File="FlyTo" 
+													X="3364.353" Y="968.8149" Z="7.404068" />				
+									<CustomBehavior File="ForcedDismount" />
+									
+									<!-- Run inside the inn -->
+									<RunTo X="3360.768" Y="953.8776" Z="7.404068" />
+									
+									<!-- Set hearthstone -->
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									<CustomBehavior File="Message" 
+													Text="Setting my Hearthstone." 
+													LogColor="Lime" />
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									<CustomBehavior File="SetHearthstone" 
+													MobId="43606" 
+													X="3360.08" Y="950.816" Z="7.404466" />
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									
+									<!-- Run outside the inn -->
+									<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
+								</ElseIf>
+							</If>
+						</Else>
+					</If>
 					
 					<CustomBehavior File="Message" 
 									Text="Flying to the rendezvous location." 
-									LogColor="Cyan" />
+									LogColor="Lime" />
 											
 					<!-- Fly to the rendezvous location -->
 					<CustomBehavior File="FlyTo" 
@@ -416,20 +420,93 @@
 									Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
 									Title="WARNING" />
 
-					<!-- Movement from rendezvous to the instance box, universal-->		
+					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
+					<CustomBehavior File="FlyTo" 
+									X="3904.426" Y="728.8086" Z="9.670012" />
+					<CustomBehavior File="ForcedDismount" />
+					<CustomBehavior File="UserSettings" 
+									UseMount="False" />
+					<RunTo X="3927.256" Y="734.4591" Z="7.661113" />
+					<RunTo X="3929.896" Y="751.5114" Z="7.125962" />
+					<RunTo X="3942.849" Y="779.683" Z="7.778075" />
+					<RunTo X="3970.97" Y="759.5582" Z="6.19322" />
+					<RunTo X="3968.66" Y="735.6461" Z="7.847078" />
+					<RunTo X="3950.807" Y="723.6724" Z="8.010001" />
+					<RunTo X="3929.369" Y="737.5468" Z="7.286524" />
+					<RunTo X="3972.639" Y="759.7453" Z="6.177021" />
+					<RunTo X="3996.351" Y="804.5947" Z="6.060153" />
+					<RunTo X="4036.582" Y="829.7719" Z="9.568973" />
+					<RunTo X="4090.461" Y="881.6135" Z="9.205595" />
+					<RunTo X="4090.838" Y="905.5631" Z="6.099173" />
+					<RunTo X="4118.617" Y="897.0323" Z="9.775625" />
+					<RunTo X="4114.38" Y="881.3831" Z="9.812327" />
+					<RunTo X="4124.72" Y="858.1087" Z="9.812563" />
+					<RunTo X="4127.493" Y="868.0792" Z="9.692391" />
+					<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
+					<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />	
+
+					<!-- CTM beneath the water to the other side -->
+					<CustomBehavior File="MyCTM" 
+										X="4159.188" Y="887.0402" Z="-23.669" />
+										
+					<CustomBehavior File="MyCTM" 
+										X="4160.37" Y="916.4307" Z="-16.98774" />
+
+					<!-- Bunch of runto's to clear the cavern to the instance box -->					
+					<RunTo X="4164.381" Y="935.2953" Z="-18.10468" />
+					<RunTo X="4168.679" Y="942.8105" Z="-17.99987" />
+					<RunTo X="4178.689" Y="941.2141" Z="-15.40084" />
+					<RunTo X="4186.894" Y="932.8614" Z="-13.28574" />
+					<RunTo X="4202.312" Y="924.1497" Z="-10.84358" />
+					<RunTo X="4207.825" Y="927.8275" Z="-9.159419" />
+					<RunTo X="4208.537" Y="919.0058" Z="-9.839013" />
+					<RunTo X="4223.793" Y="907.6456" Z="-8.595884" />
+					<RunTo X="4245.973" Y="897.0073" Z="-9.488991" />
+					<RunTo X="4265.51" Y="900.5068" Z="-14.47306" />
+					<RunTo X="4283.728" Y="905.2469" Z="-14.9022" />
+					<RunTo X="4290.866" Y="896.8708" Z="-12.12095" />
+					<RunTo X="4292.271" Y="906.5396" Z="-14.80684" />
+					<RunTo X="4312.885" Y="913.5507" Z="-16.54588" />
+					<RunTo X="4325.379" Y="917.7774" Z="-16.79071" />
+					<RunTo X="4314.701" Y="914.4903" Z="-16.77805" />
+					<RunTo X="4312.673" Y="936.0864" Z="-18.51675" />
+					<RunTo X="4318.219" Y="898.9949" Z="-13.8387" />
+					<RunTo X="4323.096" Y="886.4991" Z="-14.61528" />
+					<RunTo X="4309.459" Y="864.2205" Z="-15.05904" />
+					<RunTo X="4292.95" Y="855.8239" Z="-13.00362" />
+					<RunTo X="4282.66" Y="851.4493" Z="-9.308812" />
+					<RunTo X="4273.144" Y="844.4012" Z="-5.171373" />
+					<RunTo X="4268.782" Y="840.5276" Z="-3.776558" />
+					<RunTo X="4252.45" Y="822.129" Z="-7.052672" />
+					<RunTo X="4252.476" Y="817.8237" Z="-7.964022" />
+					<RunTo X="4233.779" Y="790.256" Z="-17.50613" />
+					<RunTo X="4225.376" Y="764.999" Z="-21.7336" />
+					<RunTo X="4234.482" Y="740.7827" Z="-25.60224" />
+					<RunTo X="4245.435" Y="736.5756" Z="-26.26228" />
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />	
+					<CustomBehavior File="RunMacro"
+										Macro="/s Bingo" />	
 				</If>
 			</If>
 		</If>
+		
+		<!-- Inside the instance box, load the BFD profile -->
+		<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+			<CustomBehavior File="LoadProfile" 
+							ProfileName="..\[QO-N][17-25]_blackfathom-deeps" />
+		</If>
+		
 				
 		<!-- ******************************************************* RAF Toons *************************************************************** -->			
 				
+				
 		<!-- RAF Toons -->	
-		<If Condition="Me.Level &lt;= 85">
+		<If Condition="Me.Level &lt;= 95">
 		
 			<!-- RAF UseerSettings -->
 			<CustomBehavior File="UserSettings"
 							UseMount="True"
-							UseFlightPaths="False"
+							UseFlightPaths="True"
 							LootMobs="False" 
 							SkinMobs="False" 
 							LootRadius="1" 
@@ -439,66 +516,63 @@
 							FindVendorsAutomatically="False"
 							LogoutForInactivity="False"	/>
 		
+			<!-- If I am Alliance in EK run to the SW docks and take the boat to Rut'theran Village -->
 			<If Condition="Me.IsAlliance" >
-		
-				<!--Moving to the stormwind docks -->
-				<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
+				<If Condition="Me.MapId == 0" >
+					<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
+					
+					<!-- Taking the boat to Rut'theran Village -->
+					<CustomBehavior File="Message" 
+									Text="Waiting for the boat to Rut'theran Village." 
+									LogColor="Lime" />
+					<CustomBehavior File="UseTransport" 
+									TransportId="176310" 
+									WaitAtX="-8644.193" 
+									WaitAtY="1327.927" 
+									WaitAtZ="5.536721"								
+									TransportStartX="-8650.719" 
+									TransportStartY="1346.051" 
+									TransportStartZ="0.012419"								
+									StandOnX="-8644.946" 
+									StandOnY="1348.325" 
+									StandOnZ="6.110394"
+									TransportEndX="8162.587" 
+									TransportEndY="1005.365" 
+									TransportEndZ="-0.0382334"	
+									GetOffX="8178.897" 
+									GetOffY="1002.434" 
+									GetOffZ="6.812055" />								
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
 				
-				<!-- Taking the boat to Darnassus -->
-				<CustomBehavior File="Message" 
-								Text="Waiting for the boat to Darnassus." 
-								LogColor="Lime" />
-				<CustomBehavior File="UseTransport" 
-								TransportId="176310" 
-								WaitAtX="-8644.193" 
-								WaitAtY="1327.927" 
-								WaitAtZ="5.536721"								
-								TransportStartX="-8650.719" 
-								TransportStartY="1346.051" 
-								TransportStartZ="0.012419"								
-								StandOnX="-8644.946" 
-								StandOnY="1348.325" 
-								StandOnZ="6.110394"
-								TransportEndX="8162.587" 
-								TransportEndY="1005.365" 
-								TransportEndZ="-0.0382334"	
-								GetOffX="8178.897" 
-								GetOffY="1002.434" 
-								GetOffZ="6.812055" />								
-				<CustomBehavior File="WaitTimer" 
-								WaitTime="1000" />
-				
-				<!-- Intersection at Rut'theran Village -->
-				<RunTo X="8267.021" Y="986.3497" Z="8.13516" />
-				
-				<!-- Rut'theran Village flight master -->
-				<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
-				
-				<!-- Disabling UseMount to force use of the flight master -->
-				<CustomBehavior File="UserSettings"
-								UseMount="False" />
-								
-				<!-- Forced use of the flight master to lor' danel, darkshore -->
-				<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
-		
-				<!-- Enabling UseMount -->
-				<CustomBehavior File="UserSettings"
-								UseMount="True"	/>
-								
-				<!-- Running to Grove of the Ancients -->
-				<RunTo X="4970.5" Y="147.65" Z="51.64" />
-				
-				<!-- Running to Blackfathom Camp -->
-				<RunTo X="3880.51" Y="654.16" Z="10.45658" />
-				
-				<!-- Moving to the summoning stone -->
-				<RunTo X="3922.324" Y="681.3928" Z="6.508515" />
-				<CustomBehavior File="RunLikeHell" 
-								UseCTM="true" 
-								NumOfTimes="1" 
-								AllowCombat="false">	
-					<Hotspot X="3956.749" Y="692.3346" Z="6.827947" />		
-				</CustomBehavior>
+				</If>
+				<If Condition="Me.MapId == 1" >
+					
+					<!-- Rut'theran Village flight master -->
+					<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
+									
+					<!-- Use the flight master to lor' danel, darkshore -->
+					<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+			
+					<!-- Remove, for test purposes -->
+					<CustomBehavior File="UserSettings"
+									UseFlightPaths="False" />
+									
+					<!-- Running to Grove of the Ancients -->
+					<RunTo X="4970.5" Y="147.65" Z="51.64" />
+					
+					<!-- Running to Blackfathom Camp -->
+					<RunTo X="3880.51" Y="654.16" Z="10.45658" />
+					
+					<!-- Moving to the summoning stone -->
+					<RunTo X="3922.324" Y="681.3928" Z="6.508515" />
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="3956.749" Y="692.3346" Z="6.827947" />		
+					</CustomBehavior>
+				</If>	
 			
 				<ElseIf Condition="Me.IsHorde" >
 			
@@ -618,16 +692,38 @@
 							Text=" RAF Character - Press continue when all the toons have reached this location. The booster will clear a path to the instance." 
 							Title="WARNING" />
 							
-			<!-- Wait timer to allow the 90 to clear the entrance to Blackfathom Deeps -->
+			<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
+			<CustomBehavior File="Message" 
+							Text="Waiting 120 seconds for the booster to begin clearing a path to BFD." 
+							LogColor="Lime" />	
+			<CustomBehavior File="WaitTimer" 
+							WaitTime="120000" />
+								
+								
+			<!-- Wait timer to allow the 90 to clear the entrance cavern to Blackfathom Deeps -->
+			<RunTo <RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
+			<CustomBehavior File="Message" 
+							Text="Waiting 90 seconds for the booster to begin clearing a path to BFD." 
+							LogColor="Lime" />	
+			<CustomBehavior File="WaitTimer" 
+							WaitTime="90000" />
+			<!-- CTM beneath the water to the other side -->
+			<CustomBehavior File="MyCTM" 
+								X="4159.188" Y="887.0402" Z="-23.669" />
+								
+			<CustomBehavior File="MyCTM" 
+								X="4160.37" Y="916.4307" Z="-16.98774" />
+												
+			<!-- Wait timer to allow the 90 to clear the remaining mobs to the instance box -->
 				<CustomBehavior File="Message" 
 								Text="Waiting 90 seconds for the booster to begin clearing a path to BFD." 
 								LogColor="Lime" />	
 				<CustomBehavior File="WaitTimer" 
 								WaitTime="90000" />
 
-				<!-- Movement from the rendezvous to the instance box, universal-->
-								
-								
+			<!-- Moving to the instance box -->
+			<RunTo X="4248.14" Y="745.047" Z="-24.4963" />						
+					
 			<!-- Inside the instance box, load the Blackfathom Deeps profile -->
 			<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 				<CustomBehavior File="LoadProfile" 
