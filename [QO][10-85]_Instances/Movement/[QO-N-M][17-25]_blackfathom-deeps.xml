@@ -63,109 +63,19 @@
 							FindVendorsAutomatically="False"
 							LogoutForInactivity="False"	/>
 						
-			<If Condition="Me.MapId == 1" >
-				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
-									Title="WARNING" />	
-					
-					<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
-					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
-						<!-- If we have our Hearthstone, use it -->
-						<If Condition="HasItem(6948)">
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(6948)" 
-											WaitTime="1000" />
-							
-							<!-- Otherwise use the Innkeeper's Daughter -->
-							<ElseIf Condition="HasItem(64488)">
-								<CustomBehavior File="Misc\RunLua" 
-												Lua="UseItemByName(64488)" 
-												WaitTime="1000" />
-							</ElseIf>
-							
-							<!-- Waiting for the loading screen -->
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
-							
-							<!-- Our hearth isn't set, we need to go to the zone -->
-							<Else>
-								<If Condition="Me.IsAlliance">
-									<!-- Fly to the hover point above the innkeep in Astranaar -->
-									<CustomBehavior File="FlyTo" 
-													X="3373.338" Y="988.2792" Z="36.89017" />
-													
-									<!-- front doorway of the inn -->
-									<CustomBehavior File="FlyTo" 
-													X="2734.027" Y="-398.2517" Z="107.9804" />							
-									<CustomBehavior File="ForcedDismount" />
-									
-									<!-- Run inside the inn -->
-									<RunTo X="2776.844" Y="-430.8567" Z="116.5795" />
-									
-									<!-- Set hearthstone -->
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									<CustomBehavior File="Message" 
-													Text="Setting my Hearthstone." 
-													LogColor="Lime" />
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									<CustomBehavior File="SetHearthstone" 
-													MobId="6738" 
-													X="2781.156" Y="-432.9972" Z="116.5812" />
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									
-									<!-- Run outside the inn -->
-									<RunTo X="2734.027" Y="-398.2517" Z="107.9804" />
-									
-								
-			
-			
-			
-			
-									<ElseIf Condition="Me.IsHorde">
-										<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
-										<CustomBehavior File="FlyTo" 
-														X="3373.338" Y="988.2792" Z="36.89017" />
-														
-										<!-- front doorway of the inn -->				
-										<CustomBehavior File="FlyTo" 
-														X="3364.353" Y="968.8149" Z="7.404068" />				
-										<CustomBehavior File="ForcedDismount" />
-										
-										<!-- Run inside the inn -->
-										<RunTo X="3360.768" Y="953.8776" Z="7.404068" />
-										
-										<!-- Set hearthstone -->
-										<CustomBehavior File="WaitTimer" 
-														WaitTime="1000" />
-										<CustomBehavior File="Message" 
-														Text="Setting my Hearthstone." 
-														LogColor="Lime" />
-										<CustomBehavior File="WaitTimer" 
-														WaitTime="1000" />
-										<CustomBehavior File="SetHearthstone" 
-														MobId="43606" 
-														X="3360.08" Y="950.816" Z="7.404466" />
-										<CustomBehavior File="WaitTimer" 
-														WaitTime="1000" />
-										
-										<!-- Run outside the inn -->
-										<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
-									</ElseIf>
-								</If>
-							</Else>
-						</If>	
-					</If>
-				</If>
+						
+			<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
+				<CustomBehavior File="UserDialog" 
+								AllowBotStop="False" 
+								SoundCue="Exclamation" 
+								SoundCueInterval="15" 
+								ExpiryTime="60"
+								ExpiryAction="InputEnabled_Continue" 
+								Text="Main Character - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
+								Title="WARNING" />	
 				
+				
+
 				<!-- If we are in Ahenvale,  repair -->
 				<If Condition="Me.ZoneId == 331" >
 					<CustomBehavior File="ForceSetVendor" 
@@ -230,6 +140,8 @@
 								<!-- Fly up above the camp -->
 								<CustomBehavior File="FlyTo" 
 												X="3367.091" Y="1018.285" Z="59.13772" />
+												
+								
 							</If>
 						</ElseIf>
 					</If>
@@ -255,6 +167,103 @@
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 				</If>
 			</If>
+						
+			<If Condition="Me.MapId == 1" >
+				<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
+				<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
+					<!-- If we have our Hearthstone, use it -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+						
+						<!-- Otherwise use the Innkeeper's Daughter -->
+						<ElseIf Condition="HasItem(64488)">
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+						</ElseIf>
+						
+						<!-- Waiting for the loading screen -->
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If>
+					
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<If Condition="Me.IsAlliance">
+							<!-- Fly to the hover point above the innkeep in Astranaar -->
+							<CustomBehavior File="FlyTo" 
+											X="3373.338" Y="988.2792" Z="36.89017" />
+											
+							<!-- front doorway of the inn -->
+							<CustomBehavior File="FlyTo" 
+											X="2734.027" Y="-398.2517" Z="107.9804" />							
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Run inside the inn -->
+							<RunTo X="2776.844" Y="-430.8567" Z="116.5795" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="6738" 
+											X="2781.156" Y="-432.9972" Z="116.5812" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							
+							<!-- Run outside the inn -->
+							<RunTo X="2734.027" Y="-398.2517" Z="107.9804" />
+							
+						
+	
+	
+	
+	
+							<ElseIf Condition="Me.IsHorde">
+								<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
+								<CustomBehavior File="FlyTo" 
+												X="3373.338" Y="988.2792" Z="36.89017" />
+												
+								<!-- front doorway of the inn -->				
+								<CustomBehavior File="FlyTo" 
+												X="3364.353" Y="968.8149" Z="7.404068" />				
+								<CustomBehavior File="ForcedDismount" />
+								
+								<!-- Run inside the inn -->
+								<RunTo X="3360.768" Y="953.8776" Z="7.404068" />
+								
+								<!-- Set hearthstone -->
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								<CustomBehavior File="Message" 
+												Text="Setting my Hearthstone." 
+												LogColor="Lime" />
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								<CustomBehavior File="SetHearthstone" 
+												MobId="43606" 
+												X="3360.08" Y="950.816" Z="7.404466" />
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								
+								<!-- Run outside the inn -->
+								<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
+							</ElseIf>
+						</If>
+					</Else>
+				</If>
+			</If>
+				
+				
+						
+					
 			
 		
 			<!-- Alliance in EK, move to SW docks-->
