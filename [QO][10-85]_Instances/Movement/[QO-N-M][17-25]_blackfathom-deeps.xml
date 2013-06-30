@@ -50,7 +50,7 @@
 		
 		
 		<!-- Booster -->
-		<If Condition="Me.Level == 100">
+		<If Condition="Me.Level &gt;= 90">
 		
 			<!-- Booster UseerSettings -->
 			<CustomBehavior File="UserSettings" 
@@ -684,7 +684,7 @@
 						<Hotspot X="3839.499" Y="586.6717" Z="5.776413" />
 						<Hotspot X="3862.535" Y="578.1829" Z="4.786602" />
 						<Hotspot X="3870.747" Y="556.1761" Z="7.882565" />
-						<Hotspot X="3851.3" Y="557.5638" Z="10.64847" />	
+						<Hotspot X="3862.646" Y="543.4111" Z="4.573116" />	
 					</CustomBehavior>
 				</ElseIf>
 			</If>	
@@ -700,12 +700,16 @@
 							
 			<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
 			<CustomBehavior File="Message" 
-							Text="Waiting 145 seconds for the booster to begin clearing a path to BFD." 
+							Text="Waiting 145 seconds for the booster to to the BFD entrance." 
 							LogColor="Lime" />	
 			<CustomBehavior File="WaitTimer" 
 							WaitTime="145000" />
 								
 			<!-- Wait timer to allow the 90 to clear the entrance cavern to Blackfathom Deeps -->
+			<RunTo X="3952.038" Y="579.2606" Z="17.51929" />
+			<RunTo X="3963.096" Y="660.0731" Z="8.13653" />
+			<RunTo X="4028.978" Y="740.4206" Z="6.713794" />
+			<RunTo X="4085.336" Y="815.7567" Z="2.442678" />
 			<RunTo X="4028.092" Y="740.5526" Z="6.467234" />
 			<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 			<CustomBehavior File="Message" 
