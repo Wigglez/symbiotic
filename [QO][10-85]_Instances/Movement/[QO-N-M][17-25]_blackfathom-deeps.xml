@@ -285,7 +285,7 @@
 						<If Condition="Me.IsHorde" >
 						
 							<!-- Checking hearth location  -->
-							<If Condition="Me.HearthstoneAreaId != 415" >
+							<If Condition="Me.HearthstoneAreaId != 2897" >
 							
 								<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
 								<CustomBehavior File="FlyTo" 
@@ -449,8 +449,36 @@
 						<Hotspot X="1662.179" Y="-2197.453" Z="90.25356" />	
 					</CustomBehavior>
 					
+					<!-- Moving to the eastern entrance toSplintertree Post to avoid being attacked -->
+					<RunTo X="2181.207" Y="-2643.072" Z="108.7298" />
+					
 					<!-- Moving to Splintertree Post flight master -->
-					<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="2201.078" Y="-2615.8" Z="106.1121" />
+						<Hotspot X="2207.887" Y="-2603.096" Z="103.0519" />
+						<Hotspot X="2222.668" Y="-2578.627" Z="95.53032" />
+						<Hotspot X="2227.23" Y="-2537.977" Z="85.89501" />
+						<Hotspot X="2262.054" Y="-2540.115" Z="92.25276" />
+						<Hotspot X="2312.374" Y="-2537.251" Z="100.2412" />
+						<Hotspot X="2302.39" Y="-2524.55" Z="104.2812" />	
+					</CustomBehavior>
+						<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
+						
+					<!-- Exiting the eastern gate of Splintertree Post to avoid being attacked -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="2229.509" Y="-2539.316" Z="86.50936" />
+						<Hotspot X="2215.686" Y="-2542.687" Z="84.92637" />
+						<Hotspot X="2222.562" Y="-2583.129" Z="97.0116" />
+						<Hotspot X="2205.515" Y="-2608.671" Z="104.4664" />
+						<Hotspot X="2181.434" Y="-2640.099" Z="108.1588" />	
+					</CustomBehavior>
+						<RunTo X="2181.434" Y="-2640.099" Z="108.1588" />		
 					
 					<!-- Moving to Silverwind flight master -->
 					<RunTo X="2159.62" Y="-1144.05" Z="97.87" />
