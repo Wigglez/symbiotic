@@ -439,7 +439,7 @@
 							FindVendorsAutomatically="False"
 							LogoutForInactivity="False"	/>
 		
-			<If Condition="Me.Alliance" >
+			<If Condition="Me.IsAlliance" >
 		
 				<!--Moving to the stormwind docks -->
 				<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
