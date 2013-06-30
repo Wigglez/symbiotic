@@ -508,7 +508,7 @@
 				
 				
 		<!-- RAF Toons -->	
-		<If Condition="Me.Level &lt;= 95">
+		<If Condition="Me.Level &lt;= 85">
 		
 			<!-- RAF UseerSettings -->
 			<CustomBehavior File="UserSettings"

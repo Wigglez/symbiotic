@@ -50,7 +50,7 @@
 		
 		
 		<!-- *******************************************************  Booster ************************************************************** -->
-		<If Condition="Me.Level &gt;= 100">
+		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="UserSettings"
 							UseMount="True" 
 							UseFlightPaths="True" 
@@ -541,7 +541,7 @@
 		</If>
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
-		<If Condition="Me.Level &lt;= 95">
+		<If Condition="Me.Level &lt;= 85">
 
 			<CustomBehavior File="UserSettings" 
 							UseMount="True" 
