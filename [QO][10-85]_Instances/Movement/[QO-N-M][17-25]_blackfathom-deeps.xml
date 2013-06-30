@@ -337,7 +337,7 @@
 							SoundCue="Exclamation" 
 							SoundCueInterval="15" 
 							ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Wailing Caverns." 
+							Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
 							Title="WARNING" />
 
 			<!-- Movement from rendezvous to the instance box, universal-->				
