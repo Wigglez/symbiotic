@@ -409,7 +409,7 @@
 											
 					<!-- Fly to the rendezvous location -->
 					<CustomBehavior File="FlyTo" 
-									X="3957.003" Y="692.6785" Z="30.52476" />
+									X="3901.309" Y="541.0104" Z="58.15691" />
 					
 					<!-- Userdialog for wait timer at the rendezvous location -->
 					<CustomBehavior File="UserDialog" 
@@ -422,10 +422,17 @@
 
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
 					<CustomBehavior File="FlyTo" 
-									X="3904.426" Y="728.8086" Z="9.670012" />
+									X="3930.243" Y="564.4576" Z="8.414933" />
 					<CustomBehavior File="ForcedDismount" />
 					<CustomBehavior File="UserSettings" 
 									UseMount="False" />
+									
+					<RunTo X="3973.03" Y="595.9713" Z="14.63721" />
+					<RunTo X="3971.563" Y="632.8798" Z="12.11096" />
+					<RunTo X="3960.353" Y="668.5034" Z="7.454574" />
+					<RunTo X="3953.708" Y="692.714" Z="6.911254" />
+					<RunTo X="3940.958" Y="705.1843" Z="8.309019" />
+					<RunTo X="3918.588" Y="710.94" Z="7.193355" />				
 					<RunTo X="3927.256" Y="734.4591" Z="7.661113" />
 					<RunTo X="3929.896" Y="751.5114" Z="7.125962" />
 					<RunTo X="3942.849" Y="779.683" Z="7.778075" />
@@ -674,11 +681,10 @@
 						<Hotspot X="3756.413" Y="635.8791" Z="6.045148" />
 						<Hotspot X="3803.914" Y="616.6727" Z="3.882689" />
 						<Hotspot X="3823.592" Y="589.6508" Z="4.524016" />
-						<Hotspot X="3862.987" Y="576.3364" Z="4.885626" />
-						<Hotspot X="3873.321" Y="561.7687" Z="7.170208" />
-						<Hotspot X="3950.96" Y="580.4005" Z="17.22244" />
-						<Hotspot X="3964.858" Y="662.6644" Z="8.034729" />
-						<Hotspot X="3956.749" Y="692.3346" Z="6.827947" />	
+						<Hotspot X="3839.499" Y="586.6717" Z="5.776413" />
+						<Hotspot X="3862.535" Y="578.1829" Z="4.786602" />
+						<Hotspot X="3870.747" Y="556.1761" Z="7.882565" />
+						<Hotspot X="3851.3" Y="557.5638" Z="10.64847" />	
 					</CustomBehavior>
 				</ElseIf>
 			</If>	
@@ -694,13 +700,13 @@
 							
 			<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
 			<CustomBehavior File="Message" 
-							Text="Waiting 120 seconds for the booster to begin clearing a path to BFD." 
+							Text="Waiting 145 seconds for the booster to begin clearing a path to BFD." 
 							LogColor="Lime" />	
 			<CustomBehavior File="WaitTimer" 
-							WaitTime="120000" />
-								
+							WaitTime="145000" />
 								
 			<!-- Wait timer to allow the 90 to clear the entrance cavern to Blackfathom Deeps -->
+			<RunTo X="4028.092" Y="740.5526" Z="6.467234" />
 			<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 			<CustomBehavior File="Message" 
 							Text="Waiting 90 seconds for the booster to begin clearing a path to BFD." 
