@@ -71,16 +71,21 @@
 					
 					<!-- If we have our Hearthstone, use it -->
 					<If Condition="HasItem(6948)">
-						<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
 						
 						<!-- Otherwise use the Innkeeper's Daughter -->
 						<Else>
-							<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(64488)" WaitTime="1000" />
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
 						</Else>
 					</If>	
 					
 					<!-- Waiting for the loading screen -->
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
 					
 					<!-- If we are in Northern Barrens,  repair -->
 					<If Condition="Me.ZoneId == 17" >
@@ -90,17 +95,24 @@
 										DoSell="False" 
 										DoTrain="False" />
 								
-						<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+						<CustomBehavior File="Message" 
+										Text="Successfully hearthed, moving to the repair vendor." 
+										LogColor="Fuchsia" />												
 						<SetVendor>
 							<Vendors>
 								<!-- Crossroads -->
-								<Vendor Name="Halija Whitestrider" Entry="3486" Type="Repair" X="-539.8406" Y="-2672.23" Z="95.78806" />
+								<Vendor Name="Halija Whitestrider" 
+										Entry="3486" 
+										Type="Repair" 
+										X="-539.8406" Y="-2672.23" Z="95.78806" />
 							</Vendors>
 						</SetVendor>
 						
 						<!-- We are done vendoring -->
 						<If Condition="Me.DurabilityPercent &gt; 0.8" >
-							<CustomBehavior File="Message" Text="Repairing complete, moving back to Wailing Caverns." LogColor="Fuchsia" />
+							<CustomBehavior File="Message" 
+											Text="Repairing complete, moving back to Wailing Caverns." 
+											LogColor="Fuchsia" />
 						</If>
 					</If>
 				</If>	
@@ -110,32 +122,44 @@
 			<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
 				<If Condition="Me.MapId == 1" >	
 				
-					<CustomBehavior File="Message" Text="Flying to Northern Barrens." LogColor="Lime" />
+					<CustomBehavior File="Message" 
+									Text="Flying to Northern Barrens." 
+									LogColor="Lime" />
 				
 					<!-- Checking hearth location  -->
 					<If Condition="Me.HearthstoneAreaId != 380" >
 					
 						<!-- Fly to the innkeep in Crossroads -->
-						<CustomBehavior File="FlyTo" X="-436.0171" Y="-2652.57" Z="95.90172" />							
+						<CustomBehavior File="FlyTo" 
+										X="-436.0171" Y="-2652.57" Z="95.90172" />							
 						<CustomBehavior File="ForcedDismount" />
 						
 						<!-- Run inside the inn -->
 						<RunTo X="-410.1169" Y="-2646.258" Z="96.2232" />
 						
 						<!-- Set hearthstone -->
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="SetHearthstone" MobId="3934" X="-407.1227" Y="-2645.225" Z="96.22308" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="Message" 
+										Text="Setting my Hearthstone." 
+										LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" 
+										MobId="3934" 
+										X="-407.1227" Y="-2645.225" Z="96.22308" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
 						
 						<!-- Run outside the inn -->
 						<RunTo X="-436.0171" Y="-2652.57" Z="95.90172" />	
 					</If>
 					
 					<!-- Fly to the rendezvous location -->
-					<CustomBehavior File="FlyTo" X="-822.1351" Y="-2051.266" Z="156.889" />
-					<CustomBehavior File="FlyTo" X="-822.9109" Y="-2032.883" Z="118.7538" />
+					<CustomBehavior File="FlyTo" 
+									X="-822.1351" Y="-2051.266" Z="156.889" />
+					<CustomBehavior File="FlyTo" 
+									X="-822.9109" Y="-2032.883" Z="118.7538" />
 					
 					<!-- Userdialog for wait timer at the rendezvous location -->
 					<CustomBehavior File="UserDialog" 
@@ -147,8 +171,10 @@
 									Title="WARNING" />
 					
 					<!-- Clear the cave entrance -->
-					<CustomBehavior File="FlyTo" X="-861.9078" Y="-2053.188" Z="128.9105" />					
-					<CustomBehavior File="FlyTo" X="-874.9157" Y="-2048.126" Z="81.24489" />		
+					<CustomBehavior File="FlyTo" 
+									X="-861.9078" Y="-2053.188" Z="128.9105" />					
+					<CustomBehavior File="FlyTo" 
+									X="-874.9157" Y="-2048.126" Z="81.24489" />		
 					<CustomBehavior File="ForcedDismount" />
 					
 					<CustomBehavior File="UserSettings" 
@@ -211,11 +237,16 @@
 					<RunTo X="-575.2418" Y="-2087.304" Z="51.54774" />
 					
 					<!-- kills 2 mobs and comes out other side of the deep pool -->
-					<CustomBehavior File="MyCTM" X="-580.9533" Y="-2112.019" Z="49.16737" />
-					<CustomBehavior File="MyCTM" X="-576.4451" Y="-2113.192" Z="37.71799" />
-					<CustomBehavior File="MyCTM" X="-586.7123" Y="-2112.364" Z="40.16368" />
-					<CustomBehavior File="MyCTM" X="-582.1998" Y="-2115.782" Z="48.95621" />
-					<CustomBehavior File="MyCTM" X="-595.1153" Y="-2127.962" Z="50.83164" />
+					<CustomBehavior File="MyCTM" 
+					                X="-580.9533" Y="-2112.019" Z="49.16737" />
+					<CustomBehavior File="MyCTM" 
+									X="-576.4451" Y="-2113.192" Z="37.71799" />
+					<CustomBehavior File="MyCTM" 
+									X="-586.7123" Y="-2112.364" Z="40.16368" />
+					<CustomBehavior File="MyCTM" 
+									X="-582.1998" Y="-2115.782" Z="48.95621" />
+					<CustomBehavior File="MyCTM" 
+									X="-595.1153" Y="-2127.962" Z="50.83164" />
 					
 					<!-- Clearing the remainder of the mob between the deep pool and the portal -->
 					<RunTo X="-598.8741" Y="-2139.069" Z="50.61156" />
@@ -244,7 +275,8 @@
 
 					<!-- Inside the instance box, load the Wailing Cavers profile -->
 					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
-						<CustomBehavior File="LoadProfile" ProfileName="..\[QO-H][10-17]_wailing-caverns" />
+						<CustomBehavior File="LoadProfile" 
+										ProfileName="..\[QO-H][10-17]_wailing-caverns" />
 					</If>
 				</If>
 			</If>
@@ -281,7 +313,9 @@
 						
 			<!-- Outside the instance box -->
 			<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
-				<CustomBehavior File="Message" Text="Moving to Northern Barrens." LogColor="Lime" />
+				<CustomBehavior File="Message" 
+								Text="Moving to Northern Barrens." 
+								LogColor="Lime" />
 				
 				<!-- Run to Razor Hill to ensure we are on the road -->
 				<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
@@ -290,13 +324,16 @@
 				<RunTo X="281.0421" Y="-3798.895" Z="19.48378" />
 				
 				<!-- Swim across the river -->
-				<CustomBehavior File="MyCTM" X="269.7013" Y="-3721.605" Z="19.61501" />
+				<CustomBehavior File="MyCTM" 
+								X="269.7013" Y="-3721.605" Z="19.61501" />
 				
 				<!-- Run to the horde camp before the tower -->
 				<RunTo X="116.9753" Y="-3121.707" Z="95.82523" />
 				
 				<!-- Begin to run like hell when mobs can become a problem -->
-				<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">
+				<CustomBehavior File="RunLikeHell" 
+								NumOfTimes="1" 
+								AllowCombat="false">
 					<Hotspot X="100.4672" Y="-3067.103" Z="96.9883" />
 					<Hotspot X="94.01588" Y="-3017.355" Z="93.423" />
 					<Hotspot X="100.2504" Y="-2984.203" Z="92.76808" />
@@ -315,28 +352,48 @@
 				
 				
 				<!-- Moving to the top of the mountain -->
-				<CustomBehavior File="MyCTM" X="-403.7427" Y="-2285.069" Z="94.53511" />
-				<CustomBehavior File="MyCTM" X="-479.0771" Y="-2253.584" Z="154.0482" />
-				<CustomBehavior File="MyCTM" X="-501.3399" Y="-2238.792" Z="160.3741" />
-				<CustomBehavior File="MyCTM" X="-463.8643" Y="-2219.198" Z="130.3389" />
-				<CustomBehavior File="MyCTM" X="-435.5207" Y="-2191.104" Z="131.8416" />
-				<CustomBehavior File="MyCTM" X="-498.793" Y="-2202.333" Z="168.9449" />
-				<CustomBehavior File="MyCTM" X="-510.8374" Y="-2205.101" Z="180.2615" />
-				<CustomBehavior File="MyCTM" X="-523.5939" Y="-2203.066" Z="188.8433" />
-				<CustomBehavior File="MyCTM" X="-535.4635" Y="-2205.008" Z="196.521" />
-				<CustomBehavior File="MyCTM" X="-552.4965" Y="-2213.668" Z="208.7137" />
-				<CustomBehavior File="MyCTM" X="-569.4303" Y="-2214.125" Z="211.333" />
-				<CustomBehavior File="MyCTM" X="-587.4248" Y="-2190.49" Z="211.3356" />
-				<CustomBehavior File="MyCTM" X="-649.8635" Y="-2176.162" Z="210.0945" />
+				<CustomBehavior File="MyCTM" 
+								X="-403.7427" Y="-2285.069" Z="94.53511" />
+				<CustomBehavior File="MyCTM" 
+								X="-479.0771" Y="-2253.584" Z="154.0482" />
+				<CustomBehavior File="MyCTM" 
+								X="-501.3399" Y="-2238.792" Z="160.3741" />
+				<CustomBehavior File="MyCTM" 
+								X="-463.8643" Y="-2219.198" Z="130.3389" />
+				<CustomBehavior File="MyCTM" 
+								X="-435.5207" Y="-2191.104" Z="131.8416" />
+				<CustomBehavior File="MyCTM" 
+								X="-498.793" Y="-2202.333" Z="168.9449" />
+				<CustomBehavior File="MyCTM" 
+								X="-510.8374" Y="-2205.101" Z="180.2615" />
+				<CustomBehavior File="MyCTM" 
+								X="-523.5939" Y="-2203.066" Z="188.8433" />
+				<CustomBehavior File="MyCTM" 
+								X="-535.4635" Y="-2205.008" Z="196.521" />
+				<CustomBehavior File="MyCTM" 
+								X="-552.4965" Y="-2213.668" Z="208.7137" />
+				<CustomBehavior File="MyCTM" 
+								X="-569.4303" Y="-2214.125" Z="211.333" />
+				<CustomBehavior File="MyCTM" 
+								X="-587.4248" Y="-2190.49" Z="211.3356" />
+				<CustomBehavior File="MyCTM" 
+								X="-649.8635" Y="-2176.162" Z="210.0945" />
 
 				<!-- Moving to the skull  -->
-				<CustomBehavior File="MyCTM" X="-682.7202" Y="-2126.432" Z="183.4675" />
-				<CustomBehavior File="MyCTM" X="-714.7794" Y="-2099.706" Z="161.5443" />
-				<CustomBehavior File="MyCTM" X="-733.6051" Y="-2065.038" Z="141.9098" />
-				<CustomBehavior File="MyCTM" X="-738.9916" Y="-2049.278" Z="131.6281" />
-				<CustomBehavior File="MyCTM" X="-767.28" Y="-2016.178" Z="132.9215" />
-				<CustomBehavior File="MyCTM" X="-812.3369" Y="-2052.22" Z="115.4197" />
-				<CustomBehavior File="MyCTM" X="-819.8129" Y="-2025.358" Z="117.2773" />
+				<CustomBehavior File="MyCTM" 
+								X="-682.7202" Y="-2126.432" Z="183.4675" />
+				<CustomBehavior File="MyCTM" 
+								X="-714.7794" Y="-2099.706" Z="161.5443" />
+				<CustomBehavior File="MyCTM" 
+								X="-733.6051" Y="-2065.038" Z="141.9098" />
+				<CustomBehavior File="MyCTM" 
+								X="-738.9916" Y="-2049.278" Z="131.6281" />
+				<CustomBehavior File="MyCTM" 
+								X="-767.28" Y="-2016.178" Z="132.9215" />
+				<CustomBehavior File="MyCTM" 
+								X="-812.3369" Y="-2052.22" Z="115.4197" />
+				<CustomBehavior File="MyCTM" 
+								X="-819.8129" Y="-2025.358" Z="117.2773" />
 				
 				<!-- Userdialog to for rendezvous -->
 				<CustomBehavior File="UserDialog" 
@@ -344,53 +401,85 @@
 								SoundCue="Exclamation" 
 								SoundCueInterval="15" 
 								ExpiryAction="InputEnabled_Continue" 	
-								Text=" RAF Character - Press continue when all the toons have reached this location. The booster will clear a path to the instance." 
+								Text="RAF Character - Press continue when all the toons have reached this location. The booster will clear a path to the instance." 
 								Title="WARNING" />
 					
-				<CustomBehavior File="Message" Text="Allowing the booster to be a boss and clear the way for us, do not touch." LogColor="Yellow" />				
+				<CustomBehavior File="Message" 
+								Text="Allowing the booster to be a boss and clear the way for us, do not touch." 
+								LogColor="Yellow" />				
 				
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->
-				<CustomBehavior File="Message" Text="Waiting 165 seconds for the booster to clear a path to the water pool." LogColor="Lime" />	
-				<CustomBehavior File="WaitTimer" WaitTime="165000" />						
+				<CustomBehavior File="Message" 
+								Text="Waiting 165 seconds for the booster to clear a path to the water pool." 
+								LogColor="Lime" />	
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="165000" />						
 				
 				<!-- Jump to the cave entrance -->			
 				<CustomBehavior File="MyCTM" X="-851.8849" Y="-2019.86" Z="86.17676" />
 				
 				<!-- Running up to the water pool -->
-				<CustomBehavior File="NoCombatMoveTo" X="-842.419" Y="-2036.363" Z="80.08213" />
-				<CustomBehavior File="NoCombatMoveTo" X="-816.1318" Y="-2028.385" Z="80.54436" />
-				<CustomBehavior File="NoCombatMoveTo" X="-794.6826" Y="-2025.565" Z="80.07104" />
-				<CustomBehavior File="NoCombatMoveTo" X="-760.21" Y="-2070.979" Z="71.30186" />
-				<CustomBehavior File="NoCombatMoveTo" X="-739.7421" Y="-2056.071" Z="69.7639" />
-				<CustomBehavior File="NoCombatMoveTo" X="-715.2036" Y="-2047.305" Z="66.22987" />
-				<CustomBehavior File="NoCombatMoveTo" X="-685.0443" Y="-2047.658" Z="65.82668" />
-				<CustomBehavior File="NoCombatMoveTo" X="-650.1683" Y="-2025.976" Z="66.14787" />
-				<CustomBehavior File="NoCombatMoveTo" X="-620.9482" Y="-2023.055" Z="63.15758" />
-				<CustomBehavior File="NoCombatMoveTo" X="-584.3104" Y="-2042.518" Z="57.56756" />
-				<CustomBehavior File="NoCombatMoveTo" X="-580.8381" Y="-2064.165" Z="56.05159" />
-				<CustomBehavior File="NoCombatMoveTo" X="-574.7474" Y="-2078.626" Z="53.81164" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-842.419" Y="-2036.363" Z="80.08213" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-816.1318" Y="-2028.385" Z="80.54436" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-794.6826" Y="-2025.565" Z="80.07104" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-760.21" Y="-2070.979" Z="71.30186" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-739.7421" Y="-2056.071" Z="69.7639" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-715.2036" Y="-2047.305" Z="66.22987" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-685.0443" Y="-2047.658" Z="65.82668" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-650.1683" Y="-2025.976" Z="66.14787" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-620.9482" Y="-2023.055" Z="63.15758" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-584.3104" Y="-2042.518" Z="57.56756" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-580.8381" Y="-2064.165" Z="56.05159" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-574.7474" Y="-2078.626" Z="53.81164" />
 
 				<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->		
-				<CustomBehavior File="Message" Text="Waiting 130 seconds for the booster to clear a path to the instance portal." LogColor="Lime" />	
-				<CustomBehavior File="WaitTimer" WaitTime="130000" />						
+				<CustomBehavior File="Message" 
+								Text="Waiting 130 seconds for the booster to clear a path to the instance portal." 
+								LogColor="Lime" />	
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="130000" />						
 				
-				<CustomBehavior File="MyCTM" X="-574.4584" Y="-2090.842" Z="50.13843" />
-				<CustomBehavior File="MyCTM" X="-592.1352" Y="-2129.417" Z="51.1222" />
+				<CustomBehavior File="MyCTM" 
+								X="-574.4584" Y="-2090.842" Z="50.13843" />
+				<CustomBehavior File="MyCTM" 
+								X="-592.1352" Y="-2129.417" Z="51.1222" />
 				
 				<!-- Running past the water pool and into the instance box -->
-				<CustomBehavior File="NoCombatMoveTo" X="-607.9849" Y="-2151.013" Z="51.03981" />
-				<CustomBehavior File="NoCombatMoveTo" X="-604.5501" Y="-2171.912" Z="51.54601" />
-				<CustomBehavior File="NoCombatMoveTo" X="-613.9857" Y="-2182.038" Z="49.74071" />
-				<CustomBehavior File="NoCombatMoveTo" X="-667.1196" Y="-2190.532" Z="38.17731" />
-				<CustomBehavior File="NoCombatMoveTo" X="-711.1055" Y="-2194.019" Z="24.47985" />
-				<CustomBehavior File="NoCombatMoveTo" X="-719.1608" Y="-2206.083" Z="21.33791" />
-				<CustomBehavior File="NoCombatMoveTo" X="-720.6035" Y="-2221.531" Z="17.36246" />
-				<CustomBehavior File="NoCombatMoveTo" X="-728.4053" Y="-2225.891" Z="17.30907" />
-				<CustomBehavior File="NoCombatMoveTo" X="-738.462" Y="-2217.8" Z="16.66931" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-607.9849" Y="-2151.013" Z="51.03981" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-604.5501" Y="-2171.912" Z="51.54601" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-613.9857" Y="-2182.038" Z="49.74071" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-667.1196" Y="-2190.532" Z="38.17731" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-711.1055" Y="-2194.019" Z="24.47985" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-719.1608" Y="-2206.083" Z="21.33791" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-720.6035" Y="-2221.531" Z="17.36246" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-728.4053" Y="-2225.891" Z="17.30907" />
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-738.462" Y="-2217.8" Z="16.66931" />
 
 				<!-- Inside the instance box, load the Wailing Caverns profile -->
 				<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
-					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-H][10-17]_wailing-caverns" />
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-H][10-17]_wailing-caverns" />
 				</If>
 			</If>
 		</If>

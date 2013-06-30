@@ -71,16 +71,21 @@
 					
 					<!-- If we have our Hearthstone, use it -->
 					<If Condition="HasItem(6948)">
-						<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
 						
 						<!-- Otherwise use the Innkeeper's Daughter -->
 						<Else>
-							<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(64488)" WaitTime="1000" />
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
 						</Else>
 					</If>	
 					
 					<!-- Waiting for the loading screen -->
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
 					
 					<!-- If we are in westfall, repair -->
 					<If Condition="Me.ZoneId == 40" >
@@ -90,17 +95,24 @@
 										DoSell="False" 
 										DoTrain="False" />
 					
-						<CustomBehavior File="Message" Text="Successfully hearthed, moving to the repair vendor." LogColor="Fuchsia" />												
+						<CustomBehavior File="Message" 
+										Text="Successfully hearthed, moving to the repair vendor." 
+										LogColor="Fuchsia" />												
 						<SetVendor>
 							<Vendors>
 								<!-- Sentinel Hill -->
-								<Vendor Name="William MacGregor" Entry="1668" Type="Repair" X="-10653.31" Y="996.5868" Z="32.87417" />
+								<Vendor Name="William MacGregor" 
+										Entry="1668" 
+										Type="Repair" 
+										X="-10653.31" Y="996.5868" Z="32.87417" />
 							</Vendors>
 						</SetVendor>
 						
 						<!-- We are done vendoring -->
 						<If Condition="Me.DurabilityPercent &gt; 0.8" >
-							<CustomBehavior File="Message" Text="Repairing complete, moving back to Deadmines." LogColor="Fuchsia" />
+							<CustomBehavior File="Message" 
+											Text="Repairing complete, moving back to Deadmines." 
+											LogColor="Fuchsia" />
 						</If>
 					</If>
 				</If>	
@@ -110,24 +122,34 @@
 			<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
 				<If Condition="Me.MapId == 0" >
 				
-					<CustomBehavior File="Message" Text="Flying to Westfall." LogColor="Lime" />
+					<CustomBehavior File="Message" 
+					Text="Flying to Westfall." 
+					LogColor="Lime" />
 					
 					<!-- Checking hearth location and the quest is incomplete -->
 					<If Condition="Me.HearthstoneAreaId != 108" >
 						<If Condition="!HasQuest(26322) &amp;&amp; !IsQuestCompleted(26322)" >
 							<!-- Fly to the innkeep in the wooden building -->
-							<CustomBehavior File="FlyTo" X="-10640.08" Y="1157.555" Z="33.34619" />							
+							<CustomBehavior File="FlyTo" 
+											X="-10640.08" Y="1157.555" Z="33.34619" />							
 							<CustomBehavior File="ForcedDismount" />
 							
 							<!-- Run inside the inn -->
 							<RunTo X="-10650.05" Y="1165.21" Z="34.5228" />
 							
 							<!-- Set hearthstone -->
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="SetHearthstone" MobId="8931" X="-10653.28" Y="1166.431" Z="34.50462" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="8931" 
+											X="-10653.28" Y="1166.431" Z="34.50462" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
 							
 							<!-- Run outside the inn -->
 							<RunTo X="-10640.08" Y="1157.555" Z="33.34619" />	
@@ -136,18 +158,26 @@
 						<!-- Checking hearth location and the quest is complete -->
 						<If Condition="!HasQuest(26322) &amp;&amp; IsQuestCompleted(26322)">
 							<!-- Fly to the innkeep in the tower -->
-							<CustomBehavior File="FlyTo" X="-10510.34" Y="1053.079" Z="59.25743" />							
+							<CustomBehavior File="FlyTo" 
+											X="-10510.34" Y="1053.079" Z="59.25743" />							
 							<CustomBehavior File="ForcedDismount" />
 							
 							<!-- Run inside the inn -->
 							<RunTo X="-10503.31" Y="1031.031" Z="60.52037" />
 							
 							<!-- Set hearthstone -->
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="Message" Text="Setting my Hearthstone." LogColor="Lime" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="SetHearthstone" MobId="8931" X="-10501.87" Y="1028.536" Z="60.52414" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="8931" 
+											X="-10501.87" Y="1028.536" Z="60.52414" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
 							
 							<!-- Run outside the inn -->
 							<RunTo X="-10510.34" Y="1053.079" Z="59.25743" />
@@ -155,7 +185,8 @@
 					</If>
 					
 					<!-- Fly to the rendezvous location -->
-					<CustomBehavior File="FlyTo" X="-11065.5" Y="1530.04" Z="43.20776" />	
+					<CustomBehavior File="FlyTo" 
+									X="-11065.5" Y="1530.04" Z="43.20776" />	
 					<CustomBehavior File="ForcedDismount" />
 					
 					<!-- Userdialog for wait timer at the rendezvous location -->
@@ -178,7 +209,8 @@
 					
 					<!-- Inside the instance box, load the Deadmines profile -->
 					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
-						<CustomBehavior File="LoadProfile" ProfileName="..\[QO-A][10-17]_deadmines" />
+						<CustomBehavior File="LoadProfile" 
+										ProfileName="..\[QO-A][10-17]_deadmines" />
 					</If>
 				</If>		
 			</If>
@@ -193,13 +225,13 @@
 			<!-- Userdialog zone check, the RAF toons must be in Goldshire to initiate the profile, will stop the bot if not in Goldshire -->
 			<If Condition="Me.ZoneId != 12" >
 				<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputDisabled_BotStop" 
-									Text="RAF Character - You must be in Goldshire to run this profile. Please move your character to Elwynn Forest and restart the bot !!!" 	
-									Title="WARNING" />
+								AllowBotStop="False" 
+								SoundCue="Exclamation" 
+								SoundCueInterval="15" 
+								ExpiryTime="60"
+								ExpiryAction="InputDisabled_BotStop" 
+								Text="RAF Character - You must be in Goldshire to run this profile. Please move your character to Elwynn Forest and restart the bot !!!" 	
+								Title="WARNING" />
 			</If>
 				
 			<!-- UserSettings -->
@@ -215,7 +247,9 @@
 				
 			<!-- Outside the instance box -->				
 			<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
-				<CustomBehavior File="Message" Text="Moving to Westfall." LogColor="Lime" />
+				<CustomBehavior File="Message" 
+								Text="Moving to Westfall." 
+								LogColor="Lime" />
 				
 				<!-- Bridge entering Westfall -->
 				<RunTo X="-9792.037" Y="824.2371" Z="27.77231" />
@@ -236,7 +270,8 @@
 								Title="WARNING" />
 								
 				<!-- Wait timer to allow the 90 to clear the path to Deadmines -->		
-				<CustomBehavior File="WaitTimer" WaitTime="50000" />
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="50000" />
 				
 				<!-- Run through caverns to Deadmines -->
 				<RunTo X="-11088.26" Y="1498.584" Z="48.72324" />
@@ -253,7 +288,8 @@
 					
 				<!-- Inside the instance box, load the Deadmines profile -->	
 				<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
-					<CustomBehavior File="LoadProfile" ProfileName="..\[QO-A][10-17]_deadmines" />
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-A][10-17]_deadmines" />
 				</If>
 					
 			</If>	
