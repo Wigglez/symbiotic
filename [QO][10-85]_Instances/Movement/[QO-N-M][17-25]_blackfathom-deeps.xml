@@ -430,11 +430,50 @@
 					<!-- Moving to Mor'shan Rampart flight master-->
 					<RunTo X="1206.031" Y="-2209.855" Z="92.1406" />
 					
+					<!-- Moving to Mor'shan Rampart gate - cutoff-->
+					<RunTo X="1202.344" Y="-2306.263" Z="91.69298" />
+					
+					<!-- RunLikeHell to bypass the gate guards -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="1228.991" Y="-2346.184" Z="92.02919" />
+						<Hotspot X="1248.187" Y="-2339.587" Z="92.27937" />
+						<Hotspot X="1277.286" Y="-2331.833" Z="94.30576" />
+						<Hotspot X="1294.635" Y="-2338.389" Z="96.77084" />
+						<Hotspot X="1344.051" Y="-2305.061" Z="96.63309" />
+						<Hotspot X="1359.267" Y="-2259.172" Z="89.99448" />
+						<Hotspot X="1431.585" Y="-2254.051" Z="89.91182" />
+						<Hotspot X="1504.867" Y="-2233.992" Z="93.76501" />
+						<Hotspot X="1662.179" Y="-2197.453" Z="90.25356" />	
+					</CustomBehavior>
+					
 					<!-- Moving to Splintertree Post flight master -->
 					<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
 					
 					<!-- Moving to Silverwind flight master -->
 					<RunTo X="2159.62" Y="-1144.05" Z="97.87" />
+			
+					<!-- Moving to the road leading into Hellscream's Watch -->
+					<RunTo X="2671.283" Y="-832.1356" Z="140.7905" />
+			
+					<!-- RunLikeHell to bypass the mobs outside Hellscream's Watch -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="2723.651" Y="-825.5101" Z="146.7728" />
+						<Hotspot X="2773.739" Y="-816.6262" Z="150.3642" />
+						<Hotspot X="2859.906" Y="-774.5734" Z="157.8264" />
+						<Hotspot X="2882.311" Y="-746.5154" Z="162.5328" />
+						<Hotspot X="2900.629" Y="-701.4119" Z="181.5192" />
+						<Hotspot X="2917.409" Y="-667.8293" Z="195.8157" />
+						<Hotspot X="2939.02" Y="-654.2593" Z="195.7968" />
+						<Hotspot X="2969.335" Y="-615.4639" Z="194.1686" />
+						<Hotspot X="2992.53" Y="-582.2542" Z="198.5154" />
+						<Hotspot X="2997.344" Y="-562.8669" Z="205.3325" />	
+					</CustomBehavior>
 			
 					<!-- Moving to Hellscream's Watch flight master -->
 					<RunTo X="3049.08" Y="-498.95" Z="205.6398" />
