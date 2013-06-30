@@ -700,7 +700,7 @@
 							
 			<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
 			<CustomBehavior File="Message" 
-							Text="Waiting 145 seconds for the booster to to the BFD entrance." 
+							Text="Waiting 145 seconds for the booster to clear a path to the BFD entrance." 
 							LogColor="Lime" />	
 			<CustomBehavior File="WaitTimer" 
 							WaitTime="145000" />
