@@ -403,22 +403,22 @@
 											X="3373.338" Y="988.2792" Z="36.89017" />
 						</If>
 					</If>
-				</ElseIf>
-				
-				<!-- Fly to the rendezvous location -->
-				<CustomBehavior File="FlyTo" 
-								X="3957.003" Y="692.6785" Z="30.52476" />
-				
-				<!-- Userdialog for wait timer at the rendezvous location -->
-				<CustomBehavior File="UserDialog" 
-								AllowBotStop="False" 
-								SoundCue="Exclamation" 
-								SoundCueInterval="15" 
-								ExpiryAction="InputEnabled_Continue" 
-								Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
-								Title="WARNING" />
+					
+					<!-- Fly to the rendezvous location -->
+					<CustomBehavior File="FlyTo" 
+									X="3957.003" Y="692.6785" Z="30.52476" />
+					
+					<!-- Userdialog for wait timer at the rendezvous location -->
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryAction="InputEnabled_Continue" 
+									Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
+									Title="WARNING" />
 
-				<!-- Movement from rendezvous to the instance box, universal-->		
+					<!-- Movement from rendezvous to the instance box, universal-->		
+				</ElseIf>
 			</If>
 		</If>			
 				
