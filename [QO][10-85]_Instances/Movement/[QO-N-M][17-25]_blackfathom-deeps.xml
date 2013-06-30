@@ -50,7 +50,7 @@
 		
 		
 		<!-- Booster -->
-		<If Condition="Me.Level == 90">
+		<If Condition="Me.Level == 100">
 		
 			<!-- Booster UseerSettings -->
 			<CustomBehavior File="UserSettings" 
@@ -297,7 +297,7 @@
 											WaitTime="1000" />
 							
 							<!-- Otherwise use the Innkeeper's Daughter -->
-							<ElseIf Condition="HasItem(64488)">
+							<Else>
 								<CustomBehavior File="Message" 
 												Text="Using Innkeeper's Daughter." 
 												LogColor="Lime" />
@@ -305,7 +305,7 @@
 								<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(64488)" 
 												WaitTime="1000" />
-							</ElseIf>
+							</Else>
 							
 							<!-- Waiting for the loading screen -->
 							<CustomBehavior File="Message" 
@@ -501,7 +501,7 @@
 				
 				
 		<!-- RAF Toons -->	
-		<If Condition="Me.Level &lt;= 85">
+		<If Condition="Me.Level &lt;= 95">
 		
 			<!-- RAF UseerSettings -->
 			<CustomBehavior File="UserSettings"
@@ -701,7 +701,7 @@
 								
 								
 			<!-- Wait timer to allow the 90 to clear the entrance cavern to Blackfathom Deeps -->
-			<RunTo <RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
+			<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 			<CustomBehavior File="Message" 
 							Text="Waiting 90 seconds for the booster to begin clearing a path to BFD." 
 							LogColor="Lime" />	

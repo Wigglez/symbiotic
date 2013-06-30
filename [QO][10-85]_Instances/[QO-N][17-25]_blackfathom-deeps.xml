@@ -50,7 +50,7 @@
 		
 		
 		<!-- *******************************************************  Booster ************************************************************** -->
-		<If Condition="Me.Level &gt;= 90">
+		<If Condition="Me.Level &gt;= 100">
 			<CustomBehavior File="UserSettings"
 							UseMount="True" 
 							UseFlightPaths="True" 
@@ -541,7 +541,7 @@
 		</If>
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
-		<If Condition="Me.Level &lt;= 85">
+		<If Condition="Me.Level &lt;= 95">
 
 			<CustomBehavior File="UserSettings" 
 							UseMount="True" 
@@ -590,7 +590,7 @@
 				</If>
 				
 				<!-- If we are outside of Blackfathom Deeps (Ashenvale) -->
-				<If Condition="Me.MapId == 1">		
+				<If Condition="(Me.MapId == 1) || (Me.MapId == 0)">		
 					<!-- If we are not in the box, load the movement profile -->
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
 						<CustomBehavior File="Message" 
