@@ -631,21 +631,19 @@
 										Text="We are in Kalimdor." 
 										LogColor="Cyan" />
 							
-						<If Condition="Me.ZoneId == 1657">
-							<CustomBehavior File="Message" 
-											Text="We are in Darnassus." 
-											LogColor="Cyan" />
+						<CustomBehavior File="Message" 
+										Text="We are in Rut'theran Village." 
+										LogColor="Cyan" />
+					
+						<!-- Rut'theran Village flight master -->
+						<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
+							<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 						
-							<!-- Rut'theran Village flight master -->
-							<If Condition="Me.X &gt; 7700" >
-								<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
-							
-								<CustomBehavior File="Message" 
-												Text="Flightpath has been updated."
-												LogColor="Cyan" />
-												
-								<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
-							</If>
+							<CustomBehavior File="Message" 
+											Text="Flightpath has been updated."
+											LogColor="Cyan" />
+											
+							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
 						</If>
 							
 						<If Condition="Me.ZoneId == 148">
@@ -674,7 +672,7 @@
 												
 								<RunTo X="3900.679" Y="540.4968" Z="59.58441" />
 							</If>
-						</If>
+						</If> <!-- Darkshore ZoneId -->
 						
 						<If Condition="Me.ZoneId == 331">
 							<CustomBehavior File="Message" 
@@ -704,8 +702,8 @@
 									<Hotspot X="3921.51" Y="550.8272" Z="9.172464" />
 									<Hotspot X="3922.324" Y="681.3928" Z="6.508515" />
 								</CustomBehavior>
-							</If>
-						</If>
+							</If> 
+						</If> <!-- Ashenvale ZoneId -->
 					</ElseIf> <!-- Kalimdor MapId -->
 				</If> <!-- Eastern Kingdoms MapId -->
 				
