@@ -396,6 +396,76 @@
 													Text="We are Horde." 
 													LogColor="Cyan" />
 								
+									<!-- If we are outside the wailing caverns box, run out of the cave -->
+									<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+										<CustomBehavior File="Message" 
+														Text="We are outside the Wailing Caverns portal, clearing the mobs as we exit the cave." 
+														LogColor="Cyan" />
+										<RunTo X="-726.9633" Y="-2224.307" Z="17.26443" />
+										<RunTo X="-726.8185" Y="-2247.23" Z="16.44253" />
+										<RunTo X="-712.9393" Y="-2256.297" Z="15.1138" />
+										<RunTo X="-725.0109" Y="-2260.703" Z="14.70996" />
+										<RunTo X="-724.5492" Y="-2275.722" Z="15.42311" />
+										<RunTo X="-707.563" Y="-2275.634" Z="15.10036" />
+										<RunTo X="-700.3744" Y="-2262.825" Z="15.9973" />
+										<RunTo X="-689.3337" Y="-2250.1" Z="17.0749" />
+										<RunTo X="-687.5347" Y="-2240.536" Z="17.14232" />
+										<RunTo X="-698.6352" Y="-2235.84" Z="17.4777" />
+										<RunTo X="-711.5023" Y="-2229.3" Z="18.128" />
+										<RunTo X="-717.5408" Y="-2216.135" Z="18.88663" />
+										<RunTo X="-715.8046" Y="-2200.085" Z="22.90345" />
+										<RunTo X="-694.7987" Y="-2192.413" Z="30.72397" />
+										<RunTo X="-679.2072" Y="-2191.557" Z="35.19562" />
+										<RunTo X="-661.7793" Y="-2188.625" Z="40.09943" />
+										<RunTo X="-637.7533" Y="-2185.496" Z="46.14281" />
+										<RunTo X="-624.033" Y="-2185.214" Z="48.97122" />
+										<RunTo X="-617.7794" Y="-2198.889" Z="49.77479" />
+										<RunTo X="-606.6382" Y="-2204.14" Z="47.32564" />
+										<RunTo X="-596.2405" Y="-2197.311" Z="46.48972" />
+										<RunTo X="-594.3687" Y="-2183.651" Z="48.2122" />
+										<RunTo X="-603.0956" Y="-2171.851" Z="51.51985" />
+										<RunTo X="-602.1108" Y="-2161.135" Z="52.09389" />
+										<RunTo X="-592.9149" Y="-2160.29" Z="52.5627" />
+										<RunTo X="-588.7336" Y="-2170.653" Z="50.77856" />
+										<RunTo X="-592.3964" Y="-2180.988" Z="48.42519" />
+										<RunTo X="-602.5879" Y="-2178.14" Z="49.73956" />
+										<RunTo X="-606.1158" Y="-2162.58" Z="52.21634" />
+										<RunTo X="-607.5574" Y="-2151.058" Z="51.01653" />
+										<RunTo X="-591.7418" Y="-2129.349" Z="51.09421" />				
+
+										<!-- CTM across the water -->
+										<CustomBehavior File="MyCTM"
+														X="-572.1486" Y="-2086.887" Z="51.72983" />
+														
+										<!-- Run to the cave exit -->
+										<RunTo X="-576.1733" Y="-2075.927" Z="54.16796" />
+										<RunTo X="-584.249" Y="-2048.218" Z="57.32582" />
+										<RunTo X="-591.7911" Y="-2037.656" Z="57.53141" />
+										<RunTo X="-613.0547" Y="-2027.226" Z="61.66275" />
+										<RunTo X="-642.8391" Y="-2025.529" Z="65.00465" />
+										<RunTo X="-657.7106" Y="-2031.885" Z="66.21774" />
+										<RunTo X="-681.2185" Y="-2046.327" Z="66.0127" />
+										<RunTo X="-696.0775" Y="-2049.908" Z="65.42136" />
+										<RunTo X="-697.9214" Y="-2067.416" Z="66.41071" />
+										<RunTo X="-701.7302" Y="-2036.456" Z="65.67265" />
+										<RunTo X="-695.1204" Y="-2025.84" Z="66.15623" />
+										<RunTo X="-709.8243" Y="-2045.756" Z="65.66882" />
+										<RunTo X="-731.9542" Y="-2053.947" Z="68.51969" />
+										<RunTo X="-751.3676" Y="-2065.491" Z="71.06351" />
+										<RunTo X="-753.1743" Y="-2076.498" Z="73.06252" />
+										<RunTo X="-740.1805" Y="-2091.469" Z="74.53552" />
+										<RunTo X="-767.8809" Y="-2061.284" Z="74.61649" />
+										<RunTo X="-770.0547" Y="-2039.808" Z="75.51975" />
+										<RunTo X="-772.5418" Y="-2022.529" Z="76.17165" />
+										<RunTo X="-785.4886" Y="-2024.678" Z="78.41845" />
+										<RunTo X="-791.869" Y="-2033.076" Z="79.64075" />
+										<RunTo X="-780.0822" Y="-2043.26" Z="77.17861" />
+										<RunTo X="-794.2064" Y="-2025.048" Z="79.9267" />
+										<RunTo X="-822.6498" Y="-2031.171" Z="80.70004" />
+										<RunTo X="-853.4038" Y="-2039.224" Z="81.26646" />
+										<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />	
+									</If>	
+								
 									<CustomBehavior File="Message" 
 													Text="Flying to Zoram'gar Outpost." 
 													LogColor="Lime" />
@@ -525,7 +595,7 @@
 					<RunTo X="4225.376" Y="764.999" Z="-21.7336" />
 					<RunTo X="4234.482" Y="740.7827" Z="-25.60224" />
 					<RunTo X="4245.435" Y="736.5756" Z="-26.26228" />
-					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />	
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />				
 					<CustomBehavior File="RunMacro"
 									Macro="/s Bingo" />	
 				</If> <!-- Kalimdor -->
@@ -754,6 +824,36 @@
 									Text="We are Horde." 
 									LogColor="Cyan" />
 				
+				
+				
+					<!-- If we are outside the wailing caverns box, run out of the cave -->
+					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+						<CustomBehavior File="Message" 
+										Text="We are outside the Wailing Caverns portal, running out of the cave." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting 120 seconds for the booster to kill the mobs exiting the cave." 
+										LogColor="Cyan" />				
+										
+						<!-- Wait timer to give the 90 time to clear the mobs exiting the cave -->
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="120000" />
+
+						<!-- Run to the water -->	
+						<RunTo X="-593.6287" Y="-2129.372" Z="50.93468" />
+						
+						<!-- CTM across the water -->
+						<CustomBehavior File="MyCTM"
+										X="-572.1486" Y="-2086.887" Z="51.72983" />
+										
+						<CustomBehavior File="MyCTM"
+										X="-585.9764" Y="-2042.767" Z="57.58044" />				
+						
+						<!-- Run to the cave exit -->
+						<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
+					</If>	
+										
 					<!-- If we are in the Northern Barrens -->
 					<If Condition="Me.ZoneId == 17">
 						<CustomBehavior File="Message" 
