@@ -631,18 +631,26 @@
 										Text="We are in Kalimdor." 
 										LogColor="Cyan" />
 							
-						<CustomBehavior File="Message" 
+						<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
+							<CustomBehavior File="Message" 
 										Text="We are in Rut'theran Village." 
 										LogColor="Cyan" />
-					
-						<!-- Rut'theran Village flight master -->
-						<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
+						
+							<CustomBehavior File="Message" 
+											Text="Checkpoint reached." 
+											LogColor="Cyan" />
+											
+							<!-- Rut'theran Village flight master -->
 							<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 						
 							<CustomBehavior File="Message" 
 											Text="Flightpath has been updated."
 											LogColor="Cyan" />
 											
+							<CustomBehavior File="Message" 
+											Text="We are moving to Lor'danel." 
+											LogColor="Lime" />
+										
 							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
 						</If>
 							
@@ -652,6 +660,17 @@
 											LogColor="Cyan" />
 											
 							<If Condition="Me.X &gt; 6000 &amp;&amp; Me.X &lt;= 7700">
+								<CustomBehavior File="Message" 
+												Text="Checkpoint reached." 
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are in Lor'danel." 
+												LogColor="Cyan" />
+							
+								<CustomBehavior File="UserSettings"
+												UseFlightPaths="False" />
+							
 								<!-- Use the flight master to Lor'danel, darkshore -->
 								<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
 								
@@ -659,18 +678,36 @@
 												Text="Flightpath has been updated."
 												LogColor="Cyan" />
 												
+								<CustomBehavior File="Message" 
+												Text="We are moving to Grove of the Ancients." 
+												LogColor="Lime" />
+											
 								<RunTo X="4970.5" Y="147.65" Z="51.64" />
 							</If>
 				
-							<If Condition="Me.X &gt; 4400 &amp;&amp; Me.X &lt;= 6000 ">				
-								<!-- Use the flight master to Grove of the Ancients, darkshore -->
+							
+							<If Condition="Me.X &gt; 4400 &amp;&amp; Me.X &lt;= 6000 ">	
+								<CustomBehavior File="Message" 
+												Text="Checkpoint reached." 
+												LogColor="Cyan" />
+							
+								<!-- Run to Grove of the Ancients, darkshore -->
 								<RunTo X="4970.5" Y="147.65" Z="51.64" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Grove of the Ancients." 
+												LogColor="Cyan" />
 								
 								<CustomBehavior File="Message" 
 												Text="Flightpath has been updated."
 												LogColor="Cyan" />
-												
-								<RunTo X="3900.679" Y="540.4968" Z="59.58441" />
+							
+								<CustomBehavior File="Message" 
+												Text="We are moving toward the rendezvous point." 
+												LogColor="Lime" />
+							
+								<!-- Ashenvale entrance -->
+								<RunTo X="4104.732" Y="22.3274" Z="17.77499" />
 							</If>
 						</If> <!-- Darkshore ZoneId -->
 						
@@ -681,27 +718,31 @@
 						
 							<If Condition="Me.X &lt;= 4400">
 								<CustomBehavior File="Message" 
-												Text="We are moving toward the rendezvous point." 
-												LogColor="Lime" />
+												Text="Checkpoint reached." 
+												LogColor="Cyan" />
 												
-								<!-- Running to purple trees above Blackfathom Camp -->
-								<RunTo X="3900.679" Y="540.4968" Z="59.58441" />
-								
-								<CustomBehavior File="Message" 
-												Text="We are running like hell to the rendezvous point." 
-												LogColor="Lime" />
-								
-								<!-- Moving to the rendezvous, RunLikeHell to avoid updating the flight path and the patrolling wolf until the booster has cleared the area -->
+								<!-- RunLikeHell to force movement to the rendezvous -->
+								<RunTo X="4028.359" Y="-8.055423" Z="16.57624" />
 								<CustomBehavior File="RunLikeHell" 
 												UseCTM="true" 
 												NumOfTimes="1" 
-												AllowCombat="false">
-									<Hotspot X="3995.616" Y="549.9054" Z="25.70187" />
-									<Hotspot X="3966.998" Y="557.0578" Z="25.68163" />
-									<Hotspot X="3940.224" Y="561.0457" Z="9.635921" />
-									<Hotspot X="3921.51" Y="550.8272" Z="9.172464" />
-									<Hotspot X="3922.324" Y="681.3928" Z="6.508515" />
-								</CustomBehavior>
+												AllowCombat="false">											
+									<Hotspot X="4028.359" Y="-8.055423" Z="16.57624" />
+									<Hotspot X="3973.766" Y="0.1229009" Z="17.01221" />
+									<Hotspot X="3904.903" Y="35.50438" Z="15.20922" />
+									<Hotspot X="3837.592" Y="96.97036" Z="12.52452" />
+									<Hotspot X="3866.651" Y="169.7792" Z="3.115445" />
+									<Hotspot X="3867.94" Y="191.2673" Z="1.571686" />
+									<Hotspot X="3872.289" Y="250.9082" Z="2.815583" />
+									<Hotspot X="3876.173" Y="348.9855" Z="4.409965" />
+									<Hotspot X="3890.044" Y="445.2366" Z="5.785574" />
+									<Hotspot X="3887.483" Y="504.5455" Z="7.234628" />
+									<Hotspot X="3870.062" Y="539.0946" Z="6.604815" />
+								</CustomBehavior>	
+								
+								<CustomBehavior File="Message" 
+												Text="We are at the rendezvous point." 
+												LogColor="Cyan" />
 							</If> 
 						</If> <!-- Ashenvale ZoneId -->
 					</ElseIf> <!-- Kalimdor MapId -->
@@ -715,7 +756,6 @@
 				
 					<!-- If we are in the Northern Barrens -->
 					<If Condition="Me.ZoneId == 17">
-					
 						<CustomBehavior File="Message" 
 										Text="We are in Northern Barrens." 
 										LogColor="Cyan" />
@@ -725,7 +765,7 @@
 							<CustomBehavior File="Message" 
 											Text="Checkpoint reached."
 											LogColor="Cyan" />
-						
+											
 							<CustomBehavior File="Message" 
 											Text="Moving to The Crossroads."
 											LogColor="Lime" />
@@ -734,9 +774,13 @@
 							<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
 							
 							<CustomBehavior File="Message" 
-											Text="Flightpath has been updated."
+											Text="We are in The Crossroads." 
 											LogColor="Cyan" />
 							
+							<CustomBehavior File="Message" 
+											Text="Flightpath has been updated."
+											LogColor="Cyan" />
+											
 							<!-- Run to the tower intersection to stay on the road -->
 							<RunTo X="42.21896" Y="-2717.489" Z="91.66673" />
 							
@@ -771,13 +815,18 @@
 							<RunTo X="1206.031" Y="-2209.855" Z="92.1406" />
 							
 							<CustomBehavior File="Message" 
-											Text="Flightpath has been updated."
+											Text="We are in Mor'shan Rampart." 
 											LogColor="Cyan" />
 							
+							<CustomBehavior File="Message" 
+											Text="Flightpath has been updated."
+											LogColor="Cyan" />
+											
 							<!-- Moving to Mor'shan Rampart gate - cutoff-->
 							<CustomBehavior File="Message" 
-											Text="Moving to Splintertree Outpost."
+											Text="Moving to Splintertree Post."
 											LogColor="Lime" />
+											
 							<RunTo X="1202.344" Y="-2306.263" Z="91.69298" />
 			
 							<!-- RunLikeHell to bypass the gate guards -->
@@ -800,21 +849,17 @@
 					
 					<!-- If we are in Ashenvale -->
 					<If Condition="Me.ZoneId == 331">
-						
 						<CustomBehavior File="Message" 
 										Text="We are in Ashenvale." 
 										LogColor="Cyan" />
 										
-						<!-- North of the gates entering ashenvale and east of the bridge between silverwind refuge and splintertree outpost -->
+						<!-- North of the gates entering ashenvale and east of the bridge between silverwind refuge and splintertree post -->
 						<If Condition="Me.Y &lt;= -1960" >
 							<CustomBehavior File="Message" 
 											Text="Checkpoint reached."
 											LogColor="Cyan" />
-							
-							<CustomBehavior File="Message" 
-											Text="Moving to Splintertree Outpost."
-											LogColor="Lime" />
-							<!-- Intersection of main road and eastern road entering splintertree outpost -->
+											
+							<!-- Intersection of main road and eastern road entering splintertree post -->
 							<RunTo X="2181.207" Y="-2643.072" Z="108.7298" />
 							
 							<!-- Moving to Splintertree Post flight master -->
@@ -830,7 +875,20 @@
 								<Hotspot X="2312.374" Y="-2537.251" Z="100.2412" />
 								<Hotspot X="2302.39" Y="-2524.55" Z="104.2812" />	
 							</CustomBehavior>
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Splintertree Post." 
+											LogColor="Cyan" />
+							
+							<CustomBehavior File="Message" 
+											Text="Flightpath has been updated."
+											LogColor="Cyan" />
+							
 							<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
+							
+							<CustomBehavior File="Message" 
+											Text="Moving to Hellscream's Watch."
+											LogColor="Lime" />
 							
 							<!-- Exiting the eastern gate of Splintertree Post to avoid being attacked -->
 							<CustomBehavior File="RunLikeHell" 
@@ -854,12 +912,7 @@
 							<CustomBehavior File="Message" 
 											Text="Checkpoint reached."
 											LogColor="Cyan" />
-											
-							<!-- Moving to the road leading into Hellscream's Watch -->
-							<CustomBehavior File="Message" 
-											Text="Moving to Hellscream's Watch."
-											LogColor="Lime" />
-					
+							
 							<!-- RunLikeHell to bypass the mobs outside Hellscream's Watch -->
 							<CustomBehavior File="RunLikeHell" 
 											NumOfTimes="1" 
@@ -871,8 +924,16 @@
 							<RunTo X="3049.08" Y="-498.95" Z="205.6398" />
 							
 							<CustomBehavior File="Message" 
+											Text="We are in Hellscream's Watch." 
+											LogColor="Cyan" />
+							
+							<CustomBehavior File="Message" 
 											Text="Flightpath has been updated."
 											LogColor="Cyan" />
+							
+							<CustomBehavior File="Message" 
+											Text="Moving to Zoram'gar Outpost."
+											LogColor="Lime" />
 							
 							<!-- Run past the next check -->
 							<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
@@ -885,12 +946,12 @@
 											Text="Checkpoint reached."
 											LogColor="Cyan" />
 						
-							<CustomBehavior File="Message" 
-											Text="Moving to Zoram'gar Outpost."
-											LogColor="Lime" />
-											
 							<!-- Moving to Zoram'gar flight master -->
 							<RunTo X="3351.82" Y="1052.3" Z="3.07" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Zoram'gar Outpost." 
+											LogColor="Cyan" />
 							
 							<CustomBehavior File="Message" 
 											Text="Flightpath has been updated."
@@ -898,6 +959,10 @@
 							
 							<!-- Moving to the intersection sign post -->
 							<RunTo X="3520.993" Y="554.2925" Z="5.413744" />
+							
+							<CustomBehavior File="Message" 
+											Text="Moving to the rendezvous point."
+											LogColor="Lime" />
 							
 							<!-- Moving to the rendezvous -->
 							<CustomBehavior File="RunLikeHell" 
@@ -929,7 +994,7 @@
 							
 			<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
 			<CustomBehavior File="Message" 
-							Text="Waiting 145 seconds for the booster to clear a path to the BFD entrance." 
+							Text="Waiting 145 seconds for the booster to clear a path to the Blackfathom Deeps entrance." 
 							LogColor="Cyan" />	
 			<CustomBehavior File="WaitTimer" 
 							WaitTime="145000" />
@@ -942,7 +1007,7 @@
 			<RunTo X="4028.092" Y="740.5526" Z="6.467234" />
 			<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 			<CustomBehavior File="Message" 
-							Text="Waiting 90 seconds for the booster to begin clearing a path to BFD." 
+							Text="Waiting 90 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
 							LogColor="Cyan" />	
 			<CustomBehavior File="WaitTimer" 
 							WaitTime="90000" />
