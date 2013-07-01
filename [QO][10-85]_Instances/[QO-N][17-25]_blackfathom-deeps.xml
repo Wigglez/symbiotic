@@ -53,7 +53,7 @@
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="Message" 
 							Text="We are a booster." 
-							LogColor="RoyalBlue" />
+							LogColor="DodgerBlue" />
 							
 			<!-- Booster UserSettings -->
 			<CustomBehavior File="UserSettings"
@@ -86,12 +86,12 @@
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
 									Text="Blackfathom Deeps detected. Running out to reset." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 						
 					<If Condition="Me.X &lt; -352.5026" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms. Running down."
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 							
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
@@ -121,7 +121,7 @@
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there."
-										LogColor="RoyalBlue" />	
+										LogColor="DodgerBlue" />	
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
 					</If> <!-- Not in box -->
@@ -130,7 +130,7 @@
 					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out."
-										LogColor="RoyalBlue" />	
+										LogColor="DodgerBlue" />	
 						<!-- Check durability, load the movement profile -->
 						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 							<CustomBehavior File="LoadProfile" 
@@ -140,7 +140,7 @@
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 						
 						<CustomBehavior File="RunMacro" 
 										Macro="/script ResetInstances()" />
@@ -154,7 +154,7 @@
 						<!-- The second reset confirms we are safe to enter the instance -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 2 of 2." 
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 						<CustomBehavior File="RunMacro" 
 										Macro="/script ResetInstances()" />
 						<CustomBehavior File="RunMacro" 
@@ -162,7 +162,7 @@
 						
 						<CustomBehavior File="Message" 
 										Text="Instance reset." 
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 						
 						<!-- Run back in the Blackfathom Deeps portal -->
 						<CustomBehavior File="MyCTM" 
@@ -170,7 +170,7 @@
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 						
 						<CustomBehavior File="WaitTimer"
 										WaitTime="15000" />
@@ -590,12 +590,12 @@
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
 									Text="Blackfathom Deeps detected. Running out to reset."
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 						
 					<If Condition="Me.X &lt; -352.5026" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms. Running down." 
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 							
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
@@ -625,7 +625,7 @@
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="RoyalBlue" />	
+										LogColor="DodgerBlue" />	
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
 					</If> <!-- Not in box -->
@@ -634,7 +634,7 @@
 					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
-										LogColor="RoyalBlue" />	
+										LogColor="DodgerBlue" />	
 					
 						<!-- If we are between levels 25-37 -->
 						<If Condition="Me.Level &gt;= 25 &amp;&amp; Me.Level &lt;= 37" >
@@ -659,7 +659,7 @@
 						</If> <!-- Level check -->
 						
 						<CustomBehavior File="Message" 
-										Text="Waiting 10 seconds." LogColor="RoyalBlue" />
+										Text="Waiting 10 seconds." LogColor="DodgerBlue" />
 						<CustomBehavior File="WaitTimer"
 										WaitTime="10000" />
 						
@@ -669,7 +669,7 @@
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
-										LogColor="RoyalBlue" />
+										LogColor="DodgerBlue" />
 						<CustomBehavior File="WaitTimer"
 										WaitTime="15000" />
 						
@@ -693,7 +693,7 @@
 									LogColor="Yellow" />	
 					
 					<CustomBehavior File="Message" Text="Waiting 80 seconds, entrance." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="80000" />
 						
@@ -704,7 +704,7 @@
 
 					<CustomBehavior File="Message" 
 									Text="Waiting 70 seconds, 1 of 1." 
-									LogColor="RoyalBlue" />	
+									LogColor="DodgerBlue" />	
 					<CustomBehavior File="WaitTimer" WaitTime="70000" />
 					
 					<CustomBehavior File="MyCTM" 
@@ -718,19 +718,19 @@
 					
 					<CustomBehavior File="Message" 
 									Text="Waiting 120 seconds, 1 of 3." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="120000" />
 
 					<CustomBehavior File="Message" 
 									Text="Waiting 120 seconds, 2 of 3." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="120000" />
 					
 					<CustomBehavior File="Message" 
 									Text="Waiting 120 seconds, 3 of 3." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="120000" />
 					
@@ -752,7 +752,7 @@
 				
 					<CustomBehavior File="Message" 
 									Text="Waiting 135 seconds, 1 of 1."
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="135000" />
 					
@@ -761,13 +761,13 @@
 					
 					<CustomBehavior File="Message" 
 									Text="Waiting 150 seconds, 1 of 2." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="150000" />
 					
 					<CustomBehavior File="Message" 
 									Text="Waiting 180 seconds, 2 of 2." 
-									LogColor="RoyalBlue" />
+									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="180000" />
 					
