@@ -632,24 +632,22 @@
 										LogColor="Cyan" />
 							
 						<!-- Rut'theran Village flight master -->
-					<!--	<If Condition="Me.X &lt;= -1960" >	-->
+					<!--	If X > 7740 -->
 						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 						
 						<CustomBehavior File="Message" 
 										Text="Flightpath has been updated."
 										LogColor="Cyan" />
 										
-										
+						<!--  X <	7740 and > 6000 -->	
 						<!-- Use the flight master to lor' danel, darkshore -->
 						<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
 				
-						<!-- Remove, for test purposes -->
-						<CustomBehavior File="UserSettings"
-										UseFlightPaths="False" />
-										
+						<!-- X < 6000 and > 4400 -->					
 						<!-- Running to Grove of the Ancients -->
 						<RunTo X="4970.5" Y="147.65" Z="51.64" />
 						
+						<!-- X < 4400 -->
 						<!-- Running to purple trees above Blackfathom Camp -->
 						<RunTo X="3900.679" Y="540.4968" Z="59.58441" />
 						
