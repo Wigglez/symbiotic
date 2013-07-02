@@ -706,7 +706,12 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="1000" />
 				
-					
+					<!-- Horde -->
+					<ElseIf Condition="Me.IsHorde">
+						<CustomBehavior File="Message" 
+										Text="You are an idiot and got into Eastern Kingdoms somehow as a Horde. We should be in Kalimdor. Stopping profile." 
+										LogColor="Red" />
+					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 			</If> <!-- Eastern Kingdoms -->
 			
