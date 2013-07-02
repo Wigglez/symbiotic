@@ -679,32 +679,114 @@
 								
 				<!-- Alliance -->
 				<If Condition="Me.IsAlliance" >
-					<!-- Move to Stormwind Docks -->
-					<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
+					<!-- Sentinel Hill and below -->
+					<If Condition="Me.X &lt;= -10100">
+						<CustomBehavior File="Message" 
+										Text="We are either outside or south of Sentinel Hill." 
+										LogColor="Cyan" />
+										
+						<!-- Move to the flightpath -->
+						<RunTo X="-10549.74" Y="1034.109" Z="56.96315" />
+						
+						<CustomBehavior File="Message" 
+										Text="Flightpath has been updated."
+										LogColor="Cyan" />
+
+						<CustomBehavior File="Message" 
+										Text="We are in Sentinel Hill." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to the bridge." 
+										LogColor="Lime" />
+									
+						<!-- Halfway point -->
+						<RunTo X="-9951.299" Y="1001.616" Z="31.45806" />
+					</If>
+				
+					<!-- Between Sentinel Hill and castle -->
+					<If Condition="Me.X &gt; -10100 &amp;&amp; Me.X &lt;= -9580">
+						<CustomBehavior File="Message" 
+											Text="Checkpoint reached." 
+											LogColor="Cyan" />
+						
+						<!-- Move to the bridge -->
+						<RunTo X="-9755.769" Y="426.3461" Z="37.1783" />
+
+						<CustomBehavior File="Message" 
+										Text="We are at the bridge." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Goldshire." 
+										LogColor="Lime" />
+									
+						<!-- Halfway point -->
+						<RunTo X="-9759.557" Y="677.6695" Z="27.01919" />
+					</If>
+
+					<!-- Between castle and Goldshire -->
+					<If Condition="Me.X &gt; -9580 &amp;&amp; Me.X &lt;= -9260">
+						<CustomBehavior File="Message" 
+											Text="Checkpoint reached." 
+											LogColor="Cyan" />
+						
+						<!-- Goldshire flight master -->
+						<RunTo X="-9465.792" Y="63.25687" Z="55.85897" />
+
+						<CustomBehavior File="Message" 
+										Text="Flightpath has been updated."
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are in Goldshire." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind." 
+										LogColor="Lime" />
+									
+						<!-- Halfway point -->
+						<RunTo X="-9142.431" Y="374.322" Z="90.65096" />	
+					</If>
+				
+					<!-- North of Stormwind -->
+					<If Condition="Me.X &gt; -9260">
+						<CustomBehavior File="Message" 
+										Text="We are either outside or north of Stormwind." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind Docks." 
+										LogColor="Lime" />
 					
-					<!-- Taking the boat to Rut'theran Village -->
-					<CustomBehavior File="Message" 
-									Text="Waiting for the boat to Darnassus." 
-									LogColor="Cyan" />
-					<CustomBehavior File="UseTransport" 
-									TransportId="176310" 
-									WaitAtX="-8644.193" 
-									WaitAtY="1327.927" 
-									WaitAtZ="5.536721"								
-									TransportStartX="-8650.719" 
-									TransportStartY="1346.051" 
-									TransportStartZ="0.012419"								
-									StandOnX="-8644.946" 
-									StandOnY="1348.325" 
-									StandOnZ="6.110394"
-									TransportEndX="8162.587" 
-									TransportEndY="1005.365" 
-									TransportEndZ="-0.0382334"	
-									GetOffX="8178.897" 
-									GetOffY="1002.434" 
-									GetOffZ="6.812055" />								
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="1000" />
+						<!-- Move to Stormwind Docks -->
+						<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
+						
+						<!-- Taking the boat to Rut'theran Village -->
+						<CustomBehavior File="Message" 
+										Text="Waiting for the boat to Darnassus." 
+										LogColor="Cyan" />
+						<CustomBehavior File="UseTransport" 
+										TransportId="176310" 
+										WaitAtX="-8644.193" 
+										WaitAtY="1327.927" 
+										WaitAtZ="5.536721"								
+										TransportStartX="-8650.719" 
+										TransportStartY="1346.051" 
+										TransportStartZ="0.012419"								
+										StandOnX="-8644.946" 
+										StandOnY="1348.325" 
+										StandOnZ="6.110394"
+										TransportEndX="8162.587" 
+										TransportEndY="1005.365" 
+										TransportEndZ="-0.0382334"	
+										GetOffX="8178.897" 
+										GetOffY="1002.434" 
+										GetOffZ="6.812055" />								
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+					</If>
 				
 					<!-- Horde -->
 					<ElseIf Condition="Me.IsHorde">
