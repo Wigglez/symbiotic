@@ -743,8 +743,8 @@
 										Text="We are moving to Stormwind." 
 										LogColor="Lime" />
 										
-						<!-- Move to Stormwind Docks -->
-						<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
+						<!-- Move to outside of Stormwind -->
+						<RunTo X="-9182.045" Y="261.1702" Z="74.10328" />
 					</If>
 
 					<!-- North of Stormwind -->
