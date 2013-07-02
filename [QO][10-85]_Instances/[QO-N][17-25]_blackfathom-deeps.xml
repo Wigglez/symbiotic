@@ -206,16 +206,8 @@
 					</CustomBehavior>
 					<RunTo X="-189.6269" Y="72.41666" Z="-48.64544" />
 										
-					<CustomBehavior File="Message" 
-									Text="End of first run like hell." 
-									LogColor="DodgerBlue" />
-					
 					<RunTo X="-266.9157" Y="33.50784" Z="-58.06705" />
- 					
-					<CustomBehavior File="Message" 
-									Text="Got to the runto." 
-									LogColor="DodgerBlue" />
-					
+ 				
 					<!-- Swim through the water -->
 					<CustomBehavior File="MyCTM" 
 									X="-281.1979" Y="46.98925" Z="-67.0153" />	
@@ -226,10 +218,6 @@
 					<CustomBehavior File="MyCTM" 
 									X="-335.3923" Y="81.74883" Z="-59.79328" />
 														
-					<CustomBehavior File="Message" 
-									Text="MyCTM shit." 
-									LogColor="DodgerBlue" />
-					
 					<RunTo X="-330.1867" Y="95.93851" Z="-59.08392" />
 					<RunTo X="-319.9561" Y="102.2125" Z="-58.65718" />
 					<RunTo X="-311.1952" Y="95.12193" Z="-58.83924" />
@@ -237,10 +225,6 @@
 					<RunTo X="-331.5215" Y="94.29758" Z="-59.17643" />
 					<RunTo X="-333.6324" Y="82.30185" Z="-59.43855" />
 
-					<CustomBehavior File="Message" 
-									Text="More RunTos." 
-									LogColor="DodgerBlue" />
-					
 					<!-- Go up mountain -->
 					<CustomBehavior File="MyCTM" 
 									X="-356.6548" Y="73.96896" Z="-58.16689" />
@@ -764,10 +748,10 @@
 									WaitTime="150000" />
 					
 					<CustomBehavior File="Message" 
-									Text="Waiting 180 seconds, 2 of 2." 
+									Text="Waiting 150 seconds, 2 of 2." 
 									LogColor="DodgerBlue" />
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="180000" />
+									WaitTime="150000" />
 					
 					<!-- Run to the edge of the platform -->
 					<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
@@ -775,8 +759,6 @@
 					<!-- Force ourselves to run off of it -->
 					<CustomBehavior File="MyCTM" 
 									X="-273.533" Y="71.30302" Z="-58.51636" />
-									
-						
 				</If> <!-- Inside BFD -->	
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
