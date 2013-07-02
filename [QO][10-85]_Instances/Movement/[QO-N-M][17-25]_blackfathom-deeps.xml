@@ -230,15 +230,16 @@
 								Text="We are not in the box." 
 								LogColor="Cyan" />
 				
-				<!-- If we are on Kalimdor and need to get to Ashenvale -->
+				<!-- If we are on Kalimdor -->
 				<If Condition="Me.MapId == 1" >
-					<!-- Alliance in EK, move to SW docks-->
+					<!-- If we are on Eastern Kingdoms -->
 					<ElseIf Condition="Me.MapId == 0">
 						<CustomBehavior File="Message" 
 										Text="We are in Eastern Kingdoms." 
 										LogColor="Cyan" />
 										
 						<If Condition="Me.IsAlliance">
+							<!-- Alliance in EK, move to SW docks-->
 							<CustomBehavior File="Message" 
 											Text="We are Alliance." 
 											LogColor="Cyan" />
@@ -277,37 +278,70 @@
 											GetOffZ="6.812055" />								
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="1000" />
+											
+							<CustomBehavior File="Message" 
+											Text="THIS SHOULD TRIGGER FOR ALLIANCE 1."
+											LogColor="Orange" />
 							
 							<ElseIf Condition="Me.IsHorde">
 								<CustomBehavior File="Message" 
-												Text="You are an idiot and got into Eastern Kingdoms somehow as a Horde. Stopping profile." 
+												Text="We are Horde." 
 												LogColor="Cyan" />
+							
+								<CustomBehavior File="Message" 
+												Text="You are an idiot and got into Eastern Kingdoms somehow as a Horde. Stopping profile." 
+												LogColor="Red" />
 							</ElseIf> <!-- Me.IsHorde -->
 						</If> <!-- Me.IsAlliance -->
 					</ElseIf> <!-- Eastern Kingdoms check -->
 					
-					<!-- In kalimdor -->
+					<CustomBehavior File="Message" 
+									Text="THIS SHOULD TRIGGER FOR BOTH 1."
+									LogColor="Orange" />
+					
+					<!-- We are in Kalimdor at this point -->
 					<If Condition="Me.IsAlliance">
 						<!-- Rut'theran Village flight master -->
 						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
+						
+						<CustomBehavior File="Message" 
+										Text="THIS SHOULD TRIGGER FOR ALLIANCE 2."
+										LogColor="Orange" />
 						
 						<!-- Disabling UseMount to force use of the flight master -->
 						<CustomBehavior File="ForcedDismount" />
 						<CustomBehavior File="UserSettings"
 										UseMount="False" />
+										
+						<CustomBehavior File="Message" 
+										Text="THIS SHOULD TRIGGER FOR ALLIANCE 3."
+										LogColor="Orange" />
 						
 						<CustomBehavior File="Message" 
 										Text="Flightpath has been updated."
 										LogColor="Cyan" />
 										
+						<CustomBehavior File="Message" 
+										Text="THIS SHOULD TRIGGER FOR ALLIANCE 4."
+										LogColor="Orange" />
+										
 						<!-- Forced use of the flight master to lor' danel, darkshore -->
 						<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+						
+						<CustomBehavior File="Message" 
+										Text="THIS SHOULD TRIGGER FOR ALLIANCE 5."
+										LogColor="Orange" />
 
 						<!-- Enabling UseMount -->
 						<CustomBehavior File="UserSettings"
 										UseMount="True"	/>
 						<CustomBehavior File="ForcedMount"
 										MountType="Flying" />
+						
+						<CustomBehavior File="Message" 
+										Text="THIS SHOULD TRIGGER FOR ALLIANCE 6."
+										LogColor="Orange" />
+					
 						
 						<ElseIf Condition="Me.IsHorde">
 							<!-- If we are south of Crossroads, clear the wailing caverns -->
@@ -379,10 +413,18 @@
 								<RunTo X="-822.6498" Y="-2031.171" Z="80.70004" />
 								<RunTo X="-853.4038" Y="-2039.224" Z="81.26646" />
 								<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
-							</If>
-						</ElseIf> <!-- Me.IsHorde -->
-					</If> <!-- Me.IsAlliance -->
+							</If> <!-- If south of crossroads -->
+							
+							<CustomBehavior File="Message" 
+											Text="THIS SHOULD TRIGGER FOR HORDE 1."
+											LogColor="Orange" />
+						</ElseIf> <!-- If Horde -->
+					</If> <!-- If Alliance -->
 					
+					<CustomBehavior File="Message" 
+									Text="THIS SHOULD TRIGGER FOR BOTH 2."
+									LogColor="Orange" />
+			
 					<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
