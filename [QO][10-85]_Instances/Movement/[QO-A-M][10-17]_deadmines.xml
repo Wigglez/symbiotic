@@ -189,14 +189,9 @@
 									X="-11065.5" Y="1530.04" Z="43.20776" />	
 					<CustomBehavior File="ForcedDismount" />
 					
-					<!-- Userdialog for wait timer at the rendezvous location -->
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - Press continue when all the toons have reached this location. The Main Character will clear a path to the instance from here." 
-									Title="WARNING" />
+					<!-- Rendezvous location -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 					
 					<!-- Run through caverns to Deadmines -->							
 					<RunTo X="-11086.47" Y="1530.567" Z="43.27423" />
@@ -260,14 +255,9 @@
 				<!-- Outside the building entering Deadmines, wait spot for 90 to clear the way in -->
 				<RunTo X="-11054.54" Y="1517.896" Z="43.04135" />
 					
-				<!-- Userdialog to for rendezvous -->
-				<CustomBehavior File="UserDialog" 
-								AllowBotStop="False" 
-								SoundCue="Exclamation" 
-								SoundCueInterval="15" 
-								ExpiryAction="InputEnabled_Continue" 	
-								Text=" RAF Character - Press continue when all the toons have reached this location. The 90 will clear a path to the instance." 
-								Title="WARNING" />
+				<!-- Rendezvous location -->
+				<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 								
 				<!-- Wait timer to allow the 90 to clear the path to Deadmines -->		
 				<CustomBehavior File="WaitTimer" 

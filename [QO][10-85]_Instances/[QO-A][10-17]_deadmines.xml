@@ -73,9 +73,7 @@
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-13.03915" Y="-386.0322" Z="62.78151" />
-					<CustomBehavior File="GoThruPortal" 
+					<CustomBehavior File="Misc\InInstance" 
 									X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
@@ -132,7 +130,7 @@
 										LogColor="Cyan" />
 						
 						<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
+						<CustomBehavior File="Misc\InInstance" 
 										X="-11208.34" Y="1680.56" Z="23.87232" />
 						
 						<CustomBehavior File="Message"
@@ -148,13 +146,8 @@
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
-									Title="WARNING" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 					
 					<!-- clearing all mobs to the first boss -->
 					<CustomBehavior File="RunLikeHell" 
@@ -591,7 +584,7 @@
 										WaitTime="10000" />
 						
 						<!-- Go inside the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
+						<CustomBehavior File="Misc\InInstance" 
 										X="-11208.34" Y="1680.56" Z="23.87232" />
 						
 						<CustomBehavior File="Message" 
@@ -608,13 +601,8 @@
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >		
 							
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
-									Title="WARNING" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 							
 					<CustomBehavior File="Message" 
 									Text="We have 9.1 minutes in timers with plenty of walking time. Avoiding instance lock from this point, do not touch." 
