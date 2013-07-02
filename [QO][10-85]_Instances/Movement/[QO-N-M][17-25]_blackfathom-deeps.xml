@@ -296,27 +296,30 @@
 									LogColor="Cyan" />	
 
 					<If Condition="Me.IsAlliance">
-						<!-- Rut'theran Village flight master -->
-						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
-						
-						<!-- Disabling UseMount to force use of the flight master -->
-						<CustomBehavior File="ForcedDismount" />
-						<CustomBehavior File="UserSettings"
-										UseMount="False" />
-									
-						<CustomBehavior File="Message" 
-										Text="Flightpath has been updated."
-										LogColor="Cyan" />
+						<If Condition="Me.X &gt; 8145 &amp;&amp; Me.X &lt; 8600 &amp;&amp; Me.Y &lt; 1225 &amp;&amp; Me.Y &gt; 735" >
+							<!-- Rut'theran Village flight master -->
+							<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
+							
+							<!-- Disabling UseMount to force use of the flight master -->
+							<CustomBehavior File="ForcedDismount" />
+							<CustomBehavior File="UserSettings"
+											UseMount="False" />
 										
-						<!-- Forced use of the flight master to lor' danel, darkshore -->
-						<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+							<CustomBehavior File="Message" 
+											Text="Flightpath has been updated."
+											LogColor="Cyan" />
+						</If>
 						
-						<!-- Enabling UseMount -->
-						<CustomBehavior File="UserSettings"
-										UseMount="True"	/>
-						<CustomBehavior File="ForcedMount"
-										MountType="Flying" />
-						
+						<If Condition="Me.ZoneId == 148">
+							<!-- Forced use of the flight master to lor' danel, darkshore -->
+							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+							
+							<!-- Enabling UseMount -->
+							<CustomBehavior File="UserSettings"
+											UseMount="True"	/>
+							<CustomBehavior File="ForcedMount"
+											MountType="Flying" />
+						</If>
 					</If> <!-- Alliance -->
 					
 					<If Condition="Me.IsHorde">
@@ -423,6 +426,26 @@
 											
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="20000" />
+											
+							<If Condition="Me.IsAlliance">
+								<!-- Run outside the inn -->
+								<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
+								
+								<!-- ForcedMount, and fly above the village -->
+								<CustomBehavior File="ForcedMount"
+												MountType="Flying" />
+								<CustomBehavior File="FlyTo" 
+												X="2721.863" Y="-385.5038" Z="142.7964" />
+							
+								<ElseIf Condition="Me.IsHorde">
+									<!-- Run outside the inn -->
+									<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
+									
+									<!-- fly to hover point -->
+									<CustomBehavior File="FlyTo"
+													X="3365.097" Y="996.3693" Z="44.22956" />
+								</ElseIf> <!-- Horde -->
+							</If> <!-- Alliance -->
 						</If> <!-- Hearth -->
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
@@ -529,16 +552,10 @@
 											
 					<!-- Fly to the rendezvous location -->
 					<CustomBehavior File="FlyTo" 
-									X="3901.309" Y="541.0104" Z="58.15691" />
+									X="3870.062" Y="539.0946" Z="6.604815" />
 					
-					<!-- Userdialog for wait timer at the rendezvous location -->
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Booster - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAFs. The booster will clear a path to Blackfathom Deeps." 
-									Title="WARNING" />
+					<!-- Begin the randezvous once all party members are within range -->
+					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
 
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
 					<CustomBehavior File="FlyTo" 
@@ -668,7 +685,7 @@
 							RessAtSpiritHealers="False"
 							SkinMobs="False"
 							UseFlightPaths="False"
-							UseMount="True" 
+							UseMount="False" 
 							UseRandomMount="False" />
 							
 			<!-- Eastern Kingdoms -->
@@ -740,17 +757,21 @@
 										LogColor="Cyan" />
 									
 						<CustomBehavior File="Message" 
-										Text="We are moving to Stormwind." 
+										Text="We are moving to Stormwind Gates." 
 										LogColor="Lime" />
 										
-						<!-- Move to outside of Stormwind -->
-						<RunTo X="-9182.045" Y="261.1702" Z="74.10328" />
+						<!-- Move to Stormwind gates -->
+						<RunTo X="-9064.999" Y="433.2505" Z="93.05677" />
 					</If>
 
-					<!-- North of Stormwind -->
-					<If Condition="Me.X &gt; -9260">
+					<!-- Stormwind -->
+					<If Condition="Me.X &gt; -9260 &amp;&amp; Me.X &lt;= -7800">
 						<CustomBehavior File="Message" 
-										Text="We are either outside or north of Stormwind." 
+										Text="Checkpoint reached." 
+										LogColor="Cyan" />
+						
+						<CustomBehavior File="Message" 
+										Text="We are in Stormwind." 
 										LogColor="Cyan" />
 										
 						<CustomBehavior File="Message" 
@@ -783,6 +804,19 @@
 										GetOffZ="6.812055" />								
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="1000" />
+					</If>
+					
+					<!-- Somewhere in bumfuck nowhere -->
+					<If Condition="Me.X &lt;= -7800">
+						<CustomBehavior File="Message" 
+										Text="We are north of Stormwind." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind." 
+										LogColor="Lime" />
+										
+						<RunTo X="-9064.999" Y="433.2505" Z="93.05677" />
 					</If>
 				
 					<!-- Horde -->
@@ -904,21 +938,10 @@
 											LogColor="Cyan" />
 											
 							<!-- RunLikeHell to force movement to the rendezvous -->
-							<RunTo X="4028.359" Y="-8.055423" Z="16.57624" />
 							<CustomBehavior File="RunLikeHell" 
 											UseCTM="true" 
 											NumOfTimes="1" 
-											AllowCombat="false">											
-								<Hotspot X="4028.359" Y="-8.055423" Z="16.57624" />
-								<Hotspot X="3973.766" Y="0.1229009" Z="17.01221" />
-								<Hotspot X="3904.903" Y="35.50438" Z="15.20922" />
-								<Hotspot X="3837.592" Y="96.97036" Z="12.52452" />
-								<Hotspot X="3866.651" Y="169.7792" Z="3.115445" />
-								<Hotspot X="3867.94" Y="191.2673" Z="1.571686" />
-								<Hotspot X="3872.289" Y="250.9082" Z="2.815583" />
-								<Hotspot X="3876.173" Y="348.9855" Z="4.409965" />
-								<Hotspot X="3890.044" Y="445.2366" Z="5.785574" />
-								<Hotspot X="3887.483" Y="504.5455" Z="7.234628" />
+											AllowCombat="false">		
 								<Hotspot X="3870.062" Y="539.0946" Z="6.604815" />
 							</CustomBehavior>	
 							
@@ -1203,14 +1226,8 @@
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
-				<!-- Userdialog for rendezvous -->
-				<CustomBehavior File="UserDialog" 
-								AllowBotStop="False" 
-								SoundCue="Exclamation" 
-								SoundCueInterval="15" 
-								ExpiryAction="InputEnabled_Continue" 	
-								Text="RAF - Press continue when all the toons have reached this location. The booster will clear a path to the instance." 
-								Title="WARNING" />
+				<!-- Begin the randezvous once all party members are within range -->
+				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
 								
 				<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
 				<CustomBehavior File="Message" 
@@ -1228,7 +1245,7 @@
 				<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 				
 				<CustomBehavior File="Message" 
-								Text="Waiting 90 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
+								Text="Waiting 60 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
 								LogColor="Cyan" />	
 				<CustomBehavior File="WaitTimer" 
 								WaitTime="90000" />

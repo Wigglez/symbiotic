@@ -104,15 +104,13 @@
 					<!-- Run to the instance entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 						
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-149.7285" Y="113.4777" Z="-40.73384" />
-					
-					<CustomBehavior File="WaitTimer"
-									WaitTime="15000" />
+					<!-- Go through the portal -->									
+					<CustomBehavior File="Misc\InInstance" 
+									X="-149.7285" Y="113.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+				
 				</If> <!-- Inside BFD -->
 				
 				<!-- If we are outside Blackfathom Deeps (Ashenvale) -->
@@ -165,15 +163,12 @@
 										LogColor="DodgerBlue" />
 						
 						<!-- Run back in the Blackfathom Deeps portal -->
-						<CustomBehavior File="MyCTM" 
+						<CustomBehavior File="Misc\InInstance" 
 										X="4250.304" Y="749.9905" Z="-23.02605" />
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="DodgerBlue" />
-						
-						<CustomBehavior File="WaitTimer"
-										WaitTime="15000" />
 						
 						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					</If> <!-- In box -->
@@ -181,14 +176,10 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
-									Title="WARNING" />
-									
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+														
 					<!-- Pull the whole area that the RAF will run through and make it safe -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -214,9 +205,17 @@
 						<Hotspot X="-189.6269" Y="72.41666" Z="-48.64544" />
 					</CustomBehavior>
 					<RunTo X="-189.6269" Y="72.41666" Z="-48.64544" />
+										
+					<CustomBehavior File="Message" 
+									Text="End of first run like hell." 
+									LogColor="DodgerBlue" />
 					
 					<RunTo X="-266.9157" Y="33.50784" Z="-58.06705" />
-						
+ 					
+					<CustomBehavior File="Message" 
+									Text="Got to the runto." 
+									LogColor="DodgerBlue" />
+					
 					<!-- Swim through the water -->
 					<CustomBehavior File="MyCTM" 
 									X="-281.1979" Y="46.98925" Z="-67.0153" />	
@@ -226,6 +225,10 @@
 									X="-328.114" Y="70.66751" Z="-59.8075" />
 					<CustomBehavior File="MyCTM" 
 									X="-335.3923" Y="81.74883" Z="-59.79328" />
+														
+					<CustomBehavior File="Message" 
+									Text="MyCTM shit." 
+									LogColor="DodgerBlue" />
 					
 					<RunTo X="-330.1867" Y="95.93851" Z="-59.08392" />
 					<RunTo X="-319.9561" Y="102.2125" Z="-58.65718" />
@@ -233,7 +236,11 @@
 					<RunTo X="-324.9161" Y="101.2409" Z="-58.74074" />
 					<RunTo X="-331.5215" Y="94.29758" Z="-59.17643" />
 					<RunTo X="-333.6324" Y="82.30185" Z="-59.43855" />
-						
+
+					<CustomBehavior File="Message" 
+									Text="More RunTos." 
+									LogColor="DodgerBlue" />
+					
 					<!-- Go up mountain -->
 					<CustomBehavior File="MyCTM" 
 									X="-356.6548" Y="73.96896" Z="-58.16689" />
@@ -609,11 +616,11 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM"
+					<CustomBehavior File="Misc\InInstance" 
 									X="-149.7285" Y="113.4777" Z="-40.73384" /> 
 					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
+				<!--	<CustomBehavior File="WaitTimer" 
+									WaitTime="15000" />	-->
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -664,30 +671,21 @@
 										WaitTime="10000" />
 						
 						<!-- Go inside the Blackfathom Deeps portal -->
-						<CustomBehavior File="MyCTM"
+						<CustomBehavior File="Misc\InInstance" 
 										X="4250.304" Y="749.9905" Z="-23.02605" />
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="DodgerBlue" />
-						<CustomBehavior File="WaitTimer"
-										WaitTime="15000" />
 						
 						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					</If> <!-- In box -->				
 				</If> <!-- Outside BFD -->
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
-				<If Condition="Me.MapId == 48" >		
-							
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
-									Title="WARNING" />
-							
+				<If Condition="Me.MapId == 48" >
+				
+					<!-- Begin the instance once all party members are within range -->
 					<CustomBehavior File="Message" 
 									Text="We have 15.8 minutes in timers. Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
@@ -777,6 +775,8 @@
 					<!-- Force ourselves to run off of it -->
 					<CustomBehavior File="MyCTM" 
 									X="-273.533" Y="71.30302" Z="-58.51636" />
+									
+						
 				</If> <!-- Inside BFD -->	
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
