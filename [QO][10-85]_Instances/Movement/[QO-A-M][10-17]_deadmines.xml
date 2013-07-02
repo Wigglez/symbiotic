@@ -253,7 +253,7 @@
 				<RunTo X="-10551.9" Y="1034.39" Z="56.95429" />	
 	
 				<!-- Outside the building entering Deadmines, wait spot for 90 to clear the way in -->
-				<RunTo X="-11054.54" Y="1517.896" Z="43.04135" />
+				<RunTo X="-11065.5" Y="1530.04" Z="43.20776" />
 					
 				<!-- Rendezvous location -->
 				<CustomBehavior File="Misc\LoadProfileOn" 

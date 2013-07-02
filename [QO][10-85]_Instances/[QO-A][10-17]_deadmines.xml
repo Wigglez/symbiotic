@@ -137,9 +137,6 @@
 										Text="Waiting for the dungeon to load." 
 										LogColor="Cyan" />
 						
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="15000" />
-						
 						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 					</If>		
 				</If>
@@ -147,7 +144,7 @@
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+									CheckRange="1" />
 					
 					<!-- clearing all mobs to the first boss -->
 					<CustomBehavior File="RunLikeHell" 
@@ -201,6 +198,7 @@
 					<RunTo X="-185.4037" Y="-479.5077" Z="54.04181" />
 					<RunTo X="-187.618" Y="-489.5293" Z="54.04743" />
 					<RunTo X="-191.561" Y="-503.5848" Z="53.07443" />
+					<RunTo X="-202.0434" Y="-501.9697" Z="53.64309" />
 					<RunTo X="-206.5777" Y="-506.1066" Z="51.77118" />
 					<RunTo X="-217.6303" Y="-502.1198" Z="50.72357" />
 					<RunTo X="-218.6082" Y="-497.679" Z="48.9954" />
@@ -483,7 +481,7 @@
 						
 					<!-- Move to the door entering the cavern -->
 					<Runto X="-1.975269" Y="-780.8501" Z="9.979088" />	
-					<RunTo X="-102.1683" Y="-655.8776" Z="7.422467" />
+					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
 												
 					<!-- Move to the door at the top of the foundry -->						
 					<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
@@ -526,12 +524,10 @@
 									LogColor="Cyan" />					
 						
 					<!-- Run to the instance entrance -->
-					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+					<RunTo X="-14.45693" Y="-385.494" Z="62.4785" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-13.03915" Y="-386.0322" Z="62.78151" />
-					<CustomBehavior File="GoThruPortal" 
+					<CustomBehavior File="Misc\InInstance" 
 									X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
@@ -585,24 +581,25 @@
 						
 						<!-- Go inside the Deadmines portal -->
 						<CustomBehavior File="Misc\InInstance" 
-										X="-11208.34" Y="1680.56" Z="23.87232" />
-						
+										X="-11208.86" Y="1681.254" Z="23.87609" />
+										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="Cyan" />
+										
+						<!-- runto location in the instance that doesn't trigger loadprofileon for the booster -->
+						<RunTo X="-10.02501" Y="-378.2018" Z="61.52087" />
 						
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="15000" />
-						
-						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 					</If>				
 				</If>
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
-				<If Condition="Me.MapId == 36" >		
-							
+				<If Condition="Me.MapId == 36" >
+					<!-- triggers booster to initiate -->		
+					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+									CheckRange="50" />
 							
 					<CustomBehavior File="Message" 
 									Text="We have 9.1 minutes in timers with plenty of walking time. Avoiding instance lock from this point, do not touch." 
@@ -629,10 +626,10 @@
 					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />
 					
 					<CustomBehavior File="Message" 
-									Text="Waiting 60 seconds, 2nd pull." 
+									Text="Waiting 50 seconds, 2nd pull." 
 									LogColor="Cyan" />	
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="60000" />
+									WaitTime="50000" />
 					
 					<!-- Moving to Helix's door -->
 					<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
@@ -649,10 +646,10 @@
 					
 					<!-- Waiting for the booster to clear the keg room -->
 					<CustomBehavior File="Message" 
-									Text="Waiting 50 seconds, door after Helix Gearbreaker."
+									Text="Waiting 40 seconds, door after Helix Gearbreaker."
 									LogColor="Cyan" />	
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="50000" />
+									WaitTime="40000" />
 					
 					<!-- 220 seconds in timers at this point -->
 					
@@ -689,10 +686,10 @@
 					
 					<!-- Waiting for the booster to clear a path to the big cannon -->
 					<CustomBehavior File="Message" 
-									Text="Waiting 80 seconds, bottom door."
+									Text="Waiting 70 seconds, bottom door."
 									LogColor="Cyan" />	
 					<CustomBehavior File="WaitTimer"
-									WaitTime="80000" />
+									WaitTime="70000" />
 					
 					<!-- Running to the big cannon -->
 					<RunTo X="-99.24007" Y="-650.1745" Z="6.978131" />
@@ -700,10 +697,15 @@
 					
 					<!-- Waiting for the booster to clear the ship -->
 					<CustomBehavior File="Message" 
-									Text="Waiting 210 seconds, ship's door." 
+									Text="Waiting for the booster to clear the ship.." 
 									LogColor="Cyan" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="210000" />
+					<!-- This triggers the RAF toons to exit after the booster has cleared the ship -->				
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Waiting 30 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
+					<CustomBehavior File="WaitTimer"
+									WaitTime="30000" />				
 					
 					<!-- moving past the big xannon so we don't get stuck -->
 					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
