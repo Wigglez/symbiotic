@@ -679,39 +679,46 @@
 								
 				<!-- Alliance -->
 				<If Condition="Me.IsAlliance" >
-					<!-- Sentinel Hill and below -->
-					<If Condition="Me.X &lt;= -10100">
+					<!-- If we are in Westfall -->
+					<If Condition="Me.ZoneId == 40">
 						<CustomBehavior File="Message" 
-										Text="We are either outside or south of Sentinel Hill." 
+										Text="We are in Westfall." 
 										LogColor="Cyan" />
-										
-						<!-- Move to the flightpath -->
-						<RunTo X="-10549.74" Y="1034.109" Z="56.96315" />
-						
-						<CustomBehavior File="Message" 
-										Text="Flightpath has been updated."
-										LogColor="Cyan" />
+					
+						<!-- Sentinel Hill and below -->
+						<If Condition="Me.X &lt;= -10100">
+							<CustomBehavior File="Message" 
+											Text="We are either outside or south of Sentinel Hill." 
+											LogColor="Cyan" />
+											
+							<!-- Move to the flightpath -->
+							<RunTo X="-10549.74" Y="1034.109" Z="56.96315" />
+							
+							<CustomBehavior File="Message" 
+											Text="Flightpath has been updated."
+											LogColor="Cyan" />
 
-						<CustomBehavior File="Message" 
-										Text="We are in Sentinel Hill." 
-										LogColor="Cyan" />
+							<CustomBehavior File="Message" 
+											Text="We are in Sentinel Hill." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="We are moving to the bridge." 
+											LogColor="Lime" />
 										
-						<CustomBehavior File="Message" 
-										Text="We are moving to the bridge." 
-										LogColor="Lime" />
-									
-						<!-- Halfway point -->
-						<RunTo X="-9951.299" Y="1001.616" Z="31.45806" />
+							<!-- Halfway point (bridge) -->
+							<RunTo X="-9805.597" Y="838.1347" Z="29.13275" />
+						</If>
 					</If>
 				
-					<!-- Between Sentinel Hill and castle -->
-					<If Condition="Me.X &gt; -10100 &amp;&amp; Me.X &lt;= -9580">
+					<!-- Between north of Sentinel Hill and top of Goldshire -->
+					<If Condition="Me.X &gt; -10100 &amp;&amp; Me.X &lt;= -9260">
 						<CustomBehavior File="Message" 
-											Text="Checkpoint reached." 
-											LogColor="Cyan" />
+										Text="Checkpoint reached." 
+										LogColor="Cyan" />
 						
-						<!-- Move to the bridge -->
-						<RunTo X="-9755.769" Y="426.3461" Z="37.1783" />
+						<!-- We are at the bridge no matter what -->
+						<RunTo X="-9805.597" Y="838.1347" Z="29.13275" />
 
 						<CustomBehavior File="Message" 
 										Text="We are at the bridge." 
@@ -721,35 +728,25 @@
 										Text="We are moving to Goldshire." 
 										LogColor="Lime" />
 									
-						<!-- Halfway point -->
-						<RunTo X="-9759.557" Y="677.6695" Z="27.01919" />
-					</If>
-
-					<!-- Between castle and Goldshire -->
-					<If Condition="Me.X &gt; -9580 &amp;&amp; Me.X &lt;= -9260">
-						<CustomBehavior File="Message" 
-											Text="Checkpoint reached." 
-											LogColor="Cyan" />
+						<!-- Move to Goldshire fp -->
+						<RunTo X="-9435.078" Y="86.99177" Z="56.96593" />
 						
-						<!-- Goldshire flight master -->
-						<RunTo X="-9465.792" Y="63.25687" Z="55.85897" />
-
 						<CustomBehavior File="Message" 
 										Text="Flightpath has been updated."
 										LogColor="Cyan" />
-										
+						
 						<CustomBehavior File="Message" 
 										Text="We are in Goldshire." 
 										LogColor="Cyan" />
-										
+									
 						<CustomBehavior File="Message" 
 										Text="We are moving to Stormwind." 
 										LogColor="Lime" />
-									
-						<!-- Halfway point -->
-						<RunTo X="-9142.431" Y="374.322" Z="90.65096" />	
+										
+						<!-- Move to Stormwind Docks -->
+						<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
 					</If>
-				
+
 					<!-- North of Stormwind -->
 					<If Condition="Me.X &gt; -9260">
 						<CustomBehavior File="Message" 
