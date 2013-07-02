@@ -96,7 +96,7 @@
 									SoundCueInterval="15" 
 									ExpiryTime="60"
 									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
+									Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
 									Title="WARNING" />	
 					
 					<!-- If we have our Hearthstone, use it -->
@@ -283,7 +283,7 @@
 											LogColor="Cyan" />
 						
 							<CustomBehavior File="Message" 
-											Text="You are an idiot and got into Eastern Kingdoms somehow as a Horde. Stopping profile." 
+											Text="You are an idiot and got into Eastern Kingdoms somehow as a Horde. We should be in Kalimdor. Stopping profile." 
 											LogColor="Red" />
 						</ElseIf> <!-- Horde -->
 					</If> <!-- Alliance -->
@@ -537,7 +537,7 @@
 									SoundCue="Exclamation" 
 									SoundCueInterval="15" 
 									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAF characters. The booster will clear a path to Blackfathom Deeps." 
+									Text="Booster - Wait for all your characters to reach this location, then press continue on this window first, then press continue on the RAFs. The booster will clear a path to Blackfathom Deeps." 
 									Title="WARNING" />
 
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
@@ -667,10 +667,10 @@
 							PullDistance="1"
 							RessAtSpiritHealers="False"
 							SkinMobs="False"
-							UseFlightPaths="True"
+							UseFlightPaths="False"
 							UseMount="True" 
 							UseRandomMount="False" />
-			
+							
 			<!-- Eastern Kingdoms -->
 			<If Condition="Me.MapId == 0" >
 				<CustomBehavior File="Message" 
@@ -722,6 +722,12 @@
 								LogColor="Cyan" />
 							
 				<If Condition="Me.IsAlliance" >
+					<CustomBehavior File="Message" 
+									Text="Enabling flightpaths." 
+									LogColor="Cyan" />
+					<CustomBehavior File="UserSettings"
+									UseFlightPaths="True" />
+				
 					<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
 						<CustomBehavior File="Message" 
 									Text="We are in Rut'theran Village." 
@@ -746,6 +752,12 @@
 					</If> <!-- Rut'theran Village -->
 						
 					<If Condition="Me.ZoneId == 148">
+						<CustomBehavior File="Message" 
+										Text="Disabling flightpaths." 
+										LogColor="Cyan" />
+						<CustomBehavior File="UserSettings"
+										UseFlightPaths="False" />
+					
 						<CustomBehavior File="Message" 
 										Text="We are in Darkshore." 
 										LogColor="Cyan" />
@@ -1109,7 +1121,7 @@
 								SoundCue="Exclamation" 
 								SoundCueInterval="15" 
 								ExpiryAction="InputEnabled_Continue" 	
-								Text="RAF Character - Press continue when all the toons have reached this location. The booster will clear a path to the instance." 
+								Text="RAF - Press continue when all the toons have reached this location. The booster will clear a path to the instance." 
 								Title="WARNING" />
 								
 				<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
