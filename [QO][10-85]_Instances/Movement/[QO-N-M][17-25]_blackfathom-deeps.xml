@@ -730,10 +730,6 @@
 				
 					<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
 						<CustomBehavior File="Message" 
-									Text="We are in Rut'theran Village." 
-									LogColor="Cyan" />
-					
-						<CustomBehavior File="Message" 
 										Text="Checkpoint reached." 
 										LogColor="Cyan" />
 										
@@ -742,6 +738,10 @@
 					
 						<CustomBehavior File="Message" 
 										Text="Flightpath has been updated."
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are in Rut'theran Village." 
 										LogColor="Cyan" />
 										
 						<CustomBehavior File="Message" 
@@ -767,15 +767,15 @@
 											Text="Checkpoint reached." 
 											LogColor="Cyan" />
 											
-							<CustomBehavior File="Message" 
-											Text="We are in Lor'danel." 
-											LogColor="Cyan" />
-						
 							<CustomBehavior File="UserSettings"
 											UseFlightPaths="False" />
 						
 							<!-- Use the flight master to Lor'danel, darkshore -->
 							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Lor'danel." 
+											LogColor="Cyan" />
 							
 							<CustomBehavior File="Message" 
 											Text="Flightpath has been updated."
@@ -798,11 +798,11 @@
 							<RunTo X="4970.5" Y="147.65" Z="51.64" />
 							
 							<CustomBehavior File="Message" 
-											Text="We are in Grove of the Ancients." 
-											LogColor="Cyan" />
-							
-							<CustomBehavior File="Message" 
 											Text="Flightpath has been updated."
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="We are in Grove of the Ancients." 
 											LogColor="Cyan" />
 						
 							<CustomBehavior File="Message" 
@@ -860,57 +860,61 @@
 											Text="We are in Northern Barrens." 
 											LogColor="Cyan" />
 											
-							<!-- South of the tower north of crossroads, move to the Crossroads -->
-							<If Condition="Me.X &lt;= 70" >
+							<!-- tower north of crossroads, move to the Crossroads -->
+							<If Condition="Me.X &lt;= 40" >
 								<CustomBehavior File="Message" 
-												Text="Checkpoint reached."
+												Text="We are south of the tower that is north of The Crossroads." 
 												LogColor="Cyan" />
+							
+								<!-- If we are in the box -->
+								<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+									<CustomBehavior File="Message" 
+												Text="We are in the box. Sitting still until the booster has cleared the path for us."
+												LogColor="Cyan" />
+									
 												
-								<CustomBehavior File="Message" 
-											Text="We are outside the Wailing Caverns portal, running out of the cave." 
-											LogColor="Cyan" />
-											
-								<CustomBehavior File="Message" 
-												Text="Waiting 120 seconds for the booster to kill the mobs exiting the cave." 
-												LogColor="Cyan" />				
-												
-								<!-- Wait timer to give the 90 time to clear the mobs exiting the cave -->
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="120000" />
+									<CustomBehavior File="Message" 
+													Text="Waiting 120 seconds for the booster to kill the mobs exiting the cave." 
+													LogColor="Cyan" />				
+													
+									<!-- Wait timer to give the 90 time to clear the mobs exiting the cave -->
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="120000" />
 
-								<!-- Run to the water -->	
-								<RunTo X="-593.6287" Y="-2129.372" Z="50.93468" />
+									<!-- Run to the water -->	
+									<RunTo X="-593.6287" Y="-2129.372" Z="50.93468" />
+									
+									<CustomBehavior File="Message" 
+													Text="Waiting 120 seconds for the booster to kill the mobs past the water." 
+													LogColor="Cyan" />		
+									<!-- Wait at the water -->
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="120000" />
+									
+									<!-- CTM across the water -->
+									<CustomBehavior File="MyCTM"
+													X="-572.1486" Y="-2086.887" Z="51.72983" />
+													
+									<CustomBehavior File="MyCTM"
+													X="-585.9764" Y="-2042.767" Z="57.58044" />				
+									
+									<!-- Run to the cave exit -->
+									<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
+								</If> <!-- In box -->
 								
 								<CustomBehavior File="Message" 
-												Text="Waiting 120 seconds for the booster to kill the mobs past the water." 
-												LogColor="Cyan" />		
-								<!-- Wait at the water -->
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="120000" />
-								
-								<!-- CTM across the water -->
-								<CustomBehavior File="MyCTM"
-												X="-572.1486" Y="-2086.887" Z="51.72983" />
-												
-								<CustomBehavior File="MyCTM"
-												X="-585.9764" Y="-2042.767" Z="57.58044" />				
-								
-								<!-- Run to the cave exit -->
-								<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
-												
-								<CustomBehavior File="Message" 
-												Text="Moving to The Crossroads."
-												LogColor="Lime" />
-												
+													Text="Moving to The Crossroads."
+													LogColor="Lime" />
+													
 								<!-- Moving to Crossroads flight master -->
 								<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
 								
 								<CustomBehavior File="Message" 
-												Text="We are in The Crossroads." 
-												LogColor="Cyan" />
-								
-								<CustomBehavior File="Message" 
 												Text="Flightpath has been updated."
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are in The Crossroads." 
 												LogColor="Cyan" />
 												
 								<!-- Run to the tower intersection to stay on the road -->
@@ -918,11 +922,12 @@
 								
 								<!-- Run past the next check -->
 								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
-							
-							</If> <!-- The Crossroads -->
+							</If> <!-- Tower and lower -->
 							
 							<!-- Between the tower north of crossroads and the gates entering ashenvale, move to Mor'shan Rampart -->
-							<If Condition="Me.X &gt; 70 &amp;&amp; Me.X &lt;= 1260" >
+							<If Condition="Me.X &gt; 40 &amp;&amp; Me.X &lt;= 1260" >
+								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
+							
 								<CustomBehavior File="Message" 
 												Text="Checkpoint reached."
 												LogColor="Cyan" />
@@ -947,11 +952,11 @@
 								<RunTo X="1206.031" Y="-2209.855" Z="92.1406" />
 								
 								<CustomBehavior File="Message" 
-												Text="We are in Mor'shan Rampart." 
-												LogColor="Cyan" />
-								
-								<CustomBehavior File="Message" 
 												Text="Flightpath has been updated."
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are in Mor'shan Rampart." 
 												LogColor="Cyan" />
 												
 								<!-- Moving to Mor'shan Rampart gate - cutoff-->
@@ -981,6 +986,8 @@
 						
 						<!-- If we are in Ashenvale -->
 						<If Condition="Me.ZoneId == 331">
+							<RunTo X="1662.179" Y="-2197.453" Z="90.25356" />	
+							
 							<CustomBehavior File="Message" 
 											Text="We are in Ashenvale." 
 											LogColor="Cyan" />
@@ -1007,16 +1014,16 @@
 									<Hotspot X="2312.374" Y="-2537.251" Z="100.2412" />
 									<Hotspot X="2302.39" Y="-2524.55" Z="104.2812" />	
 								</CustomBehavior>
-								
-								<CustomBehavior File="Message" 
-												Text="We are in Splintertree Post." 
-												LogColor="Cyan" />
+						
+								<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
 								
 								<CustomBehavior File="Message" 
 												Text="Flightpath has been updated."
 												LogColor="Cyan" />
-								
-								<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are in Splintertree Post." 
+												LogColor="Cyan" />
 								
 								<CustomBehavior File="Message" 
 												Text="Moving to Hellscream's Watch."
@@ -1040,6 +1047,7 @@
 							
 							<!-- North of the gates entering ashenvale and west of the bridge between silverwind refuge and splintertree outpost and east of the atranaar and hellscream's reach path convergence -->
 							<If Condition="Me.Y &gt; -1960 &amp;&amp; Me.Y &lt;= -15" >
+								<RunTo X="2014.13" Y="-1899.615" Z="98.50292" />
 							
 								<CustomBehavior File="Message" 
 												Text="Checkpoint reached."
@@ -1056,11 +1064,11 @@
 								<RunTo X="3049.08" Y="-498.95" Z="205.6398" />
 								
 								<CustomBehavior File="Message" 
-												Text="We are in Hellscream's Watch." 
-												LogColor="Cyan" />
-								
-								<CustomBehavior File="Message" 
 												Text="Flightpath has been updated."
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are in Hellscream's Watch." 
 												LogColor="Cyan" />
 								
 								<CustomBehavior File="Message" 
@@ -1069,11 +1077,12 @@
 								
 								<!-- Run past the next check -->
 								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
-							
 							</If> <!-- Hellscream's Watch -->
 							
 							<!-- North of the gates entering ashenvale and west of the atranaar and hellscream's reach path convergence -->
 							<If Condition="Me.Y &gt; -15" >
+								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
+								
 								<CustomBehavior File="Message" 
 												Text="Checkpoint reached."
 												LogColor="Cyan" />
@@ -1082,11 +1091,11 @@
 								<RunTo X="3351.82" Y="1052.3" Z="3.07" />
 								
 								<CustomBehavior File="Message" 
-												Text="We are in Zoram'gar Outpost." 
-												LogColor="Cyan" />
-								
-								<CustomBehavior File="Message" 
 												Text="Flightpath has been updated."
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are in Zoram'gar Outpost." 
 												LogColor="Cyan" />
 								
 								<!-- Moving to the intersection sign post -->
