@@ -86,7 +86,7 @@
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
 									Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
-									LogColor="Cyan" />					
+									LogColor="DodgerBlue" />					
 						
 					<!-- Run to the instance entrance -->
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
@@ -171,6 +171,7 @@
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out."
 										LogColor="DodgerBlue" />	
+										
 						<!-- Check durability, load the movement profile -->
 						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 							<CustomBehavior File="LoadProfile" 
@@ -214,7 +215,7 @@
 						
 						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					</If> <!-- In box -->
-				</If> <!-- Outside BFD -->
+				</If> <!-- Kalimdor -->
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
@@ -620,7 +621,7 @@
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
 									Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
-									LogColor="Cyan" />					
+									LogColor="DodgerBlue" />					
 						
 					<!-- Run to the instance entrance -->
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
