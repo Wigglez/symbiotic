@@ -615,6 +615,43 @@
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
+				<!-- If we are inside Deadmines, run out to go to the next instance -->
+				<If Condition="Me.MapId == 36">
+					<CustomBehavior File="Message" 
+									Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
+									LogColor="Cyan" />					
+						
+					<!-- Run to the instance entrance -->
+					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+						
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					
+					<!-- Make sure we ran to the right spot outside the portal -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+				</If>
+				
+				<!-- If we are inside Wailing Caverns, run out to go to the next instance -->
+				<If Condition="Me.MapId == 43">
+					<CustomBehavior File="Message" 
+									Text="Wailing Caverns detected. Running out to go to Blackfathom Deeps." 
+									LogColor="DodgerBlue" />
+					
+					<!-- Run to the instance entrance -->
+					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-164.336" Y="134.6021" Z="-73.50945" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="15000" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+				</If>	
+			
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
