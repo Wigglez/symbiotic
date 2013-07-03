@@ -552,28 +552,6 @@
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
 										LogColor="Cyan" />	
-					
-						<!-- If we are between levels 17-25 -->
-						<If Condition="Me.Level &gt;= 17 &amp;&amp; Me.Level &lt;= 25" >
-							<CustomBehavior File="UserDialog" 
-											AllowBotStop="False" 
-											SoundCue="Exclamation" 
-											SoundCueInterval="15" 
-											ExpiryAction="InputEnabled_Continue" 
-											Text="This character is in the recommended level range to run Blackfathom Deeps (17-25). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
-											Title="WARNING" />
-						
-							<!-- Otherwise we are too high -->
-							<ElseIf Condition="Me.Level &gt; 25">
-								<CustomBehavior File="UserDialog" 
-												AllowBotStop="False" 
-												SoundCue="Exclamation" 
-												SoundCueInterval="15" 
-												ExpiryAction="InputEnabled_Continue" 
-												Text="This character is above level 25 and is not in the recommended level range to run this instance (10-17). By choosing to continue, you acknowledge that you may not receive the intended experience gains." 
-												Title="WARNING" />
-							</ElseIf>
-						</If>
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting 10 seconds." 
@@ -592,16 +570,23 @@
 						<!-- runto location in the instance that doesn't trigger loadprofileon for the booster -->
 						<RunTo X="-10.02501" Y="-378.2018" Z="61.52087" />
 						
+						
 					</If>				
 				</If>
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >
+					
 					<!-- triggers booster to initiate -->		
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="50" />
+									MinLevel="17" 
+									CheckRange="5" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+				
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 							
 					<CustomBehavior File="Message" 
 									Text="We have 9.1 minutes in timers with plenty of walking time. Avoiding instance lock from this point, do not touch." 

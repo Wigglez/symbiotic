@@ -114,14 +114,31 @@
 				</If> <!-- Inside BFD -->
 				
 				<!-- If we are outside Blackfathom Deeps (Ashenvale) -->
-				<If Condition="(Me.MapId == 1) || (Me.MapId == 0)">		
+				<If Condition="Me.MapId != 1">		
 					<!-- If we are not in the box, load the movement profile -->
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+						<If Condition="Me.MapId == 36">
+							<CustomBehavior File="Message" 
+											Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
+											LogColor="Cyan" />					
+								
+							<!-- Run to the instance entrance -->
+							<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+								
+							<!-- Go through the portal -->
+							<CustomBehavior File="Misc\InInstance" 
+											X="-14.50672" Y="-389.0634" Z="63.28239" />
+							
+							<!-- Make sure we ran to the right spot outside the portal -->
+							<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+						</If>
+						
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there."
 										LogColor="DodgerBlue" />	
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
+					
 					</If> <!-- Not in box -->
 				
 					<!-- If we are in the box -->
@@ -611,9 +628,25 @@
 				</If> <!-- Inside BFD -->
 				
 				<!-- If we are outside of Blackfathom Deeps (Ashenvale) -->
-				<If Condition="(Me.MapId == 1) || (Me.MapId == 0)">		
+				<If Condition="Me.MapId != 1">		
 					<!-- If we are not in the box, load the movement profile -->
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+						<If Condition="Me.MapId == 36">
+							<CustomBehavior File="Message" 
+											Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
+											LogColor="Cyan" />					
+								
+							<!-- Run to the instance entrance -->
+							<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+								
+							<!-- Go through the portal -->
+							<CustomBehavior File="Misc\InInstance" 
+											X="-14.50672" Y="-389.0634" Z="63.28239" />
+							
+							<!-- Make sure we ran to the right spot outside the portal -->
+							<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+						</If>
+						
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
 										LogColor="DodgerBlue" />	
@@ -627,28 +660,6 @@
 										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
 										LogColor="DodgerBlue" />	
 					
-						<!-- If we are between levels 25-37 -->
-						<If Condition="Me.Level &gt;= 25 &amp;&amp; Me.Level &lt;= 37" >
-							<CustomBehavior File="UserDialog" 
-											AllowBotStop="False" 
-											SoundCue="Exclamation" 
-											SoundCueInterval="15" 
-											ExpiryAction="InputEnabled_Continue" 
-											Text="This character is in the recommended level range to run Razorfen Kraul (25-37). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
-											Title="WARNING" />
-						
-							<!-- Otherwise we are too high -->
-							<ElseIf Condition="Me.Level &gt; 37">
-								<CustomBehavior File="UserDialog" 
-												AllowBotStop="False" 
-												SoundCue="Exclamation" 
-												SoundCueInterval="15" 
-												ExpiryAction="InputEnabled_Continue" 
-												Text="This character is above level 37 and is not in the recommended level range to run this instance (17-25). By choosing to continue, you acknowledge that you may not receive the intended experience gains." 
-												Title="WARNING" />
-							</ElseIf> <!-- High level -->
-						</If> <!-- Level check -->
-						
 						<CustomBehavior File="Message" 
 										Text="Waiting 10 seconds." LogColor="DodgerBlue" />
 						<CustomBehavior File="WaitTimer"

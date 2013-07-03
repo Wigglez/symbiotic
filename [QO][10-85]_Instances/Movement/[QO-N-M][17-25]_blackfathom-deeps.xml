@@ -708,6 +708,10 @@
 											Text="We are either outside or south of Sentinel Hill." 
 											LogColor="Cyan" />
 											
+							<CustomBehavior File="Message" 
+											Text="We are moving to Sentinel Hill." 
+											LogColor="Lime" />
+											
 							<!-- Move to the flightpath -->
 							<RunTo X="-10549.74" Y="1034.109" Z="56.96315" />
 							
