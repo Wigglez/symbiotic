@@ -451,8 +451,8 @@
 							PullDistance="1"
 							RessAtSpiritHealers="False"
 							SkinMobs="False"
-							UseFlightPaths="False"
-							UseMount="False" 
+							UseFlightPaths="True"
+							UseMount="True" 
 							UseRandomMount="False" />
 						
 			<!-- Eastern Kingdoms -->

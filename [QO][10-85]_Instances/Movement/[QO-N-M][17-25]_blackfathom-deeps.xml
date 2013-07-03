@@ -411,25 +411,6 @@
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="20000" />
 											
-							<If Condition="Me.IsAlliance">
-								<!-- Run outside the inn -->
-								<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
-								
-								<!-- ForcedMount, and fly above the village -->
-								<CustomBehavior File="ForcedMount"
-												MountType="Flying" />
-								<CustomBehavior File="FlyTo" 
-												X="2721.863" Y="-385.5038" Z="142.7964" />
-							
-								<ElseIf Condition="Me.IsHorde">
-									<!-- Run outside the inn -->
-									<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
-									
-									<!-- fly to hover point -->
-									<CustomBehavior File="FlyTo"
-													X="3365.097" Y="996.3693" Z="44.22956" />
-								</ElseIf> <!-- Horde -->
-							</If> <!-- Alliance -->
 						</If> <!-- Hearth -->
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
@@ -528,6 +509,27 @@
 								</ElseIf> <!-- Horde -->
 							</If> <!-- Alliance -->
 						</Else> <!-- Set hearth -->
+						
+						<If Condition="Me.IsAlliance">
+							<!-- Run outside the inn -->
+							<RunTo X="2758.864" Y="-420.845" Z="111.4777" />
+							<RunTo X="2736.872" Y="-398.9366" Z="108.3573" />
+							
+							<!-- ForcedMount, and fly to hover point -->
+							<CustomBehavior File="ForcedMount"
+											MountType="Flying" />
+							<CustomBehavior File="FlyTo" 
+											X="2721.863" Y="-385.5038" Z="142.7964" />
+						
+							<ElseIf Condition="Me.IsHorde">
+								<!-- Run outside the inn -->
+								<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
+								
+								<!-- fly to hover point -->
+								<CustomBehavior File="FlyTo"
+												X="3365.097" Y="996.3693" Z="44.22956" />
+							</ElseIf> <!-- Horde -->
+						</If> <!-- Alliance -->
 					</If> <!-- Check hearthstone -->
 					
 					<CustomBehavior File="Message" 
@@ -668,8 +670,8 @@
 							PullDistance="1"
 							RessAtSpiritHealers="False"
 							SkinMobs="False"
-							UseFlightPaths="False"
-							UseMount="False" 
+							UseFlightPaths="True"
+							UseMount="True" 
 							UseRandomMount="False" />
 							
 			<!-- Eastern Kingdoms -->
@@ -1193,7 +1195,7 @@
 				<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 				
 				<CustomBehavior File="Message" 
-								Text="Waiting 60 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
+								Text="Waiting 90 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
 								LogColor="Cyan" />	
 				<CustomBehavior File="WaitTimer" 
 								WaitTime="90000" />
