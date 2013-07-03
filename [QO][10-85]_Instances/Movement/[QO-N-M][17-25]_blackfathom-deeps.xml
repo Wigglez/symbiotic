@@ -539,6 +539,8 @@
 					<!-- Fly to the rendezvous location -->
 					<CustomBehavior File="FlyTo" 
 									X="3870.062" Y="539.0946" Z="6.604815" />
+									
+					<RunTo X="3868.379" Y="542.9993" Z="6.771335" />
 					
 					<!-- Begin the randezvous once all party members are within range -->
 					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
