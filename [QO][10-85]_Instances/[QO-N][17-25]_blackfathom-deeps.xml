@@ -127,8 +127,11 @@
 						
 					<If Condition="Me.X &lt; -352.5026" >
 						<CustomBehavior File="Message" 
-										Text="We are above the jumping platforms. Running down."
+										Text="We are above the jumping platforms. Tagging the RAF on the way out."
 										LogColor="DodgerBlue" />
+										
+						<!-- Tag RAF at the crab -->
+						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
 							
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
@@ -215,6 +218,9 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
+					<!-- Go to activate spot -->
+					<RunTo X="-158.7537" Y="82.29852" Z="-46.02044" />
+				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
@@ -590,28 +596,28 @@
 		<If Condition="Me.Level &lt;= 85">
 
 			<CustomBehavior File="UserSettings"
-								AdvancedSettingsMode="True"
-								FindMountAutomatically="True"
-								FindVendorsAutomatically="False"
-								GroundMountFarmingMode="False"
-								HarvestHerbs="False"
-								HarvestMinerals="False"
-								KillBetweenHotspots="False"
-								LogoutForInactivity="False"
-								LogoutInactivityUseForceQuit="False"
-								LootChests="False"
-								LootMobs="False"
-								LootRadius="1"
-								MountDistance="75"
-								MountName=""
-								NinjaSkin="False"
-								ProfileDebuggingMode="False"
-								PullDistance="1"
-								RessAtSpiritHealers="False"
-								SkinMobs="False"
-								UseFlightPaths="True"
-								UseMount="True" 
-								UseRandomMount="False" />
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
 		
 							
 			<!-- Infinite loop -->
@@ -713,14 +719,19 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48" >
+					<!-- Go to activate spot -->
+					<RunTo X="-158.7537" Y="82.29852" Z="-46.02044" />
+					
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 				
 					<!-- Begin the instance once all party members are within range -->
 					<CustomBehavior File="Message" 
-									Text="We have 15.8 minutes in timers. Avoiding instance lock from this point, do not touch." 
+									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 					
-					<CustomBehavior File="Message" Text="Waiting 80 seconds, entrance." 
-									LogColor="DodgerBlue" />
+					<!-- Let the booster clear the entrance for us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="80000" />
 						
@@ -728,12 +739,10 @@
 					<RunTo X="-195.9623" Y="47.303" Z="-52.69039" />
 					<RunTo X="-236.1606" Y="30.95604" Z="-54.72799" />
 					<RunTo X="-261.6381" Y="59.04369" Z="-55.6091" />
-
-					<CustomBehavior File="Message" 
-									Text="Waiting 70 seconds, 1 of 1." 
-									LogColor="DodgerBlue" />	
+	
 					<CustomBehavior File="WaitTimer" WaitTime="70000" />
 					
+					<!-- Go to the water cubby -->
 					<CustomBehavior File="MyCTM" 
 									X="-299.8195" Y="65.63107" Z="-59.83585" />
 					<CustomBehavior File="MyCTM" 
@@ -742,24 +751,6 @@
 									X="-332.0847" Y="76.87205" Z="-59.85128" />
 					<CustomBehavior File="MyCTM" 
 									X="-330.5505" Y="92.59331" Z="-59.16409" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting 120 seconds, 1 of 3." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="120000" />
-
-					<CustomBehavior File="Message" 
-									Text="Waiting 120 seconds, 2 of 3." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="120000" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting 120 seconds, 3 of 3." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="120000" />
 					
 					<!-- Go up mountain -->
 					<CustomBehavior File="MyCTM" 
@@ -777,26 +768,16 @@
 					<CustomBehavior File="MyCTM" 
 									X="-343.1473" Y="109.0681" Z="-50.93742" />	
 				
-					<CustomBehavior File="Message" 
-									Text="Waiting 135 seconds, 1 of 1."
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="135000" />
-					
 					<!-- run behind crab -->
 					<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
 					
-					<CustomBehavior File="Message" 
-									Text="Waiting 150 seconds, 1 of 2." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="150000" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting 150 seconds, 2 of 2." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="150000" />
+					<!-- Run back out the instance when the booster runs next to us  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Waiting 40 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
+					<CustomBehavior File="WaitTimer"
+									WaitTime="40000" />			
 					
 					<!-- Run to the edge of the platform -->
 					<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />

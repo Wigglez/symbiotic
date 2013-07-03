@@ -724,7 +724,7 @@
 									
 					<!-- Waiting 30 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
 					<CustomBehavior File="WaitTimer"
-									WaitTime="30000" />				
+									WaitTime="40000" />				
 					
 					<!-- moving past the big xannon so we don't get stuck -->
 					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
