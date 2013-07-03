@@ -138,6 +138,7 @@
 										LogColor="Cyan" />
 						
 						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+						<CustomBehavior File="Misc\LoadProfileOn" MinLevel="17" CheckRange="5" ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 					</If>		
 				</If>
 				
