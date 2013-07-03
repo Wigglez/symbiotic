@@ -346,6 +346,14 @@
 							<RunTo X="-591.7418" Y="-2129.349" Z="51.09421" />				
 
 							<!-- CTM across the water -->
+							<CustomBehavior File="MyCTM" 
+											X="-587.9206" Y="-2118.487" Z="49.14761" />
+							<CustomBehavior File="MyCTM" 
+											X="-587.1134" Y="-2111.844" Z="41.52058" />
+							<CustomBehavior File="MyCTM" 
+											X="-578.241" Y="-2115.329" Z="39.71338" />
+							<CustomBehavior File="MyCTM" 
+											X="-578.3994" Y="-2104.447" Z="49.18365" />
 							<CustomBehavior File="MyCTM"
 											X="-572.1486" Y="-2086.887" Z="51.72983" />
 											

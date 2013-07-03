@@ -697,14 +697,9 @@
 				<!-- If we are in the box -->
 				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 					<CustomBehavior File="Message" 
-									Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
+									Text="Portal detected nearby." 
 									LogColor="DodgerBlue" />	
 				
-					<CustomBehavior File="Message" 
-									Text="Waiting 10 seconds." LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer"
-									WaitTime="10000" />
-					
 					<!-- Go inside the Blackfathom Deeps portal -->
 					<CustomBehavior File="MyCTM" 
 									X="4250.304" Y="749.9905" Z="-23.02605" />

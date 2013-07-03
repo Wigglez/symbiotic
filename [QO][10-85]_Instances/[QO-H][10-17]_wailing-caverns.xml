@@ -596,14 +596,8 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
+										Text="Portal detected nearby." 
 										LogColor="DodgerBlue" />	
-					
-							<CustomBehavior File="Message" 
-									Text="Waiting 10 seconds." 
-									LogColor="DodgerBlue" />
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" />
 						
 						<!-- Go inside the Wailing Caverns portal -->
 						<CustomBehavior File="MyCTM"

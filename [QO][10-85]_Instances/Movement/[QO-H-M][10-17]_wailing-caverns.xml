@@ -480,6 +480,14 @@
 						<!-- Run to Razor Hill to ensure we are on the road -->
 						<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
 						
+						<CustomBehavior File="Message" 
+										Text="We are in Razor Hill." 
+										LogColor="Cyan" />
+						
+						<CustomBehavior File="Message" 
+										Text="Moving to The Crossroads." 
+										LogColor="Lime" />
+						
 						<!-- Run to the Northern Barrens bridge -->
 						<RunTo X="281.0421" Y="-3798.895" Z="19.48378" />
 						
@@ -598,7 +606,7 @@
 							<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->
 							<CustomBehavior File="Message" 
 											Text="Waiting 165 seconds for the booster to clear a path to the water pool." 
-											LogColor="Lime" />	
+											LogColor="Cyan" />	
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="165000" />						
 							
@@ -634,7 +642,7 @@
 							<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->		
 							<CustomBehavior File="Message" 
 											Text="Waiting 130 seconds for the booster to clear a path to the instance portal." 
-											LogColor="Lime" />	
+											LogColor="Cyan" />	
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="130000" />						
 							
