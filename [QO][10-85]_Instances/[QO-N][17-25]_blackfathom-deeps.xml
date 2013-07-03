@@ -221,10 +221,16 @@
 				<If Condition="Me.MapId == 48">
 					<!-- Go to activate spot -->
 					<RunTo X="-158.7537" Y="82.29852" Z="-46.02044" />
+					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="25" 
+									CheckRange="5" 
+									ProfileName="[QO-N][25-37]_razorfen-kraul"  />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+									CheckRange="1" />
 														
 					<!-- Pull the whole area that the RAF will run through and make it safe -->
 					<CustomBehavior File="RunLikeHell" 
@@ -716,6 +722,12 @@
 				<If Condition="Me.MapId == 48" >
 					<!-- Go to activate spot -->
 					<RunTo X="-158.7537" Y="82.29852" Z="-46.02044" />
+					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="25" 
+									CheckRange="5" 
+									ProfileName="[QO-N][25-37]_razorfen-kraul"  />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 

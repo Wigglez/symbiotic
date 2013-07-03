@@ -183,26 +183,23 @@
 						<!-- Run back in the Razorfen Kraul portal -->
 						<CustomBehavior File="MyCTM" 
 										X="-4458.964" Y="-1658.854" Z="81.5267" />
+										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="DodgerBlue" />
 						
-						<CustomBehavior File="WaitTimer"
-										WaitTime="15000" />
-										
 						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					</If> <!-- In box -->		
 				</If> <!-- Kalimdor -->
 
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Main Character - Press continue on this window first, then press continue on the RAF characters." 
-									Title="WARNING" />
+					<!-- Go to activate spot -->
+					<RunTo  X="1946.524" Y="1562.05" Z="82.29883" />
+					
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
 				
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -376,7 +373,11 @@
 						<Hotspot X="2046.063" Y="1562.165" Z="64.6321" />
 						<Hotspot X="2039.201" Y="1554.93" Z="64.55718" />
 					</CustomBehavior>
+					<!-- Bottom of the thorn -->
 					<RunTo X="2039.201" Y="1554.93" Z="64.55718" />
+					
+					<!-- Tag the RAFs to let them know we are ready to move forward -->
+					<RunTo  X="1946.524" Y="1562.05" Z="82.29883" />
 
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -490,10 +491,10 @@
 						<Hotspot X="2193.262" Y="1530.562" Z="72.91425" />
 						<Hotspot X="2180.001" Y="1538.039" Z="71.63759" />
 						<Hotspot X="2165.633" Y="1542.467" Z="71.7869" />
-						<Hotspot X="2160.64" Y="1545.815" Z="71.99628" /> <!-- tent -->
+						<Hotspot X="2159.106" Y="1549.547" Z="72.10107" /><!-- tent -->
 						<Hotspot X="2161.613" Y="1541.883" Z="72.42807" />
 						<Hotspot X="2156.012" Y="1535.92" Z="73.38253" />
-						<Hotspot X="2152.358" Y="1539.178" Z="73.05305" /> <!-- tent -->
+						<Hotspot X="2145.63" Y="1544.031" Z="71.92865" /> <!-- tent -->
 						<Hotspot X="2145.941" Y="1543.255" Z="71.89199" />
 						<Hotspot X="2154.27" Y="1538.281" Z="73.61686" />
 						<Hotspot X="2155.363" Y="1536.675" Z="73.46422" />
@@ -513,18 +514,24 @@
 					</CustomBehavior>
 					<RunTo X="2089.291" Y="1452.549" Z="74.55743" />
 
+					<RunTo X="2103.557" Y="1457.873" Z="73.41038" />
+					
+					<!-- Run off the thorn -->
+					<CustomBehavior File="MyCTM"
+									X="2125.739" Y="1449.087" Z="65.27753" />
+									
+					<!-- Tag the RAFs to let them know we are ready to move forward -->
+					<RunTo X="2036.444" Y="1469.552" Z="69.17043" />
+					
+					<!-- Get ready for the run like hell -->
+					<RunTo X="2167.557" Y="1535.002" Z="72.30659" />
+					
+					<!-- Change this -->
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<Hotspot X="2103.557" Y="1457.873" Z="73.41038" />
-						<Hotspot X="2112.986" Y="1470.167" Z="73.31165" />
-						<Hotspot X="2121.618" Y="1482.741" Z="73.04939" />
-						<Hotspot X="2131.349" Y="1494.747" Z="73.0573" />
-						<Hotspot X="2138.196" Y="1508.649" Z="72.58602" />
-						<Hotspot X="2146.554" Y="1521.17" Z="72.51473" />
-						<Hotspot X="2158.497" Y="1530.729" Z="72.81683" />
-						<Hotspot X="2168.707" Y="1542.3" Z="71.52769" />
+						
 						<Hotspot X="2174.649" Y="1556.3" Z="71.95899" />
 						<Hotspot X="2182.907" Y="1569.386" Z="75.09907" />
 						<Hotspot X="2183.036" Y="1569.587" Z="75.17708" />
@@ -559,8 +566,10 @@
 						<Hotspot X="2180.901" Y="1629.624" Z="80.97038" />
 						<Hotspot X="2187.579" Y="1615.395" Z="80.80301" />
 						<Hotspot X="2190.158" Y="1601.002" Z="79.93228" />
+						<Hotspot X="2174.044" Y="1576.671" Z="76.14131" />
 					</CustomBehavior>
-					<RunTo X="2190.158" Y="1601.002" Z="79.93228" />	
+					<!-- Line of sight around the corner -->
+					<RunTo X="2174.044" Y="1576.671" Z="76.14131" />
 					
 					<RunTo X="2130.077" Y="1660.285" Z="82.03987" />
 					
@@ -627,28 +636,73 @@
 						<Hotspot X="2196.877" Y="1595.669" Z="79.87553" />
 						<Hotspot X="2200.052" Y="1608.161" Z="80.57134" />
 						<Hotspot X="2189.985" Y="1608.52" Z="80.33468" />
+						<Hotspot X="2174.044" Y="1576.671" Z="76.14131" />
 					</CustomBehavior>
-					<RunTo X="2189.985" Y="1608.52" Z="80.33468" />
-				</If>	
-			</While>	
-		</If>
+					<!-- Line of sight around the corner -->
+					<RunTo X="2174.044" Y="1576.671" Z="76.14131" />
+				</If> <!-- Razorfen Kraul -->
+			</While> <!-- Infinite loop-->
+		</If> <!-- Booster -->
 			
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
 
-			<CustomBehavior File="UserSettings" 
-							UseMount="True" 
-							UseFlightPaths="True" 
-							LootMobs="False" 
-							SkinMobs="False" 
-							PullDistance="1" 
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
 							LootRadius="1"
-							KillBetweenHotspots="False" 
-							FindVendorsAutomatically="False" 
-							LogoutForInactivity="False" />
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
+				<!-- If we are inside Blackfathom Deeps, run out to go to the next instance -->
+				<If Condition="Me.MapId == 48">
+					<CustomBehavior File="Message" 
+									Text="Blackfathom Deeps detected. Running out to go to Razorfen Kraul."
+									LogColor="DodgerBlue" />
+						
+					<If Condition="Me.X &lt; -352.5026" >
+						<CustomBehavior File="Message" 
+										Text="We are above the jumping platforms. Running down." 
+										LogColor="DodgerBlue" />
+							
+						<!-- Run to the edge of the platform -->
+						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
+						
+						<!-- Force ourselves to run off of it -->
+						<CustomBehavior File="MyCTM" 
+										X="-273.533" Y="71.30302" Z="-58.51636" />
+					</If> <!-- Above jumps -->
+					
+					<!-- Run to the instance entrance -->
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-149.7285" Y="113.4777" Z="-40.73384" /> 
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+				</If> <!-- Inside BFD -->
+			
 				<!-- If we are inside Razorfen Kraul, run out to reset -->	
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
@@ -666,142 +720,90 @@
 						
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-				</If>		
+				</If> <!-- Razorfen Kraul -->
 					
-				<!-- If we are outside of Razorfen Kraul (Southern Barrens) -->
-				<If Condition="Me.MapId == 1" >		
-					<!-- If we are not in the box, load the movement profile -->
-					<If Condition="Me.X &lt; -4500 || Me.X &gt; -4440 || Me.Y &gt; -1650 || Me.Y &lt; -1700" >
-						<CustomBehavior File="Message" 
-										Text="Distance from portal is not within our proximity, initializing movement to get there."
-										LogColor="DodgerBlue" />	
-						<CustomBehavior File="LoadProfile" 
-										ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
-					</If>
-				
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
-										LogColor="DodgerBlue" />	
-						
-							<!-- If we are between levels 37-42 -->
-						<If Condition="Me.Level &gt;= 37 &amp;&amp; Me.Level &lt;= 42" >
-							<CustomBehavior File="UserDialog" 
-											AllowBotStop="False" 
-											SoundCue="Exclamation" 
-											SoundCueInterval="15" 
-											ExpiryAction="InputEnabled_Continue" 
-											Text="This character is in the recommended level range to run Razorfen Downs (37-42). If not all the RAF toons have received this popup, you may continue to run this profile until they've done so." 
-											Title="WARNING" />
-						
-							<!-- Otherwise we are too high -->
-							<ElseIf Condition="Me.Level &gt; 37">
-								<CustomBehavior File="UserDialog" 
-												AllowBotStop="False" 
-												SoundCue="Exclamation" 
-												SoundCueInterval="15" 
-												ExpiryAction="InputEnabled_Continue" 
-												Text="This character is above level 42 and is not in the recommended level range to run this instance (25-37). By choosing to continue, you acknowledge that you may not receive the intended experience gains." 
-												Title="WARNING" />
-							</ElseIf>
-						</If>
-						
-						<CustomBehavior File="Message" 
-										Text="Waiting 10 seconds." LogColor="DodgerBlue" />
-						<CustomBehavior File="WaitTimer"
-										WaitTime="10000" />
-										
-						<!-- Go inside the Razorfen Kraul portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4458.964" Y="-1658.854" Z="81.5267" />
-						
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="DodgerBlue" />
-						<CustomBehavior File="WaitTimer"
-										WaitTime="15000" /> 
-										
-						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
-					</If>				
-				</If>
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; -4500 || Me.X &gt; -4440 || Me.Y &gt; -1650 || Me.Y &lt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there."
+									LogColor="DodgerBlue" />	
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
+				</If> <!-- Not in box -->
+					
+			
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby." 
+									LogColor="DodgerBlue" />	
+					
+					<!-- Go inside the Razorfen Kraul portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-4458.964" Y="-1658.854" Z="81.5267" />
+					
+					<CustomBehavior File="Message" 
+									Text="Waiting for the dungeon to load." 
+									LogColor="DodgerBlue" />
+									
+					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
+				</If> <!-- In box -->
 
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
-				
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryAction="InputEnabled_Continue" 
-									Text="RAF Character - Press continue on the level 90 first, then press continue on this window." 
-									Title="WARNING" />
+					<!-- Go to activate spot -->
+					<RunTo  X="1946.524" Y="1562.05" Z="82.29883" />
+					
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 									
 					<CustomBehavior File="Message" 
-									Text="We have 17.3 minutes in timers. Avoiding instance lock from this point, do not touch." 
+									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 									
-					<CustomBehavior File="Message" 
-									Text="Waiting for 30 seconds, entrance." 
-									LogColor="DodgerBlue" />
+					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
+									WaitTime="30000" />
 					
-					<RunTo X="1959.744" Y="1598.697" Z="81.29778" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 80 seconds, clearing entrance." 
-									LogColor="DodgerBlue" />
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="80000" />
-
-					<RunTo X="2002.366" Y="1569.086" Z="82.1676" />
+									WaitTime="30000" />
 					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 120 seconds,  first pull 1 of 2." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="120000" />
-					
-					<RunTo X="1998.171" Y="1567.749" Z="83.28168" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 180 seconds,  first pull 2 of 2." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="180000" />
-					
-					<RunTo X="2007.427" Y="1511.113" Z="79.21698" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 80 seconds,  before 1st and 2nd bosses." 
-									LogColor="DodgerBlue" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="80000" />
-					
+					<!-- Sitting near the first and second bosses -->
 					<RunTo X="2036.444" Y="1469.552" Z="69.17043" />
 					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 145 seconds, safe area 1 of 3." 
-									LogColor="DodgerBlue" />
+					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="145000" />
+									WaitTime="30000" />
 					
-					<RunTo X="2186.285" Y="1534.621" Z="71.87846" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 160 seconds, safe area 2 of 3."
-									LogColor="DodgerBlue" />
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="160000" />
-					
+									WaitTime="30000" />
+									
+					<!-- Sitting near the tents -->
 					<RunTo X="2196.779" Y="1529.45" Z="73.2739" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting for 240 seconds, safe area 3 of 3."
-									LogColor="DodgerBlue" />
+									
+					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="240000" />
+									WaitTime="30000" />
+					
+					<!-- When the booster tags us again, we can leave -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait 30 seconds so the main can get away from us and we can leave the instance -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="30000" />
+					
 					
 					<CustomBehavior File="Message"
 									Text="Running out to reset the instance."
@@ -811,14 +813,6 @@
 					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
 					<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
-					
-					<CustomBehavior File="MyCTM" 
-									X="1939.09" Y="1539.371" Z="82.28316" />
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
-									
-					<RunTo X="-4464.627" Y="-1667.156" Z="81.90052" />
-					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 				</If>		
 			</While>	
 		</If>
