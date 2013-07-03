@@ -907,7 +907,7 @@
 											
 							<!-- RunLikeHell to force movement to the rendezvous -->
 							<CustomBehavior File="RunLikeHell" 
-											UseCTM="true" 
+											UseCTM="false" 
 											NumOfTimes="1" 
 											AllowCombat="false">		
 								<Hotspot X="3870.062" Y="539.0946" Z="6.604815" />
