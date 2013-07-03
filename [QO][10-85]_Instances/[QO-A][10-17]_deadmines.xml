@@ -165,7 +165,7 @@
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
-									CheckRange="5" 
+									CheckRange="1" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 				
 					<!-- Begin the instance once all party members are within range  -->
