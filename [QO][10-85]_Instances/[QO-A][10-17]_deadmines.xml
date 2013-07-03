@@ -91,12 +91,12 @@
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" 
+					<CustomBehavior File="MyCTM" 
 									X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
 					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-				</If>
+				</If> <!-- Deadmines -->
 				
 				<!-- If we are outside Deadmines (Westfall) -->
 				<If Condition="Me.MapId == 0" >	
@@ -148,24 +148,27 @@
 										LogColor="DodgerBlue" />
 						
 						<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="Misc\InInstance" 
+						<CustomBehavior File="MyCTM" 
 										X="-11208.34" Y="1680.56" Z="23.87232" />
 						
 						<CustomBehavior File="Message"
 										Text="Waiting for the dungeon to load." 
 										LogColor="DodgerBlue" />
 						
+						<!-- Run to the activate spot -->
 						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-					</If>		
-				</If>
+					</If> <!-- In box -->
+				</If> <!-- Eastern Kingdoms -->
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
+					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									CheckRange="5" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 				
+					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 					
@@ -521,37 +524,50 @@
 					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="1000" />
-				</If>
-			</While>	
-		</If>
+				</If> <!-- Inside Deadmines -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- Booster -->
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
 		
-			<CustomBehavior File="UserSettings" 
-							UseMount="True" 
-							UseFlightPaths="True" 
-							LootMobs="False" 
-							SkinMobs="False" 
-							PullDistance="1" 
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
 							LootRadius="1"
-							KillBetweenHotspots="False" 
-							FindVendorsAutomatically="False" 
-							LogoutForInactivity="False" />
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- If we are inside Deadmines, run out to reset -->
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
-									Text="Deadmines detected. Running out to reset." 
+									Text="Deadmines detected. Running out to allow for a reset." 
 									LogColor="DodgerBlue" />					
 						
 					<!-- Run to the instance entrance -->
 					<RunTo X="-14.45693" Y="-385.494" Z="62.4785" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" 
+					<CustomBehavior File="MyCTM" 
 									X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
@@ -567,7 +583,7 @@
 										LogColor="DodgerBlue" />
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
-					</If>
+					</If> <!-- Not in box -->
 				
 					<!-- If we are in the box -->
 					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1690" >
@@ -582,7 +598,7 @@
 										WaitTime="10000" />
 						
 						<!-- Go inside the Deadmines portal -->
-						<CustomBehavior File="Misc\InInstance" 
+						<CustomBehavior File="MyCTM" 
 										X="-11208.86" Y="1681.254" Z="23.87609" />
 										
 						<CustomBehavior File="Message" 
@@ -591,10 +607,8 @@
 										
 						<!-- runto location in the instance that doesn't trigger loadprofileon for the booster -->
 						<RunTo X="-10.02501" Y="-378.2018" Z="61.52087" />
-						
-						
-					</If>				
-				</If>
+					</If> <!-- In box -->		
+				</If> <!-- Eastern Kingdoms -->
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >
@@ -602,11 +616,13 @@
 					<!-- triggers booster to initiate -->		
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 
+					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									CheckRange="5" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 				
+					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 							
@@ -720,9 +736,9 @@
 					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
 					
 					<!-- cycle -->
-				</If>
-			</While>
-		</If>
+				</If> <!-- Deadmines -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- RAF -->
 	</QuestOrder>
 </HBProfile>
 

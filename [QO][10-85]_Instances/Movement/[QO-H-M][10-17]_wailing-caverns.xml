@@ -44,7 +44,7 @@
 		<ClearVendor />
 		<ClearMailbox />
 		
-		<!-- Booster -->
+		<!-- *******************************************************  Booster ************************************************************** -->
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="Message" 
 							Text="We are a booster." 
@@ -287,17 +287,13 @@
 											Text="Flying to the rendezvous location." 
 											LogColor="Lime" />
 											
-							<!-- Fly to the rendezvous location 
-							<CustomBehavior File="FlyTo" 
-											X="-822.1351" Y="-2051.266" Z="156.889" />
-							<CustomBehavior File="FlyTo" 
-											X="-822.9109" Y="-2032.883" Z="118.7538" />
-											-->
+							<!-- Fly to the rendezvous location -->
 							<CustomBehavior File="FlyTo" 
 											X="-819.8129" Y="-2025.358" Z="117.2773" />
 											
 							<!-- Begin the randezvous once all party members are within range -->
-							<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="5" /> 
 							
 							<!-- Clear the cave entrance -->
 							<CustomBehavior File="FlyTo" 
@@ -305,9 +301,6 @@
 							<CustomBehavior File="FlyTo" 
 											X="-874.9157" Y="-2048.126" Z="81.24489" />		
 							<CustomBehavior File="ForcedDismount" />
-							
-							<CustomBehavior File="UserSettings" 
-											UseMount="False" />
 							
 							<!-- clearing path to the deep pool -->
 							<RunTo X="-874.9157" Y="-2048.126" Z="81.24489" />
@@ -474,9 +467,12 @@
 								
 				<!-- Outside the box -->
 				<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
-					<!-- Userdialog zone check, the RAF toons must be in Razor Hill to initiate the profile, will stop the bot if not in Razor Hill -->
-					
+					<!-- If we are in Durotar -->
 					<If Condition="Me.ZoneId == 14">
+						<CustomBehavior File="Message" 
+										Text="We are in Durotar." 
+										LogColor="Cyan" />
+					
 						<CustomBehavior File="Message" 
 										Text="Moving to Razor Hill." 
 										LogColor="Lime" />
@@ -491,12 +487,10 @@
 						<CustomBehavior File="MyCTM" 
 										X="269.7013" Y="-3721.605" Z="19.61501" />
 								
-						
 						<Else>
-						<CustomBehavior File="Message" 
-										Text="This profile should be started in Durotar."
-										LogColor="Red" />
-						
+							<CustomBehavior File="Message" 
+											Text="This profile should be started in Durotar. You are responsible for your own dickery at this point."
+											LogColor="Red" />
 						</Else> <!-- Not Durotar -->
 					</If> <!-- Durotar -->
 				
@@ -598,8 +592,8 @@
 							<CustomBehavior File="Misc\LoadProfileOn" CheckRange="1" /> 
 							
 							<CustomBehavior File="Message" 
-								Text="Allowing the booster to be a boss and clear the way for us, do not touch." 
-								LogColor="Yellow" />				
+											Text="Allowing the booster to be a boss and clear the way for us, do not touch." 
+											LogColor="Yellow" />				
 				
 							<!-- Wait timer to allow the 90 to clear the entrance to Wailing Caverns -->
 							<CustomBehavior File="Message" 

@@ -186,7 +186,7 @@
 										
 						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					</If> <!-- In box -->
-				</If> <!-- Outside WC -->
+				</If> <!-- Kalimdor -->
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
@@ -577,9 +577,6 @@
 					<CustomBehavior File="MyCTM" 
 									X="-164.336" Y="134.6021" Z="-73.50945" />
 					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
-					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 				</If>	
@@ -594,7 +591,7 @@
 										
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
-					</If>
+					</If> <!-- Not in box -->
 				
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
@@ -617,7 +614,7 @@
 										LogColor="DodgerBlue" />
 										
 						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
-					</If> <!-- Outside check -->			
+					</If> <!-- In box -->			
 				</If> <!-- Kalimdor -->
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
@@ -642,9 +639,6 @@
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 					
-					<!--
-					<RunTo X="-149.4149" Y="128.285" Z="-76.13594" /> -->
-					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="60000" />
 						
@@ -662,7 +656,7 @@
 									WaitTime="120000" />
 				</If> <!-- Wailing Caverns -->
 			</While> <!-- Infinite loop -->
-		</If>
+		</If> <!-- RAF -->
 	</QuestOrder>
 </HBProfile>
 
