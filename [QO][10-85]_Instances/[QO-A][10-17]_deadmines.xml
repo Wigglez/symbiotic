@@ -588,14 +588,8 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1690" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
+										Text="Portal detected nearby." 
 										LogColor="DodgerBlue" />	
-						
-						<CustomBehavior File="Message" 
-										Text="Waiting 10 seconds." 
-										LogColor="DodgerBlue" />
-						<CustomBehavior File="WaitTimer"
-										WaitTime="10000" />
 						
 						<!-- Go inside the Deadmines portal -->
 						<CustomBehavior File="MyCTM" 
