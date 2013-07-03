@@ -1161,70 +1161,70 @@
 							</If> <!-- Zoram'gar -->
 						</If> <!-- Ashenvale -->
 					</ElseIf> <!-- Horde -->
-				</If> <!-- Alliance -->
-				
-				<!-- Begin the randezvous once all party members are within range -->
-				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
-								
-				<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
-				<CustomBehavior File="Message" 
-								Text="Waiting 145 seconds for the booster to clear a path to the Blackfathom Deeps entrance." 
-								LogColor="Cyan" />	
-				<CustomBehavior File="WaitTimer" 
-								WaitTime="145000" />
-									
-				<CustomBehavior File="RunLikeHell" 
-								UseCTM="false" 
-								NumOfTimes="1" 
-								AllowCombat="false">
-					<Hotspot X="3867.29" Y="542.4556" Z="6.25052" />
-					<Hotspot X="3907.495" Y="546.6" Z="8.988046" />
-					<Hotspot X="3933.447" Y="557.6937" Z="8.198513" />
-					<Hotspot X="3941.191" Y="570.2684" Z="9.137749" />
-					<Hotspot X="3949.646" Y="581.1702" Z="16.80931" />
-					<Hotspot X="3976.231" Y="590.0343" Z="15.95624" />
-					<Hotspot X="3977.125" Y="590.5364" Z="15.92647" />
-					<Hotspot X="3972.269" Y="629.6894" Z="12.06467" />
-					<Hotspot X="3963.476" Y="657.4673" Z="8.459725" />
-					<Hotspot X="3961.592" Y="668.5765" Z="7.564032" />
-					<Hotspot X="3955.22" Y="691.8064" Z="6.827244" />
-					<Hotspot X="3963.923" Y="704.9979" Z="7.59026" />
-					<Hotspot X="3966.297" Y="708.9611" Z="8.280338" />
-					<Hotspot X="3978.244" Y="733.3782" Z="8.660011" />
-					<Hotspot X="3996.681" Y="736.8337" Z="7.446292" />
-					<Hotspot X="4017.058" Y="739.0209" Z="8.115411" />
-					<Hotspot X="4031.468" Y="749.8213" Z="7.118464" />
-					<Hotspot X="4034.054" Y="751.4516" Z="7.010725" />
-					<Hotspot X="4057.953" Y="762.8633" Z="5.647972" />
-					<Hotspot X="4066.99" Y="776.9478" Z="3.203347" />
-					<Hotspot X="4069.638" Y="780.1206" Z="2.789762" />
-					<Hotspot X="4092.549" Y="808.3082" Z="6.834113" />
-					<Hotspot X="4095.759" Y="812.28" Z="5.253814" />
-					<Hotspot X="4116.945" Y="822.7336" Z="4.960292" />
-					<Hotspot X="4117.823" Y="840.0313" Z="8.185119" />
-					<Hotspot X="4118.506" Y="846.2096" Z="7.853565" />
-					<Hotspot X="4126.335" Y="866.5807" Z="9.712488" />
-					<Hotspot X="4150.487" Y="863.1863" Z="4.07859" />
-					<Hotspot X="4144.999" Y="902.6078" Z="-3.973661" />
-					<Hotspot X="4117.665" Y="872.9206" Z="-12.56279" />
-					<Hotspot X="4154.853" Y="870.2032" Z="-18.11654" />
-				</CustomBehavior>
-				
-				<CustomBehavior File="Message" 
-								Text="Waiting 90 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
-								LogColor="Cyan" />	
-				<CustomBehavior File="WaitTimer" 
-								WaitTime="90000" />
-								
-				<!-- CTM beneath the water to the other side -->
-				<CustomBehavior File="MyCTM" 
-								X="4159.188" Y="887.0402" Z="-23.669" />
-									
-				<CustomBehavior File="MyCTM" 
-								X="4160.37" Y="916.4307" Z="-16.98774" />
 					
-				<!-- Moving to the instance box -->
-				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />	
+					<!-- Begin the randezvous once all party members are within range -->
+					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
+									
+					<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
+					<CustomBehavior File="Message" 
+									Text="Waiting 145 seconds for the booster to clear a path to the Blackfathom Deeps entrance." 
+									LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="145000" />
+										
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="3867.29" Y="542.4556" Z="6.25052" />
+						<Hotspot X="3907.495" Y="546.6" Z="8.988046" />
+						<Hotspot X="3933.447" Y="557.6937" Z="8.198513" />
+						<Hotspot X="3941.191" Y="570.2684" Z="9.137749" />
+						<Hotspot X="3949.646" Y="581.1702" Z="16.80931" />
+						<Hotspot X="3976.231" Y="590.0343" Z="15.95624" />
+						<Hotspot X="3977.125" Y="590.5364" Z="15.92647" />
+						<Hotspot X="3972.269" Y="629.6894" Z="12.06467" />
+						<Hotspot X="3963.476" Y="657.4673" Z="8.459725" />
+						<Hotspot X="3961.592" Y="668.5765" Z="7.564032" />
+						<Hotspot X="3955.22" Y="691.8064" Z="6.827244" />
+						<Hotspot X="3963.923" Y="704.9979" Z="7.59026" />
+						<Hotspot X="3966.297" Y="708.9611" Z="8.280338" />
+						<Hotspot X="3978.244" Y="733.3782" Z="8.660011" />
+						<Hotspot X="3996.681" Y="736.8337" Z="7.446292" />
+						<Hotspot X="4017.058" Y="739.0209" Z="8.115411" />
+						<Hotspot X="4031.468" Y="749.8213" Z="7.118464" />
+						<Hotspot X="4034.054" Y="751.4516" Z="7.010725" />
+						<Hotspot X="4057.953" Y="762.8633" Z="5.647972" />
+						<Hotspot X="4066.99" Y="776.9478" Z="3.203347" />
+						<Hotspot X="4069.638" Y="780.1206" Z="2.789762" />
+						<Hotspot X="4092.549" Y="808.3082" Z="6.834113" />
+						<Hotspot X="4095.759" Y="812.28" Z="5.253814" />
+						<Hotspot X="4116.945" Y="822.7336" Z="4.960292" />
+						<Hotspot X="4117.823" Y="840.0313" Z="8.185119" />
+						<Hotspot X="4118.506" Y="846.2096" Z="7.853565" />
+						<Hotspot X="4126.335" Y="866.5807" Z="9.712488" />
+						<Hotspot X="4150.487" Y="863.1863" Z="4.07859" />
+						<Hotspot X="4144.999" Y="902.6078" Z="-3.973661" />
+						<Hotspot X="4117.665" Y="872.9206" Z="-12.56279" />
+						<Hotspot X="4154.853" Y="870.2032" Z="-18.11654" />
+					</CustomBehavior>
+					
+					<CustomBehavior File="Message" 
+									Text="Waiting 90 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
+									LogColor="Cyan" />	
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="90000" />
+									
+					<!-- CTM beneath the water to the other side -->
+					<CustomBehavior File="MyCTM" 
+									X="4159.188" Y="887.0402" Z="-23.669" />
+										
+					<CustomBehavior File="MyCTM" 
+									X="4160.37" Y="916.4307" Z="-16.98774" />
+						
+					<!-- Moving to the instance box -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />	
+				</If> <!-- Alliance -->
 				
 				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
 				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
