@@ -300,26 +300,14 @@
 							<!-- Rut'theran Village flight master -->
 							<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 							
-							<!-- Disabling UseMount to force use of the flight master -->
-							<CustomBehavior File="ForcedDismount" />
-							<CustomBehavior File="UserSettings"
-											UseMount="False" />
-										
 							<CustomBehavior File="Message" 
 											Text="Flightpath has been updated."
 											LogColor="Cyan" />
-						</If>
-						
-						<If Condition="Me.ZoneId == 148">
-							<!-- Forced use of the flight master to lor' danel, darkshore -->
-							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
 							
 							<!-- Enabling UseMount -->
-							<CustomBehavior File="UserSettings"
-											UseMount="True"	/>
 							<CustomBehavior File="ForcedMount"
 											MountType="Flying" />
-						</If>
+						</If> <!-- In Rut'theran box -->
 					</If> <!-- Alliance -->
 					
 					<If Condition="Me.IsHorde">
