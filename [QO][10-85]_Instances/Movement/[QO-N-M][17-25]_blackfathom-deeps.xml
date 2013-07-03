@@ -457,7 +457,7 @@
 								<!-- Run outside the inn -->
 								<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
 								
-								<!-- ForcedMount, and fly above the village -->
+								<!-- ForcedMount, and fly to hover point -->
 								<CustomBehavior File="ForcedMount"
 												MountType="Flying" />
 								<CustomBehavior File="FlyTo" 
@@ -623,7 +623,6 @@
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][17-25]_blackfathom-deeps" />
 			</If> <!-- Load profile -->
-			
 		</If> <!-- Booster -->
 		
 		
@@ -817,11 +816,6 @@
 								LogColor="Cyan" />
 							
 				<If Condition="Me.IsAlliance" >
-					<CustomBehavior File="Message" 
-									Text="Enabling flightpaths." 
-									LogColor="Cyan" />
-					<CustomBehavior File="UserSettings"
-									UseFlightPaths="True" />
 				
 					<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
 						<CustomBehavior File="Message" 
@@ -844,12 +838,6 @@
 						
 					<If Condition="Me.ZoneId == 148">
 						<CustomBehavior File="Message" 
-										Text="Disabling flightpaths." 
-										LogColor="Cyan" />
-						<CustomBehavior File="UserSettings"
-										UseFlightPaths="False" />
-					
-						<CustomBehavior File="Message" 
 										Text="We are in Darkshore." 
 										LogColor="Cyan" />
 										
@@ -857,9 +845,6 @@
 							<CustomBehavior File="Message" 
 											Text="Checkpoint reached." 
 											LogColor="Cyan" />
-											
-							<CustomBehavior File="UserSettings"
-											UseFlightPaths="False" />
 						
 							<!-- Use the flight master to Lor'danel, darkshore -->
 							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
