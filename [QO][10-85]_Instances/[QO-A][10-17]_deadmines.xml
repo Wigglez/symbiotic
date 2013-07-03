@@ -482,6 +482,7 @@
 					<!-- Move to the door entering the cavern -->
 					<Runto X="-1.975269" Y="-780.8501" Z="9.979088" />	
 					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
+					<RunTo X="-102.3849" Y="-654.0769" Z="7.422589" />
 												
 					<!-- Move to the door at the top of the foundry -->						
 					<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
@@ -636,20 +637,20 @@
 					
 					<!-- Waiting for the booster to kill Helix -->
 					<CustomBehavior File="Message" 
-									Text="Waiting 50 seconds, before Helix Gearbreaker." 
+									Text="Waiting 60 seconds, before Helix Gearbreaker." 
 									LogColor="Cyan" />	
 					<CustomBehavior File="WaitTimer"
-									WaitTime="50000" />
+									WaitTime="60000" />
 					
 					 <!-- Moving to the kegroom door -->
 					<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
 					
 					<!-- Waiting for the booster to clear the keg room -->
 					<CustomBehavior File="Message" 
-									Text="Waiting 40 seconds, door after Helix Gearbreaker."
+									Text="Waiting 30 seconds, door after Helix Gearbreaker."
 									LogColor="Cyan" />	
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="40000" />
+									WaitTime="30000" />
 					
 					<!-- 220 seconds in timers at this point -->
 					
