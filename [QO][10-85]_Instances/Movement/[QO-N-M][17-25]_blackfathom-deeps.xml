@@ -828,19 +828,17 @@
 								LogColor="Cyan" />
 							
 				<If Condition="Me.IsAlliance" >
-				
-					<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
-						<CustomBehavior File="Message" 
-										Text="Checkpoint reached." 
-										LogColor="Cyan" />
-										
-						<!-- Rut'theran Village flight master -->
-						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
-					
 						<CustomBehavior File="Message" 
 										Text="We are in Rut'theran Village." 
 										LogColor="Cyan" />
-										
+								
+						<CustomBehavior File="Message" 
+										Text="We are moving to the flight master." 
+										LogColor="Lime" />
+						
+						<!-- Rut'theran Village flight master -->
+						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
+					
 						<CustomBehavior File="Message" 
 										Text="We are moving to Lor'danel." 
 										LogColor="Lime" />
