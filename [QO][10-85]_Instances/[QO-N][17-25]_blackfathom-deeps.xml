@@ -150,18 +150,19 @@
 				
 				</If> <!-- Inside BFD -->
 				
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there."
+									LogColor="DodgerBlue" />
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
+				
+				</If> <!-- Not in box -->
+				
 				<!-- If we are outside Blackfathom Deeps (Ashenvale) -->
 				<If Condition="Me.MapId == 1">		
-					<!-- If we are not in the box, load the movement profile -->
-					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
-						<CustomBehavior File="Message" 
-										Text="Distance from portal is not within our proximity, initializing movement to get there."
-										LogColor="DodgerBlue" />	
-						<CustomBehavior File="LoadProfile" 
-										ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
-					
-					</If> <!-- Not in box -->
-				
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 						<CustomBehavior File="Message" 
@@ -682,40 +683,38 @@
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 				</If> <!-- Inside BFD -->
 				
-				<!-- If we are outside of Blackfathom Deeps (Ashenvale) -->
-				<If Condition="Me.MapId == 1">		
-					<!-- If we are not in the box, load the movement profile -->
-					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
-						<CustomBehavior File="Message" 
-										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="DodgerBlue" />	
-										
-						<CustomBehavior File="LoadProfile" 
-										ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
-					</If> <!-- Not in box -->
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there." 
+									LogColor="DodgerBlue" />	
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
+				</If> <!-- Not in box -->
 				
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
-										LogColor="DodgerBlue" />	
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby. Checking our level and proceeding to enter the instance." 
+									LogColor="DodgerBlue" />	
+				
+					<CustomBehavior File="Message" 
+									Text="Waiting 10 seconds." LogColor="DodgerBlue" />
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
 					
-						<CustomBehavior File="Message" 
-										Text="Waiting 10 seconds." LogColor="DodgerBlue" />
-						<CustomBehavior File="WaitTimer"
-										WaitTime="10000" />
-						
-						<!-- Go inside the Blackfathom Deeps portal -->
-						<CustomBehavior File="MyCTM" 
-										X="4250.304" Y="749.9905" Z="-23.02605" />
-						
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="DodgerBlue" />
-						
-						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-					</If> <!-- In box -->				
-				</If> <!-- Outside BFD -->
+					<!-- Go inside the Blackfathom Deeps portal -->
+					<CustomBehavior File="MyCTM" 
+									X="4250.304" Y="749.9905" Z="-23.02605" />
+					
+					<CustomBehavior File="Message" 
+									Text="Waiting for the dungeon to load." 
+									LogColor="DodgerBlue" />
+					
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+				</If> <!-- In box -->	
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48" >
