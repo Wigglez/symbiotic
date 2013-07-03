@@ -105,7 +105,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 						
 					<!-- Go through the portal -->									
-					<CustomBehavior File="Misc\InInstance" 
+					<CustomBehavior File="MyCTM" 
 									X="-149.7285" Y="113.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
@@ -117,6 +117,7 @@
 				<If Condition="Me.MapId != 1">		
 					<!-- If we are not in the box, load the movement profile -->
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+						<!-- If we are inside Deadmines, run out to reset -->
 						<If Condition="Me.MapId == 36">
 							<CustomBehavior File="Message" 
 											Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
@@ -126,12 +127,32 @@
 							<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 								
 							<!-- Go through the portal -->
-							<CustomBehavior File="Misc\InInstance" 
+							<CustomBehavior File="MyCTM" 
 											X="-14.50672" Y="-389.0634" Z="63.28239" />
 							
 							<!-- Make sure we ran to the right spot outside the portal -->
 							<RunTo X="-11208" Y="1676.41" Z="24.5716" />
 						</If>
+						
+						<!-- If we are inside Wailing Caverns, run out to reset -->
+						<If Condition="Me.MapId == 43">
+							<CustomBehavior File="Message" 
+											Text="Wailing Caverns detected. Running out to go to Blackfathom Deeps." 
+											LogColor="DodgerBlue" />
+							
+							<!-- Run to the instance entrance -->
+							<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+							
+							<!-- Go through the portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-164.336" Y="134.6021" Z="-73.50945" />
+							
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="15000" />
+							
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+						</If>	
 						
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there."
@@ -180,7 +201,7 @@
 										LogColor="DodgerBlue" />
 						
 						<!-- Run back in the Blackfathom Deeps portal -->
-						<CustomBehavior File="Misc\InInstance" 
+						<CustomBehavior File="MyCTM" 
 										X="4250.304" Y="749.9905" Z="-23.02605" />
 						
 						<CustomBehavior File="Message" 
@@ -617,11 +638,8 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" 
+					<CustomBehavior File="MyCTM" 
 									X="-149.7285" Y="113.4777" Z="-40.73384" /> 
-					
-				<!--	<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />	-->
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -631,6 +649,7 @@
 				<If Condition="Me.MapId != 1">		
 					<!-- If we are not in the box, load the movement profile -->
 					<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
+						<!-- If we are inside Deadmines, run out to reset -->
 						<If Condition="Me.MapId == 36">
 							<CustomBehavior File="Message" 
 											Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
@@ -640,12 +659,29 @@
 							<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
 								
 							<!-- Go through the portal -->
-							<CustomBehavior File="Misc\InInstance" 
+							<CustomBehavior File="MyCTM" 
 											X="-14.50672" Y="-389.0634" Z="63.28239" />
 							
 							<!-- Make sure we ran to the right spot outside the portal -->
 							<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-						</If>
+						</If> <!-- Inside Deadmines -->
+						
+						<!-- If we are inside Wailing Caverns, run out to reset -->
+						<If Condition="Me.MapId == 43">
+							<CustomBehavior File="Message" 
+											Text="Wailing Caverns detected. Running out to reset." 
+											LogColor="DodgerBlue" />
+							
+							<!-- Run to the instance entrance -->
+							<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+							
+							<!-- Go through the portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-164.336" Y="134.6021" Z="-73.50945" />
+							
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+						</If> <!-- Inside Wailing Caverns -->
 						
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
@@ -666,7 +702,7 @@
 										WaitTime="10000" />
 						
 						<!-- Go inside the Blackfathom Deeps portal -->
-						<CustomBehavior File="Misc\InInstance" 
+						<CustomBehavior File="MyCTM" 
 										X="4250.304" Y="749.9905" Z="-23.02605" />
 						
 						<CustomBehavior File="Message" 

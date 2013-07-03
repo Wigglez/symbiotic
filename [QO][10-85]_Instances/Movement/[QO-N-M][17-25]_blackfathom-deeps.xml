@@ -300,10 +300,6 @@
 							<!-- Rut'theran Village flight master -->
 							<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 							
-							<CustomBehavior File="Message" 
-											Text="Flightpath has been updated."
-											LogColor="Cyan" />
-							
 							<!-- Enabling UseMount -->
 							<CustomBehavior File="ForcedMount"
 											MountType="Flying" />
@@ -704,10 +700,6 @@
 							<RunTo X="-10549.74" Y="1034.109" Z="56.96315" />
 							
 							<CustomBehavior File="Message" 
-											Text="Flightpath has been updated."
-											LogColor="Cyan" />
-
-							<CustomBehavior File="Message" 
 											Text="We are in Sentinel Hill." 
 											LogColor="Cyan" />
 											
@@ -739,10 +731,6 @@
 									
 						<!-- Move to Goldshire fp -->
 						<RunTo X="-9435.078" Y="86.99177" Z="56.96593" />
-						
-						<CustomBehavior File="Message" 
-										Text="Flightpath has been updated."
-										LogColor="Cyan" />
 						
 						<CustomBehavior File="Message" 
 										Text="We are in Goldshire." 
@@ -842,10 +830,6 @@
 						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 					
 						<CustomBehavior File="Message" 
-										Text="Flightpath has been updated."
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="Message" 
 										Text="We are in Rut'theran Village." 
 										LogColor="Cyan" />
 										
@@ -883,10 +867,6 @@
 											LogColor="Cyan" />
 							
 							<CustomBehavior File="Message" 
-											Text="Flightpath has been updated."
-											LogColor="Cyan" />
-											
-							<CustomBehavior File="Message" 
 											Text="We are moving to Grove of the Ancients." 
 											LogColor="Lime" />
 										
@@ -902,10 +882,6 @@
 							<!-- Run to Grove of the Ancients, darkshore -->
 							<RunTo X="4970.5" Y="147.65" Z="51.64" />
 							
-							<CustomBehavior File="Message" 
-											Text="Flightpath has been updated."
-											LogColor="Cyan" />
-											
 							<CustomBehavior File="Message" 
 											Text="We are in Grove of the Ancients." 
 											LogColor="Cyan" />
@@ -1004,10 +980,6 @@
 								<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
 								
 								<CustomBehavior File="Message" 
-												Text="Flightpath has been updated."
-												LogColor="Cyan" />
-												
-								<CustomBehavior File="Message" 
 												Text="We are in The Crossroads." 
 												LogColor="Cyan" />
 												
@@ -1045,10 +1017,6 @@
 								<!-- Moving to Mor'shan Rampart flight master-->
 								<RunTo X="1206.031" Y="-2209.855" Z="92.1406" />
 								
-								<CustomBehavior File="Message" 
-												Text="Flightpath has been updated."
-												LogColor="Cyan" />
-												
 								<CustomBehavior File="Message" 
 												Text="We are in Mor'shan Rampart." 
 												LogColor="Cyan" />
@@ -1112,10 +1080,6 @@
 								<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
 								
 								<CustomBehavior File="Message" 
-												Text="Flightpath has been updated."
-												LogColor="Cyan" />
-												
-								<CustomBehavior File="Message" 
 												Text="We are in Splintertree Post." 
 												LogColor="Cyan" />
 								
@@ -1158,10 +1122,6 @@
 								<RunTo X="3049.08" Y="-498.95" Z="205.6398" />
 								
 								<CustomBehavior File="Message" 
-												Text="Flightpath has been updated."
-												LogColor="Cyan" />
-												
-								<CustomBehavior File="Message" 
 												Text="We are in Hellscream's Watch." 
 												LogColor="Cyan" />
 								
@@ -1184,10 +1144,6 @@
 								<!-- Moving to Zoram'gar flight master -->
 								<RunTo X="3351.82" Y="1052.3" Z="3.07" />
 								
-								<CustomBehavior File="Message" 
-												Text="Flightpath has been updated."
-												LogColor="Cyan" />
-												
 								<CustomBehavior File="Message" 
 												Text="We are in Zoram'gar Outpost." 
 												LogColor="Cyan" />
