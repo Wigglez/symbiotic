@@ -112,9 +112,6 @@
 					<CustomBehavior File="MyCTM" 
 									X="-164.336" Y="134.6021" Z="-73.50945" />
 					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
-					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 				</If>	
@@ -655,9 +652,6 @@
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
 									X="-164.336" Y="134.6021" Z="-73.50945" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
