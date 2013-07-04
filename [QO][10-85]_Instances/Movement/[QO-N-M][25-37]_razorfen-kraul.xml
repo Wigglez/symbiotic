@@ -265,14 +265,6 @@
 												WaitTime="1000" />
 							</ElseIf> <!-- Have Innkeeper's Daughter -->
 							
-							<!-- Waiting for the loading screen -->
-							<CustomBehavior File="Message" 
-											Text="We have successfully hearthed. Waiting 20 seconds to load." 
-											LogColor="Cyan" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
-											
 							<!-- Run outside the inn -->
 							<RunTo X="-4589.012" Y="-3173.481" Z="34.17432" />
 							
@@ -304,6 +296,10 @@
 	
 							<!-- Run inside the inn -->
 							<RunTo X="-4620.78" Y="-3172.521" Z="34.81204" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Mudsprocket." 
+											LogColor="Cyan" />
 							
 							<!-- Set hearthstone -->
 							<CustomBehavior File="WaitTimer" 
@@ -387,6 +383,10 @@
 				
 				<!-- Inside the instance box, load the profile -->
 				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="We are in the box." 
+									LogColor="Cyan" />
+					
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
 				</If> <!-- Load profile -->
@@ -556,7 +556,15 @@
 			<If Condition="Me.MapId == 0">
 				<!-- Alliance -->
 				<If Condition="Me.IsAlliance">
+					<CustomBehavior File="Message" 
+									Text="We are Alliance." 
+									LogColor="Cyan" />
+									
 					<If Condition="Me.ZoneId == 1519" >
+						<CustomBehavior File="Message" 
+										Text="We are in Stormwind City." 
+										LogColor="Cyan" />
+										
 						<!-- Level 20 or higher and no riding skill -->
 						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue == 0 " >	
 							<CustomBehavior File="Message" 
@@ -981,6 +989,10 @@
 				
 				<!-- Inside the instance box, load the profile -->
 				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="We are in the box." 
+									LogColor="Cyan" />
+					
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
 				</If> <!-- Load profile -->

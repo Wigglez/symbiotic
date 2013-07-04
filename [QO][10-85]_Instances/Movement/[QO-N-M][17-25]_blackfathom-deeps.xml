@@ -87,6 +87,7 @@
 				<CustomBehavior File="Message" 
 								Text="We are in the box." 
 								LogColor="Cyan" />
+								
 				<!-- If we need to repair -->
 				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 				
@@ -121,13 +122,6 @@
 											WaitTime="1000" />
 						</ElseIf> <!-- Have Innkeeper's Daughter -->
 						
-						<!-- Waiting for the loading screen -->
-						<CustomBehavior File="Message" 
-										Text="We have successfully hearthed. Waiting 20 seconds to load." 
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="20000" />
 					</If> <!-- Hearthstone -->
 					
 					<!-- If we are in Ashenvale,  repair -->
@@ -296,7 +290,15 @@
 									LogColor="Cyan" />	
 
 					<If Condition="Me.IsAlliance">
+						<CustomBehavior File="Message" 
+										Text="We are Alliance." 
+										LogColor="Cyan" />
+											
 						<If Condition="Me.X &gt; 8145 &amp;&amp; Me.X &lt; 8600 &amp;&amp; Me.Y &lt; 1225 &amp;&amp; Me.Y &gt; 735" >
+							<CustomBehavior File="Message" 
+											Text="We are in Rut'theran Village." 
+											LogColor="Cyan" />
+							
 							<!-- Rut'theran Village flight master -->
 							<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
 							
@@ -307,6 +309,10 @@
 					</If> <!-- Alliance -->
 					
 					<If Condition="Me.IsHorde">
+						<CustomBehavior File="Message" 
+										Text="We are Horde." 
+										LogColor="Cyan" />
+										
 						<!-- If we are south of Crossroads, clear the wailing caverns -->
 						<If Condition="Me.X &lt;= 70" >
 							<CustomBehavior File="Message" 
@@ -411,14 +417,6 @@
 												WaitTime="1000" />
 							</Else> <!-- Innkeeper's daughter -->
 							
-							<!-- Waiting for the loading screen -->
-							<CustomBehavior File="Message" 
-											Text="We have successfully hearthed. Waiting 20 seconds to load." 
-											LogColor="Cyan" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
-											
 						</If> <!-- Hearth -->
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
@@ -440,6 +438,10 @@
 								<CustomBehavior File="FlyTo" 
 												X="2721.863" Y="-385.5038" Z="142.7964" />
 												
+								<CustomBehavior File="Message" 
+												Text="We are in Astranaar." 
+												LogColor="Cyan" />
+											
 								<!-- front doorway of the inn -->
 								<CustomBehavior File="FlyTo" 
 												X="2740.226" Y="-400.2375" Z="108.7305" />							
@@ -484,7 +486,11 @@
 									<!-- Fly to the hover point above the innkeep in Zoram'gar Outpost -->
 									<CustomBehavior File="FlyTo" 
 													X="3373.338" Y="988.2792" Z="36.89017" />
-													
+									
+									<CustomBehavior File="Message" 
+													Text="We are in Zoram'gar Outpost." 
+													LogColor="Cyan" />
+											
 									<!-- front doorway of the inn -->				
 									<CustomBehavior File="FlyTo" 
 													X="3364.353" Y="968.8149" Z="7.404068" />				
@@ -519,6 +525,10 @@
 						</Else> <!-- Set hearth -->
 						
 						<If Condition="Me.IsAlliance">
+							<CustomBehavior File="Message" 
+											Text="We are Alliance." 
+											LogColor="Cyan" />
+											
 							<!-- Run outside the inn -->
 							<RunTo X="2758.864" Y="-420.845" Z="111.4777" />
 							<RunTo X="2736.872" Y="-398.9366" Z="108.3573" />
@@ -530,6 +540,10 @@
 											X="2721.863" Y="-385.5038" Z="142.7964" />
 						
 							<ElseIf Condition="Me.IsHorde">
+								<CustomBehavior File="Message" 
+												Text="We are Horde." 
+												LogColor="Cyan" />
+											
 								<!-- Run outside the inn -->
 								<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
 								
@@ -642,6 +656,10 @@
 			
 			<!-- Inside the instance box, load the BFD profile -->
 			<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+				<CustomBehavior File="Message" 
+								Text="We are in the box." 
+								LogColor="Cyan" />
+				
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][17-25]_blackfathom-deeps" />
 			</If> <!-- Load profile -->
@@ -703,6 +721,10 @@
 								
 				<!-- Alliance -->
 				<If Condition="Me.IsAlliance" >
+					<CustomBehavior File="Message" 
+									Text="We are Alliance." 
+									LogColor="Cyan" />
+									
 					<!-- If we are in Westfall -->
 					<If Condition="Me.ZoneId == 40">
 						<CustomBehavior File="Message" 
@@ -738,8 +760,12 @@
 					<!-- Between north of Sentinel Hill and top of Goldshire -->
 					<If Condition="Me.X &gt; -10100 &amp;&amp; Me.X &lt;= -9260">
 						<CustomBehavior File="Message" 
-										Text="Checkpoint reached." 
+										Text="We are between the north of Sentinel Hill and Goldshire." 
 										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="Moving to the bridge." 
+										LogColor="Lime" />
 						
 						<!-- We are at the bridge no matter what -->
 						<RunTo X="-9805.597" Y="838.1347" Z="29.13275" />
@@ -769,10 +795,6 @@
 
 					<!-- Stormwind -->
 					<If Condition="Me.X &gt; -9260 &amp;&amp; Me.X &lt;= -7800">
-						<CustomBehavior File="Message" 
-										Text="Checkpoint reached." 
-										LogColor="Cyan" />
-						
 						<CustomBehavior File="Message" 
 										Text="We are in Stormwind." 
 										LogColor="Cyan" />
@@ -838,6 +860,10 @@
 								LogColor="Cyan" />
 							
 				<If Condition="Me.IsAlliance" >
+					<CustomBehavior File="Message" 
+									Text="We are Alliance." 
+									LogColor="Cyan" />
+									
 					<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
 						<CustomBehavior File="Message" 
 										Text="We are in Rut'theran Village." 
@@ -864,7 +890,7 @@
 										
 						<If Condition="Me.X &gt; 6000 &amp;&amp; Me.X &lt;= 7700">
 							<CustomBehavior File="Message" 
-											Text="Checkpoint reached." 
+											Text="We are between Lor'danel and Grove of the Ancients." 
 											LogColor="Cyan" />
 						
 							<!-- Use the flight master to Lor'danel, darkshore -->
@@ -884,7 +910,7 @@
 						
 						<If Condition="Me.X &gt; 4400 &amp;&amp; Me.X &lt;= 6000 ">	
 							<CustomBehavior File="Message" 
-											Text="Checkpoint reached." 
+											Text="We are between Grove of the Ancients and Ashenvale." 
 											LogColor="Cyan" />
 						
 							<!-- Run to Grove of the Ancients, darkshore -->
@@ -910,7 +936,7 @@
 					
 						<If Condition="Me.X &lt;= 4400">
 							<CustomBehavior File="Message" 
-											Text="Checkpoint reached." 
+											Text="We are below the northern entrance to Ashenvale." 
 											LogColor="Cyan" />
 											
 							<!-- RunLikeHell to force movement to the rendezvous -->
@@ -950,7 +976,6 @@
 												Text="We are in the box. Sitting still until the booster has cleared the path for us."
 												LogColor="Cyan" />
 									
-												
 									<CustomBehavior File="Message" 
 													Text="Waiting 120 seconds for the booster to kill the mobs exiting the cave." 
 													LogColor="Cyan" />				
@@ -1003,7 +1028,7 @@
 								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
 							
 								<CustomBehavior File="Message" 
-												Text="Checkpoint reached."
+												Text="We are between the tower and the gates of Ashenvale."
 												LogColor="Cyan" />
 							
 								<CustomBehavior File="Message" 
@@ -1056,17 +1081,21 @@
 						
 						<!-- If we are in Ashenvale -->
 						<If Condition="Me.ZoneId == 331">
-							<RunTo X="1662.179" Y="-2197.453" Z="90.25356" />	
-							
 							<CustomBehavior File="Message" 
 											Text="We are in Ashenvale." 
 											LogColor="Cyan" />
 											
+							<RunTo X="1662.179" Y="-2197.453" Z="90.25356" />	
+											
 							<!-- North of the gates entering ashenvale and east of the bridge between silverwind refuge and splintertree post -->
 							<If Condition="Me.Y &lt;= -1960" >
 								<CustomBehavior File="Message" 
-												Text="Checkpoint reached."
+												Text="We are east of the bridge between Silverwind Refuge and Splintertree Post."
 												LogColor="Cyan" />
+											
+								<CustomBehavior File="Message" 
+												Text="Moving to Splintertree Post."
+												LogColor="Lime" />
 												
 								<!-- Intersection of main road and eastern road entering splintertree post -->
 								<RunTo X="2181.207" Y="-2643.072" Z="108.7298" />
@@ -1116,7 +1145,7 @@
 								<RunTo X="2014.13" Y="-1899.615" Z="98.50292" />
 							
 								<CustomBehavior File="Message" 
-												Text="Checkpoint reached."
+												Text="We are west of the bridge between Silverwind Refuge and Splintertree Post."
 												LogColor="Cyan" />
 								
 								<!-- RunLikeHell to bypass the mobs outside Hellscream's Watch -->
@@ -1146,7 +1175,7 @@
 								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
 								
 								<CustomBehavior File="Message" 
-												Text="Checkpoint reached."
+												Text="We are west of Astranaar and Hellscream's Watch."
 												LogColor="Cyan" />
 							
 								<!-- Moving to Zoram'gar flight master -->
@@ -1249,6 +1278,10 @@
 				
 				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
 				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+					<CustomBehavior File="Message" 
+									Text="We are in the box."
+									LogColor="Cyan" />
+					
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO-N][17-25]_blackfathom-deeps" />
 				</If> <!-- Load profile -->

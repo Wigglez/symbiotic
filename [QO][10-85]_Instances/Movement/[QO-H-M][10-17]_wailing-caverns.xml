@@ -104,7 +104,6 @@
 						
 						<!-- Otherwise use the Innkeeper's Daughter -->
 						<ElseIf Condition="HasItem(64488)">
-							
 							<CustomBehavior File="Message" 
 											Text="Using Innkeeper's Daughter." 
 											LogColor="Lime" />
@@ -114,13 +113,6 @@
 											WaitTime="1000" />
 						</ElseIf> <!-- Have Innkeeper's Daughter -->
 						
-						<!-- Waiting for the loading screen -->
-						<CustomBehavior File="Message" 
-										Text="We have successfully hearthed. Waiting 20 seconds to load." 
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="20000" />
 					</If> <!-- Hearthstone -->
 					
 					<!-- If we are in Northern Barrens, repair -->
@@ -221,14 +213,6 @@
 														WaitTime="1000" />
 									</ElseIf> <!-- Have Innkeeper's Daughter -->
 									
-									<!-- Waiting for the loading screen -->
-									<CustomBehavior File="Message" 
-													Text="We have successfully hearthed. Waiting 20 seconds to load." 
-													LogColor="Cyan" />
-													
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="20000" />
-													
 									<!-- Run outside the inn -->
 									<RunTo X="-434.4784" Y="-2651.589" Z="95.92944" />
 									
@@ -394,8 +378,12 @@
 				</If> <!-- Kalimdor -->
 			</If> <!-- Not in box -->
 			
-			<!-- Inside the instance box, load the Wailing Cavers profile -->
+			<!-- Inside the instance box, load the Wailing Caverns profile -->
 			<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+				<CustomBehavior File="Message" 
+								Text="We are in the box." 
+								LogColor="Cyan" />
+				
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-H][10-17]_wailing-caverns" />
 			</If> <!-- Load profile -->
@@ -468,6 +456,10 @@
 								
 				<!-- Outside the box -->
 				<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
+					<CustomBehavior File="Message" 
+										Text="We are not in the box." 
+										LogColor="Cyan" />
+										
 					<!-- If we are in Durotar -->
 					<If Condition="Me.ZoneId == 14">
 						<CustomBehavior File="Message" 
@@ -486,7 +478,7 @@
 										LogColor="Cyan" />
 						
 						<CustomBehavior File="Message" 
-										Text="Moving to The Crossroads." 
+										Text="Moving to the bridge between Durotar and Northern Barrens." 
 										LogColor="Lime" />
 						
 						<!-- Run to the Northern Barrens bridge -->
@@ -498,17 +490,45 @@
 								
 						<Else>
 							<CustomBehavior File="Message" 
+											Text="We are not in Durotar." 
+											LogColor="Cyan" />
+										
+							<CustomBehavior File="Message" 
+											Text="Attempting to move to Razor Hill." 
+											LogColor="Lime" />
+										
+							<CustomBehavior File="Message" 
 											Text="This profile should be started in Durotar. You are responsible for your own dickery at this point."
 											LogColor="Red" />
 						</Else> <!-- Not Durotar -->
 					</If> <!-- Durotar -->
 				
 					<If Condition="Me.ZoneId == 17">
+						<CustomBehavior File="Message" 
+										Text="We are in Northern Barrens." 
+										LogColor="Cyan" />
+					
 						<!-- North of The Crossroads -->
 						<If Condition="Me.X &gt; -140">
+							<CustomBehavior File="Message" 
+											Text="We are north of The Crossroads." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="Moving to Grol'dol Farm."
+											LogColor="Lime" />
+											
 							<!-- Run to the horde camp before the tower -->
 							<RunTo X="116.9753" Y="-3121.707" Z="95.82523" />
 					
+							<CustomBehavior File="Message" 
+											Text="We are at Grol'dol Farm." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="Moving to the tower."
+											LogColor="Lime" />
+											
 							<!-- Begin to run like hell when mobs can become a problem -->
 							<CustomBehavior File="RunLikeHell" 
 											NumOfTimes="1" 
@@ -520,6 +540,14 @@
 								<Hotspot X="46.90007" Y="-2719.487" Z="91.66705" />
 							</CustomBehavior>
 							
+							<CustomBehavior File="Message" 
+											Text="We are at the tower." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="Moving to The Crossroads."
+											LogColor="Lime" />
+							
 							<!-- Run to the center of Crossroads -->
 							<RunTo X="-455.7527" Y="-2647.999" Z="95.46925" />
 						</If> <!-- North of The Crossroads -->
@@ -529,12 +557,12 @@
 							<!-- We're in the center of Crossroads -->
 							<RunTo X="-455.7527" Y="-2647.999" Z="95.46925" />
 							
-							<!-- Crossroads fp -->
-							<RunTo X="-440.4101" Y="-2598.192" Z="95.90119" />
-							
 							<CustomBehavior File="Message" 
 											Text="We are in The Crossroads." 
 											LogColor="Cyan" />
+											
+							<!-- Crossroads fp -->
+							<RunTo X="-440.4101" Y="-2598.192" Z="95.90119" />
 							
 							<CustomBehavior File="Message" 
 											Text="Moving to the rendezvous point."
@@ -546,6 +574,10 @@
 						
 						<!-- West of the Crossroads -->
 						<If Condition="Me.Y &gt; -2500 &amp;&amp; Me.X &gt; -600">
+							<CustomBehavior File="Message" 
+											Text="We are west of The Crossroads." 
+											LogColor="Cyan" />
+											
 							<!-- Moving to the top of the mountain -->
 							<CustomBehavior File="MyCTM" 
 											X="-403.7427" Y="-2285.069" Z="94.53511" />
@@ -577,6 +609,10 @@
 							
 						<!-- If we are between the top of the mountain and the skull -->
 						<If Condition="Me.X &lt;= -600 &amp;&amp; Me.X &gt; -800">
+							<CustomBehavior File="Message" 
+											Text="We are between the top of the mountain and the Wailing Caverns skull." 
+											LogColor="Cyan" />
+											
 							<!-- Moving to the skull  -->
 							<CustomBehavior File="MyCTM" 
 											X="-682.7202" Y="-2126.432" Z="183.4675" />
@@ -594,6 +630,10 @@
 						
 						<!-- We should be on the skull at this point -->
 						<If Condition="Me.X &lt; 600">
+							<CustomBehavior File="Message" 
+											Text="We are on the Wailing Caverns skull or beyond it." 
+											LogColor="Cyan" />
+											
 							<CustomBehavior File="MyCTM" 
 											X="-819.8129" Y="-2025.358" Z="117.2773" />
 											
@@ -677,6 +717,10 @@
 				
 				<!-- Inside the instance box, load the Wailing Caverns profile -->
 				<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+					<CustomBehavior File="Message" 
+									Text="We are in the box." 
+									LogColor="Cyan" />
+					
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO-H][10-17]_wailing-caverns" />
 				</If> <!-- Load profile -->
