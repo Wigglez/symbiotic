@@ -981,8 +981,8 @@
 								</If> <!-- In box -->
 								
 								<CustomBehavior File="Message" 
-													Text="Moving to The Crossroads."
-													LogColor="Lime" />
+												Text="Moving to The Crossroads."
+												LogColor="Lime" />
 													
 								<!-- Moving to Crossroads flight master -->
 								<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
