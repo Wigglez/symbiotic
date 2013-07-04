@@ -75,105 +75,106 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
-			<!-- If we are inside the box -->	
-			<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+			<!-- If we are in Kalimdor -->
+			<If Condition="Me.MapId == 1" >	
 				<CustomBehavior File="Message" 
-								Text="We are in the box." 
+								Text="We are in Kalimdor." 
 								LogColor="Cyan" />
 								
-				<!-- If we need to repair -->
-				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
-									Title="WARNING" />	
-
-					<!-- If we have our Hearthstone, use it -->
-					<If Condition="HasItem(6948)">
-						<CustomBehavior File="Message" 
-										Text="Using Hearthstone." 
-										LogColor="Lime" />
-					
-						<CustomBehavior File="Misc\RunLua" 
-										Lua="UseItemByName(6948)" 
-										WaitTime="1000" />
-						
-						<!-- Otherwise use the Innkeeper's Daughter -->
-						<ElseIf Condition="HasItem(64488)">
-							
-							<CustomBehavior File="Message" 
-											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
-						</ElseIf> <!-- Have Innkeeper's Daughter -->
-						
-						<!-- Waiting for the loading screen -->
-						<CustomBehavior File="Message" 
-										Text="We have successfully hearthed. Waiting 20 seconds to load." 
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="20000" />
-					</If> <!-- Hearthstone -->
-					
-					<!-- If we are in Mudsprocket, repair -->
-					<If Condition="Me.ZoneId == 15" >
-						<CustomBehavior File="ForceSetVendor" 
-										DoMail="False" 
-										DoRepair="True" 
-										DoSell="False" 
-										DoTrain="False" />
-								
-						<CustomBehavior File="Message" 
-										Text="We are in town, moving to the repair vendor." 
-										LogColor="Fuchsia" />
-										
-						<SetVendor>
-							<Vendors>
-								<!-- Mudsprocket -->
-								<Vendor Name="Razbo Rustgear" Entry="23571" Type="Repair" X="-4603.661" Y="-3210.939" Z="34.92585" />
-							</Vendors>
-						</SetVendor>
-						
-						<!-- We are done vendoring -->
-						<If Condition="Me.DurabilityPercent &gt; 0.8" >
-							<CustomBehavior File="Message" 
-											Text="Repairing complete, moving back to Razorfen Kraul." 
-											LogColor="Fuchsia" />
-						</If> <!-- Durability over 80 -->
-						
-						<CustomBehavior File="Message" 
-										Text="In transit to Razorfen Kraul." 
-										LogColor="Lime" />
-						
-						<!-- Fly to the box -->
-						<CustomBehavior File="FlyTo" 
-										X="-4462" Y="-1663.06" Z="81.8912" />
-										
-						<CustomBehavior File="ForcedDismount" />
-					</If> <!-- Northern Barrens -->
-				</If> <!-- Durability -->
-			</If> <!-- In box -->
-			
-			<!-- Outside the box -->
-			<If Condition="Me.X &lt; -4500 || Me.X &gt; -4440 || Me.Y &gt; -1650 || Me.Y &lt; -1700" >
-				<CustomBehavior File="Message" 
-								Text="We are not in the box." 
-								LogColor="Cyan" />
-								
-				<!-- If we are in Kalimdor -->
-				<If Condition="Me.MapId == 1" >	
+				<!-- If we are inside the box -->	
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
 					<CustomBehavior File="Message" 
-									Text="We are in Kalimdor." 
+									Text="We are in the box." 
 									LogColor="Cyan" />
 									
+					<!-- If we need to repair -->
+					<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
+						<CustomBehavior File="UserDialog" 
+										AllowBotStop="False" 
+										SoundCue="Exclamation" 
+										SoundCueInterval="15" 
+										ExpiryTime="60"
+										ExpiryAction="InputEnabled_Continue" 
+										Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
+										Title="WARNING" />	
+
+						<!-- If we have our Hearthstone, use it -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+						
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+							
+							<!-- Otherwise use the Innkeeper's Daughter -->
+							<ElseIf Condition="HasItem(64488)">
+								
+								<CustomBehavior File="Message" 
+												Text="Using Innkeeper's Daughter." 
+												LogColor="Lime" />
+												
+								<CustomBehavior File="Misc\RunLua" 
+												Lua="UseItemByName(64488)" 
+												WaitTime="1000" />
+							</ElseIf> <!-- Have Innkeeper's Daughter -->
+							
+							<!-- Waiting for the loading screen -->
+							<CustomBehavior File="Message" 
+											Text="We have successfully hearthed. Waiting 20 seconds to load." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+						</If> <!-- Hearthstone -->
+						
+						<!-- If we are in Mudsprocket, repair -->
+						<If Condition="Me.ZoneId == 15" >
+							<CustomBehavior File="ForceSetVendor" 
+											DoMail="False" 
+											DoRepair="True" 
+											DoSell="False" 
+											DoTrain="False" />
+									
+							<CustomBehavior File="Message" 
+											Text="We are in town, moving to the repair vendor." 
+											LogColor="Fuchsia" />
+											
+							<SetVendor>
+								<Vendors>
+									<!-- Mudsprocket -->
+									<Vendor Name="Razbo Rustgear" Entry="23571" Type="Repair" X="-4603.661" Y="-3210.939" Z="34.92585" />
+								</Vendors>
+							</SetVendor>
+							
+							<!-- We are done vendoring -->
+							<If Condition="Me.DurabilityPercent &gt; 0.8" >
+								<CustomBehavior File="Message" 
+												Text="Repairing complete, moving back to Razorfen Kraul." 
+												LogColor="Fuchsia" />
+							</If> <!-- Durability over 80 -->
+							
+							<CustomBehavior File="Message" 
+											Text="In transit to Razorfen Kraul." 
+											LogColor="Lime" />
+							
+							<!-- Fly to the box -->
+							<CustomBehavior File="FlyTo" 
+											X="-4462" Y="-1663.06" Z="81.8912" />
+											
+							<CustomBehavior File="ForcedDismount" />
+						</If> <!-- Northern Barrens -->
+					</If> <!-- Durability -->
+				</If> <!-- In box -->
+			
+			
+				<!-- Outside the box -->
+				<If Condition="Me.X &lt; -4500 || Me.X &gt; -4440 || Me.Y &gt; -1650 || Me.Y &lt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="We are not in the box." 
+									LogColor="Cyan" />
+								
 					<!-- If we are in Blackfathom Deeps area -->
 					<If Condition="Me.MapId == 48">
 						<!-- clear to the water pool -->
@@ -374,11 +375,13 @@
 					<RunTo X="-4475.263" Y="-1696" Z="82.32021" />
 					<RunTo X="-4473.421" Y="-1688.759" Z="81.30132" />
 					<RunTo X="-4468.679" Y="-1673.395" Z="81.81928" />
+					
+					<!-- Moving to the instance box -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-				</If> <!-- Kalimdor -->
-			</If> <!-- Not in box -->
+				</If> <!-- Not in box -->
+			</If> <!-- Kalimdor -->
 			
-			<!-- Inside the instance box, load the Wailing Cavers profile -->
+			<!-- Inside the instance box, load the profile -->
 			<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
@@ -762,12 +765,26 @@
 									<RunTo X="-4478.805" Y="-1716.675" Z="86.29526" />
 									<RunTo X="-4470.549" Y="-1676.721" Z="81.741" />
 									<RunTo X="-4469.222" Y="-1674.093" Z="81.84492" />
+									
+									<!-- Moving to the instance box -->
 									<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+									
+									<!-- Inside the instance box, load the profile -->
+									<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+										<CustomBehavior File="LoadProfile" 
+														ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
+									</If> <!-- Load profile -->
 								</If> <!-- Below Desolation Hold -->
 							</If> <!-- Not in box -->
 						</If> <!-- Southern Barrens -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
+				
+				<!-- Inside the instance box, load the profile -->
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
+				</If> <!-- Load profile -->
 			</If> <!-- Kalimdor -->
 		</If> <!-- RAF -->
 	</QuestOrder>
