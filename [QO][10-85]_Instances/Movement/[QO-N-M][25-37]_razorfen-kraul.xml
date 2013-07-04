@@ -23,9 +23,12 @@
 	
 	<AvoidMobs>
 		<Mob Name="Summon Enabler Stalker" Entry="53488" />	
+		<Mob Name="Mankrik" Entry="37847" />
 	</AvoidMobs>
 	
 	<Blackspots>
+		<!-- Avoid Mankrik -->
+		<Blackspot X="-4148.532" Y="-1943.097" Z="92.97999" Radius="20" />
 	</Blackspots>
 
 	<Mailboxes>
@@ -599,6 +602,10 @@
 						
 						<!-- Level 20 and trained -->
 						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 1" >
+							<CustomBehavior File="Message" 
+											Text="Moving to Gol'Bolar Quarry."
+											LogColor="Lime" />
+							
 							<!-- gol'bolar quarry fp -->
 							<RunTo X="-5714.14" Y="-1578.64" Z="383.204" />
 							
