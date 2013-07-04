@@ -340,7 +340,7 @@
 							
 								<!-- move to the docks and take the boat to theramore -->
 								<RunTo X="-3862.112" Y="-657.6467" Z="5.291173" />
-								<CustomBehavior File="Message" Text="Waiting for the boat to Darnassus." LogColor="Lime" />
+								<CustomBehavior File="Message" Text="Waiting for the boat to Theramore." LogColor="Lime" />
 								<CustomBehavior File="UseTransport" 
 												TransportId="176231" 
 												WaitAtX="-3862.112" 
