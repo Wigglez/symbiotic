@@ -254,7 +254,8 @@
 													X="-455.4241" Y="-2651.979" Z="142.298" />
 							
 									<!-- Front doorway of the inn -->
-									<RunTo X="-434.4784" Y="-2651.589" Z="95.92944" />
+									<CustomBehavior File="FlyTo"
+													X="-434.4784" Y="-2651.589" Z="95.92944" />
 									<CustomBehavior File="ForcedDismount" />
 			
 									<!-- Run inside the inn -->
