@@ -177,6 +177,10 @@
 								
 					<!-- If we are in Blackfathom Deeps area -->
 					<If Condition="Me.ZoneId == 719">
+						<CustomBehavior File="Message" 
+										Text="Clearing a path out of Blackfathom Deeps." 
+										LogColor="Cyan" />
+									
 						<!-- clear to the water pool -->
 						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 						<RunTo X="4245.435" Y="736.5756" Z="-26.26228" />
@@ -440,14 +444,14 @@
 			<If Condition="Me.MapId == 1">
 				<!-- If we are in Blackfathom Deeps area -->
 				<If Condition="Me.ZoneId == 719">
-					<!-- wait timer for the booster to clear to the top of the stairs -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="120000" />
-									
 					<CustomBehavior File="Message" 
 									Text="Waiting for the booster to clear a path out of Blackfathom Deeps." 
 									LogColor="Cyan" />
 					
+					<!-- wait timer for the booster to clear to the top of the stairs -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="120000" />
+									
 					<!-- run to water pool -->
 					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 					
@@ -514,12 +518,16 @@
 						<CustomBehavior File="Message" 
 										Text="We are in Rut'theran Village." 
 										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind City."
+										LogColor="Lime" />
 						
 						<!-- Rut'theran Village docks -->
 						<RunTo X="8179.316" Y="1002.142" Z="6.875345" />
 						
 						<CustomBehavior File="Message" 
-										Text="Waiting for the boat to Stormwind." 
+										Text="Waiting for the boat to Stormwind City." 
 										LogColor="Cyan" />
 										
 						<CustomBehavior File="UseTransport" 
@@ -540,6 +548,194 @@
 										GetOffY="1327.927" 
 										GetOffZ="5.536721" />
 					</If> <!-- Rut'theran Village -->
+				</If> <!-- Alliance -->
+			</If> <!-- Kalimdor -->
+			
+			<!-- Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0">
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance">
+					<If Condition="Me.ZoneId == 1519" >
+						<!-- Level 20 or higher and no riding skill -->
+						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue == 0 " >	
+							<CustomBehavior File="Message" 
+											Text="Moving to the riding trainer Stormwind."
+											LogColor="Orange" />
+											
+							<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
+
+							<CustomBehavior File="WaitTimer"
+											WaitTime="1000" />
+							
+							<CustomBehavior File="InteractWith" 
+											MobId="43769" 
+											WaitTime="1000"
+											CollectionDistance="50" 
+											X="-8845.4" Y="502.653" Z="109.617" />
+											
+							<CustomBehavior File="ForceTrainRiding" 
+											MobId="43769" />
+							
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+						</If> <!-- Mount training -->
+						
+						<CustomBehavior File="UserDialog" 
+										AllowBotStop="False" 
+										SoundCue="Exclamation" 
+										SoundCueInterval="15" 
+										ExpiryTime="60"
+										ExpiryAction="InputEnabled_Continue" 
+										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+										Title="WARNING" />	
+						
+						<!-- Level 20 and trained -->
+						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 1" >
+							<!-- gol'bolar quarry fp -->
+							<RunTo X="-5714.14" Y="-1578.64" Z="383.204" />
+							
+							<!-- Dun Morogh -->
+							<If Condition="Me.ZoneId == 1">
+								<CustomBehavior File="Message" 
+												Text="We are in Dun Morogh."
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="Moving to Menethil Harbor."
+												LogColor="Lime" />
+								
+								<!-- move to menethil harbor fp -->
+								<RunTo X="-3787.81" Y="-777.696" Z="1.5582" />
+							</If> <!-- Dun Morogh -->
+							
+							<!-- Wetlands -->
+							<If Condition="Me.ZoneId == 11">
+								<CustomBehavior File="Message" 
+												Text="We are in Wetlands."
+												LogColor="Cyan" />
+												
+								<CustomBehavior File="Message" 
+												Text="We are moving to Theramore Isle."
+												LogColor="Lime" />
+							
+								<!-- move to the docks and take the boat to theramore -->
+								<RunTo X="-3862.112" Y="-657.6467" Z="5.291173" />
+								
+								<CustomBehavior File="Message" 
+												Text="Waiting for the boat to Dustwallow Marsh." 
+												LogColor="Lime" />
+												
+								<CustomBehavior File="UseTransport" 
+												TransportId="176231"
+												WaitAtX="-3862.112" 
+												WaitAtY="-657.6467" 
+												WaitAtZ="5.291173"
+												TransportStartX="-3872.35" 
+												TransportStartY="-639.944" 
+												TransportStartZ="0.0387598276"		
+												StandOnX="-3866.424" 
+												StandOnY="-638.1647" 
+												StandOnZ="6.098088"
+												TransportEndX="-4016.39" 
+												TransportEndY="-4740.58838" 
+												TransportEndZ="-0.0113018192"	
+												GetOffX="-3997.751" 
+												GetOffY="-4724.298" 
+												GetOffZ="4.309702" />
+							</If> <!-- Wetlands -->
+						</If> <!-- Mount trained -->
+					</If> <!-- Stormwind -->
+				</If> <!-- Alliance -->
+			</If> <!-- Eastern Kingdoms -->
+			
+			<!-- Kalimdor -->
+			<If Condition="Me.MapId == 1">
+				<CustomBehavior File="Message" 
+								Text="We are in Kalimdor."
+								LogColor="Cyan" />
+								
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance">
+					<CustomBehavior File="Message" 
+									Text="We are Alliance."
+									LogColor="Cyan" />
+									
+					<!-- Dustwallow Marsh -->
+					<If Condition="Me.ZoneId == 15" >
+						<CustomBehavior File="Message" 
+										Text="We are in Dustwallow Marsh."
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Southern Barrens."
+										LogColor="Lime" />
+								
+						<!-- Run to western gate leading out of theramore -->
+						<RunTo X="-3782.567" Y="-4255.7" Z="6.254439" />
+						
+						<!-- runlikehell out of theramore to sotuhern barrens -->
+						<CustomBehavior File="RunLikeHell" 
+										NumOfTimes="1" 
+										AllowCombat="false">
+							<Hotspot X="-3784.842" Y="-4122.856" Z="3.85025" />
+							<Hotspot X="-3779.616" Y="-4058.117" Z="7.74936" />
+							<Hotspot X="-3788.214" Y="-3916.856" Z="6.083549" />
+							<Hotspot X="-3782.844" Y="-3835.111" Z="31.10342" />
+							<Hotspot X="-3805.591" Y="-3693.427" Z="43.28993" />
+							<Hotspot X="-3819.059" Y="-3580.17" Z="42.87718" />
+							<Hotspot X="-3814.875" Y="-3550.336" Z="42.68598" />
+							<Hotspot X="-3820.341" Y="-3525.151" Z="43.11248" />
+							<Hotspot X="-3807.917" Y="-3447.343" Z="42.42683" />
+							<Hotspot X="-3810.861" Y="-3348.939" Z="38.41087" />
+							<Hotspot X="-3818.86" Y="-3267.249" Z="38.9136" />
+							<Hotspot X="-3814.412" Y="-3206.013" Z="38.91971" />
+							<Hotspot X="-3818.042" Y="-3185.422" Z="40.01119" />
+							<Hotspot X="-3800.683" Y="-3155.293" Z="38.14743" />
+							<Hotspot X="-3812.186" Y="-3130.041" Z="39.10503" />
+							<Hotspot X="-3785.212" Y="-3023.778" Z="37.93139" />
+							<Hotspot X="-3735.473" Y="-2941.778" Z="37.26948" />
+							<Hotspot X="-3719.428" Y="-2929.908" Z="36.85535" />
+							<Hotspot X="-3709.873" Y="-2902.872" Z="40.00324" />
+							<Hotspot X="-3682.953" Y="-2832.898" Z="36.79173" />
+							<Hotspot X="-3667.548" Y="-2748.487" Z="36.08558" />
+							<Hotspot X="-3670.469" Y="-2591.573" Z="52.48718" />
+							<Hotspot X="-3683.468" Y="-2545.132" Z="61.50312" />
+							<Hotspot X="-3684.107" Y="-2456.478" Z="80.84489" />	<!-- entered southern barrens -->
+						</CustomBehavior>	
+					</If> <!-- Dustwallow Marsh -->
+					
+					<!-- Southern Barrens -->
+					<If Condition="Me.ZoneId == 4709" >
+						<CustomBehavior File="Message" 
+										Text="We are in Southern Barrens."
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to the rendezvous point."
+										LogColor="Lime" />
+										
+						<!-- Run to the road entering southern barrens from dustwallow marsh -->
+						<RunTo X="-3646.009" Y="-2419.298" Z="93.58193" />
+						
+						<!-- Runlikehell to the rendezvous -->
+						<CustomBehavior File="RunLikeHell" 
+										NumOfTimes="1" 
+										AllowCombat="false">
+							<Hotspot X="-3646.009" Y="-2419.298" Z="93.58193" />
+							<Hotspot X="-3620.597" Y="-2360.604" Z="93.94967" />
+							<Hotspot X="-3579.165" Y="-2314.584" Z="96.32779" />
+							<Hotspot X="-3573.779" Y="-2234.296" Z="91.66689" />
+							<Hotspot X="-3491.423" Y="-2131.443" Z="92.94565" />
+							<Hotspot X="-3482.574" Y="-2055.368" Z="97.01271" />
+							<Hotspot X="-3583.164" Y="-2033.708" Z="91.70001" />
+							<Hotspot X="-3642.783" Y="-2016.442" Z="91.66727" />
+							<Hotspot X="-3703.971" Y="-2021.292" Z="91.66727" />
+							<Hotspot X="-3799.034" Y="-2049.649" Z="91.69884" />
+							<Hotspot X="-3877.587" Y="-2049.556" Z="95.66039" />
+							<Hotspot X="-4076.114" Y="-2045.069" Z="91.66761" />
+							<Hotspot X="-4120.178" Y="-1999.181" Z="91.66761" />	<!-- rendezvous at fire beside the road -->				
+						</CustomBehavior>
+					</If> <!-- Southern Barrens -->
 					
 					<!-- Horde -->
 					<ElseIf Condition="Me.IsHorde">
@@ -742,37 +938,45 @@
 										<Hotspot X="-4072.45" Y="-2051.2" Z="91.66689" />
 										<Hotspot X="-4120.38" Y="-1999.253" Z="91.66689" />
 									</CustomBehavior>
-									
-									<!-- Begin the escort once all party members are within range -->
-									<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
-							
-									<!-- Wait timer to allow the booster to clear a path to RFK -->
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="80000" />
-												
-									<!-- Run to RFK -->			
-									<RunTo X="-4178.496" Y="-1925.295" Z="92.06425" />
-									<RunTo X="-4213.072" Y="-1903.469" Z="91.62788" />
-									<RunTo X="-4251.952" Y="-1892.341" Z="91.9197" />
-									<RunTo X="-4291.976" Y="-1885.601" Z="91.60086" />
-									<RunTo X="-4332.393" Y="-1887.926" Z="90.64131" />
-									<RunTo X="-4373.323" Y="-1885.988" Z="88.06911" />
-									<RunTo X="-4413.368" Y="-1879.237" Z="85.94349" />
-									<RunTo X="-4452.659" Y="-1869.67" Z="85.87335" />
-									<RunTo X="-4477.539" Y="-1837.625" Z="86.05878" />
-									<RunTo X="-4478.687" Y="-1797.054" Z="86.13054" />
-									<RunTo X="-4483.206" Y="-1756.551" Z="86.10867" />
-									<RunTo X="-4478.805" Y="-1716.675" Z="86.29526" />
-									<RunTo X="-4470.549" Y="-1676.721" Z="81.741" />
-									<RunTo X="-4469.222" Y="-1674.093" Z="81.84492" />
-									
-									<!-- Moving to the instance box -->
-									<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 								</If> <!-- Below Desolation Hold -->
 							</If> <!-- Not in box -->
 						</If> <!-- Southern Barrens -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
+				
+				<!-- Begin the escort once all party members are within range -->
+				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
+		
+				<CustomBehavior File="Message" 
+								Text="The booster will now clear the path to Razorfen Kraul."
+								LogColor="Cyan" />
+										
+				<!-- Wait timer to allow the booster to clear a path to RFK -->
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="80000" />
+								
+				<CustomBehavior File="Message" 
+								Text="Moving to Razorfen Kraul."
+								LogColor="Lime" />
+							
+				<!-- Run to RFK -->			
+				<RunTo X="-4178.496" Y="-1925.295" Z="92.06425" />
+				<RunTo X="-4213.072" Y="-1903.469" Z="91.62788" />
+				<RunTo X="-4251.952" Y="-1892.341" Z="91.9197" />
+				<RunTo X="-4291.976" Y="-1885.601" Z="91.60086" />
+				<RunTo X="-4332.393" Y="-1887.926" Z="90.64131" />
+				<RunTo X="-4373.323" Y="-1885.988" Z="88.06911" />
+				<RunTo X="-4413.368" Y="-1879.237" Z="85.94349" />
+				<RunTo X="-4452.659" Y="-1869.67" Z="85.87335" />
+				<RunTo X="-4477.539" Y="-1837.625" Z="86.05878" />
+				<RunTo X="-4478.687" Y="-1797.054" Z="86.13054" />
+				<RunTo X="-4483.206" Y="-1756.551" Z="86.10867" />
+				<RunTo X="-4478.805" Y="-1716.675" Z="86.29526" />
+				<RunTo X="-4470.549" Y="-1676.721" Z="81.741" />
+				<RunTo X="-4469.222" Y="-1674.093" Z="81.84492" />
+				
+				<!-- Moving to the instance box -->
+				<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 				
 				<!-- Inside the instance box, load the profile -->
 				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
