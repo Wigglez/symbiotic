@@ -380,8 +380,14 @@
 					<!-- Avoid the annoying fucking thorn in our way -->
 					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
 					
+					<!-- Avoid the bones -->
+					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
+
 					<!-- Tag the RAFs to let them know we are ready to move forward -->
 					<RunTo X="1946.524" Y="1562.05" Z="82.29883" />
+					
+					<!-- Avoid the bones -->
+					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
 
 					<!-- Avoid the annoying fucking thorn in our way -->
 					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
@@ -571,9 +577,14 @@
 									
 					<RunTo X="2196.779" Y="1529.45" Z="73.2739" />
 					
+					
 					<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
 					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
 					<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
+					
+					<!-- Avoid the bones -->
+					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
+					
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 				</If> <!-- Razorfen Kraul -->
 			</While> <!-- Infinite loop-->
@@ -746,6 +757,10 @@
 					<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
 					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
 					<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
+					
+					<!-- Avoid the bones -->
+					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
+					
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 				</If>		
 			</While>	
