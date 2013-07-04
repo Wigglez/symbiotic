@@ -199,7 +199,7 @@
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
-				
+								
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
@@ -373,6 +373,13 @@
 					<!-- Bottom of the thorn -->
 					<RunTo X="2039.201" Y="1554.93" Z="64.55718" />
 					
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs." 
+									LogColor="DodgerBlue" />
+					
+					<!-- Avoid the annoying fucking thorn in our way -->
+					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
+					
 					<!-- Tag the RAFs to let them know we are ready to move forward -->
 					<RunTo X="1946.524" Y="1562.05" Z="82.29883" />
 
@@ -414,8 +421,6 @@
 									NumOfTimes="1" 
 									AllowCombat="false">	
 						<Hotspot X="2165.306" Y="1535.155" Z="72.61189" />
-						<Hotspot X="2158.06" Y="1551.609" Z="72.18449" />
-						<Hotspot X="2165.932" Y="1536.223" Z="72.44906" />
 						<Hotspot X="2152.641" Y="1538.917" Z="73.15693" />
 						<Hotspot X="2145.879" Y="1542.948" Z="71.87467" />
 						<Hotspot X="2161.885" Y="1533" Z="72.74565" />
@@ -433,6 +438,10 @@
 					<!-- Run off the thorn -->
 					<CustomBehavior File="MyCTM"
 									X="2125.739" Y="1449.087" Z="65.27753" />
+									
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs." 
+									LogColor="DodgerBlue" />
 									
 					<!-- Tag the RAFs to let them know we are ready to move forward -->
 					<RunTo X="2036.444" Y="1469.552" Z="69.17043" />
@@ -553,6 +562,14 @@
 					</CustomBehavior>
 					<!-- Line of sight around the corner -->
 					<RunTo X="2174.044" Y="1576.671" Z="76.14131" />
+					
+					<RunTo X="2156.663" Y="1554.236" Z="72.01718" />
+					
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs." 
+									LogColor="DodgerBlue" />
+									
+					<RunTo X="2196.779" Y="1529.45" Z="73.2739" />
 					
 					<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
 					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
