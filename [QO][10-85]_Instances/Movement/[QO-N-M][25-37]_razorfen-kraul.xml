@@ -176,7 +176,7 @@
 									LogColor="Cyan" />
 								
 					<!-- If we are in Blackfathom Deeps area -->
-					<If Condition="Me.MapId == 48">
+					<If Condition="Me.ZoneId == 719">
 						<!-- clear to the water pool -->
 						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 						<RunTo X="4245.435" Y="736.5756" Z="-26.26228" />
@@ -439,7 +439,7 @@
 			<!-- Kalimdor -->
 			<If Condition="Me.MapId == 1">
 				<!-- If we are in Blackfathom Deeps area -->
-				<If Condition="Me.MapId == 48">
+				<If Condition="Me.ZoneId == 719">
 					<!-- wait timer for the booster to clear to the top of the stairs -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="120000" />
