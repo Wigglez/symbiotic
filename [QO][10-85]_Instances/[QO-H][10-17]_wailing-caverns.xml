@@ -48,7 +48,7 @@
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="Message" 
 							Text="We are a booster." 
-							LogColor="DodgerBlue" />
+							LogColor="Fuchsia" />
 							
 			<!-- Booster UserSettings -->
 			<CustomBehavior File="UserSettings"
@@ -81,7 +81,7 @@
 				<If Condition="Me.MapId == 43">
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns detected. Running out to reset." 
-									LogColor="DodgerBlue" />
+									LogColor="Fuchsia" />
 					
 					<!-- Run to the instance entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
@@ -100,7 +100,7 @@
 					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="DodgerBlue" />	
+										LogColor="Fuchsia" />	
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
 					</If> <!-- Not in box -->
@@ -109,7 +109,7 @@
 					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." 
-										LogColor="DodgerBlue" />	
+										LogColor="Fuchsia" />	
 										
 						<!-- Check durability, load the movement profile -->
 						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
@@ -120,7 +120,7 @@
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 						
 						<CustomBehavior File="RunMacro" 
 										Macro="/script ResetInstances()" />
@@ -134,7 +134,7 @@
 						<!-- The second reset confirms we are safe to enter the instance -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 2 of 2." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 						<CustomBehavior File="RunMacro" 
 										Macro="/script ResetInstances()" />
 						<CustomBehavior File="RunMacro"
@@ -142,7 +142,7 @@
 						
 						<CustomBehavior File="Message"
 										Text="Instance reset. Killing exterior to ensure RAF toon safety." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 					
 						<!-- Make sure we have a huge pull range to get all mobs possible -->
 						<CustomBehavior File="UserSettings"
@@ -182,7 +182,7 @@
 						
 						<CustomBehavior File="Message"
 										Text="Waiting for the dungeon to load." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 										
 						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					</If> <!-- In box -->
@@ -539,7 +539,7 @@
 		<If Condition="Me.Level &lt;= 85">
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
-							LogColor="DodgerBlue" />
+							LogColor="Fuchsia" />
 		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -571,7 +571,7 @@
 				<If Condition="Me.MapId == 43">
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns detected. Running out to allow for a reset." 
-									LogColor="DodgerBlue" />
+									LogColor="Fuchsia" />
 					
 					<!-- Run to the instance entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
@@ -590,7 +590,7 @@
 					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
 						<CustomBehavior File="Message"
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 										
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
@@ -600,7 +600,7 @@
 					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby." 
-										LogColor="DodgerBlue" />	
+										LogColor="Fuchsia" />	
 						
 						<!-- Go inside the Wailing Caverns portal -->
 						<CustomBehavior File="MyCTM"
@@ -608,7 +608,7 @@
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 										
 						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					</If> <!-- In box -->			
@@ -647,7 +647,7 @@
 									
 					<CustomBehavior File="Message" 
 									Text="Allowing the booster to clear the exterior for our own safety. Waiting 120 seconds." 
-									LogColor="DodgerBlue" />					
+									LogColor="Fuchsia" />					
 					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="120000" />

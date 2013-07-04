@@ -1016,9 +1016,17 @@
 												Text="We are in The Crossroads." 
 												LogColor="Cyan" />
 												
+								<CustomBehavior File="Message" 
+												Text="Moving to the tower north of The Crossroads."
+												LogColor="Lime" />
+												
 								<!-- Run to the tower intersection to stay on the road -->
 								<RunTo X="42.21896" Y="-2717.489" Z="91.66673" />
 								
+								<CustomBehavior File="Message" 
+												Text="We are at the tower." 
+												LogColor="Cyan" />
+												
 								<!-- Run past the next check -->
 								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
 							</If> <!-- Tower and lower -->
@@ -1085,8 +1093,6 @@
 											Text="We are in Ashenvale." 
 											LogColor="Cyan" />
 											
-							<RunTo X="1662.179" Y="-2197.453" Z="90.25356" />	
-											
 							<!-- North of the gates entering ashenvale and east of the bridge between silverwind refuge and splintertree post -->
 							<If Condition="Me.Y &lt;= -1960" >
 								<CustomBehavior File="Message" 
@@ -1149,11 +1155,8 @@
 												LogColor="Cyan" />
 								
 								<!-- RunLikeHell to bypass the mobs outside Hellscream's Watch -->
-								<CustomBehavior File="RunLikeHell" 
-												NumOfTimes="1" 
-												AllowCombat="false">	
-									<Hotspot X="3049.08" Y="-498.95" Z="205.6398" />
-								</CustomBehavior>
+								<CustomBehavior File="NoCombatMoveTo" 
+												X="3049.08" Y="-498.95" Z="205.6398" />
 						
 								<!-- Moving to Hellscream's Watch flight master -->
 								<RunTo X="3049.08" Y="-498.95" Z="205.6398" />
@@ -1185,12 +1188,12 @@
 												Text="We are in Zoram'gar Outpost." 
 												LogColor="Cyan" />
 								
-								<!-- Moving to the intersection sign post -->
-								<RunTo X="3520.993" Y="554.2925" Z="5.413744" />
-								
 								<CustomBehavior File="Message" 
 												Text="Moving to the rendezvous point."
 												LogColor="Lime" />
+								
+								<!-- Moving to the intersection sign post -->
+								<RunTo X="3520.993" Y="554.2925" Z="5.413744" />
 								
 								<!-- Moving to the rendezvous -->
 								<CustomBehavior File="RunLikeHell" 
