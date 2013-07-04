@@ -379,13 +379,13 @@
 					<!-- Moving to the instance box -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 				</If> <!-- Not in box -->
-			</If> <!-- Kalimdor -->
-			
-			<!-- Inside the instance box, load the profile -->
-			<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
-			</If> <!-- Load profile -->
+				
+				<!-- Inside the instance box, load the profile -->
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
+				</If> <!-- Load profile -->
+			<If> <!-- Kalimdor -->
 		</If> <!-- Booster -->
 						
 		
