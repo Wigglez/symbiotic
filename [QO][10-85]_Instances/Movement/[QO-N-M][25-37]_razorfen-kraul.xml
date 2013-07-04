@@ -584,7 +584,7 @@
 										AllowBotStop="False" 
 										SoundCue="Exclamation" 
 										SoundCueInterval="15" 
-										ExpiryTime="60"
+										ExpiryTime="120"
 										ExpiryAction="InputEnabled_Continue" 
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 										Title="WARNING" />	
@@ -810,7 +810,7 @@
 											AllowBotStop="False" 
 											SoundCue="Exclamation" 
 											SoundCueInterval="15" 
-											ExpiryTime="60"
+											ExpiryTime="120"
 											ExpiryAction="InputEnabled_Continue" 
 											Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 											Title="WARNING" />
