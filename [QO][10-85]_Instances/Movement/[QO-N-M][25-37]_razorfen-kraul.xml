@@ -4,8 +4,8 @@
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
    
-	<MinDurability>0.2</MinDurability>
-	<MinFreeBagSlots>0</MinFreeBagSlots>
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
 	<MailGrey>False</MailGrey>
 	<MailWhite>False</MailWhite>
@@ -26,9 +26,6 @@
 	</AvoidMobs>
 	
 	<Blackspots>
-		<Blackspot X="-151.5376" Y="396.4401" Z="-37.62136" Radius="3" />
-		
-
 	</Blackspots>
 
 	<Mailboxes>
@@ -37,601 +34,1197 @@
 	<Vendors>
 	</Vendors>
 
-	<Factions></Factions>
+	<Factions>
+	</Factions>
 	
 	<ProtectedItems>
-	<Item Name="Elementium Lockbox" Entry="68729" />	
 	</ProtectedItems>
 	
 	<QuestOrder>
 		<ClearVendor />
 		<ClearMailbox />
 		
-		 <CustomBehavior File="UserSettings" UseMount="True" LootMobs="False" LootRadius="1" SkinMobs="False" PullDistance="15" KillBetweenHotspots="True" FindVendorsAutomatically="False" />
-						
-				<If Condition="Me.MapId == 1" >
-					<If Condition="Me.X &gt; 4236.979 &amp;&amp; Me.X &lt; 4259.337 &amp;&amp; Me.Y &lt; 748.4534 &amp;&amp; Me.Y &gt; 725.4507" >
-					<CustomBehavior File="Message" Text="I am outside the Blackfathom Deeps portal. Moving to Zoram'Gar Outpost." LogColor="Lime" />
-						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-						<RunTo X="4211.296" Y="745.71" Z="-23.71909" />
-						<RunTo X="4231.337" Y="781.2991" Z="-19.82953" />
-						<RunTo X="4249.092" Y="815.6248" Z="-8.60556" />
-						<RunTo X="4275.345" Y="846.4014" Z="-5.979912" />
-						<RunTo X="4309.261" Y="866.326" Z="-15.13139" />
-						<RunTo X="4313.706" Y="906.67" Z="-15.30955" />
-						<RunTo X="4290.535" Y="897.6143" Z="-12.17101" />
-						<RunTo X="4273.792" Y="903.0743" Z="-14.88909" />
-						<RunTo X="4265.07" Y="900.3103" Z="-14.34836" />
-						<RunTo X="4234.259" Y="900.0416" Z="-8.57846" />
-						<RunTo X="4224.598" Y="907.8347" Z="-8.589143" />
-						<RunTo X="4207.169" Y="928.3146" Z="-9.222987" />
-						<RunTo X="4204.959" Y="921.1618" Z="-10.61901" />
-						<RunTo X="4201.634" Y="923.1103" Z="-11.20289" />
-						<RunTo X="4186.724" Y="933.1948" Z="-13.2983" />
-						<RunTo X="4166.189" Y="941.7952" Z="-18.42031" />
-						<RunTo X="4160.056" Y="919.806" Z="-16.84579" />
-						<RunTo X="4152.406" Y="918.8666" Z="-17.31458" />
-					<CustomBehavior File="MyCTM" X="4160.3" Y="884.8066" Z="-23.66864" />
-					<CustomBehavior File="MyCTM" X="4155.625" Y="870.7451" Z="-18.11493" />
-						<RunTo X="4155.625" Y="870.7451" Z="-18.11493" />
-						<RunTo X="4121.468" Y="889.7707" Z="-9.265375" />
-						<RunTo X="4156.325" Y="874.3118" Z="3.317785" />
-						<RunTo X="4128.708" Y="866.2168" Z="9.439135" />
-						<RunTo X="4123.756" Y="856.4203" Z="9.812027" />
-						<RunTo X="4116.758" Y="877.354" Z="9.785651" />
-						<RunTo X="4114.557" Y="882.2359" Z="9.810844" />
-						<RunTo X="4099.116" Y="890.5223" Z="9.581685" />
-					</If>	
-				</If>	
-				
-				<If Condition="Me.MapId == 1" >
-					<If Condition="Me.X &lt; -4487.559 || Me.X &gt; -4456.213 || Me.Y &gt; -1659.222 || Me.Y &lt; -1684.165" >
-						<CustomBehavior File="Message" Text="Moving to Desolation Hold." LogColor="Lime" />
-						<CustomBehavior File="FlyTo" X="-3237.375" Y="-1681.164" Z="98.74025" />							
-						<CustomBehavior File="ForcedDismount" />
-							<RunTo X="-3222.592" Y="-1665.688" Z="99.90079" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="Message" Text="Setting my Heartstone." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="SetHearthstone" MobId="44276" X="-3220.69" Y="-1663.86" Z="99.90466" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<RunTo X="-3237.375" Y="-1681.164" Z="98.74025" />	
-						<CustomBehavior File="FlyTo" X="-4147.999" Y="-1944.086" Z="160.4403" />	
-						<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
-						<CustomBehavior File="FlyTo" X="-4202.02" Y="-1931.391" Z="91.60686" />		
-						<CustomBehavior File="ForcedDismount" />
-						<CustomBehavior File="WaitTimer" WaitTime="2000" />
-						<CustomBehavior File="UserSettings" UseMount="False" LootMobs="False" SkinMobs="False" PullDistance="20" KillBetweenHotspots="True" FindVendorsAutomatically="False" />
-							<RunTo X="-4181.171" Y="-1897.548" Z="91.9545" />
-							<RunTo X="-4203.039" Y="-1909.542" Z="91.72755" />
-							<RunTo X="-4223.585" Y="-1913.943" Z="93.54006" />
-							<RunTo X="-4236.775" Y="-1887.289" Z="92.32339" />
-							<RunTo X="-4239.272" Y="-1884.396" Z="92.66742" />
-							<RunTo X="-4277.22" Y="-1886" Z="91.82715" />
-							<RunTo X="-4294.447" Y="-1875.844" Z="92.717" />
-							<RunTo X="-4317.577" Y="-1885.929" Z="91.17356" />
-							<RunTo X="-4357.689" Y="-1884.55" Z="89.30547" />
-							<RunTo X="-4369.329" Y="-1877.063" Z="88.58798" />
-							<RunTo X="-4390.023" Y="-1908.57" Z="86.39541" />
-							<RunTo X="-4392.706" Y="-1910.346" Z="86.30326" />
-							<RunTo X="-4389.78" Y="-1914.587" Z="86.55402" />
-							<RunTo X="-4388.44" Y="-1910.293" Z="86.51731" />
-							<RunTo X="-4405.193" Y="-1874.473" Z="85.97189" />
-							<RunTo X="-4412.994" Y="-1875.631" Z="86.01228" />
-							<RunTo X="-4453.119" Y="-1872.967" Z="85.90644" />
-							<RunTo X="-4468.336" Y="-1879.926" Z="85.98127" />
-							<RunTo X="-4481.66" Y="-1888.556" Z="86.41856" />
-							<RunTo X="-4487.705" Y="-1894.022" Z="86.47855" />
-							<RunTo X="-4488.469" Y="-1894.753" Z="86.49744" />
-							<RunTo X="-4476.935" Y="-1880.971" Z="85.83622" />
-							<RunTo X="-4477.098" Y="-1855.147" Z="86.18663" />
-							<RunTo X="-4476.665" Y="-1814.934" Z="86.37875" />
-							<RunTo X="-4486.202" Y="-1776.021" Z="86.10852" />
-							<RunTo X="-4487.747" Y="-1768.671" Z="86.10852" />
-							<RunTo X="-4474.706" Y="-1811.373" Z="86.06303" />
-							<RunTo X="-4479.221" Y="-1793.526" Z="86.11845" />
-							<RunTo X="-4485.021" Y="-1773.773" Z="86.10855" />
-							<RunTo X="-4483.426" Y="-1748.391" Z="86.17936" />
-							<RunTo X="-4483.276" Y="-1735.582" Z="86.6567" />
-							<RunTo X="-4482.836" Y="-1732.599" Z="86.77713" />
-							<RunTo X="-4492.055" Y="-1730.62" Z="88.06927" />
-							<RunTo X="-4483.8" Y="-1732.597" Z="86.85407" />
-							<RunTo X="-4475.263" Y="-1696" Z="82.32021" />
-							<RunTo X="-4473.421" Y="-1688.759" Z="81.30132" />
-							<RunTo X="-4468.679" Y="-1673.395" Z="81.81928" />
-							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-						<CustomBehavior File="UserSettings" UseMount="True" LootMobs="False" SkinMobs="False" PullDistance="20" KillBetweenHotspots="True" FindVendorsAutomatically="False" />	
-					</If>	
-				</If>
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a booster." 
+							LogColor="Cyan" />
 							
-				<If Condition="Me.MapId == 47">
-					<CustomBehavior File="Message" Text="You started the bot with me inside Razorfen Kraul. Running out to reset the dungeon." LogColor="Lime" />
-						<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
-						<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
-						<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
-						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
-					<CustomBehavior File="MyCTM" X="1939.09" Y="1539.371" Z="82.28316" />
-					<CustomBehavior File="WaitTimer" WaitTime="15000" />
-						<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-				</If>			
-					
-		<While Condition="true" >
-		
-				<If Condition="Me.MapId == 1" >														 
-					<If Condition="Me.X &gt; -4487.559 &amp;&amp; Me.X &lt; -4456.213 &amp;&amp; Me.Y &lt; -1659.222 &amp;&amp; Me.Y &gt; -1684.165" >
-						<CustomBehavior File="Message" Text="I am resetting the instance." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />				
-						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" /> 
-						<CustomBehavior File="Message" Text="I have reset Razorfen Kraul." LogColor="Lime" />
-						<CustomBehavior File="MyCTM" X="-4458.964" Y="-1658.854" Z="81.5267" />
-						<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="15000" />
-							<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
-						<If Condition="Me.MapId == 47">
-							<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-								Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
-						</If>
-					</If>				
-				</If>
-
-                               <!-- razorfen kraul dungeon script -->
-				<If Condition="Me.MapId == 47">
-					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
-						<Hotspot X="1942.27" Y="1544.23" Z="81.80502" />
-						<Hotspot X="1945.141" Y="1559.444" Z="81.92608" />
-						<Hotspot X="1948.483" Y="1574.37" Z="80.47567" />
-						<Hotspot X="1952.685" Y="1589.266" Z="82.01939" />
-						<Hotspot X="1955.196" Y="1597.844" Z="81.97446" />
-						<Hotspot X="1963.945" Y="1599.516" Z="80.8606" />
-						<Hotspot X="1979.361" Y="1601.21" Z="79.79958" />
-						<Hotspot X="1995.045" Y="1602.248" Z="79.95294" />
-						<Hotspot X="2000.366" Y="1603.008" Z="81.48292" />
-						<Hotspot X="1994.31" Y="1617.526" Z="83.47797" />
-						<Hotspot X="1998.006" Y="1628.249" Z="80.99585" />
-						<Hotspot X="1999.355" Y="1631.533" Z="80.9597" />
-						<Hotspot X="2008.755" Y="1643.561" Z="80.31393" />
-						<Hotspot X="2017.765" Y="1656.161" Z="81.79819" />
-						<Hotspot X="2019.643" Y="1661.162" Z="82.82291" />
-						<Hotspot X="2032.594" Y="1657.854" Z="80.16387" />
-						<Hotspot X="2047.956" Y="1656.021" Z="81.53803" />
-						<Hotspot X="2048.643" Y="1655.883" Z="81.5116" />
-						<Hotspot X="2044.445" Y="1649.363" Z="81.94069" />
-						<Hotspot X="2032.738" Y="1656.644" Z="80.40054" />
-						<Hotspot X="2017.934" Y="1652.611" Z="81.62325" />
-						<Hotspot X="2008.283" Y="1640.86" Z="80.49028" />
-						<Hotspot X="1998.931" Y="1628.684" Z="80.94318" />
-						<Hotspot X="1995.186" Y="1613.9" Z="83.1936" />
-						<Hotspot X="2002.857" Y="1600.731" Z="81.48461" />
-						<Hotspot X="2006.688" Y="1596.352" Z="81.57989" />
-						<Hotspot X="2002.126" Y="1585.536" Z="80.97218" />
-						<Hotspot X="1996.805" Y="1580.873" Z="81.77944" />
-						<Hotspot X="2003.156" Y="1570.591" Z="81.99355" />
-						<Hotspot X="1997.802" Y="1564.192" Z="83.92747" />
-						<Hotspot X="2005.709" Y="1564.788" Z="81.29764" />
-						<Hotspot X="2009.591" Y="1556.498" Z="80.87955" />
-						<Hotspot X="2011.454" Y="1551.673" Z="80.25129" />
-						<Hotspot X="2003.416" Y="1553.479" Z="80.5271" />
-						<Hotspot X="2013.217" Y="1541.366" Z="80.85014" />
-						<Hotspot X="2004.913" Y="1528.484" Z="80.81262" />
-						<Hotspot X="2008.103" Y="1512.173" Z="79.27322" />
-						<Hotspot X="2026.536" Y="1494.357" Z="72.1754" />
-						<Hotspot X="2024.692" Y="1525.768" Z="79.84376" />
-						<Hotspot X="1997.91" Y="1565.496" Z="83.73738" />
-						<Hotspot X="2007.408" Y="1568.731" Z="81.7358" />
-						<Hotspot X="2013.685" Y="1554.689" Z="81.11855" />
-						<Hotspot X="2024.641" Y="1537.357" Z="80.67595" />
-						<Hotspot X="2032.06" Y="1543.079" Z="80.38551" />
-						<Hotspot X="2054.878" Y="1550.575" Z="72.02824" />
-						<Hotspot X="2059.901" Y="1565.048" Z="67.27696" />
-						<Hotspot X="2061.464" Y="1573.836" Z="65.80509" />
-						<Hotspot X="2060.625" Y="1580.552" Z="63.99984" />
-						<Hotspot X="2064.645" Y="1595.239" Z="63.08926" />
-						<Hotspot X="2065.877" Y="1600.49" Z="62.70686" />
-						<Hotspot X="2065.113" Y="1610.696" Z="62.40992" />
-						<Hotspot X="2065.663" Y="1626.032" Z="64.47125" />
-						<Hotspot X="2065.847" Y="1628.134" Z="64.45579" />
-						<Hotspot X="2063.754" Y="1640.829" Z="62.6829" />
-						<Hotspot X="2065.328" Y="1656.107" Z="61.22919" />
-						<Hotspot X="2075.759" Y="1666.973" Z="61.21717" />
-						<Hotspot X="2089.89" Y="1672.974" Z="61.2472" />
-						<Hotspot X="2104.845" Y="1670.029" Z="59.19404" />
-						<Hotspot X="2120.523" Y="1669.875" Z="59.02726" />
-						<Hotspot X="2135.212" Y="1674.722" Z="58.43915" />
-						<Hotspot X="2149.7" Y="1680.251" Z="58.02639" />
-						<Hotspot X="2160.798" Y="1690.52" Z="56.88966" />
-						<Hotspot X="2170.414" Y="1697.524" Z="56.09629" />
-						<Hotspot X="2172.921" Y="1700.291" Z="56.10501" />
-						<Hotspot X="2172.881" Y="1715.645" Z="54.07814" />
-						<Hotspot X="2162.895" Y="1727.29" Z="52.45372" />
-						<Hotspot X="2150.172" Y="1735.847" Z="52.31564" />
-						<Hotspot X="2136.788" Y="1743.8" Z="52.4561" />
-						<Hotspot X="2121.95" Y="1740.958" Z="52.5907" />
-						<Hotspot X="2110.896" Y="1730.793" Z="53.24405" />
-						<Hotspot X="2100.589" Y="1719.801" Z="54.53502" />
-						<Hotspot X="2089.746" Y="1709.078" Z="56.07944" />
-						<Hotspot X="2075.107" Y="1704.119" Z="56.82363" />
-						<Hotspot X="2060.316" Y="1700.522" Z="58.56998" />
-						<Hotspot X="2044.866" Y="1699.778" Z="59.98174" />
-						<Hotspot X="2040.291" Y="1700.647" Z="60.71806" />
-						<Hotspot X="2035.744" Y="1712.196" Z="60.10005" />
-						<Hotspot X="2030.273" Y="1726.449" Z="60.34645" />
-						<Hotspot X="2031.241" Y="1741.752" Z="60.54807" />
-						<Hotspot X="2036.474" Y="1756.048" Z="60.44797" />
-						<Hotspot X="2038.172" Y="1771.122" Z="60.05798" />
-						<Hotspot X="2038.996" Y="1772.236" Z="60.04771" />
-						<Hotspot X="2053.279" Y="1772.526" Z="58.6341" />
-						<Hotspot X="2068.322" Y="1770.57" Z="57.18457" />
-						<Hotspot X="2079.857" Y="1780.436" Z="54.80866" />
-						<Hotspot X="2092.096" Y="1789.716" Z="51.86905" />
-						<Hotspot X="2106.355" Y="1795.225" Z="48.633" />
-						<Hotspot X="2121.214" Y="1799.544" Z="47.25738" />
-						<Hotspot X="2135.851" Y="1803.592" Z="47.11528" />
-						<Hotspot X="2141.493" Y="1817.561" Z="47.35828" />
-						<Hotspot X="2140.563" Y="1832.758" Z="46.83872" />
-						<Hotspot X="2141.67" Y="1847.945" Z="48.8785" />
-						<Hotspot X="2126.951" Y="1851.6" Z="50.05399" />
-						<Hotspot X="2112.96" Y="1857.053" Z="49.72027" />
-						<Hotspot X="2097.797" Y="1859.901" Z="49.49522" />
-						<Hotspot X="2083.356" Y="1862.286" Z="53.96548" />
-						<Hotspot X="2072.164" Y="1851.943" Z="54.66898" />
-						<Hotspot X="2057.024" Y="1854.22" Z="56.00277" />
-						<Hotspot X="2044.402" Y="1863.067" Z="55.95406" />
-						<Hotspot X="2032.066" Y="1871.878" Z="56.4994" />
-						<Hotspot X="2026.621" Y="1867.091" Z="56.44944" />
-						<Hotspot X="2030.672" Y="1856.931" Z="56.34909" />
-						<Hotspot X="2044.258" Y="1849.209" Z="56.01801" />
-						<Hotspot X="2058.895" Y="1845.521" Z="55.90858" />
-						<Hotspot X="2073.744" Y="1841.067" Z="56.75349" />
-						<Hotspot X="2076.21" Y="1840.285" Z="56.8788" />
-						<Hotspot X="2087.318" Y="1847.152" Z="51.54519" />
-						<Hotspot X="2099.56" Y="1856.16" Z="49.6537" />
-						<Hotspot X="2102.994" Y="1858.22" Z="49.51537" />
-						<Hotspot X="2114.726" Y="1855.253" Z="49.71658" />
-						<Hotspot X="2130.037" Y="1853.278" Z="50.44571" />
-						<Hotspot X="2145.413" Y="1852.685" Z="50.14508" />
-						<Hotspot X="2158.42" Y="1860.397" Z="56.43623" />
-						<Hotspot X="2161.975" Y="1862.252" Z="56.82476" />
-						<Hotspot X="2172.808" Y="1865.455" Z="57.77199" />
-						<Hotspot X="2188.285" Y="1866.261" Z="58.21219" />
-						<Hotspot X="2199.447" Y="1856.077" Z="59.56567" />
-						<Hotspot X="2201.127" Y="1840.594" Z="60.68682" />
-						<Hotspot X="2199.611" Y="1825.387" Z="61.8201" />
-						<Hotspot X="2198.196" Y="1810.354" Z="63.33999" />
-						<Hotspot X="2196.428" Y="1806.626" Z="64.70924" />
-						<Hotspot X="2184.228" Y="1803.892" Z="64.35535" />
-						<Hotspot X="2184.228" Y="1803.892" Z="64.35535" />
-						<Hotspot X="2185.594" Y="1818.799" Z="62.16768" />
-						<Hotspot X="2183.007" Y="1834.081" Z="59.73442" />
-						<Hotspot X="2174.216" Y="1847.09" Z="58.08771" />
-						<Hotspot X="2161.397" Y="1855.222" Z="56.82875" />
-						<Hotspot X="2146.18" Y="1855.59" Z="51.28442" />
-						<Hotspot X="2135.415" Y="1845.255" Z="48.1264" />
-						<Hotspot X="2133.418" Y="1830.129" Z="46.6422" />
-						<Hotspot X="2132.427" Y="1814.655" Z="46.90636" />
-						<Hotspot X="2125.545" Y="1800.822" Z="47.07154" />
-						<Hotspot X="2111.491" Y="1795.172" Z="48.00043" />
-						<Hotspot X="2096.677" Y="1791.18" Z="50.91689" />
-						<Hotspot X="2082.306" Y="1785.488" Z="54.30231" />
-						<Hotspot X="2069.471" Y="1777.203" Z="56.65181" />
-						<Hotspot X="2056.259" Y="1769.2" Z="58.30817" />
-						<Hotspot X="2041.875" Y="1764.493" Z="60.06165" />
-						<Hotspot X="2036.083" Y="1749.983" Z="60.28114" />
-						<Hotspot X="2033.007" Y="1734.776" Z="60.79727" />
-						<Hotspot X="2034.891" Y="1719.581" Z="59.98979" />
-						<Hotspot X="2044.752" Y="1707.245" Z="59.69824" />
-						<Hotspot X="2059.177" Y="1702.493" Z="58.54639" />
-						<Hotspot X="2074.66" Y="1702.219" Z="57.14067" />
-						<Hotspot X="2088.955" Y="1707.29" Z="56.28993" />
-						<Hotspot X="2101.021" Y="1716.605" Z="54.44466" />
-						<Hotspot X="2112.614" Y="1726.486" Z="53.51389" />
-						<Hotspot X="2126.11" Y="1733.53" Z="51.94429" />
-						<Hotspot X="2141.284" Y="1735.774" Z="51.55891" />
-						<Hotspot X="2152.646" Y="1725.554" Z="51.86713" />
-						<Hotspot X="2162.697" Y="1713.832" Z="53.38233" />
-						<Hotspot X="2161.838" Y="1698.832" Z="55.15399" />
-						<Hotspot X="2155.592" Y="1684.952" Z="58.00113" />
-						<Hotspot X="2142.817" Y="1676.503" Z="58.08121" />
-						<Hotspot X="2127.804" Y="1673.037" Z="58.70547" />
-						<Hotspot X="2112.971" Y="1670.739" Z="59.19402" />
-						<Hotspot X="2097.599" Y="1673.057" Z="60.25169" />
-						<Hotspot X="2082.198" Y="1672.012" Z="61.23605" />
-						<Hotspot X="2070.51" Y="1661.632" Z="61.2344" />
-						<Hotspot X="2062.292" Y="1648.572" Z="61.39371" />
-						<Hotspot X="2061.667" Y="1633.666" Z="64.41365" />
-						<Hotspot X="2066.74" Y="1619.045" Z="63.84332" />
-						<Hotspot X="2063.472" Y="1604.386" Z="62.40928" />
-						<Hotspot X="2059.537" Y="1589.433" Z="63.29066" />
-						<Hotspot X="2053.82" Y="1575.275" Z="64.27678" />
-						<Hotspot X="2046.063" Y="1562.165" Z="64.6321" />
-						<Hotspot X="2039.201" Y="1554.93" Z="64.55718" />
-					</CustomBehavior>
-						<RunTo X="2039.201" Y="1554.93" Z="64.55718" />
-
-					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
-						<Hotspot X="2064.215" Y="1574.955" Z="65.8334" />
-						<Hotspot X="2059.428" Y="1561.228" Z="68.01765" />
-						<Hotspot X="2054.85" Y="1548.188" Z="72.27266" />
-						<Hotspot X="2054.211" Y="1547.865" Z="72.65405" />
-						<Hotspot X="2040.215" Y="1541.628" Z="77.94561" />
-						<Hotspot X="2039.995" Y="1541.535" Z="77.97549" />
-						<Hotspot X="2031.837" Y="1543.555" Z="80.33753" />
-						<Hotspot X="2025.77" Y="1538.412" Z="80.78392" />
-						<Hotspot X="2010.914" Y="1534.367" Z="80.75377" />
-						<Hotspot X="2030.755" Y="1502.244" Z="74.30113" />
-						<Hotspot X="2034.013" Y="1499.167" Z="73.29688" />
-						<Hotspot X="2019.952" Y="1492.682" Z="74.42126" />
-						<Hotspot X="2023.604" Y="1489.049" Z="71.84042" />
-						<Hotspot X="2034.458" Y="1478.288" Z="67.91988" />
-						<Hotspot X="2038.302" Y="1474.477" Z="67.28493" />
-						<Hotspot X="2047.455" Y="1470.215" Z="67.3898" />
-						<Hotspot X="2059.623" Y="1461.12" Z="67.47078" />
-						<Hotspot X="2064.959" Y="1456.508" Z="67.5136" />
-						<Hotspot X="2070.733" Y="1450.682" Z="67.21693" />
-						<Hotspot X="2080.415" Y="1439.054" Z="66.68597" />
-						<Hotspot X="2095.229" Y="1435.779" Z="64.22682" />
-						<Hotspot X="2101.081" Y="1435.745" Z="63.55545" />
-						<Hotspot X="2110.155" Y="1433.945" Z="62.97748" />
-						<Hotspot X="2121.267" Y="1429.352" Z="64.2925" />
-						<Hotspot X="2124.335" Y="1438.865" Z="64.48407" />
-						<Hotspot X="2127.718" Y="1454.022" Z="66.20298" />
-						<Hotspot X="2130.597" Y="1463.472" Z="66.29308" />
-						<Hotspot X="2135.966" Y="1467.242" Z="66.70182" />
-						<Hotspot X="2149.997" Y="1473.636" Z="67.29298" />
-						<Hotspot X="2155.464" Y="1477.593" Z="67.03996" />
-						<Hotspot X="2156.517" Y="1487.44" Z="67.65884" />
-						<Hotspot X="2154.756" Y="1502.786" Z="67.53517" />
-						<Hotspot X="2154.756" Y="1502.786" Z="67.53517" />
-						<Hotspot X="2166.148" Y="1512.609" Z="67.75752" />
-						<Hotspot X="2175.505" Y="1524.378" Z="71.24232" />
-						<Hotspot X="2159.55" Y="1506.463" Z="67.18948" />
-						<Hotspot X="2153.702" Y="1494.449" Z="67.91395" />
-						<Hotspot X="2154.065" Y="1492.113" Z="67.97762" />
-						<Hotspot X="2153.206" Y="1476.848" Z="67.13036" />
-						<Hotspot X="2152.433" Y="1474.363" Z="67.04787" />
-						<Hotspot X="2140.57" Y="1467.654" Z="66.78343" />
-						<Hotspot X="2135.553" Y="1465.053" Z="66.41386" />
-						<Hotspot X="2129.606" Y="1456.65" Z="66.38323" />
-						<Hotspot X="2121.049" Y="1443.672" Z="64.85278" />
-						<Hotspot X="2118.622" Y="1439.886" Z="64.1121" />
-						<Hotspot X="2113.944" Y="1430.469" Z="62.95246" />
-						<Hotspot X="2113.429" Y="1429.141" Z="63.25748" />
-						<Hotspot X="2112.886" Y="1438.019" Z="63.69093" />
-						<Hotspot X="2099.61" Y="1436.064" Z="63.65004" />
-						<Hotspot X="2091.823" Y="1435.926" Z="65.00619" />
-						<Hotspot X="2084.725" Y="1437.204" Z="66.394" />
-						<Hotspot X="2077.955" Y="1439.262" Z="67.08009" />
-						<Hotspot X="2072.102" Y="1446.291" Z="67.17892" />
-						<Hotspot X="2063.587" Y="1457.451" Z="67.5995" />
-						<Hotspot X="2062.195" Y="1458.332" Z="67.67762" />
-						<Hotspot X="2048.64" Y="1465.662" Z="67.44067" />
-						<Hotspot X="2036.145" Y="1474.372" Z="68.13347" />
-						<Hotspot X="2035.398" Y="1474.917" Z="68.31387" />
-						<Hotspot X="2048.98" Y="1466.202" Z="67.25204" />
-						<Hotspot X="2062.134" Y="1458.217" Z="67.67834" />
-						<Hotspot X="2072.792" Y="1446.409" Z="67.0838" />
-						<Hotspot X="2084.844" Y="1436.811" Z="66.47913" />
-						<Hotspot X="2100.255" Y="1434.885" Z="63.55953" />
-						<Hotspot X="2115.476" Y="1434.268" Z="63.09171" />
-						<Hotspot X="2123.841" Y="1446.941" Z="64.94453" />
-						<Hotspot X="2130.597" Y="1460.594" Z="66.31792" />
-						<Hotspot X="2143.462" Y="1468.771" Z="66.97083" />
-						<Hotspot X="2153.324" Y="1481.041" Z="67.14049" />
-						<Hotspot X="2154.197" Y="1496.233" Z="67.79377" />
-						<Hotspot X="2157.7" Y="1504.148" Z="67.27942" />
-						<Hotspot X="2183.488" Y="1537.581" Z="71.82314" />
-						<Hotspot X="2184.029" Y="1538.339" Z="71.81417" />
-						<Hotspot X="2196.291" Y="1529.603" Z="73.20591" />
-						<Hotspot X="2198.547" Y="1527.979" Z="73.3222" />
-						<Hotspot X="2196.328" Y="1514.105" Z="72.88721" />
-						<Hotspot X="2192.561" Y="1499.015" Z="73.36765" />
-						<Hotspot X="2192.447" Y="1498.559" Z="73.33069" />
-						<Hotspot X="2186.455" Y="1485.218" Z="72.72225" />
-						<Hotspot X="2178.75" Y="1471.99" Z="72.41549" />
-						<Hotspot X="2177.816" Y="1470.387" Z="72.44514" />
-						<Hotspot X="2165.819" Y="1464.268" Z="73.57925" />
-						<Hotspot X="2153.91" Y="1454.658" Z="74.90744" />
-						<Hotspot X="2142.025" Y="1444.975" Z="77.70668" />
-						<Hotspot X="2138.557" Y="1442.149" Z="78.7946" />
-						<Hotspot X="2149.678" Y="1431.948" Z="74.67957" />
-						<Hotspot X="2159.622" Y="1419.938" Z="74.12855" />
-						<Hotspot X="2163.977" Y="1420.302" Z="74.07881" />
-						<Hotspot X="2146.619" Y="1412.388" Z="73.90517" />
-					</CustomBehavior>	
-						<RunTo X="2146.619" Y="1412.388" Z="73.90517" />
-						
-					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="2142.272" Y="1411.468" Z="73.76299" />
-						<Hotspot X="2138.391" Y="1415.745" Z="73.82235" />
-						<Hotspot X="2140.277" Y="1426.079" Z="74.70876" />
-						<Hotspot X="2143.684" Y="1440.964" Z="76.99441" />
-						<Hotspot X="2152.182" Y="1453.312" Z="75.45285" />
-						<Hotspot X="2163.922" Y="1463.063" Z="73.73487" />
-						<Hotspot X="2173.371" Y="1475.825" Z="72.63765" />
-						<Hotspot X="2178.111" Y="1490.216" Z="72.87674" />
-						<Hotspot X="2187.811" Y="1502.182" Z="73.75459" />
-						<Hotspot X="2195.563" Y="1515.22" Z="72.92062" />
-						<Hotspot X="2193.262" Y="1530.562" Z="72.91425" />
-						<Hotspot X="2180.001" Y="1538.039" Z="71.63759" />
-						<Hotspot X="2165.633" Y="1542.467" Z="71.7869" />
-						<Hotspot X="2160.64" Y="1545.815" Z="71.99628" /> <!-- tent -->
-						<Hotspot X="2161.613" Y="1541.883" Z="72.42807" />
-						<Hotspot X="2156.012" Y="1535.92" Z="73.38253" />
-						<Hotspot X="2152.358" Y="1539.178" Z="73.05305" /> <!-- tent -->
-						<Hotspot X="2145.941" Y="1543.255" Z="71.89199" />
-						<Hotspot X="2154.27" Y="1538.281" Z="73.61686" />
-						<Hotspot X="2155.363" Y="1536.675" Z="73.46422" />
-						<Hotspot X="2153.576" Y="1533.18" Z="73.36315" />
-						<Hotspot X="2144.331" Y="1520.756" Z="72.48106" />
-						<Hotspot X="2138.435" Y="1506.86" Z="72.66057" />
-						<Hotspot X="2137.053" Y="1491.396" Z="73.04876" />
-						<Hotspot X="2137.093" Y="1489.518" Z="73.08842" />
-						<Hotspot X="2124.197" Y="1483.21" Z="73.04921" />
-						<Hotspot X="2113.44" Y="1472.062" Z="73.31054" />
-						<Hotspot X="2105.604" Y="1468.417" Z="73.35442" />
-						<Hotspot X="2103.592" Y="1460.063" Z="73.33105" />
-						<Hotspot X="2099.819" Y="1450.728" Z="73.76414" />
-						<Hotspot X="2088.213" Y="1459.146" Z="73.76176" />
-						<Hotspot X="2081.955" Y="1463.592" Z="73.08781" />
-						<Hotspot X="2089.291" Y="1452.549" Z="74.55743" />
-					</CustomBehavior>
-						<RunTo X="2089.291" Y="1452.549" Z="74.55743" />
-
-					<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
-						<Hotspot X="2103.557" Y="1457.873" Z="73.41038" />
-						<Hotspot X="2112.986" Y="1470.167" Z="73.31165" />
-						<Hotspot X="2121.618" Y="1482.741" Z="73.04939" />
-						<Hotspot X="2131.349" Y="1494.747" Z="73.0573" />
-						<Hotspot X="2138.196" Y="1508.649" Z="72.58602" />
-						<Hotspot X="2146.554" Y="1521.17" Z="72.51473" />
-						<Hotspot X="2158.497" Y="1530.729" Z="72.81683" />
-						<Hotspot X="2168.707" Y="1542.3" Z="71.52769" />
-						<Hotspot X="2174.649" Y="1556.3" Z="71.95899" />
-						<Hotspot X="2182.907" Y="1569.386" Z="75.09907" />
-						<Hotspot X="2183.036" Y="1569.587" Z="75.17708" />
-						<Hotspot X="2174.152" Y="1571.79" Z="74.94787" />
-						<Hotspot X="2179.432" Y="1584.303" Z="77.71674" />
-						<Hotspot X="2187.353" Y="1597.247" Z="79.94092" />
-						<Hotspot X="2200.35" Y="1606.168" Z="80.37713" />
-						<Hotspot X="2209.38" Y="1611.156" Z="81.62005" />
-						<Hotspot X="2214.81" Y="1602.17" Z="81.22435" />
-						<Hotspot X="2216.164" Y="1599.672" Z="81.07446" />
-						<Hotspot X="2210.854" Y="1616.651" Z="83.14138" />
-						<Hotspot X="2207.021" Y="1631.533" Z="85.55032" />
-						<Hotspot X="2203.507" Y="1642" Z="85.72945" />
-						<Hotspot X="2209.968" Y="1616.839" Z="83.09975" />
-						<Hotspot X="2210.219" Y="1610.063" Z="81.56323" />
-						<Hotspot X="2196.935" Y="1608.818" Z="80.67836" />
-						<Hotspot X="2190.098" Y="1608.724" Z="80.35472" />
-						<Hotspot X="2184.897" Y="1617.903" Z="81.17784" />
-						<Hotspot X="2180.841" Y="1628.114" Z="81.11989" />
-						<Hotspot X="2179.534" Y="1631.931" Z="80.729" />
-						<Hotspot X="2176.833" Y="1639.698" Z="81.11781" />
-						<Hotspot X="2164.748" Y="1635.392" Z="81.60969" />
-						<Hotspot X="2159.415" Y="1634.859" Z="81.80428" />
-						<Hotspot X="2158.85" Y="1627.244" Z="81.66955" />
-						<Hotspot X="2154.991" Y="1623.148" Z="81.94129" />
-						<Hotspot X="2148.172" Y="1614.717" Z="81.92389" />
-						<Hotspot X="2141.019" Y="1615.989" Z="81.83415" />
-						<Hotspot X="2128.655" Y="1615.654" Z="81.64956" />
-						<Hotspot X="2147.605" Y="1626.951" Z="81.62315" />
-						<Hotspot X="2150.976" Y="1627.96" Z="81.75049" />
-						<Hotspot X="2165.805" Y="1633.132" Z="81.56985" />
-						<Hotspot X="2180.901" Y="1629.624" Z="80.97038" />
-						<Hotspot X="2187.579" Y="1615.395" Z="80.80301" />
-						<Hotspot X="2190.158" Y="1601.002" Z="79.93228" />
-					</CustomBehavior>
-						<RunTo X="2190.158" Y="1601.002" Z="79.93228" />	
-						
-						<RunTo X="2130.077" Y="1660.285" Z="82.03987" />
-					<CustomBehavior File="MyCTM" X="2127.812" Y="1692.631" Z="80.92006" />	
-	
-					<CustomBehavior File="RunLikeHell" UseCTM="true" NumOfTimes="1" AllowCombat="false">
-						<Hotspot X="2134.405" Y="1704.819" Z="80.39638" />
-						<Hotspot X="2128.732" Y="1708.567" Z="80.12221" />
-						<Hotspot X="2116.582" Y="1707.846" Z="80.79469" />
-						<Hotspot X="2088.435" Y="1744.237" Z="77.42519" />
-						<Hotspot X="2072.158" Y="1728.338" Z="76.92416" />
-						<Hotspot X="2061.962" Y="1736.559" Z="76.70347" />
-						<Hotspot X="2088.472" Y="1759.699" Z="78.4705" />
-						<Hotspot X="2107.929" Y="1822.018" Z="79.64186" />
-						<Hotspot X="2109.223" Y="1828.689" Z="80.29469" />
-						<Hotspot X="2112.388" Y="1882.342" Z="71.96062" />
-						<Hotspot X="2117.431" Y="1897.741" Z="71.5664" />
-						<Hotspot X="2103.05" Y="1907.937" Z="70.28075" />
-						<Hotspot X="2085.667" Y="1917.248" Z="65.48269" />
-						<Hotspot X="2057.039" Y="1937.816" Z="65.86748" />
-						<Hotspot X="2080.021" Y="1937.054" Z="66.07973" />
-						<Hotspot X="2087.686" Y="1957.033" Z="64.75163" />
-						<Hotspot X="2069.04" Y="1971.324" Z="62.4301" />
-						<Hotspot X="2069.12" Y="2004.062" Z="63.9533" />
-						<Hotspot X="2107.162" Y="1982.115" Z="64.87043" />
-						<Hotspot X="2131.104" Y="1982.566" Z="60.86348" />
-						<Hotspot X="2153.972" Y="1970.69" Z="62.67057" />
-						<Hotspot X="2159.158" Y="1991.949" Z="61.75817" />
-						<Hotspot X="2158.364" Y="1981.904" Z="61.44896" />
-						<Hotspot X="2164.528" Y="1976.824" Z="61.17492" />
-						<Hotspot X="2161.389" Y="1959.988" Z="58.59555" />
-						<Hotspot X="2167.664" Y="1957.945" Z="57.72604" />
-						<Hotspot X="2201.381" Y="1979.085" Z="56.73133" />
-						<Hotspot X="2163.672" Y="1956.577" Z="58.24813" />
-						<Hotspot X="2174.034" Y="1947.016" Z="60.32268" />
-						<Hotspot X="2156.506" Y="1921.937" Z="66.59973" />
-						<Hotspot X="2134.307" Y="1928.41" Z="67.49995" />
-						<Hotspot X="2171.64" Y="1914.886" Z="69.54504" />
-						<Hotspot X="2200.062" Y="1894.43" Z="71.60312" />
-						<Hotspot X="2190.253" Y="1863.156" Z="79.05624" />
-						<Hotspot X="2198.37" Y="1889.735" Z="72.11873" />
-						<Hotspot X="2178.587" Y="1912.908" Z="69.63898" />
-						<Hotspot X="2158.803" Y="1921.324" Z="66.59816" />
-						<Hotspot X="2163.246" Y="1978.526" Z="60.94003" />
-						<Hotspot X="2160.089" Y="1983.745" Z="62.09289" />
-						<Hotspot X="2114.916" Y="1981.716" Z="65.32381" />
-						<Hotspot X="2095.405" Y="1969.071" Z="65.12405" />
-						<Hotspot X="2081.708" Y="1936.588" Z="66.24803" />
-						<Hotspot X="2094.358" Y="1907.042" Z="71.52684" />
-						<Hotspot X="2114.275" Y="1903.657" Z="70.71458" />
-						<Hotspot X="2118.136" Y="1896.415" Z="71.98043" />
-						<Hotspot X="2115.309" Y="1891.781" Z="72.87914" />
-						<Hotspot X="2109.018" Y="1824.199" Z="79.86275" />
-						<Hotspot X="2084.78" Y="1750.583" Z="77.70403" />
-						<Hotspot X="2116.741" Y="1708.31" Z="80.79502" />
-						<Hotspot X="2130.857" Y="1662.772" Z="82.16399" />
-						<Hotspot X="2132.678" Y="1645.987" Z="82.21439" />
-						<Hotspot X="2149.724" Y="1629.745" Z="81.72964" />
-						<Hotspot X="2177.251" Y="1635.443" Z="80.77686" />
-						<Hotspot X="2196.877" Y="1595.669" Z="79.87553" />
-						<Hotspot X="2200.052" Y="1608.161" Z="80.57134" />
-						<Hotspot X="2189.985" Y="1608.52" Z="80.33468" />
-					</CustomBehavior>
-						<RunTo X="2189.985" Y="1608.52" Z="80.33468" />
-				</If>									   
+			<!-- Booster UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="45"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+							
+			<!-- If we are inside the box -->	
+			<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+				<CustomBehavior File="Message" 
+								Text="We are in the box." 
+								LogColor="Cyan" />
 								
-		        <If Condition="(Me.FreeBagSlots &lt; 4) || (Me.LowestDurabilityPercent &lt; 0.3)" > 
+				<!-- If we need to repair -->
+				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryTime="60"
+									ExpiryAction="InputEnabled_Continue" 
+									Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
+									Title="WARNING" />	
+
+					<!-- If we have our Hearthstone, use it -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
 					
-					<CustomBehavior File="Message" Text="I have detected that my gear is about to break. I'm going to hearth, repair and then return to the instance." LogColor="Lime" />
-					<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" GoalText="Waiting for hearth*{TimeRemaining}" />
-					<If Condition="Me.ZoneId == 4709" >
-						<CustomBehavior File="Message" Text="Succesfully hearthed, moving to the repair vendor." LogColor="Lime" />												
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+						
+						<!-- Otherwise use the Innkeeper's Daughter -->
+						<ElseIf Condition="HasItem(64488)">
+							
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+						</ElseIf> <!-- Have Innkeeper's Daughter -->
+						
+						<!-- Waiting for the loading screen -->
+						<CustomBehavior File="Message" 
+										Text="We have successfully hearthed. Waiting 20 seconds to load." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Hearthstone -->
+					
+					<!-- If we are in Mudsprocket, repair -->
+					<If Condition="Me.ZoneId == 15" >
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="False" 
+										DoRepair="True" 
+										DoSell="False" 
+										DoTrain="False" />
+								
+						<CustomBehavior File="Message" 
+										Text="We are in town, moving to the repair vendor." 
+										LogColor="Fuchsia" />
+										
 						<SetVendor>
 							<Vendors>
-								<Vendor Name="Terndak" Entry="44287" Type="Repair" X="-3267.02" Y="-1714.96" Z="92.30528" />
+								<!-- Mudsprocket -->
+								<Vendor Name="Razbo Rustgear" Entry="23571" Type="Repair" X="-4603.661" Y="-3210.939" Z="34.92585" />
 							</Vendors>
 						</SetVendor>
-						<SetMailbox>
-							<Mailboxes>
-								<Mailbox X="-3234.509" Y="-1670.237" Z="99.32615" />
-							</Mailboxes>
-						</SetMailbox>
-				
-						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
 						
-						<CustomBehavior File="FlyTo" X="-4482.153" Y="-1740.214" Z="86.38416" />
+						<!-- We are done vendoring -->
+						<If Condition="Me.DurabilityPercent &gt; 0.8" >
+							<CustomBehavior File="Message" 
+											Text="Repairing complete, moving back to Razorfen Kraul." 
+											LogColor="Fuchsia" />
+						</If> <!-- Durability over 80 -->
+						
+						<CustomBehavior File="Message" 
+										Text="In transit to Razorfen Kraul." 
+										LogColor="Lime" />
+						
+						<!-- Fly to the box -->
+						<CustomBehavior File="FlyTo" 
+										X="-4462" Y="-1663.06" Z="81.8912" />
+										
 						<CustomBehavior File="ForcedDismount" />
-							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />		
+					</If> <!-- Northern Barrens -->
+				</If> <!-- Durability -->
+			</If> <!-- In box -->
+			
+			<!-- Outside the box -->
+			<If Condition="Me.X &lt; -4500 || Me.X &gt; -4440 || Me.Y &gt; -1650 || Me.Y &lt; -1700" >
+				<CustomBehavior File="Message" 
+								Text="We are not in the box." 
+								LogColor="Cyan" />
+								
+				<!-- If we are in Kalimdor -->
+				<If Condition="Me.MapId == 1" >	
+					<CustomBehavior File="Message" 
+									Text="We are in Kalimdor." 
+									LogColor="Cyan" />
+									
+					<!-- If we are in Blackfathom Deeps area -->
+					<If Condition="Me.MapId == 48">
+						<!-- clear to the water pool -->
+						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+						<RunTo X="4245.435" Y="736.5756" Z="-26.26228" />
+						<RunTo X="4234.482" Y="740.7827" Z="-25.60224" />
+						<RunTo X="4218.563" Y="737.3569" Z="-25.09796" />
+						<RunTo X="4208.815" Y="746.0913" Z="-23.79734" />
+						<RunTo X="4221.317" Y="744.2615" Z="-24.69747" />
+						<RunTo X="4225.376" Y="764.999" Z="-21.7336" />
+						<RunTo X="4233.779" Y="790.256" Z="-17.50613" />
+						<RunTo X="4252.476" Y="817.8237" Z="-7.964022" />
+						<RunTo X="4252.45" Y="822.129" Z="-7.052672" />
+						<RunTo X="4268.782" Y="840.5276" Z="-3.776558" />
+						<RunTo X="4273.144" Y="844.4012" Z="-5.171373" />
+						<RunTo X="4282.66" Y="851.4493" Z="-9.308812" />
+						<RunTo X="4292.95" Y="855.8239" Z="-13.00362" />
+						<RunTo X="4309.459" Y="864.2205" Z="-15.05904" />
+						<RunTo X="4320.927" Y="881.7582" Z="-15.04231" />
+						<RunTo X="4334.985" Y="858.9839" Z="-20.6427" />
+						<RunTo X="4328.694" Y="868.6224" Z="-20.22458" />
+						<RunTo X="4339.62" Y="884.4542" Z="-20.4396" />
+						<RunTo X="4327.783" Y="873.257" Z="-19.38464" />
+						<RunTo X="4323.096" Y="886.4991" Z="-14.61528" />
+						<RunTo X="4318.219" Y="898.9949" Z="-13.8387" />
+						<RunTo X="4312.673" Y="936.0864" Z="-18.51675" />
+						<RunTo X="4314.701" Y="914.4903" Z="-16.77805" />
+						<RunTo X="4325.379" Y="917.7774" Z="-16.79071" />
+						<RunTo X="4312.885" Y="913.5507" Z="-16.54588" />
+						<RunTo X="4292.271" Y="906.5396" Z="-14.80684" />
+						<RunTo X="4290.866" Y="896.8708" Z="-12.12095" />
+						<RunTo X="4283.728" Y="905.2469" Z="-14.9022" />
+						<RunTo X="4265.51" Y="900.5068" Z="-14.47306" />
+						<RunTo X="4245.973" Y="897.0073" Z="-9.488991" />
+						<RunTo X="4223.793" Y="907.6456" Z="-8.595884" />
+						<RunTo X="4208.537" Y="919.0058" Z="-9.839013" />
+						<RunTo X="4207.825" Y="927.8275" Z="-9.159419" />
+						<RunTo X="4202.312" Y="924.1497" Z="-10.84358" />
+						<RunTo X="4186.894" Y="932.8614" Z="-13.28574" />
+						<RunTo X="4178.689" Y="941.2141" Z="-15.40084" />
+						<RunTo X="4168.679" Y="942.8105" Z="-17.99987" />
+						<RunTo X="4164.381" Y="935.2953" Z="-18.10468" />
+						
+						<!-- CTM beneath the water to the other side -->
+						<CustomBehavior File="MyCTM" 
+										X="4160.37" Y="916.4307" Z="-16.98774" />
+										
+						<CustomBehavior File="MyCTM" 
+										X="4159.188" Y="887.0402" Z="-23.669" />
 
-					</If>
-					<If Condition="Me.MapId == 47">
-						<CustomBehavior File="Message" Text="My gear is broke and my hearth is on cool down. You need to repair my gear. Stopping the bot" LogColor="Yellow" />
-						<CustomBehavior File="UserSettings" StopBot="true" />
-					</If>
+						<!-- clear to the top of the stairs -->	
+						<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
+						<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
+						<RunTo X="4127.493" Y="868.0792" Z="9.692391" />
+						<RunTo X="4124.339" Y="857.3198" Z="9.812651" />
+						<RunTo X="4123.282" Y="868.1447" Z="9.807321" />
+						<RunTo X="4114.511" Y="882.3802" Z="9.811003" />
+						<RunTo X="4118.376" Y="897.6333" Z="9.781507" />
+						<RunTo X="4098.091" Y="891.6923" Z="9.577498" />
+					</If> <!-- Blackfathom Deeps -->				
+					
+					<!-- Mudsprocket = 4010 -->
+					<!-- If our hearthstone is set here, use it -->
+					<If Condition="Me.HearthstoneAreaId == 4010" >
+						<!-- If we have our Hearthstone, use it -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+						
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+							
+							<!-- Otherwise use the Innkeeper's Daughter -->
+							<ElseIf Condition="HasItem(64488)">
+								
+								<CustomBehavior File="Message" 
+												Text="Using Innkeeper's Daughter." 
+												LogColor="Lime" />
+												
+								<CustomBehavior File="Misc\RunLua" 
+												Lua="UseItemByName(64488)" 
+												WaitTime="1000" />
+							</ElseIf> <!-- Have Innkeeper's Daughter -->
+							
+							<!-- Waiting for the loading screen -->
+							<CustomBehavior File="Message" 
+											Text="We have successfully hearthed. Waiting 20 seconds to load." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+											
+							<!-- Run outside the inn -->
+							<RunTo X="-4589.012" Y="-3173.481" Z="34.17432" />
+							
+							<!-- ForcedMount, and fly above the village -->
+							<CustomBehavior File="ForcedMount"
+											MountType="Flying" />
+							<CustomBehavior File="FlyTo" 
+											X="-4561.028" Y="-3169.96" Z="62.55063" />
+						</If> <!-- Hearth -->
+						
+						<!-- Our hearth isn't set, we need to go to the zone -->
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+											LogColor="Lime" />
+					
+							<CustomBehavior File="Message" 
+											Text="Flying to Mudsprocket." 
+											LogColor="Lime" />
+					
+							<!-- Fly to the hover point above the innkeep in Mudsprocket -->
+							<CustomBehavior File="FlyTo" 
+											X="-4561.028" Y="-3169.96" Z="62.55063" />
+					
+							<!-- Front doorway of the inn -->
+							<RunTo X="-4589.012" Y="-3173.481" Z="34.17432" />
+							<CustomBehavior File="ForcedDismount" />
+	
+							<!-- Run inside the inn -->
+							<RunTo X="-4620.78" Y="-3172.521" Z="34.81204" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="23995" 
+											X="-4630.091" Y="-3176.113" Z="41.22118" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							
+							<!-- Run outside the inn -->
+							<RunTo X="-4589.012" Y="-3173.481" Z="34.17432" />
+							
+							<!-- ForcedMount, and fly above the village -->
+							<CustomBehavior File="ForcedMount"
+											MountType="Flying" />
+							<CustomBehavior File="FlyTo" 
+											X="-4561.028" Y="-3169.96" Z="62.55063" />
+						</Else> <!-- Set hearth -->
+					</If> <!-- Check hearthstone -->
+					
+					<CustomBehavior File="Message" 
+									Text="Flying to the rendezvous location." 
+									LogColor="Lime" />
+											
+					<CustomBehavior File="FlyTo" 
+									X="-4120.178" Y="-1999.181" Z="91.66761" />
+					
+					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="1" />
+					
+					<CustomBehavior File="ForcedDismount" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="2000" />
+					
+					<RunTo X="-4181.171" Y="-1897.548" Z="91.9545" />
+					<RunTo X="-4203.039" Y="-1909.542" Z="91.72755" />
+					<RunTo X="-4223.585" Y="-1913.943" Z="93.54006" />
+					<RunTo X="-4236.775" Y="-1887.289" Z="92.32339" />
+					<RunTo X="-4239.272" Y="-1884.396" Z="92.66742" />
+					<RunTo X="-4277.22" Y="-1886" Z="91.82715" />
+					<RunTo X="-4294.447" Y="-1875.844" Z="92.717" />
+					<RunTo X="-4317.577" Y="-1885.929" Z="91.17356" />
+					<RunTo X="-4357.689" Y="-1884.55" Z="89.30547" />
+					<RunTo X="-4369.329" Y="-1877.063" Z="88.58798" />
+					<RunTo X="-4390.023" Y="-1908.57" Z="86.39541" />
+					<RunTo X="-4392.706" Y="-1910.346" Z="86.30326" />
+					<RunTo X="-4389.78" Y="-1914.587" Z="86.55402" />
+					<RunTo X="-4388.44" Y="-1910.293" Z="86.51731" />
+					<RunTo X="-4405.193" Y="-1874.473" Z="85.97189" />
+					<RunTo X="-4412.994" Y="-1875.631" Z="86.01228" />
+					<RunTo X="-4453.119" Y="-1872.967" Z="85.90644" />
+					<RunTo X="-4468.336" Y="-1879.926" Z="85.98127" />
+					<RunTo X="-4481.66" Y="-1888.556" Z="86.41856" />
+					<RunTo X="-4487.705" Y="-1894.022" Z="86.47855" />
+					<RunTo X="-4488.469" Y="-1894.753" Z="86.49744" />
+					<RunTo X="-4476.935" Y="-1880.971" Z="85.83622" />
+					<RunTo X="-4477.098" Y="-1855.147" Z="86.18663" />
+					<RunTo X="-4476.665" Y="-1814.934" Z="86.37875" />
+					<RunTo X="-4486.202" Y="-1776.021" Z="86.10852" />
+					<RunTo X="-4487.747" Y="-1768.671" Z="86.10852" />
+					<RunTo X="-4474.706" Y="-1811.373" Z="86.06303" />
+					<RunTo X="-4479.221" Y="-1793.526" Z="86.11845" />
+					<RunTo X="-4485.021" Y="-1773.773" Z="86.10855" />
+					<RunTo X="-4483.426" Y="-1748.391" Z="86.17936" />
+					<RunTo X="-4483.276" Y="-1735.582" Z="86.6567" />
+					<RunTo X="-4482.836" Y="-1732.599" Z="86.77713" />
+					<RunTo X="-4492.055" Y="-1730.62" Z="88.06927" />
+					<RunTo X="-4483.8" Y="-1732.597" Z="86.85407" />
+					<RunTo X="-4475.263" Y="-1696" Z="82.32021" />
+					<RunTo X="-4473.421" Y="-1688.759" Z="81.30132" />
+					<RunTo X="-4468.679" Y="-1673.395" Z="81.81928" />
+					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+				</If> <!-- Kalimdor -->
+			</If> <!-- Not in box -->
+			
+			<!-- Inside the instance box, load the Wailing Cavers profile -->
+			<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
+			</If> <!-- Load profile -->
+		</If> <!-- Booster -->
+						
+		
+		
+		
+		
+		
+		
+				
+		<!-- ******************************************************* RAF Toons *************************************************************** -->			
+				
+	
+	
+	
+	
+	
+	
+	
+	
+		<!-- RAF Toons -->		
+			<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Cyan" />
+		
+			<!-- RAF UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+				
+			<!-- Kalimdor -->
+			<If Condition="Me.MapId == 1">
+				<!-- If we are in Blackfathom Deeps area -->
+				<If Condition="Me.MapId == 48">
+					<!-- wait timer for the booster to clear to the top of the stairs -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="120000" />
+									
+					<CustomBehavior File="Message" 
+									Text="Waiting for the booster to clear a path out of Blackfathom Deeps." 
+									LogColor="Cyan" />
+					
+					<!-- run to water pool -->
+					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+					
+					
+					<!-- CTM beneath the water to the other side -->
+					<CustomBehavior File="MyCTM" 
+									X="4159.188" Y="887.0402" Z="-23.669" />
+									
+					<CustomBehavior File="MyCTM" 
+									X="4154.427" Y="869.0259" Z="-18.11682" />
+
+					<!-- run to the top of the stairs -->	
+					<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
+					<RunTo X="4127.493" Y="868.0792" Z="9.692391" />
+					<RunTo X="4124.339" Y="857.3198" Z="9.812651" />
+					
+					<!-- runlikehell to the bfd rendezvous -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="4115.094" Y="821.2402" Z="4.113029" />
+						<Hotspot X="4079.888" Y="792.1219" Z="8.111836" />
+						<Hotspot X="4050.538" Y="758.1669" Z="5.662883" />
+						<Hotspot X="3970.823" Y="740.3875" Z="7.43161" />
+						<Hotspot X="3958.283" Y="720.9913" Z="8.780532" />
+						<Hotspot X="3953.375" Y="703.1535" Z="8.065741" />
+						<Hotspot X="3962.32" Y="661.3057" Z="7.93483" />
+						<Hotspot X="3962.535" Y="617.1002" Z="11.1361" />
+						<Hotspot X="3945.427" Y="584.3884" Z="12.37112" />
+						<Hotspot X="3915.458" Y="563.5007" Z="8.966149" />
+						<Hotspot X="3889.131" Y="538.3585" Z="7.766765" />
+					</CustomBehavior>	
 				</If>
-				<If Condition="Me.MapId == 47">
-					<CustomBehavior File="Message" Text="Running out to reset the instance." LogColor="Lime" />
-						<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
-						<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
-						<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
-						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
-					<CustomBehavior File="MyCTM" X="1939.09" Y="1539.371" Z="82.28316" />
-					<CustomBehavior File="WaitTimer" WaitTime="15000" />
-						<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-				</If>		
-		</While>	
+				
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance" >
+					<!-- Ashenvale -->
+					<If Condition="Me.ZoneId == 331" >
+						<!-- Blackfathom Camp -->
+						<RunTo X="3880.51" Y="654.16" Z="10.4565" />
+						
+						<!-- flightmaster to Rut'theran Village -->
+						<RunTo X="8383.75" Y="980.964" Z="30.8292" />
+					</If>
+					
+					<!-- Rut'theran Village -->
+					<If Condition="Me.X &gt; 8145 &amp;&amp; Me.X &lt; 8600 &amp;&amp; Me.Y &lt; 1225 &amp;&amp; Me.Y &gt; 735" >
+						<!-- Rut'theran Village docks -->
+						<RunTo X="8179.316" Y="1002.142" Z="6.875345" />
+						
+						<CustomBehavior File="Message" 
+										Text="Waiting for the boat to Stormwind." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="UseTransport" 
+										TransportId="176310" 
+										WaitAtX="8179.316" 
+										WaitAtY="1002.142" 
+										WaitAtZ="6.875345"
+										TransportStartX="8162.587" 
+										TransportStartY="1005.365" 
+										TransportStartZ="-0.0382334"								
+										StandOnX="8167.021" 
+										StandOnY="1009.898" 
+										StandOnZ="6.098088"
+										TransportEndX="-8650.719" 
+										TransportEndY="1346.051" 
+										TransportEndZ="0.012419"	
+										GetOffX="-8644.193" 
+										GetOffY="1327.927" 
+										GetOffZ="5.536721" />
+					</If> <!-- Rut'theran Village -->
+				</If> <!-- Alliance -->
+			</If> <!-- Kalimdor -->
+			
+			<!-- Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0">
+			
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance">
+					<!-- Stormwind City -->
+					<If Condition="Me.ZoneId == 1519">
+						<!-- Level 20 or higher and we don't have riding -->
+						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue == 0" >	
+							<!-- Move to riding trainer -->
+							<CustomBehavior File="Message" 
+											Text="Moving to the riding trainer Stormwind." 
+											LogColor="Orange" />
+							
+							<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />
+							
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							
+							<CustomBehavior File="InteractWith" 
+											MobId="43769" 
+											WaitTime="1000" 
+											CollectionDistance="50" 
+											X="-8845.4" Y="502.653" Z="109.617" />
+											
+							<CustomBehavior File="ForceTrainRiding" MobId="43769" />
+							
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						</If> <!-- Train mount -->
+						
+						<CustomBehavior File="UserDialog" 
+										AllowBotStop="False" 
+										SoundCue="Exclamation" 
+										SoundCueInterval="15" 
+										ExpiryTime="60"
+										ExpiryAction="InputEnabled_Continue" 
+										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+										Title="WARNING" />
+									
+						<!-- Level 20 or higher and we have riding -->
+						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 1" >
+								
+							<!-- gol'bolar quarry fp -->
+							<RunTo X="-5714.14" Y="-1578.64" Z="383.204" />
+							
+							<!-- Dun Morogh -->
+							<If Condition="Me.ZoneId == 1" >
+								<!-- move to menethil harbor fp -->
+								<RunTo X="-3787.81" Y="-777.696" Z="1.5582" />
+							</If> <!-- Dun Morogh -->
+							
+							<!-- Wetlands -->
+							<If Condition="Me.ZoneId == 11" >
+								<!-- move to the docks and take the boat to theramore -->
+								<RunTo X="-3862.112" Y="-657.6467" Z="5.291173" />
+								<CustomBehavior File="Message" Text="Waiting for the boat to Theramore." LogColor="Lime" />
+								<CustomBehavior File="UseTransport" 
+												TransportId="176231" 
+												WaitAtX="-3862.112" 
+												WaitAtY="-657.6467" 
+												WaitAtZ="5.291173"
+												TransportStartX="-3872.35" 
+												TransportStartY="-639.944" 
+												TransportStartZ="0.0387598276"								
+												StandOnX="-3866.424" 
+												StandOnY="-638.1647" 
+												StandOnZ="6.098088"
+												TransportEndX="-4016.39" 
+												TransportEndY="-4740.58838" 
+												TransportEndZ="-0.0113018192"	
+												GetOffX="-3997.751" 
+												GetOffY="-4724.298" 
+												GetOffZ="4.309702" />
+							</If> <!-- Wetlands -->
+						</If> <!-- Mount trained -->
+					</If> <!-- Stormwind City -->
+				</If> <!-- Alliance -->
+			</If> <!-- Eastern Kingdoms -->
+			
+			<!-- Back on Kalimdor -->
+			<If Condition="Me.MapId == 1">
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance">
+					<!-- Dustwallow Marsh -->
+					<If Condition="Me.ZoneId == 15">
+						<!-- Run to western gate leading out of theramore -->
+						<RunTo X="-3782.567" Y="-4255.7" Z="6.254439" />
+					
+						<!-- runlikehell out of theramore to sotuhern barrens -->
+						<CustomBehavior File="RunLikeHell" 
+										NumOfTimes="1" 
+										AllowCombat="false">
+							<Hotspot X="-3784.842" Y="-4122.856" Z="3.85025" />
+							<Hotspot X="-3779.616" Y="-4058.117" Z="7.74936" />
+							<Hotspot X="-3788.214" Y="-3916.856" Z="6.083549" />
+							<Hotspot X="-3782.844" Y="-3835.111" Z="31.10342" />
+							<Hotspot X="-3805.591" Y="-3693.427" Z="43.28993" />
+							<Hotspot X="-3819.059" Y="-3580.17" Z="42.87718" />
+							<Hotspot X="-3814.875" Y="-3550.336" Z="42.68598" />
+							<Hotspot X="-3820.341" Y="-3525.151" Z="43.11248" />
+							<Hotspot X="-3807.917" Y="-3447.343" Z="42.42683" />
+							<Hotspot X="-3810.861" Y="-3348.939" Z="38.41087" />
+							<Hotspot X="-3818.86" Y="-3267.249" Z="38.9136" />
+							<Hotspot X="-3814.412" Y="-3206.013" Z="38.91971" />
+							<Hotspot X="-3818.042" Y="-3185.422" Z="40.01119" />
+							<Hotspot X="-3800.683" Y="-3155.293" Z="38.14743" />
+							<Hotspot X="-3812.186" Y="-3130.041" Z="39.10503" />
+							<Hotspot X="-3785.212" Y="-3023.778" Z="37.93139" />
+							<Hotspot X="-3735.473" Y="-2941.778" Z="37.26948" />
+							<Hotspot X="-3719.428" Y="-2929.908" Z="36.85535" />
+							<Hotspot X="-3709.873" Y="-2902.872" Z="40.00324" />
+							<Hotspot X="-3682.953" Y="-2832.898" Z="36.79173" />
+							<Hotspot X="-3667.548" Y="-2748.487" Z="36.08558" />
+							<Hotspot X="-3670.469" Y="-2591.573" Z="52.48718" />
+							<Hotspot X="-3683.468" Y="-2545.132" Z="61.50312" />
+							<Hotspot X="-3684.107" Y="-2456.478" Z="80.84489" />	<!-- entered southern barrens -->
+						</CustomBehavior>	
+					</If> <!-- Dustwallow Marsh -->
+					
+					<!-- Southern Barrens -->
+					<If Condition="Me.ZoneId == 4709" >
+						<!-- Run to the road entering southern barrens from dustwallow marsh -->
+						<RunTo X="-3646.009" Y="-2419.298" Z="93.58193" />
+						
+						<!-- Runlikehell to the rendezvous -->
+						<CustomBehavior File="RunLikeHell" 
+										NumOfTimes="1" 
+										AllowCombat="false">
+							<Hotspot X="-3646.009" Y="-2419.298" Z="93.58193" />
+							<Hotspot X="-3620.597" Y="-2360.604" Z="93.94967" />
+							<Hotspot X="-3579.165" Y="-2314.584" Z="96.32779" />
+							<Hotspot X="-3573.779" Y="-2234.296" Z="91.66689" />
+							<Hotspot X="-3491.423" Y="-2131.443" Z="92.94565" />
+							<Hotspot X="-3482.574" Y="-2055.368" Z="97.01271" />
+							<Hotspot X="-3583.164" Y="-2033.708" Z="91.70001" />
+							<Hotspot X="-3642.783" Y="-2016.442" Z="91.66727" />
+							<Hotspot X="-3703.971" Y="-2021.292" Z="91.66727" />
+							<Hotspot X="-3799.034" Y="-2049.649" Z="91.69884" />
+							<Hotspot X="-3877.587" Y="-2049.556" Z="95.66039" />
+							<Hotspot X="-4076.114" Y="-2045.069" Z="91.66761" />
+							<Hotspot X="-4120.178" Y="-1999.181" Z="91.66761" />	<!-- rendezvous at fire beside the road -->									
+						</CustomBehavior>
+					</If> <!-- Alliance -->
+				</If> <!-- Southern Barrens -->
+			</If> <!-- Kalimdor -->
+							
+			<!-- Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0" >
+				<CustomBehavior File="Message" 
+								Text="We are in Eastern Kingdoms." 
+								LogColor="Cyan" />
+								
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance" >
+					<!-- If we are in Westfall -->
+					<If Condition="Me.ZoneId == 40">
+						<CustomBehavior File="Message" 
+										Text="We are in Westfall." 
+										LogColor="Cyan" />
+					
+						<!-- Sentinel Hill and below -->
+						<If Condition="Me.X &lt;= -10100">
+							<CustomBehavior File="Message" 
+											Text="We are either outside or south of Sentinel Hill." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="We are moving to Sentinel Hill." 
+											LogColor="Lime" />
+											
+							<!-- Move to the flightpath -->
+							<RunTo X="-10549.74" Y="1034.109" Z="56.96315" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Sentinel Hill." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="We are moving to the bridge." 
+											LogColor="Lime" />
+										
+							<!-- Halfway point (bridge) -->
+							<RunTo X="-9805.597" Y="838.1347" Z="29.13275" />
+						</If>
+					</If>
+				
+					<!-- Between north of Sentinel Hill and top of Goldshire -->
+					<If Condition="Me.X &gt; -10100 &amp;&amp; Me.X &lt;= -9260">
+						<CustomBehavior File="Message" 
+										Text="Checkpoint reached." 
+										LogColor="Cyan" />
+						
+						<!-- We are at the bridge no matter what -->
+						<RunTo X="-9805.597" Y="838.1347" Z="29.13275" />
+
+						<CustomBehavior File="Message" 
+										Text="We are at the bridge." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Goldshire." 
+										LogColor="Lime" />
+									
+						<!-- Move to Goldshire fp -->
+						<RunTo X="-9435.078" Y="86.99177" Z="56.96593" />
+						
+						<CustomBehavior File="Message" 
+										Text="We are in Goldshire." 
+										LogColor="Cyan" />
+									
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind Gates." 
+										LogColor="Lime" />
+										
+						<!-- Move to Stormwind gates -->
+						<RunTo X="-9064.999" Y="433.2505" Z="93.05677" />
+					</If>
+
+					<!-- Stormwind -->
+					<If Condition="Me.X &gt; -9260 &amp;&amp; Me.X &lt;= -7800">
+						<CustomBehavior File="Message" 
+										Text="Checkpoint reached." 
+										LogColor="Cyan" />
+						
+						<CustomBehavior File="Message" 
+										Text="We are in Stormwind." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind Docks." 
+										LogColor="Lime" />
+					
+						<!-- Move to Stormwind Docks -->
+						<RunTo X="-8644.193" Y="1327.927" Z="5.536721" />
+						
+						<!-- Taking the boat to Rut'theran Village -->
+						<CustomBehavior File="Message" 
+										Text="Waiting for the boat to Darnassus." 
+										LogColor="Cyan" />
+						<CustomBehavior File="UseTransport" 
+										TransportId="176310" 
+										WaitAtX="-8644.193" 
+										WaitAtY="1327.927" 
+										WaitAtZ="5.536721"								
+										TransportStartX="-8650.719" 
+										TransportStartY="1346.051" 
+										TransportStartZ="0.012419"								
+										StandOnX="-8644.946" 
+										StandOnY="1348.325" 
+										StandOnZ="6.110394"
+										TransportEndX="8162.587" 
+										TransportEndY="1005.365" 
+										TransportEndZ="-0.0382334"	
+										GetOffX="8178.897" 
+										GetOffY="1002.434" 
+										GetOffZ="6.812055" />								
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+					</If>
+					
+					<!-- Somewhere in bumfuck nowhere -->
+					<If Condition="Me.X &lt;= -7800">
+						<CustomBehavior File="Message" 
+										Text="We are north of Stormwind." 
+										LogColor="Cyan" />
+										
+						<CustomBehavior File="Message" 
+										Text="We are moving to Stormwind." 
+										LogColor="Lime" />
+										
+						<RunTo X="-9064.999" Y="433.2505" Z="93.05677" />
+					</If>
+				
+					<!-- Horde -->
+					<ElseIf Condition="Me.IsHorde">
+						<CustomBehavior File="Message" 
+										Text="You are an idiot and got into Eastern Kingdoms somehow as a Horde. We should be in Kalimdor. Stopping profile." 
+										LogColor="Red" />
+					</ElseIf> <!-- Horde -->
+				</If> <!-- Alliance -->
+			</If> <!-- Eastern Kingdoms -->
+			
+			<!-- If we are on Kalimdor -->
+			<If Condition="Me.MapId == 1" >
+				<CustomBehavior File="Message" 
+								Text="We are in Kalimdor." 
+								LogColor="Cyan" />
+							
+				<If Condition="Me.IsAlliance" >
+					<If Condition="Me.X &gt; 7700 &amp;&amp; Me.X &lt;= 8600" >
+						<CustomBehavior File="Message" 
+										Text="We are in Rut'theran Village." 
+										LogColor="Cyan" />
+								
+						<CustomBehavior File="Message" 
+										Text="We are moving to the flight master." 
+										LogColor="Lime" />
+						
+						<!-- Rut'theran Village flight master -->
+						<RunTo X="8377.947" Y="981.9948" Z="29.86343" />
+					
+						<CustomBehavior File="Message" 
+										Text="We are moving to Lor'danel." 
+										LogColor="Lime" />
+									
+						<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+					</If> <!-- Rut'theran Village -->
+						
+					<If Condition="Me.ZoneId == 148">
+						<CustomBehavior File="Message" 
+										Text="We are in Darkshore." 
+										LogColor="Cyan" />
+										
+						<If Condition="Me.X &gt; 6000 &amp;&amp; Me.X &lt;= 7700">
+							<CustomBehavior File="Message" 
+											Text="Checkpoint reached." 
+											LogColor="Cyan" />
+						
+							<!-- Use the flight master to Lor'danel, darkshore -->
+							<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Lor'danel." 
+											LogColor="Cyan" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are moving to Grove of the Ancients." 
+											LogColor="Lime" />
+										
+							<RunTo X="4970.5" Y="147.65" Z="51.64" />
+						</If> <!-- Lor'danel -->
+			
+						
+						<If Condition="Me.X &gt; 4400 &amp;&amp; Me.X &lt;= 6000 ">	
+							<CustomBehavior File="Message" 
+											Text="Checkpoint reached." 
+											LogColor="Cyan" />
+						
+							<!-- Run to Grove of the Ancients, darkshore -->
+							<RunTo X="4970.5" Y="147.65" Z="51.64" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Grove of the Ancients." 
+											LogColor="Cyan" />
+						
+							<CustomBehavior File="Message" 
+											Text="We are moving toward the rendezvous point." 
+											LogColor="Lime" />
+						
+							<!-- Ashenvale -->
+							<RunTo X="4104.732" Y="22.3274" Z="17.77499" />
+						</If> <!-- Grove of the Ancients -->
+					</If> <!-- Darkshore -->
+					
+					<If Condition="Me.ZoneId == 331">
+						<CustomBehavior File="Message" 
+										Text="We are in Ashenvale." 
+										LogColor="Cyan" />
+					
+						<If Condition="Me.X &lt;= 4400">
+							<CustomBehavior File="Message" 
+											Text="Checkpoint reached." 
+											LogColor="Cyan" />
+											
+							<!-- RunLikeHell to force movement to the rendezvous -->
+							<CustomBehavior File="RunLikeHell" 
+											UseCTM="false" 
+											NumOfTimes="1" 
+											AllowCombat="false">		
+								<Hotspot X="3870.062" Y="539.0946" Z="6.604815" />
+							</CustomBehavior>	
+							
+							<CustomBehavior File="Message" 
+											Text="We are at the rendezvous point." 
+											LogColor="Cyan" />
+						</If> <!-- Rendezvous -->
+					</If> <!-- Ashenvale -->
+					
+					<ElseIf Condition="Me.IsHorde" >
+						<CustomBehavior File="Message" 
+										Text="We are Horde." 
+										LogColor="Cyan" />
+					
+						<!-- If we are in the Northern Barrens -->
+						<If Condition="Me.ZoneId == 17">
+							<CustomBehavior File="Message" 
+											Text="We are in Northern Barrens." 
+											LogColor="Cyan" />
+											
+							<!-- tower north of crossroads, move to the Crossroads -->
+							<If Condition="Me.X &lt;= 40" >
+								<CustomBehavior File="Message" 
+												Text="We are south of the tower that is north of The Crossroads." 
+												LogColor="Cyan" />
+							
+								<!-- If we are in the box -->
+								<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+									<CustomBehavior File="Message" 
+												Text="We are in the box. Sitting still until the booster has cleared the path for us."
+												LogColor="Cyan" />
+									
+												
+									<CustomBehavior File="Message" 
+													Text="Waiting 120 seconds for the booster to kill the mobs exiting the cave." 
+													LogColor="Cyan" />				
+													
+									<!-- Wait timer to give the 90 time to clear the mobs exiting the cave -->
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="120000" />
+
+									<!-- Run to the water -->	
+									<RunTo X="-593.6287" Y="-2129.372" Z="50.93468" />
+									
+									<CustomBehavior File="Message" 
+													Text="Waiting 120 seconds for the booster to kill the mobs past the water." 
+													LogColor="Cyan" />		
+									<!-- Wait at the water -->
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="120000" />
+									
+									<!-- CTM across the water -->
+									<CustomBehavior File="MyCTM"
+													X="-572.1486" Y="-2086.887" Z="51.72983" />
+													
+									<CustomBehavior File="MyCTM"
+													X="-585.9764" Y="-2042.767" Z="57.58044" />				
+									
+									<!-- Run to the cave exit -->
+									<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
+								</If> <!-- In box -->
+								
+								<CustomBehavior File="Message" 
+													Text="Moving to The Crossroads."
+													LogColor="Lime" />
+													
+								<!-- Moving to Crossroads flight master -->
+								<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in The Crossroads." 
+												LogColor="Cyan" />
+												
+								<!-- Run to the tower intersection to stay on the road -->
+								<RunTo X="42.21896" Y="-2717.489" Z="91.66673" />
+								
+								<!-- Run past the next check -->
+								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
+							</If> <!-- Tower and lower -->
+							
+							<!-- Between the tower north of crossroads and the gates entering ashenvale, move to Mor'shan Rampart -->
+							<If Condition="Me.X &gt; 40 &amp;&amp; Me.X &lt;= 1260" >
+								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
+							
+								<CustomBehavior File="Message" 
+												Text="Checkpoint reached."
+												LogColor="Cyan" />
+							
+								<CustomBehavior File="Message" 
+												Text="Moving to Mor'shan Rampart."
+												LogColor="Lime" />
+							
+								<!-- Moving to the dead tree to stay on the road -->
+								<RunTo X="574.6573" Y="-2568.682" Z="95.80037" />
+							
+								<!-- Moving to the huggy bear to avoid getting killed -->
+								<RunTo X="755.0905" Y="-2391.459" Z="91.66711" />
+							
+								<!-- Moving to the huggy bear 2 to avoid getting killed -->
+								<RunTo X="954.4182" Y="-2359.165" Z="91.7278" />
+							
+								<!-- Moving back to the road -->
+								<RunTo X="1100.294" Y="-2318.211" Z="91.70042" />
+							
+								<!-- Moving to Mor'shan Rampart flight master-->
+								<RunTo X="1206.031" Y="-2209.855" Z="92.1406" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Mor'shan Rampart." 
+												LogColor="Cyan" />
+												
+								<!-- Moving to Mor'shan Rampart gate - cutoff-->
+								<CustomBehavior File="Message" 
+												Text="Moving to Splintertree Post."
+												LogColor="Lime" />
+												
+								<RunTo X="1202.344" Y="-2306.263" Z="91.69298" />
+				
+								<!-- RunLikeHell to bypass the gate guards -->
+								<CustomBehavior File="RunLikeHell" 
+												UseCTM="true" 
+												NumOfTimes="1" 
+												AllowCombat="false">	
+									<Hotspot X="1228.991" Y="-2346.184" Z="92.02919" />
+									<Hotspot X="1248.187" Y="-2339.587" Z="92.27937" />
+									<Hotspot X="1277.286" Y="-2331.833" Z="94.30576" />
+									<Hotspot X="1294.635" Y="-2338.389" Z="96.77084" />
+									<Hotspot X="1344.051" Y="-2305.061" Z="96.63309" />
+									<Hotspot X="1359.267" Y="-2259.172" Z="89.99448" />
+									<Hotspot X="1431.585" Y="-2254.051" Z="89.91182" />
+									<Hotspot X="1504.867" Y="-2233.992" Z="93.76501" />
+									<Hotspot X="1662.179" Y="-2197.453" Z="90.25356" />	
+								</CustomBehavior>
+							</If> <!-- Mor'shan Ramparts -->
+						</If> <!-- Northern Barrens -->
+						
+						<!-- If we are in Ashenvale -->
+						<If Condition="Me.ZoneId == 331">
+							<RunTo X="1662.179" Y="-2197.453" Z="90.25356" />	
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Ashenvale." 
+											LogColor="Cyan" />
+											
+							<!-- North of the gates entering ashenvale and east of the bridge between silverwind refuge and splintertree post -->
+							<If Condition="Me.Y &lt;= -1960" >
+								<CustomBehavior File="Message" 
+												Text="Checkpoint reached."
+												LogColor="Cyan" />
+												
+								<!-- Intersection of main road and eastern road entering splintertree post -->
+								<RunTo X="2181.207" Y="-2643.072" Z="108.7298" />
+								
+								<!-- Moving to Splintertree Post flight master -->
+								<CustomBehavior File="RunLikeHell" 
+												UseCTM="true" 
+												NumOfTimes="1" 
+												AllowCombat="false">	
+									<Hotspot X="2201.078" Y="-2615.8" Z="106.1121" />
+									<Hotspot X="2207.887" Y="-2603.096" Z="103.0519" />
+									<Hotspot X="2222.668" Y="-2578.627" Z="95.53032" />
+									<Hotspot X="2227.23" Y="-2537.977" Z="85.89501" />
+									<Hotspot X="2262.054" Y="-2540.115" Z="92.25276" />
+									<Hotspot X="2312.374" Y="-2537.251" Z="100.2412" />
+									<Hotspot X="2302.39" Y="-2524.55" Z="104.2812" />	
+								</CustomBehavior>
+						
+								<RunTo X="2302.39" Y="-2524.55" Z="104.2812" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Splintertree Post." 
+												LogColor="Cyan" />
+								
+								<CustomBehavior File="Message" 
+												Text="Moving to Hellscream's Watch."
+												LogColor="Lime" />
+								
+								<!-- Exiting the eastern gate of Splintertree Post to avoid being attacked -->
+								<CustomBehavior File="RunLikeHell" 
+												UseCTM="true" 
+												NumOfTimes="1" 
+												AllowCombat="false">	
+									<Hotspot X="2229.509" Y="-2539.316" Z="86.50936" />
+									<Hotspot X="2215.686" Y="-2542.687" Z="84.92637" />
+									<Hotspot X="2222.562" Y="-2583.129" Z="97.0116" />
+									<Hotspot X="2205.515" Y="-2608.671" Z="104.4664" />
+									<Hotspot X="2181.434" Y="-2640.099" Z="108.1588" />	
+								</CustomBehavior>
+								
+								<!-- Run past the next check -->
+								<RunTo X="2014.13" Y="-1899.615" Z="98.50292" />
+							</If> <!-- Splintertree Post -->
+							
+							<!-- North of the gates entering ashenvale and west of the bridge between silverwind refuge and splintertree outpost and east of the atranaar and hellscream's reach path convergence -->
+							<If Condition="Me.Y &gt; -1960 &amp;&amp; Me.Y &lt;= -15" >
+								<RunTo X="2014.13" Y="-1899.615" Z="98.50292" />
+							
+								<CustomBehavior File="Message" 
+												Text="Checkpoint reached."
+												LogColor="Cyan" />
+								
+								<!-- RunLikeHell to bypass the mobs outside Hellscream's Watch -->
+								<CustomBehavior File="RunLikeHell" 
+												NumOfTimes="1" 
+												AllowCombat="false">	
+									<Hotspot X="3049.08" Y="-498.95" Z="205.6398" />
+								</CustomBehavior>
+						
+								<!-- Moving to Hellscream's Watch flight master -->
+								<RunTo X="3049.08" Y="-498.95" Z="205.6398" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Hellscream's Watch." 
+												LogColor="Cyan" />
+								
+								<CustomBehavior File="Message" 
+												Text="Moving to Zoram'gar Outpost."
+												LogColor="Lime" />
+								
+								<!-- Run past the next check -->
+								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
+							</If> <!-- Hellscream's Watch -->
+							
+							<!-- North of the gates entering ashenvale and west of the atranaar and hellscream's reach path convergence -->
+							<If Condition="Me.Y &gt; -15" >
+								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
+								
+								<CustomBehavior File="Message" 
+												Text="Checkpoint reached."
+												LogColor="Cyan" />
+							
+								<!-- Moving to Zoram'gar flight master -->
+								<RunTo X="3351.82" Y="1052.3" Z="3.07" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Zoram'gar Outpost." 
+												LogColor="Cyan" />
+								
+								<!-- Moving to the intersection sign post -->
+								<RunTo X="3520.993" Y="554.2925" Z="5.413744" />
+								
+								<CustomBehavior File="Message" 
+												Text="Moving to the rendezvous point."
+												LogColor="Lime" />
+								
+								<!-- Moving to the rendezvous -->
+								<CustomBehavior File="RunLikeHell" 
+												NumOfTimes="1" 
+												AllowCombat="false">	
+									<Hotspot X="3575.518" Y="571.2593" Z="5.383583" />
+									<Hotspot X="3647.676" Y="612.2073" Z="4.45191" />
+									<Hotspot X="3756.413" Y="635.8791" Z="6.045148" />
+									<Hotspot X="3803.914" Y="616.6727" Z="3.882689" />
+									<Hotspot X="3823.592" Y="589.6508" Z="4.524016" />
+									<Hotspot X="3839.499" Y="586.6717" Z="5.776413" />
+									<Hotspot X="3862.535" Y="578.1829" Z="4.786602" />
+									<Hotspot X="3870.747" Y="556.1761" Z="7.882565" />
+									<Hotspot X="3868.379" Y="542.9993" Z="6.771335" />	
+								</CustomBehavior>
+							</If> <!-- Zoram'gar -->
+						</If> <!-- Ashenvale -->
+					</ElseIf> <!-- Horde -->
+				</If> <!-- Alliance -->
+				
+				<RunTo X="3868.379" Y="542.9993" Z="6.771335" />	
+				
+				<!-- Begin the randezvous once all party members are within range -->
+				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
+								
+				<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
+				<CustomBehavior File="Message" 
+								Text="Waiting 145 seconds for the booster to clear a path to the Blackfathom Deeps entrance." 
+								LogColor="Cyan" />	
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="145000" />
+									
+				<CustomBehavior File="RunLikeHell" 
+								UseCTM="false" 
+								NumOfTimes="1" 
+								AllowCombat="false">
+					<Hotspot X="3867.29" Y="542.4556" Z="6.25052" />
+					<Hotspot X="3907.495" Y="546.6" Z="8.988046" />
+					<Hotspot X="3933.447" Y="557.6937" Z="8.198513" />
+					<Hotspot X="3941.191" Y="570.2684" Z="9.137749" />
+					<Hotspot X="3949.646" Y="581.1702" Z="16.80931" />
+					<Hotspot X="3976.231" Y="590.0343" Z="15.95624" />
+					<Hotspot X="3977.125" Y="590.5364" Z="15.92647" />
+					<Hotspot X="3972.269" Y="629.6894" Z="12.06467" />
+					<Hotspot X="3963.476" Y="657.4673" Z="8.459725" />
+					<Hotspot X="3961.592" Y="668.5765" Z="7.564032" />
+					<Hotspot X="3955.22" Y="691.8064" Z="6.827244" />
+					<Hotspot X="3963.923" Y="704.9979" Z="7.59026" />
+					<Hotspot X="3966.297" Y="708.9611" Z="8.280338" />
+					<Hotspot X="3978.244" Y="733.3782" Z="8.660011" />
+					<Hotspot X="3996.681" Y="736.8337" Z="7.446292" />
+					<Hotspot X="4017.058" Y="739.0209" Z="8.115411" />
+					<Hotspot X="4031.468" Y="749.8213" Z="7.118464" />
+					<Hotspot X="4034.054" Y="751.4516" Z="7.010725" />
+					<Hotspot X="4057.953" Y="762.8633" Z="5.647972" />
+					<Hotspot X="4066.99" Y="776.9478" Z="3.203347" />
+					<Hotspot X="4069.638" Y="780.1206" Z="2.789762" />
+					<Hotspot X="4092.549" Y="808.3082" Z="6.834113" />
+					<Hotspot X="4095.759" Y="812.28" Z="5.253814" />
+					<Hotspot X="4116.945" Y="822.7336" Z="4.960292" />
+					<Hotspot X="4117.823" Y="840.0313" Z="8.185119" />
+					<Hotspot X="4118.506" Y="846.2096" Z="7.853565" />
+					<Hotspot X="4126.335" Y="866.5807" Z="9.712488" />
+					<Hotspot X="4150.487" Y="863.1863" Z="4.07859" />
+					<Hotspot X="4144.999" Y="902.6078" Z="-3.973661" />
+					<Hotspot X="4117.665" Y="872.9206" Z="-12.56279" />
+					<Hotspot X="4154.853" Y="870.2032" Z="-18.11654" />
+				</CustomBehavior>
+				
+				<CustomBehavior File="Message" 
+								Text="Waiting 90 seconds for the booster to begin clearing a path to Blackfathom Deeps." 
+								LogColor="Cyan" />	
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="90000" />
+								
+				<!-- CTM beneath the water to the other side -->
+				<CustomBehavior File="MyCTM" 
+								X="4159.188" Y="887.0402" Z="-23.669" />
+									
+				<CustomBehavior File="MyCTM" 
+								X="4160.37" Y="916.4307" Z="-16.98774" />
+					
+				<!-- Moving to the instance box -->
+				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />	
+				
+				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
+				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-N][17-25]_blackfathom-deeps" />
+				</If> <!-- Load profile -->
+			</If> <!-- Kalimdor -->
+		</If> <!-- RAF -->
 	</QuestOrder>
 </HBProfile>
 

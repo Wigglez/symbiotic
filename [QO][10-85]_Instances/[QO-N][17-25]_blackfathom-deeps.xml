@@ -226,7 +226,7 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="25" 
 									CheckRange="5" 
-									ProfileName="[QO-N][25-37]_razorfen-kraul"  />
+									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 

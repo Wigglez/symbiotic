@@ -250,12 +250,12 @@
 										X="-8644.193" Y="1327.927" Z="5.536721" />
 						
 						
-						<!-- Taking the boat to Darnassus -->
+						<!-- Taking the boat to Rut'theran Village -->
 						<CustomBehavior File="FlyTo" 
 										X="-8644.193" Y="1327.927" Z="5.536721" />
 						<CustomBehavior File="ForcedDismount" />				
 						<CustomBehavior File="Message" 
-										Text="Waiting for the boat to Darnassus." 
+										Text="Waiting for the boat to Rut'theran Village." 
 										LogColor="Cyan" />
 						<CustomBehavior File="UseTransport" 
 										TransportId="176310" 
@@ -786,7 +786,7 @@
 						
 						<!-- Taking the boat to Rut'theran Village -->
 						<CustomBehavior File="Message" 
-										Text="Waiting for the boat to Darnassus." 
+										Text="Waiting for the boat to Rut'theran Village." 
 										LogColor="Cyan" />
 						<CustomBehavior File="UseTransport" 
 										TransportId="176310" 
