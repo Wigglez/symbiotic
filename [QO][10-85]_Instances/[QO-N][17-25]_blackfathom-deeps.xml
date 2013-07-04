@@ -595,7 +595,10 @@
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
-
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="DodgerBlue" />
+		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
 							FindMountAutomatically="True"
@@ -733,7 +736,6 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 				
-					<!-- Begin the instance once all party members are within range -->
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	

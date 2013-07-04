@@ -530,6 +530,9 @@
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="DodgerBlue" />
 		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
