@@ -550,7 +550,7 @@
 									
 					<RunTo X="3868.379" Y="542.9993" Z="6.771335" />
 					
-					<!-- Begin the randezvous once all party members are within range -->
+					<!-- Begin the escort once all party members are within range -->
 					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
 
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
