@@ -385,7 +385,7 @@
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
 				</If> <!-- Load profile -->
-			<If> <!-- Kalimdor -->
+			</If> <!-- Kalimdor -->
 		</If> <!-- Booster -->
 						
 		
@@ -768,12 +768,6 @@
 									
 									<!-- Moving to the instance box -->
 									<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-									
-									<!-- Inside the instance box, load the profile -->
-									<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
-										<CustomBehavior File="LoadProfile" 
-														ProfileName="..\[QO-N][25-37]_razorfen-kraul" />
-									</If> <!-- Load profile -->
 								</If> <!-- Below Desolation Hold -->
 							</If> <!-- Not in box -->
 						</If> <!-- Southern Barrens -->
