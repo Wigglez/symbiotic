@@ -81,7 +81,7 @@
 				<!-- If we are inside Blackfathom Deeps, run out to go to the next instance -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
-									Text="Blackfathom Deeps detected. Running out to go to Blackfathom Deeps." 
+									Text="Blackfathom Deeps detected. Running out to go to Razorfen Kraul." 
 									LogColor="Fuchsia" />	
 				
 					<If Condition="Me.X &lt; -352.5026" >

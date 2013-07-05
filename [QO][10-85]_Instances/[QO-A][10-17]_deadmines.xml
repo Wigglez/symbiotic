@@ -52,7 +52,7 @@
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="Message" 
 							Text="We are a booster." 
-							LogColor="DodgerBlue" />
+							LogColor="Fuchsia" />
 							
 			<!-- Booster UserSettings -->
 			<CustomBehavior File="UserSettings"
@@ -85,7 +85,7 @@
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
 									Text="Deadmines detected. Running out to reset." 
-									LogColor="DodgerBlue" />					
+									LogColor="Fuchsia" />					
 						
 					<!-- Run to the instance entrance -->
 					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
@@ -104,7 +104,7 @@
 					<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="DodgerBlue" />	
+										LogColor="Fuchsia" />	
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
 					</If> <!-- Not in box -->
@@ -113,7 +113,7 @@
 					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." 
-										LogColor="DodgerBlue" />	
+										LogColor="Fuchsia" />	
 						<!-- Check durability, load the movement profile -->
 						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
 							<CustomBehavior File="LoadProfile" 
@@ -123,7 +123,7 @@
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 							
 						<CustomBehavior File="RunMacro" 
 										Macro="/script ResetInstances()" />
@@ -137,7 +137,7 @@
 						<!-- The second reset confirms we are safe to enter the instance -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 2 of 2." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 						<CustomBehavior File="RunMacro" 
 										Macro="/script ResetInstances()" />
 						<CustomBehavior File="RunMacro" 
@@ -145,7 +145,7 @@
 						
 						<CustomBehavior File="Message" 
 										Text="Instance reset." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 						
 						<!-- Run back in the Deadmines portal -->
 						<CustomBehavior File="MyCTM" 
@@ -153,7 +153,7 @@
 						
 						<CustomBehavior File="Message"
 										Text="Waiting for the dungeon to load." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 						
 						<!-- Run to the activate spot -->
 						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
@@ -372,7 +372,7 @@
 					
 					<CustomBehavior File="Message" 
 									Text="We are waiting to get the boss to aggro. Blame Botanist if this fucks up." 
-									LogColor="DodgerBlue" />
+									LogColor="Fuchsia" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="45000" />
 					
@@ -532,7 +532,7 @@
 		<If Condition="Me.Level &lt;= 85">
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
-							LogColor="DodgerBlue" />
+							LogColor="Fuchsia" />
 		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -564,7 +564,7 @@
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
 									Text="Deadmines detected. Running out to allow for a reset." 
-									LogColor="DodgerBlue" />					
+									LogColor="Fuchsia" />					
 						
 					<!-- Run to the instance entrance -->
 					<RunTo X="-14.45693" Y="-385.494" Z="62.4785" />
@@ -583,7 +583,7 @@
 					<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1653.415 || Me.Y &gt; 1690 " >
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
 					</If> <!-- Not in box -->
@@ -592,7 +592,7 @@
 					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1690" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby." 
-										LogColor="DodgerBlue" />	
+										LogColor="Fuchsia" />	
 						
 						<!-- Go inside the Deadmines portal -->
 						<CustomBehavior File="MyCTM" 
@@ -600,7 +600,7 @@
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
-										LogColor="DodgerBlue" />
+										LogColor="Fuchsia" />
 										
 						<!-- runto location in the instance that doesn't trigger loadprofileon for the booster -->
 						<RunTo X="-10.02501" Y="-378.2018" Z="61.52087" />
@@ -630,7 +630,7 @@
 					<!-- waiting near the entrance for the booster to clear the way -->
 					<CustomBehavior File="Message" 
 									Text="Waiting 40 seconds, entrance." 
-									LogColor="DodgerBlue" />		   
+									LogColor="Fuchsia" />		   
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="40000" />
 					
@@ -640,7 +640,7 @@
 					<!-- waiting for the first pull to complete -->
 					<CustomBehavior File="Message" 
 									Text="Waiting 20 seconds, 1st pull." 
-									LogColor="DodgerBlue" />
+									LogColor="Fuchsia" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="20000" />
 					
@@ -649,7 +649,7 @@
 					
 					<CustomBehavior File="Message" 
 									Text="Waiting 50 seconds, 2nd pull." 
-									LogColor="DodgerBlue" />	
+									LogColor="Fuchsia" />	
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="50000" />
 					
@@ -659,7 +659,7 @@
 					<!-- Waiting for the booster to kill Helix -->
 					<CustomBehavior File="Message" 
 									Text="Waiting 60 seconds, before Helix Gearbreaker." 
-									LogColor="DodgerBlue" />	
+									LogColor="Fuchsia" />	
 					<CustomBehavior File="WaitTimer"
 									WaitTime="60000" />
 					
@@ -669,7 +669,7 @@
 					<!-- Waiting for the booster to clear the keg room -->
 					<CustomBehavior File="Message" 
 									Text="Waiting 30 seconds, door after Helix Gearbreaker."
-									LogColor="DodgerBlue" />	
+									LogColor="Fuchsia" />	
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 					
@@ -681,7 +681,7 @@
 					<!-- Waiting for the booster to kill Foe Reaper -->
 					<CustomBehavior File="Message" 
 									Text="Waiting 40 seconds, foundry door."
-									LogColor="DodgerBlue" />	
+									LogColor="Fuchsia" />	
 					<CustomBehavior File="WaitTimer"
 									WaitTime="40000" />
 						
@@ -709,7 +709,7 @@
 					<!-- Waiting for the booster to clear a path to the big cannon -->
 					<CustomBehavior File="Message" 
 									Text="Waiting 70 seconds, bottom door."
-									LogColor="DodgerBlue" />	
+									LogColor="Fuchsia" />	
 					<CustomBehavior File="WaitTimer"
 									WaitTime="70000" />
 					
@@ -720,7 +720,7 @@
 					<!-- Waiting for the booster to clear the ship -->
 					<CustomBehavior File="Message" 
 									Text="Waiting for the booster to clear the ship.." 
-									LogColor="DodgerBlue" />
+									LogColor="Fuchsia" />
 					<!-- This triggers the RAF toons to exit after the booster has cleared the ship -->				
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />

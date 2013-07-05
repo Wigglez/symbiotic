@@ -168,6 +168,7 @@
 						<RunTo X="-710.4796" Y="-2197.513" Z="23.90433" />
 						<RunTo X="-718.0719" Y="-2207.895" Z="21.15666" />
 						<RunTo X="-720.9946" Y="-2227.718" Z="16.85107" />
+						<RunTo X="-713.558" Y="-2229.422" Z="17.94413" />
 						
 						<!-- run back into the box -->
 						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
@@ -190,21 +191,23 @@
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
-					<!-- Run to an extra spot -->
-					<RunTo X="-155.5905" Y="128.8511" Z="-74.8602" />
-					
+					<!-- Run to quest givers -->
+					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />
+				
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+				
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
+				
 					<!-- Run to the activate spot -->
 					<RunTo X="-138.0188" Y="129.5727" Z="-77.74215" />
 				
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
-									CheckRange="1" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
-				
-					<!-- Begin the instance once all party members are within range  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
 					
 					<!-- Kill everything close to the RAF toons to make sure they remain safe -->
 					<RunTo X="-129.3444" Y="131.7502" Z="-78.3682" />
@@ -425,9 +428,9 @@
 						<Hotspot X="-6.400225" Y="197.3241" Z="-106.1616" />
 						<Hotspot X="-4.930843" Y="217.5564" Z="-106.1616" />
 						<Hotspot X="-5.795998" Y="224.5592" Z="-106.1616" />
-						<Hotspot X="3.519096" Y="213.2443" Z="-106.1616" />
+						<Hotspot X="-8.974605" Y="214.6738" Z="-106.1616" />
 					</CustomBehavior>
-					<RunTo X="-15.78955" Y="265.4492" Z="-106.4169" />	
+					<RunTo X="-8.974605" Y="214.6738" Z="-106.1616" />
 
 					<!-- Pull the second half of the instance -->
 					<CustomBehavior File="RunLikeHell" 
@@ -529,8 +532,12 @@
 						<Hotspot X="-9.213695" Y="178.6422" Z="-106.1623" />
 					</CustomBehavior>
 					
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs." 
+									LogColor="Fuchsia" />
+										
 					<!-- Run next to the RAF to trigger their run out -->
-					<RunTo X="-101.3665" Y="186.5188" Z="-78.54945" />
+					<RunTo X="-138.0188" Y="129.5727" Z="-77.74215" />
 				</If> <!-- Inside Wailing Caverns -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- Booster -->
@@ -601,7 +608,7 @@
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
-						
+										
 						<!-- Go inside the Wailing Caverns portal -->
 						<CustomBehavior File="MyCTM"
 										X="-744.4048" Y="-2216.026" Z="15.71743" />
@@ -616,22 +623,24 @@
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
-					<!-- Run to an extra spot -->
-					<RunTo X="-155.5905" Y="128.8511" Z="-74.8602" />
-				
+					<!-- Run to quest givers -->
+					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />		
+					
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="2" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
+									
 					<!-- Run to the activate spot -->
 					<RunTo X="-138.0188" Y="129.5727" Z="-77.74215" />
 				
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
-									CheckRange="5" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
-				
-					<!-- Begin the instance once all party members are within range  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-											
+								
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
@@ -639,8 +648,6 @@
 					<CustomBehavior File="WaitTimer"
 									WaitTime="60000" />
 						
-					<RunTo X="-101.3665" Y="186.5188" Z="-78.54945" />
-					
 					<!-- Run back out the instance when the booster runs next to us  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
