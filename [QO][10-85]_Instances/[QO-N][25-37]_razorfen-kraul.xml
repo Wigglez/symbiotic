@@ -193,13 +193,24 @@
 
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
-					<!-- Go to activate spot -->
-					<RunTo  X="1946.524" Y="1562.05" Z="82.29883" />
+					<!-- Go to quest givers -->
+					<RunTo X="1944.148" Y="1555.369" Z="81.5473" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
+									
+					<!-- Go to activate spot -->
+					<RunTo X="1946.936" Y="1572.877" Z="80.7604" />
 								
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="37" 
+									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
+										
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
@@ -380,15 +391,9 @@
 					<!-- Avoid the annoying fucking thorn in our way -->
 					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
 					
-					<!-- Avoid the bones -->
-					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
-
 					<!-- Tag the RAFs to let them know we are ready to move forward -->
-					<RunTo X="1946.524" Y="1562.05" Z="82.29883" />
+					<RunTo X="1946.936" Y="1572.877" Z="80.7604" />
 					
-					<!-- Avoid the bones -->
-					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
-
 					<!-- Avoid the annoying fucking thorn in our way -->
 					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
 					
@@ -460,7 +465,6 @@
 					
 					<!-- Get ready for the run like hell -->
 					<RunTo X="2167.557" Y="1535.002" Z="72.30659" />
-					
 					
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
@@ -704,12 +708,23 @@
 
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
-					<!-- Go to activate spot -->
-					<RunTo  X="1946.524" Y="1562.05" Z="82.29883" />
+					<!-- Go to quest givers -->
+					<RunTo X="1944.148" Y="1555.369" Z="81.5473" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+									CheckRange="2" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
+									
+					<!-- Go to activate spot -->
+					<RunTo X="1946.936" Y="1572.877" Z="80.7604" />
+								
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="37" 
+									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
 									
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 

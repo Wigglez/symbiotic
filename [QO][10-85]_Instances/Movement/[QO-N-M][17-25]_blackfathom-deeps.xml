@@ -881,9 +881,6 @@
 										LogColor="Lime" />
 									
 						<RunTo X="7459.9" Y="-326.56" Z="8.089962" />
-						
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="80000" />
 					</If> <!-- Rut'theran Village -->
 						
 					<If Condition="Me.ZoneId == 148">
@@ -896,6 +893,12 @@
 											Text="We are in Lor'danel." 
 											LogColor="Cyan" />
 											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" />
+											
+							<!-- Walk off the platform -->
+							<RunTo X="7414.362" Y="-319.4468" Z="4.952349" />
+
 							<CustomBehavior File="Message" 
 											Text="We are moving to The Eye of the Vortex." 
 											LogColor="Lime" />
