@@ -890,7 +890,7 @@
 										
 						<If Condition="Me.X &gt; 6000 &amp;&amp; Me.X &lt;= 7700">
 							<CustomBehavior File="Message" 
-											Text="We are between Lor'danel and Grove of the Ancients." 
+											Text="We are between Lor'danel and The Eye of the Vortex." 
 											LogColor="Cyan" />
 						
 							<!-- Use the flight master to Lor'danel, darkshore -->
@@ -901,20 +901,20 @@
 											LogColor="Cyan" />
 							
 							<CustomBehavior File="Message" 
-											Text="We are moving to Grove of the Ancients." 
+											Text="We are moving The Eye of the Vortex." 
 											LogColor="Lime" />
 										
-							<!-- Outside GotA -->
-							<RunTo X="5031.354" Y="227.4174" Z="31.05303" />
-
-							<!-- Grove of the Ancients fp -->
-							<RunTo X="4970.5" Y="147.65" Z="51.64" />
+							<!-- Run in front of the mountain -->
+							<RunTo X="6032.907" Y="256.3611" Z="24.09209" />
+	
+							<!-- Run past the mountain -->
+							<RunTo X="5789.486" Y="282.5884" Z="21.9652" />
 						</If> <!-- Lor'danel -->
 			
 						
 						<If Condition="Me.X &gt; 4400 &amp;&amp; Me.X &lt;= 6000 ">	
 							<CustomBehavior File="Message" 
-											Text="We are between Grove of the Ancients and Ashenvale." 
+											Text="We are between The Eye of the Vortex and Grove of the Ancients." 
 											LogColor="Cyan" />
 						
 							<!-- Run to Grove of the Ancients, darkshore -->
