@@ -216,19 +216,24 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
-					<!-- Go to activate spot -->
-					<RunTo X="-158.7537" Y="82.29852" Z="-46.02044" />
+					<!-- Run to first activate spot -->
+					<RunTo X="-160.2423" Y="96.76704" Z="-42.89206" />
+					
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
+					
+					<!-- Go to quest givers -->
+					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="25" 
-									CheckRange="5" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 				
-					<!-- Begin the instance once all party members are within range  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-														
 					<!-- Pull the whole area that the RAF will run through and make it safe -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -717,18 +722,23 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48" >
-					<!-- Go to activate spot -->
-					<RunTo X="-158.7537" Y="82.29852" Z="-46.02044" />
+					<!-- Run to first activate spot -->
+					<RunTo X="-160.2423" Y="96.76704" Z="-42.89206" />
+					
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="2" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="10000" />
+					
+					<!-- Go to quest givers -->
+					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="25" 
-									CheckRange="5" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
-					
-					<!-- Begin the instance once all party members are within range  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
 				
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
