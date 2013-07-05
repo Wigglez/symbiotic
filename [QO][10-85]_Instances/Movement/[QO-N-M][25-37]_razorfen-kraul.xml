@@ -453,7 +453,7 @@
 					
 					<!-- wait timer for the booster to clear to the top of the stairs -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="120000" />
+									WaitTime="150000" />
 									
 					<!-- run to water pool -->
 					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
@@ -851,14 +851,16 @@
 											MountType="Ground" />
 											
 							<CustomBehavior File="Message" 
-											Text="Moving to the lava to kill ourselves. We will end up in Southern Barrens."
+											Text="Moving to the west of Crossroads to make our way around the gap."
 											LogColor="Lime" />
 
-							<RunTo X="-1195.996" Y="-2441.636" Z="105.0814" />
-								
-							<!-- CTM into the lava to kill ourselves -->
-							<CustomBehavior File="MyCTM"
-											X="-1291.397" Y="-2405.165" Z="9.228508" />
+							<RunTo X="-291.735" Y="-2062.072" Z="95.79191" />
+							<RunTo X="-270.7715" Y="-1768.253" Z="95.83463" />
+							<RunTo X="-71.04088" Y="-1605.581" Z="97.32648" />
+							<RunTo X="-9.204671" Y="-1402.146" Z="91.80239" />
+							
+							<!-- Run into Southern Barrens -->
+							<RunTo X="-91.56789" Y="-1286.982" Z="84.63313" />
 						</If> <!-- Northern Barrens -->
 						
 						<!-- Southern Barrens -->
@@ -873,26 +875,79 @@
 												Text="We are not in the box."
 												LogColor="Cyan" />
 												
-								<!-- If we are between the divide and Desolation Hold -->
-								<If Condition="Me.X &lt; -1400 &amp;&amp; Me.X &gt;= -3400" >	
+								<!-- If we are above the overgrowth -->
+								<If Condition="Me.X &gt;= -800">
+									<!-- Run into southern barrens -->
+									<RunTo X="-91.56789" Y="-1286.982" Z="84.63313" />
+									
 									<CustomBehavior File="Message" 
-													Text="We are between the divide and Desolation Hold."
+													Text="Moving to Hunter's Hill."
+													LogColor="Lime" />
+													
+									<!-- Run to the hill -->
+									<CustomBehavior File="RunLikeHell" 
+													NumOfTimes="1" 
+													AllowCombat="false">
+										<RunTo X="-138.733" Y="-1178.23" Z="61.87024" />
+										<RunTo X="-126.0643" Y="-1061.741" Z="39.69526" />
+										<RunTo X="-129.822" Y="-999.6619" Z="25.88475" />
+										<RunTo X="-211.8003" Y="-952.6852" Z="13.75357" />
+										<RunTo X="-266.6029" Y="-903.3438" Z="7.958317" />
+										<RunTo X="-332.9369" Y="-916.8609" Z="22.71449" />
+									</CustomBehavior>
+								
+									<!-- Run up the hill and to Hunter's Hill -->
+									<CustomBehavior File="RunLikeHell" 
+													NumOfTimes="1" 
+													AllowCombat="false">
+										<Hotspot X="-444.9638" Y="-963.3548" Z="93.11694" />
+										<Hotspot X="-417.9307" Y="-1154.785" Z="174.0163" />
+										<Hotspot X="-500.5322" Y="-1264.065" Z="151.0279" />
+										<Hotspot X="-641.03" Y="-1422.205" Z="153.4749" />
+										<Hotspot X="-688.2819" Y="-1542.067" Z="147.044" />
+										<Hotspot X="-788.4403" Y="-1577.425" Z="140.7583" />
+									</CustomBehavior>
+									
+									<CustomBehavior File="Message" 
+													Text="We are in Hunter's Hill."
+													LogColor="Cyan" />
+									
+									<!-- Hunter's Hill fp -->
+									<RunTo X="-795.6033" Y="-1589.205" Z="140.7133" />
+									
+									<!-- Get to our run like hell -->
+									<RunTo X="-846.6653" Y="-1546.151" Z="140.3311" />
+								</If> <!-- Above the overgrowth -->
+									
+								<!-- If we are between the Hunter's Hill and Desolation Hold -->
+								<If Condition="Me.X &lt; -800 &amp;&amp; Me.X &gt;= -3400" >	
+									<CustomBehavior File="Message" 
+													Text="We are between Hunter's Hill and Desolation Hold."
 													LogColor="Cyan" />
 													
 									<CustomBehavior File="Message" 
-													Text="Moving to Desolation Hold from The Overgrowth."
+													Text="Moving to Desolation Hold."
 													LogColor="Lime" />
 												
-									<CustomBehavior File="ForcedMount"
-													MountType="Ground" />
-													
-									<!-- run to the beginning of the road in southern barrens -->
-									<RunTo X="-1522.364" Y="-2142.505" Z="88.90179" />
-								
 									<!-- Runlikehell to desolation hold -->
 									<CustomBehavior File="RunLikeHell" 
 													NumOfTimes="1" 
 													AllowCombat="false">
+										<Hotspot X="-846.6653" Y="-1546.151" Z="140.3311" />
+										<Hotspot X="-896.9531" Y="-1598.085" Z="91.71769" />
+										<Hotspot X="-869.7988" Y="-1671.154" Z="81.23268" />
+										<Hotspot X="-880.6182" Y="-1748.222" Z="84.31326" />
+										<Hotspot X="-926.3045" Y="-1778.713" Z="85.96878" />
+										<Hotspot X="-1017.297" Y="-1791.701" Z="82.12331" />
+										<Hotspot X="-1119.711" Y="-1825.682" Z="78.76051" />
+										<Hotspot X="-1206.737" Y="-1832.337" Z="81.74682" />
+										<Hotspot X="-1274.033" Y="-1905.808" Z="77.26405" />
+										<Hotspot X="-1334.425" Y="-1985.688" Z="79.20429" />
+										<Hotspot X="-1403.174" Y="-2013.388" Z="79.4622" />
+										<Hotspot X="-1499.383" Y="-2085.054" Z="85.31062" />
+										<Hotspot X="-1521.668" Y="-2139.468" Z="88.78976" />
+										
+										<!-- Overgrowth graveyard -->
 										<Hotspot X="-1568.421" Y="-2168.616" Z="90.85735" />
 										<Hotspot X="-1609.582" Y="-2201.561" Z="91.99497" />
 										<Hotspot X="-1586.721" Y="-2255.016" Z="96.93446" />
