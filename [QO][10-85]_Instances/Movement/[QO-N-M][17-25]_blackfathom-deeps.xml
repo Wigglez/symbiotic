@@ -904,6 +904,10 @@
 											Text="We are moving to Grove of the Ancients." 
 											LogColor="Lime" />
 										
+							<!-- Outside GotA -->
+							<RunTo X="5031.354" Y="227.4174" Z="31.05303" />
+
+							<!-- Grove of the Ancients fp -->
 							<RunTo X="4970.5" Y="147.65" Z="51.64" />
 						</If> <!-- Lor'danel -->
 			
