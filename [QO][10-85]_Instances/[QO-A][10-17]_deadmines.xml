@@ -154,6 +154,19 @@
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
 				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 36">
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Deadmines portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-11208.34" Y="1680.56" Z="23.87232" />
+				</If> 
+				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
 					<!-- Go to side -->
@@ -702,6 +715,19 @@
 						<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 					</If> <!-- In box -->		
 				</If> <!-- Eastern Kingdoms -->
+				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 36">
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Deadmines portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-11208.34" Y="1680.56" Z="23.87232" />
+				</If> 
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >
