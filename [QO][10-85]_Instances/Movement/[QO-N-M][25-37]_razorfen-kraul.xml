@@ -158,8 +158,10 @@
 					<!-- Mudsprocket = 4010 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="Me.HearthstoneAreaId == 4010" >
-						<!-- If we have our Hearthstone, use it -->
-						<If Condition="HasItem(6948)">
+						<!-- If we have our Hearthstone, use it 
+						<If Condition="HasItem(6948)"> -->
+							<!-- If it's not on CD -->
+						<If Condition="SpellManager.CanCast(6948)">
 							<CustomBehavior File="Message" 
 											Text="Using Hearthstone." 
 											LogColor="Lime" />
@@ -167,10 +169,8 @@
 							<CustomBehavior File="Misc\RunLua" 
 											Lua="UseItemByName(6948)" 
 											WaitTime="1000" />
-							
-							<!-- Otherwise use the Innkeeper's Daughter -->
-							<ElseIf Condition="HasItem(64488)">
-								
+											
+							<ElseIf Condition="SpellManager.CanCast(64488)">
 								<CustomBehavior File="Message" 
 												Text="Using Innkeeper's Daughter." 
 												LogColor="Lime" />
@@ -178,8 +178,9 @@
 								<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(64488)" 
 												WaitTime="1000" />
-							</ElseIf> <!-- Have Innkeeper's Daughter -->
-						</If> <!-- Hearth -->
+							</ElseIf>
+						</If> <!-- Not on CD -->
+							
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
 						<Else>
