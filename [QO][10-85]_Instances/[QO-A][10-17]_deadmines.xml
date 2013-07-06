@@ -497,7 +497,7 @@
 					
 					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />	
+									WaitTime="10000" />	
 									
 					<!-- Tag the rafs -->
 					<CustomBehavior File="Message" 
@@ -895,7 +895,7 @@
 									
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
+									WaitTime="60000" />
 										
 					<!-- moving past the big xannon so we don't get stuck -->
 					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
