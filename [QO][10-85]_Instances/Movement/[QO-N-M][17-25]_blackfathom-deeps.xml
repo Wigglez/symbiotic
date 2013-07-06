@@ -1225,7 +1225,7 @@
 				
 				<!-- wait timer to seperate booster and rafs -->
 				<CustomBehavior File="WaitTimer" 
-										WaitTime="45000" />
+										WaitTime="70000" />
 					
 				<!-- Moving to the instance box -->
 				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />	
