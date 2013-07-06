@@ -526,6 +526,9 @@
 											WaitTime="1000" />
 						</If> <!-- Mount training -->
 						
+						<!-- Run to the flight master in stormwind -->
+						<RunTo X="-8838.393" Y="489.0495" Z="109.6092" />
+						
 						<CustomBehavior File="UserDialog" 
 										AllowBotStop="False" 
 										SoundCue="Exclamation" 
@@ -617,12 +620,24 @@
 										LogColor="Cyan" />
 										
 						<CustomBehavior File="Message" 
-										Text="We are moving to Southern Barrens."
+										Text="We are moving to the Western gate exiting Theramore Isle."
 										LogColor="Lime" />
 								
-						<!-- Run to western gate leading out of theramore -->
-						<RunTo X="-3782.567" Y="-4255.7" Z="6.254439" />
+						<!-- Forced ground mount, runlikehell to western gate leading out of theramore -->
+						<CustomBehavior File="ForcedMount"
+										MountType="Ground" />
+														
+						<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+							<Hotspot X="-3782.567" Y="-4255.7" Z="6.254439" />
+						</CustomBehavior>
 						
+						<CustomBehavior File="Message" 
+										Text="We are moving to the Southern Barrens."
+										LogColor="Lime" />
+										
 						<!-- runlikehell out of theramore to sotuhern barrens -->
 						<CustomBehavior File="RunLikeHell" 
 										NumOfTimes="1" 
