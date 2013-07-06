@@ -683,17 +683,6 @@
 						<CustomBehavior File="MyCTM" 
 										X="-4458.964" Y="-1658.854" Z="81.5267" />
 										
-						<If Condition="Me.MapId != 47">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-							
-							<!-- Run back in the Razorfen Kraul portal -->
-							<CustomBehavior File="MyCTM" 
-											X="-4458.964" Y="-1658.854" Z="81.5267" />
-							
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
-						</If> 
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -702,7 +691,21 @@
 						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
-
+				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 47">
+						
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Razorfen Kraul portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-4458.964" Y="-1658.854" Z="81.5267" />
+				</If> 
+				
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
 					<!-- Go to quest givers -->
