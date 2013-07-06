@@ -171,6 +171,10 @@
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
+									
+					<CustomBehavior File="Message" 
+									Text="Deadmines initialized."  
+									LogColor="Fuchsia" />
 					
 					<!-- clearing all mobs to the first boss -->
 					<CustomBehavior File="RunLikeHell" 
@@ -624,8 +628,12 @@
 									CheckRange="5" />
 							
 					<CustomBehavior File="Message" 
-									Text="We have 9.1 minutes in timers with plenty of walking time. Avoiding instance lock from this point, do not touch." 
-									LogColor="yellow" />	
+									Text="Deadmines initialized."  
+									LogColor="Fuchsia" />
+							
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
 					
 					<!-- waiting near the entrance for the booster to clear the way -->
 					<CustomBehavior File="Message" 

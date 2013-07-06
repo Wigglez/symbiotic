@@ -336,9 +336,11 @@
 					<CustomBehavior File="FlyTo" 
 									X="-4120.178" Y="-1999.181" Z="91.66761" />
 					
-					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="1" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
 					
-					<CustomBehavior File="WaitTimer" WaitTime="2000" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="2000" />
 					
 					<RunTo X="-4199.099" Y="-1930.017" Z="91.60564" />
 					<RunTo X="-4181.171" Y="-1897.548" Z="91.9545" />

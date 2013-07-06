@@ -208,6 +208,10 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+									
+					<CustomBehavior File="Message" 
+									Text="Wailing Caverns initialized."  
+									LogColor="Fuchsia" />
 					
 					<!-- Kill everything close to the RAF toons to make sure they remain safe -->
 					<RunTo X="-129.3444" Y="131.7502" Z="-78.3682" />
@@ -640,6 +644,10 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+									
+					<CustomBehavior File="Message" 
+									Text="Wailing Caverns initialized."  
+									LogColor="Fuchsia" />
 								
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
