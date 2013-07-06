@@ -215,47 +215,53 @@
 									Text="Razorfen Kraul initialized."  
 									LogColor="Fuchsia" />
 					
-					<!-- Clear entrance -->
-					<RunTo X="1952.685" Y="1589.266" Z="82.01939" />
-					<RunTo X="1955.196" Y="1597.844" Z="81.97446" />
-					<RunTo X="1963.945" Y="1599.516" Z="80.8606" />
-					<RunTo X="1979.361" Y="1601.21" Z="79.79958" />
-					<RunTo X="1995.045" Y="1602.248" Z="79.95294" />
 					
-					<!-- Split left -->
-					<RunTo X="2000.366" Y="1603.008" Z="81.48292" />
-					<RunTo X="1994.31" Y="1617.526" Z="83.47797" />
-					<RunTo X="1998.006" Y="1628.249" Z="80.99585" />
-					<RunTo X="1999.355" Y="1631.533" Z="80.9597" />
-					<RunTo X="2008.755" Y="1643.561" Z="80.31393" />
-					<RunTo X="2017.765" Y="1656.161" Z="81.79819" />
-					<RunTo X="2019.643" Y="1661.162" Z="82.82291" />
-					<RunTo X="2032.594" Y="1657.854" Z="80.16387" />
-					<RunTo X="2047.956" Y="1656.021" Z="81.53803" />
-					<RunTo X="2048.643" Y="1655.883" Z="81.5116" />
-					<RunTo X="2044.445" Y="1649.363" Z="81.94069" />
-					<RunTo X="2032.738" Y="1656.644" Z="80.40054" />
-					<RunTo X="2017.934" Y="1652.611" Z="81.62325" />
-					<RunTo X="2008.283" Y="1640.86" Z="80.49028" />
-					<RunTo X="1998.931" Y="1628.684" Z="80.94318" />
-					<RunTo X="1995.186" Y="1613.9" Z="83.1936" />
-					
-					<!-- Back to the split -->
-					<RunTo X="2002.857" Y="1600.731" Z="81.48461" />
-					<RunTo X="2006.688" Y="1596.352" Z="81.57989" />
-					<RunTo X="2002.126" Y="1585.536" Z="80.97218" />
-					<RunTo X="1996.805" Y="1580.873" Z="81.77944" />
-					<RunTo X="2003.156" Y="1570.591" Z="81.99355" />
-					<RunTo X="1997.802" Y="1564.192" Z="83.92747" />
-					<RunTo X="2005.709" Y="1564.788" Z="81.29764" />
-					<RunTo X="2009.591" Y="1556.498" Z="80.87955" />
-					<RunTo X="2011.454" Y="1551.673" Z="80.25129" />
-					<RunTo X="2003.416" Y="1553.479" Z="80.5271" />
-					<RunTo X="2013.217" Y="1541.366" Z="80.85014" />
-					<RunTo X="2004.913" Y="1528.484" Z="80.81262" />
-					<RunTo X="2008.103" Y="1512.173" Z="79.27322" />
-					<RunTo X="2026.536" Y="1494.357" Z="72.1754" />
-					<RunTo X="2024.692" Y="1525.768" Z="79.84376" />
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<!-- Clear entrance -->
+						<RunTo X="1952.685" Y="1589.266" Z="82.01939" />
+						<RunTo X="1955.196" Y="1597.844" Z="81.97446" />
+						<RunTo X="1963.945" Y="1599.516" Z="80.8606" />
+						<RunTo X="1979.361" Y="1601.21" Z="79.79958" />
+						<RunTo X="1995.045" Y="1602.248" Z="79.95294" />
+						
+						<!-- Split left -->
+						<RunTo X="2000.366" Y="1603.008" Z="81.48292" />
+						<RunTo X="1994.31" Y="1617.526" Z="83.47797" />
+						<RunTo X="1998.006" Y="1628.249" Z="80.99585" />
+						<RunTo X="1999.355" Y="1631.533" Z="80.9597" />
+						<RunTo X="2008.755" Y="1643.561" Z="80.31393" />
+						<RunTo X="2017.765" Y="1656.161" Z="81.79819" />
+						<RunTo X="2019.643" Y="1661.162" Z="82.82291" />
+						<RunTo X="2032.594" Y="1657.854" Z="80.16387" />
+						<RunTo X="2047.956" Y="1656.021" Z="81.53803" />
+						<RunTo X="2048.643" Y="1655.883" Z="81.5116" />
+						<RunTo X="2044.445" Y="1649.363" Z="81.94069" />
+						<RunTo X="2032.738" Y="1656.644" Z="80.40054" />
+						<RunTo X="2017.934" Y="1652.611" Z="81.62325" />
+						<RunTo X="2008.283" Y="1640.86" Z="80.49028" />
+						<RunTo X="1998.931" Y="1628.684" Z="80.94318" />
+						<RunTo X="1995.186" Y="1613.9" Z="83.1936" />
+						
+						<!-- Back to the split -->
+						<RunTo X="2002.857" Y="1600.731" Z="81.48461" />
+						<RunTo X="2006.688" Y="1596.352" Z="81.57989" />
+						<RunTo X="2002.126" Y="1585.536" Z="80.97218" />
+						<RunTo X="1996.805" Y="1580.873" Z="81.77944" />
+						<RunTo X="2003.156" Y="1570.591" Z="81.99355" />
+						<RunTo X="1997.802" Y="1564.192" Z="83.92747" />
+						<RunTo X="2005.709" Y="1564.788" Z="81.29764" />
+						<RunTo X="2009.591" Y="1556.498" Z="80.87955" />
+						<RunTo X="2011.454" Y="1551.673" Z="80.25129" />
+						<RunTo X="2003.416" Y="1553.479" Z="80.5271" />
+						<RunTo X="2013.217" Y="1541.366" Z="80.85014" />
+						<RunTo X="2004.913" Y="1528.484" Z="80.81262" />
+						<RunTo X="2008.103" Y="1512.173" Z="79.27322" />
+						<RunTo X="2026.536" Y="1494.357" Z="72.1754" />
+						<RunTo X="2024.692" Y="1525.768" Z="79.84376" />
+					</CustomBehavior>
 						
 						
 					<CustomBehavior File="RunLikeHell" 
@@ -391,27 +397,11 @@
 					<!-- Bottom of the thorn -->
 					<RunTo X="2039.201" Y="1554.93" Z="64.55718" />
 					
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs." 
-									LogColor="Fuchsia" />
-					
-					<!-- Avoid the annoying fucking thorn in our way -->
-					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
-					
-					<!-- Tag the RAFs to let them know we are ready to move forward -->
-					<RunTo X="1946.936" Y="1572.877" Z="80.7604" />
-					
-					<!-- Avoid the annoying fucking thorn in our way -->
-					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
-					
-					<RunTo X="2024.291" Y="1526.458" Z="79.89503" />
 					
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						
-						
 						<Hotspot X="2020.189" Y="1493.531" Z="74.54661" />
 						<Hotspot X="2031.216" Y="1498.685" Z="73.10349" />
 						<Hotspot X="2026.113" Y="1486.059" Z="70.7663" />
@@ -459,16 +449,6 @@
 
 					<RunTo X="2103.557" Y="1457.873" Z="73.41038" />
 					
-					<!-- Run off the thorn -->
-					<CustomBehavior File="MyCTM"
-									X="2125.739" Y="1449.087" Z="65.27753" />
-									
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs." 
-									LogColor="Fuchsia" />
-									
-					<!-- Tag the RAFs to let them know we are ready to move forward -->
-					<RunTo X="2036.444" Y="1469.552" Z="69.17043" />
 					
 					<!-- Get ready for the run like hell -->
 					<RunTo X="2167.557" Y="1535.002" Z="72.30659" />
@@ -586,14 +566,10 @@
 					<!-- Line of sight around the corner -->
 					<RunTo X="2174.044" Y="1576.671" Z="76.14131" />
 					
+					<!-- Kill last guy -->
 					<RunTo X="2156.663" Y="1554.236" Z="72.01718" />
 					
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs." 
-									LogColor="Fuchsia" />
 									
-					<RunTo X="2196.779" Y="1529.45" Z="73.2739" />
-					
 					
 					<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
 					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
@@ -747,56 +723,10 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
 									
 									
 									
 									
-									
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-									
-					<!-- Avoid the annoying fucking thorn in our way -->
-					<RunTo X="1990.426" Y="1602.846" Z="79.65996" />
-					
-					<!-- Sitting near the first and second bosses -->
-					<RunTo X="2036.444" Y="1469.552" Z="69.17043" />
-					
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
-									
-									
-									
-									
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-									
-					<!-- Sitting near the tents -->
-					<RunTo X="2196.779" Y="1529.45" Z="73.2739" />
-									
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
-					
 					<!-- When the booster tags us again, we can leave -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
@@ -805,14 +735,6 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 					
-					<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
-					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
-					<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
-					
-					<!-- Avoid the bones -->
-					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
-					
-					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 
