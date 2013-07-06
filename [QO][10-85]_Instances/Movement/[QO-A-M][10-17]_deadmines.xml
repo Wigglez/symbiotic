@@ -76,141 +76,58 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
-			<!-- If we are inside the box -->	
-			<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
+			<!-- If we are in Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0" >	
 				<CustomBehavior File="Message" 
-								Text="We are in the box." 
+								Text="We are in Eastern Kingdoms." 
 								LogColor="Cyan" />
-				
-				<!-- If we need to repair -->
-				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
-									Title="WARNING" />	
-
-					<!-- If we have our Hearthstone, use it -->
-					<If Condition="HasItem(6948)">
-						<CustomBehavior File="Message" 
-										Text="Using Hearthstone." 
-										LogColor="Lime" />
-										
-						<CustomBehavior File="Misc\RunLua" 
-										Lua="UseItemByName(6948)" 
-										WaitTime="1000" />
-						
-						<ElseIf Condition="HasItem(64488)">
-							
-							<CustomBehavior File="Message" 
-											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
-						</ElseIf> <!-- Have Innkeeper's Daughter -->
-						
-					</If> <!-- Hearth -->
 					
-					<!-- If we are in Westfall, repair -->
-					<If Condition="Me.ZoneId == 40" >
-						<CustomBehavior File="ForceSetVendor" 
-										DoMail="False" 
-										DoRepair="True" 
-										DoSell="False" 
-										DoTrain="False" />
-					
-						<CustomBehavior File="Message" 
-										Text="We are in town, moving to the repair vendor." 
-										LogColor="Fuchsia" />
-										
-						<SetVendor>
-							<Vendors>
-								<!-- Sentinel Hill -->
-								<Vendor Name="William MacGregor" 
-										Entry="1668" 
-										Type="Repair" 
-										X="-10653.31" Y="996.5868" Z="32.87417" />
-							</Vendors>
-						</SetVendor>
-						
-						<!-- We are done vendoring -->
-						<If Condition="Me.DurabilityPercent &gt; 0.8" >
-							<CustomBehavior File="Message" 
-											Text="Repairing complete, moving back to Deadmines." 
-											LogColor="Fuchsia" />
-						</If> <!-- Durability over 80 -->
-						
-						<CustomBehavior File="Message" 
-										Text="In transit to Deadmines." 
-										LogColor="Lime" />
-										
-						<!-- Fly to entrance -->
-						<CustomBehavior File="FlyTo" 
-										X="-11067.49" Y="1528.316" Z="43.25069" />
-										
-						<!-- Run to the box -->
-						<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-					</If> <!-- Westfall -->
-				</If> <!-- Durability -->
-			</If> <!-- In box -->
-			
-			<!-- Outside the box --> 
-			<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
-				<CustomBehavior File="Message" 
-								Text="We are not in the box." 
-								LogColor="Cyan" />
-								
-				<!-- If we are in Eastern Kingdoms -->
-				<If Condition="Me.MapId == 0" >
+				<!-- Outside the box -->
+				<If Condition="Me.X &gt; -11195 || Me.X &lt; -11220 || Me.Y &lt; 1650 || Me.Y &gt; 1690" >
 					<CustomBehavior File="Message" 
-									Text="We are in Eastern Kingdoms." 
+									Text="We are not in the box." 
 									LogColor="Cyan" />
-									
-					<!-- If we are Alliance -->
+					
+					<!-- Alliance -->
 					<If Condition="Me.IsAlliance">
 						<CustomBehavior File="Message" 
 										Text="We are Alliance." 
 										LogColor="Cyan" />
-								
+										
 						<!-- Sentinel Hill = 108 -->
 						<!-- If our hearthstone is set here, use it -->
 						<If Condition="Me.HearthstoneAreaId == 108" >
+							<!-- If we have our Hearthstone, use it -->
 							<If Condition="HasItem(6948)">
+								<CustomBehavior File="Message" 
+												Text="Using Hearthstone." 
+												LogColor="Lime" />
+							
+								<CustomBehavior File="Misc\RunLua" 
+												Lua="UseItemByName(6948)" 
+												WaitTime="1000" />
+								
+								<!-- Otherwise use the Innkeeper's Daughter -->
+								<ElseIf Condition="HasItem(64488)">
+									
 									<CustomBehavior File="Message" 
-													Text="Using Hearthstone." 
+													Text="Using Innkeeper's Daughter." 
 													LogColor="Lime" />
-								
+													
 									<CustomBehavior File="Misc\RunLua" 
-													Lua="UseItemByName(6948)" 
+													Lua="UseItemByName(64488)" 
 													WaitTime="1000" />
-									
-									<!-- Otherwise use the Innkeeper's Daughter -->
-									<ElseIf Condition="HasItem(64488)">
-										
-										<CustomBehavior File="Message" 
-														Text="Using Innkeeper's Daughter." 
-														LogColor="Lime" />
-														
-										<CustomBehavior File="Misc\RunLua" 
-														Lua="UseItemByName(64488)" 
-														WaitTime="1000" />
-									</ElseIf> <!-- Have Innkeeper's Daughter -->
-									
-								</If> <!-- Hearth -->
-								
+								</ElseIf> <!-- Have Innkeeper's Daughter -->
+							</If> <!-- Hearth -->
+							
 							<!-- Our hearth isn't set, we need to go to the zone -->
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
-												LogColor="Lime" />
-						
+													Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+													LogColor="Lime" />
+							
 								<CustomBehavior File="Message" 
-												Text="Flying to Sentinel Hill." 
+												Text="Moving to Sentinel Hill." 
 												LogColor="Lime" />
 							
 								<!-- Quest is incomplete -->
@@ -285,28 +202,14 @@
 									<RunTo X="-10510.34" Y="1053.079" Z="59.25743" />
 								</If> <!-- Quest complete -->
 							</Else> <!-- Set hearth -->
-						</If> <!-- Check Hearthstone -->
-						
-						<!-- Fly to the rendezvous location -->
-						<CustomBehavior File="FlyTo" 
-										X="-11065.5" Y="1530.04" Z="43.20776" />	
-						<CustomBehavior File="ForcedDismount" />
-						
-						<!-- Begin the randezvous once all party members are within range -->
-						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="5" />
-						
-						<!-- Run through caverns to Deadmines -->							
-						<RunTo X="-11086.47" Y="1530.567" Z="43.27423" />
-						<RunTo X="-11097.69" Y="1515.96" Z="43.12984" />
-						<RunTo X="-11088.03" Y="1507.087" Z="42.99051" />
-						<RunTo X="-11073.57" Y="1500.448" Z="42.86707" />
-						<RunTo X="-11188.25" Y="1520.978" Z="18.98619" />
-						<RunTo X="-11181.27" Y="1541.052" Z="19.36648" />
-						<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+						</If> <!-- Check hearthstone -->
 						
 						<!-- If we are Horde -->
 						<ElseIf Condition="Me.IsHorde">
+							<CustomBehavior File="Message" 
+											Text="We are Horde." 
+											LogColor="Cyan" />
+						
 							<CustomBehavior File="Message" 
 											Text="You are an idiot and are running an Alliance profile as Horde. Moving to Stormwind and saying hello to King Varian Wrynn." 
 											LogColor="Red" />
@@ -315,18 +218,73 @@
 											X="-8363.977" Y="233.4493" Z="156.9894" />
 						</ElseIf> <!-- Horde -->
 					</If> <!-- Alliance -->
-				</If> <!-- Eastern Kingdoms -->
-			</If> <!-- Not in box -->
-			
-			<!-- Inside the instance box, load the Deadmines profile -->
-			<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
-				<CustomBehavior File="Message" 
-								Text="We are in the box." 
-								LogColor="Cyan" />
+					
+					<!-- Repair if necessary -->
+					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+						<CustomBehavior File="Message" 
+										Text="Our durability is less than 80%, we need to repair." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="False" 
+										DoRepair="True" 
+										DoSell="False" 
+										DoTrain="False" />
+						
+						<SetVendor>
+							<Vendors>
+								<!-- Sentinel Hill -->
+								<Vendor Name="William MacGregor" 
+										Entry="1668" 
+										Type="Repair" 
+										X="-10653.31" Y="996.5868" Z="32.87417" />
+							</Vendors>
+						</SetVendor>
+					
+						<!-- We are done repairing -->
+						<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+							<CustomBehavior File="Message" 
+											Text="Repairing complete." 
+											LogColor="Fuchsia" />
+						</If> <!-- repaired -->
+					</If> <!-- Repairing -->
+					
+							
+					<!-- ForcedMount -->
+					<CustomBehavior File="ForcedMount"
+									MountType="Flying" />
+								
+					<!-- Fly to the rendezvous location -->
+					<CustomBehavior File="FlyTo" 
+									X="-11065.5" Y="1530.04" Z="43.20776" />	
+					<CustomBehavior File="ForcedDismount" />
+					
+					<!-- Begin the randezvous once all party members are within range -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+					
+					<!-- Run through caverns to Deadmines -->							
+					<RunTo X="-11086.47" Y="1530.567" Z="43.27423" />
+					<RunTo X="-11097.69" Y="1515.96" Z="43.12984" />
+					<RunTo X="-11088.03" Y="1507.087" Z="42.99051" />
+					<RunTo X="-11073.57" Y="1500.448" Z="42.86707" />
+					<RunTo X="-11188.25" Y="1520.978" Z="18.98619" />
+					<RunTo X="-11181.27" Y="1541.052" Z="19.36648" />
+					
+					<!-- Run to the box -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />	
+				</If> <!-- Not in box -->
 				
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-A][10-17]_deadmines" />
-			</If> <!-- Load profile -->
+				<!-- Inside the instance box, load the Deadmines profile -->
+				<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
+					<CustomBehavior File="Message" 
+									Text="We are in the box." 
+									LogColor="Cyan" />
+					
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-A][10-17]_deadmines" />
+				</If> <!-- Load profile -->
+			</If> <!-- Eastern Kingdoms -->
 		</If> <!-- Booster -->
 
 

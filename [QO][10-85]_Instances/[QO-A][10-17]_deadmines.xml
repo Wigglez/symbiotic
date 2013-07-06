@@ -88,7 +88,7 @@
 									LogColor="Fuchsia" />					
 						
 					<!-- Run to the instance entrance -->
-					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 						
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
@@ -112,14 +112,9 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." 
+										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
-						<!-- Check durability, load the movement profile -->
-						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-							<CustomBehavior File="LoadProfile" 
-											ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
-						</If> <!-- Durability check -->
-					
+						
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
@@ -155,23 +150,30 @@
 										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />
 						
-						<!-- Run to the activate spot -->
-						<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
+						<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="17" 
-									CheckRange="1" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+					<!-- Go to side -->
+					<RunTo X="-8.028585" Y="-373.2374" Z="61.75385" />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<!-- Go to activate spot -->
+					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
+									
+					<!-- If we are high enough to go to the next instance, do so 
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="17" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />		 -->		
+					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  
 									LogColor="Fuchsia" />
@@ -209,9 +211,22 @@
 					</CustomBehavior>
 					<RunTo X="-192.3704" Y="-449.936" Z="54.43877" />
 					
+					
+					
+					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="3000" />	
+									
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-74.5433" Y="-377.6173" Z="54.88211" />
 
+					
+					
+					
 					<!-- Clearing the cave bunny + monkey room -->
 					<RunTo X="-189.784" Y="-467.1871" Z="54.14226" />
 					<RunTo X="-188.2088" Y="-477.5831" Z="54.04776" />
@@ -239,9 +254,6 @@
 					<RunTo X="-243.1284" Y="-482.5194" Z="48.82872" />
 					<RunTo X="-257.6659" Y="-482.5565" Z="49.44861" />	
 
-					<CustomBehavior File="WaitTimer"
-									WaitTime="1000" />
-						
 					<!-- opening heavy door 17153 into Helix's room -->
 					<CustomBehavior File="InteractWith"
 									MobId="17153" 
@@ -250,6 +262,22 @@
 									NumOfTimes="1"  
 									WaitTime="1" 
 									X="-262.713745" Y="-482.361084" Z="49.43531" />
+									
+					
+					<CustomBehavior File="WaitTimer"
+									WaitTime="1000" />
+					
+					
+					
+					
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />	
+					
+					
 					
 					<!-- ENTER HELIX'S ROOM -->
 					<RunTo X="-267.4973" Y="-481.8291" Z="49.25309" />
@@ -300,6 +328,19 @@
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="1000" />
+									
+									
+									
+									
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+					
+					<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
+					
+					
+					
 					
 					<!-- moving to the exit door -->
 					<RunTo X="-289.9005" Y="-544.0559" Z="49.44535" />
@@ -338,8 +379,21 @@
 									WaitTime="1" 
 									X="-242.96521" Y="-578.561035" Z="51.1366043" />
 					
+					
+					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="1000" />	
+									
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+					
+					<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
+					
+					
+					
+					
 					
 					<!-- Clearing the foundry -->
 					<CustomBehavior File="RunLikeHell" 
@@ -377,8 +431,24 @@
 					<CustomBehavior File="Message" 
 									Text="We are waiting to get the boss to aggro. Blame Botanist if this fucks up." 
 									LogColor="Fuchsia" />
+									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="45000" />
+					
+					
+					
+					
+					
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+					
+					<RunTo X="-232.6577" Y="-578.0146" Z="51.22633" />
+					
+					
+					
+					
 					
 					<!-- clearing the path to the big cannon -->
 					<RunTo X="-171.5674" Y="-580.0723" Z="19.31439" />
@@ -423,8 +493,21 @@
 					<!-- moving to the door and waiting for the entrance guards -->
 					<RunTo X="-101.284" Y="-653.9721" Z="7.422448" />
 					
+					
+					
+					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />	
+									
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
+									
+									
+									
 					
 					<!-- clearing the path to the gangplank -->
 					<CustomBehavior File="RunLikeHell" 
@@ -509,10 +592,19 @@
 					</CustomBehavior>
 					<Runto X="-65.21016" Y="-782.4417" Z="17.76253" />
 						
-					<!-- Move to the door entering the cavern -->
-					<Runto X="-1.975269" Y="-780.8501" Z="9.979088" />	
+						
+						
+						
+					<!-- Tag the rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."  
+									LogColor="Fuchsia" />
+									
 					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
-					<RunTo X="-102.3849" Y="-654.0769" Z="7.422589" />
+					
+					
+					
+					
 												
 					<!-- Move to the door at the top of the foundry -->						
 					<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
@@ -588,6 +680,7 @@
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
 										LogColor="Fuchsia" />
+										
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
 					</If> <!-- Not in box -->
@@ -606,27 +699,30 @@
 										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />
 										
-						<!-- runto location in the instance that doesn't trigger loadprofileon for the booster -->
-						<RunTo X="-10.02501" Y="-378.2018" Z="61.52087" />
+						<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 					</If> <!-- In box -->		
 				</If> <!-- Eastern Kingdoms -->
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >
-					
-					<!-- triggers booster to initiate -->		
-					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="17" 
-									CheckRange="5" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+					<!-- Go to side -->
+					<RunTo X="-8.028585" Y="-373.2374" Z="61.75385" />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-							
+									CheckRange="2" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<!-- Go to activate spot -->
+					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
+									
+					<!-- If we are high enough to go to the next instance, do so 
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="17" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />	-->			
+					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  
 									LogColor="Fuchsia" />
@@ -636,111 +732,178 @@
 									LogColor="Yellow" />	
 					
 					<!-- waiting near the entrance for the booster to clear the way -->
-					<CustomBehavior File="Message" 
-									Text="Waiting 40 seconds, entrance." 
-									LogColor="Fuchsia" />		   
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="40000" />
+									WaitTime="30000" />
+									
+									
+									
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to next safespot." 
+									LogColor="Fuchsia" />	
 					
 					<!-- moving closer to the first pull -->
-					<RunTo X="-118.2137" Y="-398.463" Z="57.40186" />
+					<RunTo X="-74.5433" Y="-377.6173" Z="54.88211" />
 					
-					<!-- waiting for the first pull to complete -->
-					<CustomBehavior File="Message" 
-									Text="Waiting 20 seconds, 1st pull." 
-									LogColor="Fuchsia" />
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="20000" />
 					
-					<!-- Moving to the first bosses room -->
-					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />
+					
+					
+					
 					
 					<CustomBehavior File="Message" 
-									Text="Waiting 50 seconds, 2nd pull." 
+									Text="Moving to next safespot." 
 									LogColor="Fuchsia" />	
+					
+					<!-- Moving to the first boss room -->
+					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />
+					
+					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="50000" />
+									WaitTime="10000" />
+					
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					
+					
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to next safespot." 
+									LogColor="Fuchsia" />	
 					
 					<!-- Moving to Helix's door -->
 					<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
 					
-					<!-- Waiting for the booster to kill Helix -->
-					<CustomBehavior File="Message" 
-									Text="Waiting 60 seconds, before Helix Gearbreaker." 
-									LogColor="Fuchsia" />	
-					<CustomBehavior File="WaitTimer"
-									WaitTime="60000" />
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
 					
-					 <!-- Moving to the kegroom door -->
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					
+					
+					
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to next safespot." 
+									LogColor="Fuchsia" />	
+					
+					 <!-- Moving to the exit Helix door -->
 					<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
 					
-					<!-- Waiting for the booster to clear the keg room -->
-					<CustomBehavior File="Message" 
-									Text="Waiting 30 seconds, door after Helix Gearbreaker."
-									LogColor="Fuchsia" />	
+					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
+									WaitTime="10000" />
 					
-					<!-- 220 seconds in timers at this point -->
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					
+					
+					
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to next safespot." 
+									LogColor="Fuchsia" />	
 					
 					<!-- Moving to the foundry door -->
 					<RunTo X="-232.6577" Y="-578.0146" Z="51.22633" />
 					
-					<!-- Waiting for the booster to kill Foe Reaper -->
-					<CustomBehavior File="Message" 
-									Text="Waiting 40 seconds, foundry door."
-									LogColor="Fuchsia" />	
-					<CustomBehavior File="WaitTimer"
-									WaitTime="40000" />
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
 						
-					<!-- Running to the exit of the foundry -->		
-					<CustomBehavior File="RunLikeHell" 
-									UseCTM="true" 
-									NumOfTimes="1" 
-									AllowCombat="false">	
-						<Hotspot X="-233.4223" Y="-578.9639" Z="51.22836" />
-						<Hotspot X="-224.5538" Y="-560.98" Z="51.22935" />
-						<Hotspot X="-205.1647" Y="-552.2297" Z="51.22935" />
-						<Hotspot X="-182.1089" Y="-566.8971" Z="51.01614" />
-						<Hotspot X="-180.1718" Y="-588.8973" Z="42.2102" />
-						<Hotspot X="-197.1153" Y="-605.3293" Z="32.76764" />
-						<Hotspot X="-223.923" Y="-601.0953" Z="22.18594" />
-						<Hotspot X="-220.4107" Y="-587.1436" Z="20.97689" />
-						<Hotspot X="-202.2292" Y="-590.7361" Z="20.97689" />
-						<Hotspot X="-190.7324" Y="-579.336" Z="20.97689" />
-						<Hotspot X="-173.0081" Y="-579.7811" Z="19.31267" />
-					</CustomBehavior>	
-
+						
+					
+					
+					
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to next safespot." 
+									LogColor="Fuchsia" />	
+					
 					<!-- Moving to the lower foundry door -->
 					<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
 					
-					<!-- Waiting for the booster to clear a path to the big cannon -->
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					<!-- When the booster tags us again, we can move forward -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					
+					
+					
+					
 					<CustomBehavior File="Message" 
-									Text="Waiting 70 seconds, bottom door."
+									Text="Moving to next safespot." 
 									LogColor="Fuchsia" />	
-					<CustomBehavior File="WaitTimer"
-									WaitTime="70000" />
 					
 					<!-- Running to the big cannon -->
 					<RunTo X="-99.24007" Y="-650.1745" Z="6.978131" />
 					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
 					
-					<!-- Waiting for the booster to clear the ship -->
-					<CustomBehavior File="Message" 
-									Text="Waiting for the booster to clear the ship.." 
-									LogColor="Fuchsia" />
-					<!-- This triggers the RAF toons to exit after the booster has cleared the ship -->				
+					
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					<!-- When the booster tags us again, we can move forward -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
-					<!-- Waiting 30 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
-					<CustomBehavior File="WaitTimer"
-									WaitTime="40000" />				
-					
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="30000" />
+										
 					<!-- moving past the big xannon so we don't get stuck -->
 					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
 					
-					<!-- cycle -->
+					<CustomBehavior File="Message" 
+									Text="Exiting instance." 
+									LogColor="Fuchsia" />	
+					
 				</If> <!-- Deadmines -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
