@@ -158,9 +158,7 @@
 					<!-- Mudsprocket = 4010 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="Me.HearthstoneAreaId == 4010" >
-						<!-- If we have our Hearthstone, use it 
-						<If Condition="HasItem(6948)"> -->
-							<!-- If it's not on CD -->
+						<!-- If it's not on CD -->
 						<If Condition="SpellManager.CanCast(6948)">
 							<CustomBehavior File="Message" 
 											Text="Using Hearthstone." 

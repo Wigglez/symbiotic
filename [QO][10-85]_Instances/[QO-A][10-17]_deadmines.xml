@@ -616,7 +616,8 @@
 					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
 					
 					
-					
+					<!-- moving past the big cannon so we don't get stuck -->
+					<RunTo X="-99.6212" Y="-657.9174" Z="7.423793" />
 					
 												
 					<!-- Move to the door at the top of the foundry -->						
@@ -923,8 +924,9 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="60000" />
 										
-					<!-- moving past the big xannon so we don't get stuck -->
-					<RunTo X="-98.63293" Y="-658.2188" Z="7.421856" />
+					<!-- moving past the big cannon so we don't get stuck -->
+					<RunTo X="-99.6212" Y="-657.9174" Z="7.423793" />
+
 					
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 

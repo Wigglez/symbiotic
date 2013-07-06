@@ -131,7 +131,7 @@
 								<!-- Quest is incomplete -->
 								<If Condition="!HasQuest(26322) &amp;&amp; !IsQuestCompleted(26322)" >
 									<CustomBehavior File="Message" 
-													Text="We have not completed the quest." 
+													Text="We have not completed the quest that changes the Innkeeper location." 
 													LogColor="Cyan" />
 								
 									<!-- Fly to the innkeep in the wooden building -->
@@ -167,7 +167,7 @@
 								<!-- Quest is complete -->
 								<If Condition="!HasQuest(26322) &amp;&amp; IsQuestCompleted(26322)">
 									<CustomBehavior File="Message" 
-													Text="We have completed the quest." 
+													Text="We have completed the quest that changes the Innkeeper location." 
 													LogColor="Cyan" />
 								
 									<!-- Fly to the innkeep in the tower -->
