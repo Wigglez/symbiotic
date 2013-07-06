@@ -666,6 +666,10 @@
 					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="120000" />
+									
+					<CustomBehavior File="Message" 
+									Text="Exiting instance." 
+									LogColor="Fuchsia" />	
 				</If> <!-- Wailing Caverns -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

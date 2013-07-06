@@ -755,6 +755,14 @@
 	
 					<CustomBehavior File="WaitTimer" WaitTime="70000" />
 					
+					
+					
+					
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to next safespot." 
+									LogColor="Fuchsia" />	
+					
 					<!-- Go to the water cubby -->
 					<CustomBehavior File="MyCTM" 
 									X="-299.8195" Y="65.63107" Z="-59.83585" />
@@ -781,6 +789,9 @@
 					<CustomBehavior File="MyCTM" 
 									X="-343.1473" Y="109.0681" Z="-50.93742" />	
 				
+				
+				
+				
 					<!-- run behind crab -->
 					<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
 					
@@ -798,6 +809,10 @@
 					<!-- Force ourselves to run off of it -->
 					<CustomBehavior File="MyCTM" 
 									X="-273.533" Y="71.30302" Z="-58.51636" />
+									
+					<CustomBehavior File="Message" 
+									Text="Exiting instance." 
+									LogColor="Fuchsia" />	
 				</If> <!-- Inside BFD -->	
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
