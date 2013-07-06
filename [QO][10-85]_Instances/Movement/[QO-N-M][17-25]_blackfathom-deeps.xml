@@ -81,144 +81,6 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 			
-			
-			<!-- If we are inside of the box -->
-			<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
-				<CustomBehavior File="Message" 
-								Text="We are in the box." 
-								LogColor="Cyan" />
-								
-				<!-- If we need to repair -->
-				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-				
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
-									Title="WARNING" />	
-					
-					<!-- If we have our Hearthstone, use it -->
-					<If Condition="HasItem(6948)" >
-						<CustomBehavior File="Message" 
-										Text="Using Hearthstone." 
-										LogColor="Lime" />
-						
-						<CustomBehavior File="Misc\RunLua" 
-										Lua="UseItemByName(6948)" 
-										WaitTime="1000" />
-										
-						<!-- Otherwise use the Innkeeper's Daughter -->
-						<ElseIf Condition="HasItem(64488)">
-							
-							<CustomBehavior File="Message" 
-											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
-						</ElseIf> <!-- Have Innkeeper's Daughter -->
-						
-					</If> <!-- Hearthstone -->
-					
-					<!-- If we are in Ashenvale,  repair -->
-					<If Condition="Me.ZoneId == 331" >
-						<CustomBehavior File="ForceSetVendor" 
-										DoMail="False" 
-										DoRepair="True" 
-										DoSell="False" 
-										DoTrain="False" />
-										
-						<CustomBehavior File="Message" 
-										Text="We are in town, moving to the repair vendor." 
-										LogColor="Fuchsia" />
-						
-						<If Condition="Me.IsAlliance" >									
-							<SetVendor>
-								<Vendors>
-									<!-- Astranaar -->
-									<Vendor Name="Xai'ander" 
-											Entry="11137" 
-											Type="Repair" 
-											X="2672.308" Y="-363.6043" Z="110.7277" />
-								</Vendors>
-							</SetVendor>
-							
-							<!-- We are done vendoring -->
-							<If Condition="Me.DurabilityPercent &gt; 0.8" >
-								<CustomBehavior File="Message" 
-												Text="Repairing complete, moving back to Blackfathom Deeps." 
-												LogColor="Fuchsia" />
-								
-								<!-- Run outside the vendor building -->
-								<RunTo X="2730.185" Y="-368.3259" Z="107.1429" />
-								<CustomBehavior File="ForcedMount" 
-												MountType="Flying" />
-								
-								<!-- Fly up above the camp -->
-								<CustomBehavior File="FlyTo" 
-												X="2753.529" Y="-355.3454" Z="176.8568" />
-							</If> <!-- Durability over 80 -->
-							
-							<ElseIf Condition="Me.IsHorde" >												
-								<SetVendor>
-									<Vendors>
-										<!-- Zoram'gar Outpost-->
-										<Vendor Name="Toral" 
-												Entry="43615" 
-												Type="Repair" 
-												X="3319.01" Y="1040.83" Z="4.057311" />
-									</Vendors>
-								</SetVendor>
-								
-								<!-- We are done vendoring -->
-								<If Condition="Me.DurabilityPercent &gt; 0.8" >
-									<CustomBehavior File="Message" 
-													Text="Repairing complete, moving back to Blackfathom Deeps." 
-													LogColor="Fuchsia" />
-									
-									<!-- Run outside the vendor building -->
-									<RunTo X="3347.737" Y="1020.834" Z="3.562047" />
-									<CustomBehavior File="ForcedMount" 
-													MountType="Flying" />
-									
-									<!-- Fly up to the hover point -->
-									<CustomBehavior File="FlyTo" 
-													X="3367.091" Y="1018.285" Z="59.13772" />
-								</If> <!-- Durability over 80 -->
-							</ElseIf> <!-- Horde -->
-						</If> <!-- Alliance -->
-						
-						<CustomBehavior File="Message" 
-										Text="In transit to Blackfathom Deeps." 
-										LogColor="Lime" />
-						
-						<!-- Fly above stairs leading to BFD -->
-						<CustomBehavior File="FlyTo" 
-										X="4081.023" Y="850.1998" Z="58.13429" />
-						
-						<!-- CTM to the stairs at the entrance -->
-						<CustomBehavior File="MyCTM" 
-										X="4126.021" Y="864.3951" Z="9.704142" />
-						
-						<!-- Run to waters edge -->
-						<RunTo X="4154.48" Y="869.1308" Z="-18.11675" />
-						
-						<!-- CTM through the water to the other side -->
-						<CustomBehavior File="MyCTM" 
-										X="4159.362" Y="888.0648" Z="-23.53469" />
-						<CustomBehavior File="MyCTM" 
-										X="4159.373" Y="918.5477" Z="-16.95678" />
-						
-						<!-- Run to the instance box -->
-						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-					</If> <!-- Ashenvale -->
-				</If> <!-- Durability -->
-			</If> <!-- Inside box -->
-			
 			<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
 				<CustomBehavior File="Message" 
 								Text="We are not in the box." 
@@ -396,8 +258,8 @@
 					<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
-						<!-- If we have our Hearthstone, use it -->
-						<If Condition="HasItem(6948)">
+						<!-- If it's not on CD -->
+						<If Condition="SpellManager.CanCast(6948)">
 							<CustomBehavior File="Message" 
 											Text="Using Hearthstone." 
 											LogColor="Lime" />
@@ -405,19 +267,23 @@
 							<CustomBehavior File="Misc\RunLua" 
 											Lua="UseItemByName(6948)" 
 											WaitTime="1000" />
-							
-							<!-- Otherwise use the Innkeeper's Daughter -->
-							<Else>
+											
+							<ElseIf Condition="SpellManager.CanCast(64488)">
 								<CustomBehavior File="Message" 
 												Text="Using Innkeeper's Daughter." 
 												LogColor="Lime" />
-							
+												
 								<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(64488)" 
 												WaitTime="1000" />
-							</Else> <!-- Innkeeper's daughter -->
+							</ElseIf>
 							
-						</If> <!-- Hearth -->
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="Unable to hearth due to cooldown. Proceeding with movement." 
+												LogColor="Fuchsia" />
+							</Else>
+						</If> <!-- Not on CD -->
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
 						<Else>
@@ -467,9 +333,7 @@
 								<!-- Run outside the inn -->
 								<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
 								
-								<!-- ForcedMount, and fly to hover point -->
-								<CustomBehavior File="ForcedMount"
-												MountType="Flying" />
+								<!-- fly to hover point -->
 								<CustomBehavior File="FlyTo" 
 												X="2721.863" Y="-385.5038" Z="142.7964" />
 							
@@ -533,9 +397,7 @@
 							<RunTo X="2758.864" Y="-420.845" Z="111.4777" />
 							<RunTo X="2736.872" Y="-398.9366" Z="108.3573" />
 							
-							<!-- ForcedMount, and fly to hover point -->
-							<CustomBehavior File="ForcedMount"
-											MountType="Flying" />
+							<!-- fly to hover point -->
 							<CustomBehavior File="FlyTo" 
 											X="2721.863" Y="-385.5038" Z="142.7964" />
 						
@@ -553,6 +415,49 @@
 							</ElseIf> <!-- Horde -->
 						</If> <!-- Alliance -->
 					</If> <!-- Check hearthstone -->
+					
+					<!-- Repair if necessary -->
+					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+						<CustomBehavior File="Message" 
+										Text="Our durability is less than 80%, we need to repair." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="False" 
+										DoRepair="True" 
+										DoSell="False" 
+										DoTrain="False" />
+						
+						<SetVendor>
+							<Vendors>
+								<If Condition="Me.IsAlliance">
+									<!-- Astranaar -->
+									<Vendor Name="Xai'ander" 
+											Entry="11137" 
+											Type="Repair" 
+											X="2672.308" Y="-363.6043" Z="110.7277" />
+								
+								
+									<ElseIf Condition="Me.IsHorde">
+										<!-- Zoram'gar Outpost-->
+										<Vendor Name="Toral" 
+												Entry="43615" 
+												Type="Repair" 
+												X="3319.01" Y="1040.83" Z="4.057311" />
+									</ElseIf>
+								</If>
+												
+							</Vendors>
+						</SetVendor>
+					
+						<!-- We are done repairing -->
+						<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+							<CustomBehavior File="Message" 
+											Text="Repairing complete." 
+											LogColor="Fuchsia" />
+						</If> <!-- repaired -->
+					</If> <!-- Repairing -->
+					
 					
 					<CustomBehavior File="Message" 
 									Text="Flying to the rendezvous location." 

@@ -166,15 +166,9 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out."
+										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
 										
-						<!-- Check durability, load the movement profile -->
-						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-							<CustomBehavior File="LoadProfile" 
-											ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
-						</If> <!-- Durability check -->
-					
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
@@ -213,6 +207,19 @@
 						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
+				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 48">
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Blackfathom Deeps portal -->
+					<CustomBehavior File="MyCTM" 
+									X="4250.304" Y="749.9905" Z="-23.02605" />
+				</If> 
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
@@ -719,6 +726,19 @@
 					
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 				</If> <!-- In box -->	
+				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 48">
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Blackfathom Deeps portal -->
+					<CustomBehavior File="MyCTM" 
+									X="4250.304" Y="749.9905" Z="-23.02605" />
+				</If> 
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48" >

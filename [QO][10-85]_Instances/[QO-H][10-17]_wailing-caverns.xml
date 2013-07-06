@@ -100,7 +100,8 @@
 					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="Fuchsia" />	
+										LogColor="Fuchsia" />
+										
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
 					</If> <!-- Not in box -->
@@ -108,15 +109,9 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out." 
+										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
 										
-						<!-- Check durability, load the movement profile -->
-						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-							<CustomBehavior File="LoadProfile" 
-											ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
-						</If> <!-- Durability check -->
-					
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
@@ -188,6 +183,19 @@
 						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
+				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 43">
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Wailing Caverns portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-744.4048" Y="-2216.026" Z="15.71743" />
+				</If> 
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
@@ -624,6 +632,19 @@
 						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					</If> <!-- In box -->			
 				</If> <!-- Kalimdor -->
+				
+				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
+				<If Condition="Me.MapId != 43">
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+					
+					<!-- Run back in the Wailing Caverns portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-744.4048" Y="-2216.026" Z="15.71743" />
+				</If> 
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">

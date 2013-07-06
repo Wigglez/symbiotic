@@ -182,10 +182,10 @@
 					<!-- Go to activate spot -->
 					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
 									
-					<!-- If we are high enough to go to the next instance, do so 
+					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />		 -->		
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml" />				
 					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  
@@ -745,10 +745,10 @@
 					<!-- Go to activate spot -->
 					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
 									
-					<!-- If we are high enough to go to the next instance, do so 
+					<!-- If we are high enough to go to the next instance, do so -->	
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />	-->			
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />		
 					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  

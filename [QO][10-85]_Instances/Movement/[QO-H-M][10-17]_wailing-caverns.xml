@@ -75,96 +75,6 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
-			<!-- If we are inside the box -->		
-			<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
-				<CustomBehavior File="Message" 
-								Text="We are in the box." 
-								LogColor="Cyan" />
-				
-				<!-- If we need to repair -->
-				<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="60"
-									ExpiryAction="InputEnabled_Continue" 
-									Text="Booster - I have detected that my gear is about to break. I need to repair. You can stop the bot to manually repair or press continue to use the automated features." 	
-									Title="WARNING" />	
-
-					<!-- If we have our Hearthstone, use it -->
-					<If Condition="HasItem(6948)">
-						<CustomBehavior File="Message" 
-										Text="Using Hearthstone." 
-										LogColor="Lime" />
-					
-						<CustomBehavior File="Misc\RunLua" 
-										Lua="UseItemByName(6948)" 
-										WaitTime="1000" />
-						
-						<!-- Otherwise use the Innkeeper's Daughter -->
-						<ElseIf Condition="HasItem(64488)">
-							<CustomBehavior File="Message" 
-											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
-						</ElseIf> <!-- Have Innkeeper's Daughter -->
-						
-					</If> <!-- Hearthstone -->
-					
-					<!-- If we are in Northern Barrens, repair -->
-					<If Condition="Me.ZoneId == 17" >
-						<CustomBehavior File="ForceSetVendor" 
-										DoMail="False" 
-										DoRepair="True" 
-										DoSell="False" 
-										DoTrain="False" />
-								
-						<CustomBehavior File="Message" 
-										Text="We are in town, moving to the repair vendor." 
-										LogColor="Fuchsia" />
-										
-						<SetVendor>
-							<Vendors>
-								<!-- Crossroads -->
-								<Vendor Name="Halija Whitestrider" 
-										Entry="3486" 
-										Type="Repair" 
-										X="-539.8406" Y="-2672.23" Z="95.78806" />
-							</Vendors>
-						</SetVendor>
-						
-						<!-- We are done vendoring -->
-						<If Condition="Me.DurabilityPercent &gt; 0.8" >
-							<CustomBehavior File="Message" 
-											Text="Repairing complete, moving back to Wailing Caverns." 
-											LogColor="Fuchsia" />
-						</If> <!-- Durability over 80 -->
-						
-						<CustomBehavior File="Message" 
-										Text="In transit to Wailing Caverns." 
-										LogColor="Lime" />
-						
-						<!-- Fly to cave entrance -->
-						<CustomBehavior File="FlyTo" 
-										X="-852.6912" Y="-2038.192" Z="80.91393" />
-						
-						<!-- Run to pool -->
-						<RunTo X="-573.4042" Y="-2087.878" Z="51.32555" />
-						
-						<!-- CTM through the water to the other side -->
-						<CustomBehavior File="MyCTM" 
-										X="-593.2246" Y="-2130.803" Z="50.91864" />
-						
-						<!-- Run to the instance box -->
-						<RunTo X="-738.462" Y="-2217.8" Z="16.66938" />
-					</If> <!-- Northern Barrens -->
-				</If> <!-- Durability -->
-			</If> <!-- In box -->			
-							
 			<!-- Outside the box -->
 			<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
 				<CustomBehavior File="Message" 
@@ -191,8 +101,8 @@
 							<!-- Crossroads = 380 -->
 							<!-- If our hearthstone is set here, use it -->
 							<If Condition="Me.HearthstoneAreaId == 380" >
-								<!-- If we have our Hearthstone, use it -->
-								<If Condition="HasItem(6948)">
+								<!-- If it's not on CD -->
+								<If Condition="SpellManager.CanCast(6948)">
 									<CustomBehavior File="Message" 
 													Text="Using Hearthstone." 
 													LogColor="Lime" />
@@ -200,10 +110,8 @@
 									<CustomBehavior File="Misc\RunLua" 
 													Lua="UseItemByName(6948)" 
 													WaitTime="1000" />
-									
-									<!-- Otherwise use the Innkeeper's Daughter -->
-									<ElseIf Condition="HasItem(64488)">
-										
+													
+									<ElseIf Condition="SpellManager.CanCast(64488)">
 										<CustomBehavior File="Message" 
 														Text="Using Innkeeper's Daughter." 
 														LogColor="Lime" />
@@ -211,18 +119,15 @@
 										<CustomBehavior File="Misc\RunLua" 
 														Lua="UseItemByName(64488)" 
 														WaitTime="1000" />
-									</ElseIf> <!-- Have Innkeeper's Daughter -->
+									</ElseIf>
 									
-									<!-- Run outside the inn -->
-									<RunTo X="-434.4784" Y="-2651.589" Z="95.92944" />
+									<Else>
+										<CustomBehavior File="Message" 
+														Text="Unable to hearth due to cooldown. Proceeding with movement." 
+														LogColor="Fuchsia" />
+									</Else>
+								</If> <!-- Not on CD -->
 									
-									<!-- ForcedMount, and fly above the village -->
-									<CustomBehavior File="ForcedMount"
-													MountType="Flying" />
-									<CustomBehavior File="FlyTo" 
-													X="-455.4241" Y="-2651.979" Z="142.298" />
-								</If> <!-- Hearth -->
-								
 								<!-- Our hearth isn't set, we need to go to the zone -->
 								<Else>
 									<CustomBehavior File="Message" 
@@ -261,12 +166,46 @@
 									
 									<!-- Run outside the inn -->
 									<RunTo X="-436.0171" Y="-2652.57" Z="95.90172" />	
-									
-									<!-- Fly to hover point -->
-									<CustomBehavior File="FlyTo" 
-													X="-455.4241" Y="-2651.979" Z="142.298" />
 								</Else> <!-- Set hearth -->
 							</If> <!-- Check hearthstone -->
+							
+							<!-- Repair if necessary -->
+							<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+								<CustomBehavior File="Message" 
+												Text="Our durability is less than 80%, we need to repair." 
+												LogColor="Fuchsia" />
+											
+								<CustomBehavior File="ForceSetVendor" 
+												DoMail="False" 
+												DoRepair="True" 
+												DoSell="False" 
+												DoTrain="False" />
+								
+								<SetVendor>
+									<Vendors>
+										<!-- Crossroads -->
+										<Vendor Name="Halija Whitestrider" 
+												Entry="3486" 
+												Type="Repair" 
+												X="-539.8406" Y="-2672.23" Z="95.78806" />
+									</Vendors>
+								</SetVendor>
+							
+								<!-- We are done repairing -->
+								<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+									<CustomBehavior File="Message" 
+													Text="Repairing complete." 
+													LogColor="Fuchsia" />
+								</If> <!-- repaired -->
+							</If> <!-- Repairing -->
+							
+							<!-- Hover point -->
+							<CustomBehavior File="FlyTo" 
+											X="-455.4241" Y="-2651.979" Z="142.298" />
+											
+							<CustomBehavior File="Message" 
+											Text="We are in The Crossroads." 
+											LogColor="Cyan" />
 						
 							<CustomBehavior File="Message" 
 											Text="Flying to the rendezvous location." 
@@ -278,7 +217,11 @@
 											
 							<!-- Begin the randezvous once all party members are within range -->
 							<CustomBehavior File="Misc\LoadProfileOn" 
-											CheckRange="5" /> 
+											CheckRange="1" /> 
+											
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="5000" />
 							
 							<!-- Clear the cave entrance -->
 							<CustomBehavior File="FlyTo" 
@@ -638,7 +581,8 @@
 											X="-819.8129" Y="-2025.358" Z="117.2773" />
 											
 							<!-- Begin the randezvous once all party members are within range -->
-							<CustomBehavior File="Misc\LoadProfileOn" CheckRange="1" /> 
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="1" /> 
 							
 							<CustomBehavior File="Message" 
 											Text="Allowing the booster to be a boss and clear the way for us, do not touch." 
@@ -652,7 +596,8 @@
 											WaitTime="165000" />						
 							
 							<!-- Jump to the cave entrance -->			
-							<CustomBehavior File="MyCTM" X="-851.8849" Y="-2019.86" Z="86.17676" />
+							<CustomBehavior File="MyCTM" 
+											X="-851.8849" Y="-2019.86" Z="86.17676" />
 							
 							<!-- Running up to the water pool -->
 							<CustomBehavior File="NoCombatMoveTo" 
