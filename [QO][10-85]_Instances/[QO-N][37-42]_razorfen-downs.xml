@@ -107,7 +107,7 @@
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 				</If>	
 			
-				<!-- If we are inside Razorfen Downs, run out to reset -->
+				<!-- If we are inside Razorfen Downs -->
 				<If Condition="Me.MapId == 129">
 					<CustomBehavior File="Message" 
 									Text="Razorfen Downs detected. Running out to reset."
@@ -538,6 +538,8 @@
 									MinLevel="42" 
 									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
 									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+									
 					<CustomBehavior File="Message" 
 									Text="Razorfen Downs initialized."  
 									LogColor="Fuchsia" />
@@ -600,6 +602,8 @@
 					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
+					
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 					
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 

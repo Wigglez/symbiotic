@@ -750,6 +750,8 @@
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />		
 					
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  
 									LogColor="Fuchsia" />
@@ -927,6 +929,7 @@
 					<!-- moving past the big cannon so we don't get stuck -->
 					<RunTo X="-99.6212" Y="-657.9174" Z="7.423793" />
 
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 					
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 

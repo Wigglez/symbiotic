@@ -761,6 +761,10 @@
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 				
 					<CustomBehavior File="Message" 
+									Text="Blackfathom Deeps initialized."  
+									LogColor="Fuchsia" />
+				
+					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 					
@@ -829,6 +833,8 @@
 					<!-- Force ourselves to run off of it -->
 					<CustomBehavior File="MyCTM" 
 									X="-273.533" Y="71.30302" Z="-58.51636" />
+									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 									
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 

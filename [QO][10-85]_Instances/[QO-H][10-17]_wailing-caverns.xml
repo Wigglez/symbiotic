@@ -666,6 +666,8 @@
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />				
+									
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns initialized."  
 									LogColor="Fuchsia" />
@@ -687,6 +689,8 @@
 					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="120000" />
+									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 									
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 
