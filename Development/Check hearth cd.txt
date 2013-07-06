@@ -1,0 +1,1 @@
+Condition="Lua.GetReturnVal(&quot;return GetSpellCooldown(8690)&quot;, 1) &lt;= 0"
