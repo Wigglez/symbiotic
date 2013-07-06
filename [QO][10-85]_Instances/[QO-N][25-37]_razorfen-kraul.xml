@@ -143,15 +143,9 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby. Checking durability and proceeding to reset instance if gear checks out."
+										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
-										
-						<!-- Check durability, load the movement profile -->
-						<If Condition="Me.LowestDurabilityPercent &lt; 0.1" >
-							<CustomBehavior File="LoadProfile" 
-											ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
-						</If>
-					
+						
 						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 						<CustomBehavior File="Message" 
 										Text="Resetting instance, 1 of 2." 
@@ -178,11 +172,23 @@
 						<CustomBehavior File="Message" 
 										Text="Instance reset." 
 										LogColor="Fuchsia" />
-										
+						
 						<!-- Run back in the Razorfen Kraul portal -->
 						<CustomBehavior File="MyCTM" 
-										X="-4458.964" Y="-1658.854" Z="81.5267" />
+											X="-4458.964" Y="-1658.854" Z="81.5267" />
 										
+						<While Condition="Me.MapId != 47">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+							
+							<!-- Run back in the Razorfen Kraul portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-4458.964" Y="-1658.854" Z="81.5267" />
+							
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+						</While> 
+						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />
@@ -676,6 +682,18 @@
 						<!-- Go inside the Razorfen Kraul portal -->
 						<CustomBehavior File="MyCTM" 
 										X="-4458.964" Y="-1658.854" Z="81.5267" />
+										
+						<While Condition="Me.MapId != 47">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+							
+							<!-- Run back in the Razorfen Kraul portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-4458.964" Y="-1658.854" Z="81.5267" />
+							
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+						</While> 
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
