@@ -97,7 +97,7 @@
 				<!-- If we are inside Blackrock Depths -->
 				<If Condition="Me.ZoneId == 1584">
 					<CustomBehavior File="Message" 
-									Text="Blackrock Depths detected. Running out to reset."
+									Text="Blackrock Depths detected. Running out."
 									LogColor="Fuchsia" />
 					
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
@@ -128,62 +128,36 @@
 										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
 							
-						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 1 of 2." 
-										LogColor="Fuchsia" />
-						
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro"
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<!-- Allow for an Honorbuddy pulse -->
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="200" />
-						
-						<!-- The second reset confirms we are safe to enter the instance -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 2 of 2." 
-										LogColor="Fuchsia" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<CustomBehavior File="Message" 
-										Text="Instance reset." 
-										LogColor="Fuchsia" />
+						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+						<While Condition="Me.ZoneId != 1584">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+							
+							<!-- Run back in the Blackrock Depths portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-7177.727" Y="-927.1953" Z="166.9945" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
 										
-						<!-- Run back in the Blackrock Depths portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-7177.727" Y="-927.1953" Z="166.9945" />
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-						<RunTo X="456.929" Y="34.0923" Z="-69.56168" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
 				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.ZoneId != 1584">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Blackrock Depths portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-7177.727" Y="-927.1953" Z="166.9945" />
-				</If> <!-- If we didn't enter the instance -->
-				
 				<!-- If we are inside Blackrock Depths and have checked our reset -->
 				<If Condition="Me.ZoneId == 1584">
+					<!-- Entrance -->
+					<RunTo X="456.929" Y="34.0923" Z="-69.56168" />
+				
 					<!-- Go to quest givers -->
-					<RunTo X="437.5886" Y="-1.726231" Z="-70.73425" />
+					<RunTo X="459.7507" Y="18.36356" Z="-70.99839" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -192,14 +166,6 @@
 					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
 									
-					<!-- Go to activate spot -->
-					<RunTo X="459.7507" Y="18.36356" Z="-70.99839" />
-					
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="48" 
-									ProfileName="[QO-N][48-58]_upper-blackrock-spire.xml"  />
-					
 					<CustomBehavior File="Message" 
 									Text="Blackrock Depths initialized."  
 									LogColor="Fuchsia" />
@@ -459,10 +425,62 @@
 					<!-- Tag rafs -->
 					<RunTo X="570.6876" Y="-32.68422" Z="-62.68099" />
 					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="48" 
+									ProfileName="[QO-N][48-58]_upper-blackrock-spire.xml"  />
+					
 					<RunTo X="567.4936" Y="-10.46224" Z="-70.13719" />
 					<RunTo X="541.0748" Y="5.988479" Z="-69.68866" />
 					<RunTo X="496.5298" Y="14.01889" Z="-70.13716" />	
-				</If> <!-- Inside BRD -->
+				</If> <!-- BRD -->
+				
+				<!-- If we are inside Blackrock Depths -->
+				<If Condition="Me.ZoneId == 1584">
+					<CustomBehavior File="Message" 
+									Text="Blackrock Depths detected. Running out to reset."
+									LogColor="Fuchsia" />
+					
+					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="454.8344" Y="38.78323" Z="-68.91302" />		
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+				</If> <!-- BRD -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
+					
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- Booster -->
 		
@@ -549,35 +567,36 @@
 										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
 							
-						<!-- Run back in the Blackrock Depths portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-7177.727" Y="-927.1953" Z="166.9945" />
+						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+						<While Condition="Me.ZoneId != 1584">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+							
+							<!-- Run back in the Blackrock Depths portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-7177.727" Y="-927.1953" Z="166.9945" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
 										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-						<RunTo X="456.929" Y="34.0923" Z="-69.56168" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
 				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.ZoneId != 1584">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Blackrock Depths portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-7177.727" Y="-927.1953" Z="166.9945" />
-				</If> <!-- If we didn't enter the instance -->
-				
 				<!-- If we are inside Blackrock Depths and have checked our reset -->
 				<If Condition="Me.ZoneId == 1584">
+					<!-- Entrance -->
+					<RunTo X="456.929" Y="34.0923" Z="-69.56172" />
+				
 					<!-- Go to quest givers -->
-					<RunTo X="437.5886" Y="-1.726231" Z="-70.73425" />
+					<RunTo X="459.7507" Y="18.36356" Z="-70.99839" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -585,15 +604,7 @@
 									
 					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="459.7507" Y="18.36356" Z="-70.99839" />
-					
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="48" 
-									ProfileName="[QO-N][48-58]_upper-blackrock-spire.xml"  />
-									
+							
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
 					
 					<CustomBehavior File="Message" 
@@ -618,15 +629,21 @@
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="240000" />
-									
+					
+					<!-- Run through the second gates -->
 					<RunTo X="567.4936" Y="-10.46224" Z="-70.13719" />
 					
-					
+					<!-- Safespot -->
 					<RunTo X="570.6876" Y="-32.68422" Z="-62.68099" />
 					
 					<!-- When the booster tags us again, we can move forward -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
+									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="48" 
+									ProfileName="[QO-N][48-58]_upper-blackrock-spire.xml"  />
 									
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
@@ -637,11 +654,24 @@
 					<RunTo X="496.5298" Y="14.01889" Z="-70.13716" />	
 
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-					
+				</If> <!-- BRD -->
+				
+				<!-- If we are inside Blackrock Depths -->
+				<If Condition="Me.ZoneId == 1584">
 					<CustomBehavior File="Message" 
-									Text="Exiting instance." 
-									LogColor="Fuchsia" />	
-				</If> <!-- Inside BRD -->
+									Text="Blackrock Depths detected. Running out."
+									LogColor="Fuchsia" />
+					
+					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="454.8344" Y="38.78323" Z="-68.91302" />		
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+				</If> <!-- BRD -->
+				
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
 	</QuestOrder>

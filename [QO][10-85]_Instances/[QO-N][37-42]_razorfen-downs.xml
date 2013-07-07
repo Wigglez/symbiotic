@@ -110,7 +110,7 @@
 				<!-- If we are inside Razorfen Downs -->
 				<If Condition="Me.MapId == 129">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Downs detected. Running out to reset."
+									Text="Razorfen Downs detected. Running out."
 									LogColor="Fuchsia" />
 					
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
@@ -572,21 +572,20 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 									
-								
-					
-					<CustomBehavior File="Message" 
-									Text="Exiting instance." 
-									LogColor="Fuchsia" />	
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- RFD -->
 				
 				<!-- If we are inside Razorfen Downs, run out to reset -->
 				<If Condition="Me.MapId == 129">
-					<CustomBehavior File="Message" Text="Razorfen Downs detected. Running out to reset." LogColor="Fuchsia" />
+					<CustomBehavior File="Message"
+									Text="Razorfen Downs detected. Running out." 
+									LogColor="Fuchsia" />
 					
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="2592.638" Y="1116.691" Z="50.39219" />
+					<CustomBehavior File="MyCTM"
+									X="2592.638" Y="1116.691" Z="50.39219" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
@@ -594,7 +593,6 @@
 				
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
-			
 	</QuestOrder>
 </HBProfile>
 
