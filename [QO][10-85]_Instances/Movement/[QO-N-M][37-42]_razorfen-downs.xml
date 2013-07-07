@@ -196,6 +196,9 @@
 						</Else> <!-- Set hearth -->
 					</If> <!-- Check hearthstone -->
 					
+					<!-- Run to rapair vendor -->
+					<RunTo X="-4603.045" Y="-3206.708" Z="34.92397" />
+					
 					<!-- Repair if necessary -->
 					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
 						<CustomBehavior File="Message" 
