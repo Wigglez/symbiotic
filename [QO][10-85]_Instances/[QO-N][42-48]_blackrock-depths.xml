@@ -129,13 +129,13 @@
 										LogColor="Fuchsia" />	
 							
 						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-						<While Condition="Me.ZoneId != 1584">
+						<While Condition="Me.MapId != 129">
 							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
 							
-							<!-- Run back in the Blackrock Depths portal -->
+							<!-- Run back in the Razorfen Downs portal -->
 							<CustomBehavior File="MyCTM" 
-											X="-7177.727" Y="-927.1953" Z="166.9945" />
+											X="-4661.966" Y="-2531.649" Z="82.09726" />
 											
 							<CustomBehavior File="Message" 
 											Text="Waiting for the dungeon to load." 
@@ -143,10 +143,13 @@
 										
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="10000" />
-							
-							<CustomBehavior File="Message" 
-											Text="We are locked out. Waiting and trying again." 
-											LogColor="Fuchsia" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 129">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
 						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
@@ -568,13 +571,13 @@
 										LogColor="Fuchsia" />	
 							
 						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-						<While Condition="Me.ZoneId != 1584">
+						<While Condition="Me.MapId != 129">
 							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
 							
-							<!-- Run back in the Blackrock Depths portal -->
+							<!-- Run back in the Razorfen Downs portal -->
 							<CustomBehavior File="MyCTM" 
-											X="-7177.727" Y="-927.1953" Z="166.9945" />
+											X="-4661.966" Y="-2531.649" Z="82.09726" />
 											
 							<CustomBehavior File="Message" 
 											Text="Waiting for the dungeon to load." 
@@ -582,10 +585,13 @@
 										
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="10000" />
-							
-							<CustomBehavior File="Message" 
-											Text="We are locked out. Waiting and trying again." 
-											LogColor="Fuchsia" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 129">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
 						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->

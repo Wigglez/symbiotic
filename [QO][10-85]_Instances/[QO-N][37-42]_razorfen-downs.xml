@@ -156,10 +156,13 @@
 										
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="10000" />
-							
-							<CustomBehavior File="Message" 
-											Text="We are locked out. Waiting and trying again." 
-											LogColor="Fuchsia" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 129">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
 						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
@@ -523,10 +526,13 @@
 										
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="10000" />
-							
-							<CustomBehavior File="Message" 
-											Text="We are locked out. Waiting and trying again." 
-											LogColor="Fuchsia" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 129">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
 						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In the box -->
 				</If> <!-- Kalimdor -->
