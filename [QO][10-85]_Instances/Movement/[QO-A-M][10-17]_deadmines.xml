@@ -362,7 +362,7 @@
 			<!-- Eastern Kingdoms -->
 			<If Condition="Me.MapId == 0">
 				<CustomBehavior File="Message" 
-								Text="We are in Kalimdor." 
+								Text="We are in Eastern Kingdoms." 
 								LogColor="Cyan" />
 								
 				<!-- Outside the box -->
@@ -370,6 +370,20 @@
 					<CustomBehavior File="Message" 
 									Text="We are not in the box." 
 									LogColor="Cyan" />
+									
+					<!-- Stormwind -->
+					<If Condition="Me.ZoneId == 1519">
+						<CustomBehavior File="Message" 
+										Text="We are in Stormwind City." 
+										LogColor="Cyan" />
+					
+						<CustomBehavior File="Message" 
+										Text="Moving to Goldshire." 
+										LogColor="Lime" />
+										
+						<!-- Run to Goldshire -->
+						<RunTo X="-9462.262" Y="64.13811" Z="55.91473" />
+					</If> <!-- Stormwind -->
 				
 					<!-- If we are in Elwynn Forest -->
 					<If Condition="Me.ZoneId == 12">
@@ -409,7 +423,7 @@
 											LogColor="Lime" />
 											
 							<CustomBehavior File="Message" 
-											Text="This profile should be started in Elwynn Forest. You are responsible for your own dickery at this point."
+											Text="This profile should be started in Stormwind or Elwynn Forest. You are responsible for your own dickery at this point."
 											LogColor="Red" />
 						</Else> <!-- Not Elwynn Forest -->
 					</If> <!-- Elwynn Forest -->
