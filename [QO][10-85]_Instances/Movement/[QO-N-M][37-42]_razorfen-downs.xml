@@ -134,21 +134,16 @@
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="Me.HearthstoneAreaId == 4010" >
 						<!-- If it's not on CD -->
-						<If Condition="(SpellManager.CanCast(6948)) || (SpellManager.CanCast(64488))">
+						<If Condition="SpellManager.CanCast(6948)">
 							<CustomBehavior File="Message" 
-											Text="Hearthing." 
+											Text="Using Hearthstone." 
 											LogColor="Lime" />
-											
-							<If Condition="Me.HasItem(6948)">
-								<CustomBehavior File="Message" 
-												Text="Using Hearthstone." 
-												LogColor="Lime" />
-											
-								<CustomBehavior File="Misc\RunLua" 
-												Lua="UseItemByName(6948)" 
-												WaitTime="1000" />
-								
-								<ElseIf Condition="Me.HasItem(64488)">
+										
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+												
+							<ElseIf Condition="SpellManager.CanCast(64488)">
 									<CustomBehavior File="Message" 
 													Text="Using Innkeeper's Daughter." 
 													LogColor="Lime" />
@@ -156,9 +151,8 @@
 									<CustomBehavior File="Misc\RunLua" 
 													Lua="UseItemByName(64488)" 
 													WaitTime="1000" />
-								</ElseIf> <!-- Have Innkeeper's Daughter -->
-							</If> <!-- Have hearthstone -->
-											
+							</ElseIf> <!-- Can cast innkeeper's daughter -->
+								
 							
 							
 							<Else>
