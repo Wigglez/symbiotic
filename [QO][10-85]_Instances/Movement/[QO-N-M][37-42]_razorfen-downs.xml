@@ -209,7 +209,7 @@
 					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
 						<CustomBehavior File="FlyTo" 
 										X="-4603.045" Y="-3206.708" Z="34.92397" />
-						<CustomBehavior File="ForcedDismount">
+						<CustomBehavior File="ForcedDismount" />
 					
 						<CustomBehavior File="Message" 
 										Text="Our durability is less than 80%, we need to repair." 
