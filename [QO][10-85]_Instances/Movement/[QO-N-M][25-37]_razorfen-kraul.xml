@@ -160,7 +160,7 @@
 						<CustomBehavior File="Message" 
 										Text="Our Innkeeper is set at Mudsprocket." 
 										LogColor="Cyan" />
-						
+										
 						<!-- Can cast hearthstone -->
 						<If Condition="SpellManager.CanCast(8690)">
 							<CustomBehavior File="Message" 
@@ -180,19 +180,12 @@
 								<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(64488)" 
 												WaitTime="1000" />
-												
-								<!-- Cooldown -->
-								<Else>
-									<CustomBehavior File="Message" 
-													Text="Innkeeper's Daughter is on cooldown. Proceeding without it." 
-													LogColor="Lime" />
-								</Else> <!-- Cooldown -->
 							</ElseIf> <!-- Can cast Innkeeper's Daughter -->
 							
 							<!-- Cooldown -->
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="Hearthstone is on cooldown. Proceeding without it." 
+												Text="Unable to hearth due to cooldown. Proceeding without it." 
 												LogColor="Lime" />
 							</Else> <!-- Cooldown -->
 						</If> <!-- Can cast hearth -->

@@ -97,26 +97,38 @@
 						<!-- Sentinel Hill = 108 -->
 						<!-- If our hearthstone is set here, use it -->
 						<If Condition="Me.HearthstoneAreaId == 108" >
-							<!-- If it's not on CD -->
-							<If Condition="(SpellManager.CanCast(6948)) || (SpellManager.CanCast(64488))">
-								<CustomBehavior File="Message" 
-												Text="Hearthing." 
+							<CustomBehavior File="Message" 
+											Text="Our Innkeeper is set at Sentinel Hill." 
+											LogColor="Cyan" />
+										
+						<!-- Can cast hearthstone -->
+						<If Condition="SpellManager.CanCast(8690)">
+							<CustomBehavior File="Message" 
+												Text="Using Hearthstone." 
 												LogColor="Lime" />
-							
-								<CustomBehavior File="Misc\RunLua" 
+											
+							<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(6948)" 
 												WaitTime="1000" />
+												
+							<!-- Can cast Innkeeper's Daughter -->
+							<ElseIf Condition="SpellManager.CanCast(94719)">
+								<CustomBehavior File="Message" 
+												Text="Using Innkeeper's Daughter." 
+												LogColor="Lime" />
 												
 								<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(64488)" 
 												WaitTime="1000" />
-								
-								<Else>
-									<CustomBehavior File="Message" 
-													Text="Unable to hearth due to cooldown. Proceeding with movement." 
-													LogColor="Fuchsia" />
-								</Else>
-							</If> <!-- Not on CD -->
+							</ElseIf> <!-- Can cast Innkeeper's Daughter -->
+							
+							<!-- Cooldown -->
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="Unable to hearth due to cooldown. Proceeding without it." 
+												LogColor="Lime" />
+							</Else> <!-- Cooldown -->
+						</If> <!-- Can cast hearth -->
 							
 							<!-- Our hearth isn't set, we need to go to the zone -->
 							<Else>

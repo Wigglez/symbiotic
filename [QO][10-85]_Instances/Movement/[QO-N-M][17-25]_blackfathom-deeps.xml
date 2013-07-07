@@ -280,19 +280,12 @@
 								<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(64488)" 
 												WaitTime="1000" />
-												
-								<!-- Cooldown -->
-								<Else>
-									<CustomBehavior File="Message" 
-													Text="Innkeeper's Daughter is on cooldown. Proceeding without it." 
-													LogColor="Lime" />
-								</Else> <!-- Cooldown -->
 							</ElseIf> <!-- Can cast Innkeeper's Daughter -->
 							
 							<!-- Cooldown -->
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="Hearthstone is on cooldown. Proceeding without it." 
+												Text="Unable to hearth due to cooldown. Proceeding without it." 
 												LogColor="Lime" />
 							</Else> <!-- Cooldown -->
 						</If> <!-- Can cast hearth -->
@@ -392,22 +385,22 @@
 					</If> <!-- Check hearthstone -->
 					
 					<If Condition="Me.IsAlliance">
-							<CustomBehavior File="Message" 
-											Text="We are Alliance." 
-											LogColor="Cyan" />
-											
-							<!-- fly to hover point -->
-							<CustomBehavior File="FlyTo" 
-											X="2721.863" Y="-385.5038" Z="142.7964" />
+						<CustomBehavior File="Message" 
+										Text="We are Alliance." 
+										LogColor="Cyan" />
+										
+						<!-- fly to hover point -->
+						<CustomBehavior File="FlyTo" 
+										X="2721.863" Y="-385.5038" Z="142.7964" />
 						
-							<ElseIf Condition="Me.IsHorde">
-								<CustomBehavior File="Message" 
-												Text="We are Horde." 
-												LogColor="Cyan" />
-											
-								<!-- fly to hover point -->
-								<CustomBehavior File="FlyTo"
-												X="3365.097" Y="996.3693" Z="44.22956" />
+						<ElseIf Condition="Me.IsHorde">
+							<CustomBehavior File="Message" 
+											Text="We are Horde." 
+											LogColor="Cyan" />
+										
+							<!-- fly to hover point -->
+							<CustomBehavior File="FlyTo"
+											X="3365.097" Y="996.3693" Z="44.22956" />
 						</ElseIf> <!-- Horde -->
 					</If> <!-- Alliance -->
 					
@@ -422,8 +415,8 @@
 								<CustomBehavior File="FlyTo"
 												X="3334.712" Y="1023.738" Z="3.561275" />
 								<CustomBehavior File="ForcedDismount" />
-							</ElseIf>
-						</If>
+							</ElseIf> <!-- Horde -->
+						</If> <!-- Alliance -->
 						
 						<CustomBehavior File="Message" 
 										Text="Our durability is less than 80%, we need to repair." 
