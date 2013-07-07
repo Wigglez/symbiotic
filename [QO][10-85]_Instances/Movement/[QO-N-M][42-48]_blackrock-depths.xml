@@ -141,8 +141,8 @@
 										Text="Our Innkeeper is set at Iron Summit." 
 										LogColor="Cyan" />
 										
-						<!-- Have hearthstone -->
-						<If Condition="HasItem(6948)">
+						<!-- Can cast hearthstone -->
+						<If Condition="SpellManager.CanCast(8690)">
 							<CustomBehavior File="Message" 
 												Text="Using Hearthstone." 
 												LogColor="Lime" />
@@ -150,20 +150,33 @@
 							<CustomBehavior File="Misc\RunLua" 
 												Lua="UseItemByName(6948)" 
 												WaitTime="1000" />
-						</If> <!-- Hearthstone -->
-						
-						<!-- Have Innkeeper's daughter -->
-						<If Condition="HasItem(64488)">
-							<CustomBehavior File="Message" 
-											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
-						</If> <!-- Have innkeeper's daughter -->
+												
+							<!-- Can cast Innkeeper's Daughter -->
+							<ElseIf Condition="SpellManager.CanCast(94719)">
+								<CustomBehavior File="Message" 
+												Text="Using Innkeeper's Daughter." 
+												LogColor="Lime" />
+												
+								<CustomBehavior File="Misc\RunLua" 
+												Lua="UseItemByName(64488)" 
+												WaitTime="1000" />
+												
+								<!-- Cooldown -->
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="Innkeeper's Daughter is on cooldown. Proceeding without it." 
+													LogColor="Lime" />
+								</Else> <!-- Cooldown -->
+							</ElseIf> <!-- Can cast Innkeeper's Daughter -->
 							
-						
+							<!-- Cooldown -->
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="Hearthstone is on cooldown. Proceeding without it." 
+												LogColor="Lime" />
+							</Else> <!-- Cooldown -->
+						</If> <!-- Can cast hearth -->
+							
 						<!-- Our hearth isn't set, we need to go to the zone -->
 						<Else>
 							<CustomBehavior File="Message" 

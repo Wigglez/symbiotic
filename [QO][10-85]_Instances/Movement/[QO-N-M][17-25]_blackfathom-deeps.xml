@@ -255,29 +255,47 @@
 						</If> <!-- Wailing Caverns -->
 					</If> <!-- Horde -->
 					
-					<!-- Astranaar Hearthstone = 415, Zoram'Gar Outpost = 2897 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
-						<!-- If it's not on CD -->
-						<If Condition="(SpellManager.CanCast(6948)) || (SpellManager.CanCast(64488))">
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Astranaar or Zoram'gar Outpost." 
+										LogColor="Cyan" />
+										
+						<!-- Can cast hearthstone -->
+						<If Condition="SpellManager.CanCast(8690)">
 							<CustomBehavior File="Message" 
-											Text="Hearthing." 
-											LogColor="Lime" />
-						
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(6948)" 
-											WaitTime="1000" />
+												Text="Using Hearthstone." 
+												LogColor="Lime" />
 											
 							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
+												Lua="UseItemByName(6948)" 
+												WaitTime="1000" />
+												
+							<!-- Can cast Innkeeper's Daughter -->
+							<ElseIf Condition="SpellManager.CanCast(94719)">
+								<CustomBehavior File="Message" 
+												Text="Using Innkeeper's Daughter." 
+												LogColor="Lime" />
+												
+								<CustomBehavior File="Misc\RunLua" 
+												Lua="UseItemByName(64488)" 
+												WaitTime="1000" />
+												
+								<!-- Cooldown -->
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="Innkeeper's Daughter is on cooldown. Proceeding without it." 
+													LogColor="Lime" />
+								</Else> <!-- Cooldown -->
+							</ElseIf> <!-- Can cast Innkeeper's Daughter -->
 							
+							<!-- Cooldown -->
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="Unable to hearth due to cooldown. Proceeding with movement." 
-												LogColor="Fuchsia" />
-							</Else>
-						</If> <!-- Not on CD -->
+												Text="Hearthstone is on cooldown. Proceeding without it." 
+												LogColor="Lime" />
+							</Else> <!-- Cooldown -->
+						</If> <!-- Can cast hearth -->
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
 						<Else>
@@ -327,11 +345,6 @@
 								<!-- Run outside the inn -->
 								<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
 								
-								<!-- fly to hover point -->
-								<CustomBehavior File="FlyTo" 
-												X="2721.863" Y="-385.5038" Z="142.7964" />
-							
-								
 								<ElseIf Condition="Me.IsHorde">
 									<CustomBehavior File="Message" 
 													Text="We are Horde." 
@@ -373,24 +386,16 @@
 									
 									<!-- Run outside the inn -->
 									<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
-									
-									<!-- fly to hover point -->
-									<CustomBehavior File="FlyTo"
-													X="3365.097" Y="996.3693" Z="44.22956" />
-
 								</ElseIf> <!-- Horde -->
 							</If> <!-- Alliance -->
 						</Else> <!-- Set hearth -->
-						
-						<If Condition="Me.IsAlliance">
+					</If> <!-- Check hearthstone -->
+					
+					<If Condition="Me.IsAlliance">
 							<CustomBehavior File="Message" 
 											Text="We are Alliance." 
 											LogColor="Cyan" />
 											
-							<!-- Run outside the inn -->
-							<RunTo X="2758.864" Y="-420.845" Z="111.4777" />
-							<RunTo X="2736.872" Y="-398.9366" Z="108.3573" />
-							
 							<!-- fly to hover point -->
 							<CustomBehavior File="FlyTo" 
 											X="2721.863" Y="-385.5038" Z="142.7964" />
@@ -400,18 +405,26 @@
 												Text="We are Horde." 
 												LogColor="Cyan" />
 											
-								<!-- Run outside the inn -->
-								<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
-								
 								<!-- fly to hover point -->
 								<CustomBehavior File="FlyTo"
 												X="3365.097" Y="996.3693" Z="44.22956" />
-							</ElseIf> <!-- Horde -->
-						</If> <!-- Alliance -->
-					</If> <!-- Check hearthstone -->
+						</ElseIf> <!-- Horde -->
+					</If> <!-- Alliance -->
 					
 					<!-- Repair if necessary -->
 					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+						<If Condition="Me.IsAlliance">
+							<CustomBehavior File="FlyTo"
+											X="2760.646" Y="-329.8893" Z="107.1002" />
+							<CustomBehavior File="ForcedDismount" />
+						
+							<ElseIf Condition="Me.IsHorde">
+								<CustomBehavior File="FlyTo"
+												X="3334.712" Y="1023.738" Z="3.561275" />
+								<CustomBehavior File="ForcedDismount" />
+							</ElseIf>
+						</If>
+						
 						<CustomBehavior File="Message" 
 										Text="Our durability is less than 80%, we need to repair." 
 										LogColor="Fuchsia" />
@@ -426,11 +439,11 @@
 							<Vendors>
 								<If Condition="Me.IsAlliance">
 									<!-- Astranaar -->
-									<Vendor Name="Xai'ander" 
-											Entry="11137" 
+									<Vendor Name="Aeolynn" 
+											Entry="3952" 
 											Type="Repair" 
-											X="2672.308" Y="-363.6043" Z="110.7277" />
-								
+											X="2769.501" Y="-288.052" Z="111.109" />
+
 								
 									<ElseIf Condition="Me.IsHorde">
 										<!-- Zoram'gar Outpost-->

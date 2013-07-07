@@ -98,30 +98,48 @@
 										
 						<!-- If we are Horde -->
 						<ElseIf Condition="Me.IsHorde">
-							<!-- Crossroads = 380 -->
 							<!-- If our hearthstone is set here, use it -->
 							<If Condition="Me.HearthstoneAreaId == 380" >
-								<!-- If it's not on CD -->
-								<If Condition="(SpellManager.CanCast(6948)) || (SpellManager.CanCast(64488))">
+								<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at The Crossroads." 
+										LogColor="Cyan" />
+										
+								<!-- Can cast hearthstone -->
+								<If Condition="SpellManager.CanCast(8690)">
 									<CustomBehavior File="Message" 
-													Text="Hearthing." 
-													LogColor="Lime" />
-								
-									<CustomBehavior File="Misc\RunLua" 
-													Lua="UseItemByName(6948)" 
-													WaitTime="1000" />
+														Text="Using Hearthstone." 
+														LogColor="Lime" />
 													
 									<CustomBehavior File="Misc\RunLua" 
-													Lua="UseItemByName(64488)" 
-													WaitTime="1000" />
+														Lua="UseItemByName(6948)" 
+														WaitTime="1000" />
+														
+									<!-- Can cast Innkeeper's Daughter -->
+									<ElseIf Condition="SpellManager.CanCast(94719)">
+										<CustomBehavior File="Message" 
+														Text="Using Innkeeper's Daughter." 
+														LogColor="Lime" />
+														
+										<CustomBehavior File="Misc\RunLua" 
+														Lua="UseItemByName(64488)" 
+														WaitTime="1000" />
+														
+										<!-- Cooldown -->
+										<Else>
+											<CustomBehavior File="Message" 
+															Text="Innkeeper's Daughter is on cooldown. Proceeding without it." 
+															LogColor="Lime" />
+										</Else> <!-- Cooldown -->
+									</ElseIf> <!-- Can cast Innkeeper's Daughter -->
 									
+									<!-- Cooldown -->
 									<Else>
 										<CustomBehavior File="Message" 
-														Text="Unable to hearth due to cooldown. Proceeding with movement." 
-														LogColor="Fuchsia" />
-									</Else>
-								</If> <!-- Not on CD -->
-									
+														Text="Hearthstone is on cooldown. Proceeding without it." 
+														LogColor="Lime" />
+									</Else> <!-- Cooldown -->
+								</If> <!-- Can cast hearth -->
+								
 								<!-- Our hearth isn't set, we need to go to the zone -->
 								<Else>
 									<CustomBehavior File="Message" 
@@ -163,8 +181,16 @@
 								</Else> <!-- Set hearth -->
 							</If> <!-- Check hearthstone -->
 							
+							<!-- Hover point -->
+							<CustomBehavior File="FlyTo" 
+											X="-455.4241" Y="-2651.979" Z="142.298" />
+							
 							<!-- Repair if necessary -->
 							<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+								<CustomBehavior File="FlyTo" 
+												X="-543.3609" Y="-2667.768" Z="95.78755" />
+								<CustomBehavior File="ForcedDismount" />
+							
 								<CustomBehavior File="Message" 
 												Text="Our durability is less than 80%, we need to repair." 
 												LogColor="Fuchsia" />
