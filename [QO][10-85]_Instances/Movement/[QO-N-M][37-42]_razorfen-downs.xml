@@ -255,7 +255,9 @@
 					
 					<RunTo X="-4462.136" Y="-2007.509" Z="85.4351" />
 					
-					<CustomBehavior File="WaitTimer" WaitTime="5000" />	
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />	
+									
 					<RunTo X="-4452.631" Y="-2046.957" Z="83.30342" />
 					<RunTo X="-4467.01" Y="-2019.003" Z="83.35384" />
 					<RunTo X="-4484.107" Y="-2021.001" Z="83.46915" />
@@ -272,14 +274,18 @@
 					<RunTo X="-4650.045" Y="-2146.106" Z="84.51664" />
 					<RunTo X="-4651.601" Y="-2150.924" Z="85.16991" />
 					
-					<CustomBehavior File="WaitTimer" WaitTime="3000" />	
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="3000" />	
+									
 					<RunTo X="-4646.048" Y="-2163.289" Z="89.15163" />
 					<RunTo X="-4658.032" Y="-2171.395" Z="90.84225" />
 					<RunTo X="-4660.097" Y="-2191.447" Z="91.40189" />
 					<RunTo X="-4657.932" Y="-2215.066" Z="89.2382" />
 					<RunTo X="-4651.111" Y="-2219.745" Z="88.82943" />
 					
-					<CustomBehavior File="WaitTimer" WaitTime="3000" />	
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="3000" />	
+									
 					<RunTo X="-4661.679" Y="-2253.629" Z="88.13826" />
 					<RunTo X="-4629.478" Y="-2269.363" Z="83.82455" />
 					<RunTo X="-4626.115" Y="-2256.578" Z="83.82455" />
