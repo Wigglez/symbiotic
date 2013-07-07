@@ -129,7 +129,6 @@
 										WaitTime="2000" />
 					</If>
 					
-					<!-- Mudsprocket = 4010 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="Me.HearthstoneAreaId == 4010" >
 						<CustomBehavior File="Message" 

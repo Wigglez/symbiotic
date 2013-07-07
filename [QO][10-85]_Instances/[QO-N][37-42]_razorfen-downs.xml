@@ -155,7 +155,8 @@
 											LogColor="Fuchsia" />
 										
 							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" />
+											WaitTime="10000" 
+											VariantTime="2000" />
 											
 							<!-- If we still aren't in, we're locked out -->
 							<If Condition="Me.MapId != 129">
@@ -525,7 +526,8 @@
 											LogColor="Fuchsia" />
 										
 							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" />
+											WaitTime="10000" 
+											VariantTime="2000" />
 											
 							<!-- If we still aren't in, we're locked out -->
 							<If Condition="Me.MapId != 129">

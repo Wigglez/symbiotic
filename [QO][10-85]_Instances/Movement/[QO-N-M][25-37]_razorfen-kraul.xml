@@ -496,17 +496,17 @@
 										Text="We are in Stormwind City." 
 										LogColor="Cyan" />
 										
-						<!-- Level 20 or higher and no riding skill -->
-						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue == 0 " >	
-							<CustomBehavior File="Message" 
-											Text="Moving to the riding trainer Stormwind."
-											LogColor="Orange" />
+						<CustomBehavior File="Message" 
+										Text="Moving to the riding trainer Stormwind."
+										LogColor="Orange" />
 											
-							<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
+						<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
 
-							<CustomBehavior File="WaitTimer"
-											WaitTime="1000" />
-							
+						<CustomBehavior File="WaitTimer"
+										WaitTime="1000" />				
+						
+						<!-- Level 20 or higher and no riding skill -->
+						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0" >	
 							<CustomBehavior File="InteractWith" 
 											MobId="43769" 
 											WaitTime="1000"
@@ -527,7 +527,7 @@
 										AllowBotStop="False" 
 										SoundCue="Exclamation" 
 										SoundCueInterval="15" 
-										ExpiryTime="120"
+										ExpiryTime="600"
 										ExpiryAction="InputEnabled_Continue" 
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 										Title="WARNING" />	
@@ -740,20 +740,18 @@
 							<CustomBehavior File="Message" 
 											Text="We are in Orgrimmar."
 											LogColor="Cyan" />
-												
+										
+							<CustomBehavior File="Message" 
+											Text="Moving to the riding trainer." 
+											LogColor="Orange" />
+											
 							<!-- move to riding trainer -->
 							<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
 							
+							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+								
 							<!-- Mount training -->
-							<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue == 0" >				
-								<CustomBehavior File="Message" 
-												Text="Moving to the riding trainer Orgrimmar." 
-												LogColor="Orange" />
-												
-								<RunTo X="1799.069" Y="-4360.199" Z="102.4625" />
-								
-								<CustomBehavior File="WaitTimer" WaitTime="1000" />
-								
+							<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">				
 								<CustomBehavior File="InteractWith" 
 												MobId="44919" 
 												WaitTime="1000"
@@ -769,7 +767,7 @@
 											AllowBotStop="False" 
 											SoundCue="Exclamation" 
 											SoundCueInterval="15" 
-											ExpiryTime="120"
+											ExpiryTime="600"
 											ExpiryAction="InputEnabled_Continue" 
 											Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 											Title="WARNING" />

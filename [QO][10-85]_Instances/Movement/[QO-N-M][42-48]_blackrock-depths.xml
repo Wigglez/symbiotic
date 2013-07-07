@@ -135,7 +135,6 @@
 			<If Condition="Me.MapId == 0">
 				<!-- Not in box -->
 				<If Condition="Me.X &lt; -7200 || Me.X &gt; -7000 || Me.Y &gt; -900 || Me.Y &lt; -1000" >
-					<!-- Iron Summit = 5628 -->
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="Me.HearthstoneAreaId == 5628" >
 						<CustomBehavior File="Message" 
@@ -345,17 +344,41 @@
 				
 	
 	
-	
-	
-		<!-- Trade District = 5148 -->
-		<!-- Valley of Strength = 5170 -->
-	
+		
+		
+		
+		
+		
+		
+		
 		<!-- RAF Toons -->		
 		<If Condition="Me.Level &lt;= 85">
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Cyan" />
 		
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
+			
 			<!-- RAF UserSettings -->
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -381,38 +404,145 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
+			<!-- RFD -->
+			<If Condition="Me.ZoneId == 722">
+				<!-- Have hearthstone -->
+				<If Condition="HasItem(6948)">
+					<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
+									
+					<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+				</If> <!-- Hearthstone -->
+				
+				<!-- Have Innkeeper's daughter -->
+				<If Condition="HasItem(64488)">
+					<CustomBehavior File="Message" 
+									Text="Using Innkeeper's Daughter." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(64488)" 
+									WaitTime="1000" />
+				</If> <!-- Have innkeeper's daughter -->
+			</If> <!-- RFD -->	
+
 			<!-- Kalimdor -->
 			<If Condition="Me.MapId == 1">
 				<CustomBehavior File="Message" 
 								Text="We are in Kalimdor." 
 								LogColor="Cyan" />
 
-				<!-- RFD -->
-				<If Condition="Me.ZoneId == 722">
-					<!-- RFK portal exit -->
-					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+				<If Condition="Me.IsHorde">
+					<!-- Mount training -->
+					<If Condition="Me.Level &gt;= 40 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">				
+						<CustomBehavior File="InteractWith" 
+										MobId="44919" 
+										WaitTime="1000"
+										CollectionDistance="50" 
+										X="1799.54" Y="-4357.09" Z="102.4019" />
+										
+						<CustomBehavior File="ForceTrainRiding" MobId="44919" />
+						
+						<CustomBehavior File="WaitTimer" WaitTime="1000" />
+					</If> <!-- Mount training -->
 					
-					<CustomBehavior File="Message" 
-									Text="Waiting for the booster to clear a path out of Razorfen Kraul." 
-									LogColor="Cyan" />
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryTime="600"
+									ExpiryAction="InputEnabled_Continue" 
+									Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+									Title="WARNING" />	
+					
+					<!-- Board zeppelin to Grom'gol -->
+					<RunTo X="1868.267" Y="-4417.384" Z="135.233" />
+					
+					<CustomBehavior File="UseTransport" 
+									TransportId="175080" 
+									WaitAtX="1869.635" 
+									WaitAtY="-4419.227" 
+									WaitAtZ="135.2332"								
+									TransportStartX="1880.818" 
+									TransportStartY="-4435.269" 
+									TransportStartZ="152.8608"								
+									StandOnX="1883.553" 
+									StandOnY="-4419.312" 
+									StandOnZ="136.8681"
+									TransportEndX="-12464.34" 
+									TransportEndY="233.1597" 
+									TransportEndZ="49.53437"	
+									GetOffX="-12445.94" 
+									GetOffY="218.9818" 
+									GetOffZ="31.86087" />	
+				</If>
 				
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-									
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<CustomBehavior File="ForcedMount"
-									MountType="Ground" />
-							
-					<!-- runlikehell to get out -->
-					<CustomBehavior File="RunLikeHell" 
-									UseCTM="false" 
-									NumOfTimes="1" 
-									AllowCombat="false">
-					</CustomBehavior>	
-				</If> <!-- RFD -->
 			</If> <!-- Kalimdor -->
+			
+			<!-- Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0">
+				<CustomBehavior File="Message" 
+								Text="We are in Eastern Kingdoms." 
+								LogColor="Cyan" />
+								
+				<!-- Alliance -->
+				<If Condition="Me.IsAlliance">
+					<CustomBehavior File="Message" 
+									Text="We are in Stormwind City." 
+									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to the riding trainer."
+									LogColor="Orange" />
+										
+					<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
+
+					<CustomBehavior File="WaitTimer"
+									WaitTime="1000" />						
+									
+					<!-- Level 40 or higher and apprentice riding skill -->
+					<If Condition="Me.Level &gt;= 40 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">	
+						<CustomBehavior File="InteractWith" 
+										MobId="43769" 
+										WaitTime="1000"
+										CollectionDistance="50" 
+										X="-8845.4" Y="502.653" Z="109.617" />
+										
+						<CustomBehavior File="ForceTrainRiding" 
+										MobId="43769" />
+						
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+					</If> <!-- Mount training -->
+					
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryTime="600"
+									ExpiryAction="InputEnabled_Continue" 
+									Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+									Title="WARNING" />
+									
+					<ElseIf Condition="Me.IsHorde">
+						<!-- Get off the zeppelin tower -->
+						
+					</ElseIf> <!-- Horde -->
+				</If> <!-- Alliance -->
+				
+				
+			
+				<!-- Run to Lothos in Blackrock Mountain -->
+				<CustomBehavior File="NoCombatMoveTo" 
+								X="-7515.52" Y="-1045.57" Z="182.3" />
+			</If> <!-- Eastern Kingdoms -->
+							
+			
+			
+			
 							
 		</If> <!-- RAF toons -->
 				
