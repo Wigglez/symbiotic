@@ -504,7 +504,7 @@
 					<CustomBehavior File="Message" 
 									Text="Razorfen Downs detected. Running out to go to Blackrock Depths."
 									LogColor="Fuchsia" />
-					
+									
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
 					<!-- Go through the portal -->

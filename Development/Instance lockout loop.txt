@@ -1,0 +1,20 @@
+<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+<While Condition="Me.MapId != 129">
+	<!-- Make sure we run to the right spot outside the portal -->
+	<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
+	
+	<!-- Run back in the Razorfen Downs portal -->
+	<CustomBehavior File="MyCTM" 
+					X="-4661.966" Y="-2531.649" Z="82.09726" />
+					
+	<CustomBehavior File="Message" 
+					Text="Waiting for the dungeon to load." 
+					LogColor="Fuchsia" />
+				
+	<CustomBehavior File="WaitTimer" 
+					WaitTime="10000" />
+	
+	<CustomBehavior File="Message" 
+					Text="We are locked out. Waiting and trying again." 
+					LogColor="Fuchsia" />
+</While> <!-- While we aren't in the instance -->

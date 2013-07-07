@@ -106,7 +106,7 @@
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 				</If>	
-			
+				
 				<!-- If we are inside Razorfen Downs -->
 				<If Condition="Me.MapId == 129">
 					<CustomBehavior File="Message" 
@@ -140,64 +140,35 @@
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
-							
-						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 1 of 2." 
-										LogColor="Fuchsia" />
-						
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro"
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<!-- Allow for an Honorbuddy pulse -->
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="200" />
-						
-						<!-- The second reset confirms we are safe to enter the instance -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 2 of 2." 
-										LogColor="Fuchsia" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<CustomBehavior File="Message" 
-										Text="Instance reset." 
-										LogColor="Fuchsia" />
-										
-						<!-- Run back in the Razorfen Downs portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4661.966" Y="-2531.649" Z="82.09726" />
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-						
-					
-						<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-						<If Condition="Me.MapId != 129">
+									
+						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+						<While Condition="Me.MapId != 129">
 							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
-							
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
+							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
 							
 							<!-- Run back in the Razorfen Downs portal -->
 							<CustomBehavior File="MyCTM" 
 											X="-4661.966" Y="-2531.649" Z="82.09726" />
 											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+										
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" />
 							
-						</If> 
-						
-						<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
 				
 				<!-- If we are inside Razorfen Downs and have checked our reset -->
 				<If Condition="Me.MapId == 129">
+					<!-- Entrance -->
+					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+				
 					<!-- Go to quest givers -->
 					<RunTo X="2571.918" Y="1106.778" Z="47.63247" />
 					
@@ -207,14 +178,6 @@
 									
 					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
-
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="42" 
-									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
 									
 					<CustomBehavior File="Message" 
 									Text="Razorfen Downs initialized."  
@@ -238,12 +201,7 @@
 					<RunTo X="2574.126" Y="1007.247" Z="52.92753" />
 					<RunTo X="2575.204" Y="1006.571" Z="53.01146" />
 					
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs." 
-									LogColor="Fuchsia" />
 					
-					<!-- Tag rafs -->
-					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 						
 					<!-- Killed all mobs in first room and running back to entrance area and down the right fork -->
 					<RunTo X="2596.124" Y="1054.456" Z="54.05449" />
@@ -258,12 +216,7 @@
 					<RunTo X="2435.59" Y="1085.082" Z="38.49783" />
 					<RunTo X="2398.77" Y="1092.654" Z="31.51861" />
 					
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs." 
-									LogColor="Fuchsia" />
-									
-					<!-- Tag rafs -->
-					<RunTo X="2504.298" Y="1054.472" Z="47.52206" />
+					
 					
 					<!-- Head to spiral -->
 					<RunTo X="2389.821" Y="1069.126" Z="28.18543" />
@@ -304,7 +257,7 @@
 						<Hotspot X="2403.304" Y="961.2528" Z="55.11146" />
 						<Hotspot X="2401.446" Y="985.1541" Z="58.08332" />
 					</CustomBehavior>
-						<RunTo X="2401.446" Y="985.1541" Z="58.08332" />
+					<RunTo X="2401.446" Y="985.1541" Z="58.08332" />
 					<!-- Spiral cleared and we're at the top -->
 					
 					<!-- Running down the side -->
@@ -412,8 +365,61 @@
 									Text="Tagging RAFs." 
 									LogColor="Fuchsia" />
 									
-					<RunTo X="2468.955" Y="1054.715" Z="48.25833" />
+					<!-- Go to activate spot -->
+					<RunTo X="2571.918" Y="1106.778" Z="47.63247" />
+
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="42" 
+									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
 				</If> <!-- RFD -->
+				
+				<!-- If we are inside Razorfen Downs -->
+				<If Condition="Me.MapId == 129">
+					<CustomBehavior File="Message" 
+									Text="Razorfen Downs detected. Running out to reset."
+									LogColor="Fuchsia" />
+					
+					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="2592.638" Y="1116.691" Z="50.39219" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
+				</If> <!-- RFD -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -4700 &amp;&amp; Me.X &lt; -4600 &amp;&amp; Me.Y &lt; -2500 &amp;&amp; Me.Y &gt; -2600" >
+					
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- Booster -->
 		
@@ -452,8 +458,14 @@
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Kraul detected. Running out to go to Razorfen Downs." 
+									Text="Razorfen Kraul detected. The next instance is Razorfen Downs. Due to its proximity in relation to Razorfen Kraul, we need to wait to avoid getting an instance lock." 
 									LogColor="Fuchsia" />	
+									
+					<CustomBehavior File="Misc\InstanceTimer" 
+									Timer="Start" />
+									
+					<CustomBehavior File="Misc\InstanceTimer"
+									Timer="Check" />  				
 									
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
@@ -464,7 +476,7 @@
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 				</If>	
-			
+				
 				<!-- If we are inside Razorfen Downs, run out to reset -->
 				<If Condition="Me.MapId == 129">
 					<CustomBehavior File="Message" Text="Razorfen Downs detected. Running out to reset." LogColor="Fuchsia" />
@@ -477,7 +489,7 @@
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
 				</If> <!-- RFD -->
-				
+			
 				<!-- If we are not in the box, load the movement profile -->
 				<If Condition="Me.X &lt; -4700 || Me.X &gt; -4600 || Me.Y &gt; -2500 || Me.Y &lt; -2600" >
 					<CustomBehavior File="Message" 
@@ -496,37 +508,34 @@
 											Text="Portal detected nearby."
 											LogColor="Fuchsia" />	
 											
-						<!-- Run back in the Razorfen Downs portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4661.966" Y="-2531.649" Z="82.09726" />
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-						
-						<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-						<If Condition="Me.MapId != 129">
+						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+						<While Condition="Me.MapId != 129">
 							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
-							
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
+							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
 							
 							<!-- Run back in the Razorfen Downs portal -->
 							<CustomBehavior File="MyCTM" 
 											X="-4661.966" Y="-2531.649" Z="82.09726" />
 											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+										
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" />
 							
-						</If> 
-						
-						<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In the box -->
 				</If> <!-- Kalimdor -->
 				
-				
-				
 				<!-- If we are inside Razorfen Downs and have checked our reset -->
 				<If Condition="Me.MapId == 129">
+					<!-- Entrance -->
+					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+					
 					<!-- Go to quest givers -->
 					<RunTo X="2571.918" Y="1106.778" Z="47.63247" />
 					
@@ -534,19 +543,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="2" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+					<CustomBehavior File="Misc\InstanceTimer" 
+									Timer="Start" />
 					
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="42" 
-									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
-									
-					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
-									
 					<CustomBehavior File="Message" 
 									Text="Razorfen Downs initialized."  
 									LogColor="Fuchsia" />
@@ -558,64 +557,41 @@
 					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
-					
+									
 					<!-- When the booster tags us again, we can move forward -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="50000" />
-									
-									
-									
-									
-									
-									
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<RunTo X="2504.298" Y="1054.472" Z="47.52206" />
-					
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
+					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+									MinLevel="42" 
+									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
+					
 									
 					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 									
-									
-									
-									
-									
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<RunTo X="2468.955" Y="1054.715" Z="48.25833" />
-				
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait 30 seconds so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
-					
-					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
+								
 					
 					<CustomBehavior File="Message" 
 									Text="Exiting instance." 
 									LogColor="Fuchsia" />	
 				</If> <!-- RFD -->
+				
+				<!-- If we are inside Razorfen Downs, run out to reset -->
+				<If Condition="Me.MapId == 129">
+					<CustomBehavior File="Message" Text="Razorfen Downs detected. Running out to reset." LogColor="Fuchsia" />
+					
+					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="2592.638" Y="1116.691" Z="50.39219" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
+				</If> <!-- RFD -->
+				
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
 			
