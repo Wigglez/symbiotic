@@ -493,6 +493,28 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
+							
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
 
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"

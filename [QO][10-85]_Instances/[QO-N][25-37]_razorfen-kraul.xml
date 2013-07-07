@@ -114,7 +114,7 @@
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Kraul detected. Running out to reset." 
+									Text="Razorfen Kraul detected. Running out." 
 									LogColor="Fuchsia" />	
 									
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
@@ -146,60 +146,37 @@
 										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
 						
-						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 1 of 2." 
-										LogColor="Fuchsia" />
-						
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro"
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<!-- Allow for an Honorbuddy pulse -->
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="200" />
-						
-						<!-- The second reset confirms we are safe to enter the instance -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 2 of 2." 
-										LogColor="Fuchsia" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<CustomBehavior File="Message" 
-										Text="Instance reset." 
-										LogColor="Fuchsia" />
-						
-						<!-- Go inside the Razorfen Kraul portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4458.964" Y="-1658.854" Z="81.5267" />
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
+						<While Condition="Me.MapId != 47">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+							
+							<!-- Go inside the Razorfen Kraul portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-4458.964" Y="-1658.854" Z="81.5267" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 47">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->		
 				</If> <!-- Kalimdor -->
 
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 47">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Razorfen Kraul portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-4458.964" Y="-1658.854" Z="81.5267" />
-				</If> 
-				
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
+					<!-- Entrance -->
+					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
+		
 					<!-- Go to quest givers -->
 					<RunTo X="1944.148" Y="1555.369" Z="81.5473" />
 					
@@ -207,21 +184,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="1946.936" Y="1572.877" Z="80.7604" />
-								
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="37" 
-									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
-									
 					<CustomBehavior File="Message" 
 									Text="Razorfen Kraul initialized."  
 									LogColor="Fuchsia" />
-					
 					
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
@@ -570,17 +535,69 @@
 					<!-- Kill last guy -->
 					<RunTo X="2156.663" Y="1554.236" Z="72.01718" />
 					
-									
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs." 
+									LogColor="Fuchsia" />
 					
 					<RunTo X="1993.591" Y="1602.518" Z="79.7886" />
 					<RunTo X="1963.732" Y="1599.89" Z="80.83046" />
 					<RunTo X="1952.363" Y="1589.551" Z="82.04544" />
 					
-					<!-- Avoid the bones -->
-					<RunTo X="1945.674" Y="1569.706" Z="81.26156" />
 					
-					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
+					<!-- Tag rafs -->
+					<RunTo X="1944.148" Y="1555.369" Z="81.5473" />
+					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="37" 
+									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
 				</If> <!-- Razorfen Kraul -->
+				
+				<!-- If we are inside Razorfen Kraul, run out to reset -->
+				<If Condition="Me.MapId == 47">
+					<CustomBehavior File="Message" 
+									Text="Razorfen Kraul detected. Running out to reset." 
+									LogColor="Fuchsia" />	
+									
+					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="1939.09" Y="1539.371" Z="82.28316" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+				</If>	<!-- RFK -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
 			</While> <!-- Infinite loop-->
 		</If> <!-- Booster -->
 			
@@ -590,6 +607,28 @@
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
 
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
+							
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
 							FindMountAutomatically="True"
@@ -649,7 +688,7 @@
 				<!-- If we are inside Razorfen Kraul, run out to reset -->	
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Kraul detected. Running out to reset."
+									Text="Razorfen Kraul detected. Running out."
 									LogColor="Fuchsia" />
 									
 					<!-- Run to the instance entrance -->
@@ -668,6 +707,7 @@
 					<CustomBehavior File="Message" 
 									Text="Distance from portal is not within our proximity, initializing movement to get there."
 									LogColor="Fuchsia" />	
+									
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
 				</If> <!-- Not in box -->
@@ -677,36 +717,40 @@
 					<!-- If we are in the box -->
 					<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby." 
+										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
 						
-						<!-- Go inside the Razorfen Kraul portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4458.964" Y="-1658.854" Z="81.5267" />
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-						<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
-					</If> <!-- In box -->
+						<While Condition="Me.MapId != 47">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+							
+							<!-- Go inside the Razorfen Kraul portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-4458.964" Y="-1658.854" Z="81.5267" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 47">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
+					</If> <!-- In box -->		
 				</If> <!-- Kalimdor -->
-				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 47">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Razorfen Kraul portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-4458.964" Y="-1658.854" Z="81.5267" />
-				</If> 
 				
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
+					<!-- Entrance -->
+					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
+				
 					<!-- Go to quest givers -->
 					<RunTo X="1944.148" Y="1555.369" Z="81.5473" />
 					
@@ -714,18 +758,8 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="2" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="1946.936" Y="1572.877" Z="80.7604" />
-								
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="37" 
-									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
-									
-					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+					<CustomBehavior File="Misc\InstanceTimer" 
+									Timer="Start" />
 									
 					<CustomBehavior File="Message" 
 									Text="Razorfen Kraul initialized."  
@@ -739,23 +773,20 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 					
-									
-									
-									
-									
 					<!-- When the booster tags us again, we can leave -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="37" 
+									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
+									
 					<!-- Wait 30 seconds so the main can get away from us and we can leave the instance -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
-					
+									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-					
-					<CustomBehavior File="Message" 
-									Text="Exiting instance." 
-									LogColor="Fuchsia" />	
 				</If> <!-- RFK -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

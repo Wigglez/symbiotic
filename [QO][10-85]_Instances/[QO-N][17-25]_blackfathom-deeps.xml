@@ -97,7 +97,7 @@
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
 					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-				</If>
+				</If> <!-- Inside deadmines -->
 				
 				<!-- If we are inside Wailing Caverns, run out to go to the next instance -->
 				<If Condition="Me.MapId == 43">
@@ -119,7 +119,7 @@
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
-									Text="Blackfathom Deeps detected. Running out to reset." 
+									Text="Blackfathom Deeps detected. Running out." 
 									LogColor="Fuchsia" />
 						
 					<If Condition="Me.X &lt; -352.5026" >
@@ -169,78 +169,50 @@
 										Text="Portal detected nearby."
 										LogColor="Fuchsia" />	
 										
-						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 1 of 2." 
-										LogColor="Fuchsia" />
+						<While Condition="Me.MapId != 48">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 						
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro"
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<!-- Allow for an Honorbuddy pulse -->
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="200" />
-						
-						<!-- The second reset confirms we are safe to enter the instance -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 2 of 2." 
-										LogColor="Fuchsia" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<CustomBehavior File="Message" 
-										Text="Instance reset." 
-										LogColor="Fuchsia" />
-						
-						<!-- Run back in the Blackfathom Deeps portal -->
-						<CustomBehavior File="MyCTM" 
-										X="4250.304" Y="749.9905" Z="-23.02605" />
-						
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-						
-						<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+							<!-- Run back in the Blackfathom Deeps portal -->
+							<CustomBehavior File="MyCTM" 
+											X="4250.304" Y="749.9905" Z="-23.02605" />
+										
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />			
+										
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
+										
+							<If Condition="Me.MapId != 48">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
 				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 48">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Blackfathom Deeps portal -->
-					<CustomBehavior File="MyCTM" 
-									X="4250.304" Y="749.9905" Z="-23.02605" />
-				</If> 
-				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
-					<!-- Run to first activate spot -->
-					<RunTo X="-160.2423" Y="96.76704" Z="-42.89206" />
+					<!-- Entrance -->
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+					
+					<!-- Go to quest givers -->
+					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 									
 					<CustomBehavior File="WaitTimer"
-									WaitTime="10000" />
+									WaitTime="5000" />
 					
-					<!-- Go to quest givers -->
-					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
+					<CustomBehavior File="Message" 
+									Text="Blackfathom Deeps initialized."  
+									LogColor="Fuchsia" />
 					
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="25" 
-									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
-				
 					<!-- Pull the whole area that the RAF will run through and make it safe -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -598,7 +570,78 @@
 						<Hotspot X="-423.4724" Y="210.6321" Z="-52.95886" />
 						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
 					</CustomBehavior>
+					
+					<!-- Tag rafs -->
+					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
+					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="25" 
+									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 				</If> <!-- Inside BFD -->
+				
+				<!-- If we are inside Blackfathom Deeps, run out to reset -->
+				<If Condition="Me.MapId == 48">
+					<CustomBehavior File="Message" 
+									Text="Blackfathom Deeps detected. Running out to reset." 
+									LogColor="Fuchsia" />
+						
+					<If Condition="Me.X &lt; -352.5026" >
+						<CustomBehavior File="Message" 
+										Text="We are above the jumping platforms. Tagging the RAF on the way out."
+										LogColor="Fuchsia" />
+										
+						<!-- Tag RAF at the crab -->
+						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
+							
+						<!-- Run to the edge of the platform -->
+						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
+						
+						<!-- Force ourselves to run off of it -->
+						<CustomBehavior File="MyCTM" 
+										X="-273.533" Y="71.30302" Z="-58.51636" />
+					</If> <!-- Above jumps -->
+					
+					<!-- Run to the instance entrance -->
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+						
+					<!-- Go through the portal -->									
+					<CustomBehavior File="MyCTM" 
+									X="-149.7285" Y="113.4777" Z="-40.73384" />				
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+				</If> <!-- BFD -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- Booster -->
 		
@@ -607,6 +650,28 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
+							
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
 		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -672,7 +737,7 @@
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
-									Text="Blackfathom Deeps detected. Running out to reset."
+									Text="Blackfathom Deeps detected. Running out."
 									LogColor="Fuchsia" />
 						
 					<If Condition="Me.X &lt; -352.5026" >
@@ -709,136 +774,80 @@
 									ProfileName="Movement\[QO-N-M][17-25]_blackfathom-deeps" />
 				</If> <!-- Not in box -->
 				
-				
-				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
-					<CustomBehavior File="Message" 
-									Text="Portal detected nearby." 
-									LogColor="Fuchsia" />	
-				
-					<!-- Go inside the Blackfathom Deeps portal -->
-					<CustomBehavior File="MyCTM" 
-									X="4250.304" Y="749.9905" Z="-23.02605" />
+				<If Condition="Me.MapId == 1">
+					<!-- If we are in the box -->
+					<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
+						<CustomBehavior File="Message" 
+										Text="Portal detected nearby." 
+										LogColor="Fuchsia" />	
 					
-					<CustomBehavior File="Message" 
-									Text="Waiting for the dungeon to load." 
-									LogColor="Fuchsia" />
-					
-					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-				</If> <!-- In box -->	
-				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 48">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Blackfathom Deeps portal -->
-					<CustomBehavior File="MyCTM" 
-									X="4250.304" Y="749.9905" Z="-23.02605" />
-				</If> 
+						<While Condition="Me.MapId != 48">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+						
+							<!-- Go inside the Blackfathom Deeps portal -->
+							<CustomBehavior File="MyCTM" 
+											X="4250.304" Y="749.9905" Z="-23.02605" />
+							
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
+							
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.MapId != 48">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
+					</If> <!-- In box -->	
+				</If> <!-- Kalimdor -->
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48" >
-					<!-- Run to first activate spot -->
-					<RunTo X="-160.2423" Y="96.76704" Z="-42.89206" />
+					<!-- Entrance -->
+					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
+					
+					<!-- Go to quest givers -->
+					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="2" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="10000" />
-					
-					<!-- Go to quest givers -->
-					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
-					
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="25" 
-									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
-				
+					<CustomBehavior File="Misc\InstanceTimer" 
+									Timer="Start" />
+									
 					<CustomBehavior File="Message" 
 									Text="Blackfathom Deeps initialized."  
 									LogColor="Fuchsia" />
-				
+									
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
-					
+									
 					<!-- Let the booster clear the entrance for us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="80000" />
-						
-					<RunTo X="-160.8972" Y="77.59564" Z="-46.0715" />
-					<RunTo X="-195.9623" Y="47.303" Z="-52.69039" />
-					<RunTo X="-236.1606" Y="30.95604" Z="-54.72799" />
-					<RunTo X="-261.6381" Y="59.04369" Z="-55.6091" />
-	
-					<CustomBehavior File="WaitTimer" WaitTime="70000" />
-					
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- Go to the water cubby -->
-					<CustomBehavior File="MyCTM" 
-									X="-299.8195" Y="65.63107" Z="-59.83585" />
-					<CustomBehavior File="MyCTM" 
-									X="-316.6834" Y="64.10133" Z="-59.83585" />
-					<CustomBehavior File="MyCTM" 
-									X="-332.0847" Y="76.87205" Z="-59.85128" />
-					<CustomBehavior File="MyCTM" 
-									X="-330.5505" Y="92.59331" Z="-59.16409" />
-					
-					<!-- Go up mountain -->
-					<CustomBehavior File="MyCTM" 
-									X="-342.8687" Y="73.32179" Z="-60.35067" />
-					<CustomBehavior File="MyCTM" 
-									X="-356.6548" Y="73.96896" Z="-58.16689" />
-					<CustomBehavior File="MyCTM" 
-									X="-354.3861" Y="85.91518" Z="-50.8546" />
-					<CustomBehavior File="MyCTM" 
-									X="-350.4613" Y="90.59668" Z="-46.50981" />
-					<CustomBehavior File="MyCTM" 
-									X="-351.8185" Y="96.67211" Z="-42.88773" />
-					<CustomBehavior File="MyCTM" 
-									X="-353.7418" Y="101.9532" Z="-45.69148" />
-					<CustomBehavior File="MyCTM" 
-									X="-343.1473" Y="109.0681" Z="-50.93742" />	
-				
-				
-				
-				
-					<!-- run behind crab -->
-					<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
-					
+									WaitTime="30000" />
+									
 					<!-- Run back out the instance when the booster runs next to us  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="25" 
+									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
+									
 					<!-- Waiting 40 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
 					<CustomBehavior File="WaitTimer"
-									WaitTime="40000" />			
-					
-					<!-- Run to the edge of the platform -->
-					<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
-						
-					<!-- Force ourselves to run off of it -->
-					<CustomBehavior File="MyCTM" 
-									X="-273.533" Y="71.30302" Z="-58.51636" />
+									WaitTime="30000" />			
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-									
-					<CustomBehavior File="Message" 
-									Text="Exiting instance." 
-									LogColor="Fuchsia" />	
 				</If> <!-- Inside BFD -->	
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

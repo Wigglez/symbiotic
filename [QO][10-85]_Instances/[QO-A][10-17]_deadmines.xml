@@ -84,7 +84,7 @@
 				<!-- If we are inside Deadmines, run out to reset -->
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
-									Text="Deadmines detected. Running out to reset." 
+									Text="Deadmines detected. Running out." 
 									LogColor="Fuchsia" />					
 						
 					<!-- Run to the instance entrance -->
@@ -105,6 +105,7 @@
 						<CustomBehavior File="Message" 
 										Text="Distance from portal is not within our proximity, initializing movement to get there." 
 										LogColor="Fuchsia" />	
+										
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="Movement\[QO-A-M][10-17]_deadmines" />
 					</If> <!-- Not in box -->
@@ -115,78 +116,43 @@
 										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
 						
-						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 1 of 2." 
-										LogColor="Fuchsia" />
-							
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
+						<While Condition="Me.MapId != 36">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-11208" Y="1676.41" Z="24.5716" />
 						
-						<!-- Allow for an Honorbuddy pulse -->
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="200" />
+							<!-- Run back in the Deadmines portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-11208.34" Y="1680.56" Z="23.87232" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
 						
-						<!-- The second reset confirms we are safe to enter the instance -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 2 of 2." 
-										LogColor="Fuchsia" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<CustomBehavior File="Message" 
-										Text="Instance reset." 
-										LogColor="Fuchsia" />
-						
-						<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-11208.34" Y="1680.56" Z="23.87232" />
-						
-						<CustomBehavior File="Message"
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-						
-						<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
+							<If Condition="Me.MapId != 36">	
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
 				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 36">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-11208.34" Y="1680.56" Z="23.87232" />
-				</If> 
-				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
-					<!-- Go to side -->
-					<RunTo X="-8.028585" Y="-373.2374" Z="61.75385" />
+					<!-- Entrance -->
+					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 				
+					<!-- Go to activate spot -->
+					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
+					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
-									
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="17" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml" />				
-					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  
 									LogColor="Fuchsia" />
@@ -615,11 +581,15 @@
 									
 					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
 					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="17" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml" />	
+					
 					
 					<!-- moving past the big cannon so we don't get stuck -->
 					<RunTo X="-99.6212" Y="-657.9174" Z="7.423793" />
 					
-												
 					<!-- Move to the door at the top of the foundry -->						
 					<RunTo X="-241.175" Y="-579.0677" Z="51.14831" />
 					
@@ -634,7 +604,54 @@
 					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="1000" />
-				</If> <!-- Inside Deadmines -->
+				</If> <!-- Deadmines -->
+				
+				<!-- If we are inside Deadmines, run out to reset -->
+				<If Condition="Me.MapId == 36">
+					<CustomBehavior File="Message" 
+									Text="Deadmines detected. Running out to reset." 
+									LogColor="Fuchsia" />					
+						
+					<!-- Run to the instance entrance -->
+					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
+						
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					
+					<!-- Make sure we ran to the right spot outside the portal -->
+					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+				</If> <!-- Deadmines -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- Booster -->
 		
@@ -643,6 +660,28 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
+		
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
 		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -668,12 +707,13 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
+							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- If we are inside Deadmines, run out to reset -->
 				<If Condition="Me.MapId == 36">
 					<CustomBehavior File="Message" 
-									Text="Deadmines detected. Running out to allow for a reset." 
+									Text="Deadmines detected. Running out." 
 									LogColor="Fuchsia" />					
 						
 					<!-- Run to the instance entrance -->
@@ -700,57 +740,50 @@
 					</If> <!-- Not in box -->
 				
 					<!-- If we are in the box -->
-					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1653.415 &amp;&amp; Me.Y &lt; 1690" >
+					<If Condition="Me.X &lt; -11195 &amp;&amp; Me.X &gt; -11220 &amp;&amp; Me.Y &gt; 1650 &amp;&amp; Me.Y &lt; 1690" >
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
 						
-						<!-- Go inside the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-11208.86" Y="1681.254" Z="23.87609" />
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-						<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
-					</If> <!-- In box -->		
+						<While Condition="Me.MapId != 36">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+						
+							<!-- Run back in the Deadmines portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-11208.34" Y="1680.56" Z="23.87232" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
+						
+							<If Condition="Me.MapId != 36">	
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
+					</If> <!-- In box -->
 				</If> <!-- Eastern Kingdoms -->
-				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 36">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-11208.34" Y="1680.56" Z="23.87232" />
-				</If> 
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >
-					<!-- Go to side -->
-					<RunTo X="-8.028585" Y="-373.2374" Z="61.75385" />
+					<!-- Entrance -->
+					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
+				
+					<!-- Go to activate spot -->
+					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="2" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
-									
-					<!-- Go to activate spot -->
-					<RunTo X="-28.71053" Y="-375.081" Z="59.46141" />
-									
-					<!-- If we are high enough to go to the next instance, do so -->	
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="17" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />		
-					
-					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />
+					<CustomBehavior File="Misc\InstanceTimer" 
+									Timer="Start" />
 					
 					<CustomBehavior File="Message" 
 									Text="Deadmines initialized."  
@@ -922,6 +955,11 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<!-- If we are high enough to go to the next instance, do so -->	
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="17" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />	
+									
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="60000" />
@@ -930,11 +968,6 @@
 					<RunTo X="-99.6212" Y="-657.9174" Z="7.423793" />
 
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
-					
-					<CustomBehavior File="Message" 
-									Text="Exiting instance." 
-									LogColor="Fuchsia" />	
-					
 				</If> <!-- Deadmines -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

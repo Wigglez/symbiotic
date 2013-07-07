@@ -80,7 +80,7 @@
 				<!-- If we are inside Wailing Caverns, run out to reset -->
 				<If Condition="Me.MapId == 43">
 					<CustomBehavior File="Message" 
-									Text="Wailing Caverns detected. Running out to reset." 
+									Text="Wailing Caverns detected. Running out." 
 									LogColor="Fuchsia" />
 					
 					<!-- Run to the instance entrance -->
@@ -112,114 +112,49 @@
 										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
 										
-						<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 1 of 2." 
-										LogColor="Fuchsia" />
-						
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<!-- Allow for an Honorbuddy pulse -->
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="200" />
-						
-						<!-- The second reset confirms we are safe to enter the instance -->
-						<CustomBehavior File="Message" 
-										Text="Resetting instance, 2 of 2." 
-										LogColor="Fuchsia" />
-						<CustomBehavior File="RunMacro" 
-										Macro="/script ResetInstances()" />
-						<CustomBehavior File="RunMacro"
-										Macro="/script SetDungeonDifficulty(1)" />
-						
-						<CustomBehavior File="Message"
-										Text="Instance reset. Killing exterior to ensure RAF toon safety." 
-										LogColor="Fuchsia" />
-					
-						<!-- Make sure we have a huge pull range to get all mobs possible -->
-						<CustomBehavior File="UserSettings"
-										PullDistance="45" />
-						
-						<RunTo X="-733.1425" Y="-2221.002" Z="17.3775" />
-						<RunTo X="-730.9532" Y="-2237.13" Z="17.83195" />
-						<RunTo X="-726.8771" Y="-2266.522" Z="14.56399" />
-						<RunTo X="-721.996" Y="-2282.324" Z="16.48109" />
-						<RunTo X="-707.9053" Y="-2277.512" Z="15.20878" />
-						<RunTo X="-707.6799" Y="-2268.636" Z="14.33964" />
-						<RunTo X="-701.4159" Y="-2260.049" Z="15.78607" />
-						<RunTo X="-689.6935" Y="-2251.837" Z="17.05974" />
-						<RunTo X="-688.0182" Y="-2240.847" Z="17.14497" />
-						<RunTo X="-697.5497" Y="-2236.409" Z="17.37995" />
-						<RunTo X="-704.6389" Y="-2243.184" Z="17.01747" />
-						<RunTo X="-720.8867" Y="-2253.975" Z="15.35637" />
-						<RunTo X="-724.9947" Y="-2238.683" Z="16.59282" />
-						<RunTo X="-719.3188" Y="-2220.112" Z="17.76496" />
-						<RunTo X="-715.3535" Y="-2203.146" Z="22.48803" />
-						<RunTo X="-701.8679" Y="-2193.814" Z="27.24336" />
-						<RunTo X="-685.6509" Y="-2191.349" Z="34.09104" />
-						<RunTo X="-710.4796" Y="-2197.513" Z="23.90433" />
-						<RunTo X="-718.0719" Y="-2207.895" Z="21.15666" />
-						<RunTo X="-720.9946" Y="-2227.718" Z="16.85107" />
-						<RunTo X="-713.558" Y="-2229.422" Z="17.94413" />
-						
-						<!-- run back into the box -->
-						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-						
-						<!-- set pull distance back to normal -->
-						<CustomBehavior File="UserSettings" 
-										PullDistance="25" />
-						
-						<!-- Run back in the Wailing Caverns portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-744.4048" Y="-2216.026" Z="15.71743" />
-						
-						<CustomBehavior File="Message"
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+						<While Condition="Me.Mapid != 43">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+							
+							<!-- Run back in the Wailing Caverns portal -->
+							<CustomBehavior File="MyCTM" 
+											X="-744.4048" Y="-2216.026" Z="15.71743" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.Mapid != 43">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->
 				</If> <!-- Kalimdor -->
 				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 43">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Wailing Caverns portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-744.4048" Y="-2216.026" Z="15.71743" />
-				</If> 
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
+					<!-- Entrance -->
+					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+					
 					<!-- Run to quest givers -->
 					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
-				
-					<CustomBehavior File="WaitTimer"
-									WaitTime="10000" />
-				
-					<!-- Run to the activate spot -->
-					<RunTo X="-138.0188" Y="129.5727" Z="-77.74215" />
-				
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="17" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 									
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns initialized."  
 									LogColor="Fuchsia" />
+				
 					
 					<!-- Kill everything close to the RAF toons to make sure they remain safe -->
 					<RunTo X="-129.3444" Y="131.7502" Z="-78.3682" />
@@ -548,9 +483,93 @@
 									Text="Tagging RAFs." 
 									LogColor="Fuchsia" />
 										
-					<!-- Run next to the RAF to trigger their run out -->
-					<RunTo X="-138.0188" Y="129.5727" Z="-77.74215" />
+					<!-- Tag rafs -->
+					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />
+					
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="17" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 				</If> <!-- Inside Wailing Caverns -->
+				
+				<!-- If we are inside Wailing Caverns, run out to reset -->
+				<If Condition="Me.MapId == 43">
+					<CustomBehavior File="Message" 
+									Text="Wailing Caverns detected. Running out to reset." 
+									LogColor="Fuchsia" />
+					
+					<!-- Run to the instance entrance -->
+					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" 
+									X="-164.336" Y="134.6021" Z="-73.50945" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+				</If> <!-- Inside Wailing Caverns -->
+				
+				<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+					
+					<!-- Make sure we have a huge pull range to get all mobs possible -->
+					<CustomBehavior File="UserSettings"
+									PullDistance="45" />
+					
+					<RunTo X="-733.1425" Y="-2221.002" Z="17.3775" />
+					<RunTo X="-730.9532" Y="-2237.13" Z="17.83195" />
+					<RunTo X="-726.8771" Y="-2266.522" Z="14.56399" />
+					<RunTo X="-721.996" Y="-2282.324" Z="16.48109" />
+					<RunTo X="-707.9053" Y="-2277.512" Z="15.20878" />
+					<RunTo X="-707.6799" Y="-2268.636" Z="14.33964" />
+					<RunTo X="-701.4159" Y="-2260.049" Z="15.78607" />
+					<RunTo X="-689.6935" Y="-2251.837" Z="17.05974" />
+					<RunTo X="-688.0182" Y="-2240.847" Z="17.14497" />
+					<RunTo X="-697.5497" Y="-2236.409" Z="17.37995" />
+					<RunTo X="-704.6389" Y="-2243.184" Z="17.01747" />
+					<RunTo X="-720.8867" Y="-2253.975" Z="15.35637" />
+					<RunTo X="-724.9947" Y="-2238.683" Z="16.59282" />
+					<RunTo X="-719.3188" Y="-2220.112" Z="17.76496" />
+					<RunTo X="-715.3535" Y="-2203.146" Z="22.48803" />
+					<RunTo X="-701.8679" Y="-2193.814" Z="27.24336" />
+					<RunTo X="-685.6509" Y="-2191.349" Z="34.09104" />
+					<RunTo X="-710.4796" Y="-2197.513" Z="23.90433" />
+					<RunTo X="-718.0719" Y="-2207.895" Z="21.15666" />
+					<RunTo X="-720.9946" Y="-2227.718" Z="16.85107" />
+					<RunTo X="-713.558" Y="-2229.422" Z="17.94413" />
+					
+					<!-- run back into the box -->
+					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+					
+					<!-- set pull distance back to normal -->
+					<CustomBehavior File="UserSettings" 
+									PullDistance="25" />	
+				</If> <!-- In box -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- Booster -->
 		
@@ -559,6 +578,28 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
+							
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
 		
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -589,7 +630,7 @@
 				<!-- If we are inside Wailing Caverns, run out to reset -->
 				<If Condition="Me.MapId == 43">
 					<CustomBehavior File="Message" 
-									Text="Wailing Caverns detected. Running out to allow for a reset." 
+									Text="Wailing Caverns detected. Running out." 
 									LogColor="Fuchsia" />
 					
 					<!-- Run to the instance entrance -->
@@ -620,34 +661,37 @@
 						<CustomBehavior File="Message" 
 										Text="Portal detected nearby." 
 										LogColor="Fuchsia" />	
-										
-						<!-- Go inside the Wailing Caverns portal -->
-						<CustomBehavior File="MyCTM"
-										X="-744.4048" Y="-2216.026" Z="15.71743" />
+								
+						<While Condition="Me.MapId != 43">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 						
-						<CustomBehavior File="Message" 
+							<!-- Go inside the Wailing Caverns portal -->
+							<CustomBehavior File="MyCTM"
+											X="-744.4048" Y="-2216.026" Z="15.71743" />
+						
+							<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />
 										
-						<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" 
+											VariantTime="2000" />	
+								
+							<If Condition="Me.MapId != 43">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
 					</If> <!-- In box -->			
 				</If> <!-- Kalimdor -->
 				
-				<!-- If we didn't enter the instance, backup, and wait 20 second then attempt to enter again -->
-				<If Condition="Me.MapId != 43">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					<!-- Run back in the Wailing Caverns portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-744.4048" Y="-2216.026" Z="15.71743" />
-				</If> 
-				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">
+					<!-- Entrance -->
+					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
+					
 					<!-- Run to quest givers -->
 					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />		
 					
@@ -655,18 +699,8 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="2" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="10000" />
-									
-					<!-- Run to the activate spot -->
-					<RunTo X="-138.0188" Y="129.5727" Z="-77.74215" />
-				
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="17" 
-									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
-									
-					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" />				
+					<CustomBehavior File="Misc\InstanceTimer" 
+									Timer="Start" />	
 									
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns initialized."  
@@ -683,6 +717,11 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="17" 
+									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+									
 					<CustomBehavior File="Message" 
 									Text="Allowing the booster to clear the exterior for our own safety. Waiting 120 seconds." 
 									LogColor="Fuchsia" />					
@@ -691,10 +730,6 @@
 									WaitTime="120000" />
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-									
-					<CustomBehavior File="Message" 
-									Text="Exiting instance." 
-									LogColor="Fuchsia" />	
 				</If> <!-- Wailing Caverns -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

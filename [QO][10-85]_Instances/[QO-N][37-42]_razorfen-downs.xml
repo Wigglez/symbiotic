@@ -432,6 +432,28 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
+							
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
 
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -462,14 +484,15 @@
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Kraul detected. The next instance is Razorfen Downs. Due to its proximity in relation to Razorfen Kraul, we need to wait to avoid getting an instance lock." 
+									Text="Razorfen Kraul detected. Running out to go to Razorfen Downs." 
 									LogColor="Fuchsia" />	
 									
+					<!-- 
 					<CustomBehavior File="Misc\InstanceTimer" 
 									Timer="Start" />
 									
 					<CustomBehavior File="Misc\InstanceTimer"
-									Timer="Check" />  				
+									Timer="Check" />  	 -->			
 									
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
@@ -483,7 +506,7 @@
 				
 				<!-- If we are inside Razorfen Downs, run out to reset -->
 				<If Condition="Me.MapId == 129">
-					<CustomBehavior File="Message" Text="Razorfen Downs detected. Running out to reset." LogColor="Fuchsia" />
+					<CustomBehavior File="Message" Text="Razorfen Downs detected. Running out." LogColor="Fuchsia" />
 					
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
@@ -582,23 +605,6 @@
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- RFD -->
-				
-				<!-- If we are inside Razorfen Downs, run out to reset -->
-				<If Condition="Me.MapId == 129">
-					<CustomBehavior File="Message"
-									Text="Razorfen Downs detected. Running out." 
-									LogColor="Fuchsia" />
-					
-					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM"
-									X="2592.638" Y="1116.691" Z="50.39219" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
-				</If> <!-- RFD -->
-				
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
 	</QuestOrder>
