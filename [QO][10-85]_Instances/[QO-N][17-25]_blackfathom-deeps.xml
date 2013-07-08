@@ -152,7 +152,7 @@
 									Text="Blackfathom Deeps detected. Running out." 
 									LogColor="Fuchsia" />
 						
-					<If Condition="Me.X &lt; -352.5026" >
+					<If Condition="Me.X &lt; -290" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
@@ -598,7 +598,7 @@
 						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
 					</CustomBehavior>
 					
-					<If Condition="Me.X &lt; -352.5026" >
+					<If Condition="Me.X &lt; -290" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
@@ -632,7 +632,7 @@
 									Text="Blackfathom Deeps detected. Running out to reset." 
 									LogColor="Fuchsia" />
 						
-					<If Condition="Me.X &lt; -352.5026" >
+					<If Condition="Me.X &lt; -290" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
@@ -801,7 +801,7 @@
 									Text="Blackfathom Deeps detected. Running out."
 									LogColor="Fuchsia" />
 						
-					<If Condition="Me.X &lt; -352.5026" >
+					<If Condition="Me.X &lt; -290" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms. Running down." 
 										LogColor="Fuchsia" />
