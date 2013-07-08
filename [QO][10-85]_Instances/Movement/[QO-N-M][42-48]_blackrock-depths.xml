@@ -470,58 +470,79 @@
 								
 				<!-- Alliance -->
 				<If Condition="Me.IsAlliance">
-					<CustomBehavior File="Message" 
+					<!-- Stormwind -->
+					<If Condition="Me.ZoneId == 1519">
+						<CustomBehavior File="Message" 
 									Text="We are in Stormwind City." 
 									LogColor="Cyan" />
 									
-					<CustomBehavior File="Message" 
-									Text="Moving to the riding trainer."
-									LogColor="Orange" />
-										
-					<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
+						<CustomBehavior File="Message" 
+										Text="Moving to the riding trainer."
+										LogColor="Orange" />
+											
+						<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
 
-					<CustomBehavior File="WaitTimer"
-									WaitTime="1000" />						
-									
-					<!-- Level 40 or higher and apprentice riding skill -->
-					<If Condition="Me.Level &gt;= 40 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">	
-						<CustomBehavior File="InteractWith" 
-										MobId="43769" 
-										WaitTime="1000"
-										CollectionDistance="50" 
-										X="-8845.4" Y="502.653" Z="109.617" />
+						<CustomBehavior File="WaitTimer"
+										WaitTime="1000" />						
 										
-						<CustomBehavior File="ForceTrainRiding" 
-										MobId="43769" />
+						<!-- Level 40 or higher and apprentice riding skill -->
+						<If Condition="Me.Level &gt;= 40 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">	
+							<CustomBehavior File="InteractWith" 
+											MobId="43769" 
+											WaitTime="1000"
+											CollectionDistance="50" 
+											X="-8845.4" Y="502.653" Z="109.617" />
+											
+							<CustomBehavior File="ForceTrainRiding" 
+											MobId="43769" />
+							
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+						</If> <!-- Mount training -->
 						
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="1000" />
-					</If> <!-- Mount training -->
+						<CustomBehavior File="UserDialog" 
+										AllowBotStop="False" 
+										SoundCue="Exclamation" 
+										SoundCueInterval="15" 
+										ExpiryTime="600"
+										ExpiryAction="InputEnabled_Continue" 
+										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+										Title="WARNING" />
+										
+						<!-- Goldshire -->
+						<CustomBehavior File="NoCombatMoveTo" 
+										X="-9433.99" Y="85.1493" Z="56.734" />
+
+					</If> <!-- Stormwind -->
 					
-					<CustomBehavior File="UserDialog" 
-									AllowBotStop="False" 
-									SoundCue="Exclamation" 
-									SoundCueInterval="15" 
-									ExpiryTime="600"
-									ExpiryAction="InputEnabled_Continue" 
-									Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
-									Title="WARNING" />
-									
+					<!-- Elwynn Forest -->
+					<If Condition="Me.ZoneId == ">
+						<!-- Lakeshore flightmaster -->
+						<CustomBehavior File="NoCombatMoveTo" 
+										X="-9433.241" Y="-2238.867" Z="68.97185" />
+
+					</If> <!-- Elwynn Forest -->
+					
 					<ElseIf Condition="Me.IsHorde">
-						<!-- Get off the zeppelin tower -->
-						
+						<If Condition="Me.ZoneId == 33">
+							<!-- Northern Stranglethorn -->
+							<!-- Get off the zeppelin tower -->
+							
+							
+						</If>
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
-				<!-- Stormwind or Northern Stranglethorn -->
-				<If Condition="(Me.ZoneId == 1519) || (Me.ZoneId == 33)">
+				<!-- Redridge -->
+				<If Condition="Me.ZoneId == 44">
+					<!-- Before zone change -->
+					<CustomBehavior File="NoCombatMoveTo" 
+									X="-8724.526" Y="-2583.26" Z="132.6133" />
+
 					<!-- Run outside of Burning Steppes gate -->
 					<CustomBehavior File="NoCombatMoveTo" 
 									X="-8639.473" Y="-2576.401" Z="132.5364" />
-				</If>
-				
-				<!-- Redridge -->
-				<If Condition="Me.ZoneId == 44">
+										
 					<!-- Run past entry mobs in Burning Steppes near Morgan's Vigil -->
 					<CustomBehavior File="NoCombatMoveTo" 
 									X="-8245.268" Y="-2596.104" Z="133.1501" />
@@ -548,14 +569,22 @@
 						
 						<Hotspot X="-7966.125" Y="-1654.837" Z="133.7583" />
 						<Hotspot X="-8010.989" Y="-1188.159" Z="149.1487" />
+						
+						<!-- On bridge to BRM -->
 						<Hotspot X="-7972.577" Y="-1133.108" Z="169.649" />
-
 					</CustomBehavior>
+					
+					<!-- Run into BRM -->
+					<CustomBehavior File="NoCombatMoveTo" 
+									X="-7692.249" Y="-1085.458" Z="217.7931" />
+				</If> <!-- Burning Steppes -->
 				
+				<!-- Blackrock Mountain -->
+				<If Condition="Me.ZoneId == 25">
 					<!-- Move to Lothos -->
 					<CustomBehavior File="NoCombatMoveTo" 
 									X="-7515.52" Y="-1045.57" Z="182.3" />
-				</If> <!-- Burning Steppes -->
+				</If> <!-- Blackrock Mountain -->
 			</If> <!-- Eastern Kingdoms -->
 							
 			
