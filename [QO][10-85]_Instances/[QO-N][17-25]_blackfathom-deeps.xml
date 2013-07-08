@@ -84,37 +84,67 @@
 			<While Condition="true" >	
 				<!-- If we are inside Deadmines, run out to go to the next instance -->
 				<If Condition="Me.MapId == 36">
-					<CustomBehavior File="Message" 
-									Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
-									LogColor="Fuchsia" />					
-						
-					<!-- Run to the instance entrance -->
-					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-						
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					<If Condition="(Me.HearthstoneAreaId == 108) || (Me.HearthstoneAreaId == )" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Sentinel Hill." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<!-- Make sure we ran to the right spot outside the portal -->
-					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
 				</If> <!-- Inside deadmines -->
 				
 				<!-- If we are inside Wailing Caverns, run out to go to the next instance -->
 				<If Condition="Me.MapId == 43">
-					<CustomBehavior File="Message" 
-									Text="Wailing Caverns detected. Running out to go to Blackfathom Deeps." 
-									LogColor="Fuchsia" />
+					<If Condition="Me.HearthstoneAreaId == 380" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at The Crossroads." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<!-- Run to the instance entrance -->
-					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-164.336" Y="134.6021" Z="-73.50945" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-				</If>	
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
+				</If> <!-- Wailing caverns -->
 			
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
@@ -124,7 +154,7 @@
 						
 					<If Condition="Me.X &lt; -352.5026" >
 						<CustomBehavior File="Message" 
-										Text="We are above the jumping platforms. Tagging the RAF on the way out."
+										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
 										
 						<!-- Tag RAF at the crab -->
@@ -568,6 +598,22 @@
 						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
 					</CustomBehavior>
 					
+					<If Condition="Me.X &lt; -352.5026" >
+						<CustomBehavior File="Message" 
+										Text="We are above the jumping platforms."
+										LogColor="Fuchsia" />
+										
+						<!-- Tag RAF at the crab -->
+						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
+							
+						<!-- Run to the edge of the platform -->
+						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
+						
+						<!-- Force ourselves to run off of it -->
+						<CustomBehavior File="MyCTM" 
+										X="-273.533" Y="71.30302" Z="-58.51636" />
+					</If> <!-- Above jumps -->
+					
 					<!-- Tag rafs -->
 					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
 					
@@ -588,7 +634,7 @@
 						
 					<If Condition="Me.X &lt; -352.5026" >
 						<CustomBehavior File="Message" 
-										Text="We are above the jumping platforms. Tagging the RAF on the way out."
+										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
 										
 						<!-- Tag RAF at the crab -->
@@ -702,19 +748,34 @@
 			<While Condition="true" >	
 				<!-- If we are inside Deadmines, run out to go to the next instance -->
 				<If Condition="Me.MapId == 36">
-					<CustomBehavior File="Message" 
-									Text="Deadmines detected. Running out to go to Blackfathom Deeps." 
-									LogColor="Fuchsia" />					
-						
-					<!-- Run to the instance entrance -->
-					<RunTo X="-26.83352" Y="-376.1732" Z="60.02905" />
-						
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<!-- Make sure we ran to the right spot outside the portal -->
-					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
 				</If>
 				
 				<!-- If we are inside Wailing Caverns, run out to go to the next instance -->
