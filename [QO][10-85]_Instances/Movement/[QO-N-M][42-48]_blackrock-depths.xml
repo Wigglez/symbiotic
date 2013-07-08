@@ -513,11 +513,49 @@
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
+				<!-- Stormwind or Northern Stranglethorn -->
+				<If Condition="(Me.ZoneId == 1519) || (Me.ZoneId == 33)">
+					<!-- Run outside of Burning Steppes gate -->
+					<CustomBehavior File="NoCombatMoveTo" 
+									X="-8639.473" Y="-2576.401" Z="132.5364" />
+				</If>
 				
-			
-				<!-- Run to Lothos in Blackrock Mountain -->
-				<CustomBehavior File="NoCombatMoveTo" 
-								X="-7515.52" Y="-1045.57" Z="182.3" />
+				<!-- Redridge -->
+				<If Condition="Me.ZoneId == 44">
+					<!-- Run past entry mobs in Burning Steppes near Morgan's Vigil -->
+					<CustomBehavior File="NoCombatMoveTo" 
+									X="-8245.268" Y="-2596.104" Z="133.1501" />
+				</If> <!-- Redridge -->
+				
+				<!-- Burning Steppes -->
+				<If Condition="Me.ZoneId == 46">
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<!-- Road break -->
+						<Hotspot X="-8103.826" Y="-2504.8" Z="140.6949" />
+										
+						<!-- Road begins -->
+						<Hotspot X="-8043.579" Y="-2457.349" Z="129.8192" />
+										
+						<!-- Past road break -->
+						<Hotspot X="-8025.084" Y="-2326.626" Z="129.9924" />
+					
+						<Hotspot X="-7995.279" Y="-2172.865" Z="128.0053" />
+						<Hotspot X="-7987.632" Y="-2092.518" Z="129.319" />
+						<Hotspot X="-8014.57" Y="-1964.335" Z="140.7552" />
+						
+						<Hotspot X="-7966.125" Y="-1654.837" Z="133.7583" />
+						<Hotspot X="-8010.989" Y="-1188.159" Z="149.1487" />
+						<Hotspot X="-7972.577" Y="-1133.108" Z="169.649" />
+
+					</CustomBehavior>
+				
+					<!-- Move to Lothos -->
+					<CustomBehavior File="NoCombatMoveTo" 
+									X="-7515.52" Y="-1045.57" Z="182.3" />
+				</If> <!-- Burning Steppes -->
 			</If> <!-- Eastern Kingdoms -->
 							
 			
@@ -525,62 +563,6 @@
 			
 							
 		</If> <!-- RAF toons -->
-				
-				
-				<If Condition="Me.MapId == 0" >
-					<If Condition="Me.X &lt; -7538.875 || Me.X &gt; -7170.465 || Me.Y &lt; -1086.957 || Me.Y &gt; -856.9006 || Me.Z &gt; 188" > <!-- not lower level -->
-						<If Condition="Me.X &gt; -7788.206 || Me.X &lt; -7359.371 || Me.Y &gt; -1237.015 || Me.Y &lt; -951.3706" > <!-- not inside blackrock mountain -->
-							<CustomBehavior File="Message" Text="I am not inside Blackrock Mountain. Flying to Blackrock Mountain." LogColor="Lime" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="ForcedMount" MountType="Flying" />	
-							<CustomBehavior File="FlyTo" X="-7112.657" Y="-1203.543" Z="306.6107" />
-							<CustomBehavior File="ForcedDismount" />
-								<RunTo X="-7084.238" Y="-1201.972" Z="324.1552" />
-							<CustomBehavior File="Message" Text="Setting my Heartstone." LogColor="Lime" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="SetHearthstone" MobId="47942" X="-7085.53" Y="-1202.19" Z="323.9871" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-								<RunTo X="-7112.657" Y="-1203.543" Z="306.6107" />
-							<CustomBehavior File="ForcedMount" MountType="Flying" />	
-							<CustomBehavior File="FlyTo" X="-7350.796" Y="-1104.671" Z="293.8562" />
-							<CustomBehavior File="MyCTM" X="-7409.676" Y="-1100.668" Z="289.8604" />
-							<CustomBehavior File="MyCTM" X="-7418.046" Y="-1068.09" Z="284.8479" />
-							<CustomBehavior File="MyCTM" X="-7434.496" Y="-1059.474" Z="281.5124" />
-							<CustomBehavior File="MyCTM" X="-7483.129" Y="-1071.903" Z="266.0364" />
-							<CustomBehavior File="MyCTM" X="-7544.171" Y="-1095.415" Z="273.5811" />
-							<CustomBehavior File="MyCTM" X="-7568.178" Y="-1055.278" Z="207.2832" />
-							<CustomBehavior File="MyCTM" X="-7521.016" Y="-1049.576" Z="180.9109" />
-							<CustomBehavior File="ForcedDismount" />	
-								<RunTo X="-7515.541" Y="-1045.584" Z="182.3001" />
-							<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Wait until all your character reach this location, then press continue on this window first, then press continue on the RAF characters." Title="WARNING" />	
-								<RunTo X="-7451.127" Y="-1019.527" Z="171.7613" />
-								<RunTo X="-7414.272" Y="-995.5535" Z="173.9916" />
-								<RunTo X="-7390.003" Y="-995.6981" Z="172.3456" />
-								<RunTo X="-7393.121" Y="-944.5681" Z="169.9272" />
-								<RunTo X="-7360.169" Y="-927.6536" Z="166.8724" />
-								<RunTo X="-7286.041" Y="-911.7701" Z="165.3761" />
-								<RunTo X="-7230.5" Y="-905.0279" Z="165.3761" />
-								<RunTo X="-7198.273" Y="-907.4053" Z="165.4882" />
-								<RunTo X="-7178.41" Y="-922.152" Z="166.092" />
-						</If>
-					</If>	
-				</If>
-				
-				<If Condition="Me.MapId == 0" >
-					<If Condition="Me.X &gt; -7538.875 &amp;&amp; Me.X &lt; -7170.465 &amp;&amp; Me.Y &gt; -1086.957 &amp;&amp; Me.Y &lt; -856.9006 &amp;&amp; Me.Z &lt; 188" > <!-- lower level -->
-						<CustomBehavior File="Message" Text="I am on the lower level of BRD, running to the instance.." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-						<RunTo X="-7515.541" Y="-1045.584" Z="182.3001" />
-						<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Wait until all your character reach this location, then press continue on this window first, then press continue on the RAF characters." Title="WARNING" />	
-							<RunTo X="-7178.41" Y="-922.152" Z="166.092" />
-					</If>
-				</If>
-				
-		
-				
-						
 	</QuestOrder>
 </HBProfile>
 
