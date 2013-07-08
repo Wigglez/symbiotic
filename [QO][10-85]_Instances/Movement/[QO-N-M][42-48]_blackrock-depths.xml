@@ -26,6 +26,8 @@
 	</AvoidMobs>
 	
 	<Blackspots>
+		<!-- Rock and branch in Burning Steppes -->
+		<Blackspot X="-8370.098" Y="-2562.423" Z="138.6694" Radius="17.55468" />
 	</Blackspots>
 
 	<Mailboxes>
