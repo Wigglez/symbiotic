@@ -84,7 +84,7 @@
 			<While Condition="true" >	
 				<!-- If we are inside Deadmines, run out to go to the next instance -->
 				<If Condition="Me.MapId == 36">
-					<If Condition="(Me.HearthstoneAreaId == 108) || (Me.HearthstoneAreaId == )" >
+					<If Condition="Me.HearthstoneAreaId == 108" >
 						<CustomBehavior File="Message" 
 										Text="Our Innkeeper is set at Sentinel Hill." 
 										LogColor="Cyan" />
