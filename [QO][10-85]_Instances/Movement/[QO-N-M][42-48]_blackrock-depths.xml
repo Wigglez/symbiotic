@@ -182,10 +182,6 @@
 											WaitTime="20000" />
 						</If> <!-- Have Innkeeper's Daughter -->
 							
-						<!-- Fly to the hover point above the innkeep in Iron Summit -->
-						<CustomBehavior File="FlyTo" 
-										X="-7131.942" Y="-1187.083" Z="343.0929" />
-							
 						<!-- Our hearth isn't set, we need to go to the zone -->
 						<Else>
 							<CustomBehavior File="Message" 
@@ -198,15 +194,13 @@
 					
 							<!-- Fly to the hover point above the innkeep in Iron Summit -->
 							<CustomBehavior File="FlyTo" 
-											X="-7131.942" Y="-1187.083" Z="343.0929" />
+											X="-7070.313" Y="-1215.361" Z="336.248" />
 					
 							<!-- Land at innkeeper -->
 							<CustomBehavior File="FlyTo" 
-											X="-7112.239" Y="-1202.6" Z="306.7848" />
+											X="-7083.119" Y="-1201.846" Z="324.2862" />
 							<CustomBehavior File="ForcedDismount" />
 							
-							<RunTo X="-7083.85" Y="-1202.216" Z="324.2082" />
-	
 							<!-- Set hearthstone -->
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="1000" />
@@ -221,13 +215,11 @@
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="1000" />
 						</Else> <!-- Set hearth -->
-						
-						<RunTo X="-7111.8" Y="-1202.503" Z="306.8996" />
 					</If> <!-- Check hearthstone -->
 					
 					<!-- Fly to the hover point above the innkeep in Iron Summit -->
 					<CustomBehavior File="FlyTo" 
-									X="-7131.942" Y="-1187.083" Z="343.0929" />
+									X="-7070.313" Y="-1215.361" Z="336.248" />
 											
 					<!-- Repair if necessary -->
 					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
@@ -265,7 +257,7 @@
 					
 					<!-- fly to hover point -->
 					<CustomBehavior File="FlyTo" 
-									X="-7131.942" Y="-1187.083" Z="343.0929" />
+									X="-7070.313" Y="-1215.361" Z="336.248" />
 									
 					<CustomBehavior File="Message" 
 									Text="We are in Iron Summit." 
