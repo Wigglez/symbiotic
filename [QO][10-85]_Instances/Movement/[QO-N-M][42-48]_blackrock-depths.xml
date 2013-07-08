@@ -538,6 +538,9 @@
 					<!-- Before zone change -->
 					<CustomBehavior File="NoCombatMoveTo" 
 									X="-8724.526" Y="-2583.26" Z="132.6133" />
+									
+					<CustomBehavior File="ForcedMount"
+									MountType="Ground" />
 
 					<!-- Run outside of Burning Steppes gate -->
 					<CustomBehavior File="NoCombatMoveTo" 
