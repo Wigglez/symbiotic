@@ -515,7 +515,7 @@
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 										Title="WARNING" />
 										
-						<!-- Fly to goldshire -->
+						<!-- Stormwind fp -->
 						<RunTo X="-8837.592" Y="488.6579" Z="109.6119" />
 
 						<CustomBehavior File="Message" 
@@ -625,7 +625,7 @@
 				<If Condition="Me.ZoneId == 44">
 					<CustomBehavior File="Message" 
 									Text="We are in Redridge Mountains (merged)."
-									LogColor="Lime" /> 
+									LogColor="Cyan" /> 
 										
 					<CustomBehavior File="Message" 
 									Text="Moving to Burning Steppes."
@@ -634,16 +634,8 @@
 					<CustomBehavior File="ForcedMount"
 									MountType="Ground" />
 
-					<!-- Run outside of Burning Steppes gate -->
-					<RunTo X="-8639.473" Y="-2576.401" Z="132.5364" />
-										
-					<!-- Run past entry mobs in Burning Steppes near Morgan's Vigil -->
-					<CustomBehavior File="RunLikeHell"
-									UseCTM="false" 
-									NumOfTimes="1" 
-									AllowCombat="false">
-						<Hotspot X="-8245.268" Y="-2596.104" Z="133.1501" />
-					</CustomBehavior>
+					<!-- Run into Burning Steppes zone -->
+					<RunTo X="-8611.496" Y="-2574.24" Z="132.5332" />
 				</If>
 				
 				<!-- Burning Steppes -->
@@ -663,24 +655,49 @@
 									UseCTM="false" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<!-- Road break -->
-						<Hotspot X="-8103.826" Y="-2504.8" Z="140.6949" />
-										
-						<!-- Road begins -->
-						<Hotspot X="-8043.579" Y="-2457.349" Z="129.8192" />
-										
-						<!-- Past road break -->
-						<Hotspot X="-8025.084" Y="-2326.626" Z="129.9924" />
+						<Hotspot X="-8390.43" Y="-2535.344" Z="135.1344" />
+						<Hotspot X="-8300.824" Y="-2544.292" Z="133.1498" />
+						<Hotspot X="-8254.024" Y="-2598.539" Z="133.1498" />
+	
+						<Hotspot X="-8196.264" Y="-2593.321" Z="133.1972" />
+						<Hotspot X="-8177.453" Y="-2579.24" Z="135.266" />
+						<Hotspot X="-8148.02" Y="-2483.205" Z="140.7028" />
+						<Hotspot X="-8134.702" Y="-2469.772" Z="143.1508" />
+						<Hotspot X="-8126.665" Y="-2457.178" Z="145.5077" />
+						<Hotspot X="-8108.138" Y="-2453.743" Z="142.0116" />
+						<Hotspot X="-8016.585" Y="-2277.855" Z="149.7735" />
+						
+						<Hotspot X="-8008.175" Y="-2260.182" Z="150.125" />
+						<Hotspot X="-8011.761" Y="-2232.549" Z="148.2084" />
+					</CustomBehavior>
 					
-						<Hotspot X="-7995.279" Y="-2172.865" Z="128.0053" />
-						<Hotspot X="-7987.632" Y="-2092.518" Z="129.319" />
-						<Hotspot X="-8014.57" Y="-1964.335" Z="140.7552" />
-						
-						<Hotspot X="-7966.125" Y="-1654.837" Z="133.7583" />
-						<Hotspot X="-8010.989" Y="-1188.159" Z="149.1487" />
-						
-						<!-- On bridge to BRM -->
-						<Hotspot X="-7972.577" Y="-1133.108" Z="169.649" />
+					<CustomBehavior File="ForcedMount"
+									MountType="Ground" />
+									
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-8013.561" Y="-2217.182" Z="144.139" />
+						<Hotspot X="-8004.605" Y="-2216.043" Z="137.0079" />
+						<Hotspot X="-7997.072" Y="-2205.232" Z="130.9159" />
+						<Hotspot X="-7973.281" Y="-2144.982" Z="125.5823" />
+						<Hotspot X="-7980.01" Y="-2078.357" Z="133.0128" />
+						<Hotspot X="-8006.4" Y="-2059.179" Z="134.5652" />
+						<Hotspot X="-7989.853" Y="-2055.339" Z="142.9712" />
+						<Hotspot X="-7993.468" Y="-2034.323" Z="153.792" />
+						<Hotspot X="-8008.967" Y="-1946.512" Z="143.2501" />
+						<Hotspot X="-7944.23" Y="-1911.462" Z="132.2626" />
+						<Hotspot X="-7907.93" Y="-1815.418" Z="122.6335" />
+						<Hotspot X="-7927.687" Y="-1596.041" Z="140.7336" />
+						<Hotspot X="-7916.671" Y="-1523.458" Z="151.0038" />
+						<Hotspot X="-7896.289" Y="-1498.937" Z="140.6895" />
+						<Hotspot X="-7889.815" Y="-1455.413" Z="144.7946" />
+						<Hotspot X="-7882.34" Y="-1387.763" Z="149.0407" />
+						<Hotspot X="-7906.084" Y="-1348.914" Z="133.9588" />
+						<Hotspot X="-7966.747" Y="-1233.434" Z="137.5921" />
+						<Hotspot X="-8009.796" Y="-1182.197" Z="150.5483" />
+						<Hotspot X="-7888.896" Y="-1128.477" Z="196.6028" />
 					</CustomBehavior>
 					
 					<CustomBehavior File="ForcedMount"
