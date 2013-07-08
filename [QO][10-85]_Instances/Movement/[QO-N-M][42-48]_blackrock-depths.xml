@@ -523,22 +523,60 @@
 
 					</If> <!-- Elwynn Forest -->
 					
+					<!-- Redridge -->
+					<If Condition="Me.ZoneId == 44">
+						<!-- Before zone change -->
+						<CustomBehavior File="NoCombatMoveTo" 
+										X="-8724.526" Y="-2583.26" Z="132.6133" />
+					</If> <!-- Redridge -->
+					
 					<ElseIf Condition="Me.IsHorde">
+						<!-- Northern Stranglethorn -->
 						<If Condition="Me.ZoneId == 33">
 							<!-- Northern Stranglethorn -->
 							<!-- Get off the zeppelin tower -->
 							
 							
-						</If>
+						</If> <!-- Northern Stranglethorn -->
+						
+						<!-- Redridge -->
+						<If Condition="Me.ZoneId == 44">
+							<CustomBehavior File="RunLikeHell" 
+											UseCTM="false" 
+											NumOfTimes="1" 
+											AllowCombat="false">	
+								<!-- entering redridge -->
+								<Hotspot X="-9865.442" Y="-1727.008" Z="23.25467" />	
+								<Hotspot X="-9584.481" Y="-2039.409" Z="65.60387" />
+								
+								<!-- road past the tower -->
+								<Hotspot X="-9549.708" Y="-2209.083" Z="92.73228" />	
+								<Hotspot X="-9468.574" Y="-2326.108" Z="68.06623" />
+								
+								<!-- bank of the lake -->
+								<Hotspot X="-9413.372" Y="-2348.02" Z="60.64516" /> 
+							</CustomBehavior>	
+							 	
+							<CustomBehavior File="Message" 
+											Text="Swimming across the lake."
+											LogColor="Lime" />
+											
+							<CustomBehavior File="MyCTM" 
+											X="-9342.577" Y="-2388.076" Z="54.57803" />
+							<CustomBehavior File="MyCTM" 
+											X="-9295.076" Y="-2374.663" Z="56.64822" />
+							<CustomBehavior File="MyCTM" 
+											X="-9265.14" Y="-2336.521" Z="71.7114" />
+							
+							<!-- Before zone change into Burning Steppes -->
+							<CustomBehavior File="NoCombatMoveTo" 
+											X="-8724.526" Y="-2583.26" Z="132.6133" />
+						</If> <!-- Redridge -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
-				<!-- Redridge -->
+				<!-- Redridge merged -->
 				<If Condition="Me.ZoneId == 44">
-					<!-- Before zone change -->
-					<CustomBehavior File="NoCombatMoveTo" 
-									X="-8724.526" Y="-2583.26" Z="132.6133" />
-									
 					<CustomBehavior File="ForcedMount"
 									MountType="Ground" />
 
@@ -549,7 +587,7 @@
 					<!-- Run past entry mobs in Burning Steppes near Morgan's Vigil -->
 					<CustomBehavior File="NoCombatMoveTo" 
 									X="-8245.268" Y="-2596.104" Z="133.1501" />
-				</If> <!-- Redridge -->
+				</If>
 				
 				<!-- Burning Steppes -->
 				<If Condition="Me.ZoneId == 46">
@@ -589,11 +627,6 @@
 									X="-7515.52" Y="-1045.57" Z="182.3" />
 				</If> <!-- Blackrock Mountain -->
 			</If> <!-- Eastern Kingdoms -->
-							
-			
-			
-			
-							
 		</If> <!-- RAF toons -->
 	</QuestOrder>
 </HBProfile>
