@@ -515,6 +515,9 @@
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 										Title="WARNING" />
 										
+						<!-- Fly to goldshire -->
+						<RunTo X="-8837.592" Y="488.6579" Z="109.6119" />
+
 						<CustomBehavior File="Message" 
 										Text="Moving to Goldshire."
 										LogColor="Lime" /> 
