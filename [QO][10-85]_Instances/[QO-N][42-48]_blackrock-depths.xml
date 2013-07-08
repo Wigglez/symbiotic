@@ -80,18 +80,34 @@
 			<While Condition="true" >
 				<!-- If we are inside Razorfen Downs -->
 				<If Condition="Me.MapId == 129">
-					<CustomBehavior File="Message" 
-									Text="Razorfen Downs detected. Running out to go to Blackrock Depths."
-									LogColor="Fuchsia" />
+					<If Condition="Me.HearthstoneAreaId == 4010" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Mudsprocket." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="2592.638" Y="1116.691" Z="50.39219" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
 				</If> <!-- RFD -->
 				
 				<!-- If we are inside Blackrock Depths -->
@@ -542,20 +558,36 @@
 		
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-				<!-- If we are inside Razorfen Downs -->
+				<!-- RFD -->
 				<If Condition="Me.MapId == 129">
-					<CustomBehavior File="Message" 
-									Text="Razorfen Downs detected. Running out to go to Blackrock Depths."
-									LogColor="Fuchsia" />
-									
-					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
+					<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="2592.638" Y="1116.691" Z="50.39219" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
 				</If> <!-- RFD -->
 				
 				<!-- If we are inside Blackrock Depths -->

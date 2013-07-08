@@ -78,38 +78,52 @@
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-				<!-- If we are inside Blackfathom Deeps, run out to go to the next instance -->
-				<If Condition="Me.MapId == 48">
-					<CustomBehavior File="Message" 
-									Text="Blackfathom Deeps detected. Running out to go to Razorfen Kraul." 
-									LogColor="Fuchsia" />	
-				
-					<If Condition="Me.X &lt; -352.5026" >
+				<!-- If we are in Blackfathom Deeps area -->
+				<If Condition="Me.ZoneId == 719">
+					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
 						<CustomBehavior File="Message" 
-										Text="We are above the jumping platforms. Tagging the RAF on the way out."
-										LogColor="Fuchsia" />
+										Text="Our Innkeeper is set at Astranaar or Zoram'gar Outpost." 
+										LogColor="Cyan" />
 										
-						<!-- Tag RAF at the crab -->
-						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
-							
-						<!-- Run to the edge of the platform -->
-						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
-						
-						<!-- Force ourselves to run off of it -->
-						<CustomBehavior File="MyCTM" 
-										X="-273.533" Y="71.30302" Z="-58.51636" />
-					</If> <!-- Above jumps -->
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<!-- Run to the instance entrance -->
-					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-						
-					<!-- Go through the portal -->									
-					<CustomBehavior File="MyCTM" 
-									X="-149.7285" Y="113.4777" Z="-40.73384" />				
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
+				</If> <!-- Blackfathom Deeps -->	
+				
+				<!-- In ashenvale -->
+				<If Condition="Me.ZoneId == 331">
+					<!-- Alliance -->
+					<If Condition="Me.IsAlliance">
+						<!-- Run outside the inn -->
+						<RunTo X="2740.226" Y="-400.2375" Z="108.7305" />
 					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-				</If> <!-- Inside Blackfathom Deeps -->
+						<!-- Horde -->
+						<ElseIf Condition="Me.IsHorde">
+							<!-- Run outside the inn -->
+							<RunTo X="3364.353" Y="968.8149" Z="7.404068" />
+						</ElseIf> <!-- Horde -->
+					</If> <!-- Alliance -->
+				</If> <!-- Ashenvale -->
 				
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
 				<If Condition="Me.MapId == 47">
@@ -134,7 +148,7 @@
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
+									ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />								/>
 				</If> <!-- Not in box -->
 					
 				<!-- If we are in the box -->
@@ -654,35 +668,37 @@
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-				<!-- If we are inside Blackfathom Deeps, run out to go to the next instance -->
-				<If Condition="Me.MapId == 48">
-					<CustomBehavior File="Message" 
-									Text="Blackfathom Deeps detected. Running out to go to Razorfen Kraul."
-									LogColor="Fuchsia" />
-						
-					<If Condition="Me.X &lt; -352.5026" >
+				<!-- BFD -->
+				<If Condition="Me.ZoneId == 719">
+					<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
 						<CustomBehavior File="Message" 
-										Text="We are above the jumping platforms. Running down." 
-										LogColor="Fuchsia" />
-							
-						<!-- Run to the edge of the platform -->
-						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
-						
-						<!-- Force ourselves to run off of it -->
-						<CustomBehavior File="MyCTM" 
-										X="-273.533" Y="71.30302" Z="-58.51636" />
-					</If> <!-- Above jumps -->
+										Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+						</If> <!-- Have hearthstone -->
 					
-					<!-- Run to the instance entrance -->
-					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-149.7285" Y="113.4777" Z="-40.73384" /> 
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-				</If> <!-- Inside BFD -->
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
+				</If> <!-- BFD -->		
 			
 				<!-- If we are inside Razorfen Kraul, run out to reset -->	
 				<If Condition="Me.MapId == 47">
