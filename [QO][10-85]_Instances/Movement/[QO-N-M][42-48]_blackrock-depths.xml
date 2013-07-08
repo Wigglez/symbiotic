@@ -603,6 +603,9 @@
 						<CustomBehavior File="Message" 
 										Text="We are in Gol'bolar Quarry."
 										LogColor="Cyan" /> 
+										
+						<!-- Middle of the tunnel, leading to Searing Gorge-->				
+						<Runto X="-6174.924" Y="-2310.353" Z="286.5196" />				
 					</If> <!-- Dun Morogh -->
 					
 					<ElseIf Condition="Me.IsHorde">
