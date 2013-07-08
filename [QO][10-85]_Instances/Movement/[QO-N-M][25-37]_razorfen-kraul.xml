@@ -78,6 +78,44 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
+			<!-- If we are in Blackfathom Deeps area -->
+			<If Condition="Me.ZoneId == 719">
+				<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
+					<CustomBehavior File="Message" 
+									Text="Our Innkeeper is set at Astranaar or Zoram'gar Outpost." 
+									LogColor="Cyan" />
+									
+					<!-- Can cast hearthstone -->
+					<If Condition="SpellManager.CanCast(8690)">
+						<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+											
+						<!-- Can cast Innkeeper's Daughter -->
+						<ElseIf Condition="SpellManager.CanCast(94719)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+						</ElseIf> <!-- Can cast Innkeeper's Daughter -->
+						
+						<!-- Cooldown -->
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="Unable to hearth due to cooldown. Proceeding without it." 
+											LogColor="Lime" />
+						</Else> <!-- Cooldown -->
+					</If> <!-- Can cast hearth -->
+				</If> <!-- Hearth check -->
+			</If> <!-- Blackfathom Deeps -->		
+					
 			<!-- If we are in Kalimdor -->
 			<If Condition="Me.MapId == 1" >	
 				<CustomBehavior File="Message" 
@@ -90,71 +128,6 @@
 									Text="We are not in the box." 
 									LogColor="Cyan" />
 								
-					<!-- If we are in Blackfathom Deeps area -->
-					<If Condition="Me.ZoneId == 719">
-						<CustomBehavior File="Message" 
-										Text="Clearing a path out of Blackfathom Deeps." 
-										LogColor="Cyan" />
-									
-						<!-- clear to the water pool -->
-						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-						<RunTo X="4245.435" Y="736.5756" Z="-26.26228" />
-						<RunTo X="4234.482" Y="740.7827" Z="-25.60224" />
-						<RunTo X="4218.563" Y="737.3569" Z="-25.09796" />
-						<RunTo X="4208.815" Y="746.0913" Z="-23.79734" />
-						<RunTo X="4221.317" Y="744.2615" Z="-24.69747" />
-						<RunTo X="4225.376" Y="764.999" Z="-21.7336" />
-						<RunTo X="4233.779" Y="790.256" Z="-17.50613" />
-						<RunTo X="4252.476" Y="817.8237" Z="-7.964022" />
-						<RunTo X="4252.45" Y="822.129" Z="-7.052672" />
-						<RunTo X="4268.782" Y="840.5276" Z="-3.776558" />
-						<RunTo X="4273.144" Y="844.4012" Z="-5.171373" />
-						<RunTo X="4282.66" Y="851.4493" Z="-9.308812" />
-						<RunTo X="4292.95" Y="855.8239" Z="-13.00362" />
-						<RunTo X="4309.459" Y="864.2205" Z="-15.05904" />
-						<RunTo X="4320.927" Y="881.7582" Z="-15.04231" />
-						<RunTo X="4334.985" Y="858.9839" Z="-20.6427" />
-						<RunTo X="4328.694" Y="868.6224" Z="-20.22458" />
-						<RunTo X="4339.62" Y="884.4542" Z="-20.4396" />
-						<RunTo X="4327.783" Y="873.257" Z="-19.38464" />
-						<RunTo X="4323.096" Y="886.4991" Z="-14.61528" />
-						<RunTo X="4318.219" Y="898.9949" Z="-13.8387" />
-						<RunTo X="4312.673" Y="936.0864" Z="-18.51675" />
-						<RunTo X="4314.701" Y="914.4903" Z="-16.77805" />
-						<RunTo X="4325.379" Y="917.7774" Z="-16.79071" />
-						<RunTo X="4312.885" Y="913.5507" Z="-16.54588" />
-						<RunTo X="4292.271" Y="906.5396" Z="-14.80684" />
-						<RunTo X="4290.866" Y="896.8708" Z="-12.12095" />
-						<RunTo X="4283.728" Y="905.2469" Z="-14.9022" />
-						<RunTo X="4265.51" Y="900.5068" Z="-14.47306" />
-						<RunTo X="4245.973" Y="897.0073" Z="-9.488991" />
-						<RunTo X="4223.793" Y="907.6456" Z="-8.595884" />
-						<RunTo X="4208.537" Y="919.0058" Z="-9.839013" />
-						<RunTo X="4207.825" Y="927.8275" Z="-9.159419" />
-						<RunTo X="4202.312" Y="924.1497" Z="-10.84358" />
-						<RunTo X="4186.894" Y="932.8614" Z="-13.28574" />
-						<RunTo X="4178.689" Y="941.2141" Z="-15.40084" />
-						<RunTo X="4168.679" Y="942.8105" Z="-17.99987" />
-						<RunTo X="4164.381" Y="935.2953" Z="-18.10468" />
-						
-						<!-- CTM beneath the water to the other side -->
-						<CustomBehavior File="MyCTM" 
-										X="4160.37" Y="916.4307" Z="-16.98774" />
-										
-						<CustomBehavior File="MyCTM" 
-										X="4159.188" Y="887.0402" Z="-23.669" />
-
-						<!-- clear to the top of the stairs -->	
-						<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
-						<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
-						<RunTo X="4127.493" Y="868.0792" Z="9.692391" />
-						<RunTo X="4124.339" Y="857.3198" Z="9.812651" />
-						<RunTo X="4123.282" Y="868.1447" Z="9.807321" />
-						<RunTo X="4114.511" Y="882.3802" Z="9.811003" />
-						<RunTo X="4118.376" Y="897.6333" Z="9.781507" />
-						<RunTo X="4098.091" Y="891.6923" Z="9.577498" />
-					</If> <!-- Blackfathom Deeps -->				
-					
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="Me.HearthstoneAreaId == 4010" >
 						<CustomBehavior File="Message" 
@@ -413,125 +386,44 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 				
-			<!-- Kalimdor -->
-			<If Condition="Me.MapId == 1">
-				<CustomBehavior File="Message" 
-								Text="We are in Kalimdor." 
-								LogColor="Cyan" />
-			
-				<!-- If we are in Blackfathom Deeps area -->
-				<If Condition="Me.ZoneId == 719">
+			<!-- If we are in Blackfathom Deeps area -->
+			<If Condition="Me.ZoneId == 719">
+				<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
 					<CustomBehavior File="Message" 
-									Text="We are in the Blackfathom Deeps area." 
+									Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
 									LogColor="Cyan" />
+									
+					<!-- Can cast hearthstone -->
+					<If Condition="SpellManager.CanCast(8690)">
+						<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+											
+						<!-- Can cast Innkeeper's Daughter -->
+						<ElseIf Condition="SpellManager.CanCast(94719)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+						</ElseIf> <!-- Can cast Innkeeper's Daughter -->
+						
+						<!-- Cooldown -->
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="Unable to hearth due to cooldown. Proceeding without it." 
+											LogColor="Lime" />
+						</Else> <!-- Cooldown -->
+					</If> <!-- Can cast hearth -->
+				</If> <!-- Hearth check -->
+			</If> <!-- Blackfathom Deeps -->		
 				
-					<CustomBehavior File="Message" 
-									Text="Waiting for the booster to clear a path out of Blackfathom Deeps." 
-									LogColor="Cyan" />
-					
-					<!-- wait timer for the booster to clear to the top of the stairs -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="150000" />
-									
-					<!-- run to water pool -->
-					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
-					
-					<!-- CTM beneath the water to the other side -->
-					<CustomBehavior File="MyCTM" 
-									X="4159.188" Y="887.0402" Z="-23.669" />
-									
-					<CustomBehavior File="MyCTM" 
-									X="4154.427" Y="869.0259" Z="-18.11682" />
-
-					<!-- run to the top of the stairs -->	
-					<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
-					<RunTo X="4127.493" Y="868.0792" Z="9.692391" />
-					<RunTo X="4124.339" Y="857.3198" Z="9.812651" />
-					
-					<!-- runlikehell to the bfd rendezvous -->
-					<CustomBehavior File="RunLikeHell" 
-									UseCTM="false" 
-									NumOfTimes="1" 
-									AllowCombat="false">
-						<Hotspot X="4115.094" Y="821.2402" Z="4.113029" />
-						<Hotspot X="4079.888" Y="792.1219" Z="8.111836" />
-						<Hotspot X="4050.538" Y="758.1669" Z="5.662883" />
-						<Hotspot X="3970.823" Y="740.3875" Z="7.43161" />
-						<Hotspot X="3958.283" Y="720.9913" Z="8.780532" />
-						<Hotspot X="3953.375" Y="703.1535" Z="8.065741" />
-						<Hotspot X="3962.32" Y="661.3057" Z="7.93483" />
-						<Hotspot X="3962.535" Y="617.1002" Z="11.1361" />
-						<Hotspot X="3945.427" Y="584.3884" Z="12.37112" />
-						<Hotspot X="3915.458" Y="563.5007" Z="8.966149" />
-						<Hotspot X="3889.131" Y="538.3585" Z="7.766765" />
-					</CustomBehavior>	
-				</If>
-				
-				<!-- Alliance -->
-				<If Condition="Me.IsAlliance" >
-					<CustomBehavior File="Message" 
-									Text="We are Alliance." 
-									LogColor="Cyan" />
-									
-					<!-- Ashenvale -->
-					<If Condition="Me.ZoneId == 331" >
-						<CustomBehavior File="Message" 
-										Text="We are in Ashenvale." 
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="Message" 
-										Text="Moving to Blackfathom Camp."
-										LogColor="Lime" />
-									
-						<!-- Blackfathom Camp -->
-						<RunTo X="3880.51" Y="654.16" Z="10.4565" />
-						
-						<CustomBehavior File="Message" 
-										Text="Moving to Rut'theran Village."
-										LogColor="Lime" />
-												
-						<!-- flightmaster to Rut'theran Village -->
-						<RunTo X="8383.75" Y="980.964" Z="30.8292" />
-					</If>
-					
-					<!-- Rut'theran Village -->
-					<If Condition="Me.X &gt; 8145 &amp;&amp; Me.X &lt; 8600 &amp;&amp; Me.Y &lt; 1225 &amp;&amp; Me.Y &gt; 735" >
-						<CustomBehavior File="Message" 
-										Text="We are in Rut'theran Village." 
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="Message" 
-										Text="We are moving to Stormwind City."
-										LogColor="Lime" />
-						
-						<!-- Rut'theran Village docks -->
-						<RunTo X="8179.316" Y="1002.142" Z="6.875345" />
-						
-						<CustomBehavior File="Message" 
-										Text="Waiting for the boat to Stormwind City." 
-										LogColor="Cyan" />
-										
-						<CustomBehavior File="UseTransport" 
-										TransportId="176310" 
-										WaitAtX="8179.316" 
-										WaitAtY="1002.142" 
-										WaitAtZ="6.875345"
-										TransportStartX="8162.587" 
-										TransportStartY="1005.365" 
-										TransportStartZ="-0.0382334"								
-										StandOnX="8167.021" 
-										StandOnY="1009.898" 
-										StandOnZ="6.098088"
-										TransportEndX="-8650.719" 
-										TransportEndY="1346.051" 
-										TransportEndZ="0.012419"	
-										GetOffX="-8644.193" 
-										GetOffY="1327.927" 
-										GetOffZ="5.536721" />
-					</If> <!-- Rut'theran Village -->
-				</If> <!-- Alliance -->
-			</If> <!-- Kalimdor -->
-			
 			<!-- Eastern Kingdoms -->
 			<If Condition="Me.MapId == 0">
 				<!-- Alliance -->
@@ -751,39 +643,6 @@
 										Text="We are Horde." 
 										LogColor="Cyan" />
 				
-						<!-- Ashenvale -->
-						<If Condition="Me.ZoneId == 331" >
-							<CustomBehavior File="Message" 
-											Text="We are in Ashenvale." 
-											LogColor="Cyan" />
-										
-							<CustomBehavior File="Message" 
-											Text="Moving to Zoram'gar Outpost."
-											LogColor="Lime" />
-												
-							<!-- Runlikehell to avoid alliance camp -->
-							<CustomBehavior File="RunLikeHell" 
-											NumOfTimes="1" 
-											AllowCombat="false">
-								<Hotspot X="3837.84" Y="587.6144" Z="6.068381" />
-								<Hotspot X="3806.66" Y="614.8504" Z="3.562618" />
-								<Hotspot X="3771.477" Y="631.2842" Z="7.796773" />
-								<Hotspot X="3661.058" Y="631.1157" Z="4.442703" />
-								<Hotspot X="3545.927" Y="611.8554" Z="7.305382" />
-								<Hotspot X="3517.932" Y="642.4163" Z="7.644723" />
-							</CustomBehavior>
-							
-							<!-- Run to zoram'gar -->
-							<RunTo X="3350.954" Y="1052.47" Z="3.10412" />
-						
-							<CustomBehavior File="Message" 
-											Text="Moving to Orgrimmar."
-											LogColor="Lime" />
-												
-							<!-- flightmaster to Orgrimmar -->
-							<RunTo X="1798.27" Y="-4363.27" Z="102.5211" />
-						</If> <!-- Ashenvale -->
-						
 						<!-- Orgrimmar -->
 						<If Condition="Me.ZoneId == 1637" >	
 							<CustomBehavior File="Message" 
