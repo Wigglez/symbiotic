@@ -266,6 +266,24 @@
 					<CustomBehavior File="Message" 
 									Text="We are in Iron Summit." 
 									LogColor="Cyan" />
+									
+					<!-- We are in Searing Gorge and have set our hearth, move to the rendezvous at the end of the stonewrought pass -->
+					<CustomBehavior File="FlyTo" 
+									X="-6361.987" Y="-2071.4" Z="243.0217" />
+									
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />				
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
 							
 					<CustomBehavior File="Message" 
 									Text="Flying to Lothos (rendezvous location)." 
@@ -602,7 +620,7 @@
 																				
 						<CustomBehavior File="Message" 
 										Text="We are moving to Lock Modan."
-										LogColor="Cyan" /> 	
+										LogColor="Lime" /> 	
 										
 						<!-- Entering Lock Modan -->				
 						<Runto X="-5590.18" Y="-2305.49" Z="408.6046" />				
@@ -615,11 +633,14 @@
 										LogColor="Cyan" /> 
 																				
 						<CustomBehavior File="Message" 
-										Text="We are moving in Searing Gorge."
-										LogColor="Cyan" /> 	
+										Text="We are moving to Searing Gorge."
+										LogColor="Lime" /> 	
 										
-						<!-- Entering Searing Gorge -->				
-						<Runto X="-6063.105" Y="-2453.149" Z="309.86" />				
+						<!-- Entrance to the stonewrought pass -->				
+						<Runto X="-6029.934" Y="-2496.176" Z="310.0125" />
+						
+						<!-- CTM through the unmeshed stonewrought pass tunnel to Searing Gorge-->
+						<CustomBehavior File="MyCTM" X="-6361.987" Y="-2071.4" Z="243.0217" />
 					</If> <!--  Lock Modan -->
 
 					<ElseIf Condition="Me.IsHorde">
@@ -747,13 +768,22 @@
 								<Hotspot X="-5692.782" Y="-2767.788" Z="362.3757" />
 								<Hotspot X="-5764.716" Y="-2652.199" Z="330.4999" />
 								<Hotspot X="-5873.091" Y="-2556.498" Z="307.2704" />
+							</CustomBehavior>	
 								
-								<!-- Entrance to tunnel -->
-								<Hotspot X="-5996.148" Y="-2516.708" Z="307.9788" />
-								
-								<!-- Middle of the tunnel -->
-								<Hotspot X="-6174.924" Y="-2310.353" Z="286.5196" />
-							</CustomBehavior>
+							<!-- 80 yards before entering the stonewrought pass tunnel -->
+							<CustomBehavior File="RunLikeHell"
+										UseCTM="false" 
+										NumOfTimes="1" 
+										AllowCombat="false">	
+								<Hotspot X="-5892.741" Y="-2541.248" Z="307.2173" />
+								<Hotspot X="-5945.028" Y="-2544.952" Z="309.0778" />
+								<!-- Entrance to the stonewrought pass -->
+								<Hotspot X="-6046.459" Y="-2480.586" Z="312.0486" />
+								<Hotspot X="-6049.991" Y="-2469.749" Z="312.1317" />
+							</CustomBehavior>	
+	
+							<!-- CTM through the unmeshed stonewrought pass tunnel to Searing Gorge-->
+							<CustomBehavior File="MyCTM" X="-6361.987" Y="-2071.4" Z="243.0217" />
 						</If> <!-- Loch Modan -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
@@ -765,13 +795,35 @@
 									Text="We are in Searing Gorge."
 									LogColor="Cyan" /> 
 									
+					<!-- Run to the exit of the stonewrought pass tunnel -->
+					<RunTo X="-6361.987" Y="-2071.4" Z="243.0217" />
+									
+					<!-- Tag for booster to clear the way to blackrock mountain -->				
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />				
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
 					<CustomBehavior File="Message" 
 									Text="Moving to Iron Summit."
 									LogColor="Lime" /> 
-							
-					<!-- End of Stonewrought Pass into Searing Gorge -->
-					<RunTo X="-6360.999" Y="-2072.692" Z="242.9491" />
-									
+																
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
 									NumOfTimes="1" 
