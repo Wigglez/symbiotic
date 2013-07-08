@@ -589,7 +589,7 @@
 										LogColor="Lime" /> 
 										
 						<!-- Gol'bolar quarry flightmaster -->
-						
+						<RunTo X="-5714.14" Y="-1578.64" Z="383.204" />
 						
 					</If> <!-- Stormwind -->
 					
