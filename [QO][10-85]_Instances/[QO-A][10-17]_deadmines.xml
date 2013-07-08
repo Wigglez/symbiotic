@@ -582,6 +582,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml" />	
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 					
 					
 					<!-- moving past the big cannon so we don't get stuck -->

@@ -429,6 +429,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="48" 
 									ProfileName="[QO-N][48-58]_upper-blackrock-spire.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 					
 					<RunTo X="567.4936" Y="-10.46224" Z="-70.13719" />
 					<RunTo X="541.0748" Y="5.988479" Z="-69.68866" />
@@ -666,6 +669,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="48" 
 									ProfileName="[QO-N][48-58]_upper-blackrock-spire.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 									
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 

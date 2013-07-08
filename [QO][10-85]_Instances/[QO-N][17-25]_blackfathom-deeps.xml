@@ -575,6 +575,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="25" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 				</If> <!-- Inside BFD -->
 				
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
@@ -838,7 +841,10 @@
 									MinLevel="25" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 									
-					<!-- Waiting 40 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+									
+					<!-- Waiting 30 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
 					<CustomBehavior File="WaitTimer"
 									WaitTime="30000" />			
 									

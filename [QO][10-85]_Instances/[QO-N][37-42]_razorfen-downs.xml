@@ -373,6 +373,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="42" 
 									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 				</If> <!-- RFD -->
 				
 				<!-- If we are inside Razorfen Downs -->
@@ -592,6 +595,8 @@
 									MinLevel="42" 
 									ProfileName="[QO-N][42-48]_blackrock-depths.xml"  />
 					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 									
 					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 

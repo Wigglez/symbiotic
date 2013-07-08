@@ -78,7 +78,7 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- If we are inside Wailing Caverns, run out to reset -->
-				<If Condition="Me.MapId == 43">
+				<If Condition="Me.ZoneId == 718">
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns detected. Running out." 
 									LogColor="Fuchsia" />
@@ -110,7 +110,7 @@
 									Text="Portal detected nearby." 
 									LogColor="Fuchsia" />	
 									
-					<While Condition="Me.Mapid != 43">
+					<While Condition="Me.ZoneId != 718">
 						<!-- Make sure we run to the right spot outside the portal -->
 						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 						
@@ -127,7 +127,7 @@
 										VariantTime="2000" />
 										
 						<!-- If we still aren't in, we're locked out -->
-						<If Condition="Me.Mapid != 43">
+						<If Condition="Me.ZoneId != 718">
 							<CustomBehavior File="Message" 
 											Text="We are locked out. Waiting and trying again." 
 											LogColor="Fuchsia" />
@@ -137,7 +137,7 @@
 				
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
-				<If Condition="Me.MapId == 43">
+				<If Condition="Me.ZoneId == 718">
 					<!-- Entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
@@ -147,6 +147,9 @@
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />	
 									
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns initialized."  
@@ -481,16 +484,19 @@
 									LogColor="Fuchsia" />
 										
 					<!-- Tag rafs -->
-					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />
+					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />	
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 				</If> <!-- Inside Wailing Caverns -->
 				
 				<!-- If we are inside Wailing Caverns, run out to reset -->
-				<If Condition="Me.MapId == 43">
+				<If Condition="Me.ZoneId == 718">
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns detected. Running out to reset." 
 									LogColor="Fuchsia" />
@@ -625,7 +631,7 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- If we are inside Wailing Caverns, run out to reset -->
-				<If Condition="Me.MapId == 43">
+				<If Condition="Me.ZoneId == 718">
 					<CustomBehavior File="Message" 
 									Text="Wailing Caverns detected. Running out." 
 									LogColor="Fuchsia" />
@@ -657,7 +663,7 @@
 									Text="Portal detected nearby." 
 									LogColor="Fuchsia" />	
 							
-					<While Condition="Me.MapId != 43">
+					<While Condition="Me.ZoneId != 718">
 						<!-- Make sure we run to the right spot outside the portal -->
 						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 					
@@ -673,7 +679,7 @@
 										WaitTime="10000" 
 										VariantTime="2000" />	
 							
-						<If Condition="Me.MapId != 43">
+						<If Condition="Me.ZoneId != 718">
 							<CustomBehavior File="Message" 
 											Text="We are locked out. Waiting and trying again." 
 											LogColor="Fuchsia" />
@@ -682,7 +688,7 @@
 				</If> <!-- In box -->		
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
-				<If Condition="Me.MapId == 43">
+				<If Condition="Me.ZoneId == 718">
 					<!-- Entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
@@ -715,6 +721,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 									
 					<CustomBehavior File="Message" 
 									Text="Allowing the booster to clear the exterior for our own safety. Waiting 120 seconds." 

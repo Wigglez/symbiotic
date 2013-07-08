@@ -547,6 +547,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="37" 
 									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 				</If> <!-- Razorfen Kraul -->
 				
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
@@ -774,6 +777,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="37" 
 									ProfileName="[QO-N][37-42]_razorfen-downs.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 									
 					<!-- Wait 30 seconds so the main can get away from us and we can leave the instance -->
 					<CustomBehavior File="WaitTimer" 
