@@ -182,6 +182,10 @@
 											WaitTime="20000" />
 						</If> <!-- Have Innkeeper's Daughter -->
 							
+						<!-- Fly to the hover point above the innkeep in Iron Summit -->
+						<CustomBehavior File="FlyTo" 
+										X="-7131.942" Y="-1187.083" Z="343.0929" />
+							
 						<!-- Our hearth isn't set, we need to go to the zone -->
 						<Else>
 							<CustomBehavior File="Message" 
