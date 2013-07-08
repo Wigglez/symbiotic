@@ -263,6 +263,10 @@
 									Text="We are in Iron Summit." 
 									LogColor="Cyan" />
 									
+					<CustomBehavior File="Message" 
+									Text="Moving to rendezvous at Stonewrought Pass." 
+									LogColor="Cyan" />
+									
 					<!-- We are in Searing Gorge and have set our hearth, move to the rendezvous at the end of the stonewrought pass -->
 					<CustomBehavior File="FlyTo" 
 									X="-6361.987" Y="-2071.4" Z="243.0217" />
@@ -679,7 +683,7 @@
 										LogColor="Cyan" /> 
 																				
 						<CustomBehavior File="Message" 
-										Text="We are moving to Lock Modan."
+										Text="Moving to Loch Modan."
 										LogColor="Lime" /> 	
 										
 						<!-- Entering Lock Modan -->				
@@ -693,7 +697,7 @@
 										LogColor="Cyan" /> 
 																				
 						<CustomBehavior File="Message" 
-										Text="We are moving to Searing Gorge."
+										Text="Moving to Searing Gorge."
 										LogColor="Lime" /> 	
 										
 						<!-- Entrance to the stonewrought pass -->				
