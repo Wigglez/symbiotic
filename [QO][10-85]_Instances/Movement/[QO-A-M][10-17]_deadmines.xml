@@ -101,34 +101,41 @@
 											Text="Our Innkeeper is set at Sentinel Hill." 
 											LogColor="Cyan" />
 										
-						<!-- Can cast hearthstone -->
-						<If Condition="SpellManager.CanCast(8690)">
-							<CustomBehavior File="Message" 
-												Text="Using Hearthstone." 
-												LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-												Lua="UseItemByName(6948)" 
-												WaitTime="1000" />
-												
-							<!-- Can cast Innkeeper's Daughter -->
-							<ElseIf Condition="SpellManager.CanCast(94719)">
+							<!-- Can cast hearthstone -->
+							<If Condition="SpellManager.CanCast(8690)">
 								<CustomBehavior File="Message" 
-												Text="Using Innkeeper's Daughter." 
-												LogColor="Lime" />
+													Text="Using Hearthstone." 
+													LogColor="Lime" />
 												
 								<CustomBehavior File="Misc\RunLua" 
-												Lua="UseItemByName(64488)" 
-												WaitTime="1000" />
-							</ElseIf> <!-- Can cast Innkeeper's Daughter -->
-							
-							<!-- Cooldown -->
-							<Else>
+													Lua="UseItemByName(6948)" 
+													WaitTime="1000" />
+													
+								<!-- Cooldown -->
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="Unable to use Hearthstone due to cooldown. Proceeding without it." 
+													LogColor="Lime" />
+								</Else> <!-- Cooldown -->
+							</If> <!-- Can cast hearth -->
+						
+							<!-- Can cast Innkeeper's Daughter -->
+							<If Condition="SpellManager.CanCast(94719)">
 								<CustomBehavior File="Message" 
-												Text="Unable to hearth due to cooldown. Proceeding without it." 
-												LogColor="Lime" />
-							</Else> <!-- Cooldown -->
-						</If> <!-- Can cast hearth -->
+													Text="Using Innkeeper's Daughter." 
+													LogColor="Lime" />
+													
+									<CustomBehavior File="Misc\RunLua" 
+													Lua="UseItemByName(64488)" 
+													WaitTime="1000" />
+													
+								<!-- Cooldown -->
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="Unable to use Innkeeper's Daughter due to cooldown. Proceeding without it." 
+													LogColor="Lime" />
+								</Else> <!-- Cooldown -->
+							</If> <!-- Can cast Innkeeper's Daughter -->
 							
 							<!-- Our hearth isn't set, we need to go to the zone -->
 							<Else>
