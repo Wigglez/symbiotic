@@ -144,6 +144,9 @@
 							<CustomBehavior File="Misc\RunLua" 
 											Lua="UseItemByName(6948)" 
 											WaitTime="1000" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
 						</If> <!-- Have hearthstone -->
 					
 						<!-- Have Innkeeper's Daughter -->
@@ -156,6 +159,8 @@
 											Lua="UseItemByName(64488)" 
 											WaitTime="1000" />
 								
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
 						</If> <!-- Have Innkeeper's Daughter -->
 						
 						<!-- Our hearth isn't set, we need to go to the zone -->
