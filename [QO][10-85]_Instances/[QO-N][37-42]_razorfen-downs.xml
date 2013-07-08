@@ -486,14 +486,7 @@
 					<CustomBehavior File="Message" 
 									Text="Razorfen Kraul detected. Running out to go to Razorfen Downs." 
 									LogColor="Fuchsia" />	
-									
-					<!-- 
-					<CustomBehavior File="Misc\InstanceTimer" 
-									Timer="Start" />
-									
-					<CustomBehavior File="Misc\InstanceTimer"
-									Timer="Check" />  	 -->			
-									
+										
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
