@@ -891,11 +891,11 @@
 					</CustomBehavior>
 					
 					<CustomBehavior File="Message" 
-									Text="Waiting 90 seconds for the booster to clear a path to Iron Summit."
+									Text="Waiting 120 seconds for the booster to clear a path to Iron Summit."
 									LogColor="Cyan" />	
 									
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="90000"  />
+									WaitTime="120000"  />
 					
 					<CustomBehavior File="Message" 
 									Text="Moving to Iron Summit."
