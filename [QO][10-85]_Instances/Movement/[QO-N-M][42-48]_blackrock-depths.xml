@@ -472,11 +472,15 @@
 								
 				<!-- Alliance -->
 				<If Condition="Me.IsAlliance">
+					<CustomBehavior File="Message" 
+									Text="We are Alliance."
+									LogColor="Cyan" /> 
+									
 					<!-- Stormwind -->
 					<If Condition="Me.ZoneId == 1519">
 						<CustomBehavior File="Message" 
-									Text="We are in Stormwind City." 
-									LogColor="Cyan" />
+										Text="We are in Stormwind City." 
+										LogColor="Cyan" />
 									
 						<CustomBehavior File="Message" 
 										Text="Moving to the riding trainer."
@@ -511,38 +515,71 @@
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 										Title="WARNING" />
 										
+						<CustomBehavior File="Message" 
+										Text="Moving to Goldshire."
+										LogColor="Lime" /> 
+										
 						<!-- Goldshire -->
-						<CustomBehavior File="NoCombatMoveTo" 
-										X="-9433.99" Y="85.1493" Z="56.734" />
+						<RunTo X="-9433.99" Y="85.1493" Z="56.734" />
 
+						<CustomBehavior File="Message" 
+										Text="We are in Goldshire."
+										LogColor="Cyan" /> 
 					</If> <!-- Stormwind -->
 					
 					<!-- Elwynn Forest -->
 					<If Condition="Me.ZoneId == 12">
-						<!-- Lakeshore flightmaster -->
-						<CustomBehavior File="NoCombatMoveTo" 
-										X="-9433.241" Y="-2238.867" Z="68.97185" />
+						<CustomBehavior File="Message" 
+										Text="Moving to Lakeshire."
+										LogColor="Lime" /> 
+										
+						<!-- Lakeshire flightmaster -->
+						<RunTo X="-9433.241" Y="-2238.867" Z="68.97185" />
 
+						<CustomBehavior File="Message" 
+										Text="We are in Lakeshire."
+										LogColor="Cyan" /> 
 					</If> <!-- Elwynn Forest -->
 					
 					<!-- Redridge -->
 					<If Condition="Me.ZoneId == 44">
+						<CustomBehavior File="Message" 
+										Text="We are in Redridge Mountains."
+										LogColor="Cyan" /> 
+										
+						<CustomBehavior File="Message" 
+										Text="Moving to Burning Steppes entrance."
+										LogColor="Lime" /> 
+										
 						<!-- Before zone change -->
-						<CustomBehavior File="NoCombatMoveTo" 
-										X="-8724.526" Y="-2583.26" Z="132.6133" />
+						<RunTo X="-8724.526" Y="-2583.26" Z="132.6133" />
 					</If> <!-- Redridge -->
 					
 					<ElseIf Condition="Me.IsHorde">
 						<!-- Northern Stranglethorn -->
 						<If Condition="Me.ZoneId == 33">
-							<!-- Northern Stranglethorn -->
+							<CustomBehavior File="Message" 
+											Text="We are Northern Stranglethorn."
+											LogColor="Cyan" /> 
+										
 							<!-- Get off the zeppelin tower -->
+							<CustomBehavior File="ForcedMount"
+											MountType="Ground" />
 							
-							
+							<CustomBehavior File="Message" 
+											Text="Moving to Duskwood."
+											LogColor="Lime" /> 
 						</If> <!-- Northern Stranglethorn -->
 						
 						<!-- Redridge -->
 						<If Condition="Me.ZoneId == 44">
+							<CustomBehavior File="Message" 
+											Text="We are in Redridge Mountains."
+											LogColor="Cyan" /> 
+										
+							<CustomBehavior File="ForcedMount"
+											MountType="Ground" />
+									
 							<CustomBehavior File="RunLikeHell" 
 											UseCTM="false" 
 											NumOfTimes="1" 
@@ -571,28 +608,54 @@
 											X="-9265.14" Y="-2336.521" Z="71.7114" />
 							
 							<!-- Before zone change into Burning Steppes -->
-							<CustomBehavior File="NoCombatMoveTo" 
-											X="-8724.526" Y="-2583.26" Z="132.6133" />
+							<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+								<Hotspot X="-8724.526" Y="-2583.26" Z="132.6133" />
+							</CustomBehavior>
 						</If> <!-- Redridge -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
 				<!-- Redridge merged -->
 				<If Condition="Me.ZoneId == 44">
+					<CustomBehavior File="Message" 
+									Text="We are in Redridge Mountains (merged)."
+									LogColor="Lime" /> 
+										
+					<CustomBehavior File="Message" 
+									Text="Moving to Burning Steppes."
+									LogColor="Lime" /> 
+									
 					<CustomBehavior File="ForcedMount"
 									MountType="Ground" />
 
 					<!-- Run outside of Burning Steppes gate -->
-					<CustomBehavior File="NoCombatMoveTo" 
-									X="-8639.473" Y="-2576.401" Z="132.5364" />
+					<RunTo X="-8639.473" Y="-2576.401" Z="132.5364" />
 										
 					<!-- Run past entry mobs in Burning Steppes near Morgan's Vigil -->
-					<CustomBehavior File="NoCombatMoveTo" 
-									X="-8245.268" Y="-2596.104" Z="133.1501" />
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-8245.268" Y="-2596.104" Z="133.1501" />
+					</CustomBehavior>
 				</If>
 				
 				<!-- Burning Steppes -->
 				<If Condition="Me.ZoneId == 46">
+					<CustomBehavior File="Message" 
+									Text="We are in Burning Steppes."
+									LogColor="Cyan" /> 
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to Blackrock Mountain."
+									LogColor="Lime" /> 
+									
+					<CustomBehavior File="ForcedMount"
+									MountType="Ground" />
+				
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
 									NumOfTimes="1" 
@@ -617,16 +680,32 @@
 						<Hotspot X="-7972.577" Y="-1133.108" Z="169.649" />
 					</CustomBehavior>
 					
+					<CustomBehavior File="ForcedMount"
+									MountType="Ground" />
+					
 					<!-- Run into BRM -->
-					<CustomBehavior File="NoCombatMoveTo" 
-									X="-7692.249" Y="-1085.458" Z="217.7931" />
+					<RunTo X="-7692.249" Y="-1085.458" Z="217.7931" />
 				</If> <!-- Burning Steppes -->
 				
 				<!-- Blackrock Mountain -->
 				<If Condition="Me.ZoneId == 25">
+					<CustomBehavior File="Message" 
+									Text="We are in Blackrock Mountain."
+									LogColor="Cyan" /> 
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to Lothos (rendezvous location)."
+									LogColor="Lime" />
+										
+					<CustomBehavior File="ForcedMount"
+									MountType="Ground" />
+				
 					<!-- Move to Lothos -->
-					<CustomBehavior File="NoCombatMoveTo" 
-									X="-7515.52" Y="-1045.57" Z="182.3" />
+					<RunTo X="-7515.52" Y="-1045.57" Z="182.3" />
+					
+					<CustomBehavior File="Message" 
+									Text="We are at the rendezvous point."
+									LogColor="Cyan" /> 
 				</If> <!-- Blackrock Mountain -->
 			</If> <!-- Eastern Kingdoms -->
 		</If> <!-- RAF toons -->
