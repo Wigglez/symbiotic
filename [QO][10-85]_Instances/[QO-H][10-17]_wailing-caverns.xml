@@ -94,49 +94,46 @@
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 				</If> <!-- Inside Wailing Caverns -->
 				
-				<!-- If we are outside Wailing Caverns (Northern Barrens) -->
-				<If Condition="Me.MapId == 1" >	
-					<!-- If we are not in the box, load the movement profile -->
-					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there." 
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
+				</If> <!-- Not in box -->
+			
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby." 
+									LogColor="Fuchsia" />	
+									
+					<While Condition="Me.Mapid != 43">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+						
+						<!-- Run back in the Wailing Caverns portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-744.4048" Y="-2216.026" Z="15.71743" />
+										
 						<CustomBehavior File="Message" 
-										Text="Distance from portal is not within our proximity, initializing movement to get there." 
+										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />
 										
-						<CustomBehavior File="LoadProfile" 
-										ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
-					</If> <!-- Not in box -->
-				
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby." 
-										LogColor="Fuchsia" />	
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" 
+										VariantTime="2000" />
 										
-						<While Condition="Me.Mapid != 43">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-							
-							<!-- Run back in the Wailing Caverns portal -->
-							<CustomBehavior File="MyCTM" 
-											X="-744.4048" Y="-2216.026" Z="15.71743" />
-											
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.Mapid != 43">
 							<CustomBehavior File="Message" 
-											Text="Waiting for the dungeon to load." 
+											Text="We are locked out. Waiting and trying again." 
 											LogColor="Fuchsia" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" 
-											VariantTime="2000" />
-											
-							<!-- If we still aren't in, we're locked out -->
-							<If Condition="Me.Mapid != 43">
-								<CustomBehavior File="Message" 
-												Text="We are locked out. Waiting and trying again." 
-												LogColor="Fuchsia" />
-							</If> <!-- Locked -->
-						</While> <!-- While we aren't in the instance -->
-					</If> <!-- In box -->
-				</If> <!-- Kalimdor -->
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
 				
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
@@ -644,48 +641,45 @@
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 				</If>	
 				
-				<!-- If we are outside of Wailing Caverns (Northern Barrens) -->
-				<If Condition="Me.MapId == 1" >		
-					<!-- If we are not in the box, load the movement profile -->
-					<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
-						<CustomBehavior File="Message"
-										Text="Distance from portal is not within our proximity, initializing movement to get there." 
-										LogColor="Fuchsia" />
-										
-						<CustomBehavior File="LoadProfile" 
-										ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
-					</If> <!-- Not in box -->
-				
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
+					<CustomBehavior File="Message"
+									Text="Distance from portal is not within our proximity, initializing movement to get there." 
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-H-M][10-17]_wailing-caverns" />
+				</If> <!-- Not in box -->
+			
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby." 
+									LogColor="Fuchsia" />	
+							
+					<While Condition="Me.MapId != 43">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
+					
+						<!-- Go inside the Wailing Caverns portal -->
+						<CustomBehavior File="MyCTM"
+										X="-744.4048" Y="-2216.026" Z="15.71743" />
+					
 						<CustomBehavior File="Message" 
-										Text="Portal detected nearby." 
-										LogColor="Fuchsia" />	
-								
-						<While Condition="Me.MapId != 43">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-						
-							<!-- Go inside the Wailing Caverns portal -->
-							<CustomBehavior File="MyCTM"
-											X="-744.4048" Y="-2216.026" Z="15.71743" />
-						
+									Text="Waiting for the dungeon to load." 
+									LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" 
+										VariantTime="2000" />	
+							
+						<If Condition="Me.MapId != 43">
 							<CustomBehavior File="Message" 
-										Text="Waiting for the dungeon to load." 
-										LogColor="Fuchsia" />
-										
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" 
-											VariantTime="2000" />	
-								
-							<If Condition="Me.MapId != 43">
-								<CustomBehavior File="Message" 
-												Text="We are locked out. Waiting and trying again." 
-												LogColor="Fuchsia" />
-							</If> <!-- Locked -->
-						</While> <!-- While we aren't in the instance -->
-					</If> <!-- In box -->			
-				</If> <!-- Kalimdor -->
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->		
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.MapId == 43">

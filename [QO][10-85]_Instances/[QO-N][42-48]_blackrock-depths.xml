@@ -120,39 +120,36 @@
 									ProfileName="Movement\[QO-N-M][42-48]_blackrock-depths" />
 				</If> <!-- Not in box -->
 				
-				<!-- Eastern Kingdoms -->
-				<If Condition="Me.MapId == 0">
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby."
-										LogColor="Fuchsia" />	
-							
-						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-						<While Condition="Me.MapId != 129">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
-							
-							<!-- Run back in the Razorfen Downs portal -->
-							<CustomBehavior File="MyCTM" 
-											X="-4661.966" Y="-2531.649" Z="82.09726" />
-											
-							<CustomBehavior File="Message" 
-											Text="Waiting for the dungeon to load." 
-											LogColor="Fuchsia" />
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+						
+					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+					<While Condition="Me.MapId != 129">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
+						
+						<!-- Run back in the Razorfen Downs portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-4661.966" Y="-2531.649" Z="82.09726" />
 										
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" />
-											
-							<!-- If we still aren't in, we're locked out -->
-							<If Condition="Me.MapId != 129">
-								<CustomBehavior File="Message" 
-												Text="We are locked out. Waiting and trying again." 
-												LogColor="Fuchsia" />
-							</If> <!-- Locked -->
-						</While> <!-- While we aren't in the instance -->
-					</If> <!-- In box -->
-				</If> <!-- Eastern Kingdoms -->
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.MapId != 129">
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
 				
 				<!-- If we are inside Blackrock Depths and have checked our reset -->
 				<If Condition="Me.ZoneId == 1584">
@@ -584,39 +581,36 @@
 									ProfileName="Movement\[QO-N-M][42-48]_blackrock-depths" />
 				</If> <!-- Not in box -->
 				
-				<!-- Eastern Kingdoms -->
-				<If Condition="Me.MapId == 0">
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby."
-										LogColor="Fuchsia" />	
-							
-						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-						<While Condition="Me.MapId != 129">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
-							
-							<!-- Run back in the Razorfen Downs portal -->
-							<CustomBehavior File="MyCTM" 
-											X="-4661.966" Y="-2531.649" Z="82.09726" />
-											
-							<CustomBehavior File="Message" 
-											Text="Waiting for the dungeon to load." 
-											LogColor="Fuchsia" />
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+						
+					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+					<While Condition="Me.MapId != 129">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
+						
+						<!-- Run back in the Razorfen Downs portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-4661.966" Y="-2531.649" Z="82.09726" />
 										
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" />
-											
-							<!-- If we still aren't in, we're locked out -->
-							<If Condition="Me.MapId != 129">
-								<CustomBehavior File="Message" 
-												Text="We are locked out. Waiting and trying again." 
-												LogColor="Fuchsia" />
-							</If> <!-- Locked -->
-						</While> <!-- While we aren't in the instance -->
-					</If> <!-- In box -->
-				</If> <!-- Eastern Kingdoms -->
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.MapId != 129">
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
 				
 				<!-- If we are inside Blackrock Depths and have checked our reset -->
 				<If Condition="Me.ZoneId == 1584">

@@ -137,40 +137,36 @@
 									ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
 				</If> <!-- Not in box -->
 					
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
 					
-				<!-- If we are outside Razorfen Kraul (Southern Barrens) -->
-				<If Condition="Me.MapId == 1" >		
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby."
-										LogColor="Fuchsia" />	
+					<While Condition="Me.MapId != 47">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 						
-						<While Condition="Me.MapId != 47">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-							
-							<!-- Go inside the Razorfen Kraul portal -->
-							<CustomBehavior File="MyCTM" 
-											X="-4458.964" Y="-1658.854" Z="81.5267" />
-											
+						<!-- Go inside the Razorfen Kraul portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-4458.964" Y="-1658.854" Z="81.5267" />
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" 
+										VariantTime="2000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.MapId != 47">
 							<CustomBehavior File="Message" 
-											Text="Waiting for the dungeon to load." 
+											Text="We are locked out. Waiting and trying again." 
 											LogColor="Fuchsia" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" 
-											VariantTime="2000" />
-											
-							<!-- If we still aren't in, we're locked out -->
-							<If Condition="Me.MapId != 47">
-								<CustomBehavior File="Message" 
-												Text="We are locked out. Waiting and trying again." 
-												LogColor="Fuchsia" />
-							</If> <!-- Locked -->
-						</While> <!-- While we aren't in the instance -->
-					</If> <!-- In box -->		
-				</If> <!-- Kalimdor -->
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->	
 
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
@@ -712,39 +708,36 @@
 									ProfileName="Movement\[QO-N-M][25-37]_razorfen-kraul" />
 				</If> <!-- Not in box -->
 					
-				<!-- Kalimdor -->
-				<If Condition="Me.MapId == 1">
-					<!-- If we are in the box -->
-					<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
-						<CustomBehavior File="Message" 
-										Text="Portal detected nearby."
-										LogColor="Fuchsia" />	
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+					
+					<While Condition="Me.MapId != 47">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 						
-						<While Condition="Me.MapId != 47">
-							<!-- Make sure we run to the right spot outside the portal -->
-							<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
-							
-							<!-- Go inside the Razorfen Kraul portal -->
-							<CustomBehavior File="MyCTM" 
-											X="-4458.964" Y="-1658.854" Z="81.5267" />
-											
+						<!-- Go inside the Razorfen Kraul portal -->
+						<CustomBehavior File="MyCTM" 
+										X="-4458.964" Y="-1658.854" Z="81.5267" />
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" 
+										VariantTime="2000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.MapId != 47">
 							<CustomBehavior File="Message" 
-											Text="Waiting for the dungeon to load." 
+											Text="We are locked out. Waiting and trying again." 
 											LogColor="Fuchsia" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="10000" 
-											VariantTime="2000" />
-											
-							<!-- If we still aren't in, we're locked out -->
-							<If Condition="Me.MapId != 47">
-								<CustomBehavior File="Message" 
-												Text="We are locked out. Waiting and trying again." 
-												LogColor="Fuchsia" />
-							</If> <!-- Locked -->
-						</While> <!-- While we aren't in the instance -->
-					</If> <!-- In box -->		
-				</If> <!-- Kalimdor -->
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->		
 				
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
