@@ -599,19 +599,29 @@
 						<CustomBehavior File="Message" 
 										Text="We are in Dun Morogh."
 										LogColor="Cyan" /> 
-										
+																				
 						<CustomBehavior File="Message" 
-										Text="We are in Gol'bolar Quarry."
-										LogColor="Cyan" /> 
-										
-						<CustomBehavior File="Message" 
-										Text="We are moving to the tunnel entering Searing Gorge."
+										Text="We are moving to Lock Modan."
 										LogColor="Cyan" /> 	
 										
-						<!-- Middle of the tunnel, leading to Searing Gorge-->				
-						<Runto X="-6174.924" Y="-2310.353" Z="286.5196" />				
+						<!-- Entering Lock Modan -->				
+						<Runto X="-5590.18" Y="-2305.49" Z="408.6046" />				
 					</If> <!-- Dun Morogh -->
 					
+					<!-- Lock Modan -->
+					<If Condition="Me.ZoneId == 38">
+						<CustomBehavior File="Message" 
+										Text="We are in Lock Modan."
+										LogColor="Cyan" /> 
+																				
+						<CustomBehavior File="Message" 
+										Text="We are moving in Searing Gorge."
+										LogColor="Cyan" /> 	
+										
+						<!-- Entering Searing Gorge -->				
+						<Runto X="-6063.105" Y="-2453.149" Z="309.86" />				
+					</If> <!--  Lock Modan -->
+
 					<ElseIf Condition="Me.IsHorde">
 						<CustomBehavior File="Message" 
 										Text="We are Horde."
@@ -760,7 +770,7 @@
 									LogColor="Lime" /> 
 							
 					<!-- End of Stonewrought Pass into Searing Gorge -->
-					<RunTo X="-6372.729" Y="-2059.051" Z="243.9147" />
+					<RunTo X="-6360.999" Y="-2072.692" Z="242.9491" />
 									
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
