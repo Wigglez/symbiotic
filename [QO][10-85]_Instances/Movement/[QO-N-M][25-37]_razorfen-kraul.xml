@@ -360,7 +360,7 @@
 										LogColor="Cyan" />
 										
 						<CustomBehavior File="Message" 
-										Text="Moving to the riding trainer Stormwind."
+										Text="Moving to the riding trainer."
 										LogColor="Orange" />
 											
 						<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
