@@ -274,21 +274,83 @@
 					<!-- We are in Searing Gorge and have set our hearth, move to the rendezvous at the end of the stonewrought pass -->
 					<CustomBehavior File="FlyTo" 
 									X="-6361.987" Y="-2071.4" Z="243.0217" />
-									
+					
+					<!-- Rendezvous to tag rafs before clearing a path to blackrock mountain -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />				
+									CheckRange="1" />
+
+					<CustomBehavior File="ForcedDismount" />				
 									
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="False" />
 									
+					<CustomBehavior File="Message" 
+									Text="Clearing a path to Blackrock Mountain." 
+									LogColor="Cyan" />
 									
+					<RunTo X="-6401.919" Y="-2031.83" Z="244.4979" />
+					<RunTo X="-6394.332" Y="-2025.717" Z="244.158" />
+					<RunTo X="-6465.001" Y="-1985.124" Z="245.0915" />
+					<RunTo X="-6478.883" Y="-1960.596" Z="245.1751" />
+					<RunTo X="-6504.167" Y="-1967.033" Z="244.2315" />
+					<RunTo X="-6473.073" Y="-1988.811" Z="245.9929" />
+					<RunTo X="-6504.809" Y="-1957.473" Z="244.1509" />
+					<RunTo X="-6543.478" Y="-1935.338" Z="244.1509" />
+					<RunTo X="-6576.739" Y="-1922.122" Z="244.151" />
+					<RunTo X="-6608.386" Y="-1923.164" Z="244.6421" />
+					<RunTo X="-6604.521" Y="-1932.724" Z="245.5451" />
+					<RunTo X="-6599.741" Y="-1920.591" Z="244.1512" />
+					<RunTo X="-6594.33" Y="-1871.622" Z="245.1827" />
+					<RunTo X="-6665.093" Y="-1915.631" Z="244.145" />
+					<RunTo X="-6693.041" Y="-1878.433" Z="244.4137" />
+					<RunTo X="-6708.426" Y="-1892.083" Z="244.1449" />
+					<RunTo X="-6849.487" Y="-1839.765" Z="243.1271" />
+					<RunTo X="-6911.032" Y="-1793.779" Z="240.7443" />
+					<RunTo X="-6938.94" Y="-1740.741" Z="240.7441" />
+					<RunTo X="-6983.593" Y="-1746.096" Z="243.7676" />
+					<RunTo X="-7012.986" Y="-1686.528" Z="240.6492" />
+					<RunTo X="-6958.335" Y="-1689.139" Z="241.606" />
+					<RunTo X="-6956.288" Y="-1634.348" Z="241.853" />
+					<RunTo X="-7025.102" Y="-1668.341" Z="240.306" />
+					<RunTo X="-6979.812" Y="-1654.316" Z="240.7571" />
+					<RunTo X="-6968.916" Y="-1578.862" Z="243.5536" />
+					<RunTo X="-7022.565" Y="-1585.514" Z="245.0031" />
+					<RunTo X="-6968.345" Y="-1527.628" Z="246.3952" />
+					<RunTo X="-7049.296" Y="-1514.542" Z="242.3711" />
+					<RunTo X="-7072.089" Y="-1487.63" Z="242.5714" />
+					<RunTo X="-7014.667" Y="-1484.981" Z="240.2398" />
+					<RunTo X="-7123.978" Y="-1522.597" Z="240.9955" />
+					<RunTo X="-7065.872" Y="-1396.344" Z="241.5873" />
+					<RunTo X="-7111.222" Y="-1390.738" Z="241.2303" />
+					<RunTo X="-7120.693" Y="-1402.098" Z="244.3321" />
+					<RunTo X="-7140.857" Y="-1361.895" Z="247.7663" />
+					<RunTo X="-7151.901" Y="-1352.809" Z="249.1951" />
+					<RunTo X="-7143.572" Y="-1308.579" Z="246.7252" />
+					<RunTo X="-7169.964" Y="-1330.564" Z="247.5242" />
+					<RunTo X="-7182.364" Y="-1303.439" Z="242.5386" />
+					<RunTo X="-7187.052" Y="-1273.421" Z="244.9267" />
+					<RunTo X="-7178.392" Y="-1239.179" Z="246.8482" />
+					<RunTo X="-7187.637" Y="-1219.275" Z="244.9425" />
+					<RunTo X="-7184.294" Y="-1181.005" Z="244.9425" />
+					<RunTo X="-7190.382" Y="-1137.132" Z="243.8344" />
+					<RunTo X="-7147.213" Y="-1111.265" Z="245.8435" />
+					<RunTo X="-7169.028" Y="-1141.529" Z="249.0567" />
+					<RunTo X="-7139.049" Y="-1126.662" Z="254.2248" />
+					<RunTo X="-7171.263" Y="-1086.613" Z="241.6556" />
+					<RunTo X="-7144.901" Y="-1050.811" Z="238.3396" />
+					<RunTo X="-7215.875" Y="-1071.765" Z="243.3449" />
+					<RunTo X="-7227.504" Y="-1091.397" Z="246.6404" />
+					<RunTo X="-7234.762" Y="-1073.553" Z="248.9345" />
+					<RunTo X="-7364.766" Y="-1101.79" Z="277.8399" />				
 									
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="True" />				
 									
-									
-									
-									
-									
-									
-									
-							
+					<CustomBehavior File="ForcedMount"
+									MountType="Flying" />				
+
 					<CustomBehavior File="Message" 
 									Text="Flying to Lothos (rendezvous location)." 
 									LogColor="Lime" />
@@ -806,24 +868,35 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />				
 									
+					<CustomBehavior File="Message" 
+									Text="Waiting 90 seconds for the booster to clear a path to the Badlands road entering Searing Gorge."
+									LogColor="Cyan" />	
 									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="90000"  />				
+
+					<CustomBehavior File="Message" 
+									Text="Moving to the next safe spot."
+									LogColor="Lime" /> 
+											
+					<!-- Move to the road entering searing gorge from badlands -->						
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						
+						<Hotspot X="-6428.804" Y="-1993.341" Z="244.7461" />
+						<Hotspot X="-6560.358" Y="-1927.546" Z="244.2066" />
+						<Hotspot X="-6846.725" Y="-1840.728" Z="243.4146" />
+					</CustomBehavior>
+					
+					<CustomBehavior File="Message" 
+									Text="Waiting 90 seconds for the booster to clear a path to Iron Summit."
+									LogColor="Cyan" />	
 									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="90000"  />
+					
 					<CustomBehavior File="Message" 
 									Text="Moving to Iron Summit."
 									LogColor="Lime" /> 
@@ -832,24 +905,23 @@
 									UseCTM="false" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						
-						<Hotspot X="-6452.227" Y="-1986.091" Z="245.0862" />
-						<Hotspot X="-6628.126" Y="-1918.863" Z="244.1508" />
-						<Hotspot X="-6801.724" Y="-1859.697" Z="244.2428" />
-						<Hotspot X="-6896.324" Y="-1762.713" Z="241.8526" />
-						<Hotspot X="-6892.786" Y="-1698.807" Z="242.3576" />
-						<Hotspot X="-6972.674" Y="-1624.542" Z="241.4097" />
-						<Hotspot X="-7002.569" Y="-1550.21" Z="241.7307" />
-						<Hotspot X="-7070.854" Y="-1517.523" Z="243.7693" />
-						<Hotspot X="-7111.258" Y="-1473.477" Z="241.3651" />
-						<Hotspot X="-7108.533" Y="-1403.16" Z="241.2569" />
-						<Hotspot X="-7102.892" Y="-1331.138" Z="245.7835" />
-						<Hotspot X="-7099.541" Y="-1271.438" Z="269.8542" />
-						<Hotspot X="-7094.703" Y="-1241.828" Z="278.6214" />
+						<Hotspot X="-6900.842" Y="-1803.549" Z="240.7439" />
+						<Hotspot X="-6900.225" Y="-1726.74" Z="242.4881" />
+						<Hotspot X="-6997.099" Y="-1554.417" Z="241.7663" />
+						<Hotspot X="-7043.844" Y="-1518.928" Z="243.2525" />
+						<Hotspot X="-7062.45" Y="-1431.453" Z="242.0233" />
+						<Hotspot X="-7107.212" Y="-1336.38" Z="243.8344" />
+						<Hotspot X="-7087.606" Y="-1301.57" Z="261.5045" />
+						<Hotspot X="-7103.172" Y="-1263.081" Z="271.5759" />
 					</CustomBehavior>
 					
-					<!-- Rest when we get to Iron Summit -->
-					
+					<CustomBehavior File="Message" 
+									Text="Waiting 90 seconds for the booster to clear a path to Blackrock Mountain."
+									LogColor="Cyan" />	
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="90000"  />
+										
 					<CustomBehavior File="ForcedMount"
 									MountType="Ground" />
 					
@@ -861,23 +933,25 @@
 									Text="Moving to Blackrock Mountain."
 									LogColor="Lime" /> 
 									
+					<RunTo X="-7103.172" Y="-1263.081" Z="271.5759" />				
+									
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
 									NumOfTimes="1" 
 									AllowCombat="false">
 						
-						<Hotspot X="-7123.995" Y="-1212.328" Z="297.8916" />
-						<Hotspot X="-7123.211" Y="-1177.039" Z="306.3279" />
-						<Hotspot X="-7138.033" Y="-1178.586" Z="294.9021" />
-						<Hotspot X="-7154.853" Y="-1171.198" Z="269.1584" />
-						<Hotspot X="-7193.201" Y="-1122.021" Z="244.5099" />
-						<Hotspot X="-7211.988" Y="-1069.406" Z="242.9807" />
-						<Hotspot X="-7284.736" Y="-1072.379" Z="271.832" />
-						<Hotspot X="-7347.517" Y="-1096.077" Z="277.4638" />
-						
+						<Hotspot X="-7096.932" Y="-1287.883" Z="264.9058" />
+						<Hotspot X="-7172.023" Y="-1322.176" Z="245.5945" />
+						<Hotspot X="-7192.887" Y="-1231.302" Z="246.1976" />
+						<Hotspot X="-7198.388" Y="-1159.72" Z="248.2891" />
+						<Hotspot X="-7184.917" Y="-1100.892" Z="242.1992" />
+						<Hotspot X="-7207.204" Y="-1073.342" Z="242.8684" />
+						<Hotspot X="-7286.402" Y="-1071.193" Z="272.4984" />
+						<Hotspot X="-7364.705" Y="-1101.888" Z="277.8402" />
+					</CustomBehavior>	
 						<!-- Run into Blackrock Mountain -->
 						<RunTo X="-7493.929" Y="-1076.466" Z="265.0071" />
-					</CustomBehavior>
+					
 				</If> <!-- Searing Gorge -->
 				
 				<!-- Blackrock Mountain -->
