@@ -516,7 +516,7 @@
 					</If> <!-- Stormwind -->
 					
 					<!-- Elwynn Forest -->
-					<If Condition="Me.ZoneId == ">
+					<If Condition="Me.ZoneId == 12">
 						<!-- Lakeshore flightmaster -->
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-9433.241" Y="-2238.867" Z="68.97185" />
