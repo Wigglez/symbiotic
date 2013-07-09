@@ -107,28 +107,45 @@
 									LogColor="Cyan" />
 									
 					<!-- If we are in Blackrock Mountain, start clearing outside of the Blackrock Depths portal -->
-					<If Condition="Me.ZoneId == 25">				
-						<!-- Make sure we kill the fire elemental for the RAFs -->
-						<CustomBehavior File="TargetAndMoveToMob" 
-										MobId="9026" 
-										MoveWithinMaxRangeOfMob="1" 
-										WaitForNpcs="false"
-										X="-7250.287" Y="-907.6682" Z="165.3785" />
-										
-						<RunTo X="-7228.612" Y="-906.2562" Z="165.3779" />
-						<RunTo X="-7273.199" Y="-909.1801" Z="165.3779" />
-						<RunTo X="-7355.229" Y="-925.483" Z="166.7336" />
-						<RunTo X="-7389.105" Y="-937.8923" Z="168.9674" />
-						<RunTo X="-7400.685" Y="-987.957" Z="172.1836" />
-						<RunTo X="-7443.979" Y="-999.8006" Z="170.9489" />
-						<RunTo X="-7449.863" Y="-1007.678" Z="171.4387" />
-						
-						<!-- Run back to tag rafs -->
-						<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
-						
-						<!-- At Lothos -->
-						<RunTo X="-7516.15" Y="-1045.365" Z="182.2999" />
-						
+					<If Condition="Me.ZoneId == 25">	
+						<!-- IN BRD BOX -->
+						<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
+							<CustomBehavior File="Message" 
+											Text="We are in the Blackrock Depths box."
+											LogColor="Cyan" />
+							
+							<!-- ALLOW ZONING OUT -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="15000" />	
+							
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="1" />
+									
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="5000" />	
+											
+							<!-- Make sure we kill the fire elemental for the RAFs -->
+							<CustomBehavior File="TargetAndMoveToMob" 
+											MobId="9026" 
+											MoveWithinMaxRangeOfMob="1" 
+											WaitForNpcs="false"
+											X="-7250.287" Y="-907.6682" Z="165.3785" />
+											
+							<RunTo X="-7228.612" Y="-906.2562" Z="165.3779" />
+							<RunTo X="-7273.199" Y="-909.1801" Z="165.3779" />
+							<RunTo X="-7355.229" Y="-925.483" Z="166.7336" />
+							<RunTo X="-7389.105" Y="-937.8923" Z="168.9674" />
+							<RunTo X="-7400.685" Y="-987.957" Z="172.1836" />
+							<RunTo X="-7443.979" Y="-999.8006" Z="170.9489" />
+							<RunTo X="-7449.863" Y="-1007.678" Z="171.4387" />
+							
+							<!-- Run back to tag rafs -->
+							<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+							
+							<!-- At Lothos -->
+							<RunTo X="-7516.15" Y="-1045.365" Z="182.2999" />
+						</If> <!-- IN BRD BOX -->
+					
 						<!-- Fly outside of Blackrock mountain just in case we don't have our hearth set in order to set it -->
 						<CustomBehavior File="FlyTo" 
 										X="-7562.834" Y="-1062.404" Z="231.615" />
@@ -395,14 +412,37 @@
 					<If Condition="Me.ZoneId == 25">
 						<CustomBehavior File="Message" 
 										Text="We are in Blackrock Mountain."
-										LogColor="Cyan" /> 
-										
-						<CustomBehavior File="Message" 
+										LogColor="Cyan" />
+
+						<!-- IN BRD BOX -->
+						<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
+							<CustomBehavior File="Message" 
+											Text="We are in the Blackrock Depths box."
+											LogColor="Cyan" />
+							
+							<!-- ALLOW ZONING OUT -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="15000" />	
+							
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="2" />
+									
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="15000" />	
+											
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="2" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000" />	
+							
+							<CustomBehavior File="Message" 
 										Text="Moving to Lothos."
 										LogColor="Lime" />
 											
-						<RunTo X="-7516.15" Y="-1045.365" Z="182.2999" />
-						
+							<RunTo X="-7516.15" Y="-1045.365" Z="182.2999" />
+						</If> <!-- IN BRD BOX -->
+										
 						<CustomBehavior File="ForcedMount"
 										MountType="Ground" />
 										
