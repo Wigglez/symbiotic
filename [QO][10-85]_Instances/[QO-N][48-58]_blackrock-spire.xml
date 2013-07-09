@@ -590,7 +590,7 @@
 					<CustomBehavior File="Message" 
 									Text="Blackrock Spire detected. Running out to reset."
 									LogColor="Fuchsia" />
-					
+					<RunTo X="80.01283" Y="-319.1052" Z="65.46481" />
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
