@@ -324,7 +324,7 @@
 						
 						<!-- Finish off Houndmaster Grebmar pack -->
 					</CustomBehavior>
-						
+					<RunTo X="604.0921" Y="-205.3536" Z="-84.49249" />
 					
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
@@ -402,6 +402,8 @@
 						<Hotspot X="691.7713" Y="-132.3411" Z="-46.2327" />
 						<!-- Finish off locked door pack -->
 					</CustomBehavior>
+					<RunTo X="691.7713" Y="-132.3411" Z="-46.2327" />
+					
 					
 					<!-- Arena -->
 					<CustomBehavior File="RunLikeHell"
@@ -428,6 +430,7 @@
 						<Hotspot X="632.7214" Y="-283.3489" Z="-43.11469" />
 						<!-- Finish off Pyromancer Loregrain pack -->
 					</CustomBehavior>
+					<RunTo X="632.7214" Y="-283.3489" Z="-43.11469" />
 					
 					<CustomBehavior File="RunLikeHell"
 									UseCTM="false" 
