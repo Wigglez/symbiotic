@@ -285,9 +285,9 @@
 
 					<CustomBehavior File="ForcedDismount" />				
 									
-					<!-- Booster UserSettings 
+					<!-- Booster UserSettings -->
 					<CustomBehavior File="UserSettings"
-									UseMount="False" /> -->
+									UseMount="False" />
 									
 					<CustomBehavior File="Message" 
 									Text="Clearing a path to Blackrock Mountain." 
@@ -314,6 +314,10 @@
 					<RunTo X="-6682.738" Y="-1856.809" Z="245.1479" />
 					<RunTo X="-6708.426" Y="-1892.083" Z="244.1449" />
 					
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="True" />	
+					
 					<!-- Tag rafs at stonewrought pass -->
 					<CustomBehavior File="FlyTo" 
 									X="-6361.987" Y="-2071.4" Z="243.0217" />
@@ -326,6 +330,10 @@
 					<CustomBehavior File="FlyTo" 
 									X="-6849.487" Y="-1839.765" Z="243.1271" />
 					<CustomBehavior File="ForcedDismount" />
+					
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="False" />	
 					
 					<RunTo X="-6849.487" Y="-1839.765" Z="243.1271" />
 					<RunTo X="-6911.032" Y="-1793.779" Z="240.7443" />
@@ -353,6 +361,10 @@
 					<!-- Cleared up to Iron Summit -->
 					<RunTo X="-7151.901" Y="-1352.809" Z="249.1951" />
 					
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="True" />	
+					
 					<!-- Tag rafs at badlands camp -->
 					<CustomBehavior File="FlyTo" 
 									X="-6846.725" Y="-1840.728" Z="243.4146" />
@@ -360,7 +372,11 @@
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="2000" />
-									
+					
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="False" />	
+					
 					<!-- Go back to our last leave spot and start killing again -->
 					<CustomBehavior File="FlyTo" 
 									X="-7143.572" Y="-1308.579" Z="246.7252" />
@@ -386,14 +402,15 @@
 					<!-- Stairs -->
 					<RunTo X="-7264.027" Y="-1073.335" Z="265.2971" />
 									
-					<!-- Booster UserSettings 
+					<!-- Booster UserSettings -->
 					<CustomBehavior File="UserSettings"
 									UseMount="True" />				
 									
-					<CustomBehavior File="ForcedMount"
-									MountType="Flying" />	-->		
-
 					<!-- Tag rafs -->
+					<CustomBehavior File="FlyTo" 
+									X="-7123.381" Y="-1242.08" Z="289.7586" />
+					<CustomBehavior File="ForcedDismount" />
+					
 					<CustomBehavior File="FlyTo" 
 									X="-7103.172" Y="-1263.081" Z="271.5759" />
 					<CustomBehavior File="ForcedDismount" />
@@ -484,9 +501,7 @@
 					<RunTo X="-7320.235" Y="-915.1791" Z="166.4022" />
 					<RunTo X="-7393.884" Y="-940.0828" Z="169.6409" />
 					<RunTo X="-7396.922" Y="-996.6232" Z="173.3699" />
-					<RunTo X="-7426.799" Y="-1001.653" Z="171.5107" />
-					<RunTo X="-7470.188" Y="-1021.5" Z="173.6986" />
-					<RunTo X="-7507.878" Y="-1054.521" Z="182.0236" />				
+					<RunTo X="-7426.799" Y="-1001.653" Z="171.5107" />	
 					
 					<!-- Tag the rafs -->
 					<!-- Run to end of ramp -->
@@ -994,6 +1009,9 @@
 						<!-- Let the booster tag us to move forward to badlands entrance -->				
 						<CustomBehavior File="Misc\LoadProfileOn" 
 										CheckRange="2" />	
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000"  />
 												
 						<!-- Move to the road entering searing gorge from badlands -->						
 						<CustomBehavior File="RunLikeHell"
