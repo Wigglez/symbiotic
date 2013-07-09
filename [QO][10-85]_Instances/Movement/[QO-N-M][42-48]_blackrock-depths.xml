@@ -456,9 +456,6 @@
 					<CustomBehavior File="MyCTM" 
 									X="-7482.979" Y="-1037.062" Z="177.6236" />
 
-									
-					<RunTo X="-7506.894" Y="-1054.934" Z="182.0252" />
-					<RunTo X="-7482.928" Y="-1037.054" Z="177.6218" />
 					<RunTo X="-7471.348" Y="-1025.707" Z="174.2451" />
 					<RunTo X="-7453.248" Y="-1022.515" Z="171.8713" />
 					<RunTo X="-7430.117" Y="-1027.814" Z="174.4683" />
@@ -682,7 +679,7 @@
 						<!-- Board zeppelin to Undercity -->
 						<RunTo X="1868.267" Y="-4417.384" Z="135.233" />
 						
-						<!-- Orgrimmar to Undercity -->
+						<!-- Orgrimmar to Undercity 
 						<CustomBehavior File="UseTransport" 
 										TransportId="164871" 
 										WaitAtX="1840.103" 
@@ -699,7 +696,25 @@
 										TransportEndZ="114.973"	
 										GetOffX="2066.693" 
 										GetOffY="287.1619" 
-										GetOffZ="97.03147" />	
+										GetOffZ="97.03147" />	-->
+										
+						<CustomBehavior File="UseTransport"
+										TransportId="164871"
+										WaitAtX="1838.7" 
+										WaitAtY="-4386.035"
+										WaitAtZ="135.2322" 
+										TransportStartX="1833.509" 
+										TransportStartY="-4391.543"
+										TransportStartZ="152.7679"
+										TransportEndX="2062.376" 
+										TransportEndY="292.998047" 
+										TransportEndZ="114.670547"
+										StandOnX="1835.301" 
+										StandOnY="-4390" 
+										StandOnZ="135.8167" 
+										GetOffX="2068.327" 
+										GetOffY="286.5359" 
+										GetOffZ="97.0316" />
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->
 			</If> <!-- Kalimdor -->
@@ -886,7 +901,7 @@
 												
 								<CustomBehavior File="Message" 
 												Text="Moving to Loch Modan."
-												LogColor="Cyan" /> 
+												LogColor="Lime" /> 
 												
 								<!-- Move to the entrance to Dun Algaz tunnels -->
 								<RunTo X="-4085.718" Y="-2677.171" Z="31.81686" />
@@ -915,14 +930,23 @@
 							
 							<!-- Loch Modan -->
 							<If Condition="Me.ZoneId == 38">
+								<CustomBehavior File="Message" 
+												Text="We are in Loch Modan."
+												LogColor="Cyan" /> 
+												
+								<CustomBehavior File="Message" 
+												Text="Moving to Searing Gorge."
+												LogColor="Lime" /> 
+							
 								<!-- Run like hell through Loch Modan -->
 								<CustomBehavior File="RunLikeHell"
 											UseCTM="false" 
 											NumOfTimes="1" 
 											AllowCombat="false">
-									<Hotspot X="-4811.008" Y="-2715.829" Z="327.5849" />
-									<Hotspot X="-4914.91" Y="-2732.442" Z="328.6459" />
-									<Hotspot X="-5032.284" Y="-2803.009" Z="326.8792" />
+									<Hotspot X="-4734.587" Y="-2787.607" Z="321.2563" />
+									<Hotspot X="-4820.684" Y="-2802.235" Z="322.3975" />
+									<Hotspot X="-4952.08" Y="-2760.865" Z="326.0595" />
+									<Hotspot X="-4999.264" Y="-2788.133" Z="326.0581" />
 									<Hotspot X="-5184.995" Y="-2848.211" Z="335.3937" />
 									<Hotspot X="-5273.833" Y="-2825.728" Z="349.0385" />
 									<Hotspot X="-5387.264" Y="-2806.93" Z="360.7226" />
