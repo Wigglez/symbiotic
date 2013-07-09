@@ -272,10 +272,21 @@
 									MobId="175706" 
 									ObjectType="Gameobject" 
 									Range="55.1" 
-									NumOfTimes="2"
-									WaitTime="15000" 
+									NumOfTimes="1"
+									WaitTime="10000" 
 									X="146.0885" Y="-279.2306" Z="91.54841" />
 													
+					<RunTo X="162.247" Y="-276.4363" Z="91.61311" />								
+											
+					<!-- Interact with Blackrock Altar 2nd time -->						
+					<CustomBehavior File="InteractWith" 
+									MobId="175706" 
+									ObjectType="Gameobject" 
+									Range="55.1" 
+									NumOfTimes="1"
+									WaitTime="10000" 
+									X="146.0885" Y="-279.2306" Z="91.54841" />
+									
 					<!-- Stand on a channeler -->
 					<RunTo X="162.247" Y="-276.4363" Z="91.61311" />
 						
@@ -419,16 +430,14 @@
 					</CustomBehavior>
 					<RunTo X="25.51032" Y="-467.858" Z="110.955" />
 					
-					<RunTo X="84.37505" Y="-552.9569" Z="110.9242" />	<!-- the beast -->
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<CustomBehavior File="MyCTM" 
-									X="32.87771" Y="-512.5882" Z="110.9461" />
-					<CustomBehavior File="MyCTM" 
-									X="33.11989" Y="-502.7303" Z="110.9499" />
-									
+					<!-- the beast -->
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1"
+									AllowCombat="false">
+						<Hotspot X="84.37505" Y="-552.9569" Z="110.9242" />	
+						<Hotspot X="32.87771" Y="-512.5882" Z="110.9461" /> 
+						<HotspotX ="33.11989" Y="-502.7303" Z="110.9499" />
+					</CustomBehavior>
 					<RunTo X="33.52279" Y="-461.1625" Z="110.9528" />
 						
 					<CustomBehavior File="RunLikeHell"
