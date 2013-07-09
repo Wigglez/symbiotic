@@ -285,9 +285,9 @@
 
 					<CustomBehavior File="ForcedDismount" />				
 									
-					<!-- Booster UserSettings -->
+					<!-- Booster UserSettings 
 					<CustomBehavior File="UserSettings"
-									UseMount="False" />
+									UseMount="False" /> -->
 									
 					<CustomBehavior File="Message" 
 									Text="Clearing a path to Blackrock Mountain." 
@@ -313,6 +313,20 @@
 					<RunTo X="-6704.883" Y="-1878.374" Z="244.591" />
 					<RunTo X="-6682.738" Y="-1856.809" Z="245.1479" />
 					<RunTo X="-6708.426" Y="-1892.083" Z="244.1449" />
+					
+					<!-- Tag rafs at stonewrought pass -->
+					<CustomBehavior File="FlyTo" 
+									X="-6361.987" Y="-2071.4" Z="243.0217" />
+					<CustomBehavior File="ForcedDismount" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="2000" />
+					
+					<!-- Go back to our last leave spot and start killing again -->
+					<CustomBehavior File="FlyTo" 
+									X="-6849.487" Y="-1839.765" Z="243.1271" />
+					<CustomBehavior File="ForcedDismount" />
+					
 					<RunTo X="-6849.487" Y="-1839.765" Z="243.1271" />
 					<RunTo X="-6911.032" Y="-1793.779" Z="240.7443" />
 					<RunTo X="-6938.94" Y="-1740.741" Z="240.7441" />
@@ -335,7 +349,23 @@
 					<RunTo X="-7111.222" Y="-1390.738" Z="241.2303" />
 					<RunTo X="-7120.693" Y="-1402.098" Z="244.3321" />
 					<RunTo X="-7140.857" Y="-1361.895" Z="247.7663" />
+					
+					<!-- Cleared up to Iron Summit -->
 					<RunTo X="-7151.901" Y="-1352.809" Z="249.1951" />
+					
+					<!-- Tag rafs at badlands camp -->
+					<CustomBehavior File="FlyTo" 
+									X="-6846.725" Y="-1840.728" Z="243.4146" />
+					<CustomBehavior File="ForcedDismount" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="2000" />
+									
+					<!-- Go back to our last leave spot and start killing again -->
+					<CustomBehavior File="FlyTo" 
+									X="-7143.572" Y="-1308.579" Z="246.7252" />
+					<CustomBehavior File="ForcedDismount" />
+					
 					<RunTo X="-7143.572" Y="-1308.579" Z="246.7252" />
 					<RunTo X="-7169.964" Y="-1330.564" Z="247.5242" />
 					<RunTo X="-7182.364" Y="-1303.439" Z="242.5386" />
@@ -352,15 +382,25 @@
 					<RunTo X="-7215.875" Y="-1071.765" Z="243.3449" />
 					<RunTo X="-7227.504" Y="-1091.397" Z="246.6404" />
 					<RunTo X="-7234.762" Y="-1073.553" Z="248.9345" />
-					<RunTo X="-7364.766" Y="-1101.79" Z="277.8399" />				
+					
+					<!-- Stairs -->
+					<RunTo X="-7264.027" Y="-1073.335" Z="265.2971" />
 									
-					<!-- Booster UserSettings -->
+					<!-- Booster UserSettings 
 					<CustomBehavior File="UserSettings"
 									UseMount="True" />				
 									
 					<CustomBehavior File="ForcedMount"
-									MountType="Flying" />				
+									MountType="Flying" />	-->		
 
+					<!-- Tag rafs -->
+					<CustomBehavior File="FlyTo" 
+									X="-7103.172" Y="-1263.081" Z="271.5759" />
+					<CustomBehavior File="ForcedDismount" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="2000" />
+									
 					<CustomBehavior File="Message" 
 									Text="Flying to Lothos (rendezvous location)." 
 									LogColor="Lime" />
@@ -385,8 +425,7 @@
 									X="-7515.52" Y="-1045.57" Z="182.3" />
 					<CustomBehavior File="ForcedDismount" />
 					
-					<RunTo X="-7507.647" Y="-1054.453" Z="182.0252" />
-					<RunTo X="-7514.188" Y="-1056.15" Z="182.0826" />
+					<RunTo X="-7492.599" Y="-1055.543" Z="179.0819" />
 									
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
@@ -884,18 +923,14 @@
 										
 						<!-- Tag for booster to clear the way to blackrock mountain -->				
 						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="1" />				
-										
-						<CustomBehavior File="Message" 
-										Text="Waiting 90 seconds for the booster to clear a path to the Badlands road entering Searing Gorge."
-										LogColor="Cyan" />	
-										
+										CheckRange="2" />				
+									
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="90000"  />				
+										WaitTime="20000"  />				
 
-						<CustomBehavior File="Message" 
-										Text="Moving to the next safe spot."
-										LogColor="Lime" /> 
+						<!-- Let the booster tag us to move forward to badlands entrance -->				
+						<CustomBehavior File="Misc\LoadProfileOn" 
+										CheckRange="2" />	
 												
 						<!-- Move to the road entering searing gorge from badlands -->						
 						<CustomBehavior File="RunLikeHell"
@@ -908,12 +943,12 @@
 							<Hotspot X="-6846.725" Y="-1840.728" Z="243.4146" />
 						</CustomBehavior>
 						
-						<CustomBehavior File="Message" 
-										Text="Waiting 120 seconds for the booster to clear a path to Iron Summit."
-										LogColor="Cyan" />	
+						<!-- Let the booster tag us to move forward to iron summit -->				
+						<CustomBehavior File="Misc\LoadProfileOn" 
+										CheckRange="2" />	
 										
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="120000"  />
+										WaitTime="20000"  />
 						
 						<CustomBehavior File="Message" 
 										Text="Moving to Iron Summit."
@@ -934,19 +969,19 @@
 						</CustomBehavior>
 						
 						<CustomBehavior File="Message" 
-										Text="Waiting 90 seconds for the booster to clear a path to Blackrock Mountain."
-										LogColor="Cyan" />	
+										Text="We are in Iron Summit."
+										LogColor="Cyan" /> 
+						
+						<!-- Let the booster tag us to move forward to blackrock mountain -->				
+						<CustomBehavior File="Misc\LoadProfileOn" 
+										CheckRange="2" />	
 										
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="90000"  />
+										WaitTime="20000"  />
 											
 						<CustomBehavior File="ForcedMount"
 										MountType="Ground" />
 						
-						<CustomBehavior File="Message" 
-										Text="We are in Iron Summit."
-										LogColor="Cyan" /> 
-										
 						<CustomBehavior File="Message" 
 										Text="Moving to Blackrock Mountain."
 										LogColor="Lime" /> 
@@ -989,8 +1024,7 @@
 						<RunTo X="-7515.52" Y="-1045.57" Z="182.3" />
 						
 						<!-- Hide behind the corner -->
-						<RunTo X="-7507.647" Y="-1054.453" Z="182.0252" />
-						<RunTo X="-7514.188" Y="-1056.15" Z="182.0826" />
+						<RunTo X="-7492.599" Y="-1055.543" Z="179.0819" />
 						
 						<CustomBehavior File="Message" 
 										Text="We are at the rendezvous point."
