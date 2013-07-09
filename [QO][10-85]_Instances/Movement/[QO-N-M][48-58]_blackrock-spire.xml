@@ -281,7 +281,7 @@
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
-									Text="Moving to Upper Blackrock Spire." 
+									Text="Moving to Blackrock Spire." 
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="FlyTo" X="-7337.292" Y="-1101.599" Z="300.4339" />
@@ -304,7 +304,7 @@
 									LogColor="Cyan" />
 					
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="..\[QO-N][48-58]_upper-blackrock-spire" />
+									ProfileName="..\[QO-N][48-58]_blackrock-spire" />
 				</If> <!-- Load profile -->
 			</If> <!-- Eastern Kingdoms -->
 		</If> <!-- Booster -->
@@ -469,7 +469,7 @@
 											LogColor="Red" />
 							
 							<CustomBehavior File="Message" 
-											Text="In order for movement to Upper Blackrock Spire to be functional as intended, move this character outside of the Blackrock Depths portal and start the profile again." 
+											Text="In order for movement to Blackrock Spire to be functional as intended, move this character outside of the Blackrock Depths portal and start the profile again." 
 											LogColor="Red" />
 											
 							<CustomBehavior File="UserSettings" 
@@ -485,7 +485,7 @@
 									LogColor="Cyan" />
 					
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="..\[QO-N][48-58]_upper-blackrock-spire" />
+									ProfileName="..\[QO-N][48-58]_blackrock-spire" />
 				</If> <!-- Load profile -->
 			</If> <!-- Eastern Kingdoms -->
 		</If> <!-- RAF toons -->

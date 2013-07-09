@@ -118,7 +118,7 @@
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][48-58]_upper-blackrock-spire" />
+									ProfileName="Movement\[QO-N-M][48-58]_blackrock-spire" />
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
@@ -758,7 +758,7 @@
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][48-58]_upper-blackrock-spire" />
+									ProfileName="Movement\[QO-N-M][48-58]_blackrock-spire" />
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
