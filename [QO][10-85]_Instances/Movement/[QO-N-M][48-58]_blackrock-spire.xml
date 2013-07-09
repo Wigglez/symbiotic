@@ -133,9 +133,9 @@
 											
 							<!-- Kill The Behemoth (R) -->
 							<CustomBehavior File="TargetAndMoveToMob" 
-											MobId="" 
+											MobId="8924" 
 											MoveWithinMaxRangeOfMob="1" 
-											WaitForNpcs="false">
+											WaitForNpcs="false" >
 								<HuntingGrounds>
 									<Hotspot X="-7423.542" Y="-887.9393" Z="172.5045" />
 									<Hotspot X="-7394.76" Y="-944.812" Z="170.1162" />
@@ -168,13 +168,17 @@
 						<CustomBehavior File="FlyTo" 
 										X="-7428.28" Y="-1058.494" Z="273.2607" />
 						<CustomBehavior File="FlyTo" 
-										X="-7406.375" Y="-1100.565" Z="280.5929" />
-						<CustomBehavior File="FlyTo" 
-										X="-7340.603" Y="-1099.601" Z="285.4613" />
-						<CustomBehavior File="FlyTo" 
-										X="-7339.387" Y="-1091.118" Z="277.4499" />
+										X="-7401.982" Y="-1105.873" Z="278.0755" />
 										
 						<CustomBehavior File="ForcedDismount" />
+						
+						<!-- MyCTM through gates -->
+						<CustomBehavior File="MyCTM" 
+										X="-7372.676" Y="-1096.317" Z="277.8396" />
+						<CustomBehavior File="MyCTM" 
+										X="-7355.349" Y="-1105.106" Z="277.8396" />
+						<CustomBehavior File="MyCTM" 
+										X="-7327.033" Y="-1086.471" Z="277.1177" />
 					</If> <!-- Blackrock Mountain -->
 				
 					<!-- If our hearthstone is set here, use it -->
@@ -296,14 +300,34 @@
 									Text="Moving to Blackrock Spire." 
 									LogColor="Cyan" />
 									
-					<CustomBehavior File="FlyTo" X="-7337.292" Y="-1101.599" Z="300.4339" />
-					<CustomBehavior File="FlyTo" X="-7409.11" Y="-1100.732" Z="282.9359" />
-					<CustomBehavior File="FlyTo" X="-7428.515" Y="-1057.438" Z="273.0923" />
-					<CustomBehavior File="FlyTo" X="-7486.444" Y="-1074.224" Z="265.3588" />
-					<CustomBehavior File="FlyTo" X="-7549.192" Y="-1188.729" Z="293.4445" />
-					<CustomBehavior File="FlyTo" X="-7527.929" Y="-1224.7" Z="285.7321" />
+					<CustomBehavior File="FlyTo" 
+									X="-7294.66" Y="-1084.194" Z="304.1888" />
+					<CustomBehavior File="FlyTo" 
+									X="-7327.798" Y="-1086.975" Z="277.1317" />
 					
 					<CustomBehavior File="ForcedDismount" />
+					
+					<!-- MyCTM through gates -->
+					<CustomBehavior File="MyCTM" 
+									X="-7327.033" Y="-1086.471" Z="277.1177" />
+					<CustomBehavior File="MyCTM" 
+									X="-7355.349" Y="-1105.106" Z="277.8396" />
+					<CustomBehavior File="MyCTM" 
+									X="-7372.676" Y="-1096.317" Z="277.8396" />
+									
+					<CustomBehavior File="ForcedMount" 
+									MountType="Flying" />			
+					
+					<CustomBehavior File="FlyTo" 
+									X="-7410.899" Y="-1092.86" Z="282.3109" />
+					<CustomBehavior File="FlyTo" 
+									X="-7431.083" Y="-1058.615" Z="273.6184" />
+					<CustomBehavior File="FlyTo" 
+									X="-7484.258" Y="-1072.198" Z="265.4306" />
+					<CustomBehavior File="FlyTo" 
+									X="-7559.865" Y="-1166.235" Z="300.4927" />
+					<CustomBehavior File="FlyTo" 
+									X="-7529.142" Y="-1222.366" Z="285.7316" />
 					
 					<!-- Moving to the instance box -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />

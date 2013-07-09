@@ -105,7 +105,7 @@
 					
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
-									X="77.13378" Y="-223.2085" Z="49.84169" />
+									X="77.13378" Y="-215.2085" Z="49.84169" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
@@ -292,7 +292,7 @@
 									ObjectType="Gameobject" 
 									Range="55.1" 
 									NumOfTimes="1"
-									WaitTime="10000" 
+									WaitTime="20000" 
 									X="144.445023" Y="-280.941467" Z="91.54761" /> 
 					
 					<RunTo X="162.247" Y="-276.4363" Z="91.61311" />
@@ -619,7 +619,7 @@
 				<!-- If we are inside Blackrock Spire -->
 				<If Condition="Me.ZoneId == 1583">
 					<CustomBehavior File="Message" 
-									Text="Blackrock Spire detected. Running out to reset."
+									Text="Blackrock Spire detected. Running out."
 									LogColor="Fuchsia" />
 					
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
