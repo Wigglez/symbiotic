@@ -411,22 +411,19 @@
 					<RunTo X="98.5507" Y="-475.1038" Z="116.8424" />
 					
 					<!-- Pulling mobs near BWL into xp range -->
-					<CustomBehavior File="RunLikeHell" 
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="true"
 									NumOfTimes="1"
 									AllowCombat="false">
-						<Hotspot X="113.678" Y="-474.442" Z="116.8424" />
-						<Hotspot X="129.1333" Y="-474.7316" Z="116.8424" />
-						<Hotspot X="144.4217" Y="-475.0754" Z="116.8424" />
-						<Hotspot X="159.756" Y="-474.8758" Z="116.8424" />
-						<Hotspot X="172.2802" Y="-474.3054" Z="116.8424" />
-						<Hotspot X="144.093" Y="-474.3167" Z="116.8424" />
-						<Hotspot X="128.7628" Y="-474.4416" Z="116.8424" />
-						<Hotspot X="113.3018" Y="-474.5675" Z="116.8424" />
-						<Hotspot X="98.01007" Y="-474.6921" Z="116.8424" />
-						<Hotspot X="82.58747" Y="-474.8177" Z="116.8424" />
+						<Hotspot X="108.1728" Y="-475.8545" Z="116.8424" />
+						<Hotspot X="124.1348" Y="-476.0379" Z="116.8424" />
+						<Hotspot X="171.5421" Y="-477.4745" Z="116.8424" />
+						<Hotspot X="170.9973" Y="-471.445" Z="116.8376" />
+						<Hotspot X="131.0083" Y="-472.8877" Z="116.841" />
+						<Hotspot X="108.1706" Y="-473.4006" Z="116.841" />
+						<Hotspot X="83.6724" Y="-474.7226" Z="116.841" />
 					</CustomBehavior>
-					
-					<RunTo X="76.63557" Y="-474.8662" Z="116.8424" />			
+					<RunTo X="83.6724" Y="-474.7226" Z="116.841" />			
 					
 					<CustomBehavior File="RunLikeHell" 
 									NumOfTimes="1"
@@ -440,20 +437,25 @@
 					</CustomBehavior>
 					<RunTo X="25.51032" Y="-467.858" Z="110.955" />
 					
+					
 					<!-- Pulling the beast into XP range -->
+					<RunTo X="33.31978" Y="-500.8174" Z="110.9511" />
 					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
 									NumOfTimes="1"
 									AllowCombat="false">
-						<Hotspot X="32.74544" Y="-498.0204" Z="110.9525" />
-						<Hotspot X="32.98606" Y="-513.0032" Z="110.9477" />
-						<Hotspot X="66.65555" Y="-539.187" Z="110.9336" />
-						<Hotspot X="32.98606" Y="-513.0032" Z="110.9477" />
-						<Hotspot X="32.74544" Y="-498.0204" Z="110.9525" />
-						<Hotspot X="42.78786" Y="-469.6714" Z="110.9339" />
-						<Hotspot X="8.058536" Y="-449.3515" Z="110.9368" />
-					</CustomBehavior>
-					<RunTo X="8.058536" Y="-449.3515" Z="110.9368" />
+						<Hotspot X="32.89931" Y="-509.6993" Z="110.9491" />
+						<Hotspot X="52.5339" Y="-532.7266" Z="110.9388" />
+						<Hotspot X="33.2668" Y="-511.2289" Z="110.9463" />
+						<Hotspot X="33.90994" Y="-451.8149" Z="110.9505" />
 						
+						<Hotspot X="7.262176" Y="-449.1257" Z="110.9365" />
+						<Hotspot X="7.38007" Y="-462.0731" Z="110.9337" />
+						<Hotspot X="7.655012" Y="-450.9379" Z="110.935" />
+					</CustomBehavior>
+					<RunTo X="7.655012" Y="-450.9379" Z="110.935" />
+					
+					<RunTo X="33.96633" Y="-448.988" Z="110.9518" />	
 					<CustomBehavior File="RunLikeHell"
 									NumOfTimes="1" 
 									AllowCombat="false">
