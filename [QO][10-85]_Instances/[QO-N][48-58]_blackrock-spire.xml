@@ -298,7 +298,8 @@
 					
 					<CustomBehavior File="Message" 
 									Text="Waiting 50 seconds for the boss to aggro." 
-									LogColor="Fuchsia" />	
+									LogColor="Fuchsia" />
+									
 					<CustomBehavior File="WaitTimer"
 									WaitTime="50000" />
 					
@@ -318,6 +319,33 @@
 					<RunTo X="112.4193" Y="-258.7379" Z="91.54794" />
 					<RunTo X="98.9565" Y="-265.9846" Z="91.4499" />
 					<RunTo X="96.71647" Y="-267.9388" Z="91.44843" />
+					
+					<!-- Runlikehell to get rafs the jenkins title -->
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="87.28238" Y="-269.9236" Z="91.45467" />
+						<Hotspot X="88.26207" Y="-284.2338" Z="91.44696" />
+						<Hotspot X="106.7661" Y="-288.3351" Z="91.51012" />
+						<Hotspot X="104.4543" Y="-314.3202" Z="91.47504" />
+						<Hotspot X="86.94765" Y="-315.0081" Z="91.44084" />
+						<Hotspot X="89.41971" Y="-334.557" Z="92.2602" />
+						<Hotspot X="71.84818" Y="-328.2067" Z="92.48263" />
+						<Hotspot X="64.67152" Y="-335.3485" Z="91.51474" />
+						<Hotspot X="51.02015" Y="-335.1038" Z="91.50879" />
+						<Hotspot X="50.37125" Y="-314.1877" Z="91.52926" />
+						<Hotspot X="69.38744" Y="-313.7088" Z="91.431" />
+						<Hotspot X="75.6246" Y="-305.3961" Z="91.41269" />
+						<Hotspot X="84.09844" Y="-299.2943" Z="91.44106" />
+						<Hotspot X="72.85999" Y="-274.7282" Z="91.91965" />
+						<Hotspot X="60.33391" Y="-270.7108" Z="94.64562" />
+						<Hotspot X="54.07256" Y="-253.0564" Z="97.62897" />
+						<Hotspot X="60.51547" Y="-271.2477" Z="93.63519" />
+						<Hotspot X="78.88857" Y="-264.2087" Z="91.4753" />
+						<Hotspot X="86.2565" Y="-249.138" Z="91.46503" />
+					</CustomBehavior>	
+					<RunTo X="85.91493" Y="-258.0736" Z="91.46332" />
+					
 					
 					<CustomBehavior File="RunLikeHell" 
 									NumOfTimes="1" 
