@@ -124,12 +124,24 @@
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="5000" />	
 											
-							<!-- Make sure we kill the fire elemental for the RAFs -->
+							<!-- Kill the Overmaster Pyron (E) -->
 							<CustomBehavior File="TargetAndMoveToMob" 
 											MobId="9026" 
 											MoveWithinMaxRangeOfMob="1" 
 											WaitForNpcs="false"
 											X="-7250.287" Y="-907.6682" Z="165.3785" />
+											
+							<!-- Kill The Behemoth (R) -->
+							<CustomBehavior File="TargetAndMoveToMob" 
+											MobId="" 
+											MoveWithinMaxRangeOfMob="1" 
+											WaitForNpcs="false">
+								<HuntingGrounds>
+									<Hotspot X="-7423.542" Y="-887.9393" Z="172.5045" />
+									<Hotspot X="-7394.76" Y="-944.812" Z="170.1162" />
+									<Hotspot X="-7374.073" Y="-1010.682" Z="173.8385" />
+								</HuntingGrounds>
+							</CustomBehavior>
 											
 							<RunTo X="-7228.612" Y="-906.2562" Z="165.3779" />
 							<RunTo X="-7273.199" Y="-909.1801" Z="165.3779" />
