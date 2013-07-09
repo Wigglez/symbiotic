@@ -294,10 +294,10 @@
 					<RunTo X="144.4706" Y="-259.8817" Z="96.32327" />
 					
 					<CustomBehavior File="Message" 
-									Text="Waiting 80 seconds for the boss to aggro." 
+									Text="Waiting 50 seconds for the boss to aggro." 
 									LogColor="Fuchsia" />	
 					<CustomBehavior File="WaitTimer"
-									WaitTime="80000" />
+									WaitTime="50000" />
 					
 					<!-- Run down ramp -->
 					<RunTo X="144.6243" Y="-271.891" Z="91.55032" />
@@ -436,7 +436,7 @@
 									AllowCombat="false">
 						<Hotspot X="84.37505" Y="-552.9569" Z="110.9242" />	
 						<Hotspot X="32.87771" Y="-512.5882" Z="110.9461" /> 
-						<HotspotX ="33.11989" Y="-502.7303" Z="110.9499" />
+						<Hotspot X ="33.11989" Y="-502.7303" Z="110.9499" />
 					</CustomBehavior>
 					<RunTo X="33.52279" Y="-461.1625" Z="110.9528" />
 						
