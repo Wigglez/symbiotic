@@ -165,7 +165,7 @@
 									CheckRange="1" />
 									
 					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
+									WaitTime="1000" />
 									
 					<CustomBehavior File="Message" 
 									Text="Blackrock Spire initialized."  
@@ -184,7 +184,7 @@
 					<RunTo X="79.2363" Y="-241.2068" Z="56.4171" />
 					
 					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
+									WaitTime="2000" />
 					
 					<!-- Bridge and under bridge -->
 					<RunTo X="87.05316" Y="-300.0131" Z="59.2604" />
@@ -215,6 +215,9 @@
 									
 					<!-- Tag RAFs at quest giver -->
 					<RunTo X="71.09921" Y="-259.7567" Z="60.70417" />
+					
+					<CustomBehavior File="WaitTimer"
+									WaitTime="2000" />
 									
 					<!-- get to the entrance of UBRS -->
 					<RunTo X="129.4753" Y="-319.0146" Z="70.9553" />
@@ -564,9 +567,7 @@
 					<!-- Center of troll room -->
 					<RunTo X="-38.46798" Y="-468.4967" Z="16.07077" />
 					
-					<!-- UNFINISHED, THIS IS MY MARKER POINT TO CONTINUE FROM TOMORROW DO NOT WORK ON THIS
-					BLIZZARD SERVERS WENT DOWN AS I WAS WORKING -->
-					hey look it won't build, read comment above this line
+					
 					
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs." 
@@ -790,7 +791,7 @@
 									CheckRange="5" />
 									
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
+									WaitTime="15000" />
 									
 					<!-- quest giver -->
 					<RunTo X="80.11361" Y="-257.3969" Z="60.70204" />
