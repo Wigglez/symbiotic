@@ -425,13 +425,37 @@
 									X="-7515.52" Y="-1045.57" Z="182.3" />
 					<CustomBehavior File="ForcedDismount" />
 					
-					<RunTo X="-7492.599" Y="-1055.543" Z="179.0819" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="2000" />
 									
+					<!-- Run through lothos door -->
+					<CustomBehavior File="MyCTM" 
+									X="-7507.644" Y="-1055.035" Z="182.0239" />
+					<!-- Run to end of ramp -->
+					<CustomBehavior File="MyCTM" 
+									X="-7484.931" Y="-1040.697" Z="177.6217" />
+					<!-- Run into the corner -->
+					<CustomBehavior File="MyCTM" 
+									X="-7485.141" Y="-1044.943" Z="177.4019" />
+					<!-- Wait spot -->
+					<CustomBehavior File="MyCTM" 
+									X="-7492.638" Y="-1055.325" Z="179.0631" />
+
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="2000" />
+									
+					<!-- Get out of the corner and start clearing -->
+					<CustomBehavior File="MyCTM" 
+									X="-7491.02" Y="-1051.941" Z="178.7452" />
+					<CustomBehavior File="MyCTM" 
+									X="-7484.414" Y="-1043.171" Z="177.3474" />
+					<!-- ramp -->
+					<CustomBehavior File="MyCTM" 
+									X="-7482.979" Y="-1037.062" Z="177.6236" />
+
 									
 					<RunTo X="-7506.894" Y="-1054.934" Z="182.0252" />
 					<RunTo X="-7482.928" Y="-1037.054" Z="177.6218" />
@@ -468,12 +492,27 @@
 					<RunTo X="-7507.878" Y="-1054.521" Z="182.0236" />				
 					
 					<!-- Tag the rafs -->
-					<RunTo X="-7514.188" Y="-1056.15" Z="182.0826" />
-					
+					<!-- Run to end of ramp -->
+					<RunTo X="-7484.931" Y="-1040.697" Z="177.6217" />
+					<!-- Run into the corner -->
+					<CustomBehavior File="MyCTM" 
+									X="-7485.141" Y="-1044.943" Z="177.4019" />
+					<!-- Wait spot -->
+					<CustomBehavior File="MyCTM" 
+									X="-7492.638" Y="-1055.325" Z="179.0631" />
+									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="2000" />	
+									
+					<!-- Get out of the corner and make our way back to the instance -->
+					<CustomBehavior File="MyCTM" 
+									X="-7491.02" Y="-1051.941" Z="178.7452" />
+					<CustomBehavior File="MyCTM" 
+									X="-7484.414" Y="-1043.171" Z="177.3474" />
+					<!-- ramp -->
+					<CustomBehavior File="MyCTM" 
+									X="-7482.979" Y="-1037.062" Z="177.6236" />
 				
-					<RunTo X="-7484.958" Y="-1037.997" Z="177.622" />
 					<RunTo X="-7458.01" Y="-1008.674" Z="172.016" />
 					<RunTo X="-7435.603" Y="-975.1036" Z="171.1926" />
 					<RunTo X="-7400.429" Y="-962.905" Z="169.9026" />
@@ -1023,8 +1062,18 @@
 						<!-- Move to Lothos -->
 						<RunTo X="-7515.52" Y="-1045.57" Z="182.3" />
 						
-						<!-- Hide behind the corner -->
-						<RunTo X="-7492.599" Y="-1055.543" Z="179.0819" />
+						<!-- Run through lothos door -->
+						<CustomBehavior File="MyCTM" 
+										X="-7507.644" Y="-1055.035" Z="182.0239" />
+						<!-- Run to end of ramp -->
+						<CustomBehavior File="MyCTM" 
+										X="-7484.931" Y="-1040.697" Z="177.6217" />
+						<!-- Run into the corner -->
+						<CustomBehavior File="MyCTM" 
+										X="-7485.141" Y="-1044.943" Z="177.4019" />
+						<!-- Wait spot -->
+						<CustomBehavior File="MyCTM" 
+										X="-7492.638" Y="-1055.325" Z="179.0631" />
 						
 						<CustomBehavior File="Message" 
 										Text="We are at the rendezvous point."
@@ -1041,6 +1090,15 @@
 										
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="30000" />
+										
+						<!-- Get out of the corner and make our way back to the instance -->
+						<CustomBehavior File="MyCTM" 
+										X="-7491.02" Y="-1051.941" Z="178.7452" />
+						<CustomBehavior File="MyCTM" 
+										X="-7484.414" Y="-1043.171" Z="177.3474" />
+						<!-- ramp -->
+						<CustomBehavior File="MyCTM" 
+										X="-7482.979" Y="-1037.062" Z="177.6236" />
 										
 						<!-- Moving to the instance box -->
 						<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
