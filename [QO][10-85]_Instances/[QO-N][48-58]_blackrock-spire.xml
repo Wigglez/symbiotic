@@ -105,10 +105,10 @@
 					
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
-									X="77.13378" Y="-215.2085" Z="49.84169" />
+									X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
+					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
 				</If> <!-- BRS -->
 				
 				<!-- If we are not in the box, load the movement profile -->
@@ -619,17 +619,17 @@
 				<!-- If we are inside Blackrock Spire -->
 				<If Condition="Me.ZoneId == 1583">
 					<CustomBehavior File="Message" 
-									Text="Blackrock Spire detected. Running out."
+									Text="Blackrock Spire detected. Running out to reset."
 									LogColor="Fuchsia" />
 					
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
-									X="77.13378" Y="-223.2085" Z="49.84169" />
+									X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
+					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
 				</If> <!-- BRS -->
 				
 				<!-- If we are in the box -->
@@ -745,10 +745,10 @@
 					
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
-									X="77.13378" Y="-223.2085" Z="49.84169" />
+									X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
+					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
 				</If> <!-- BRS -->
 				
 				<!-- If we are not in the box, load the movement profile -->
@@ -842,10 +842,10 @@
 					
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" 
-									X="77.13378" Y="-223.2085" Z="49.84169" />
+									X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
+					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
 				</If> <!-- BRS -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
