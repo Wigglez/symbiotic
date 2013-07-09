@@ -752,7 +752,7 @@
 				</If> <!-- BRS -->
 			
 				<!-- If we are not in the box, load the movement profile -->
-				<If Condition="Me.X &lt; -7500 &amp;&amp; Me.X &gt; -7550 &amp;&amp; Me.Y &gt; -1260 &amp;&amp; Me.Y &lt; -1200" >
+				<If Condition="Me.X &gt; -7500 || Me.X &lt; -7550 || Me.Y &lt; -1260 || Me.Y &gt; -1200" >
 					<CustomBehavior File="Message" 
 									Text="Distance from portal is not within our proximity, initializing movement to get there."
 									LogColor="Fuchsia" />	
@@ -762,7 +762,7 @@
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; -7200 &amp;&amp; Me.X &lt; -7000 &amp;&amp; Me.Y &lt; -900 &amp;&amp; Me.Y &gt; -1000" >
+				<If Condition="Me.X &lt; -7500 &amp;&amp; Me.X &gt; -7550 &amp;&amp; Me.Y &gt; -1260 &amp;&amp; Me.Y &lt; -1200" >
 					<CustomBehavior File="Message" 
 									Text="Portal detected nearby."
 									LogColor="Fuchsia" />	
