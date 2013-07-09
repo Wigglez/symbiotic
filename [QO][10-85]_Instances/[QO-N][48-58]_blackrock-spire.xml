@@ -844,7 +844,7 @@
 									
 					<!-- quest giver -->
 					<RunTo X="80.11361" Y="-257.3969" Z="60.70204" />
-					<RunTo X="79.2363" Y="-241.2068" Z="56.4171" />
+					<RunTo X="71.09921" Y="-259.7567" Z="60.70417" />
 							
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
