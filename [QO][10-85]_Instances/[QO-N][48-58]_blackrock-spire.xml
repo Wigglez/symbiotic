@@ -467,64 +467,73 @@
 									Text="Waiting 50 seconds for the boss to aggro." 
 									LogColor="Fuchsia" />
 									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="50000" />
-					
+					<!-- Forces kill of Pyroguard Emberseer -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="9816"
+									EventX="144.3508" EventY="-260.1181" EventZ="96.32332"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="144.3508" Y="-260.1181" Z="96.32332" />
+						</Safespots>
+					</CustomBehavior>
+
 					<!-- Run down ramp -->
 					<RunTo X="144.6243" Y="-271.891" Z="91.55032" />
-						
-					<CustomBehavior File="Message" 
-									Text="Waiting 5 seconds."
-									LogColor="Fuchsia" />	
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />	
-					
+											
 					<!-- Run to the door -->
-					<RunTo X="119.1416" Y="-258.8542" Z="91.54967" />
-					
-					<!-- Kill dragonkin -->
-					<RunTo X="112.4193" Y="-258.7379" Z="91.54794" />
-					<RunTo X="98.9565" Y="-265.9846" Z="91.4499" />
-					<RunTo X="96.71647" Y="-267.9388" Z="91.44843" />
+					<RunTo X="132.4519" Y="-270.5671" Z="91.55063" />
 					
 					<!-- Runlikehell to get rafs the jenkins title -->
 					<CustomBehavior File="RunLikeHell" 
-									NumOfTimes="2" 
-									AllowCombat="false">
-						<Hotspot X="87.28238" Y="-269.9236" Z="91.45467" />
-						<Hotspot X="88.26207" Y="-284.2338" Z="91.44696" />
-						<Hotspot X="106.7661" Y="-288.3351" Z="91.51012" />
-						<Hotspot X="104.4543" Y="-314.3202" Z="91.47504" />
-						<Hotspot X="86.94765" Y="-315.0081" Z="91.44084" />
-						<Hotspot X="89.41971" Y="-334.557" Z="92.2602" />
-						<Hotspot X="71.84818" Y="-328.2067" Z="92.48263" />
-						<Hotspot X="64.67152" Y="-335.3485" Z="91.51474" />
-						<Hotspot X="51.02015" Y="-335.1038" Z="91.50879" />
-						<Hotspot X="50.37125" Y="-314.1877" Z="91.52926" />
-						
-					</CustomBehavior>	
-					<RunTo X="85.91493" Y="-258.0736" Z="91.46332" />
-					
-					
-					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<Hotspot X="85.91493" Y="-258.0736" Z="91.46332" />
-						<Hotspot X="71.14707" Y="-257.3815" Z="94.20753" />
-						<Hotspot X="64.96595" Y="-244.2113" Z="98.54665" />
-						<Hotspot X="78.66837" Y="-238.5497" Z="101.8667" />
-						<Hotspot X="93.94245" Y="-237.5093" Z="105.9528" />
-						<Hotspot X="103.8466" Y="-249.6915" Z="106.4356" />
-						<Hotspot X="103.2768" Y="-264.8544" Z="106.4356" />
-						<Hotspot X="102.6677" Y="-280.2121" Z="106.4356" />
-						<Hotspot X="103.775" Y="-295.7923" Z="106.4356" />
-						<Hotspot X="104.3275" Y="-311.1488" Z="106.4356" />
-						<Hotspot X="104.7602" Y="-326.5967" Z="106.4356" />
+						<Hotspot X="118.3939" Y="-259.2853" Z="91.54865" />
+						<Hotspot X="109.2505" Y="-259.1037" Z="91.54636" />
+						<Hotspot X="96.12272" Y="-257.6723" Z="91.45435" />
+						<Hotspot X="96.51201" Y="-266.512" Z="91.45007" />
+						<Hotspot X="105.1868" Y="-271.2195" Z="91.48599" />
+						<Hotspot X="106.0602" Y="-335.7478" Z="91.51539" />
+						<Hotspot X="75.47658" Y="-332.9345" Z="91.49285" />
+						<Hotspot X="51.40618" Y="-334.7823" Z="91.50513" />
+						<Hotspot X="50.40245" Y="-314.3291" Z="91.52908" />
+						<Hotspot X="84.57114" Y="-307.7042" Z="91.44164" />
+						<Hotspot X="82.58939" Y="-271.5783" Z="91.46381" />
+						<Hotspot X="57.73808" Y="-270.4369" Z="93.66634" />
+						<Hotspot X="59.31611" Y="-243.6781" Z="97.83611" />
+						<Hotspot X="74.24448" Y="-239.4006" Z="100.4035" />
+						<Hotspot X="94.20014" Y="-240.8621" Z="105.9667" />
+						<Hotspot X="98.06045" Y="-244.8904" Z="106.4356" />
+						<Hotspot X="103.8587" Y="-250.5575" Z="106.4356" />
+						<Hotspot X="103.2486" Y="-333.3083" Z="106.4356" />
+						<Hotspot X="89.80052" Y="-331.3927" Z="106.4356" />
+						<Hotspot X="80.36891" Y="-323.4751" Z="91.44549" />
+						<Hotspot X="89.46883" Y="-310.3313" Z="91.44427" />
+						<Hotspot X="83.49399" Y="-281.3575" Z="91.71304" />
+						<Hotspot X="83.05643" Y="-265.9047" Z="91.46568" />
+						<Hotspot X="106.0249" Y="-258.8137" Z="91.50407" />
 					</CustomBehavior>	
 					<RunTo X="104.7602" Y="-326.5967" Z="106.4356" />
-	
 					
-					<RunTo X="112.6072" Y="-313.8753" Z="106.4356" />
+					<!-- Move back upstairs -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="74.23923" Y="-261.1749" Z="92.21323" />
+						<Hotspot X="65.34846" Y="-255.3676" Z="96.3856" />
+						<Hotspot X="63.17698" Y="-245.4888" Z="98.19624" />
+						<Hotspot X="74.88843" Y="-241.4169" Z="100.62" />
+						<Hotspot X="98.47463" Y="-241.6524" Z="106.4356" />
+						<Hotspot X="102.9723" Y="-250.4283" Z="106.4356" />
+						<Hotspot X="106.1496" Y="-311.7242" Z="106.4356" />
+					</CustomBehavior>	
+					<RunTo X="106.1496" Y="-311.7242" Z="106.4356" />
+					
+	
+					<!-- doorway exiting the rookery on the 2nd floor closes to the arena -->
 					<RunTo X="127.5671" Y="-309.9382" Z="110.9507" />
 					<RunTo X="140.5712" Y="-317.4511" Z="110.9558" />
 					<RunTo X="141.3562" Y="-332.7097" Z="110.9501" />
@@ -566,36 +575,18 @@
 					
 					<!--Moves to gate where mobs spawn -->
 					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />
-					
-					<!-- waits to kill mobs before boss spawn -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="150000" />
-									
-					<!--Moves to gate where mobs spawn -->
-					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />
-					
-					<!-- waits to kill mobs before boss spawn -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="150000" />
-									
-					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />		
-									
-					<!-- waits to kill mobs before boss spawn -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="90000" />
-									
-					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />	
 
-					<!-- Moves to the arena entrance and hunts Gyre -->
-					<CustomBehavior File="TargetAndMoveToMob"
-									MobId="10339"
-									MoveWithinMaxRangeOfMob="1"
-									WaitForNpcs="true" >
-						<HuntingGrounds>
-							<Hotspot X="179.6093" Y="-418.1441" Z="110.4723" />
-						</HuntingGrounds>
+					<!-- Forces kill of Gyth -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="10339"
+									EventX="126.8682" EventY="-420.1864" EventZ="110.4724"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="126.8682" Y="-420.1864" Z="110.4724" />
+						</Safespots>
 					</CustomBehavior>
-					
 					<!-- exit arena -->
 					<RunTo X="113.4873" Y="-420.6095" Z="110.8856" />
 	
