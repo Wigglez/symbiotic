@@ -464,7 +464,7 @@
 					<RunTo X="144.4706" Y="-259.8817" Z="96.32327" />
 					
 					<CustomBehavior File="Message" 
-									Text="Waiting 50 seconds for the boss to aggro." 
+									Text="Waiting for Pyroguard Emberseer to aggro." 
 									LogColor="Fuchsia" />
 									
 					<!-- Forces kill of Pyroguard Emberseer -->
@@ -579,14 +579,18 @@
 					<!-- Forces kill of Gyth -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="10339"
-									EventX="126.8682" EventY="-420.1864" EventZ="110.4724"
+									EventX="163.032" EventY="-420.3748" EventZ="110.4724"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
 									MoveAwayFromMobWithAuraId1="111111">
 						<Safespots>
-							<Hotspot X="126.8682" Y="-420.1864" Z="110.4724" />
+							<Hotspot X="163.032" Y="-420.3748" Z="110.4724" />
 						</Safespots>
 					</CustomBehavior>
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="3000" />
+					
 					<!-- exit arena -->
 					<RunTo X="113.4873" Y="-420.6095" Z="110.8856" />
 	
