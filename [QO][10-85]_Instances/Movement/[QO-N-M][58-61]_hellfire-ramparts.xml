@@ -89,7 +89,7 @@
 
 				<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />
 
-				<CustomBehavior File="WaitTimer" WaitTime="10000" />
+				<CustomBehavior File="WaitTimer" WaitTime="15000" />
 			</If> <!-- Eastern Kingdoms -->
 			
 			
@@ -148,18 +148,20 @@
 				</While> <!-- While we aren't in the instance -->
 			</If> <!-- Outlands -->
 			
-			<!-- Hellfire Ramparts -->
+			<!-- If we are inside -->
 			<If Condition="Me.ZoneId == 3562">
-				<!-- Inside the instance, load the profile -->
-				
 				<CustomBehavior File="Message" 
-								Text="We are in Hellfire Ramparts." 
-								LogColor="Cyan" />
+								Text="Hellfire Ramparts detected. Running out."
+								LogColor="Fuchsia" />
+								
+				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][58-61]_hellfire-ramparts" />
-						
-			</If> <!-- Hellfire Ramparts -->
+				<!-- Go through the portal -->
+				<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+				
+				<!-- Make sure we run to the right spot outside the portal -->
+				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
+			</If> <!-- HR -->
 		</If> <!-- Booster -->
 						
 		
@@ -373,18 +375,20 @@
 				</While> <!-- While we aren't in the instance -->
 			</If> <!-- Outland -->
 			
-			<!-- Hellfire Ramparts -->
+			<!-- If we are inside -->
 			<If Condition="Me.ZoneId == 3562">
-				<!-- Inside the instance, load the profile -->
-				
 				<CustomBehavior File="Message" 
-								Text="We are in Hellfire Ramparts." 
-								LogColor="Cyan" />
+								Text="Hellfire Ramparts detected. Running out."
+								LogColor="Fuchsia" />
+								
+				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][58-61]_hellfire-ramparts" />
-						
-			</If> <!-- Hellfire Ramparts -->
+				<!-- Go through the portal -->
+				<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+				
+				<!-- Make sure we run to the right spot outside the portal -->
+				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
+			</If> <!-- HR -->
 		</If> <!-- RAF toons -->
 	</QuestOrder>
 </HBProfile>
