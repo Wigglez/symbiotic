@@ -355,7 +355,7 @@
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][48-58]_blackrock-spire" />
+									ProfileName="Movement\[QO-N-M][58-61]_hellfire-ramparts" />
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
@@ -403,7 +403,7 @@
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
 									
 					<CustomBehavior File="Message" 
-									Text="Blackrock Spire initialized."  
+									Text="Hellfire Ramparts initialized."  
 									LogColor="Fuchsia" />
 									
 					<CustomBehavior File="Message" 
