@@ -242,7 +242,27 @@
 				
 				<!-- Stormwind City -->
 				<If Condition="Me.ZoneId == 1519">
+					<CustomBehavior File="Message" 
+									Text="We are in Stormwind City." 
+									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to Blasted Lands portal." 
+									LogColor="Lime" />	
 					
+					<!-- In front of Blasted Lands portal -->
+					<RunTo X="-9005.403" Y="869.1169" Z="129.6929" />
+
+					<!-- Blasted Lands portal -->
+					<CustomBehavior File="InteractWith" 
+									MobId="195141" 
+									ObjectType="Gameobject"
+									Range="4.75" 
+									NumOfTimes="1"  
+									X="-9007.58" Y="871.8698" Z="129.6922" />
+
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />							
 				</If> <!-- Stormwind City -->
 			</If> <!-- Eastern Kingdoms -->
 			
