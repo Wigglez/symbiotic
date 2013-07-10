@@ -316,6 +316,9 @@
 				
 				<!-- Run through Dark Portal -->
 				<CustomBehavior File="MyCTM" X="-11911.1" Y="-3207.676" Z="-14.74713" />
+				
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="15000" />
 			</If> <!-- Blasted Lands -->
 			
 			<!-- Outland -->
