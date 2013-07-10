@@ -166,7 +166,7 @@
 			<!-- In box -->
 			<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
 				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO-N][58-61]_hellfire-ramparts" />
+								ProfileName="..\[QO-N][58-61]_hellfire-ramparts" />
 			</If> <!-- In box -->
 		</If> <!-- Booster -->
 						
@@ -399,7 +399,7 @@
 			<!-- In box -->
 			<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
 				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO-N][58-61]_hellfire-ramparts" />
+								ProfileName="..\[QO-N][58-61]_hellfire-ramparts" />
 			</If> <!-- In box -->
 		</If> <!-- RAF toons -->
 	</QuestOrder>
