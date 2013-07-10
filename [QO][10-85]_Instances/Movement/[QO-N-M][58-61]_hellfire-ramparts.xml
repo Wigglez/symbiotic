@@ -296,27 +296,27 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
 				</If> <!-- Orgrimmar -->
-				
-				<!-- Blasted Lands -->
-				<If Condition="Me.ZoneId == 4">
-					<CustomBehavior File="Message" 
-									Text="We are in Blasted Lands." 
-									LogColor="Cyan" />
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to The Dark Portal." 
-									LogColor="Lime" />
-				
-					<CustomBehavior File="ForcedMount"
-									MountType="Ground" />
-							
-					<!-- Move in front of the Dark Portal -->
-					<RunTo X="-11896.8" Y="-3206.77" Z="-14.6724" />
-					
-					<!-- Run through Dark Portal -->
-					<CustomBehavior File="MyCTM" X="-11911.1" Y="-3207.676" Z="-14.74713" />
-				</If> <!-- Blasted Lands -->
 			</If> <!-- Kalimdor -->
+			
+			<!-- Blasted Lands -->
+			<If Condition="Me.ZoneId == 4">
+				<CustomBehavior File="Message" 
+								Text="We are in Blasted Lands." 
+								LogColor="Cyan" />
+								
+				<CustomBehavior File="Message" 
+								Text="Moving to The Dark Portal." 
+								LogColor="Lime" />
+			
+				<CustomBehavior File="ForcedMount"
+								MountType="Ground" />
+						
+				<!-- Move in front of the Dark Portal -->
+				<RunTo X="-11896.8" Y="-3206.77" Z="-14.6724" />
+				
+				<!-- Run through Dark Portal -->
+				<CustomBehavior File="MyCTM" X="-11911.1" Y="-3207.676" Z="-14.74713" />
+			</If> <!-- Blasted Lands -->
 			
 			<!-- Outland -->
 			<If Condition="Me.MapId == 530">
