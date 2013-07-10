@@ -343,6 +343,7 @@
 						<Hotspot X="60.51547" Y="-271.2477" Z="93.63519" />
 						<Hotspot X="78.88857" Y="-264.2087" Z="91.4753" />
 						<Hotspot X="86.2565" Y="-249.138" Z="91.46503" />
+						
 						<Hotspot X="87.28238" Y="-269.9236" Z="91.45467" />
 						<Hotspot X="88.26207" Y="-284.2338" Z="91.44696" />
 						<Hotspot X="106.7661" Y="-288.3351" Z="91.51012" />
@@ -352,15 +353,6 @@
 						<Hotspot X="71.84818" Y="-328.2067" Z="92.48263" />
 						<Hotspot X="64.67152" Y="-335.3485" Z="91.51474" />
 						<Hotspot X="51.02015" Y="-335.1038" Z="91.50879" />
-						<Hotspot X="50.37125" Y="-314.1877" Z="91.52926" />
-						<Hotspot X="69.38744" Y="-313.7088" Z="91.431" />
-						<Hotspot X="75.6246" Y="-305.3961" Z="91.41269" />
-						<Hotspot X="84.09844" Y="-299.2943" Z="91.44106" />
-						<Hotspot X="72.85999" Y="-274.7282" Z="91.91965" />
-						<Hotspot X="60.33391" Y="-270.7108" Z="94.64562" />
-						<Hotspot X="54.07256" Y="-253.0564" Z="97.62897" />
-						<Hotspot X="60.51547" Y="-271.2477" Z="93.63519" />
-						<Hotspot X="78.88857" Y="-264.2087" Z="91.4753" />
 						<Hotspot X="86.2565" Y="-249.138" Z="91.46503" />
 					</CustomBehavior>	
 					<RunTo X="85.91493" Y="-258.0736" Z="91.46332" />
@@ -420,35 +412,30 @@
 					<RunTo X="92.94347" Y="-377.1324" Z="116.8424" />
 					<RunTo X="93.13277" Y="-419.8449" Z="110.9228" />
 					<RunTo X="87.12276" Y="-419.9743" Z="110.9241" />
-						
-					<CustomBehavior File="UserSettings" 
-									PullDistance="15" />	
 					
-					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />
+					<!-- enters arena -->
+					<RunTo X="113.4873" Y="-420.6095" Z="110.8856" />
 					
-					<!-- Sit around and wait until Gyre is available -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="300000" />
+					<!--Moves to gate where mobs spawn -->
+					<RunTo X="183.7897" Y="-420.3711" Z="110.8654" />
 					
-					<!-- Gyre -->
-					<CustomBehavior File="TargetAndMoveToMob" 
-									MobId="10339" 
-									MoveWithinMaxRangeOfMob="1" 
-									WaitForNpcs="true"
-									X="179.6093" Y="-418.1441" Z="110.4723" />
-									
-					<!-- Warchief Rend Blackhand -->
-					<CustomBehavior File="TargetAndMoveToMob" 
-									MobId="10429" 
-									MoveWithinMaxRangeOfMob="1" 
-									WaitForNpcs="true"
-									X="179.6093" Y="-418.1441" Z="110.4723" />
+					<!-- waits to kill mobs before boss spawn -->
+					<CustomBehavior File="WaitTimer"
+								WaitTime="300000" />
+
+					<!-- Moves to the arena entrance and hunts Gyre -->
+					<CustomBehavior File="TargetAndMoveToMob"
+									MobId="10339"
+									MoveWithinMaxRangeOfMob="1"
+									WaitForNpcs="true" >
+						<HuntingGrounds>
+							<Hotspot X="113.4873" Y="-420.6095" Z="110.8856" />
+						</HuntingGrounds>
+					</CustomBehavior>
 					
-					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />
-					
-					<CustomBehavior File="UserSettings" 
-									PullDistance="40" />
-									
+					<!-- exit arena -->
+					<RunTo X="113.4873" Y="-420.6095" Z="110.8856" />
+	
 					<RunTo X="105.0844" Y="-420.0851" Z="110.9228" />
 					<RunTo X="93.15945" Y="-429.9217" Z="110.9228" />
 					<RunTo X="93.18846" Y="-445.1909" Z="113.4575" />
@@ -493,14 +480,25 @@
 									AllowCombat="false">
 						<Hotspot X="32.89931" Y="-509.6993" Z="110.9491" />
 						<Hotspot X="52.5339" Y="-532.7266" Z="110.9388" />
+					</CustomBehavior>
+					
+					
+					<!-- Targetandmoveto the beast -->
+					<CustomBehavior File="TargetAndMoveToMob" 
+									MobId="10430" 
+									MoveWithinMaxRangeOfMob="1" 
+									WaitForNpcs="true"
+									X="52.5339" Y="-532.7266" Z="110.9388" />
+									
+					<RunTo X="33.2668" Y="-511.2289" Z="110.9463" />
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1"
+									AllowCombat="false">	
 						<Hotspot X="33.2668" Y="-511.2289" Z="110.9463" />
 						<Hotspot X="33.90994" Y="-451.8149" Z="110.9505" />
-						
-						<Hotspot X="7.262176" Y="-449.1257" Z="110.9365" />
-						<Hotspot X="7.38007" Y="-462.0731" Z="110.9337" />
-						<Hotspot X="7.655012" Y="-450.9379" Z="110.935" />
 					</CustomBehavior>
-					<RunTo X="7.655012" Y="-450.9379" Z="110.935" />
+					<RunTo X="33.90994" Y="-451.8149" Z="110.9505" />
 					
 					<RunTo X="33.96633" Y="-448.988" Z="110.9518" />	
 					<CustomBehavior File="RunLikeHell"
