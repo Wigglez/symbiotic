@@ -221,182 +221,118 @@
 					<CustomBehavior File="MyCTM" X="-3361.638" Y="4653.265" Z="-101.0491" /> 
 					<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Lime" />
 					<CustomBehavior File="WaitTimer" WaitTime="15000" />
-					<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
+					
 				</If>	
 
                                                        <!-- sethekk halls dungeon script -->
-				
 				<If Condition="Me.ZoneId == 3791">
-					<CustomBehavior File="UserSettings" PullDistance="25" />
 				
-						<RunTo X="29.28083" Y="4.907259" Z="0.005755" />
-						<RunTo X="30.05023" Y="-3.184137" Z="0.005755" />
-						<RunTo X="39.96065" Y="3.641211" Z="0.006434476" />
-						<RunTo X="46.99625" Y="7.737821" Z="0.006434476" />
-						<RunTo X="47.01676" Y="51.918" Z="0.006434476" />
-						<RunTo X="43.39296" Y="62.24089" Z="0.006434476" />
-						<RunTo X="56.06865" Y="82.93526" Z="0.1171747" />
-						<RunTo X="70.89008" Y="92.80547" Z="0.0530788" />
-						<RunTo X="90.12468" Y="100.3152" Z="0.007209702" />
-						<RunTo X="78.26614" Y="115.4181" Z="0.3604873" />
-						<RunTo X="66.1937" Y="125.2712" Z="0.08692777" />
-						<RunTo X="46.0702" Y="129.0335" Z="0.1434758" />
-						<RunTo X="41.56185" Y="107.1399" Z="0.1508283" />
-						<RunTo X="23.40565" Y="78.11864" Z="0.08017728" />
-						<RunTo X="16.92011" Y="102.4351" Z="0.4223823" />
-						<RunTo X="-0.627636" Y="100.211" Z="0.007205117" />
-
-					<CustomBehavior File="UserSettings" PullDistance="25" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, fire room entrance." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />	
+					<!-- Entrance -->
+					<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
+				
+					<!-- Run to quest givers -->
+					<RunTo X="7.22879" Y="8.224396" Z="0.005755" />
+				
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<CustomBehavior File="Message" 
+									Text="Sethekk Halls initialized."  
+									LogColor="Fuchsia" />
+				
+					<!-- Clears entrance and first room -->
+					<RunTo X="29.28083" Y="4.907259" Z="0.005755" />
+					<RunTo X="30.05023" Y="-3.184137" Z="0.005755" />
+					<RunTo X="39.96065" Y="3.641211" Z="0.006434476" />
+					<RunTo X="46.99625" Y="7.737821" Z="0.006434476" />
+					<RunTo X="47.01676" Y="51.918" Z="0.006434476" />
+					<RunTo X="43.39296" Y="62.24089" Z="0.006434476" />
+					<RunTo X="56.06865" Y="82.93526" Z="0.1171747" />
+					<RunTo X="70.89008" Y="92.80547" Z="0.0530788" />
+					<RunTo X="90.12468" Y="100.3152" Z="0.007209702" />
+					<RunTo X="78.26614" Y="115.4181" Z="0.3604873" />
+					<RunTo X="66.1937" Y="125.2712" Z="0.08692777" />
+					<RunTo X="46.0702" Y="129.0335" Z="0.1434758" />
+					<RunTo X="41.56185" Y="107.1399" Z="0.1508283" />
+					<RunTo X="23.40565" Y="78.11864" Z="0.08017728" />
+					<RunTo X="16.92011" Y="102.4351" Z="0.4223823" />
+					<RunTo X="-0.627636" Y="100.211" Z="0.007205117" />
 					
-						<RunTo X="-17.38082" Y="100.6026" Z="0.007194391" />
-						<RunTo X="-35.45314" Y="100.6894" Z="0.007194391" />
-						<RunTo X="-57.25207" Y="111.2821" Z="0.007194391" />
-						<RunTo X="-61.76901" Y="95.6731" Z="0.01589284" />
-						<RunTo X="-74.56717" Y="88.30174" Z="0.007840563" />
-						<RunTo X="-88.52985" Y="104.1713" Z="0.006445049" />
-						<RunTo X="-74.63461" Y="130.3879" Z="0.005139554" />
-						<RunTo X="-71.23712" Y="133.729" Z="0.005386859" />
-	
-						<RunTo X="-71.23712" Y="133.729" Z="0.005386859" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, fire room exit." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					<!-- Center of the first hallway -->
+					<RunTo X="-17.38082" Y="100.6026" Z="0.007194391" />
 					
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="-71.24348" Y="139.386" Z="0.006319328" />
-						<Hotspot X="-72.06015" Y="169.517" Z="0.008396729" />
-						<Hotspot X="-68.07292" Y="173.7705" Z="0.008462847" />
-						<Hotspot X="-77.37314" Y="176.7407" Z="0.008491287" />
-						<Hotspot X="-105.3463" Y="176.8934" Z="0.009336349" />
-						<Hotspot X="-104.4914" Y="169.9029" Z="0.009336349" />
-						<Hotspot X="-93.37309" Y="173.2816" Z="0.009336349" />
+					<!-- Clear to first boss -->
+					<RunTo X="-45.85576" Y="100.8749" Z="0.007197492" />
+					<RunTo X="-58.02112" Y="111.6341" Z="0.007197492" />
+					<RunTo X="-72.66986" Y="88.52103" Z="0.007217744" />
+					<RunTo X="-88.35237" Y="106.0285" Z="0.007217744" />
+					<RunTo X="-73.0862" Y="132.5663" Z="0.00580619" />
+					<RunTo X="-67.0964" Y="174.2848" Z="0.008493776" />
+					<RunTo X="-103.1335" Y="177.231" Z="0.009348463" />
+					<RunTo X="-111.2075" Y="173.6179" Z="0.009348463" />
+					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
+					
+					<!-- tag rafs -->
+					<RunTo X="7.22879" Y="8.224396" Z="0.005755" />
+					
+					
+					<!-- run back to first boss -->
+					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
+					
+					<!-- clear last room on the ground floor and stair-door guards of the second floor -->
+					<RunTo X="-204.9517" Y="176.3423" Z="0.01093201" />
+					<RunTo X="-243.9381" Y="159.8705" Z="0.06504456" />
+					<RunTo X="-230.2003" Y="190.4187" Z="3.944963" />
+					<RunTo X="-263.4235" Y="187.0892" Z="0.03411928" />
+					<RunTo X="-271.8045" Y="171.5383" Z="0.05078629" />
+					<RunTo X="-271.4767" Y="142.2779" Z="13.56483" />
+					<RunTo X="-210.7714" Y="142.4178" Z="26.75119" />
+					<RunTo X="-214.4941" Y="203.6616" Z="26.72287" />
+					<RunTo X="-242.3174" Y="211.0034" Z="26.75901" />
+					
+					<!-- Clear top door to last boss guards -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-242.5275" Y="228.7115" Z="26.7231" />
+						<Hotspot X="-243.2647" Y="284.1381" Z="27.49084" />
+						<Hotspot X="-235.8431" Y="334.1547" Z="27.31513" />
+						<Hotspot X="-201.8283" Y="338.0493" Z="26.63621" />
+						<Hotspot X="-207.187" Y="312.0368" Z="31.70341" />
+						<Hotspot X="-205.6251" Y="314.0121" Z="30.29447" />
+						<Hotspot X="-184.4474" Y="343.7325" Z="27.98125" />
+						<Hotspot X="-182.8104" Y="279.7446" Z="26.60574" />
+						<Hotspot X="-141.845" Y="290.2998" Z="26.73262" />
+						<Hotspot X="-129.0573" Y="287.5922" Z="26.73122" />
+						<Hotspot X="-95.22292" Y="304.7847" Z="26.4843" />
+						<Hotspot X="-61.07859" Y="308.918" Z="26.83824" />
+						<Hotspot X="-45.60033" Y="284.2642" Z="26.7746" />
+						<Hotspot X="-0.1354589" Y="291.7284" Z="26.68957" />
+						<Hotspot X="-0.09103165" Y="284.6599" Z="26.68957" />
+						<Hotspot X="-41.70713" Y="286.3986" Z="26.73074" />
+						<Hotspot X="-77.20947" Y="287.3869" Z="26.4832" />
+						<Hotspot X="-89.19993" Y="267.9048" Z="26.82262" />
+						<Hotspot X="-119.8436" Y="271.4776" Z="27.3058" />
+						<Hotspot X="-85.27658" Y="297.7351" Z="26.48322" />
 					</CustomBehavior>
+					<RunTo X="-85.27658" Y="297.7351" Z="26.48322" />
 					
-						<RunTo X="-68.40021" Y="174.6368" Z="0.009554705" />
-						<RunTo X="-70.92887" Y="133.3665" Z="0.006747638" />
-						<RunTo X="-67.72844" Y="176.8521" Z="0.008419579" />
-						<RunTo X="-106.9594" Y="173.2171" Z="0.009411152" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, first boss." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					<!-- Run to last bosses room -->
+					<RunTo X="-21.41718" Y="286.436" Z="26.72997" />
 					
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="-143.3884" Y="173.3692" Z="1.685346" />
-					</CustomBehavior>
-					
-						<RunTo X="-165.9201" Y="173.2747" Z="0.01180946" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, corridor before the stairs." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
-	
-						<RunTo X="-192.1724" Y="173.3893" Z="0.01206368" />
-						<RunTo X="-210.516" Y="173.466" Z="0.01206368" />
-						<RunTo X="-219.9783" Y="177.9306" Z="0.03220398" />
-						<RunTo X="-227.545" Y="190.3282" Z="4.705783" />
-						<RunTo X="-262.3316" Y="190.8687" Z="0.03420738" />
-						<RunTo X="-272.0754" Y="175.2585" Z="0.03395679" />
-						<RunTo X="-258.9484" Y="178.3965" Z="0.0351446" />
-						<RunTo X="-242.2396" Y="158.38" Z="0.06364414" />
-						<RunTo X="-234.3111" Y="166.293" Z="-0.3210168" />
-						<RunTo X="-211.3339" Y="171.6613" Z="0.01483548" />
-						<RunTo X="-204.7936" Y="173.3471" Z="0.01097667" />
+					<!-- Tareget the the boss and kill -->
+					<CustomBehavior File="TargetAndMoveToMob" MobId="18473" MoveWithinMaxRangeOfMob="1" WaitForNpcs="false" X="44.72272" Y="286.9597" Z="25.01321" />
 
-						<RunTo X="-272.0491" Y="153.7084" Z="12.92277" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, stairs." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
+					<!-- run to the boss exit door -->
+					<RunTo X="44.61202" Y="139.9013" Z="0.01621437" />
 					
-						<RunTo X="-271.1982" Y="141.5911" Z="13.56471" />
-						<RunTo X="-239.8664" Y="141.2631" Z="26.76449" />
-						<RunTo X="-215.1647" Y="141.8696" Z="26.7669" />
-						<RunTo X="-210.966" Y="163.7745" Z="26.75344" />
-						<RunTo X="-212.7213" Y="181.89" Z="26.99697" />
-						<RunTo X="-214.3577" Y="204.4055" Z="26.72287" />
-						<RunTo X="-220.999" Y="206.2248" Z="26.73973" />
-						<RunTo X="-236.3258" Y="206.7115" Z="27.14357" />
-						<RunTo X="-239.6272" Y="211.117" Z="26.85944" />
-						<RunTo X="-244.3957" Y="211.1214" Z="26.76577" />
-						<RunTo X="-242.2949" Y="204.3461" Z="26.87005" />
-						<RunTo X="-275.4583" Y="205.2015" Z="26.72448" />
-						
-						<RunTo X="-241.6176" Y="205.4051" Z="26.91875" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, top of the stairs." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="-242.4688" Y="219.6727" Z="26.72316" />
-						<Hotspot X="-241.6282" Y="288.584" Z="27.36577" />
-						<Hotspot X="-239.084" Y="308.7389" Z="26.73062" />
-						<Hotspot X="-233.8913" Y="339.5744" Z="27.21391" />
-						<Hotspot X="-204.3465" Y="341.4974" Z="26.66009" />
-						<Hotspot X="-182.4682" Y="336.7186" Z="26.0579" />
-						<Hotspot X="-209.4049" Y="309.2291" Z="33.31029" />
-						<Hotspot X="-190.9359" Y="321.1895" Z="26.61074" />
-						<Hotspot X="-176.6374" Y="279.5955" Z="26.5552" />
-						<Hotspot X="-200.3549" Y="336.0513" Z="25.76034" />
-						<Hotspot X="-226.1054" Y="330.8057" Z="27.35686" />
-						<Hotspot X="-241.3072" Y="321.3081" Z="26.74364" />
-						<Hotspot X="-228.1253" Y="320.5959" Z="26.93468" />
-					</CustomBehavior>
-						<RunTo X="-228.1253" Y="320.5959" Z="26.93468" />
-					
-						<RunTo X="-174.919" Y="286.3074" Z="26.52079" />
-						<RunTo X="-132.9651" Y="287.1593" Z="26.73125" />
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-							<Hotspot X="-207.7407" Y="336.5034" Z="26.64098" />
-							<Hotspot X="-197.0734" Y="321.1204" Z="26.57108" />
-							<Hotspot X="-185.5182" Y="305.6267" Z="26.7299" />
-							<Hotspot X="-169.6347" Y="287.4589" Z="26.65952" />
-							<Hotspot X="-156.2675" Y="286.9847" Z="26.73193" />
-							<Hotspot X="-130.4727" Y="287.5959" Z="26.73051" />
-							<Hotspot X="-122.2249" Y="284.4793" Z="26.89059" />
-							<Hotspot X="-116.1026" Y="268.5673" Z="26.99126" />
-							<Hotspot X="-99.88992" Y="258.4885" Z="27.32523" />
-							<Hotspot X="-81.82846" Y="270.5122" Z="26.80796" />
-							<Hotspot X="-79.78722" Y="287.3564" Z="26.48318" />
-							<Hotspot X="-68.66418" Y="291.3112" Z="26.53953" />
-							<Hotspot X="-53.87235" Y="285.9962" Z="26.91611" />
-							<Hotspot X="-44.98596" Y="279.1982" Z="26.78371" />
-							<Hotspot X="-60.71108" Y="310.4194" Z="26.98525" />
-							<Hotspot X="-91.74484" Y="318.4514" Z="26.75911" />
-							<Hotspot X="-96.42696" Y="310.6737" Z="25.98365" />
-							<Hotspot X="-105.0215" Y="302.2606" Z="26.53321" />
-							<Hotspot X="-124.1213" Y="287.7265" Z="26.72873" />
-							<Hotspot X="-147.4244" Y="287.0286" Z="26.73059" />
-							<Hotspot X="-176.2945" Y="287.1865" Z="26.48482" />
-							<Hotspot X="-188.8493" Y="311.6429" Z="26.7316" />
-							<Hotspot X="-209.799" Y="336.5717" Z="26.64968" />
-						</CustomBehavior>
-						
-							<RunTo X="-40.70481" Y="286.5084" Z="26.73079" />
-						<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, guards for last boss." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="20000" />	
-						
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-							<Hotspot X="-40.70481" Y="286.5084" Z="26.73079" />
-							<Hotspot X="-27.88198" Y="286.6142" Z="26.73079" />
-							<Hotspot X="-15.82619" Y="286.8558" Z="26.73079" />
-							<Hotspot X="-4.263723" Y="292.7186" Z="26.71118" />
-							<Hotspot X="-4.901473" Y="281.6637" Z="26.71383" />
-							<Hotspot X="-17.12724" Y="287.2676" Z="26.72984" />
-							<Hotspot X="-43.63659" Y="286.2962" Z="26.73091" />
-							<Hotspot X="-86.41025" Y="292.2425" Z="26.48298" />
-							<Hotspot X="-100.9948" Y="286.2768" Z="26.48216" />
-						</CustomBehavior>
-					
-							<RunTo X="-87.73751" Y="294.7793" Z="26.48216" />
-							<RunTo X="-36.10573" Y="286.8513" Z="26.73182" />
-							<RunTo X="-1.450704" Y="286.8765" Z="26.69435" />
-					
-						<CustomBehavior File="TargetAndMoveToMob" MobId="18473" MoveWithinMaxRangeOfMob="1" WaitForNpcs="false" X="44.72272" Y="286.9597" Z="25.01321" />
-
-							<RunTo X="44.72137" Y="142.0625" Z="0.02178714" />
-						<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-							<RunTo X="47.88029" Y="97.99895" Z="0.1508283" />
-							<RunTo X="43.62694" Y="62.81333" Z="0.008441973" />
-							<RunTo X="43.03834" Y="7.287698" Z="0.007048465" />
-							<RunTo X="31.01099" Y="1.044048" Z="0.005493299" />
-							<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />	
+					<!-- tag rafs -->
+					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />	
 				</If>
 				
 				<CustomBehavior File="UserSettings" PullDistance="25" />
