@@ -1,5 +1,5 @@
 ﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
-	<Name>[QO-N-M][58-61]_hellfire-ramparts</Name>
+	<Name>[QO-N-M][60-63]_blood-furnace</Name>
    
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
@@ -73,23 +73,69 @@
 							UseFlightPaths="True"
 							UseMount="True" 
 							UseRandomMount="False" />
+			
+			<!-- BRS -->
+			<If Condition="Me.ZoneId == 1583">
+				<If Condition="Me.HearthstoneAreaId == 5628" >
+					<CustomBehavior File="Message" 
+									Text="Our Innkeeper is set at Iron Summit." 
+									LogColor="Cyan" />
+									
+					<!-- Have hearthstone -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />				
+					</If> <!-- Have hearthstone -->
+				
+					<!-- Have Innkeeper's Daughter -->
+					<If Condition="HasItem(64488)">
+						<CustomBehavior File="Message" 
+										Text="Using Innkeeper's Daughter." 
+										LogColor="Lime" />
+											
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(64488)" 
+										WaitTime="1000" />
 							
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have Innkeeper's Daughter -->
+				</If> <!-- Hearth check -->
+			</If> <!-- BRS -->		
+			
 			<!-- If we are in Eastern Kingdoms -->
 			<If Condition="Me.MapId == 0">
 				<CustomBehavior File="Message" 
 								Text="We are in Eastern Kingdoms." 
 								LogColor="Cyan" />
 						
-				<CustomBehavior File="Message" 
-								Text="You are on the wrong continent." 
-								LogColor="Red" />		
+				<!-- Searing Gorge -->
+				<If Condition="Me.ZoneId == 51">
+					<CustomBehavior File="Message" 
+									Text="We are in Searing Gorge." 
+									LogColor="Cyan" />
+				</If> <!-- Searing Gorge -->
 				
 				<CustomBehavior File="Message" 
-								Text="At this point you should be outside of the Blood Furnace portal. Go there to continue." 
-								LogColor="Red" />	
+								Text="Moving to The Dark Portal." 
+								LogColor="Lime" />
 								
-				<CustomBehavior File="UserSettings" 
-								StopBot="true" />
+				<CustomBehavior File="FlyTo" 
+								X="-11851.95" Y="-3196.791" Z="17.13597" />
+
+				<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />
+
+				<CustomBehavior File="WaitTimer" WaitTime="15000" />	
+				
+				<RunTo X="-248.113" Y="922.9" Z="84.3497" />
 			</If> <!-- Eastern Kingdoms -->
 			
 			
@@ -111,67 +157,218 @@
 								StopBot="true" />
 			</If> <!-- Kalimdor -->
 			
-			<!-- Outlands -->
+			<!-- Outland -->
 			<If Condition="Me.MapId == 530">
 				<CustomBehavior File="Message" 
 								Text="We are in Outland." 
 								LogColor="Cyan" />
-								
-				<!-- Fly above hellfire ramparts -->
-				<CustomBehavior File="FlyTo" X="-334.9235" Y="3018.459" Z="37.46231" />
-
-				<!-- Land in the box -->
-				<CustomBehavior File="FlyTo" X="-363.436" Y="3078.43" Z="-15.00165" />
-				<CustomBehavior File="ForcedDismount" />
-			
-				<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-				<While Condition="Me.ZoneId != 3562">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
-
-					<!-- Run back in the portal -->
-					<CustomBehavior File="MyCTM" X="-364.7503" Y="3083.706" Z="-14.68035" />
-									
+					
+				<!-- If our hearthstone is set here, use it -->
+				<If Condition="(Me.HearthstoneAreaId == 3538) || (Me.HearthstoneAreaId == 3536)">
 					<CustomBehavior File="Message" 
-									Text="Waiting for the dungeon to load." 
-									LogColor="Cyan" />
-								
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-									
-					<!-- If we still aren't in, we're locked out -->
-					<If Condition="Me.ZoneId != 3562">
-						<CustomBehavior File="Message" 
-										Text="We are locked out. Waiting and trying again." 
+										Text="Our Innkeeper is set at Honor Hold or Thrallmar." 
 										LogColor="Cyan" />
-					</If> <!-- Locked -->
-				</While> <!-- While we aren't in the instance -->
-			</If> <!-- Outlands -->
-			
-			<!-- If we are inside -->
-			<If Condition="Me.ZoneId == 3562">
-				<CustomBehavior File="Message" 
-								Text="Hellfire Ramparts detected. Running out."
-								LogColor="Lime" />
+										
+					<!-- Have hearthstone -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have hearthstone -->
+				
+					<!-- Have Innkeeper's Daughter -->
+					<If Condition="HasItem(64488)">
+						<CustomBehavior File="Message" 
+										Text="Using Innkeeper's Daughter." 
+										LogColor="Lime" />
+											
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(64488)" 
+										WaitTime="1000" />
+							
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have Innkeeper's Daughter -->
+						
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+					
+						<!-- Alliance -->
+						<If Condition="Me.IsAlliance">
+							<CustomBehavior File="Message" 
+											Text="Flying to Honor Hold." 
+											LogColor="Lime" />
+						
+							<!-- Fly to the hover point above the innkeep in Honor Hold -->
+							<CustomBehavior File="FlyTo" X="-699.7803" Y="2654.424" Z="153.3082" />
+
+							<!-- Front doorway of the inn -->
+							<CustomBehavior File="FlyTo" X="-709.9306" Y="2699.804" Z="94.41746" />
+							<CustomBehavior File="ForcedDismount" />
+
+							<!-- Run inside the inn -->
+							<RunTo X="-708.0077" Y="2736.445" Z="94.73333" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="16826" 
+											X="-708.8713" Y="2739.131" Z="94.73363" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
 								
-				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+							<!-- Run outside of inn -->
+							<RunTo X="-709.9306" Y="2699.804" Z="94.41746" />
+							
+							<!-- Hover point -->
+							<CustomBehavior File="FlyTo" X="-699.7803" Y="2654.424" Z="153.3082" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Honor Hold." 
+											LogColor="Fuchsia" />
+
+							<!-- Horde -->
+							<ElseIf Condition="Me.IsHorde">
+								<CustomBehavior File="Message" 
+												Text="Flying to Thrallmar." 
+												LogColor="Lime" />
+						
+								<!-- Fly to the hover point above the innkeep in Thrallmar -->
+								<CustomBehavior File="FlyTo" X="167.4147" Y="2645.637" Z="115.6988" />
+
+								<!-- Front doorway of the inn -->
+								<CustomBehavior File="FlyTo" X="178.6801" Y="2628.115" Z="87.12171" />
+								<CustomBehavior File="ForcedDismount" />
+
+								<!-- Run inside the inn -->
+								<RunTo X="190.1132" Y="2611.777" Z="87.28358" />
+								
+								<!-- Set hearthstone -->
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								<CustomBehavior File="Message" 
+												Text="Setting my Hearthstone." 
+												LogColor="Lime" />
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								<CustomBehavior File="SetHearthstone" 
+												MobId="16602"
+												X="190.8758" Y="2610.927" Z="87.28391" />
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+							
+								<!-- Run outside of the inn -->
+								<RunTo X="178.6801" Y="2628.115" Z="87.12171" />
+								
+								<!-- Fly to the hover point above the innkeep in Thrallmar -->
+								<CustomBehavior File="FlyTo" X="167.4147" Y="2645.637" Z="115.6988" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Thrallmar." 
+												LogColor="Fuchsia" />
+							</ElseIf> <!-- Horde -->
+						</If> <!-- Alliance -->
+					</Else> <!-- Set hearth -->
+				</If> <!-- Check hearthstone -->
 				
-				<!-- Go through the portal -->
-				<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+				<!-- Repair if necessary -->
+				<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+					<If Condition="Me.IsAlliance">
+						<CustomBehavior File="FlyTo" X="-709.473" Y="2621.555" Z="89.7064" />
+						<CustomBehavior File="ForcedDismount" />
+					</If>
+					
+					<If Condition="Me.IsHorde">
+						<CustomBehavior File="FlyTo" X="166.5072" Y="2792.336" Z="113.3349" />
+						<CustomBehavior File="ForcedDismount" />
+					</If>
 				
-				<!-- Make sure we run to the right spot outside the portal -->
-				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-			</If> <!-- HR -->
+					<CustomBehavior File="Message" 
+									Text="Our durability is less than 80%, we need to repair." 
+									LogColor="Fuchsia" />
+								
+					<CustomBehavior File="ForceSetVendor" 
+									DoMail="False" 
+									DoRepair="True" 
+									DoSell="False" 
+									DoTrain="False" />
+					
+					<SetVendor>
+						<Vendors>
+							<!-- Honor Hold -->
+							<Vendor Name="Humphry"
+									Entry="16823" 
+									Type="Repair" 
+									X="-717.3172" Y="2607.582" Z="91.01124" />
+									
+							<!-- Thrallmar -->
+							<Vendor Name="Rohok" 
+									Entry="16583" 
+									Type="Repair" 
+									X="167.2784" Y="2795.669" Z="113.3652" />
+						</Vendors>
+					</SetVendor>
+				
+					<!-- We are done repairing -->
+					<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+						<CustomBehavior File="Message" 
+										Text="Repairing complete." 
+										LogColor="Fuchsia" />
+					</If> <!-- repaired -->
+					
+					<If Condition="Me.IsAlliance">
+						<!-- Fly to the hover point above the innkeep in Honor Hold -->
+						<CustomBehavior File="FlyTo" X="-699.7803" Y="2654.424" Z="153.3082" />
+					</If>
+					
+					<If Condition="Me.IsHorde">
+						<!-- Fly to the hover point above the innkeep in Thrallmar -->
+						<CustomBehavior File="FlyTo" X="167.4147" Y="2645.637" Z="115.6988" />
+					</If>
+				</If> <!-- Repairing -->
+				
+				<CustomBehavior File="Message" 
+								Text="Flying to the rendezvous location." 
+								LogColor="Lime" />
+				
+				<!-- Fly outside of Blood Furnace at rendezvous -->
+				<CustomBehavior File="FlyTo" X="-217.1329" Y="3043.892" Z="144.3637" />
+
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+									
+				<CustomBehavior File="WaitTimer"
+								WaitTime="10000" />
+				
+				<!-- Fly into box -->
+				<CustomBehavior File="FlyTo" X="-302.408" Y="3162.92" Z="31.7273" />	
+			</If> <!-- Outland -->
 			
 			<!-- In box -->
-			<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
+			<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
 				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][58-61]_hellfire-ramparts" />
+								ProfileName="..\[QO-N][60-63]_blood-furnace" />
 			</If> <!-- In box -->
 		</If> <!-- Booster -->
 						
 		
-		<!-- <If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" > -->
+		
 		
 		
 		
@@ -255,22 +452,67 @@
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
-									Text="Moving to Blasted Lands portal." 
-									LogColor="Lime" />	
+									Text="Moving to the riding trainer."
+									LogColor="Orange" />
+											
+					<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
+
+					<CustomBehavior File="WaitTimer"
+									WaitTime="1000" />				
 					
-					<!-- In front of Blasted Lands portal -->
-					<RunTo X="-9005.403" Y="869.1169" Z="129.6929" />
+					<!-- Level 60 or higher -->
+					<If Condition="(Me.Gold &gt;= 250)" >
+						<!-- If we are 60 -->
+						<If Condition="Me.Level &gt;= 60" >	
+							<!-- Buy mount training until we've reached our needed skill -->
+							<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
+								
+								<CustomBehavior File="InteractWith" 
+												MobId="43769" 
+												WaitTime="1000"
+												CollectionDistance="50" 
+												X="-8845.4" Y="502.653" Z="109.617" />
+												
+								<CustomBehavior File="ForceTrainRiding" 
+												MobId="43769" />
+								
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								
+							</While> <!-- Loop mount purchasing -->
+						</If> <!-- Level check -->
+					</If> <!-- Have gold -->
+									
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryTime="600"
+									ExpiryAction="InputEnabled_Continue" 
+									Text="RAF - We suggest you have a flying mount beyond this level. Press continue if you already have a flying mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+									Title="WARNING" />	
+						
+					<!-- trained -->
+					<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 225" >
+						<CustomBehavior File="Message" 
+										Text="Moving to Blasted Lands portal." 
+										LogColor="Lime" />	
+						
+						<!-- In front of Blasted Lands portal -->
+						<RunTo X="-9005.403" Y="869.1169" Z="129.6929" />
 
-					<!-- Blasted Lands portal -->
-					<CustomBehavior File="InteractWith" 
-									MobId="195141" 
-									ObjectType="Gameobject"
-									Range="4.75" 
-									NumOfTimes="1"  
-									X="-9007.58" Y="871.8698" Z="129.6922" />
+						<!-- Blasted Lands portal -->
+						<CustomBehavior File="InteractWith" 
+										MobId="195141" 
+										ObjectType="Gameobject"
+										Range="4.75" 
+										NumOfTimes="1"  
+										X="-9007.58" Y="871.8698" Z="129.6922" />
 
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />							
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
+
+					</If> <!-- Trained -->
 				</If> <!-- Stormwind City -->
 			</If> <!-- Eastern Kingdoms -->
 			
@@ -285,24 +527,66 @@
 					<CustomBehavior File="Message" 
 									Text="We are in Orgrimmar." 
 									LogColor="Cyan" />
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to Blasted Lands portal." 
-									LogColor="Lime" />
-				
-					<!-- In front of Blasted Lands portal -->
-					<RunTo X="1771.796" Y="-4326.416" Z="-8.190479" />
 					
-					<!-- Blasted Lands portal -->
-					<CustomBehavior File="InteractWith" 
-									MobId="195142"
-									ObjectType="Gameobject" 
-									Range="4.75" 
-									NumOfTimes="1" 
-									X="1768.45" Y="-4325.86" Z="-8.3711" />
+					<CustomBehavior File="Message" 
+									Text="Moving to the riding trainer." 
+									LogColor="Orange" />
+											
+					<!-- move to riding trainer -->
+					<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
+					
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+						
+					<!-- Level 60 or higher -->
+					<If Condition="(Me.Gold &gt;= 250)" >
+						<!-- If we are 60 -->
+						<If Condition="Me.Level &gt;= 60" >	
+							<!-- Buy mount training until we've reached our needed skill -->
+							<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
+								<CustomBehavior File="InteractWith" 
+												MobId="44919" 
+												WaitTime="1000"
+												CollectionDistance="50" 
+												X="1799.54" Y="-4357.09" Z="102.4019" />
+												
+								<CustomBehavior File="ForceTrainRiding" 
+												MobId="44919" />
+								
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+							</While> <!-- Loop mount purchasing -->
+						</If> <!-- Level check -->
+					</If> <!-- Have gold -->	
+						
+					<CustomBehavior File="UserDialog" 
+									AllowBotStop="False" 
+									SoundCue="Exclamation" 
+									SoundCueInterval="15" 
+									ExpiryTime="600"
+									ExpiryAction="InputEnabled_Continue" 
+									Text="RAF - We suggest you have a flying mount beyond this level. Press continue if you already have a flying mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+									Title="WARNING" />
+					
+					<!-- trained -->
+					<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 225" >
+						<CustomBehavior File="Message" 
+										Text="Moving to Blasted Lands portal." 
+										LogColor="Lime" />
 									
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
+						<!-- In front of Blasted Lands portal -->
+						<RunTo X="1771.796" Y="-4326.416" Z="-8.190479" />
+						
+						<!-- Blasted Lands portal -->
+						<CustomBehavior File="InteractWith" 
+										MobId="195142"
+										ObjectType="Gameobject" 
+										Range="4.75" 
+										NumOfTimes="1" 
+										X="1768.45" Y="-4325.86" Z="-8.3711" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
+					</If> <!-- Trained riding -->
 				</If> <!-- Orgrimmar -->
 			</If> <!-- Kalimdor -->
 			
@@ -315,91 +599,37 @@
 				<CustomBehavior File="Message" 
 								Text="Moving to The Dark Portal." 
 								LogColor="Lime" />
-			
+								
 				<CustomBehavior File="ForcedMount"
 								MountType="Ground" />
-						
-				<!-- Move in front of the Dark Portal -->
-				<RunTo X="-11896.8" Y="-3206.77" Z="-14.6724" />
-				
-				<!-- Run through Dark Portal -->
+			
+				<RunTo X="-11901.27" Y="-3207.707" Z="-14.77159" />
+					
 				<CustomBehavior File="MyCTM" X="-11911.1" Y="-3207.676" Z="-14.74713" />
-				
-				<CustomBehavior File="WaitTimer" 
-								WaitTime="15000" />
+
+				<CustomBehavior File="WaitTimer" WaitTime="15000" />
+
+				<RunTo X="-248.113" Y="922.9" Z="84.3497" />
 			</If> <!-- Blasted Lands -->
 			
 			<!-- Outland -->
 			<If Condition="Me.MapId == 530">
-				<!-- Inside Dark portal -->
-				<RunTo X="-248.113" Y="922.9" Z="84.3497" />
-				
-				<If Condition="Me.IsAlliance">
-					<!-- Dark Portal fp -->
-					<RunTo X="-321.8897" Y="1027.677" Z="54.15636" />
-				
-					<!-- Honor Hold fp -->
-					<RunTo X="-673.42" Y="2717.27" Z="94.18" />
-				
-					<ElseIf Condition="Me.IsHorde">
-						<!-- Dark Portal fp -->
-						<RunTo X="-178.3784" Y="1028.271" Z="54.17451" />
-						
-						<!-- Thrallmar fp -->
-						<RunTo X="228.5" Y="2633.57" Z="87.66753" />
-					</ElseIf>
-				</If>
-				
-				<!-- Run to instance box -->
-				<CustomBehavior File="RunLikeHell" 
-								NumOfTimes="1" 
-								AllowCombat="false">	
-					<Hotspot X="-363.436" Y="3078.43" Z="-15.00165" />
-				</CustomBehavior>
-			
-				<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-				<While Condition="Me.ZoneId != 3562">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
+				<!-- Fly outside of Blood Furnace at rendezvous -->
+				<CustomBehavior File="FlyTo" X="-217.1329" Y="3043.892" Z="144.3637" />
 
-					<!-- Run back in the portal -->
-					<CustomBehavior File="MyCTM" X="-364.7503" Y="3083.706" Z="-14.68035" />
+				<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 									
-					<CustomBehavior File="Message" 
-									Text="Waiting for the dungeon to load." 
-									LogColor="Cyan" />
+				<CustomBehavior File="WaitTimer"
+								WaitTime="10000" />
 								
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-									
-					<!-- If we still aren't in, we're locked out -->
-					<If Condition="Me.ZoneId != 3562">
-						<CustomBehavior File="Message" 
-										Text="We are locked out. Waiting and trying again." 
-										LogColor="Cyan" />
-					</If> <!-- Locked -->
-				</While> <!-- While we aren't in the instance -->
+				<CustomBehavior File="FlyTo" X="-302.408" Y="3162.92" Z="31.7273" />	
 			</If> <!-- Outland -->
 			
-			<!-- If we are inside -->
-			<If Condition="Me.ZoneId == 3562">
-				<CustomBehavior File="Message" 
-								Text="Hellfire Ramparts detected. Running out."
-								LogColor="Lime" />
-								
-				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
-				
-				<!-- Go through the portal -->
-				<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
-				
-				<!-- Make sure we run to the right spot outside the portal -->
-				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-			</If> <!-- HR -->
-			
 			<!-- In box -->
-			<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
+			<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
 				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][58-61]_hellfire-ramparts" />
+								ProfileName="..\[QO-N][60-63]_blood-furnace" />
 			</If> <!-- In box -->
 		</If> <!-- RAF toons -->
 	</QuestOrder>

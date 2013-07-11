@@ -77,42 +77,20 @@
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >
-				<!-- BRS -->
-				<If Condition="Me.ZoneId == 1583">
-					<If Condition="Me.HearthstoneAreaId == 5628" >
-						<CustomBehavior File="Message" 
-										Text="Our Innkeeper is set at Iron Summit." 
-										LogColor="Cyan" />
-										
-						<!-- Have hearthstone -->
-						<If Condition="HasItem(6948)">
-							<CustomBehavior File="Message" 
-											Text="Using Hearthstone." 
-											LogColor="Lime" />
-											
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(6948)" 
-											WaitTime="1000" />
-											
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />				
-						</If> <!-- Have hearthstone -->
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace detected. Running out."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
-						<!-- Have Innkeeper's Daughter -->
-						<If Condition="HasItem(64488)">
-							<CustomBehavior File="Message" 
-											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
-												
-							<CustomBehavior File="Misc\RunLua" 
-											Lua="UseItemByName(64488)" 
-											WaitTime="1000" />
-								
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="20000" />
-						</If> <!-- Have Innkeeper's Daughter -->
-					</If> <!-- Hearth check -->
-				</If> <!-- BRS -->		
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
 			
 				<!-- If we are not in the box, load the movement profile -->
 				<If Condition="Me.X &lt; -350 || Me.X &gt; -250 || Me.Y &lt; 3100 || Me.Y &gt; 3200 " >
@@ -158,10 +136,10 @@
 				<!-- If we are inside Blood Furnace and have checked our reset -->
 				<If Condition="Me.ZoneId == 3713">
 					<!-- Entrance -->
-					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
 				
-					<!-- Run to side -->
-					<RunTo X="-1362.575" Y="1653.438" Z="68.40146" />
+					<!-- Run to quest givers -->
+					<RunTo X="0.2994731" Y="-15.27276" Z="-42.70581" />
 
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -171,113 +149,253 @@
 									WaitTime="5000" />
 									
 					<CustomBehavior File="Message" 
-									Text="Hellfire Ramparts initialized."  
+									Text="Blood Furnace initialized."  
 									LogColor="Fuchsia" />
 									
-					<!-- Kill early packs for RAF safety -->
-					<RunTo X="-1344.766" Y="1653.25" Z="68.86888" />
-					<RunTo X="-1326.888" Y="1659.297" Z="69.01428" />
-					<RunTo X="-1328.949" Y="1665.482" Z="68.71418" />
-					<RunTo X="-1325.499" Y="1663.362" Z="68.69312" />
-					<RunTo X="-1302.301" Y="1670.512" Z="66.0277" />
-					<RunTo X="-1284.931" Y="1677.782" Z="68.54573" />
-					<RunTo X="-1285.857" Y="1670.925" Z="68.81026" />
-					<RunTo X="-1273.917" Y="1656.696" Z="69.07306" />
-					<RunTo X="-1245.19" Y="1647.236" Z="67.61657" />
-					<RunTo X="-1256.412" Y="1628.972" Z="68.58859" />
-						
-					<CustomBehavior File="RunLikeHell"
-									UseCTM="true"
-									NumOfTimes="1"
-									AllowCombat="false">	
-						<Hotspot X="-1242.876" Y="1616.946" Z="68.50874" />
-						<Hotspot X="-1256.954" Y="1585.761" Z="68.56223" />
-						<Hotspot X="-1265.318" Y="1560.76" Z="68.57436" />
-						<Hotspot X="-1277.561" Y="1535.495" Z="68.56645" />
-						<Hotspot X="-1280.313" Y="1552.1" Z="68.58364" />
-						<Hotspot X="-1294.451" Y="1525.285" Z="68.5917" />
-						<Hotspot X="-1277.787" Y="1494.741" Z="68.57449" />
-						<Hotspot X="-1227.532" Y="1471.552" Z="68.5621" />
-						<Hotspot X="-1189.371" Y="1458.148" Z="68.45145" />
-						<Hotspot X="-1178.249" Y="1476.704" Z="68.44762" />
-						<Hotspot X="-1182.276" Y="1487.304" Z="68.46307" />
-						<Hotspot X="-1172.442" Y="1495.46" Z="68.45762" />
-						<Hotspot X="-1216.23" Y="1545" Z="68.55325" />
-						<Hotspot X="-1147.292" Y="1507.029" Z="68.39722" />
-						<Hotspot X="-1153.61" Y="1503.936" Z="68.41061" />
-						<Hotspot X="-1154.117" Y="1482.467" Z="68.41945" />
-						<Hotspot X="-1169.788" Y="1458.07" Z="68.42177" />
-						<Hotspot X="-1180.135" Y="1440.294" Z="68.42554" />
-						<Hotspot X="-1208.907" Y="1439.131" Z="68.55933" />
-						<Hotspot X="-1240.705" Y="1446.83" Z="68.5974" />
-						<Hotspot X="-1287.135" Y="1483.899" Z="68.59849" />
-						<Hotspot X="-1290.305" Y="1537.367" Z="68.58744" />
-						<Hotspot X="-1245.598" Y="1588.785" Z="68.49971" />
-						<Hotspot X="-1256.104" Y="1658.589" Z="67.6929" />
-						<Hotspot X="-1285.032" Y="1673.231" Z="68.71482" />
-						<Hotspot X="-1298.952" Y="1671.646" Z="66.74421" />
-						<Hotspot X="-1329.414" Y="1662.548" Z="68.80518" />
-						<Hotspot X="-1306.304" Y="1669.744" Z="65.62342" />
-					</CustomBehavior>
-					<RunTo X="-1306.304" Y="1669.744" Z="65.62342" />
-					
-					<RunTo X="-1215.216" Y="1536.974" Z="68.56582" />
-					<RunTo X="-1237.057" Y="1539.279" Z="90.27995" />
-					<RunTo X="-1236.788" Y="1541.511" Z="90.32333" />
-					
 					<CustomBehavior File="RunLikeHell" 
-									UseCTM="true"
+									UseCTM="true" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<Hotspot X="-1241.226" Y="1570.434" Z="91.27397" />
-						<Hotspot X="-1258.31" Y="1596.797" Z="91.95538" />
-						<Hotspot X="-1261.923" Y="1594.38" Z="92.16961" />
-						<Hotspot X="-1282.059" Y="1597.541" Z="91.75027" />
-						<Hotspot X="-1297.189" Y="1589.679" Z="91.77014" />
-						<Hotspot X="-1316.828" Y="1616.842" Z="91.7486" />
-						<Hotspot X="-1301.179" Y="1635.782" Z="91.74712" />
-						<Hotspot X="-1278.879" Y="1635.432" Z="91.70171" />
-						<Hotspot X="-1269.402" Y="1643.128" Z="91.59703" />
-						<Hotspot X="-1166.541" Y="1700.283" Z="91.48155" />
-						<Hotspot X="-1122.836" Y="1719.42" Z="89.29845" />
-						<Hotspot X="-1165.955" Y="1694.258" Z="91.59409" />
-						<Hotspot X="-1160.267" Y="1689.489" Z="91.62772" />
-						<Hotspot X="-1168.805" Y="1692.741" Z="91.59244" />
-						<Hotspot X="-1198.574" Y="1677.93" Z="91.91625" />
-						<Hotspot X="-1238.307" Y="1660.435" Z="92.56513" />
-						<Hotspot X="-1273.212" Y="1640.178" Z="91.65647" />
-						<Hotspot X="-1284.996" Y="1632.195" Z="91.73783" />
-						<Hotspot X="-1286.349" Y="1643.034" Z="91.70087" />
-						<Hotspot X="-1307.151" Y="1647.626" Z="91.6996" />
-						<Hotspot X="-1315.409" Y="1653.011" Z="91.64265" />
-						<Hotspot X="-1331.621" Y="1667.931" Z="93.14441" />
-						<Hotspot X="-1345.364" Y="1683.781" Z="90.30904" />
-						<Hotspot X="-1325.163" Y="1662.67" Z="93.22437" />
+						<Hotspot X="-2.73782" Y="19.8424" Z="-44.7973" />
+						<Hotspot X="-1.71868" Y="-20.87797" Z="-42.36036" />
+						<Hotspot X="-4.005096" Y="-58.04268" Z="-41.341" />
+						<Hotspot X="-5.055905" Y="-61.26003" Z="-41.341" />
+						<Hotspot X="-12.60999" Y="-85.81453" Z="-41.33549" />
+						<Hotspot X="7.20694" Y="-85.42542" Z="-41.33129" />
+						<Hotspot X="27.13708" Y="-85.25974" Z="-41.11359" />
+						<Hotspot X="27.7275" Y="-85.25484" Z="-41.08995" />
+						<Hotspot X="49.86021" Y="-94.06369" Z="-40.06843" />
+						<Hotspot X="65.85735" Y="-93.49178" Z="-33.30684" />
+						<Hotspot X="102.6003" Y="-93.10379" Z="-16.31585" />
+						<Hotspot X="139.4062" Y="-92.70866" Z="0.6336112" />
+						<Hotspot X="160.9027" Y="-92.70613" Z="9.513629" />
+						<Hotspot X="178.7339" Y="-92.39121" Z="9.606785" />
+						<Hotspot X="193.8932" Y="-92.40483" Z="9.611392" />
+						<Hotspot X="193.2423" Y="-83.72567" Z="9.608812" />
+						<Hotspot X="218.2967" Y="-84.45653" Z="9.581635" />
+						<Hotspot X="244.4252" Y="-84.56436" Z="9.610717" />
+						<Hotspot X="244.1722" Y="-53.35366" Z="9.603959" />
+						<Hotspot X="243.5271" Y="-40.83311" Z="8.845168" />
+						<Hotspot X="248.0013" Y="-27.43216" Z="6.952005" />
+						<Hotspot X="260.7363" Y="-26.46828" Z="6.953672" />
+						<Hotspot X="264.9365" Y="-18.42144" Z="6.959445" />
+						<Hotspot X="278.955" Y="0.3063748" Z="7.993325" />
+						<Hotspot X="287.3744" Y="-7.114995" Z="9.460724" />
+						<Hotspot X="300.5378" Y="1.18516" Z="9.604743" />
+						<Hotspot X="316.9721" Y="12.09028" Z="9.618835" />
+						<Hotspot X="327.4437" Y="-11.63843" Z="9.356325" />
+						<Hotspot X="339.5499" Y="9.734315" Z="9.617186" />
+						<Hotspot X="340.4208" Y="4.822273" Z="9.615969" />
+						<Hotspot X="346.4669" Y="-6.858565" Z="9.623312" />
+						<Hotspot X="327.4396" Y="29.23579" Z="9.615943" />	<!-- the maker entrance -->
+						<Hotspot X="300.0782" Y="0.2757089" Z="9.605" />
+						<Hotspot X="297.3016" Y="-2.220802" Z="9.605" />
+						<Hotspot X="271.4314" Y="-11.44398" Z="6.9551" />
+						<Hotspot X="263.323" Y="-16.20996" Z="6.960196" />
+						<Hotspot X="256.2367" Y="-21.91037" Z="6.956363" />
+						<Hotspot X="241.01" Y="-49.32666" Z="9.606083" />
+						<Hotspot X="240.1157" Y="-51.0174" Z="9.606083" />
+						<Hotspot X="241.5003" Y="-89.84476" Z="9.62263" />
+						<Hotspot X="241.7451" Y="-93.2872" Z="9.620429" />
+						<Hotspot X="225.1355" Y="-101.3155" Z="9.622943" />
+						<Hotspot X="213.6436" Y="-83.38546" Z="9.585022" />
+						<Hotspot X="201.4395" Y="-83.19932" Z="9.579005" />
+						<Hotspot X="193.2973" Y="-82.85468" Z="9.609979" />
+						<Hotspot X="191.3364" Y="-70.15545" Z="9.606754" />
+						<Hotspot X="186.7603" Y="-66.95664" Z="9.612859" />
+						<Hotspot X="178.9791" Y="-75.03479" Z="9.604625" />
+						<Hotspot X="168.825" Y="-70.53647" Z="9.603412" />
+						<Hotspot X="167.1573" Y="-78.84194" Z="9.603412" />
+						<Hotspot X="160.9682" Y="-78.74725" Z="9.525209" />
+						<Hotspot X="152.4564" Y="-77.17931" Z="6.420624" />
+						<Hotspot X="123.9713" Y="-77.16405" Z="-6.456613" />
+						<Hotspot X="87.19895" Y="-77.4229" Z="-23.44522" />
+						<Hotspot X="50.35186" Y="-77.70418" Z="-39.86844" />
+						<Hotspot X="47.51613" Y="-77.71648" Z="-40.26887" />
+						<Hotspot X="9.68535" Y="-77.52246" Z="-41.329" />
+						<Hotspot X="7.340387" Y="-77.49579" Z="-41.329" />
+						<Hotspot X="-12.29222" Y="-63.49575" Z="-41.33075" />		
 					</CustomBehavior>
-					<RunTo X="-1325.163" Y="1662.67" Z="93.22437" />
 					
-					<CustomBehavior File="WaitTimer" WaitTime="5000" />
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."
+									LogColor="Fuchsia" />
+									
+					<!-- Tagging rafs -->
+					<RunTo X="0.2994731" Y="-15.27276" Z="-42.70581" />
+					
+					<!-- Go up to first boss -->
+					<RunTo X="327.2637" Y="37.13691" Z="9.580486" />
+					
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="true"
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="326.8752" Y="41.26141" Z="9.604508" />
+						<Hotspot X="326.9565" Y="49.71562" Z="9.614131" />
+						<Hotspot X="327.4515" Y="65.15122" Z="9.614131" />
+						<Hotspot X="328.3712" Y="80.65466" Z="9.614131" />
+						<Hotspot X="333.1724" Y="94.99526" Z="9.61513" />
+						<Hotspot X="335.3744" Y="109.5651" Z="9.616093" />
+						<Hotspot X="348.2486" Y="114.6101" Z="9.612391" />
+						<Hotspot X="345.2772" Y="102.469" Z="9.619806" />
+						<Hotspot X="347.2091" Y="93.25256" Z="9.620605" />
+						<Hotspot X="344.737" Y="78.53389" Z="9.620738" />
+						<Hotspot X="334.9961" Y="66.9127" Z="9.615759" />
+						<Hotspot X="320.1365" Y="63.40243" Z="9.614347" />
+						<Hotspot X="305.1836" Y="65.35629" Z="9.617966" />
+						<Hotspot X="308.3853" Y="73.4036" Z="9.620691" />
+						<Hotspot X="310.8839" Y="81.75495" Z="9.6" />
+						<Hotspot X="310.1935" Y="93.52046" Z="9.620047" />
+						<Hotspot X="303.784" Y="101.806" Z="9.621121" />
+						<Hotspot X="315.4304" Y="111.1656" Z="9.61971" />
+						<Hotspot X="324.3448" Y="123.8551" Z="9.613919" />
+						<Hotspot X="333.6206" Y="124.671" Z="9.615048" />
+						<Hotspot X="337.7635" Y="109.9056" Z="9.616988" />
+						<Hotspot X="342.748" Y="102.9469" Z="9.619061" />
+						<Hotspot X="345.9785" Y="88.4465" Z="9.620094" />
+						<Hotspot X="334.0783" Y="83.57002" Z="9.617223" />
+						<Hotspot X="324.4832" Y="89.30039" Z="9.61" />
+						<Hotspot X="324.4639" Y="90.33685" Z="9.615381" />
+					</CustomBehavior>
+					
+					<RunTo X="327.4683" Y="128.7616" Z="9.615623" />
+					<RunTo X="326.1065" Y="160.0848" Z="9.54519" />
+					
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="326.1065" Y="160.0848" Z="9.54519" />
+						<Hotspot X="318.2591" Y="185.3826" Z="9.613848" />
+						<Hotspot X="312.5981" Y="177.6703" Z="9.622553" />
+						<Hotspot X="295.0205" Y="181.9733" Z="9.602937" />
+						<Hotspot X="306.6205" Y="164.4389" Z="9.610015" />
+						<Hotspot X="308.9131" Y="176.0947" Z="9.61715" />
+						<Hotspot X="327.1641" Y="181.7333" Z="9.623603" />
+						<Hotspot X="348.8286" Y="186.8724" Z="9.605212" />
+						<Hotspot X="346.5464" Y="195.3775" Z="10.07023" />
+						<Hotspot X="348.6126" Y="188.5916" Z="9.604792" />
+						<Hotspot X="377.5047" Y="190.271" Z="9.59451" />
+						<Hotspot X="406.4159" Y="188.4064" Z="9.594473" />
+						<Hotspot X="434.0138" Y="187.1111" Z="9.606023" />
+						<Hotspot X="436.0546" Y="194.7432" Z="10.11542" />
+						<Hotspot X="434.7813" Y="186.214" Z="9.604053" />
+						<Hotspot X="459.6268" Y="180.629" Z="9.619503" />
+						<Hotspot X="483.7503" Y="174.765" Z="9.621414" />
+						<Hotspot X="455.7837" Y="136.5688" Z="9.613811" />
+						<Hotspot X="480.2761" Y="96.70288" Z="9.621422" />
+						<Hotspot X="469.4464" Y="59.93638" Z="9.610991" />
+						<Hotspot X="455.4332" Y="51.03013" Z="9.616289" />
+						<Hotspot X="435.1216" Y="84.17775" Z="9.620782" />
+						<Hotspot X="460.9199" Y="117.5764" Z="9.614512" />
+						<Hotspot X="465.5023" Y="86.97514" Z="9.616431" />
+						<Hotspot X="463.24" Y="70.97028" Z="9.616431" />
+						<Hotspot X="440.5754" Y="66.49932" Z="9.611997" />
+						<Hotspot X="432.3873" Y="63.14196" Z="9.606191" />
+					</CustomBehavior>	
+						
+					<RunTo X="456.0105" Y="64.52549" Z="9.613914" />
+						
+					<CustomBehavior File="InteractWith" 
+									MobId="181982"
+									ObjectType="Gameobject"
+									Range="4.75" 
+									NumOfTimes="1" 
+									X="456.0855" Y="60.3489151" Z="9.47833" />
+					
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="455.834" Y="67.86392" Z="9.615004" />
+						<Hotspot X="444.6729" Y="67.52101" Z="9.61554" />
+						<Hotspot X="435.347" Y="51.74779" Z="9.61925" />
+					</CustomBehavior>
+					
+					<RunTo X="435.347" Y="51.74779" Z="9.61925" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="3000" />
+					
+					<RunTo X="435.347" Y="51.74779" Z="9.61925" />
+				
+					<RunTo X="456.213" Y="54.43913" Z="9.616556" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					<RunTo X="455.8174" Y="40.91329" Z="9.616198" />
+					
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1"
+									AllowCombat="false">	
+						<Hotspot X="457.9347" Y="21.98627" Z="9.552267" />
+						<Hotspot X="428.4455" Y="-19.71697" Z="9.685583" />
+						<Hotspot X="456.6152" Y="-24.37266" Z="9.547201" />
+						<Hotspot X="462.1532" Y="-92.58258" Z="9.563401" />
+						<Hotspot X="456.9708" Y="-89.1748" Z="9.595668" />
+						<Hotspot X="489.824" Y="-92.63683" Z="9.552283" />
+						<Hotspot X="488.0774" Y="-66.77663" Z="9.54792" />
+						<Hotspot X="463.7736" Y="-63.01339" Z="9.544914" />
+						<Hotspot X="465.7927" Y="-40.55334" Z="9.555594" />
+						<Hotspot X="491.0511" Y="-27.31021" Z="9.549805" />
+						<Hotspot X="490.2367" Y="10.4105" Z="9.547372" />
+						<Hotspot X="463.9588" Y="8.24418" Z="9.545647" />
+						<Hotspot X="455.9016" Y="-85.56131" Z="9.603141" />
+						<Hotspot X="424.5431" Y="-83.04631" Z="9.617372" />
+						<Hotspot X="410.2283" Y="-111.8068" Z="9.566988" />
+						<Hotspot X="404.8595" Y="-137.6693" Z="-1.115768" />
+						<Hotspot X="382.3069" Y="-159.2417" Z="-13.8767" />
+						<Hotspot X="361.428" Y="-169.6912" Z="-23.58446" />
+						<Hotspot X="344.6682" Y="-167.1409" Z="-25.51233" />
+						<Hotspot X="310.8442" Y="-172.9304" Z="-25.51108" />
+						<Hotspot X="329.0842" Y="-192.7415" Z="-25.50822" />
+						<Hotspot X="327.5362" Y="-161.1561" Z="-25.51804" />
+						<Hotspot X="326.969" Y="-150.202" Z="-25.47604" />
+						<Hotspot X="337.3931" Y="-142.1644" Z="-25.41568" />
+						<Hotspot X="375.508" Y="-144.1772" Z="-25.11852" />
+						<Hotspot X="384.2235" Y="-136.7888" Z="-25.11206" />
+						<Hotspot X="369.2017" Y="-143.6044" Z="-25.18262" />
+						<Hotspot X="355.5131" Y="-141.3608" Z="-25.47119" />
+						<Hotspot X="347.4752" Y="-140.0157" Z="-25.42283" />
+						<Hotspot X="344.4755" Y="-146.7793" Z="-25.48334" />
+					</CustomBehavior>
+					
+					<RunTo X="316.5505" Y="-108.7969" Z="-24.68533" /> <!-- adds -->
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />	
+					
+					<RunTo X="326.5804" Y="-86.60232" Z="-24.65648" />	<!-- boss -->
+					<RunTo X="254.7579" Y="-130.5704" Z="-27.96919" />
+					<RunTo X="194.2459" Y="-132.7429" Z="-42.91832" />
+					<RunTo X="133.722" Y="-145.0073" Z="-54.05276" />
+					<RunTo X="73.34409" Y="-136.1791" Z="-53.25979" />
+					<RunTo X="12.20592" Y="-135.2639" Z="-45.49215" />
+					<RunTo X="-5.925283" Y="-125.453" Z="-44.34951" />
+					<RunTo X="-2.8188" Y="-105.813" Z="-41.34134" />
+					<RunTo X="-2.273929" Y="-85.45297" Z="-41.33339" />
+					<RunTo X="1.623034" Y="-65.06282" Z="-41.33306" />
+					<RunTo X="2.854409" Y="-45.09502" Z="-41.33287" />
+					<RunTo X="1.103176" Y="-25.10323" Z="-42.08001" />
+					<RunTo X="-1.523855" Y="-5.256332" Z="-43.22055" />
+					<RunTo X="-3.282471" Y="15.35156" Z="-44.80798" />
 					
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs." 
 									LogColor="Fuchsia" />
 									
-					<!-- Run to ledge -->
-					<RunTo X="-1319.639" Y="1648.569" Z="91.65906" />
-						
-					<!-- jump down -->
-					<CustomBehavior File="MyCTM" X="-1353.296" Y="1645.285" Z="68.42854" />	
-					
 					<!-- Tag rafs -->
-					<RunTo X="-1346.896" Y="1651.415" Z="68.86491" />
-					
+					<RunTo X="346.772" Y="-6.079209" Z="9.625376" />
+
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 									
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="61" 
-									ProfileName="[QO-N][61-63]_blood-furnace.xml"  />
+									MinLevel="63" 
+									ProfileName="[QO-N][63-68]_sethekk-halls.xml"  />
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -287,20 +405,20 @@
 				<!-- If we are inside -->
 				<If Condition="Me.ZoneId == 3713">
 					<CustomBehavior File="Message" 
-									Text="Hellfire Ramparts detected. Running out to reset."
+									Text="Blood Furnace detected. Running out to reset."
 									LogColor="Fuchsia" />
 									
-					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-				</If> <!-- HR -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
 				
 				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
+				<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
 					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 					<CustomBehavior File="Message" 
 									Text="Resetting instance, 1 of 2." 
@@ -397,7 +515,7 @@
 						<If Condition="HasItem(6948)">
 							<CustomBehavior File="Message" 
 											Text="Using Hearthstone." 
-											LogColor="Lime" />
+											LogColor="Fuchsia" />
 											
 							<CustomBehavior File="Misc\RunLua" 
 											Lua="UseItemByName(6948)" 
@@ -411,7 +529,7 @@
 						<If Condition="HasItem(64488)">
 							<CustomBehavior File="Message" 
 											Text="Using Innkeeper's Daughter." 
-											LogColor="Lime" />
+											LogColor="Fuchsia" />
 												
 							<CustomBehavior File="Misc\RunLua" 
 											Lua="UseItemByName(64488)" 
@@ -422,19 +540,34 @@
 						</If> <!-- Have Innkeeper's Daughter -->
 					</If> <!-- Hearth check -->
 				</If> <!-- BRS -->		
+				
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace detected. Running out."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
+				</If> <!-- HR -->
 			
 				<!-- If we are not in the box, load the movement profile -->
-				<If Condition="Me.X &lt; -400 || Me.X &gt; -300 || Me.Y &lt; 3000 || Me.Y &gt; 3100" >
+				<If Condition="Me.X &lt; -350 || Me.X &gt; -250 || Me.Y &lt; 3100 || Me.Y &gt; 3200 " >
 					<CustomBehavior File="Message" 
 									Text="Distance from portal is not within our proximity, initializing movement to get there."
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][58-61]_hellfire-ramparts" />
+									ProfileName="Movement\[QO-N-M][60-63]_blood-furnace" />
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
+				<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
 					<CustomBehavior File="Message" 
 									Text="Portal detected nearby."
 									LogColor="Fuchsia" />	
@@ -442,17 +575,18 @@
 					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
 					<While Condition="Me.ZoneId != 3713">
 						<!-- Make sure we run to the right spot outside the portal -->
-						<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
+						<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="-364.7503" Y="3083.706" Z="-14.68035" />
+						<CustomBehavior File="MyCTM" X="-306.4335" Y="3169.2" Z="29.85552" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />
 									
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" />
+										WaitTime="20000"
+										VariantTime="20000" />
 										
 						<!-- If we still aren't in, we're locked out -->
 						<If Condition="Me.ZoneId != 3713">
@@ -463,13 +597,13 @@
 					</While> <!-- While we aren't in the instance -->
 				</If> <!-- In box -->
 				
-				<!-- If we are inside Hellfire Ramparts and have checked our reset -->
+				<!-- If we are inside Blood Furnace and have checked our reset -->
 				<If Condition="Me.ZoneId == 3713">
 					<!-- Entrance -->
-					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
 				
-					<!-- Run to side -->
-					<RunTo X="-1362.575" Y="1653.438" Z="68.40146" />
+					<!-- Run to quest givers -->
+					<RunTo X="0.2994731" Y="-15.27276" Z="-42.70581" />
 
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -478,7 +612,7 @@
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
 									
 					<CustomBehavior File="Message" 
-									Text="Hellfire Ramparts initialized."  
+									Text="Blood Furnace initialized."  
 									LogColor="Fuchsia" />
 									
 					<CustomBehavior File="Message" 
@@ -486,18 +620,24 @@
 									LogColor="Yellow" />				
 					
 					<CustomBehavior File="WaitTimer"
-									WaitTime="50000" />
+									WaitTime="20000" />
 									
-					<!-- quest giver -->
-					<RunTo X="-1346.896" Y="1651.415" Z="68.86491" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+					
+					<!-- Sit around before first boss --> 
+					<RunTo X="346.772" Y="-6.079209" Z="9.625376" />
+					
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="61" 
-									ProfileName="[QO-N][61-63]_blood-furnace.xml"  />
+									MinLevel="63" 
+									ProfileName="[QO-N][63-68]_sethekk-halls.xml"  />
 								
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
@@ -509,7 +649,7 @@
 				<!-- If we are inside -->
 				<If Condition="Me.ZoneId == 3713">
 					<CustomBehavior File="Message" 
-									Text="Hellfire Ramparts detected. Running out to reset."
+									Text="Blood Furnace detected. Running out."
 									LogColor="Fuchsia" />
 									
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
