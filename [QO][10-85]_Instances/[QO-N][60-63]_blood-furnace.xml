@@ -304,6 +304,14 @@
 						<Hotspot X="328.2378" Y="-161.9453" Z="-25.52664" />
 						<Hotspot X="326.9659" Y="-140.0214" Z="-25.35477" />
 						<Hotspot X="316.2053" Y="-106.1054" Z="-24.67663" />
+						
+						<!-- On boss -->
+						<Hotspot X="326.0029" Y="-86.64786" Z="-24.65346" />
+			
+						<Hotspot X="325.659" Y="-62.72065" Z="-24.73836" />
+			
+						<!-- On boss -->
+						<Hotspot X="326.0029" Y="-86.64786" Z="-24.65346" />
 					</CustomBehavior>
 					
 					<CustomBehavior File="Message" 
@@ -325,6 +333,14 @@
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
+									
+					<!-- Targetandmoveto a rogue on the way out to keep the rafs safe -->
+					<CustomBehavior File="TargetAndMoveToMob" 
+									MobId="17491" 
+									MoveWithinMaxRangeOfMob="1" 
+									WaitForNpcs="false"
+									TargetOnlyIfHealthPercentAbove="5"
+									X="126.2709" Y="-89.65224" Z="-5.40417" />
 					<!-- Run out -->
 				</If> <!-- HR -->
 				
