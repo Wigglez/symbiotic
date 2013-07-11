@@ -1,0 +1,593 @@
+﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
+	<Name>[QO-N][60-63]_blood-furnace</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>	
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>
+	</ProtectedItems>
+
+	<Factions></Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+		
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a booster." 
+							LogColor="Fuchsia" />
+		
+		 	<!-- Booster UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="25"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+							
+			<!-- Infinite loop -->
+			<While Condition="true" >
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace detected. Running out."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
+			
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; -350 || Me.X &gt; -250 || Me.Y &lt; 3100 || Me.Y &gt; 3200 " >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there."
+									LogColor="Fuchsia" />	
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][60-63]_blood-furnace" />
+				</If> <!-- Not in box -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+						
+					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+					<While Condition="Me.ZoneId != 3713">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+
+						<!-- Run back in the portal -->
+						<CustomBehavior File="MyCTM" X="-306.4335" Y="3169.2" Z="29.85552" />
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000"
+										VariantTime="20000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.ZoneId != 3713">
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
+				
+				<!-- If we are inside Blood Furnace and have checked our reset -->
+				<If Condition="Me.ZoneId == 3713">
+					<!-- Entrance -->
+					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
+				
+					<!-- Run to quest givers -->
+					<RunTo X="0.2994731" Y="-15.27276" Z="-42.70581" />
+
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace initialized."  
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="7.485637" Y="-54.03373" Z="-41.34074" />
+						<Hotspot X="-3.046807" Y="-55.85547" Z="-41.34074" />
+						<Hotspot X="-11.96843" Y="-84.13929" Z="-41.33527" />
+						<Hotspot X="5.760972" Y="-85.10959" Z="-41.33198" />
+						<Hotspot X="27.81888" Y="-85.12513" Z="-41.09704" />
+						<Hotspot X="49.6638" Y="-93.84409" Z="-40.15036" />
+						<Hotspot X="193.6469" Y="-91.41691" Z="9.613526" />
+						<Hotspot X="193.4491" Y="-84.33443" Z="9.608779" />
+						<Hotspot X="215.0788" Y="-84.38358" Z="9.577976" />
+						<Hotspot X="231.3915" Y="-103.133" Z="9.622198" />
+						<Hotspot X="245.994" Y="-66.90824" Z="9.621491" />
+						<Hotspot X="249.4076" Y="-26.19511" Z="6.952456" />
+						<Hotspot X="235.0988" Y="-65.00427" Z="9.626006" />
+						<Hotspot X="209.9388" Y="-84.39381" Z="9.575076" />
+						<Hotspot X="196.0305" Y="-84.09791" Z="9.610758" />
+						<Hotspot X="194.6048" Y="-71.02477" Z="9.605585" />
+						<Hotspot X="181.4498" Y="-71.28983" Z="9.604942" />
+						<Hotspot X="161.1364" Y="-77.68429" Z="9.554969" />
+						<Hotspot X="47.77182" Y="-77.53708" Z="-40.26888" />
+						<Hotspot X="-0.449405" Y="-77.91169" Z="-41.33155" />
+						<Hotspot X="46.11079" Y="-78.09003" Z="-40.26909" />
+					</CustomBehavior>
+					<RunTo X="46.11079" Y="-78.09003" Z="-40.26909" />
+					
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."
+									LogColor="Fuchsia" />
+									
+					<!-- Tagging rafs -->
+					<RunTo X="0.2994731" Y="-15.27276" Z="-42.70581" />
+					
+					<!-- Run back up the stairs -->
+					<RunTo X="197.8716" Y="-84.52708" Z="9.611606" />
+					<RunTo X="228.5886" Y="-84.20152" Z="9.595618" />
+					<RunTo X="238.8762" Y="-76.45096" Z="9.624174" />
+					<RunTo X="242.2223" Y="-60.96181" Z="9.610771" />
+					
+					<!-- Clears the top corridor and first boss -->
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="true"
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="249.1926" Y="-28.02811" Z="6.953418" />			
+						<Hotspot X="278.7344" Y="-0.242348" Z="7.953723" />
+						<Hotspot X="299.4574" Y="-0.686172" Z="9.60461" />
+						<Hotspot X="316.344" Y="12.27846" Z="9.618405" />
+						<Hotspot X="329.4628" Y="30.57391" Z="9.617871" />
+						<Hotspot X="339.9894" Y="5.232883" Z="9.615811" />
+						<Hotspot X="347.6952" Y="-8.367817" Z="9.625719" />
+						<Hotspot X="335.0616" Y="-1.912738" Z="9.624074" />
+						<Hotspot X="327.7275" Y="-9.617597" Z="9.498361" />
+						<Hotspot X="328.9055" Y="68.40388" Z="9.613312" />
+						<Hotspot X="351.4101" Y="68.86818" Z="9.619288" />
+						<Hotspot X="338.0797" Y="102.3701" Z="9.619213" />
+						<Hotspot X="305.962" Y="68.75052" Z="9.618334" />
+						<Hotspot X="324.9991" Y="67.60344" Z="9.614052" />
+						<Hotspot X="329.5138" Y="133.9504" Z="9.617323" />
+						<Hotspot X="327.4166" Y="44.01584" Z="9.613595" />
+					</CustomBehavior>
+					
+					<!-- exit of 1st boss room -->
+					<RunTo X="327.177" Y="143.3894" Z="9.615238" />
+					
+					<!-- Clears the lab corridor, up to the cell lever -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="325.6347" Y="160.2901" Z="9.5446" />
+						<Hotspot X="318.1109" Y="186.082" Z="9.614155" />
+						<Hotspot X="305.2365" Y="162.2368" Z="9.605407" />
+						<Hotspot X="298.5267" Y="180.4587" Z="9.613466" />
+						<Hotspot X="310.1864" Y="175.4284" Z="9.618522" />
+						<Hotspot X="347.0358" Y="192.5237" Z="9.60545" />
+						<Hotspot X="433.6313" Y="186.4259" Z="9.605974" />
+						<Hotspot X="435.0461" Y="191.5578" Z="9.604437" />
+						<Hotspot X="437.6821" Y="185.0896" Z="9.608602" />
+						<Hotspot X="482.8723" Y="175.6779" Z="9.619919" />
+						<Hotspot X="466.0438" Y="178.4892" Z="9.618377" />
+						<Hotspot X="456.8341" Y="161.0712" Z="9.613502" />
+						<Hotspot X="455.7817" Y="136.4587" Z="9.612687" />
+						<Hotspot X="480.1549" Y="96.8143" Z="9.62138" />
+						<Hotspot X="469.8947" Y="59.11796" Z="9.611271" />
+						<Hotspot X="438.3733" Y="125.2893" Z="9.615884" />
+						<Hotspot X="441.9131" Y="56.91195" Z="9.612418" />
+					</CustomBehavior>	
+						
+					<!-- near the cell lever -->	
+					<RunTo X="448.1384" Y="60.1921" Z="9.61374" />
+						
+					<CustomBehavior File="InteractWith" 
+									MobId="181982"
+									ObjectType="Gameobject"
+									Range="4.75" 
+									NumOfTimes="1" 
+									X="456.0855" Y="60.3489151" Z="9.47833" />
+					
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="455.834" Y="67.86392" Z="9.615004" />
+						<Hotspot X="444.6729" Y="67.52101" Z="9.61554" />
+						<Hotspot X="435.347" Y="51.74779" Z="9.61925" />
+					</CustomBehavior>
+					
+					<!-- Forces kill of Broggok -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="17380"
+									EventX="442.7055" EventY="50.42463" EventZ="9.614821"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="442.7055" Y="50.42463" Z="9.614821" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Exit after Broggok -->
+					<RunTo X="455.9192" Y="41.57648" Z="9.61687" />
+					
+					<!-- Clears to last boss -->
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1"
+									AllowCombat="false">	
+						<Hotspot X="456.259" Y="17.11471" Z="9.547972" />
+						<Hotspot X="427.6173" Y="-22.29434" Z="9.544383" />
+						<Hotspot X="470.7892" Y="5.157228" Z="9.544442" />
+						<Hotspot X="490.8004" Y="9.252727" Z="9.54667" />
+						<Hotspot X="489.9689" Y="-13.82708" Z="9.561238" />
+						<Hotspot X="486.6409" Y="-23.63104" Z="9.552274" />
+						<Hotspot X="463.7386" Y="-37.2174" Z="9.55116" />
+						<Hotspot X="459.6874" Y="-90.48008" Z="9.582664" />
+						<Hotspot X="489.9819" Y="-92.44513" Z="9.552395" />
+						<Hotspot X="489.9252" Y="-68.13262" Z="9.550043" />
+						<Hotspot X="472.0623" Y="-65.35501" Z="9.547081" />
+						<Hotspot X="455.1063" Y="-84.82959" Z="9.605712" />
+						<Hotspot X="438.4706" Y="-84.90237" Z="9.614978" />
+						<Hotspot X="402.1854" Y="-61.8583" Z="9.620034" />
+						<Hotspot X="416.1635" Y="-76.44431" Z="9.621674" />
+						<Hotspot X="412.5941" Y="-117.363" Z="8.875792" />
+						<Hotspot X="387.985" Y="-158.0465" Z="-11.9875" />
+						<Hotspot X="349.4671" Y="-176.3567" Z="-25.52007" />
+						<Hotspot X="327.264" Y="-193.613" Z="-25.50986" />
+						<Hotspot X="317.3214" Y="-173.5299" Z="-25.50932" />
+						<Hotspot X="328.2378" Y="-161.9453" Z="-25.52664" />
+						<Hotspot X="326.9659" Y="-140.0214" Z="-25.35477" />
+						<Hotspot X="316.2053" Y="-106.1054" Z="-24.67663" />
+					</CustomBehavior>
+					
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs." 
+									LogColor="Fuchsia" />
+									
+					<!-- Tag rafs -->
+					<RunTo X="269.5512" Y="-126.7503" Z="-25.16308" />
+					<RunTo X="-2.869573" Y="-108.3897" Z="-41.34134" />
+					<RunTo X="5.557644" Y="-92.14471" Z="-41.33173" />
+					<RunTo X="255.5342" Y="-84.35275" Z="9.617249" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="63" 
+									ProfileName="[QO-N][63-68]_sethekk-halls.xml"  />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+					<!-- Run out -->
+				</If> <!-- HR -->
+				
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace detected. Running out to reset."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro"
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- Booster -->
+		
+				
+		<!-- *******************************************************  RAF Toons ************************************************************** -->
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Fuchsia" />
+							
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Fuchsia" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
+
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+		
+			<!-- Infinite loop -->
+			<While Condition="true" >	
+				<!-- BRS -->
+				<If Condition="Me.ZoneId == 1583">
+					<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Fuchsia" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />				
+						</If> <!-- Have hearthstone -->
+					
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Fuchsia" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
+				</If> <!-- BRS -->		
+				
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace detected. Running out."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
+			
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &lt; -350 || Me.X &gt; -250 || Me.Y &lt; 3100 || Me.Y &gt; 3200 " >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there."
+									LogColor="Fuchsia" />	
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][60-63]_blood-furnace" />
+				</If> <!-- Not in box -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &gt; -350 &amp;&amp; Me.X &lt; -250 &amp;&amp; Me.Y &gt; 3100 &amp;&amp; Me.Y &lt; 3200 " >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+						
+					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+					<While Condition="Me.ZoneId != 3713">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+
+						<!-- Run back in the portal -->
+						<CustomBehavior File="MyCTM" X="-306.4335" Y="3169.2" Z="29.85552" />
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000"
+										VariantTime="20000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.ZoneId != 3713">
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
+				
+				<!-- If we are inside Blood Furnace and have checked our reset -->
+				<If Condition="Me.ZoneId == 3713">
+					<!-- Entrance -->
+					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
+				
+					<!-- Run to quest givers -->
+					<RunTo X="0.2994731" Y="-15.27276" Z="-42.70581" />
+
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="2" />
+									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
+									
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace initialized."  
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />				
+					
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+									
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+					
+					<!-- Move to top of stairs --> 
+					<RunTo X="255.5342" Y="-84.35275" Z="9.617249" />
+					
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="63" 
+									ProfileName="[QO-N][63-68]_sethekk-halls.xml"  />
+								
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="45000" />
+									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
+				</If> <!-- HR -->
+				
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Blood Furnace detected. Running out."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- RAF -->
+	</QuestOrder>
+</HBProfile>
+
