@@ -1,5 +1,5 @@
 ﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
-	<Name>[QO-N][48-58]_blackrock-spire</Name>
+	<Name>[QO-N-M][48-60]_blackrock-spire</Name>
    
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
@@ -340,7 +340,7 @@
 									LogColor="Cyan" />
 					
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="..\[QO-N][48-58]_blackrock-spire" />
+									ProfileName="..\[QO-N][48-60]_blackrock-spire" />
 				</If> <!-- Load profile -->
 			</If> <!-- Eastern Kingdoms -->
 		</If> <!-- Booster -->
@@ -521,7 +521,7 @@
 									LogColor="Cyan" />
 					
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="..\[QO-N][48-58]_blackrock-spire" />
+									ProfileName="..\[QO-N][48-60]_blackrock-spire" />
 				</If> <!-- Load profile -->
 			</If> <!-- Eastern Kingdoms -->
 		</If> <!-- RAF toons -->

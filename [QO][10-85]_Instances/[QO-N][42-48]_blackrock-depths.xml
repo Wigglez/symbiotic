@@ -536,7 +536,7 @@
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="48" 
-									ProfileName="[QO-N][48-58]_blackrock-spire.xml"  />
+									ProfileName="[QO-N][48-60]_blackrock-spire.xml"  />
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -802,7 +802,7 @@
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="48" 
-									ProfileName="[QO-N][48-58]_blackrock-spire.xml"  />
+									ProfileName="[QO-N][48-60]_blackrock-spire.xml"  />
 									
 					
 					<!-- Wait so the main can get away from us -->
