@@ -489,7 +489,7 @@
 									SoundCueInterval="15" 
 									ExpiryTime="600"
 									ExpiryAction="InputEnabled_Continue" 
-									Text="RAF - We suggest you have a flying mount beyond this level. Press continue if you already have a flying mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+									Text="RAF - We require you to have a flying mount beyond this level. Press continue if you already have a flying mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 									Title="WARNING" />	
 						
 					<!-- trained -->
@@ -564,7 +564,7 @@
 									SoundCueInterval="15" 
 									ExpiryTime="600"
 									ExpiryAction="InputEnabled_Continue" 
-									Text="RAF - We suggest you have a flying mount beyond this level. Press continue if you already have a flying mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+									Text="RAF - We require you to have a flying mount beyond this level. Press continue if you already have a flying mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 									Title="WARNING" />
 					
 					<!-- trained -->

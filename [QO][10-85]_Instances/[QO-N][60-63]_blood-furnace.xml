@@ -304,26 +304,19 @@
 									NumOfTimes="1" 
 									X="456.0855" Y="60.3489151" Z="9.47833" />
 					
-					<CustomBehavior File="RunLikeHell" 
-									UseCTM="true" 
-									NumOfTimes="1" 
-									AllowCombat="false">
-						<Hotspot X="455.834" Y="67.86392" Z="9.615004" />
-						<Hotspot X="444.6729" Y="67.52101" Z="9.61554" />
-						<Hotspot X="435.347" Y="51.74779" Z="9.61925" />
+					<RunTo X="446.1812" Y="61.92133" Z="9.61181" />
+					
+					<!-- Forces kill of Broggok -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="17380"
+									EventX="446.1812" EventY="61.92133" EventZ="9.61181"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="446.1812" Y="61.92133" Z="9.61181" />
+						</Safespots>
 					</CustomBehavior>
-					
-					<RunTo X="435.347" Y="51.74779" Z="9.61925" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="3000" />
-					
-					<RunTo X="435.347" Y="51.74779" Z="9.61925" />
-				
-					<RunTo X="456.213" Y="54.43913" Z="9.616556" />
-					
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
 					
 					<RunTo X="455.8174" Y="40.91329" Z="9.616198" />
 					
@@ -400,7 +393,7 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
 					<!-- Run out -->
-				</If> <!-- HR -->
+				</If> <!-- BF -->
 				
 				<!-- If we are inside -->
 				<If Condition="Me.ZoneId == 3713">
@@ -547,14 +540,14 @@
 									Text="Blood Furnace detected. Running out."
 									LogColor="Fuchsia" />
 									
-					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-				</If> <!-- HR -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
 			
 				<!-- If we are not in the box, load the movement profile -->
 				<If Condition="Me.X &lt; -350 || Me.X &gt; -250 || Me.Y &lt; 3100 || Me.Y &gt; 3200 " >
@@ -652,14 +645,14 @@
 									Text="Blood Furnace detected. Running out."
 									LogColor="Fuchsia" />
 									
-					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-				</If> <!-- HR -->
+					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+				</If> <!-- BF -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
 	</QuestOrder>
