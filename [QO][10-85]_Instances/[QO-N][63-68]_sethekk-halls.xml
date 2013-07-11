@@ -221,12 +221,10 @@
 					<CustomBehavior File="MyCTM" X="-3361.638" Y="4653.265" Z="-101.0491" /> 
 					<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Lime" />
 					<CustomBehavior File="WaitTimer" WaitTime="15000" />
-					<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
+					
 				</If>	
 
                                                        <!-- sethekk halls dungeon script -->
-				
 				<If Condition="Me.ZoneId == 3791">
 				
 					<!-- Entrance -->
