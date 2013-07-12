@@ -155,24 +155,55 @@
 									Text="Utgarde Keep initialized."  
 									LogColor="Fuchsia" />
 				
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
-					<!-- INSERT YOUR CODE HERE -->
+					<!-- begin first pull -->
 					<!-- INSERT YOUR CODE HERE -->
 					
+					<!-- go back to quest giver to tag rafs 1 -->
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs."
-									LogColor="Fuchsia" />	
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />				
+									
+					<!-- INSERT YOUR CODE HERE -->
 					
+					<!-- go back to tag rafs 2 -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />				
+									
+					<!-- INSERT YOUR CODE HERE -->
+					
+					<!-- go back to tag rafs 3 -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />				
+									
+									
+					<!-- INSERT YOUR CODE HERE -->
+					
+					<!-- go back to tag rafs 4 -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					
+					<!-- INSERT YOUR CODE HERE -->
+										
+					<!-- go back to tag rafs 4 -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs."
+									LogColor="Fuchsia" />
+										
 					<!-- tag rafs -->
 					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
 					
@@ -370,12 +401,31 @@
 					<CustomBehavior File="WaitTimer"
 									WaitTime="40000" />
 					
-					<!-- Run to quest givers -->
+					<!-- Run to quest givers, wait to be tagged -->
 					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
-
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<!-- move to safespot 1 -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+					
+					<!-- move to safespot 2 -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- move to safespot 3 -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- move to safespot 4-->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+								
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="71" 
