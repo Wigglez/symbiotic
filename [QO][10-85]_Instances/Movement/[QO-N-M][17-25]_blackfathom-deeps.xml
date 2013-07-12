@@ -474,6 +474,7 @@
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
 					<CustomBehavior File="FlyTo" 
 									X="3930.243" Y="564.4576" Z="8.414933" />
+									
 					<CustomBehavior File="ForcedDismount" />
 					<CustomBehavior File="UserSettings" 
 									UseMount="False" />
@@ -498,18 +499,41 @@
 					<RunTo X="3996.351" Y="804.5947" Z="6.060153" />
 					<RunTo X="3998.683" Y="824.0668" Z="2.396551" />
 					<RunTo X="4015.461" Y="834.5774" Z="2.28694" />
+					<RunTo X="4025.604" Y="819.1829" Z="9.162112" />
 					<RunTo X="4036.582" Y="829.7719" Z="9.568973" />
+					<RunTo X="4060.597" Y="843.2329" Z="11.14061" />
 					<RunTo X="4090.461" Y="881.6135" Z="9.205595" />
-					<RunTo X="4090.838" Y="905.5631" Z="6.099173" />
+					<RunTo X="4086.51" Y="903.1449" Z="5.705954" />
 					<RunTo X="4118.617" Y="897.0323" Z="9.775625" />
 					<RunTo X="4114.38" Y="881.3831" Z="9.812327" />
 					<RunTo X="4124.72" Y="858.1087" Z="9.812563" />
+					
+					<CustomBehavior File="UserSettings" 
+									UseMount="True" />
+									
+					<!-- force flying mount, go tag rafs -->
+							<CustomBehavior File="ForcedMount"
+											MountType="Flying" />
+											
+					<!-- Flying to tag rafs -->
+					<CustomBehavior File="FlyTo" 
+									X="3870.062" Y="539.0946" Z="6.604815" />
+									
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
+
+					<!-- Flying back to bfd entrance -->
+					<CustomBehavior File="FlyTo" 
+									X="4124.72" Y="858.1087" Z="9.812563" />					
+					
+					<CustomBehavior File="ForcedDismount" />
+									
+					<CustomBehavior File="UserSettings" 
+									UseMount="False" />				
+					
 					<RunTo X="4127.493" Y="868.0792" Z="9.692391" />
 					<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
 					<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
-
-					<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" /> 
 
 					<!-- CTM beneath the water to the other side -->
 					<CustomBehavior File="MyCTM" 
@@ -517,32 +541,104 @@
 										
 					<CustomBehavior File="MyCTM" 
 									X="4160.37" Y="916.4307" Z="-16.98774" />
-
+					
+					<!-- Starts clearing when all party members are present -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+					
 					<!-- Clear ahead 100 yrds then come back to tag rafs -->
+					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
+					<RunTo X="4168.044" Y="943.3153" Z="-18.18281" />
+					<RunTo X="4181.886" Y="938.5967" Z="-14.5823" />
+					<RunTo X="4186.97" Y="932.0163" Z="-13.23271" />
+					<RunTo X="4206.126" Y="927.1967" Z="-9.607026" />
+					<RunTo X="4204.169" Y="922.3281" Z="-10.69315" />
+					<RunTo X="4225.006" Y="907.7845" Z="-8.59864" />
+					<RunTo X="4247.462" Y="894.1875" Z="-9.661205" />
+					<RunTo X="4265.676" Y="901.0992" Z="-14.67517" />
+					<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
 					
+					<!-- Backtrack to tag rafs at the water -->
+					<RunTo X="4265.676" Y="901.0992" Z="-14.67517" />
+					<RunTo X="4247.462" Y="894.1875" Z="-9.661205" />
+					<RunTo X="4225.006" Y="907.7845" Z="-8.59864" />
+					<RunTo X="4204.169" Y="922.3281" Z="-10.69315" />
+					<RunTo X="4206.126" Y="927.1967" Z="-9.607026" />
+					<RunTo X="4186.97" Y="932.0163" Z="-13.23271" />
+					<RunTo X="4181.886" Y="938.5967" Z="-14.5823" />
+					<RunTo X="4168.044" Y="943.3153" Z="-18.18281" />
+					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
+					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 					
+					<!-- Return to tag last priestest on the right before sharp right turn -->
+					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
+					<RunTo X="4168.044" Y="943.3153" Z="-18.18281" />
+					<RunTo X="4181.886" Y="938.5967" Z="-14.5823" />
+					<RunTo X="4186.97" Y="932.0163" Z="-13.23271" />
+					<RunTo X="4206.126" Y="927.1967" Z="-9.607026" />
+					<RunTo X="4204.169" Y="922.3281" Z="-10.69315" />
+					<RunTo X="4225.006" Y="907.7845" Z="-8.59864" />
+					<RunTo X="4247.462" Y="894.1875" Z="-9.661205" />
+					<RunTo X="4265.676" Y="901.0992" Z="-14.67517" />
+					<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
 					
+					<!-- Clear to the battle standards -->
+					<RunTo X="4324.075" Y="917.1221" Z="-16.68373" />
+					<RunTo X="4312.006" Y="936.6387" Z="-18.55435" />
+					<RunTo X="4296.044" Y="907.7925" Z="-15.06977" />
+					<RunTo X="4318.489" Y="900.1438" Z="-14.10782" />
+					<RunTo X="4311.16" Y="865.5474" Z="-15.12173" />
+					<RunTo X="4283.757" Y="851.7743" Z="-9.704232" />
+					<RunTo X="4270.193" Y="840.4482" Z="-3.948083" />
+					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 					
+					<!-- Backtrack to tag rafs at the priestess before the water poolswater -->
+					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
+					<RunTo X="4270.193" Y="840.4482" Z="-3.948083" />
+					<RunTo X="4283.757" Y="851.7743" Z="-9.704232" />
+					<RunTo X="4311.16" Y="865.5474" Z="-15.12173" />
+					<RunTo X="4318.489" Y="900.1438" Z="-14.10782" />
+					<RunTo X="4296.044" Y="907.7925" Z="-15.06977" />
+					<RunTo X="4312.006" Y="936.6387" Z="-18.55435" />
+					<RunTo X="4324.075" Y="917.1221" Z="-16.68373" />
+					<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
 					
+					<!-- Return to the battle standards -->
+					<RunTo X="4324.075" Y="917.1221" Z="-16.68373" />
+					<RunTo X="4312.006" Y="936.6387" Z="-18.55435" />
+					<RunTo X="4296.044" Y="907.7925" Z="-15.06977" />
+					<RunTo X="4318.489" Y="900.1438" Z="-14.10782" />
+					<RunTo X="4311.16" Y="865.5474" Z="-15.12173" />
+					<RunTo X="4283.757" Y="851.7743" Z="-9.704232" />
+					<RunTo X="4270.193" Y="840.4482" Z="-3.948083" />
+					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 					
+					<!-- Clear to the instance box -->
+					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
+					<RunTo X="4223.503" Y="743.3965" Z="-24.68176" />
+					<RunTo X="4211.297" Y="745.782" Z="-23.71424" />
+					<RunTo X="4209.514" Y="717.9692" Z="-24.76325" />
+					<RunTo X="4231.084" Y="741.5259" Z="-25.56172" />
+					<RunTo X="4245.762" Y="737.5734" Z="-26.06444" />
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					
+					<!-- Backtrack to tag rafs at the battlestandards -->
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+					<RunTo X="4245.762" Y="737.5734" Z="-26.06444" />
+					<RunTo X="4231.084" Y="741.5259" Z="-25.56172" />
+					<RunTo X="4209.514" Y="717.9692" Z="-24.76325" />
+					<RunTo X="4211.297" Y="745.782" Z="-23.71424" />
+					<RunTo X="4223.503" Y="743.3965" Z="-24.68176" />
+					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+					<!-- Return to the instance box -->
+					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
+					<RunTo X="4223.503" Y="743.3965" Z="-24.68176" />
+					<RunTo X="4211.297" Y="745.782" Z="-23.71424" />
+					<RunTo X="4209.514" Y="717.9692" Z="-24.76325" />
+					<RunTo X="4231.084" Y="741.5259" Z="-25.56172" />
+					<RunTo X="4245.762" Y="737.5734" Z="-26.06444" />
+					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 				</If> <!-- Kalimdor -->
 			</If> <!-- Not in box -->
 			
@@ -1137,12 +1233,17 @@
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" /> 
 								
-				<!-- Wait timer to allow 120 second for the booster to clear to the water pool at the bottom of the stairs -->
+				<!-- Wait timer to allow wait 25 seconds for tag to reset -->
 				<CustomBehavior File="Message" 
-								Text="Waiting 145 seconds for the booster to clear a path to the Blackfathom Deeps entrance." 
+								Text="Waiting 25 seconds to reset the tag." 
+								
 								LogColor="Cyan" />	
 				<CustomBehavior File="WaitTimer" 
-								WaitTime="145000" />
+								WaitTime="25000" />
+				
+				<!-- 2nd tag to move to the other side of the water -->
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" /> 
 									
 				<CustomBehavior File="RunLikeHell" 
 								UseCTM="false" 
@@ -1180,14 +1281,6 @@
 					<Hotspot X="4117.665" Y="872.9206" Z="-12.56279" />
 					<Hotspot X="4154.427" Y="869.0259" Z="-18.11682" />
 				</CustomBehavior>
-				
-				<!-- rendezvous at bottom of the stairs, waters edge -->
-				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
-								
-				<!-- timer to delay rafs 10 seconds before entering the water -->
-				<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" />
 						
 				<!-- CTM beneath the water to the other side -->
 				<CustomBehavior File="MyCTM" 
@@ -1196,28 +1289,34 @@
 				<CustomBehavior File="MyCTM" 
 								X="4160.37" Y="916.4307" Z="-16.98774" />
 				
-				<!-- Wait for tag from booster -->				
+				<!-- Booster starts clearing when all party members are present -->				
 				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
 				
+				<!-- Wait timer to allow wait 15 seconds for tag to reset -->
+				<CustomBehavior File="Message" 
+								Text="Waiting 15 seconds to reset the tag." />
+								
+				<!-- 3rd tag move to the priestess -->
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+								
+				<!-- Priestess -->				
+				<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
 				
+				<!-- 4th tag move to the battle standars -->
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+								
+				<!-- battle standard -->				
+				<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-					
-				
+				<!-- 5th tag move to the instance box -->
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+								
+				<!-- instance box -->				
+				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+
 				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
 				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 					<CustomBehavior File="Message" 
