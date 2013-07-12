@@ -267,7 +267,7 @@
 					<!-- Forces kill of Talon King Ikiss -->
 					<RunTo X="44.48698" Y="286.1454" Z="25.0139" />
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
+									WaitTime="5000" />
 									
 					<!-- run to the boss exit door -->
 					<RunTo X="44.61202" Y="139.9013" Z="0.01621437" />
