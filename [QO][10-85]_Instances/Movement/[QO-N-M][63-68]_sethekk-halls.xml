@@ -4,18 +4,18 @@
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
    
-	<MinDurability>0.2</MinDurability>
-	<MinFreeBagSlots>0</MinFreeBagSlots>
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
 	<MailGrey>False</MailGrey>
 	<MailWhite>False</MailWhite>
 	<MailGreen>False</MailGreen>
-	<MailBlue>True</MailBlue>
-	<MailPurple>True</MailPurple>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
    
-	<SellGrey>True</SellGrey>
-	<SellWhite>True</SellWhite>
-	<SellGreen>True</SellGreen>
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
 	<SellBlue>False</SellBlue>
 	<SellPurple>False</SellPurple>
    
@@ -45,428 +45,390 @@
 		<ClearVendor />
 		<ClearMailbox />
 		
-		 <CustomBehavior File="UserSettings" LootMobs="False" PullDistance="45" LootRadius="1" KillBetweenHotspots="True" FindVendorsAutomatically="False" LogoutForInactivity="True" />
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a booster." 
+							LogColor="Cyan" />
+							
+			<!-- Booster UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="45"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+			
+			<!-- If we are inside -->
+			<If Condition="Me.ZoneId == 3713">
+				<CustomBehavior File="Message" 
+								Text="Blood Furnace detected. Running out."
+								LogColor="Fuchsia" />
+								
+				<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
+				
+				<!-- Go through the portal -->
+				<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+				
+				<!-- Make sure we run to the right spot outside the portal -->
+				<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+			</If> <!-- BF -->
+			
+			<!-- Outland -->
+			<If Condition="Me.MapId == 530">
+				<CustomBehavior File="Message" 
+								Text="We are in Outland." 
+								LogColor="Cyan" />
+						
+				<!-- If our hearthstone is set here, use it -->
+				<If Condition="(Me.HearthstoneAreaId == 3684) || (Me.HearthstoneAreaId == 3683)">
+					<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Allerian Stronghold or Stonebreaker Hold." 
+										LogColor="Cyan" />
+										
+					<!-- Have hearthstone -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have hearthstone -->
+				
+					<!-- Have Innkeeper's Daughter -->
+					<If Condition="HasItem(64488)">
+						<CustomBehavior File="Message" 
+										Text="Using Innkeeper's Daughter." 
+										LogColor="Lime" />
+											
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(64488)" 
+										WaitTime="1000" />
+							
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have Innkeeper's Daughter -->
+						
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+					
+						<!-- Alliance -->
+						<If Condition="Me.IsAlliance">
+							<CustomBehavior File="Message" 
+											Text="Flying to Allerian Stronghold." 
+											LogColor="Lime" />
+						
+							<!-- Fly to the hover point above the innkeep in Allerian Stronghold -->
+							<CustomBehavior File="FlyTo" X="-2939.273" Y="3984.656" Z="23.7445" />
+
+							<!-- Front doorway of the inn -->
+							<CustomBehavior File="FlyTo" X="-2931.109" Y="4013.582" Z="-1.410047" />
+							<CustomBehavior File="ForcedDismount" />
+
+							<!-- Run inside the inn -->
+							<RunTo X="-2920.208" Y="4020.259" Z="0.4217456" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="19296" 
+											X="-2917.881" Y="4021.484" Z="0.4280258" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+								
+							<!-- Run outside of inn -->
+							<RunTo X="-2931.109" Y="4013.582" Z="-1.410047" />
+							
+							<!-- Hover point -->
+							<CustomBehavior File="FlyTo" X="-2939.273" Y="3984.656" Z="23.7445" />
+							
+							<CustomBehavior File="Message" 
+											Text="We are in Allerian Stronghold." 
+											LogColor="Fuchsia" />
+
+							<!-- Horde -->
+							<ElseIf Condition="Me.IsHorde">
+								<CustomBehavior File="Message" 
+												Text="Flying to Stonebreaker Hold." 
+												LogColor="Lime" />
+						
+								<!-- Fly to the hover point above the innkeep in Stonebreaker Hold -->
+								<CustomBehavior File="FlyTo" X="-2633.392" Y="4387.538" Z="93.16135" />
+
+								<!-- Front doorway of the inn -->
+								<CustomBehavior File="FlyTo" X="-2626.85" Y="4411.93" Z="34.70145" />
+								<CustomBehavior File="ForcedDismount" />
+
+								<!-- Run inside the inn -->
+								<RunTo X="-2621.966" Y="4448.498" Z="36.09211" />
+								
+								<!-- Set hearthstone -->
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								<CustomBehavior File="Message" 
+												Text="Setting my Hearthstone." 
+												LogColor="Lime" />
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+								<CustomBehavior File="SetHearthstone" 
+												MobId="18957"
+												X="-2621.776" Y="4450.3" Z="36.09409" />
+								<CustomBehavior File="WaitTimer" 
+												WaitTime="1000" />
+							
+								<!-- Run outside of the inn -->
+								<RunTo X="-2626.85" Y="4411.93" Z="34.70145" />
+								
+								<!-- Fly to the hover point above the innkeep in Stonebreaker Hold -->
+								<CustomBehavior File="FlyTo" X="-2633.392" Y="4387.538" Z="93.16135" />
+								
+								<CustomBehavior File="Message" 
+												Text="We are in Stonebreaker Hold." 
+												LogColor="Fuchsia" />
+							</ElseIf> <!-- Horde -->
+						</If> <!-- Alliance -->
+					</Else> <!-- Set hearth -->
+				</If> <!-- Check hearthstone -->
+				
+				<!-- Repair if necessary -->
+				<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+					<If Condition="Me.IsAlliance">
+						<CustomBehavior File="FlyTo" X="-2963.77" Y="4017.751" Z="1.688854" />
+						<CustomBehavior File="ForcedDismount" />
+						
+						<RunTo X="-2974.844" Y="4026.831" Z="3.573579" />
+					</If>
+					
+					<If Condition="Me.IsHorde">
+						<CustomBehavior File="FlyTo" X="-2644.589" Y="4425.806" Z="36.9834" />
+						<CustomBehavior File="ForcedDismount" />
+					</If>
+				
+					<CustomBehavior File="Message" 
+									Text="Our durability is less than 80%, we need to repair." 
+									LogColor="Fuchsia" />
+								
+					<CustomBehavior File="ForceSetVendor" 
+									DoMail="False" 
+									DoRepair="True" 
+									DoSell="False" 
+									DoTrain="False" />
+					
+					<SetVendor>
+						<Vendors>
+							<!-- Allerian Stronghold -->
+							<Vendor Name="Cecil Meyers" 
+									Entry="19056" 
+									Type="Repair" 
+									X="-2978.951" Y="4033.115" Z="3.574028" />
+							
+							<!-- Stonebreaker Hold -->
+							<Vendor Name="Bar Talet" 
+									Entry="18962" 
+									Type="Repair" 
+									X="-2639.384" Y="4425.386" Z="36.68329" />
+						</Vendors>
+					</SetVendor>
+				
+					<!-- We are done repairing -->
+					<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+						<CustomBehavior File="Message" 
+										Text="Repairing complete." 
+										LogColor="Fuchsia" />
+					</If> <!-- repaired -->
+					
+					<If Condition="Me.IsAlliance">
+						<!-- Outside blacksmith -->
+						<RunTo X="-2963.77" Y="4017.751" Z="1.688854" />
+					
+						<!-- Fly to the hover point above the innkeep in Allerian Stronghold -->
+						<CustomBehavior File="FlyTo" X="-2939.273" Y="3984.656" Z="23.7445" />
+					</If>
+					
+					<If Condition="Me.IsHorde">
+						<!-- Fly to the hover point above the innkeep in Stonebreaker Hold -->
+						<CustomBehavior File="FlyTo" X="-2633.392" Y="4387.538" Z="93.16135" />
+					</If>
+				</If> <!-- Repairing -->
+				
+				<CustomBehavior File="Message" 
+								Text="Flying to the rendezvous location." 
+								LogColor="Lime" />
+				
+				<!-- Fly outside of Sethekk Halls at rendezvous -->
+				<CustomBehavior File="FlyTo" X="-3363.793" Y="4913.244" Z="53.08671" />
+
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+									
+				<CustomBehavior File="WaitTimer"
+								WaitTime="10000" />
+								
+				<!-- Fly down -->
+				<CustomBehavior File="FlyTo" X="-3362.315" Y="4869.151" Z="-54.88341" />
+
+				<!-- Fly into box -->
+				<CustomBehavior File="FlyTo" X="-3362.1" Y="4752.152" Z="-101.3961" />
+				<CustomBehavior File="ForcedDismount" />
+				
+				<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
+			</If> <!-- Outland -->
+			
+			<!-- In box -->
+			<If Condition="Me.X &gt; -3400 &amp;&amp; Me.X &lt; -3300 &amp;&amp; Me.Y &gt; 4600 &amp;&amp; Me.Y &lt; 4700" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][63-68]_sethekk-halls" />
+			</If> <!-- In box -->				
+		</If> <!-- Booster -->
+					
 		
-         <While Condition="true" >
-
-				<If Condition="Me.MapId == 0" >
-					<If Condition="Me.IsAlliance" >
-						<If Condition="Me.ZoneId == 1519" >
-							<CustomBehavior File="Message" Text="I'm Stormwind, moving to the Blastedlands portal." LogColor="Lime" />
-							<CustomBehavior File="FlyTo" X="-8994.284" Y="860.5435" Z="127.6233" />						
-							<CustomBehavior File="ForcedDismount" />
-								<RunTo X="-9005.403" Y="869.1169" Z="129.6929" />
-							<CustomBehavior File="Message" Text="Taking the portal to Blastedlands." LogColor="Lime" />
-							<CustomBehavior File="InteractWith" MobId="195141" ObjectType="Gameobject" Range="4.75" NumOfTimes="1"  X="-9007.58" Y="871.8698" Z="129.6922" />
-							<CustomBehavior File="WaitTimer" WaitTime="15000"  />
-							<CustomBehavior File="FlyTo" X="-11851.95" Y="-3196.791" Z="17.13597" />
-							<CustomBehavior File="MyCTM" X="-11913.63" Y="-3206.204" Z="-10.40761" />	<!-- dark portal -->
-							<CustomBehavior File="WaitTimer" WaitTime="10000" />
-						</If>
-					</If>	
-				</If>
+		
+		
+		
+		
+		
+		
 				
-				<If Condition="Me.MapId == 0" >
-					<If Condition="Me.IsAlliance" >
-						<If Condition="Me.ZoneId != 1519" >
-							<CustomBehavior File="Message" Text="I'm Eastern Kingdoms, moving to the Dark Portal." LogColor="Lime" />
-							<CustomBehavior File="FlyTo" X="-11851.95" Y="-3196.791" Z="17.13597" />
-							<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />	<!-- dark portal -->
-							<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-						</If>
-					</If>	
-				</If>
+		<!-- ******************************************************* RAF Toons *************************************************************** -->			
 				
-				<If Condition="Me.MapId == 0" >
-					<If Condition="Me.IsHorde" >
-						<CustomBehavior File="Message" Text="I am Horde in Eastern Kingdoms, flying to the Dark portal." LogColor="Lime" />
-						<CustomBehavior File="FlyTo" X="-11851.95" Y="-3196.791" Z="17.13597" />
-						<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />	<!-- dark portal -->
-							<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-					</If>	
-				</If>
-				
-				<If Condition="Me.MapId == 1" >
-					<If Condition="Me.IsAlliance" >
-						<CustomBehavior File="Message" Text="I am Alliance in Kalimdor, flying to Ratchet." LogColor="Lime" />
-						<CustomBehavior File="FlyTo" X="-996.9926" Y="-3824.178" Z="5.496727" />						
-						<CustomBehavior File="ForcedDismount" />
-							<RunTo X="-996.7842" Y="-3827.834" Z="5.570349" />
-						<CustomBehavior File="Message" Text="Waiting for the boat." LogColor="Lime" />	
-						<CustomBehavior File="UseTransport"
-							TransportId="20808"
-							WaitAtX="-996.7842" WaitAtY="-3827.834" WaitAtZ="5.570349" 
-							TransportStartX="-1005.61346" TransportStartY="-3864.279" TransportStartZ="-0.0262415316"
-							TransportEndX="-14277.7451" TransportEndY="582.86615" TransportEndZ="0.0493392348"
-							StandOnX="-999.8182" StandOnY="-3833.799" StandOnZ="6.034274" 
-							GetOffX="-14280.22" GetOffY="567.6113" GetOffZ="6.696649" />
-							<RunTo X="-14280.22" Y="567.6113" Z="6.696649" />
-						<CustomBehavior File="FlyTo" X="-11851.95" Y="-3196.791" Z="17.13597" />
-						<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />	<!-- dark portal -->
-						<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-					</If>	
-				</If>
-				
-				<If Condition="Me.MapId == 1" >
-					<If Condition="Me.IsHorde" >
-						<If Condition="Me.X &lt; 1895.627 &amp;&amp; Me.X &gt; 1713.31 &amp;&amp; Me.Y &gt; -4440.429 &amp;&amp; Me.Y &lt; -4283.688 &amp;&amp; Me.Z &lt; 35" >
-							<CustomBehavior File="Message" Text="I am in the Cleft of Shadow in Orgrimmar, moving to the Blastedlands portal." LogColor="Lime" />
-								<RunTo X="1771.456" Y="-4326.629" Z="-8.225829" />
-							<CustomBehavior File="Message" Text="Taking the portal to Blastedlands." LogColor="Lime" />
-							<CustomBehavior File="InteractWith" MobId="195142" ObjectType="Gameobject" Range="4.75" NumOfTimes="1"  X="1768.45" Y="-4325.86" Z="-8.3711" />
-							<CustomBehavior File="WaitTimer" WaitTime="15000"  />
-							<CustomBehavior File="UserSettings" UseMount="True" />
-							<CustomBehavior File="FlyTo" X="-11851.95" Y="-3196.791" Z="17.13597" />
-							<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />	<!-- dark portal -->
-							<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-						</If>
-					</If>		
-				</If>
-				
-				<If Condition="Me.MapId == 1" >
-					<If Condition="Me.IsHorde" >
-							<CustomBehavior File="Message" Text="I'm in Orgrimmar, moving to the Blastedlands portal." LogColor="Lime" />
-							<CustomBehavior File="FlyTo" X="1859.277" Y="-4249.897" Z="38.38978" />
-						<CustomBehavior File="ForcedDismount" />
-						<CustomBehavior File="UserSettings" UseMount="False" />
-							<RunTo X="1771.456" Y="-4326.629" Z="-8.225829" />
-						<CustomBehavior File="Message" Text="Taking the portal to Blastedlands." LogColor="Lime" />
-						<CustomBehavior File="InteractWith" MobId="195142" ObjectType="Gameobject" Range="4.75" NumOfTimes="1" X="1768.45" Y="-4325.86" Z="-8.3711" />
-						<CustomBehavior File="WaitTimer" WaitTime="15000"  />
-						<CustomBehavior File="UserSettings" UseMount="True" />
-						<CustomBehavior File="FlyTo" X="-11851.95" Y="-3196.791" Z="17.13597" />
-						<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />	<!-- dark portal -->
-						<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-					</If>	
-				</If>
-						
-				<If Condition="Me.MapId == 530" >
-					<If Condition="Me.Y &lt; 4656.26 || Me.Y &gt; 4745.877 || Me.X &gt; -3338.677 || Me.X &lt; -3383.088" >
-						<If Condition="Me.IsAlliance" >
-							<CustomBehavior File="Message" Text="I am in Outlands and I am Alliance, flying to Allerian Stronghold to set my hearth." LogColor="Lime" />
-							<CustomBehavior File="FlyTo" X="-2954.17" Y="3988.183" Z="69.94035" />
-							<CustomBehavior File="FlyTo" X="-2932.607" Y="4012.651" Z="-1.378138" />
-							<CustomBehavior File="ForcedDismount" />
-								<RunTo X="-2920.846" Y="4019.895" Z="0.4213394" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="Message" Text="I have located the innkeep, setting my hearth." LogColor="Lime" />
-							<CustomBehavior File="SetHearthstone" MobId="19296" X="-2917.881" Y="4021.484" Z="0.4279128" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-								<RunTo X="-2932.607" Y="4012.651" Z="-1.378138" />
-							<CustomBehavior File="ForcedMount" MountType="Flying" />
-							<CustomBehavior File="FlyTo" X="-3005.148" Y="4070.655" Z="185.3701" />
-							<CustomBehavior File="MyCTM" X="-3391.319" Y="4978.698" Z="173.2239" />
-							<CustomBehavior File="MyCTM" X="-3362.224" Y="4837.152" Z="-91.12547" />
-							<CustomBehavior File="MyCTM" X="-3361.47" Y="4759.421" Z="-91.07133" />
-							<CustomBehavior File="MyCTM" X="-3362.1" Y="4668.9" Z="-101.048" />
-								<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-						</If>		
-					</If>		
-				</If>
-				
-				<If Condition="Me.MapId == 530" >
-					<If Condition="Me.Y &lt; 4656.26 || Me.Y &gt; 4745.877 || Me.X &gt; -3338.677 || Me.X &lt; -3383.088" >
-						<If Condition="Me.IsHorde" >
-							<CustomBehavior File="Message" Text="I am in Outlands and I am Horde, flying to Stonebreaker Hold to set my hearth." LogColor="Lime" />
-							<CustomBehavior File="FlyTo" X="-2629.357" Y="4386.063" Z="65.0552" />
-							<CustomBehavior File="FlyTo" X="-2626.851" Y="4418.336" Z="35.09735" />
-							<CustomBehavior File="ForcedDismount" />
-								<RunTo X="-2622.051" Y="4446.609" Z="36.09331" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="Message" Text="I have located the innkeep, setting my hearth." LogColor="Lime" />
-							<CustomBehavior File="SetHearthstone" MobId="18957" X="-2621.776" Y="4450.3" Z="36.09428" />
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />	
-								<RunTo X="-2626.851" Y="4418.336" Z="35.09735" />
-							<CustomBehavior File="ForcedMount" MountType="Flying" />
-							<CustomBehavior File="FlyTo" X="-2733.869" Y="4419.46" Z="124.6188" />
-							<CustomBehavior File="MyCTM" X="-3058.165" Y="4791.117" Z="97.5785" />
-							<CustomBehavior File="MyCTM" X="-3391.319" Y="4978.698" Z="173.2239" />
-							<CustomBehavior File="MyCTM" X="-3362.224" Y="4837.152" Z="-91.12547" />
-							<CustomBehavior File="MyCTM" X="-3361.47" Y="4759.421" Z="-91.07133" />
-							<CustomBehavior File="MyCTM" X="-3362.1" Y="4668.9" Z="-101.048" />
-								<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-						</If>		
-					</If>		
-				</If>
-					
-				<If Condition="Me.ZoneId == 3791">
-					<CustomBehavior File="Message" Text="You started the bot with me inside Sethekk Halls, running out to reset the dungeon." LogColor="Lime" />
-					<If Condition="Me.Z &gt; 10 " >
-							<RunTo X="44.45738" Y="286.3805" Z="25.0132" />
-						<CustomBehavior File="WaitTimer" WaitTime="5000" />	
-							<RunTo X="44.72137" Y="142.0625" Z="0.02178714" />
-						<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-							<RunTo X="47.88029" Y="97.99895" Z="0.1508283" />
-							<RunTo X="43.62694" Y="62.81333" Z="0.008441973" />
-							<RunTo X="43.03834" Y="7.287698" Z="0.007048465" />
-							<RunTo X="31.01099" Y="1.044048" Z="0.005493299" />
-							<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
-						<CustomBehavior File="GoThruPortal" X="-9.609837" Y="-1.029378" Z="0.006014266" />
-							<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-					</If>	
-					<If Condition="Me.Z &lt; 10 " >
-							<RunTo X="31.01099" Y="1.044048" Z="0.005493299" />
-							<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
-						<CustomBehavior File="GoThruPortal" X="-9.609837" Y="-1.029378" Z="0.006014266" />
-							<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-					</If>	
-				</If>	
-					
-				<If Condition="Me.X &lt; -3338.677 &amp;&amp; Me.X &gt; -3383.088 &amp;&amp; Me.Y &gt; 4656.26 &amp;&amp; Me.Y &lt; 4745.877  " >
-					<CustomBehavior File="Message" Text="I am resetting Sethekk Halls." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />				
-					<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" /> 
-					<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficulty(1)" />
-						<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-					<CustomBehavior File="MyCTM" X="-3361.638" Y="4653.265" Z="-101.0491" /> 
-					<CustomBehavior File="Message" Text="Waiting for the dungeon to load." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="15000" />
-					<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="Main Character - Press continue on this window first, then press continue on the RAF characters." Title="WARNING" />
-				</If>	
-
-                                                       <!-- sethekk halls dungeon script -->
-				
-				<If Condition="Me.ZoneId == 3791">
-					<CustomBehavior File="UserSettings" PullDistance="25" />
-				
-						<RunTo X="29.28083" Y="4.907259" Z="0.005755" />
-						<RunTo X="30.05023" Y="-3.184137" Z="0.005755" />
-						<RunTo X="39.96065" Y="3.641211" Z="0.006434476" />
-						<RunTo X="46.99625" Y="7.737821" Z="0.006434476" />
-						<RunTo X="47.01676" Y="51.918" Z="0.006434476" />
-						<RunTo X="43.39296" Y="62.24089" Z="0.006434476" />
-						<RunTo X="56.06865" Y="82.93526" Z="0.1171747" />
-						<RunTo X="70.89008" Y="92.80547" Z="0.0530788" />
-						<RunTo X="90.12468" Y="100.3152" Z="0.007209702" />
-						<RunTo X="78.26614" Y="115.4181" Z="0.3604873" />
-						<RunTo X="66.1937" Y="125.2712" Z="0.08692777" />
-						<RunTo X="46.0702" Y="129.0335" Z="0.1434758" />
-						<RunTo X="41.56185" Y="107.1399" Z="0.1508283" />
-						<RunTo X="23.40565" Y="78.11864" Z="0.08017728" />
-						<RunTo X="16.92011" Y="102.4351" Z="0.4223823" />
-						<RunTo X="-0.627636" Y="100.211" Z="0.007205117" />
-
-					<CustomBehavior File="UserSettings" PullDistance="25" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, fire room entrance." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />	
-					
-						<RunTo X="-17.38082" Y="100.6026" Z="0.007194391" />
-						<RunTo X="-35.45314" Y="100.6894" Z="0.007194391" />
-						<RunTo X="-57.25207" Y="111.2821" Z="0.007194391" />
-						<RunTo X="-61.76901" Y="95.6731" Z="0.01589284" />
-						<RunTo X="-74.56717" Y="88.30174" Z="0.007840563" />
-						<RunTo X="-88.52985" Y="104.1713" Z="0.006445049" />
-						<RunTo X="-74.63461" Y="130.3879" Z="0.005139554" />
-						<RunTo X="-71.23712" Y="133.729" Z="0.005386859" />
 	
-						<RunTo X="-71.23712" Y="133.729" Z="0.005386859" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, fire room exit." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="-71.24348" Y="139.386" Z="0.006319328" />
-						<Hotspot X="-72.06015" Y="169.517" Z="0.008396729" />
-						<Hotspot X="-68.07292" Y="173.7705" Z="0.008462847" />
-						<Hotspot X="-77.37314" Y="176.7407" Z="0.008491287" />
-						<Hotspot X="-105.3463" Y="176.8934" Z="0.009336349" />
-						<Hotspot X="-104.4914" Y="169.9029" Z="0.009336349" />
-						<Hotspot X="-93.37309" Y="173.2816" Z="0.009336349" />
-					</CustomBehavior>
-					
-						<RunTo X="-68.40021" Y="174.6368" Z="0.009554705" />
-						<RunTo X="-70.92887" Y="133.3665" Z="0.006747638" />
-						<RunTo X="-67.72844" Y="176.8521" Z="0.008419579" />
-						<RunTo X="-106.9594" Y="173.2171" Z="0.009411152" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, first boss." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="-143.3884" Y="173.3692" Z="1.685346" />
-					</CustomBehavior>
-					
-						<RunTo X="-165.9201" Y="173.2747" Z="0.01180946" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, corridor before the stairs." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
 	
-						<RunTo X="-192.1724" Y="173.3893" Z="0.01206368" />
-						<RunTo X="-210.516" Y="173.466" Z="0.01206368" />
-						<RunTo X="-219.9783" Y="177.9306" Z="0.03220398" />
-						<RunTo X="-227.545" Y="190.3282" Z="4.705783" />
-						<RunTo X="-262.3316" Y="190.8687" Z="0.03420738" />
-						<RunTo X="-272.0754" Y="175.2585" Z="0.03395679" />
-						<RunTo X="-258.9484" Y="178.3965" Z="0.0351446" />
-						<RunTo X="-242.2396" Y="158.38" Z="0.06364414" />
-						<RunTo X="-234.3111" Y="166.293" Z="-0.3210168" />
-						<RunTo X="-211.3339" Y="171.6613" Z="0.01483548" />
-						<RunTo X="-204.7936" Y="173.3471" Z="0.01097667" />
-
-						<RunTo X="-272.0491" Y="153.7084" Z="12.92277" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, stairs." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
-						<RunTo X="-271.1982" Y="141.5911" Z="13.56471" />
-						<RunTo X="-239.8664" Y="141.2631" Z="26.76449" />
-						<RunTo X="-215.1647" Y="141.8696" Z="26.7669" />
-						<RunTo X="-210.966" Y="163.7745" Z="26.75344" />
-						<RunTo X="-212.7213" Y="181.89" Z="26.99697" />
-						<RunTo X="-214.3577" Y="204.4055" Z="26.72287" />
-						<RunTo X="-220.999" Y="206.2248" Z="26.73973" />
-						<RunTo X="-236.3258" Y="206.7115" Z="27.14357" />
-						<RunTo X="-239.6272" Y="211.117" Z="26.85944" />
-						<RunTo X="-244.3957" Y="211.1214" Z="26.76577" />
-						<RunTo X="-242.2949" Y="204.3461" Z="26.87005" />
-						<RunTo X="-275.4583" Y="205.2015" Z="26.72448" />
-						
-						<RunTo X="-241.6176" Y="205.4051" Z="26.91875" />
-					<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, top of the stairs." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" />
-					
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-						<Hotspot X="-242.4688" Y="219.6727" Z="26.72316" />
-						<Hotspot X="-241.6282" Y="288.584" Z="27.36577" />
-						<Hotspot X="-239.084" Y="308.7389" Z="26.73062" />
-						<Hotspot X="-233.8913" Y="339.5744" Z="27.21391" />
-						<Hotspot X="-204.3465" Y="341.4974" Z="26.66009" />
-						<Hotspot X="-182.4682" Y="336.7186" Z="26.0579" />
-						<Hotspot X="-209.4049" Y="309.2291" Z="33.31029" />
-						<Hotspot X="-190.9359" Y="321.1895" Z="26.61074" />
-						<Hotspot X="-176.6374" Y="279.5955" Z="26.5552" />
-						<Hotspot X="-200.3549" Y="336.0513" Z="25.76034" />
-						<Hotspot X="-226.1054" Y="330.8057" Z="27.35686" />
-						<Hotspot X="-241.3072" Y="321.3081" Z="26.74364" />
-						<Hotspot X="-228.1253" Y="320.5959" Z="26.93468" />
-					</CustomBehavior>
-						<RunTo X="-228.1253" Y="320.5959" Z="26.93468" />
-					
-						<RunTo X="-174.919" Y="286.3074" Z="26.52079" />
-						<RunTo X="-132.9651" Y="287.1593" Z="26.73125" />
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-							<Hotspot X="-207.7407" Y="336.5034" Z="26.64098" />
-							<Hotspot X="-197.0734" Y="321.1204" Z="26.57108" />
-							<Hotspot X="-185.5182" Y="305.6267" Z="26.7299" />
-							<Hotspot X="-169.6347" Y="287.4589" Z="26.65952" />
-							<Hotspot X="-156.2675" Y="286.9847" Z="26.73193" />
-							<Hotspot X="-130.4727" Y="287.5959" Z="26.73051" />
-							<Hotspot X="-122.2249" Y="284.4793" Z="26.89059" />
-							<Hotspot X="-116.1026" Y="268.5673" Z="26.99126" />
-							<Hotspot X="-99.88992" Y="258.4885" Z="27.32523" />
-							<Hotspot X="-81.82846" Y="270.5122" Z="26.80796" />
-							<Hotspot X="-79.78722" Y="287.3564" Z="26.48318" />
-							<Hotspot X="-68.66418" Y="291.3112" Z="26.53953" />
-							<Hotspot X="-53.87235" Y="285.9962" Z="26.91611" />
-							<Hotspot X="-44.98596" Y="279.1982" Z="26.78371" />
-							<Hotspot X="-60.71108" Y="310.4194" Z="26.98525" />
-							<Hotspot X="-91.74484" Y="318.4514" Z="26.75911" />
-							<Hotspot X="-96.42696" Y="310.6737" Z="25.98365" />
-							<Hotspot X="-105.0215" Y="302.2606" Z="26.53321" />
-							<Hotspot X="-124.1213" Y="287.7265" Z="26.72873" />
-							<Hotspot X="-147.4244" Y="287.0286" Z="26.73059" />
-							<Hotspot X="-176.2945" Y="287.1865" Z="26.48482" />
-							<Hotspot X="-188.8493" Y="311.6429" Z="26.7316" />
-							<Hotspot X="-209.799" Y="336.5717" Z="26.64968" />
-						</CustomBehavior>
-						
-							<RunTo X="-40.70481" Y="286.5084" Z="26.73079" />
-						<CustomBehavior File="Message" Text="Waiting for the RAF toons to catch up, guards for last boss." LogColor="Lime" />
-						<CustomBehavior File="WaitTimer" WaitTime="20000" />	
-						
-						<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
-							<Hotspot X="-40.70481" Y="286.5084" Z="26.73079" />
-							<Hotspot X="-27.88198" Y="286.6142" Z="26.73079" />
-							<Hotspot X="-15.82619" Y="286.8558" Z="26.73079" />
-							<Hotspot X="-4.263723" Y="292.7186" Z="26.71118" />
-							<Hotspot X="-4.901473" Y="281.6637" Z="26.71383" />
-							<Hotspot X="-17.12724" Y="287.2676" Z="26.72984" />
-							<Hotspot X="-43.63659" Y="286.2962" Z="26.73091" />
-							<Hotspot X="-86.41025" Y="292.2425" Z="26.48298" />
-							<Hotspot X="-100.9948" Y="286.2768" Z="26.48216" />
-						</CustomBehavior>
-					
-							<RunTo X="-87.73751" Y="294.7793" Z="26.48216" />
-							<RunTo X="-36.10573" Y="286.8513" Z="26.73182" />
-							<RunTo X="-1.450704" Y="286.8765" Z="26.69435" />
-					
-						<CustomBehavior File="TargetAndMoveToMob" MobId="18473" MoveWithinMaxRangeOfMob="1" WaitForNpcs="false" X="44.72272" Y="286.9597" Z="25.01321" />
-
-							<RunTo X="44.72137" Y="142.0625" Z="0.02178714" />
-						<CustomBehavior File="WaitTimer" WaitTime="10000" />	
-							<RunTo X="47.88029" Y="97.99895" Z="0.1508283" />
-							<RunTo X="43.62694" Y="62.81333" Z="0.008441973" />
-							<RunTo X="43.03834" Y="7.287698" Z="0.007048465" />
-							<RunTo X="31.01099" Y="1.044048" Z="0.005493299" />
-							<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />	
+		
+		
+		
+		
+		
+		
+		<!-- RAF Toons -->		
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Cyan" />
+		
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
 				</If>
 				
-				<CustomBehavior File="UserSettings" PullDistance="25" />
-				
-				<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt;= 0.3)" > 					
-					<CustomBehavior File="Message" Text="I have detected that my bags are full or my gear is about to break. Going to hearth, repair and mail." LogColor="Lime" />
-					<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
-					<CustomBehavior File="WaitTimer" WaitTime="20000" GoalText="Waiting for hearth*{TimeRemaining}" />
-					<If Condition="Me.IsAlliance" >
-						<If Condition="Me.ZoneId == 3519" >
-								<RunTo X="-2968.546" Y="4021.425" Z="3.524395" />
-							<SetVendor>
-								<Vendors>
-									<Vendor Name="Cecil Meyers" Entry="19056" Type="Repair" X="-2978.951" Y="4033.115" Z="3.574028" />
-								</Vendors>
-							</SetVendor>						
-							<SetMailbox>
-								<Mailboxes>
-									<Mailbox X="-2932.448" Y="4008.68" Z="-1.304983" />
-								</Mailboxes>
-							</SetMailbox>			
-							<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-								<RunTo X="-2932.607" Y="4012.651" Z="-1.378138" />
-							<CustomBehavior File="ForcedMount" MountType="Flying" />
-							<CustomBehavior File="FlyTo" X="-3005.148" Y="4070.655" Z="185.3701" />
-							<CustomBehavior File="MyCTM" X="-3391.319" Y="4978.698" Z="173.2239" />
-							<CustomBehavior File="MyCTM" X="-3362.224" Y="4837.152" Z="-91.12547" />
-							<CustomBehavior File="MyCTM" X="-3361.47" Y="4759.421" Z="-91.07133" />
-							<CustomBehavior File="MyCTM" X="-3362.1" Y="4668.9" Z="-101.048" />
-								<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-						</If>
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
 					</If>
-					<If Condition="Me.IsHorde" >
-						<If Condition="Me.ZoneId == 3519" >
-								<RunTo X="-2643.325" Y="4422.456" Z="36.50624" />
-							<SetVendor>
-								<Vendors>
-									<Vendor Name="Bar Talet" Entry="18962" Type="Repair" X="-2639.384" Y="4425.386" Z="36.68329" />
-								</Vendors>
-							</SetVendor>						
-							<SetMailbox>
-								<Mailboxes>
-									<Mailbox X="-2615.879" Y="4414.044" Z="35.49578" />
-								</Mailboxes>
-							</SetMailbox>			
-							<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-								<RunTo X="-2626.851" Y="4418.336" Z="35.09735" />
-							<CustomBehavior File="ForcedMount" MountType="Flying" />
-							<CustomBehavior File="FlyTo" X="-2733.869" Y="4419.46" Z="124.6188" />
-							<CustomBehavior File="MyCTM" X="-3058.165" Y="4791.117" Z="97.5785" />
-							<CustomBehavior File="MyCTM" X="-3391.319" Y="4978.698" Z="173.2239" />
-							<CustomBehavior File="MyCTM" X="-3362.224" Y="4837.152" Z="-91.12547" />
-							<CustomBehavior File="MyCTM" X="-3361.47" Y="4759.421" Z="-91.07133" />
-							<CustomBehavior File="MyCTM" X="-3362.1" Y="4668.9" Z="-101.048" />
-								<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-						</If>
-					</If>
-				</If>	
+				</ElseIf>
+			</If>
+			
+			<!-- RAF UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+			
+			<!-- If we are inside -->
+			<If Condition="Me.ZoneId == 3713">
+				<CustomBehavior File="Message" 
+								Text="Blood Furnace detected. Running out."
+								LogColor="Fuchsia" />
+								
+				<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
+				
+				<!-- Go through the portal -->
+				<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+				
+				<!-- Make sure we run to the right spot outside the portal -->
+				<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
+			</If> <!-- BF -->		
 
-				<If Condition="Me.ZoneId == 3791">
-					<CustomBehavior File="Message" Text="I have detected that I have more than 4 empty bag slots and that my gear is above 30% durability. I am running out to reset the instance." LogColor="Lime" />					
-						<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
-					<CustomBehavior File="GoThruPortal" X="-9.609837" Y="-1.029378" Z="0.006014266" />
-						<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-				</If>	
-					
-		</While>
-	
+			<!-- Outland -->
+			<If Condition="Me.MapId == 530">
+				<CustomBehavior File="Message" 
+								Text="Flying to the rendezvous location." 
+								LogColor="Lime" />
+				
+				<!-- Fly outside of Sethekk Halls at rendezvous -->
+				<CustomBehavior File="FlyTo" X="-3363.793" Y="4913.244" Z="53.08671" />
+
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
+									
+				<CustomBehavior File="WaitTimer"
+								WaitTime="10000" />
+								
+				<!-- Fly down -->
+				<CustomBehavior File="FlyTo" X="-3362.315" Y="4869.151" Z="-54.88341" />
+
+				<!-- Fly into box -->
+				<CustomBehavior File="FlyTo" X="-3362.1" Y="4752.152" Z="-101.3961" />
+				<CustomBehavior File="ForcedDismount" />
+				
+				<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
+			</If> <!-- Outland -->
+			
+			<!-- In box -->
+			<If Condition="Me.X &gt; -3400 &amp;&amp; Me.X &lt; -3300 &amp;&amp; Me.Y &gt; 4600 &amp;&amp; Me.Y &lt; 4700" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][63-68]_sethekk-halls" />
+			</If> <!-- In box -->
+		</If> <!-- RAF toons -->
 	</QuestOrder>
-
-
 </HBProfile>
 
