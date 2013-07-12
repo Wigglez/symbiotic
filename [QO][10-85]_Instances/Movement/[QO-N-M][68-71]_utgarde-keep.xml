@@ -82,7 +82,7 @@
 								Text="Sethekk Halls detected."
 								LogColor="Fuchsia" />
 				
-				<If Condition="(Me.HearthstoneAreaId == 3538) || (Me.HearthstoneAreaId == 3536)">
+				<If Condition="(Me.HearthstoneAreaId == 3684) || (Me.HearthstoneAreaId == 3683)">
 					<CustomBehavior File="Message" 
 									Text="Our Innkeeper is set at Allerian Stronghold or Stonebreaker Hold." 
 									LogColor="Cyan" />
