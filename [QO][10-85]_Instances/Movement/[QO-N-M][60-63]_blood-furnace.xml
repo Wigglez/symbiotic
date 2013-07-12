@@ -460,7 +460,7 @@
 					<CustomBehavior File="WaitTimer"
 									WaitTime="1000" />				
 					
-					<!-- Level 60 or higher -->
+					<!-- Have gold -->
 					<If Condition="(Me.Gold &gt;= 250)" >
 						<!-- If we are 60 -->
 						<If Condition="Me.Level &gt;= 60" >	
@@ -480,7 +480,19 @@
 												WaitTime="1000" />
 								
 							</While> <!-- Loop mount purchasing -->
+							
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="We are not level 60. You are wanting to train flying below 60? Are you mental?" 
+												LogColor="Red" />	
+							</Else>
 						</If> <!-- Level check -->
+						
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="You have insufficient gold for training. You require 250g or more to be able to train." 
+											LogColor="Red" />	
+						</Else>
 					</If> <!-- Have gold -->
 									
 					<CustomBehavior File="UserDialog" 
@@ -548,7 +560,7 @@
 					
 					<CustomBehavior File="WaitTimer" WaitTime="1000" />
 						
-					<!-- Level 60 or higher -->
+					<!-- Have gold -->
 					<If Condition="(Me.Gold &gt;= 250)" >
 						<!-- If we are 60 -->
 						<If Condition="Me.Level &gt;= 60" >	
@@ -566,7 +578,19 @@
 								<CustomBehavior File="WaitTimer" 
 												WaitTime="1000" />
 							</While> <!-- Loop mount purchasing -->
+							
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="We are not level 60. You are wanting to train flying below 60? Are you mental?" 
+												LogColor="Red" />	
+							</Else>
 						</If> <!-- Level check -->
+						
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="You have insufficient gold for training. You require 250g or more to be able to train." 
+											LogColor="Red" />	
+						</Else>
 					</If> <!-- Have gold -->	
 						
 					<CustomBehavior File="UserDialog" 
