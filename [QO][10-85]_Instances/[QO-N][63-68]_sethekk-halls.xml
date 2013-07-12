@@ -265,16 +265,9 @@
 					<RunTo X="-21.41718" Y="286.436" Z="26.72997" />
 									
 					<!-- Forces kill of Talon King Ikiss -->
-					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
-									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="18473"
-									EventX="44.72272" EventY="286.9597" EventZ="25.01321"
-									MoveOutOfGroundEffectAuraId1="111111"
-									MoveAwayFromMobCastingSpellId1="111111"
-									MoveAwayFromMobWithAuraId1="111111">
-						<Safespots>
-							<Hotspot X="44.72272" Y="286.9597" Z="25.01321" />
-						</Safespots>
-					</CustomBehavior>				
+					<RunTo X="44.48698" Y="286.1454" Z="25.0139" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="30000" />
 									
 					<!-- run to the boss exit door -->
 					<RunTo X="44.61202" Y="139.9013" Z="0.01621437" />
