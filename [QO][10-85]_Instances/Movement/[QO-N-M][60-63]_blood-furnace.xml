@@ -498,6 +498,9 @@
 										Text="Moving to Blasted Lands portal." 
 										LogColor="Lime" />	
 										
+						<!-- Force dismount -->				
+						<CustomBehavior File="ForcedDismount" />				
+										
 						<!-- RAF disable mount in Stormwind-->
 						<CustomBehavior File="UserSettings"
 										UseMount="False"  />				
@@ -581,6 +584,9 @@
 										Text="Moving to Blasted Lands portal." 
 										LogColor="Lime" />
 										
+						<!-- Force dismount -->				
+						<CustomBehavior File="ForcedDismount" />						
+						
 						<!-- RAF disable mount in Orgrimmar -->
 						<CustomBehavior File="UserSettings"
 										UseMount="False"  />				
