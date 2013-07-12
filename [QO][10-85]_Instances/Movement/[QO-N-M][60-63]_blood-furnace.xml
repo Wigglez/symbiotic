@@ -497,6 +497,10 @@
 						<CustomBehavior File="Message" 
 										Text="Moving to Blasted Lands portal." 
 										LogColor="Lime" />	
+										
+						<!-- RAF disable mount in Stormwind-->
+						<CustomBehavior File="UserSettings"
+										UseMount="False"  />				
 						
 						<!-- In front of Blasted Lands portal -->
 						<RunTo X="-9005.403" Y="869.1169" Z="129.6929" />
@@ -511,6 +515,10 @@
 
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="5000" />
+										
+						<!-- RAF re-enable mount in blastedlands-->
+						<CustomBehavior File="UserSettings"
+										UseMount="True"  />					
 
 					</If> <!-- Trained -->
 				</If> <!-- Stormwind City -->
@@ -572,6 +580,10 @@
 						<CustomBehavior File="Message" 
 										Text="Moving to Blasted Lands portal." 
 										LogColor="Lime" />
+										
+						<!-- RAF disable mount in Orgrimmar -->
+						<CustomBehavior File="UserSettings"
+										UseMount="False"  />				
 									
 						<!-- In front of Blasted Lands portal -->
 						<RunTo X="1771.796" Y="-4326.416" Z="-8.190479" />
@@ -586,6 +598,10 @@
 										
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="5000" />
+										
+						<!-- RAF re-enable mount in Blastedlands -->
+						<CustomBehavior File="UserSettings"
+										UseMount="False"  />								
 					</If> <!-- Trained riding -->
 				</If> <!-- Orgrimmar -->
 			</If> <!-- Kalimdor -->
