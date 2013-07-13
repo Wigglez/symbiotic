@@ -162,14 +162,11 @@
 									Text="Blackfathom Deeps detected. Running out." 
 									LogColor="Fuchsia" />
 						
-					<If Condition="Me.X &lt; -290" >
+					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
 										
-						<!-- Tag RAF at the crab -->
-						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
-							
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
 						
@@ -608,14 +605,11 @@
 						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
 					</CustomBehavior>
 					
-					<If Condition="Me.X &lt; -290" >
+					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
-										
-						<!-- Tag RAF at the crab -->
-						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
-							
+								
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
 						
@@ -624,8 +618,8 @@
 										X="-273.533" Y="71.30302" Z="-58.51636" />
 					</If> <!-- Above jumps -->
 					
-					<!-- Tag rafs -->
-					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />
+					<!-- Tag rafs at sandy beach -->
+					<RunTo X="-267.2677" Y="68.32697" Z="-56.70897" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -642,14 +636,11 @@
 									Text="Blackfathom Deeps detected. Running out to reset." 
 									LogColor="Fuchsia" />
 						
-					<If Condition="Me.X &lt; -290" >
+					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
 										
-						<!-- Tag RAF at the crab -->
-						<RunTo X="-348.4482" Y="130.4598" Z="-51.01258" />
-							
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
 						
@@ -816,7 +807,7 @@
 									Text="Blackfathom Deeps detected. Running out."
 									LogColor="Fuchsia" />
 						
-					<If Condition="Me.X &lt; -290" >
+					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms. Running down." 
 										LogColor="Fuchsia" />
@@ -906,8 +897,19 @@
 									
 					<!-- Let the booster clear the entrance for us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
+									WaitTime="20000" />
 									
+					<!-- Run back out the instance when the booster runs next to us  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+					<!-- Let the booster clear the entrance for us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />			
+
+					<!-- Sandy beach -->
+					<RunTo X="-267.2677" Y="68.32697" Z="-56.70897" />
+					
 					<!-- Run back out the instance when the booster runs next to us  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
