@@ -155,28 +155,109 @@
 									Text="Utgarde Keep initialized."  
 									LogColor="Fuchsia" />
 				
-					<!-- begin first pull -->
-					<!-- INSERT YOUR CODE HERE -->
+					<!-- Pulling entrance to dragon room and back -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="213.2209" Y="-70.22929" Z="24.6786" />
+						<Hotspot X="211.1427" Y="-62.4604" Z="24.6786" />
+						<Hotspot X="264.3714" Y="-59.10911" Z="24.6786" />
+						<Hotspot X="256.9926" Y="-42.26953" Z="24.6786" />
+						<Hotspot X="266.3639" Y="-47.85662" Z="24.6786" />
+						<Hotspot X="276.2319" Y="-73.36841" Z="24.6786" />
+						<Hotspot X="263.1737" Y="-76.61301" Z="24.6786" />
+						<Hotspot X="245.2701" Y="-29.36685" Z="24.6786" />
+						<Hotspot X="260.0385" Y="-24.14384" Z="24.6786" />
+						<Hotspot X="266.2324" Y="-42.98997" Z="24.6786" />
+						<Hotspot X="296.5763" Y="-34.55842" Z="24.6786" />
+						<Hotspot X="352.5362" Y="-38.24547" Z="24.67883" />
+						<Hotspot X="358.686" Y="-69.34573" Z="23.69633" />
+						<Hotspot X="382.1706" Y="-56.84242" Z="22.75489" />
+						<Hotspot X="395.3263" Y="-37.56013" Z="22.75489" />
+						<Hotspot X="383.3587" Y="-15.77691" Z="24.67867" />
+						<Hotspot X="386.0763" Y="-0.2835319" Z="23.59383" />
+						<Hotspot X="371.6708" Y="25.33858" Z="22.7549" />
+						<Hotspot X="378.5731" Y="95.42772" Z="30.74201" />
+						<Hotspot X="365.0839" Y="122.8134" Z="30.7506" />
+						<Hotspot X="348.6261" Y="157.3799" Z="30.76096" />
+						<Hotspot X="330.9978" Y="210.5361" Z="30.80884" />
+						<Hotspot X="299.9034" Y="200.461" Z="30.78679" />
+						<Hotspot X="304.9693" Y="180.07" Z="30.78259" />
+						<Hotspot X="324.774" Y="169.6457" Z="30.79179" />
+						<Hotspot X="377.3031" Y="188.1947" Z="30.77575" />
+						<Hotspot X="394.8755" Y="148.6558" Z="30.77575" />
+						<Hotspot X="334.6113" Y="100.6471" Z="31.47871" />
+						<Hotspot X="376.7028" Y="99.10166" Z="30.76472" />
+						<Hotspot X="382.0772" Y="82.20326" Z="30.74201" />
+						<Hotspot X="374.5533" Y="47.22518" Z="24.67863" />
+						<Hotspot X="346.2146" Y="-0.1380673" Z="24.67863" />
+						<Hotspot X="332.3909" Y="-4.49745" Z="23.35688" />
+						<Hotspot X="301.9947" Y="-37.41365" Z="24.6776" />
+						<Hotspot X="268.4207" Y="-48.32119" Z="24.6776" />
+					</CustomBehavior>
+					<RunTo X="268.4207" Y="-48.32119" Z="24.6776" />
 					
-					<!-- go back to quest giver to tag rafs 1 -->
+					<!-- Door exiting the dragon room -->			
+					<RunTo X="343.5064" Y="200.5753" Z="30.79766" />	
+					
+					<!-- Pulling dragon room exit to the stairs and back to the entrance -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="326.6677" Y="235.3129" Z="30.74946" />
+						<Hotspot X="298.2174" Y="241.5269" Z="33.32719" />
+						<Hotspot X="266.1713" Y="232.7287" Z="42.86861" />
+						<Hotspot X="215.6643" Y="251.3588" Z="42.61039" />
+						<Hotspot X="162.4235" Y="253.4564" Z="42.86706" />
+						<Hotspot X="149.214" Y="255.8797" Z="42.86706" />
+						<Hotspot X="122.4984" Y="256.0259" Z="42.86706" />
+						<Hotspot X="97.67511" Y="235.5885" Z="44.32104" />
+						<Hotspot X="88.03407" Y="225.1401" Z="49.37333" />
+						<Hotspot X="80.02947" Y="174.5646" Z="49.4273" />
+						<Hotspot X="94.73685" Y="126.3005" Z="65.50705" />
+						<Hotspot X="105.8178" Y="95.21774" Z="65.50319" />
+						<Hotspot X="128.2056" Y="60.24764" Z="65.69898" />
+						<Hotspot X="173.9289" Y="75.28208" Z="74.26762" />
+						<Hotspot X="99.3903" Y="49.08234" Z="65.69655" />
+						<Hotspot X="131.8" Y="81.46413" Z="65.71198" />
+						<Hotspot X="102.786" Y="101.8793" Z="65.43913" />
+						<Hotspot X="79.47146" Y="172.4268" Z="49.45479" />
+						<Hotspot X="65.08689" Y="185.9643" Z="49.34803" />
+						<Hotspot X="99.92897" Y="189.8501" Z="49.37481" />
+						<Hotspot X="68.98772" Y="216.2412" Z="49.36885" />
+						<Hotspot X="112.6718" Y="241.0676" Z="42.86602" />
+						<Hotspot X="72.37411" Y="251.4794" Z="42.86637" />
+						<Hotspot X="97.98583" Y="262.1203" Z="42.86654" />
+						<Hotspot X="123.5461" Y="248.1584" Z="42.86847" />
+						<Hotspot X="126.6185" Y="278.0265" Z="42.86706" />
+						<Hotspot X="136.57" Y="282.0256" Z="42.86706" />
+						<Hotspot X="148.4396" Y="280.7853" Z="42.86706" />
+						<Hotspot X="158.1181" Y="256.8822" Z="42.86706" />
+						<Hotspot X="177.5091" Y="240.1894" Z="42.8652" />
+						<Hotspot X="194.2373" Y="194.7356" Z="40.8153" />
+						<Hotspot X="271.9197" Y="234.9679" Z="42.86849" />
+						<Hotspot X="331.0042" Y="254.7022" Z="30.74526" />
+						<Hotspot X="332.2436" Y="233.4262" Z="30.74179" />
+						<Hotspot X="380.8376" Y="89.37896" Z="30.74182" />
+						<Hotspot X="374.8082" Y="49.47389" Z="24.67865" />
+						<Hotspot X="299.4561" Y="-39.35659" Z="24.67711" />
+						<Hotspot X="283.7094" Y="-44.19007" Z="24.67711" />
+						<Hotspot X="268.4207" Y="-48.32119" Z="24.6776" />
+					</CustomBehavior>
+					<RunTo X="268.4207" Y="-48.32119" Z="24.6776" />
+					
+					<!-- go back to tag rafs 1 -->
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs."
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs -->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />				
-									
-					<!-- INSERT YOUR CODE HERE -->
-					
-					<!-- go back to tag rafs 2 -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
-									LogColor="Fuchsia" />
-									
-					<!-- tag rafs -->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />				
-									
-					<!-- INSERT YOUR CODE HERE -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+								
+					<!-- runto the stairs -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
 					
 					<!-- go back to tag rafs 3 -->
 					<CustomBehavior File="Message" 
