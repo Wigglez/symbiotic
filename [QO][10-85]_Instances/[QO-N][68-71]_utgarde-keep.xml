@@ -272,18 +272,6 @@
 									LogColor="Lime" />
 									
 					<RunTo X="102.3544" Y="103.3715" Z="65.44383" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the rafs."
-									LogColor="Fuchsia" />
-					
-					<!-- Continue when tagged -->	
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-									
-					<!-- Wait 5 seconds -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
 									
 					<RunTo X="100.1868" Y="63.91549" Z="65.70526" />
 					<RunTo X="85.67122" Y="111.5701" Z="87.29217" />
@@ -309,20 +297,7 @@
 									Text="Moving to the top of the stairs."
 									LogColor="Lime" />
 					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
-					
-					<!-- Continue when tagged -->	
-					<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the RAFs."
-									LogColor="Fuchsia" />
-					
-					<!--Wait for tag from rafs  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
 									
-					<!-- Wait 5 seconds -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />				
-					
 					<!-- Clearing last few adds to 2nd boss -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -400,20 +375,7 @@
 									Text="Moving to the 3rd floor."
 									LogColor="Lime" />					
 					<RunTo X="240.6593" Y="-18.62593" Z="178.5074" />
-					
-					<!-- Print message, waiting to be tagged -->	
-					<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the RAFs."
-									LogColor="Fuchsia" />
-									
-					<!-- Continue when tagged -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-									
-					<!-- Wait 5 seconds -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />				
-					
+								
 					<!-- Clearing 3rd floor to last boss -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -451,20 +413,9 @@
 					<CustomBehavior File="Message" 
 									Text="Moving to the last boss."
 									LogColor="Lime" />
+									
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
-					
-					<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the RAFs."
-									LogColor="Fuchsia" />
-									
-					<!--Wait for tag from rafs  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-					
-					<!-- Wait 5 seconds -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />					
-									
+																			
 					<!-- Kill Ingvar the Plunderer -->				
 					<RunTo X="242.6771" Y="-333.5949" Z="180.4546" />
 
@@ -709,17 +660,13 @@
 					
 					<!-- Wait 30 seconds for seperation	-->				
 					<CustomBehavior File="WaitTimer"
-									WaitTime="30000" />
+									WaitTime="20000" />
 
 					<!-- last archway before the stairs -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the archway, to tag the Booster."
+									Text="Moving to the archway."
 									LogColor="Lime" />	
 					<RunTo X="102.3544" Y="103.3715" Z="65.44383" />
-					
-					<!-- Wait 20 seconds for seperation	-->	
-					<CustomBehavior File="WaitTimer"
-									WaitTime="20000" />
 									
 					<!-- Print message, waiting to be tagged -->				
 					<CustomBehavior File="Message" 
@@ -732,18 +679,14 @@
 									
 					<!-- Wait 30 seconds for seperation	-->				
 					<CustomBehavior File="WaitTimer"
-									WaitTime="30000" />				
+									WaitTime="20000" />				
 													
 					<!-- run to top of stairs -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the top of the stairs to tag the Booster."
+									Text="Moving to the top of the stairs."
 									LogColor="Lime" />
 					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
 
-					<!-- wait 15 seconds for seperation -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="20000" />
-					
 					<!-- Print message, waiting to be tagged -->					
 					<CustomBehavior File="Message" 
 									Text="Waiting to be tagged by the Booster."
@@ -759,13 +702,9 @@
 									
 					<!-- run to 3rd floor -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the 3rd floor to tag the Booster."
+									Text="Moving to the 3rd floor."
 									LogColor="Lime" />
 					<RunTo X="240.6593" Y="-18.62593" Z="178.5074" />
-					
-					<!-- wait 15 seconds for seperation -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="15000" />
 									
 					<!-- Print message, waiting to be tagged -->				
 					<CustomBehavior File="Message" 
@@ -782,14 +721,10 @@
 									
 					<!-- run to end of the last grid before Ingvar the Plunderer -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the last boss to tag the Booster."
+									Text="Moving to the last boss."
 									LogColor="Lime" />
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
-					
-					<!-- wait 15 seconds for seperation -->
-					<CustomBehavior File="WaitTimer"
-									WaitTime="15000" />
-					
+										
 					<!-- Print message, waiting to be tagged -->
 					<CustomBehavior File="Message" 
 									Text="Waiting to be tagged by the Booster."
