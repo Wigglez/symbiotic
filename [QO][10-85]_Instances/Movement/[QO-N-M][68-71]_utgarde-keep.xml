@@ -488,7 +488,7 @@
 								LogColor="Lime" />
 				
 				<!-- Fly outside of Utgarde Keep at rendezvous -->
-				<CustomBehavior File="FlyTo" X="1005.349" Y="-4938.246" Z="123.6585" />
+				<CustomBehavior File="FlyTo" X="1052.257" Y="-5154.455" Z="100.2053" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
@@ -497,12 +497,10 @@
 								WaitTime="10000" />
 								
 				<!-- Fly down -->
-				<CustomBehavior File="FlyTo" X="-3362.315" Y="4869.151" Z="-54.88341" />
-
-				<!-- Fly into box -->
-				<CustomBehavior File="FlyTo" X="1101.095" Y="-4904.328" Z="41.24822" />
+				<CustomBehavior File="FlyTo" X="1133.588" Y="-4971.883" Z="28.64939" />
 				<CustomBehavior File="ForcedDismount" />
 				
+				<!-- Run to instance box -->
 				<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />
 			</If> <!-- Northrend -->
 			
@@ -869,7 +867,7 @@
 								LogColor="Lime" />
 				
 				<!-- Fly outside of Utgarde Keep at rendezvous -->
-				<CustomBehavior File="FlyTo" X="1005.349" Y="-4938.246" Z="123.6585" />
+				<CustomBehavior File="FlyTo" X="1052.257" Y="-5154.455" Z="100.2053" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
@@ -878,12 +876,10 @@
 								WaitTime="10000" />
 								
 				<!-- Fly down -->
-				<CustomBehavior File="FlyTo" X="-3362.315" Y="4869.151" Z="-54.88341" />
-
-				<!-- Fly into box -->
-				<CustomBehavior File="FlyTo" X="1101.095" Y="-4904.328" Z="41.24822" />
+				<CustomBehavior File="FlyTo" X="1133.588" Y="-4971.883" Z="28.64939" />
 				<CustomBehavior File="ForcedDismount" />
 				
+				<!-- Run to instance box -->
 				<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />
 			</If> <!-- Northrend -->
 			
