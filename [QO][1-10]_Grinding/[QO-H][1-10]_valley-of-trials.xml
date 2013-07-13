@@ -186,8 +186,8 @@
 				<!-- Bloodhoof Village fp -->
 				<CustomBehavior File="NoCombatMoveTo" X="-2299.54" Y="-379.069" Z="-9.11829" />
 				
-				<!-- Orgrimmar fp -->
-				<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
+				<!-- Thunder Bluff fp -->
+				<RunTo X="-1195.865" Y="28.09892" Z="176.949" />
 			</If> <!-- Mulgore -->
 			
 			<!-- Thunder Bluff -->
@@ -354,8 +354,6 @@
 								<Hotspot X="-269.1379" Y="-5107.274" Z="25.24518" />
 								<Hotspot X="-240.8512" Y="-5115.523" Z="25.24518" />
 								<Hotspot X="-244.3746" Y="-5113.045" Z="34.06549" />
-								<Hotspot X="-229.3941" Y="-5096.423" Z="41.34731" />
-								<Hotspot X="-247.0835" Y="-5116.497" Z="42.64071" />
 							</Hotspots>
 						</GrindArea>
 					</SetGrindArea>		
@@ -421,11 +419,11 @@
 										Text="Moving to Orgrimmar." 
 										LogColor="Lime" />
 										
+						<!-- Front doorway of the inn -->	
+						<RunTo X="1569.392" Y="-4426.286" Z="14.43938" />					
+										
 						<!-- Orgrimmar -->
 						<If Condition="Me.ZoneId == 1637">
-							<!-- Front doorway of the inn -->	
-							<RunTo X="1569.392" Y="-4426.286" Z="14.43938" />	
-
 							<!-- Run inside -->
 							<RunTo X="1572.79" Y="-4437.783" Z="16.05454" />
 							
