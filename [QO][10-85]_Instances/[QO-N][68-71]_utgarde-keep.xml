@@ -695,7 +695,15 @@
 					<!-- Print message, waiting to be tagged -->				
 					<CustomBehavior File="Message" 
 									Text="Waiting to be tagged by the Booster."
-									LogColor="Fuchsia" />				
+									LogColor="Fuchsia" />
+
+					<!-- Continue when tagged -->				
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+
+					<!-- Wait 20 seconds for seperation	-->				
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />					
 									
 					<!-- last archway before the stairs -->
 					<CustomBehavior File="Message" 
@@ -712,7 +720,7 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 									
-					<!-- Wait 30 seconds for seperation	-->				
+					<!-- Wait 20 seconds for seperation	-->				
 					<CustomBehavior File="WaitTimer"
 									WaitTime="20000" />				
 													
