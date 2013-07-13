@@ -26,7 +26,7 @@
 		<AvoidMob Name="Thuros Lightfingers" Entry="61" />
 		<AvoidMob Name="Ritualist Tarak" Entry="43363" />
 		<AvoidMob Name="Overlord Barbarius" Entry="43369" />
-		 
+		<AvoidMob Name="Lieutenant Palliter" Entry="39269" />
 	</AvoidMobs>
 	
 	<Blackspots>
@@ -210,6 +210,40 @@
 				<CustomBehavior File="Message" 
 								Text="We are in Orgrimmar." 
 								LogColor="Cyan" />
+								
+				<!-- Hearth -->
+				<If Condition="Me.HearthstoneAreaId != 5170">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+									LogColor="Lime" />
+									
+					<!-- Front doorway of the inn -->	
+					<RunTo X="1569.392" Y="-4426.286" Z="14.43938" />	
+
+					<!-- Run inside -->
+					<RunTo X="1572.79" Y="-4437.783" Z="16.05454" />
+					
+					<!-- Set hearthstone -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
+					<CustomBehavior File="Message" 
+									Text="Setting my Hearthstone." 
+									LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
+					<CustomBehavior File="SetHearthstone" 
+									MobId="6929" 
+									X="1573.266" Y="-4439.158" Z="16.0564" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to Razor Hill." 
+									LogColor="Lime" />
+							
+					<!-- Run to Razor Hill to ensure we are on the road -->
+					<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
+				</If> <!-- Hearth -->
 							
 				<CustomBehavior File="Message" 
 								Text="Moving to Durotar." 
@@ -331,6 +365,10 @@
 					<CustomBehavior File="Message" 
 									Text="We are level 8-10." 
 									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to harpies." 
+									LogColor="Lime" />
 							
 					<!-- Go to harpies -->
 					<RunTo X="765.6198" Y="-4593.261" Z="0.4315682" />
