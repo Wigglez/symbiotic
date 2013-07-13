@@ -346,7 +346,14 @@
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to the archway after Dalronn the Controller on the second floor."
+									LogColor="Lime" />
+
+					<!-- Archway after Dalronn the Controller -->				
 					<RunTo X="189.9952" Y="-11.27923" Z="134.9524" />
+					
 					<RunTo X="242.0447" Y="18.286" Z="135.1837" />
 					<RunTo X="225.4603" Y="-12.95229" Z="135.1987" />
 					<RunTo X="175.5674" Y="-26.18713" Z="156.861" />
@@ -359,14 +366,14 @@
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs at the archway after Dalronn the Controller."
 									LogColor="Fuchsia" />
-					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
+					<RunTo X="189.9952" Y="-11.27923" Z="134.9524" />
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
 									
 					<!-- Run to top of stairs on the third floor -->
-					<RunTo X="231.2057" Y="12.58769" Z="178.5074" />
+					<RunTo X="231.7499" Y="12.63654" Z="178.5064" />
 					
 					<!-- Clearing to the top of the 3rd floor -->
 					<CustomBehavior File="RunLikeHell" 
@@ -650,7 +657,7 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 					
-					<!-- Wait 30 seconds for seperation	-->				
+					<!-- Wait 20 seconds for seperation	-->				
 					<CustomBehavior File="WaitTimer"
 									WaitTime="20000" />
 
@@ -675,7 +682,7 @@
 													
 					<!-- run to top of stairs -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the top of the stairs."
+									Text="Moving to the top of the stairs before Dalronn the Controller.."
 									LogColor="Lime" />
 					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
 
@@ -706,9 +713,9 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />	
 									
-					<!-- wait 20 seconds for seperation -->
+					<!-- wait 30 seconds for seperation -->
 					<CustomBehavior File="WaitTimer"
-									WaitTime="20000" />					
+									WaitTime="30000" />					
 									
 					<!-- run to 3rd floor -->
 					<CustomBehavior File="Message" 
