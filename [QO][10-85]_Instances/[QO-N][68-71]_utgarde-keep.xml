@@ -321,6 +321,7 @@
 						<Hotspot X="26.18536" Y="3.222242" Z="115.0293" />
 						<Hotspot X="50.89161" Y="-4.759247" Z="118.7753" />
 						<Hotspot X="43.65084" Y="-33.2976" Z="118.7753" />
+						<Hotspot X="103.7043" Y="262.048" Z="42.86838" />
 						<Hotspot X="35.77662" Y="3.681674" Z="115.0293" />
 						<Hotspot X="38.67226" Y="28.96708" Z="115.0293" />
 					</CustomBehavior>
@@ -426,7 +427,8 @@
 					<CustomBehavior File="Message" 
 									Text="Moving to Ingvar the Plunderer."
 									LogColor="Lime" />
-									
+					
+					<RunTo X="258.51" Y="-150.7099" Z="190.1933" />
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
 																	
 					<!-- Kill Ingvar the Plunderer -->	
@@ -790,7 +792,8 @@
 					<CustomBehavior File="Message" 
 									Text="Moving to Ingvar the Plunderer."
 									LogColor="Lime" />
-									
+					
+					<RunTo X="258.51" Y="-150.7099" Z="190.1933" />					
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
 										
 					<!-- Print message, waiting to be tagged -->
