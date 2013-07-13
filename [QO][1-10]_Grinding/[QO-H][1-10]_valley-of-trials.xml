@@ -201,7 +201,7 @@
 								LogColor="Lime" />
 				
 				<!-- Copper check -->
-				<If Condition="Me.Copper &gt;= 40">
+				<If Condition="Me.Copper &gt;= 50">
 					<!-- Thunder Bluff fp -->
 					<RunTo X="-1195.865" Y="28.09892" Z="176.949" />
 					
@@ -210,7 +210,7 @@
 					
 					<Else>
 						<CustomBehavior File="Message" 
-										Text="You need 40 copper in order to use this flight path. Try again when you get enough." 
+										Text="You need 50 copper in order to use this flight path. Try again when you get enough." 
 										LogColor="Lime" />
 					</Else>
 				</If> <!-- Copper check -->
