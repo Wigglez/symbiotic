@@ -373,6 +373,10 @@
 									WaitTime="5000" />
 									
 					<!-- Run to top of stairs on the third floor -->
+					<CustomBehavior File="Message" 
+									Text="Moving to top of stairs on the third floor."
+									LogColor="Fuchsia" />
+									
 					<RunTo X="231.7499" Y="12.63654" Z="178.5064" />
 					
 					<!-- Clearing to the top of the 3rd floor -->
@@ -410,19 +414,27 @@
 									
 					<!-- run to end of the last grid before Ingvar the Plunderer -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the last boss."
+									Text="Moving to Ingvar the Plunderer."
 									LogColor="Lime" />
 									
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
-																			
-					<!-- Kill Ingvar the Plunderer -->				
+																	
+					<!-- Kill Ingvar the Plunderer -->	
+					<CustomBehavior File="Message" 
+									Text="Killing Ingvar the Plunderer."
+									LogColor="Lime" />
+									
 					<RunTo X="242.6771" Y="-333.5949" Z="180.4546" />
 
-					<!-- Wait 45 seconds for boss to respawn -->
+					<!-- Wait 25 seconds for boss to respawn -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="45000" />
+									WaitTime="25000" />
 									
 					<!-- tag rafs at last boss -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at Ingvar the Plunderer."
+									LogColor="Lime" />
+									
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />				
 					
 					<!-- Wait 5 seconds -->					
@@ -430,9 +442,17 @@
 									WaitTime="5000" />
 
 					<!-- Run to jump off spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the elevator shaft."
+									LogColor="Lime" />
+									
 					<Runto X="142.8705" Y="-128.3926" Z="169.8036" />
 					
 					<!-- First jump  -->
+					<CustomBehavior File="Message" 
+									Text="Jumping off and moving to the entrance."
+									LogColor="Lime" />
+									
 					<CustomBehavior File="MyCTM" X="136.7477" Y="-110.1437" Z="88.35926" />
 					<CustomBehavior File="MyCTM" X="133.9567" Y="-138.254" Z="89.88945" />
 					<CustomBehavior File="MyCTM" X="148.9371" Y="-148.3119" Z="94.20316" />
@@ -721,6 +741,7 @@
 					<CustomBehavior File="Message" 
 									Text="Moving to the 3rd floor, top of the stairs."
 									LogColor="Lime" />
+									
 					<RunTo X="231.6748" Y="12.85049" Z="178.5074" />
 									
 					<!-- Print message, waiting to be tagged -->				
@@ -738,8 +759,9 @@
 									
 					<!-- run to end of the last grid before Ingvar the Plunderer -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the last boss."
+									Text="Moving to Ingvar the Plunderer."
 									LogColor="Lime" />
+									
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
 										
 					<!-- Print message, waiting to be tagged -->
@@ -756,9 +778,17 @@
 									WaitTime="20000" />
 					
 					<!-- Run to jump off spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the elevator shaft."
+									LogColor="Lime" />
+									
 					<Runto X="142.8705" Y="-128.3926" Z="169.8036" />
 					
 					<!-- First jump  -->
+					<CustomBehavior File="Message" 
+									Text="Jumping off and moving to the entrance."
+									LogColor="Lime" />
+									
 					<CustomBehavior File="MyCTM" X="136.7477" Y="-110.1437" Z="88.35926" />
 					<CustomBehavior File="MyCTM" X="133.9567" Y="-138.254" Z="89.88945" />
 					<CustomBehavior File="MyCTM" X="148.9371" Y="-148.3119" Z="94.20316" />
@@ -770,7 +800,7 @@
 					<CustomBehavior File="MyCTM" X="210.0832" Y="-138.0555" Z="8.92478" />
 					
 					<!-- splash down -->
-					<RunTo X="181.3153" Y="-116.0487" Z="12.31178" />				
+					<RunTo X="181.3153" Y="-116.0487" Z="12.31178" />			
 									
 					<!-- Continue when tagged -->					
 					<CustomBehavior File="Misc\LoadProfileOn" 
