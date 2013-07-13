@@ -212,6 +212,11 @@
 					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
 									
+					<!-- dragon that spawns after the pull -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the dragon that spawns after the pull."
+									LogColor="Lime" />				
+									
 					<!-- dragon that spawns after the pull -->			
 					<RunTo X="372.033" Y="179.8911" Z="30.77715" />	
 					
