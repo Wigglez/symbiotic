@@ -89,7 +89,7 @@
 					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
@@ -117,7 +117,7 @@
 						<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="1236.811" Y="-4860.572" Z="41.2481" />
+						<CustomBehavior File="GoThruPortal" X="1236.811" Y="-4860.572" Z="41.2481" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -200,6 +200,21 @@
 					</CustomBehavior>
 					<RunTo X="268.4207" Y="-48.32119" Z="24.6776" />
 					
+					<!-- Print message tag rafs at entrance -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the entrance."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs at entrance -->
+					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<!-- dragon that spawns after the pull -->			
+					<RunTo X="372.033" Y="179.8911" Z="30.77715" />	
+					
 					<!-- Door exiting the dragon room -->			
 					<RunTo X="343.5064" Y="200.5753" Z="30.79766" />	
 					
@@ -241,30 +256,20 @@
 						<Hotspot X="194.2373" Y="194.7356" Z="40.8153" />
 						<Hotspot X="271.9197" Y="234.9679" Z="42.86849" />
 						<Hotspot X="331.0042" Y="254.7022" Z="30.74526" />
-						<Hotspot X="327.5298" Y="245.7959" Z="30.74875" />
-						<Hotspot X="376.167" Y="103.5125" Z="30.77335" />
-						<Hotspot X="382.2834" Y="78.31521" Z="30.74184" />
-						<Hotspot X="368.9846" Y="31.97808" Z="22.77418" />
-						<Hotspot X="297.1955" Y="-40.12238" Z="24.67757" />
-						<Hotspot X="245.1486" Y="-56.47287" Z="24.67757" />
-						<Hotspot X="265.6389" Y="-47.78044" Z="24.67757" />
 					</CustomBehavior>
-					<RunTo X="265.6389" Y="-47.78044" Z="24.67757" />
+					<RunTo X="331.0042" Y="254.7022" Z="30.74526" />
 					
-					<!-- tag rafs at entrance -->
+					<!-- Print message tag rafs at entrance -->
 					<CustomBehavior File="Message" 
-									Text="Tagging the RAFs at the entrance."
+									Text="Tagging the RAFs at the dragon that spawns after the pull."
 									LogColor="Fuchsia" />
 									
-					<!-- tag rafs at the horde quest giver-->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<!-- tag rafs at the dragon that spawns after the pull -->
+					<RunTo X="372.033" Y="179.8911" Z="30.77715" />	
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer"
-									WaitTime="5000" />
-									
-					<!-- dragon that spawns after the pull -->			
-					<RunTo X="372.033" Y="179.8911" Z="30.77715" />				
+									WaitTime="5000" />			
 								
 					<!-- last archway before the stairs -->
 					<CustomBehavior File="Message" 
@@ -326,12 +331,12 @@
 					<!-- Forces kill of Dalronn the Controller -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
-									EventX="96.02419" EventY="-39.87305" EventZ="118.7753"
+									EventX="104.0691" EventY="-40.09525" EventZ="118.8202"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
 									MoveAwayFromMobWithAuraId1="111111">
 						<Safespots>
-							<Hotspot X="96.02419" Y="-39.87305" Z="118.7753" />
+							<Hotspot X="104.0691" Y="-40.09525" Z="118.8202" />
 						</Safespots>
 					</CustomBehavior>
 					
@@ -364,7 +369,7 @@
 					
 					<!-- Tagging the rafs at the archway after Dalronn the Controller -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs at the archway after Dalronn the Controller."
+									Text="Tagging RAFs at the archway after Dalronn the Controller on the second floor.."
 									LogColor="Fuchsia" />
 					<RunTo X="189.9952" Y="-11.27923" Z="134.9524" />
 					
@@ -374,8 +379,8 @@
 									
 					<!-- Run to top of stairs on the third floor -->
 					<CustomBehavior File="Message" 
-									Text="Moving to top of stairs on the third floor."
-									LogColor="Fuchsia" />
+									Text="Moving to the 3rd floor, top of the stairs.."
+									LogColor="Lime" />
 									
 					<RunTo X="231.7499" Y="12.63654" Z="178.5064" />
 					
@@ -402,7 +407,7 @@
 					
 					<!-- tag rafs -->
 					<CustomBehavior File="Message" 
-									Text="Tagging the RAFs at the top of the stairs on the third floor."
+									Text="Tagging the RAFs on the 3rd floor, top of the stairs."
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs at top of the stairs on the third floor -->
@@ -422,7 +427,7 @@
 					<!-- Kill Ingvar the Plunderer -->	
 					<CustomBehavior File="Message" 
 									Text="Killing Ingvar the Plunderer."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="242.6771" Y="-333.5949" Z="180.4546" />
 
@@ -433,7 +438,7 @@
 					<!-- tag rafs at last boss -->
 					<CustomBehavior File="Message" 
 									Text="Tagging the RAFs at Ingvar the Plunderer."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />				
 					
@@ -450,8 +455,8 @@
 					
 					<!-- First jump  -->
 					<CustomBehavior File="Message" 
-									Text="Jumping off and moving to the entrance."
-									LogColor="Lime" />
+									Text="Jumping off."
+									LogColor="Fuchsia" />
 									
 					<CustomBehavior File="MyCTM" X="136.7477" Y="-110.1437" Z="88.35926" />
 					<CustomBehavior File="MyCTM" X="133.9567" Y="-138.254" Z="89.88945" />
@@ -491,7 +496,7 @@
 					<RunTo X="157.878" Y="-84.7025" Z="12.55168" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
@@ -594,7 +599,7 @@
 					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
@@ -622,7 +627,7 @@
 						<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="1236.811" Y="-4860.572" Z="41.2481" />
+						<CustomBehavior File="GoThruPortal" X="1236.811" Y="-4860.572" Z="41.2481" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -680,7 +685,18 @@
 					<!-- Wait 20 seconds for seperation	-->				
 					<CustomBehavior File="WaitTimer"
 									WaitTime="20000" />
-
+									
+					<!-- dragon that spawns after the pull -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the dragon that spawns after the pull."
+									LogColor="Lime" />	
+					<RunTo X="372.033" Y="179.8911" Z="30.77715" />					
+									
+					<!-- Print message, waiting to be tagged -->				
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Fuchsia" />				
+									
 					<!-- last archway before the stairs -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the archway on the bottom floor."
@@ -702,7 +718,7 @@
 													
 					<!-- run to top of stairs -->
 					<CustomBehavior File="Message" 
-									Text="Moving to the top of the stairs before Dalronn the Controller.."
+									Text="Moving to the top of the stairs before Dalronn the Controller."
 									LogColor="Lime" />
 					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
 
@@ -786,8 +802,8 @@
 					
 					<!-- First jump  -->
 					<CustomBehavior File="Message" 
-									Text="Jumping off and moving to the entrance."
-									LogColor="Lime" />
+									Text="Jumping off."
+									LogColor="Fuchsia" />
 									
 					<CustomBehavior File="MyCTM" X="136.7477" Y="-110.1437" Z="88.35926" />
 					<CustomBehavior File="MyCTM" X="133.9567" Y="-138.254" Z="89.88945" />
@@ -828,7 +844,7 @@
 					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
