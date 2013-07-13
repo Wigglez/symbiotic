@@ -239,47 +239,106 @@
 						<Hotspot X="194.2373" Y="194.7356" Z="40.8153" />
 						<Hotspot X="271.9197" Y="234.9679" Z="42.86849" />
 						<Hotspot X="331.0042" Y="254.7022" Z="30.74526" />
-						<Hotspot X="332.2436" Y="233.4262" Z="30.74179" />
-						<Hotspot X="380.8376" Y="89.37896" Z="30.74182" />
-						<Hotspot X="374.8082" Y="49.47389" Z="24.67865" />
-						<Hotspot X="299.4561" Y="-39.35659" Z="24.67711" />
-						<Hotspot X="283.7094" Y="-44.19007" Z="24.67711" />
-						<Hotspot X="268.4207" Y="-48.32119" Z="24.6776" />
+						<Hotspot X="327.5298" Y="245.7959" Z="30.74875" />
+						<Hotspot X="376.167" Y="103.5125" Z="30.77335" />
+						<Hotspot X="382.2834" Y="78.31521" Z="30.74184" />
+						<Hotspot X="368.9846" Y="31.97808" Z="22.77418" />
+						<Hotspot X="297.1955" Y="-40.12238" Z="24.67757" />
+						<Hotspot X="245.1486" Y="-56.47287" Z="24.67757" />
+						<Hotspot X="265.6389" Y="-47.78044" Z="24.67757" />
 					</CustomBehavior>
-					<RunTo X="268.4207" Y="-48.32119" Z="24.6776" />
+					<RunTo X="265.6389" Y="-47.78044" Z="24.67757" />
 					
 					<!-- go back to tag rafs 1 -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
+									Text="Tagging RAFs at the entrance."
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs -->
 					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
 								
-					<!-- runto the stairs -->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<!-- last archway before the stairs -->
+					<RunTo X="102.3544" Y="103.3715" Z="65.44383" />
 					
-					<!-- go back to tag rafs 3 -->
+					<!--Wait for tag from rafs  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<RunTo X="100.1868" Y="63.91549" Z="65.70526" />
+					<RunTo X="85.67122" Y="111.5701" Z="87.29217" />
+					<RunTo X="110.6147" Y="119.2795" Z="87.30914" />
+					<RunTo X="126.9771" Y="70.74969" Z="109.0168" />
+					<RunTo X="102.9289" Y="46.84949" Z="109.0079" />
+					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
+					
+					<!-- tag rafs -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
+									Text="Tagging RAFs at the archway."
 									LogColor="Fuchsia" />
 									
-					<!-- tag rafs -->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />				
-									
-									
-					<!-- INSERT YOUR CODE HERE -->
+					<!-- tag rafs at the archway-->
+					<RunTo X="102.3544" Y="103.3715" Z="65.44383" />
+	
+					<!-- run to top of stairs -->
+					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
 					
-					<!-- go back to tag rafs 4 -->
+					<!--Wait for tag from rafs  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<!-- Clearing last few adds to 2nd boss -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="61.9173" Y="37.91229" Z="115.0356" />
+						<Hotspot X="27.11963" Y="23.20684" Z="115.0293" />
+						<Hotspot X="26.18536" Y="3.222242" Z="115.0293" />
+						<Hotspot X="50.89161" Y="-4.759247" Z="118.7753" />
+						<Hotspot X="43.65084" Y="-33.2976" Z="118.7753" />
+						<Hotspot X="35.77662" Y="3.681674" Z="115.0293" />
+						<Hotspot X="38.67226" Y="28.96708" Z="115.0293" />
+					</CustomBehavior>
+					<RunTo X="38.67226" Y="28.96708" Z="115.0293" />
+					
+					<!-- tag rafs -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
+									Text="Tagging RAFs at the top of the stairs."
 									LogColor="Fuchsia" />
 									
+					<!-- tag rafs at top of the stairs -->
+					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
+	
+					<!-- run to 2nd boss -->
+					<RunTo X="47.05112" Y="-22.67088" Z="118.7753" />
+					
+					<!--Wait for tag from rafs  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<!-- Forces kill of Dalronn the Controller -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
+									EventX="112.0226" EventY="-40.28646" EventZ="118.8607"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="112.0226" Y="-40.28646" Z="118.8607" />
+						</Safespots>
+					</CustomBehavior>
+					
 					<!-- tag rafs -->
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs at the 2nd boss."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs at 2nd boss -->
 					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
 					
 					<!-- INSERT YOUR CODE HERE -->
-										
+					<CustomBehavior File="UserSettings" StopBot="true" />
+					
 					<!-- go back to tag rafs 4 -->
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs."
