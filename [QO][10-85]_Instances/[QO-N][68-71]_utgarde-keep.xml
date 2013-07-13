@@ -155,13 +155,14 @@
 									Text="Utgarde Keep initialized."  
 									LogColor="Fuchsia" />
 				
+					<RunTo X="213.2209" Y="-70.22929" Z="24.6786" />
+					<RunTo X="211.1427" Y="-62.4604" Z="24.6786" />
+				
 					<!-- Pulling entrance to dragon room and back -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<Hotspot X="213.2209" Y="-70.22929" Z="24.6786" />
-						<Hotspot X="211.1427" Y="-62.4604" Z="24.6786" />
 						<Hotspot X="264.3714" Y="-59.10911" Z="24.6786" />
 						<Hotspot X="256.9926" Y="-42.26953" Z="24.6786" />
 						<Hotspot X="266.3639" Y="-47.85662" Z="24.6786" />
@@ -300,14 +301,29 @@
 						<Hotspot X="38.67226" Y="28.96708" Z="115.0293" />
 					</CustomBehavior>
 					<RunTo X="38.67226" Y="28.96708" Z="115.0293" />
-					
-					<!-- tag rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs at the top of the stairs."
-									LogColor="Fuchsia" />
-									
-					<!-- tag rafs at top of the stairs -->
-					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
+								
+					<!-- Clearing to the top of the 3rd floor -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="162.4292" Y="-21.25895" Z="135.0132" />
+						<Hotspot X="241.3702" Y="18.55997" Z="135.1841" />
+						<Hotspot X="227.2072" Y="-9.712996" Z="135.1985" />
+						<Hotspot X="177.6304" Y="-25.48172" Z="156.8633" />
+						<Hotspot X="171.6009" Y="-8.766473" Z="156.819" />
+						<Hotspot X="218.9276" Y="7.911353" Z="178.5074" />
+						<Hotspot X="251.0241" Y="-11.17327" Z="178.5074" />
+						<Hotspot X="222.0481" Y="7.868458" Z="178.5074" />
+						<Hotspot X="172.1746" Y="-8.570848" Z="156.8184" />
+						<Hotspot X="179.9624" Y="-26.39632" Z="156.8776" />
+						<Hotspot X="232.0775" Y="-9.324567" Z="135.1978" />
+						<Hotspot X="224.3453" Y="9.188961" Z="135.1992" />
+						<Hotspot X="185.8501" Y="-13.6167" Z="134.9443" />
+						<Hotspot X="95.61926" Y="-43.59451" Z="118.7764" />
+						<Hotspot X="116.3702" Y="-36.97009" Z="119.0287" />
+					</CustomBehavior>
+					<RunTo X="116.3702" Y="-36.97009" Z="119.0287" />
 	
 					<!-- run to 2nd boss -->
 					<RunTo X="47.05112" Y="-22.67088" Z="118.7753" />
@@ -316,17 +332,49 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 					
+					<!-- Forces kill of Dalronn the Controller -->					
+				<!--	<CustomBehavior File="TargetAndMoveToMob" 
+									MoveWithinMaxRangeOfMob="1"
+									MobId="27389" >
+						 <HuntingGrounds>
+							 <Hotspot X="115.5707" Y="-38.51124" Z="119.0286" />
+						  </HuntingGrounds>
+					  </CustomBehavior> -->
+					  
 					<!-- Forces kill of Dalronn the Controller -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
-									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
-									EventX="112.0226" EventY="-40.28646" EventZ="118.8607"
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="27389"
+									EventX="115.5707" EventY="-38.51124" EventZ="119.0286"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
 									MoveAwayFromMobWithAuraId1="111111">
 						<Safespots>
-							<Hotspot X="112.0226" Y="-40.28646" Z="118.8607" />
+							<Hotspot X="115.5707" Y="-38.51124" Z="119.0286" />
 						</Safespots>
 					</CustomBehavior>
+					
+					<!-- Clearing to the top of the 3rd floor -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="162.4292" Y="-21.25895" Z="135.0132" />
+						<Hotspot X="241.3702" Y="18.55997" Z="135.1841" />
+						<Hotspot X="227.2072" Y="-9.712996" Z="135.1985" />
+						<Hotspot X="177.6304" Y="-25.48172" Z="156.8633" />
+						<Hotspot X="171.6009" Y="-8.766473" Z="156.819" />
+						<Hotspot X="218.9276" Y="7.911353" Z="178.5074" />
+						<Hotspot X="251.0241" Y="-11.17327" Z="178.5074" />
+						<Hotspot X="222.0481" Y="7.868458" Z="178.5074" />
+						<Hotspot X="172.1746" Y="-8.570848" Z="156.8184" />
+						<Hotspot X="179.9624" Y="-26.39632" Z="156.8776" />
+						<Hotspot X="232.0775" Y="-9.324567" Z="135.1978" />
+						<Hotspot X="224.3453" Y="9.188961" Z="135.1992" />
+						<Hotspot X="185.8501" Y="-13.6167" Z="134.9443" />
+						<Hotspot X="95.61926" Y="-43.59451" Z="118.7764" />
+						<Hotspot X="116.3702" Y="-36.97009" Z="119.0287" />
+					</CustomBehavior>
+					<RunTo X="116.3702" Y="-36.97009" Z="119.0287" />
 					
 					<!-- tag rafs -->
 					<CustomBehavior File="Message" 
@@ -334,21 +382,84 @@
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs at 2nd boss -->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
+					<RunTo X="47.05112" Y="-22.67088" Z="118.7753" />
 					
-					<!-- INSERT YOUR CODE HERE -->
-					<CustomBehavior File="UserSettings" StopBot="true" />
+					<!-- run to 3rd floor -->
+					<RunTo X="240.6593" Y="-18.62593" Z="178.5074" />
 					
-					<!-- go back to tag rafs 4 -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
-									LogColor="Fuchsia" />
-										
+					<!--Wait for tag from rafs  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<!-- Clearing 3rd floor to last boss -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="255.4401" Y="-64.00369" Z="190.6289" />
+						<Hotspot X="269.4743" Y="-103.0603" Z="190.3968" />
+						<Hotspot X="283.5982" Y="-154.067" Z="190.4109" />
+						<Hotspot X="256.4159" Y="-150.9872" Z="190.2864" />
+						<Hotspot X="231.3394" Y="-161.9095" Z="190.1121" />
+						<Hotspot X="221.1192" Y="-168.6918" Z="190.4147" />
+						<Hotspot X="199.3567" Y="-152.0004" Z="190.4635" />
+						<Hotspot X="154.6506" Y="-178.6765" Z="180.5014" />
+						<Hotspot X="201.9084" Y="-160.2283" Z="190.4649" />
+						<Hotspot X="227.0371" Y="-169.3564" Z="190.3866" />
+						<Hotspot X="268.2561" Y="-155.1769" Z="190.131" />
+						<Hotspot X="279.0225" Y="-120.7594" Z="190.4186" />
+						<Hotspot X="267.2401" Y="-89.24251" Z="190.4099" />
+					</CustomBehavior>
+					<RunTo X="267.2401" Y="-89.24251" Z="190.4099" />
+					
 					<!-- tag rafs -->
-					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
-					
+					<CustomBehavior File="Message" 
+									Text="Tagging RAFs at the top of the 3rd floor."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs at top of the 3rd floor -->
+					<RunTo X="240.6593" Y="-18.62593" Z="178.5074" />				
+									
+					<!-- run to end of the last grid before Ingvar the Plunderer -->
+					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
+									
+					<!--Wait for tag from rafs  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />				
+									
+					<!-- Kill Ingvar the Plunderer -->				
+					<RunTo X="242.6771" Y="-333.5949" Z="180.4546" />
+
+					<!-- Wait 45 seconds for boss to respawn -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="45000" />
+									
+					<!-- tag rafs at last boss -->
+					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />				
+									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
+
+					<!-- Run to jump off spot -->
+					<Runto X="142.596" Y="-127.7582" Z="169.8036" />
+					
+					<!-- Jump and complete next jump, stopa at instance entrance -->
+					<CustomBehavior File="MyCTM" X="134.2079" Y="-110.6276" Z="86.49059" />
+					<CustomBehavior File="MyCTM" X="133.6719" Y="-134.6064" Z="88.38535" />
+					<CustomBehavior File="MyCTM" X="134.357" Y="-138.7504" Z="90.10663" />
+					<CustomBehavior File="MyCTM" X="147.9691" Y="-150.0082" Z="94.20315" />
+					<CustomBehavior File="MyCTM" X="163.1097" Y="-166.5825" Z="6.92928" />
+					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+                    <CustomBehavior File="MyCTM" X="149.6457" Y="-170.1505" Z="6.410619" />					
+					<CustomBehavior File="MyCTM" X="182.3466" Y="-158.4426" Z="10.8668" />
+					<CustomBehavior File="MyCTM" X="209.9772" Y="-138.8611" Z="8.918727" />
+					
+					<!--Wait for tag from rafs  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />				
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -363,7 +474,7 @@
 									LogColor="Fuchsia" />
 				
 					<!-- Make our way to the exit -->
-					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
+					<RunTo X="157.878" Y="-84.7025" Z="12.55168" />
 
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
