@@ -179,12 +179,15 @@
 								LogColor="Cyan" />
 								
 				<CustomBehavior File="Message" 
-								Text="Moving to Thunder Bluff." 
+								Text="Moving to Bloodhoof Village." 
 								LogColor="Lime" />
 				
 					
-				<!-- Thunder Bluff fp -->
-				<CustomBehavior File="NoCombatMoveTo" X="-1195.865" Y="28.09892" Z="176.949" />
+				<!-- Bloodhoof Village fp -->
+				<CustomBehavior File="NoCombatMoveTo" X="-2299.54" Y="-379.069" Z="-9.11829" />
+				
+				<!-- Orgrimmar fp -->
+				<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
 			</If> <!-- Mulgore -->
 			
 			<!-- Thunder Bluff -->
@@ -269,7 +272,7 @@
 									LogColor="Lime" />	
 						
 					<!-- Go to boars -->
-					<RunTo X="-496.0468" Y="-4304.235" Z="41.63905" />
+					<CustomBehavior File="NoCombatMoveTo" X="-496.0468" Y="-4304.235" Z="41.63905" />
 					
 					<SetGrindArea>
 						<GrindArea>
@@ -296,7 +299,7 @@
 									LogColor="Lime" />	
 							
 					<!-- Go to imps -->
-					<RunTo X="-332.7863" Y="-4300.681" Z="56.38295" />
+					<CustomBehavior File="NoCombatMoveTo" X="-332.7863" Y="-4300.681" Z="56.38295" />
 					
 					<SetGrindArea>
 						<GrindArea>
@@ -332,7 +335,7 @@
 									LogColor="Lime" />	
 									
 					<!-- Go to guards -->
-					<RunTo X="-250.4299" Y="-4918.466" Z="26.3126" />
+					<CustomBehavior File="NoCombatMoveTo" X="-250.4299" Y="-4918.466" Z="26.3126" />
 					
 					<SetGrindArea>
 						<GrindArea>
@@ -371,7 +374,7 @@
 									LogColor="Lime" />
 							
 					<!-- Go to harpies -->
-					<RunTo X="765.6198" Y="-4593.261" Z="0.4315682" />
+					<CustomBehavior File="NoCombatMoveTo" X="765.6198" Y="-4593.261" Z="0.4315682" />
 					
 					<SetGrindArea>
 						<GrindArea>
