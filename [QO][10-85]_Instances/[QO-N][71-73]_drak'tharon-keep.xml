@@ -307,6 +307,14 @@
 					<!-- stairs before The Prophet Tharon'ja -->
 					<RunTo X="-237.2929" Y="-715.2191" Z="119.6006" />
 					
+					<!-- Wait timer to make sure all mobs are dead before initializing the getoutofgroundeffects QB -->
+					<CustomBehavior File="Message" 
+									Text="Waiting 10 second to ensure we don't have any aggro."
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
 					<!-- Forces kill of The Prophet Tharon'ja -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="26632"
