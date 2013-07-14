@@ -441,9 +441,9 @@
 									
 					<RunTo X="242.6771" Y="-333.5949" Z="180.4546" />
 
-					<!-- Wait 25 seconds for boss to respawn -->
+					<!-- Wait 35 seconds for boss to respawn -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="25000" />
+									WaitTime="35000" />
 									
 					<!-- tag rafs at last boss -->
 					<CustomBehavior File="Message" 
@@ -481,7 +481,7 @@
 					<!-- splash down -->
 					<RunTo X="181.3153" Y="-116.0487" Z="12.31178" />
 					
-					<!--Wait for tag from rafs  -->
+					<!-- Continue when tagged -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 					
@@ -688,7 +688,8 @@
 					<CustomBehavior File="Message" 
 									Text="Waiting to be tagged by the Booster."
 									LogColor="Fuchsia" />	
-					
+									
+					<!-- Continue when tagged -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 					

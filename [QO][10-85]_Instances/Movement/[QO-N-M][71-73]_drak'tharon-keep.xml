@@ -89,9 +89,10 @@
 
 				<!-- Go through the portal -->
 				<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
+								
+				<!-- run outside Utgarde Keep -->
+				<RunTo X="1181.553" Y="-5062.561" Z="23.57866" />
 				
-				<!-- Make sure we run to the right spot outside the potral -->
-				<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
 			</If> <!-- UK -->
 
 			<!-- Northrend -->
@@ -99,7 +100,7 @@
 				<CustomBehavior File="Message" 
 								Text="We are in Northrend." 
 								LogColor="Cyan" />
-								
+									
 				<!-- If our hearthstone is set here, use it -->
 				<If Condition="(Me.HearthstoneAreaId == 4204) || (Me.HearthstoneAreaId == 4206)">
 					<CustomBehavior File="Message" 
@@ -392,13 +393,18 @@
 
 				<!-- Go through the portal -->
 				<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
+								
+				<!-- run outside Utgarde Keep -->
+				<RunTo X="1181.553" Y="-5062.561" Z="23.57866" />
 				
-				<!-- Make sure we run to the right spot outside the potral -->
-				<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
 			</If> <!-- UK -->
 
 			<!-- Northrend -->
 			<If Condition="Me.MapId == 571">
+			
+				<!-- Fly to the  Utgarde Keep hover point -->
+				<CustomBehavior File="FlyTo" X="3444.486" Y="-2777.132" Z="282.1241" />	
+			
 				<CustomBehavior File="Message" 
 								Text="Flying to the rendezvous location." 
 								LogColor="Lime" />
