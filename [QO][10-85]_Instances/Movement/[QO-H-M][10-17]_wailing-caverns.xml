@@ -75,6 +75,7 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
+			
 			<!-- Outside the box -->
 			<If Condition="Me.X &lt; -750 || Me.X &gt; -700 || Me.Y &gt; -2190 || Me.Y &lt; -2240" >
 				<CustomBehavior File="Message" 
@@ -446,6 +447,20 @@
 									Text="We are not in the box." 
 									LogColor="Cyan" />
 									
+				<!-- Not in durotar -->			
+				<If Condition="Me.ZoneId != 14">
+					<CustomBehavior File="Message" 
+										Text="We are not in Durotar." 
+										LogColor="Cyan" />
+				
+						<CustomBehavior File="Message" 
+										Text="Moving to Razor Hill." 
+										LogColor="Lime" />
+										
+						<!-- Run to Razor Hill to ensure we are on the road -->
+						<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
+				</If> <!-- Not in durotar -->
+					
 				<!-- If we are in Durotar -->
 				<If Condition="Me.ZoneId == 14">
 					<CustomBehavior File="Message" 
@@ -473,6 +488,7 @@
 					<!-- Swim across the river -->
 					<CustomBehavior File="MyCTM" 
 									X="269.7013" Y="-3721.605" Z="19.61501" />
+						
 				</If> <!-- Durotar -->
 			
 				<If Condition="Me.ZoneId == 17">
