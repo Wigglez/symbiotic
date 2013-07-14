@@ -79,11 +79,20 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- Drak'Tharon Keep -->
-				<If Condition="Me.ZoneId == 4196">
+				<If Condition="Me.ZoneId == 4196" >
 					<CustomBehavior File="Message" 
 									Text="Drak'Tharon Keep detected. Running out."
 									LogColor="Fuchsia" />
-				
+									
+									
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
+					
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
@@ -154,16 +163,191 @@
 									Text="Drak'Tharon Keep initialized."  
 									LogColor="Fuchsia" />
 				
-					<!-- begin first pull -->
-					<!-- INSERT YOUR CODE HERE -->
+					<!-- kill first pack of mobs near the rafs -->
+					<RunTo X="-542.0549" Y="-580.2903" Z="1.070249" />
+				
+					<!-- Clear to first boss -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-521.8157" Y="-600.897" Z="1.111856" />
+						<Hotspot X="-483.0196" Y="-607.8966" Z="1.863342" />
+						<Hotspot X="-467.8199" Y="-598.7207" Z="1.916696" />
+						<Hotspot X="-416.4313" Y="-606.7646" Z="1.025609" />
+						<Hotspot X="-398.7973" Y="-598.9605" Z="1.025609" />
+						<Hotspot X="-357.4907" Y="-592.3278" Z="4.796331" />
+						<Hotspot X="-364.6906" Y="-602.4348" Z="2.274251" />
+						<Hotspot X="-347.9693" Y="-622.4708" Z="11.01171" />
+						<Hotspot X="-293.344" Y="-660.4799" Z="10.92391" />
+						<Hotspot X="-255.94" Y="-659.7068" Z="26.53073" />
+						<Hotspot X="-327.3265" Y="-660.283" Z="10.92393" />
+						<Hotspot X="-331.0493" Y="-638.2062" Z="11.78156" />
+						<Hotspot X="-370.4904" Y="-601.4912" Z="2.274103" />
+						<Hotspot X="-414.3878" Y="-602.2146" Z="1.02497" />
+						<Hotspot X="-442.0265" Y="-602.5194" Z="2.482818" />
+						<Hotspot X="-408.0646" Y="-601.3903" Z="1.025105" />
+					</CustomBehavior>
+					<RunTo X="-408.0646" Y="-601.3903" Z="1.025105" />
 					
-					<!-- go back to quest giver to tag rafs 1 -->
+					<!-- Profile message - tag rafs at quest givers -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
+									Text="Tagging the RAFs at the quest givers."
 									LogColor="Fuchsia" />
 									
-					<!-- tag rafs -->
-					<RunTo X="-524.327" Y="-527.0266" Z="11.00971" />				
+					<!-- tag rafs at quest givers -->
+					<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+					<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					<RunTo X="-524.327" Y="-527.0266" Z="11.00971" />
+					
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<!-- Profile message - RAF safe spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the RAF safe spot."
+									LogColor="Lime" />				
+									
+					<!-- Move to the RAF safe spot -->	
+					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+					<RunTo X="-408.0617" Y="-602.2345" Z="1.024964" />
+
+					<!-- Profile message - RAF safe spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to Trollgore."
+									LogColor="Lime" />
+					
+					<!-- Move to Trollgore -->			
+					<RunTo X="-268.2876" Y="-659.0545" Z="26.50841" />
+					
+					<!-- Move to the spider room door -->			
+					<RunTo X="-259.9194" Y="-683.222" Z="26.52256" />
+					
+					<!-- Clear spider room and 2nd boss -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-259.3499" Y="-716.9747" Z="26.87413" />
+						<Hotspot X="-244.0306" Y="-721.3815" Z="27.4628" />
+						<Hotspot X="-254.0482" Y="-733.3594" Z="27.34737" />
+						<Hotspot X="-263.0528" Y="-720.9879" Z="27.29211" />
+						<Hotspot X="-287.7119" Y="-727.4046" Z="27.29311" />
+						<Hotspot X="-281.5968" Y="-709.7533" Z="27.29191" />
+						<Hotspot X="-291.2065" Y="-717.9401" Z="27.5164" />
+						<Hotspot X="-311.6945" Y="-699.4586" Z="27.29193" />
+						<Hotspot X="-321.2089" Y="-704.3054" Z="27.29193" />
+						<Hotspot X="-346.9349" Y="-730.0336" Z="28.58102" />
+						<Hotspot X="-362.3076" Y="-737.4802" Z="28.15213" />
+						<Hotspot X="-376.4574" Y="-739.0514" Z="27.36148" />
+					</CustomBehavior>
+					<RunTo X="-376.4574" Y="-739.0514" Z="27.36148" />
+					
+					<!-- Run to the bat room -->
+					<RunTo X="-403.5953" Y="-669.6186" Z="26.6433" />
+					
+					<!-- Run to the raptor pen entrance -->
+					<RunTo X="-420.9976" Y="-653.9225" Z="28.57364" />
+					
+					<!-- Clear the court yard and raptor pens -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-449.7727" Y="-652.6895" Z="28.58741" />
+						<Hotspot X="-506.9333" Y="-652.4597" Z="30.24639" />
+						<Hotspot X="-498.7856" Y="-724.3376" Z="30.24639" />
+						<Hotspot X="-513.7322" Y="-727.3583" Z="30.24639" />
+						<Hotspot X="-530.3015" Y="-714.3569" Z="30.24639" />
+						<Hotspot X="-536.9069" Y="-718.0137" Z="30.24639" />
+						<Hotspot X="-527.9563" Y="-694.4902" Z="30.24639" />
+						<Hotspot X="-527.0722" Y="-648.8193" Z="30.24708" />
+						<Hotspot X="-532.189" Y="-659.5309" Z="30.24704" />
+						<Hotspot X="-542.4528" Y="-661.7868" Z="30.26336" />
+						<Hotspot X="-540.4228" Y="-671.2149" Z="30.28136" />
+						<Hotspot X="-555.6962" Y="-682.506" Z="30.59302" />
+						<Hotspot X="-553.4617" Y="-691.8896" Z="30.65157" />
+						<Hotspot X="-542.6622" Y="-697.3996" Z="30.2464" />
+						<Hotspot X="-511.0499" Y="-731.1823" Z="30.24639" />
+						<Hotspot X="-501.748" Y="-724.097" Z="30.24639" />
+						<Hotspot X="-477.8475" Y="-712.5348" Z="30.24638" />
+					</CustomBehavior>
+					<RunTo X="-477.8475" Y="-712.5348" Z="30.24638" />
+					
+					<!-- Clear all the trolls after the stairs -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-478.8665" Y="-703.3113" Z="30.24638" />
+						<Hotspot X="-478.5811" Y="-628.3248" Z="72.6098" />
+						<Hotspot X="-459.7407" Y="-613.7206" Z="72.60557" />
+						<Hotspot X="-441.5468" Y="-613.6649" Z="72.60557" />
+						<Hotspot X="-449.3318" Y="-603.9841" Z="72.60565" />
+						<Hotspot X="-435.5531" Y="-609.7417" Z="72.60615" />
+						<Hotspot X="-393.3585" Y="-609.5114" Z="72.60614" />
+						<Hotspot X="-420.1687" Y="-594.7627" Z="72.60654" />
+						<Hotspot X="-396.3507" Y="-610.1743" Z="72.60654" />
+						<Hotspot X="-321.6499" Y="-610.272" Z="72.60627" />
+						<Hotspot X="-344.3748" Y="-589.8085" Z="72.60754" />
+						<Hotspot X="-339.2408" Y="-604.463" Z="72.60754" />
+						<Hotspot X="-300.2365" Y="-612.9497" Z="72.58736" />
+						<Hotspot X="-300.294" Y="-681.4894" Z="101.8736" />
+						<Hotspot X="-279.3137" Y="-710.4179" Z="101.7833" />
+						<Hotspot X="-277.0927" Y="-737.9231" Z="101.787" />
+						<Hotspot X="-236.769" Y="-731.9543" Z="116.474" />
+					</CustomBehavior>
+					<RunTo X="-236.769" Y="-731.9543" Z="116.474" />
+					
+					<!-- stairs before The Prophet Tharon'ja -->
+					<RunTo X="-237.2929" Y="-715.2191" Z="119.6006" />
+					
+					<!-- Wait timer to make sure all mobs are dead before initializing the getoutofgroundeffects QB -->
+					<CustomBehavior File="Message" 
+									Text="Waiting 10 second to ensure we don't have any aggro."
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
+					<!-- Forces kill of The Prophet Tharon'ja -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="26632"
+									EventX="-236.8264" EventY="-675.4053" EventZ="131.8646"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-236.8264" Y="-675.4053" Z="131.8646" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Run to jump off -->
+					<RunTo X="-248.1425" Y="-619.7181" Z="115.0385" />
+					
+					<!-- CTM through the jumps -->
+					<CustomBehavior File="MyCTM" X="-270.4458" Y="-619.6866" Z="88.94628" />
+					<CustomBehavior File="MyCTM" X="-245.0662" Y="-620.4287" Z="90.78272" />
+					<CustomBehavior File="MyCTM" X="-240.3" Y="-628.9109" Z="90.78272" />
+					<CustomBehavior File="MyCTM" X="-240.3948" Y="-643.9131" Z="62.09402" />
+					<CustomBehavior File="MyCTM" X="-240.0644" Y="-619.6091" Z="65.70299" />
+					
+					<CustomBehavior File="MyCTM" X="-239.7152" Y="-608.5162" Z="8.55882" />
+					<CustomBehavior File="MyCTM" X="-237.3228" Y="-587.3304" Z="11.03301" />
+					<CustomBehavior File="MyCTM" X="-243.8241" Y="-579.5286" Z="11.0418" />
+					
+					<!-- tag the RAF's at the safe spot -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the safe spot."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs at the safe spot -->
+					<RunTo X="-408.0617" Y="-602.2345" Z="1.024964" />				
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -179,6 +363,14 @@
 					<CustomBehavior File="Message" 
 									Text="Drak'Tharon Keep detected. Running out to reset."
 									LogColor="Fuchsia" />
+				
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
 				
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
@@ -282,6 +474,14 @@
 									Text="Drak'Tharon Keep detected. Running out."
 									LogColor="Fuchsia" />
 				
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
+				
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
@@ -358,9 +558,40 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="60000" />
 					
+					<!-- Continue when tagged -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />				
+									
+					<!-- Profile message - RAF safe spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the RAF safe spot."
+									LogColor="Lime" />				
+									
+					<!-- Move to the RAF safe spot -->
+					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+					<RunTo X="-415.2246" Y="-602.2709" Z="1.02492" />
+					
+					<!-- Forces RAFs to stay put durring the King Dread pull -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="27483"
+									EventX="-408.0617" EventY="-602.2345" EventZ="1.024964"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-408.0617" Y="-602.2345" Z="1.024964" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Continue when tagged -->				
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />				
+
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="73" 
@@ -378,6 +609,14 @@
 					<CustomBehavior File="Message" 
 									Text="Drak'Tharon Keep detected. Running out."
 									LogColor="Fuchsia" />
+				
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
 				
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
