@@ -79,11 +79,20 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- Drak'Tharon Keep -->
-				<If Condition="Me.ZoneId == 4196">
+				<If Condition="Me.ZoneId == 4196" >
 					<CustomBehavior File="Message" 
 									Text="Drak'Tharon Keep detected. Running out."
 									LogColor="Fuchsia" />
-				
+									
+									
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
+					
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
@@ -187,6 +196,10 @@
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs at quest givers -->
+					<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+					<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
 					<RunTo X="-524.327" Y="-527.0266" Z="11.00971" />
 					
 					<!-- Wait 5 seconds -->
@@ -198,7 +211,10 @@
 									Text="Moving to the RAF safe spot."
 									LogColor="Lime" />				
 									
-					<!-- Move to the RAF safe spot -->			
+					<!-- Move to the RAF safe spot -->	
+					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
 					<RunTo X="-408.0617" Y="-602.2345" Z="1.024964" />
 
 					<!-- Profile message - RAF safe spot -->
@@ -291,7 +307,7 @@
 					<!-- stairs before The Prophet Tharon'ja -->
 					<RunTo X="-237.2929" Y="-715.2191" Z="119.6006" />
 					
-					<!-- Forces kill of Dalronn the Controller -->
+					<!-- Forces kill of The Prophet Tharon'ja -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="26632"
 									EventX="-236.8264" EventY="-675.4053" EventZ="131.8646"
@@ -339,6 +355,14 @@
 					<CustomBehavior File="Message" 
 									Text="Drak'Tharon Keep detected. Running out to reset."
 									LogColor="Fuchsia" />
+				
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
 				
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
@@ -442,6 +466,14 @@
 									Text="Drak'Tharon Keep detected. Running out."
 									LogColor="Fuchsia" />
 				
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
+				
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
@@ -530,9 +562,24 @@
 									Text="Moving to the RAF safe spot."
 									LogColor="Lime" />				
 									
-					<!-- Move to the RAF safe spot -->			
-					<RunTo X="-408.0617" Y="-602.2345" Z="1.024964" />				
-									
+					<!-- Move to the RAF safe spot -->
+					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+					<RunTo X="-415.2246" Y="-602.2709" Z="1.02492" />
+					
+					<!-- Forces RAFs to stay put durring the King Dread pull -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="27483"
+									EventX="-408.0617" EventY="-602.2345" EventZ="1.024964"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-408.0617" Y="-602.2345" Z="1.024964" />
+						</Safespots>
+					</CustomBehavior>
+					
 					<!-- Continue when tagged -->				
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />				
@@ -554,6 +601,14 @@
 					<CustomBehavior File="Message" 
 									Text="Drak'Tharon Keep detected. Running out."
 									LogColor="Fuchsia" />
+				
+					<!-- if we aren't at the quest givers, run to 3rd raised section -->				
+					<If Condition="Me.Y &lt; -536.2922" > 
+						<RunTo X="-531.3202" Y="-593.3092" Z="2.484553" />
+						<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
+						<CustomBehavior File="MyCTM" X="-540.216" Y="-554.3991" Z="2.485743" />
+						<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
+					</If>
 				
 					<!-- Make our way to the exit -->
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
