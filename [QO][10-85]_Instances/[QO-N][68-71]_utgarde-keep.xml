@@ -89,7 +89,7 @@
 					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
@@ -117,7 +117,7 @@
 						<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="GoThruPortal" X="1236.811" Y="-4860.572" Z="41.2481" />
+						<CustomBehavior File="MyCTM" X="1235.415" Y="-4856.671" Z="41.2481" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -195,8 +195,11 @@
 						<Hotspot X="374.5533" Y="47.22518" Z="24.67863" />
 						<Hotspot X="346.2146" Y="-0.1380673" Z="24.67863" />
 						<Hotspot X="332.3909" Y="-4.49745" Z="23.35688" />
+						<Hotspot X="351.1833" Y="-67.46191" Z="23.49109" />
+						<Hotspot X="307.1158" Y="-34.8167" Z="24.67702" />
 						<Hotspot X="301.9947" Y="-37.41365" Z="24.6776" />
 						<Hotspot X="268.4207" Y="-48.32119" Z="24.6776" />
+						<Hotspot X="271.1953" Y="-62.81267" Z="24.6779" />
 					</CustomBehavior>
 					<RunTo X="268.4207" Y="-48.32119" Z="24.6776" />
 					
@@ -321,7 +324,7 @@
 						<Hotspot X="26.18536" Y="3.222242" Z="115.0293" />
 						<Hotspot X="50.89161" Y="-4.759247" Z="118.7753" />
 						<Hotspot X="43.65084" Y="-33.2976" Z="118.7753" />
-						<Hotspot X="103.7043" Y="262.048" Z="42.86838" />
+						<Hotspot X="48.08628" Y="-31.13584" Z="118.7753" />
 						<Hotspot X="35.77662" Y="3.681674" Z="115.0293" />
 						<Hotspot X="38.67226" Y="28.96708" Z="115.0293" />
 					</CustomBehavior>
@@ -337,12 +340,12 @@
 					<!-- Forces kill of Dalronn the Controller -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
-									EventX="104.0691" EventY="-40.09525" EventZ="118.8202"
+									EventX="113.7051" EventY="-43.11048" EventZ="118.9771"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
 									MoveAwayFromMobWithAuraId1="111111">
 						<Safespots>
-							<Hotspot X="104.0691" Y="-40.09525" Z="118.8202" />
+							<Hotspot X="113.7051" Y="-43.11048" Z="118.9771" />
 						</Safespots>
 					</CustomBehavior>
 					
@@ -503,7 +506,7 @@
 					<RunTo X="157.878" Y="-84.7025" Z="12.55168" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
@@ -606,7 +609,7 @@
 					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
@@ -634,7 +637,7 @@
 						<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="GoThruPortal" X="1236.811" Y="-4860.572" Z="41.2481" />
+						<CustomBehavior File="MyCTM" X="1235.415" Y="-4856.671" Z="41.2481" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -860,7 +863,7 @@
 					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="GoThruPortal" X="147.1626" Y="-87.67013" Z="12.55168" />
+					<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
