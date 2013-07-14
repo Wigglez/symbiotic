@@ -350,7 +350,299 @@
 					<!-- Go to Razor Hill to buy some gear -->
 					<CustomBehavior File="NoCombatMoveTo" X="316.9291" Y="-4740.251" Z="9.559894" />
 					
+					<!-- 
+						3166	Cutac 						
+						<Cloth & Leather Armor Merchant>
+						X="367.8849" Y="-4770.914" Z="12.4702" />
+						
+						2364	Woven Vest					441
+						3606	Woven Belt					221
+						2366	Woven Pants					444
+						2367	Woven Boots					334
+						3607	Woven Bracers				221
+						2369	Woven Gloves				226
+						2370	Battered Leather Harness	450
+						2371	Battered Leather Belt		227
+						2372	Battered Leather Pants		410
+						2373	Battered Leather Boots		308
+						2374	Battered Leather Bracers	208
+						2375	Battered Leather Gloves		209
+						
+						
+						3167	Wuark
+						<Armorer and Shieldcrafter>
+						X="358.1284" Y="-4706.727" Z="14.39389" />
+						
+						2398	Light Chain Armor			431
+						2399	Light Chain Belt			217
+						2400	Light Chain Leggings		434
+						2401	Light Chain Boots			326
+						2402	Light Chain Bracers			220
+						2403	Light Chain Gloves			221
+						17185	Round Buckler				221
+						2376	Worn Heater Shield			381
+						2901	Mining Pick					69
+						30746	Mining Sack					85000
+						2880	Weak Flux					85
+						3466	Strong Flux					1700
+						3857	Coal						425
+						20815	Jeweler's Kit				680
+						
+						
+						3163	Uhgar						
+						<Weaponsmith>
+						X="381.653" Y="-4712.06" Z="16.03346" />
+						
+						2489	Two-Handed Sword			292
+						2492	Cudgel						243
+						2491	Large Axe					412
+						2494	Stiletto					342
+						2495	Walking Stick				430
+						2488	Gladius						456
+						2490	Tomahawk					459
+						2493	Wooden Mallet				596
+						
+						
+						3165	Ghrawt						
+						<Bowyer>
+						X="362.1046" Y="-4763.842" Z="12.46934" />
+						
+						2506	Hornwood Recurve Bow		243
+						2507	Laminated Recurve Bow		1490
+						
+					-->
+						
+					<!-- Cloth wearers -->
+					<If Condition="Me.Class == WoWClass.Mage || Me.Class == WoWClass.Priest || Me.Class == WoWClass.Warlock">
+						<If Condition="!HasItem(2364)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2364" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(3606)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="3606" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2366)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2366" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2367)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2367" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(3607)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="3607"
+											BuyItemCount="1"											
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2369)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2369" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						
+						
+						<If Condition="!HasItem(2495)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3163" 
+											BuyItemId="2495" 
+											BuyItemCount="1"
+											X="381.653" Y="-4712.06" Z="16.03346" />
+						</If>
+						
+					</If> <!-- Cloth wearers -->
 					
+					<!-- Leather wearers -->
+					<If Condition="Me.Class == WoWClass.Rogue || Me.Class == WoWClass.Monk || Me.Class == WoWClass.Druid || Me.Class == WoWClass.Shaman || Me.Class == WoWClass.Hunter">
+						<If Condition="!HasItem(2370)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2370"
+											BuyItemCount="1"											
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2371)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2371" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2372)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2372" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2373)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2373" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2374)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2374" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2375)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2375" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+					
+					
+						<If Condition="Me.Class == WoWClass.Rogue">
+							<If Condition="!HasItem(2494)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2494" 
+												BuyItemCount="2"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If> 
+						
+						<If Condition="Me.Class == WoWClass.Monk">
+							<If Condition="!HasItem(2492)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2492" 
+												BuyItemCount="2"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If> 
+						
+						<If Condition="Me.Class == WoWClass.Druid">
+							<If Condition="!HasItem(2495)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2495" 
+												BuyItemCount="1"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If>
+						
+						<If Condition="Me.Class == WoWClass.Shaman">
+							<If Condition="!HasItem(2492)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2492" 
+												BuyItemCount="2"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If>
+						
+						<If Condition="Me.Class == WoWClass.Hunter">
+							<If Condition="!HasItem(2506)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3165" 
+												BuyItemId="2506" 
+												BuyItemCount="1"
+												X="362.1046" Y="-4763.842" Z="12.46934" />
+							</If>
+						</If>
+					</If> <!-- Leather wearers -->
+					
+					<!-- Mail wearers -->
+					<If Condition="Me.Class == WoWClass.Paladin || Me.Class == WoWClass.Warrior">
+						<If Condition="!HasItem(2398)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2398" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2399)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2399" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2400)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2400" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2401)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2401" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2402)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2402" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2403)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2403" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2376)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2376" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2488)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3163" 
+											BuyItemId="2488" 
+											BuyItemCount="1"
+											X="381.653" Y="-4712.06" Z="16.03346" />
+						</If>
+					</If> <!-- Mail wearers -->
 									
 					<CustomBehavior File="Message" 
 									Text="Moving to Northwatch guards." 
