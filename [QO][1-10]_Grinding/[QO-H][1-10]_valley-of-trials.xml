@@ -52,7 +52,7 @@
 	<QuestOrder>
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
-		<If Condition="Me.Level &lt;= 90">
+		<If Condition="Me.Level &lt;= 85">
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Fuchsia" />
@@ -80,7 +80,7 @@
 							UseFlightPaths="True"
 							UseMount="True" 
 							UseRandomMount="False" />
-
+			
 			<!-- Sunstrider Isle / Eversong Woods / Ghostlands -->
 			<If Condition="Me.ZoneId == 6455 || Me.ZoneId == 3430 || Me.ZoneId == 3433">
 				<CustomBehavior File="Message" 
@@ -200,20 +200,12 @@
 								Text="Moving to Orgrimmar." 
 								LogColor="Lime" />
 				
-				<!-- Copper check -->
-				<If Condition="Me.Copper &gt;= 50">
-					<!-- Thunder Bluff fp -->
-					<RunTo X="-1195.865" Y="28.09892" Z="176.949" />
+				<!-- Thunder Bluff fp -->
+				<RunTo X="-1195.865" Y="28.09892" Z="176.949" />
+				
+				<!-- Orgrimmar fp -->
+				<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
 					
-					<!-- Orgrimmar fp -->
-					<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
-					
-					<Else>
-						<CustomBehavior File="Message" 
-										Text="You need 50 copper in order to use this flight path. Try again when you get enough." 
-										LogColor="Lime" />
-					</Else>
-				</If> <!-- Copper check -->
 				
 			</If> <!-- Thunder Bluff -->
 			
@@ -256,6 +248,8 @@
 					<!-- Run to Razor Hill to ensure we are on the road -->
 					<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
 				</If> <!-- Hearth -->
+				
+				
 							
 				<CustomBehavior File="Message" 
 								Text="Moving to Durotar." 
@@ -264,6 +258,16 @@
 				<!-- Run to Razor Hill to ensure we are on the road -->				
 				<CustomBehavior File="NoCombatMoveTo" X="316.9291" Y="-4740.251" Z="9.559894" />
 			</If> <!-- Orgrimmar -->
+			
+			<!-- Gold -->
+			<If Condition="Me.Gold &lt; 5">
+				<CustomBehavior File="Message" 
+								Text="You need at least 5 gold in order to utilize this profile's armor/weapon purchasing." 
+								LogColor="Red" />
+								
+				<CustomBehavior File="UserSettings" 
+								StopBot="true" />
+			</If> <!-- Gold -->
 
 			<CustomBehavior File="UserSettings"
 							PullDistance="30" />
@@ -338,6 +342,15 @@
 					<CustomBehavior File="Message" 
 									Text="We are level 6-8." 
 									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to Razor Hill to purchase equipment." 
+									LogColor="Lime" />	
+									
+					<!-- Go to Razor Hill to buy some gear -->
+					<CustomBehavior File="NoCombatMoveTo" X="316.9291" Y="-4740.251" Z="9.559894" />
+					
+					
 									
 					<CustomBehavior File="Message" 
 									Text="Moving to Northwatch guards." 
