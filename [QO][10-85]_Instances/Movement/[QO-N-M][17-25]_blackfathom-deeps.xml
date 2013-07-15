@@ -544,6 +544,11 @@
 					<!-- Run back to be tagged by the RAFs -->
 					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 					
+					<!-- profile message - Waiting to be tagged by the Booster -->				
+					<CustomBehavior File="Message" 
+										Text="Waiting to be tagged by the RAFs."
+										LogColor="Cyan" />				
+					
 					<!-- Starts clearing when all party members are present -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
@@ -564,6 +569,11 @@
 					<RunTo X="4265.676" Y="901.0992" Z="-14.67517" />
 					<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
 					
+					<!-- profile message - Backtracking to tag the RAF's -->				
+					<CustomBehavior File="Message" 
+										Text="Backtracking to tag the RAF's at the waters edge."
+										LogColor="Cyan" />
+					
 					<!-- Backtrack to tag rafs at the water -->
 					<RunTo X="4265.676" Y="901.0992" Z="-14.67517" />
 					<RunTo X="4247.462" Y="894.1875" Z="-9.661205" />
@@ -575,6 +585,10 @@
 					<RunTo X="4168.044" Y="943.3153" Z="-18.18281" />
 					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
 					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+					
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
 					
 					<!-- Return to tag last priestest on the right before sharp right turn -->
 					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
@@ -598,6 +612,11 @@
 					<RunTo X="4270.193" Y="840.4482" Z="-3.948083" />
 					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 					
+					<!-- profile message - Backtracking to tag the RAF's -->				
+					<CustomBehavior File="Message" 
+										Text="Backtracking to tag the RAF's at the priestes."
+										LogColor="Cyan" />
+					
 					<!-- Backtrack to tag rafs at the priestess before the water poolswater -->
 					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 					<RunTo X="4270.193" Y="840.4482" Z="-3.948083" />
@@ -608,6 +627,10 @@
 					<RunTo X="4312.006" Y="936.6387" Z="-18.55435" />
 					<RunTo X="4324.075" Y="917.1221" Z="-16.68373" />
 					<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
+					
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
 					
 					<!-- Return to the battle standards -->
 					<RunTo X="4324.075" Y="917.1221" Z="-16.68373" />
@@ -628,6 +651,11 @@
 					<RunTo X="4245.762" Y="737.5734" Z="-26.06444" />
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					
+					<!-- profile message - Backtracking to tag the RAF's -->				
+					<CustomBehavior File="Message" 
+										Text="Backtracking to tag the RAF's at the battlestandards."
+										LogColor="Cyan" />
+					
 					<!-- Backtrack to tag rafs at the battlestandards -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					<RunTo X="4245.762" Y="737.5734" Z="-26.06444" />
@@ -636,6 +664,10 @@
 					<RunTo X="4211.297" Y="745.782" Z="-23.71424" />
 					<RunTo X="4223.503" Y="743.3965" Z="-24.68176" />
 					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
+					
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
 					
 					<!-- Return to the instance box -->
 					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
@@ -1297,42 +1329,57 @@
 				<!-- Wait timer to allow wait 15 seconds for tag to reset -->
 				<CustomBehavior File="Message" 
 								Text="Waiting 15 seconds to reset the tag." />
-								
+											
 				<!-- Wait 15 seconds -->
 				<CustomBehavior File="WaitTimer" 
 											WaitTime="15000" />
+											
+				<!-- profile message - Waiting to be tagged by the Booster -->				
+				<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Cyan" />											
 								
 				<!-- 3rd tag move to the priestess -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="15" />
+								CheckRange="30" />
 								
-				<!-- Wait 15 seconds -->
+				<!-- Wait 20 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="15000" />				
+										WaitTime="20000" />				
 								
 				<!-- Priestess -->				
 				<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
+				
+				<!-- profile message - Waiting to be tagged by the Booster -->				
+				<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Cyan" />				
 				
 				<!-- 4th tag move to the battle standars -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
 								
-				<!-- Wait 10 seconds -->
+				<!-- Wait 20 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" />					
+										WaitTime="20000" />					
 								
 				<!-- battle standard -->				
 				<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
+				
+				<!-- profile message - Waiting to be tagged by the Booster -->				
+				<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Cyan" />				
 				
 				<!-- 5th tag move to the instance box -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
 								
-				<!-- Wait 15 seconds -->
+				<!-- Wait 20 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="15000" />					
+										WaitTime="20000" />					
 								
-				<!-- instance box -->				
+				<!-- Run to the instance box -->				
 				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 
 				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
