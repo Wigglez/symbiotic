@@ -664,6 +664,7 @@
 					<RunTo X="4211.297" Y="745.782" Z="-23.71424" />
 					<RunTo X="4223.503" Y="743.3965" Z="-24.68176" />
 					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
+					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer" 
@@ -1336,7 +1337,7 @@
 											
 				<!-- profile message - Waiting to be tagged by the Booster -->				
 				<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the Booster."
+									Text="Waiting at the waters edge to be tagged by the Booster."
 									LogColor="Cyan" />											
 								
 				<!-- 3rd tag move to the priestess -->
@@ -1352,7 +1353,7 @@
 				
 				<!-- profile message - Waiting to be tagged by the Booster -->				
 				<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the Booster."
+									Text="Waiting at the priestess to be tagged by the Booster."
 									LogColor="Cyan" />				
 				
 				<!-- 4th tag move to the battle standars -->
@@ -1361,23 +1362,23 @@
 								
 				<!-- Wait 20 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="20000" />					
+										WaitTime="25000" />					
 								
 				<!-- battle standard -->				
 				<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 				
 				<!-- profile message - Waiting to be tagged by the Booster -->				
 				<CustomBehavior File="Message" 
-									Text="Waiting to be tagged by the Booster."
+									Text="Waiting at the battlestandard to be tagged by the Booster."
 									LogColor="Cyan" />				
 				
 				<!-- 5th tag move to the instance box -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
 								
-				<!-- Wait 20 seconds -->
+				<!-- Wait 25 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="20000" />					
+										WaitTime="25000" />					
 								
 				<!-- Run to the instance box -->				
 				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
