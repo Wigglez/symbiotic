@@ -273,7 +273,20 @@
 					</CustomBehavior>
 					<RunTo X="-189.6269" Y="72.41666" Z="-48.64544" />
 										
-					<RunTo X="-266.9157" Y="33.50784" Z="-58.06705" />
+					<!-- Profile message - tag rafs at quest givers -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the quest givers."
+									LogColor="Fuchsia" />					
+										
+					<!-- tag rafs at the quest givers -->
+					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />					
+											
+					<!-- continue when tagged  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />					
+										
+					<!-- Run to the sandy beach -->					
+					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />
  				
 					<!-- Swim through the water -->
 					<CustomBehavior File="MyCTM" 
@@ -605,6 +618,11 @@
 						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
 					</CustomBehavior>
 					
+					<!-- Profile message - tag rafs at sandy beach -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the sandy beach."
+									LogColor="Fuchsia" />					
+																			
 					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
 										Text="We are above the jumping platforms."
@@ -619,7 +637,7 @@
 					</If> <!-- Above jumps -->
 					
 					<!-- Tag rafs at sandy beach -->
-					<RunTo X="-267.2677" Y="68.32697" Z="-56.70897" />
+					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -899,16 +917,16 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="20000" />
 									
-					<!-- Run back out the instance when the booster runs next to us  -->
+					<!-- Continue when tagged  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
 					<!-- Let the booster clear the entrance for us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />			
-
-					<!-- Sandy beach -->
-					<RunTo X="-267.2677" Y="68.32697" Z="-56.70897" />
+									WaitTime="20000" />				
+									
+					<!-- move to the sandy beach -->
+					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />				
 					
 					<!-- Run back out the instance when the booster runs next to us  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
