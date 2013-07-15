@@ -535,16 +535,22 @@
 					<RunTo X="4151.469" Y="863.9705" Z="4.078512" />
 					<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 
-					<!-- CTM beneath the water to the other side -->
-					<CustomBehavior File="MyCTM" 
-									X="4159.188" Y="887.0402" Z="-23.669" />
-										
-					<CustomBehavior File="MyCTM" 
-									X="4160.37" Y="916.4307" Z="-16.98774" />
+					<!-- move beneath the water to the other side -->
+				 <RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+					
+					<!-- Runto the first mob past the water pool -->
+					<RunTo X="4163.732" Y="935.7171" Z="-18.1932" />
+
+					<!-- Run back to be tagged by the RAFs -->
+					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 					
 					<!-- Starts clearing when all party members are present -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
+								
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="5000" />
 					
 					<!-- Clear ahead 100 yrds then come back to tag rafs -->
 					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
@@ -1282,13 +1288,9 @@
 					<Hotspot X="4154.427" Y="869.0259" Z="-18.11682" />
 				</CustomBehavior>
 						
-				<!-- CTM beneath the water to the other side -->
-				<CustomBehavior File="MyCTM" 
-								X="4159.188" Y="887.0402" Z="-23.669" />
-									
-				<CustomBehavior File="MyCTM" 
-								X="4160.37" Y="916.4307" Z="-16.98774" />
-				
+				<!-- move beneath the water to the other side -->
+				 <RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+								
 				<!-- Booster starts clearing when all party members are present -->				
 				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
 				
@@ -1296,9 +1298,17 @@
 				<CustomBehavior File="Message" 
 								Text="Waiting 15 seconds to reset the tag." />
 								
+				<!-- Wait 15 seconds -->
+				<CustomBehavior File="WaitTimer" 
+											WaitTime="15000" />
+								
 				<!-- 3rd tag move to the priestess -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
+								CheckRange="15" />
+								
+				<!-- Wait 15 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="15000" />				
 								
 				<!-- Priestess -->				
 				<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
@@ -1307,12 +1317,20 @@
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
 								
+				<!-- Wait 10 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="10000" />					
+								
 				<!-- battle standard -->				
 				<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
 				
 				<!-- 5th tag move to the instance box -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
+								
+				<!-- Wait 15 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="15000" />					
 								
 				<!-- instance box -->				
 				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
