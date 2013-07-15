@@ -164,6 +164,14 @@
 						<Hotspot X="1315.738" Y="94.10728" Z="40.18051" />
 						<Hotspot X="1280.441" Y="94.56725" Z="33.5057" />
 						<Hotspot X="1258.641" Y="106.4999" Z="33.50566" />
+					</CustomBehavior>	
+						<RunTo X="1258.641" Y="106.4999" Z="33.50566" />
+						
+					<!-- Runlikehell to pull front right corner to the back right corner -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
 						<Hotspot X="1269.714" Y="73.57873" Z="33.50554" />
 						<Hotspot X="1254.295" Y="58.20074" Z="33.5056" />
 						<Hotspot X="1271.316" Y="42.76962" Z="33.50558" />
@@ -171,14 +179,15 @@
 						<Hotspot X="1270.521" Y="5.903249" Z="33.50577" />
 						<Hotspot X="1259.842" Y="-32.71298" Z="33.50577" />
 					</CustomBehavior>
-					
+					<RunTo X="1259.842" Y="-32.71298" Z="33.50577" />
+						
 					<!-- Loop back under Loken to be sure patrols are dead -->
 					<RunTo X="1254.395" Y="-6.665033" Z="33.50566" />
 					<RunTo X="1254.588" Y="80.73029" Z="33.50613" />
 					<RunTo X="1269.798" Y="80.61652" Z="33.50613" />
 					<RunTo X="1269.596" Y="-14.15509" Z="33.50613" />				
 								
-					<!-- Runlikehell to pull back right corner to Unyielding Garrison -->
+					<!-- Runlikehell to pull back right corner to the Iron Crucible -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
@@ -186,15 +195,32 @@
 						<Hotspot X="1280.169" Y="-33.99865" Z="33.5058" />
 						<Hotspot X="1326.478" Y="-33.9321" Z="40.1817" />
 						<Hotspot X="1336.967" Y="-31.51172" Z="40.1817" />
+					</CustomBehavior>
+					<RunTo X="1336.967" Y="-31.51172" Z="40.1817" />	
+						
+					<!-- Runlikehell to pull the Iron Crucible to the Unyielding Garrison -->	
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
 						<Hotspot X="1354.329" Y="5.261074" Z="43.15365" />
-						<Hotspot X="1363.421" Y="-4.571633" Z="42.99044" />
+						<Hotspot X="1363.421" Y="-4.571633" Z="42.99044" />			
 						<Hotspot X="1365.948" Y="17.78572" Z="48.46579" />
 						<Hotspot X="1375.217" Y="7.435031" Z="48.22897" />
 						<Hotspot X="1378.08" Y="18.51252" Z="50.03817" />
-						<Hotspot X="1381.299" Y="42.62729" Z="50.03817" />
-						<Hotspot X="1343.352" Y="80.29317" Z="40.17989" />
-						<Hotspot X="1352.355" Y="88.47691" Z="40.17989" />
-						<Hotspot X="1400.602" Y="39.11436" Z="50.03889" />
+						<Hotspot X="1395.017" Y="36.47628" Z="50.03823" />
+					</CustomBehavior>
+					<RunTo X="1395.017" Y="36.47628" Z="50.03823" />						
+						
+					<!-- Runlikehell to pull the Unyielding Garrison to the first platform and back -->	
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1375.678" Y="46.07968" Z="50.03823" />
+						<Hotspot X="1338.006" Y="84.0086" Z="40.1797" />
+						<Hotspot X="1346.132" Y="92.1354" Z="40.1797" />
+						<Hotspot X="1388.045" Y="50.8756" Z="50.03885" />
 						<Hotspot X="1439.636" Y="30.27378" Z="56.66923" />
 						<Hotspot X="1431.05" Y="37.02348" Z="56.66696" />
 						<Hotspot X="1394.672" Y="36.37199" Z="50.03869" />
