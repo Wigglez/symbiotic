@@ -218,7 +218,7 @@
 					<!-- dragon that spawns after the pull -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the dragon that spawns after the pull."
-									LogColor="Lime" />				
+									LogColor="Fuchsia" />				
 									
 					<!-- dragon that spawns after the pull -->			
 					<RunTo X="372.033" Y="179.8911" Z="30.77715" />	
@@ -282,7 +282,7 @@
 					<!-- last archway before the stairs -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the archway on the bottom floor."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="102.3544" Y="103.3715" Z="65.44383" />
 					
@@ -311,7 +311,7 @@
 					<!-- run to top of stairs -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the top of the stairs before Dalronn the Controller."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
 									
 					<!-- Clearing last few adds to 2nd boss -->
@@ -363,7 +363,7 @@
 									
 					<CustomBehavior File="Message" 
 									Text="Moving to the archway after Dalronn the Controller on the second floor."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 
 					<!-- Archway after Dalronn the Controller -->				
 					<RunTo X="189.9952" Y="-11.27923" Z="134.9524" />
@@ -389,7 +389,7 @@
 					<!-- Run to top of stairs on the third floor -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the 3rd floor, top of the stairs.."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="231.7499" Y="12.63654" Z="178.5064" />
 					
@@ -429,7 +429,7 @@
 					<!-- run to end of the last grid before Ingvar the Plunderer -->
 					<CustomBehavior File="Message" 
 									Text="Moving to Ingvar the Plunderer."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 					
 					<RunTo X="258.51" Y="-150.7099" Z="190.1933" />
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
@@ -459,7 +459,7 @@
 					<!-- Run to jump off spot -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the elevator shaft."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<Runto X="142.8705" Y="-128.3926" Z="169.8036" />
 					
@@ -700,7 +700,7 @@
 					<!-- dragon that spawns after the pull -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the dragon that spawns after the pull."
-									LogColor="Lime" />	
+									LogColor="Fuchsia" />	
 					<RunTo X="372.033" Y="179.8911" Z="30.77715" />					
 									
 					<!-- Print message, waiting to be tagged -->				
@@ -719,7 +719,7 @@
 					<!-- last archway before the stairs -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the archway on the bottom floor."
-									LogColor="Lime" />	
+									LogColor="Fuchsia" />	
 					<RunTo X="102.3544" Y="103.3715" Z="65.44383" />
 									
 					<!-- Print message, waiting to be tagged -->				
@@ -738,7 +738,7 @@
 					<!-- run to top of stairs -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the top of the stairs before Dalronn the Controller."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 					<RunTo X="131.4958" Y="60.97627" Z="109.0255" />
 
 					<!-- Print message, waiting to be tagged -->					
@@ -756,7 +756,7 @@
 									
 					<CustomBehavior File="Message" 
 									Text="Moving to the archway after Dalronn the Controller on the second floor."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 					<RunTo X="189.9952" Y="-11.27923" Z="134.9524" />
 					
 					<!-- Print message, waiting to be tagged -->				
@@ -775,7 +775,7 @@
 					<!-- run to 3rd floor -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the 3rd floor, top of the stairs."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="231.6748" Y="12.85049" Z="178.5074" />
 									
@@ -795,7 +795,7 @@
 					<!-- run to end of the last grid before Ingvar the Plunderer -->
 					<CustomBehavior File="Message" 
 									Text="Moving to Ingvar the Plunderer."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 					
 					<RunTo X="258.51" Y="-150.7099" Z="190.1933" />					
 					<RunTo X="201.714" Y="-257.9789" Z="180.4934" />
@@ -816,7 +816,7 @@
 					<!-- Run to jump off spot -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the elevator shaft."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<Runto X="142.8705" Y="-128.3926" Z="169.8036" />
 					

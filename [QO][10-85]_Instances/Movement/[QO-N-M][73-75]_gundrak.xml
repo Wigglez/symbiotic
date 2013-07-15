@@ -87,6 +87,9 @@
 				
 				<!-- Make sure we run to the right spot outside the potral -->
 				<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
+				
+				<!-- Run out the front of DTK -->
+				<RunTo X="4514.181" Y="-2026.416" Z="160.823" />
 			</If> <!-- DK -->
 
 			<!-- Northrend -->
@@ -230,7 +233,7 @@
 			</If> <!-- Northrend -->
 			
 			<!-- In box -->
-			<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4350 &amp;&amp; Me.Y &lt; -4450" >
+			<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][73-75]_gundrak" />
 			</If> <!-- In box -->		
@@ -321,6 +324,9 @@
 				
 				<!-- Make sure we run to the right spot outside the potral -->
 				<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
+				
+				<!-- Run out the front of DTK -->
+				<RunTo X="4514.181" Y="-2026.416" Z="160.823" />
 			</If> <!-- DK -->
 
 			<!-- Northrend -->
@@ -346,7 +352,7 @@
 			</If> <!-- Northrend -->
 			
 			<!-- In box -->
-			<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4350 &amp;&amp; Me.Y &lt; -4450" >
+			<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][73-75]_gundrak" />
 			</If> <!-- In box -->		

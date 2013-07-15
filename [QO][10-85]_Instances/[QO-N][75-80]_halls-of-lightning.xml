@@ -151,17 +151,227 @@
 					<CustomBehavior File="Message" 
 									Text="Halls of Lightning initialized."  
 									LogColor="Fuchsia" />
-				
-					<!-- begin first pull -->
-					<!-- INSERT YOUR CODE HERE -->
+									
+					<!-- Runlikehell to pull entrance to the back right corner -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1330.928" Y="191.5214" Z="53.16277" />
+						<Hotspot X="1325.824" Y="163.2726" Z="53.70418" />
+						<Hotspot X="1338.977" Y="163.0592" Z="53.70418" />
+						<Hotspot X="1330.631" Y="93.76698" Z="40.18051" />
+						<Hotspot X="1315.738" Y="94.10728" Z="40.18051" />
+						<Hotspot X="1280.441" Y="94.56725" Z="33.5057" />
+						<Hotspot X="1258.641" Y="106.4999" Z="33.50566" />
+						<Hotspot X="1269.714" Y="73.57873" Z="33.50554" />
+						<Hotspot X="1254.295" Y="58.20074" Z="33.5056" />
+						<Hotspot X="1271.316" Y="42.76962" Z="33.50558" />
+						<Hotspot X="1253.993" Y="23.42127" Z="33.50569" />
+						<Hotspot X="1270.521" Y="5.903249" Z="33.50577" />
+						<Hotspot X="1259.842" Y="-32.71298" Z="33.50577" />
+					</CustomBehavior>
 					
-					<!-- go back to quest giver to tag rafs 1 -->
+					<!-- Loop back under Loken to be sure patrols are dead -->
+					<RunTo X="1254.395" Y="-6.665033" Z="33.50566" />
+					<RunTo X="1254.588" Y="80.73029" Z="33.50613" />
+					<RunTo X="1269.798" Y="80.61652" Z="33.50613" />
+					<RunTo X="1269.596" Y="-14.15509" Z="33.50613" />				
+								
+					<!-- Runlikehell to pull back right corner to Unyielding Garrison -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1280.169" Y="-33.99865" Z="33.5058" />
+						<Hotspot X="1326.478" Y="-33.9321" Z="40.1817" />
+						<Hotspot X="1336.967" Y="-31.51172" Z="40.1817" />
+						<Hotspot X="1354.329" Y="5.261074" Z="43.15365" />
+						<Hotspot X="1363.421" Y="-4.571633" Z="42.99044" />
+						<Hotspot X="1365.948" Y="17.78572" Z="48.46579" />
+						<Hotspot X="1375.217" Y="7.435031" Z="48.22897" />
+						<Hotspot X="1378.08" Y="18.51252" Z="50.03817" />
+						<Hotspot X="1381.299" Y="42.62729" Z="50.03817" />
+						<Hotspot X="1343.352" Y="80.29317" Z="40.17989" />
+						<Hotspot X="1352.355" Y="88.47691" Z="40.17989" />
+						<Hotspot X="1400.602" Y="39.11436" Z="50.03889" />
+						<Hotspot X="1439.636" Y="30.27378" Z="56.66923" />
+						<Hotspot X="1431.05" Y="37.02348" Z="56.66696" />
+						<Hotspot X="1394.672" Y="36.37199" Z="50.03869" />
+					</CustomBehavior>
+					<RunTo X="1394.672" Y="36.37199" Z="50.03869" />					
+					
+					<!-- profile message - Going to tag the RAF toons at the entrance -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
+									Text="Tagging the RAFs at the entrance."
+									LogColor="Fuchsia" />
+									
+					<!-- tag rafs at the entrance -->
+					<RunTo X="1331.708" Y="159.2112" Z="53.70435" />				
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+
+					<!-- Run to the entance of the Iron Crucible -->
+					<RunTo X="1331.983" Y="-46.43424" Z="40.18056" />
+
+					<!-- Runlikehell through the Iron Crucible -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1331.979" Y="-99.62247" Z="23.22626" />
+						<Hotspot X="1332.758" Y="-123.8981" Z="23.22719" />
+						<Hotspot X="1312.495" Y="-170.3559" Z="23.22576" />
+						<Hotspot X="1321.518" Y="-186.2523" Z="23.22576" />
+						<Hotspot X="1299.432" Y="-219.6101" Z="23.22576" />
+						<Hotspot X="1314.561" Y="-197.4361" Z="23.22576" />
+						<Hotspot X="1346.253" Y="-166.3262" Z="23.22576" />
+						<Hotspot X="1337.932" Y="-146.5502" Z="23.22576" />
+						<Hotspot X="1313.027" Y="-167.1767" Z="23.22576" />
+						<Hotspot X="1350.126" Y="-198.0493" Z="23.22576" />
+						<Hotspot X="1366.418" Y="-223.6453" Z="23.22576" />
+						<Hotspot X="1343.533" Y="-190.0272" Z="23.22576" />
+						<Hotspot X="1331.809" Y="-201.5576" Z="23.34989" />
+						<Hotspot X="1331.48" Y="-230.4692" Z="37.78723" />
+					</CustomBehavior>
+					<RunTo X="1331.48" Y="-230.4692" Z="37.78723" />							
+								
+					<!-- Runlikehell from Iron Crucible to  right before Volkhan -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1332.387" Y="-238.3228" Z="37.82282" />
+						<Hotspot X="1290.294" Y="-238.3352" Z="37.8051" />
+						<Hotspot X="1371.666" Y="-238.5405" Z="37.80714" />
+						<Hotspot X="1353.948" Y="-238.0735" Z="37.80894" />
+						<Hotspot X="1354.204" Y="-194.9131" Z="52.02685" />
+						<Hotspot X="1367.762" Y="-177.4445" Z="52.02541" />
+						<Hotspot X="1358.797" Y="-171.1923" Z="52.02398" />
+						<Hotspot X="1337.909" Y="-189.5892" Z="52.02398" />
+						<Hotspot X="1323.371" Y="-192.7129" Z="52.02398" />
+						<Hotspot X="1309.993" Y="-176.9664" Z="52.02398" />
+						<Hotspot X="1295.786" Y="-187.218" Z="52.02398" />
+						<Hotspot X="1319.716" Y="-182.3077" Z="52.02398" />
+						<Hotspot X="1306.378" Y="-163.5532" Z="52.02269" />
+						<Hotspot X="1296.794" Y="-134.4696" Z="55.37402" />
+						<Hotspot X="1308.698" Y="-164.2385" Z="52.02111" />
+						<Hotspot X="1316.147" Y="-142.6103" Z="52.02751" />
+						<Hotspot X="1334.379" Y="-139.9993" Z="53.04551" />
+						<Hotspot X="1349.732" Y="-142.866" Z="52.02883" />
+						<Hotspot X="1362.115" Y="-161.4371" Z="52.02435" />
+						<Hotspot X="1367.033" Y="-133.9456" Z="56.06025" />
+					</CustomBehavior>
+					<RunTo X="1367.033" Y="-133.9456" Z="56.06025" />	
+						
+					<!-- Runlikehell from to Volkhan -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="1351.913" Y="-131.0931" Z="54.13743" />
+						<Hotspot X="1341.724" Y="-124.0294" Z="56.71812" />
+						<Hotspot X="1332.457" Y="-101.8592" Z="56.71789" />
+					</CustomBehavior>
+					<RunTo X="1332.457" Y="-101.8592" Z="56.71789" />			
+								
+					<!-- Runlikehell from Volkhan to Ionar -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1323.208" Y="-127.011" Z="56.71666" />
+						<Hotspot X="1280.654" Y="-163.9714" Z="52.02113" />
+						<Hotspot X="1183.864" Y="-170.7721" Z="52.15198" />
+						<Hotspot X="1176.803" Y="-238.1685" Z="52.36646" />
+						<Hotspot X="1175.815" Y="-262.202" Z="52.3545" />
+						<Hotspot X="1177.507" Y="-325.2932" Z="52.33775" />
+						<Hotspot X="1175.874" Y="-261.8661" Z="52.35222" />
+						<Hotspot X="1109.039" Y="-262.42" Z="56.87386" />
+						<Hotspot X="1126.785" Y="-306.2316" Z="56.87439" />
+						<Hotspot X="1126.697" Y="-326.1796" Z="56.87439" />
+						<Hotspot X="1122.756" Y="-285.4101" Z="56.88467" />
+						<Hotspot X="1112.092" Y="-262.2586" Z="56.87514" />
+						<Hotspot X="1080.195" Y="-262.8038" Z="61.22322" />
+						<Hotspot X="1059.196" Y="-261.6739" Z="61.2276" />
+					</CustomBehavior>
+					<RunTo X="1059.196" Y="-261.6739" Z="61.2276" />		
+								
+					<!-- Runlikehell from Ionar through The Terrestrial Watchtower -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1072.797" Y="-243.3667" Z="61.22775" />
+						<Hotspot X="1082.424" Y="-208.6199" Z="61.19545" />
+						<Hotspot X="1070.009" Y="-208.2739" Z="61.18303" />
+						<Hotspot X="1088.561" Y="-172.0608" Z="56.64855" />
+						<Hotspot X="1101.031" Y="-140.362" Z="61.22274" />
+						<Hotspot X="1062.114" Y="-158.3543" Z="58.29954" />
+						<Hotspot X="1055.725" Y="-175.954" Z="56.64872" />
+						<Hotspot X="1044.641" Y="-144.3857" Z="61.21116" />
+						<Hotspot X="1049.295" Y="-124.631" Z="61.24968" />
+						<Hotspot X="1030.777" Y="-111.7629" Z="61.22894" />
+						<Hotspot X="1073.482" Y="-106.1046" Z="56.74245" />
+						<Hotspot X="1115.266" Y="-112.6021" Z="61.25701" />
+					</CustomBehavior>
+					<RunTo X="1115.266" Y="-112.6021" Z="61.25701" />				
+								
+					<!-- Runlikehell from The Terrestrial Watchtower to   -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1101.464" Y="-101.1851" Z="61.20172" />
+						<Hotspot X="1081.888" Y="-60.50219" Z="61.2561" />
+						<Hotspot X="1080.822" Y="-40.98705" Z="61.19673" />
+						<Hotspot X="1070.298" Y="-19.60738" Z="61.20455" />
+						<Hotspot X="1034.851" Y="8.42579" Z="61.19508" />
+						<Hotspot X="1027.746" Y="41.44652" Z="58.34364" />
+						<Hotspot X="1045.498" Y="73.60362" Z="61.19511" />
+						<Hotspot X="1077.682" Y="94.48407" Z="61.12906" />
+						<Hotspot X="1051.499" Y="75.1795" Z="61.19318" />
+						<Hotspot X="1034.409" Y="58.34495" Z="61.19369" />
+						<Hotspot X="1034.216" Y="41.24269" Z="58.34371" />
+						<Hotspot X="1045.779" Y="34.39465" Z="58.34371" />
+						<Hotspot X="1061.254" Y="50.38601" Z="53.38707" />
+						<Hotspot X="1083.28" Y="64.37502" Z="53.40649" />
+						<Hotspot X="1103.162" Y="49.07713" Z="53.39999" />
+						<Hotspot X="1104.067" Y="20.99123" Z="53.38685" />
+						<Hotspot X="1089.446" Y="4.553705" Z="53.38301" />
+						<Hotspot X="1065.083" Y="14.19411" Z="53.37931" />
+					</CustomBehavior>
+					<RunTo X="1065.083" Y="14.19411" Z="53.37931" />
+
+					<!-- Run to safe spot in front of Loken -->
+					<RunTo X="1117.443" Y="34.00689" Z="56.05835" />
+					
+					<!-- Forces kill of Loken -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="28923"
+									EventX="1186.47" EventY="33.83051" EventZ="60.73"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="1186.47" Y="33.83051" Z="60.73" />
+						</Safespots>
+					</CustomBehavior>			
+										
+					<!-- Run to the jump off behind Loken -->			
+					<RunTo X="1249.04" Y="33.34788" Z="57.02382" />
+
+					<!-- Jump off -->
+					<CustomBehavior File="MyCTM" X="1267.815" Y="33.41695" Z="33.50579" />
+								
+					<!-- profile message - Going to tag the RAF toons at the safe spot below Loken -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the safe spot below Loken."
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs -->
-					<RunTo X="1331.359" Y="221.5716" Z="53.3982" />		
+					<RunTo X="1249.532" Y="-37.96432" Z="33.50579" />		
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -354,11 +564,53 @@
 									LogColor="Yellow" />				
 					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="60000" />
+									WaitTime="20000" />
+									
+					<!-- Move to RAF tag spot at the entrance -->
+					<RunTo X="1331.708" Y="159.2112" Z="53.70435" />
 					
+					<!-- Continue when tagged -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<!-- Wait 20 seconds for seperation -->				
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+
+					<!-- Profile message - RAF safe spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the RAF safe spot below Loken."
+									LogColor="Fuchsia" />				
+									
+					<!-- Run to the RAF safe spot below Loken -->				
+					<RunTo X="1261.946" Y="-26.84857" Z="33.50579" />
+
+					<!-- Print message, waiting to be tagged -->				
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Fuchsia" />
+										
+					<!-- Forces kill of Loken -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="28923"
+									EventX="1249.532" EventY="-37.96432" EventZ="33.50579"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="1249.532" Y="-37.96432" Z="33.50579" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- Print message, waiting to be tagged -->				
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Fuchsia" />
+									
+					<!-- Continue when tagged -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />				
+		
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="80" 

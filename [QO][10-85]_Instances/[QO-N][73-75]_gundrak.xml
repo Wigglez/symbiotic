@@ -95,7 +95,7 @@
 				</If> <!-- GD -->
 				
 				<!-- If we are not in the box, load the movement profile -->
-				<If Condition="Me.X &lt; 6900 || Me.X &gt; 7000 || Me.Y &lt; -4350 || Me.Y &gt; -4450" >
+				<If Condition="Me.X &lt; 6900 || Me.X &gt; 7000 || Me.Y &lt; -4516 || Me.Y &gt; -4316" >
 					<CustomBehavior File="Message" 
 									Text="Distance from portal is not within our proximity, initializing movement to get there."
 									LogColor="Fuchsia" />	
@@ -105,7 +105,7 @@
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4350 &amp;&amp; Me.Y &lt; -4450" >
+				<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
 					<CustomBehavior File="Message" 
 									Text="Portal detected nearby."
 									LogColor="Fuchsia" />	
@@ -154,16 +154,209 @@
 									Text="Gundrak initialized."  
 									LogColor="Fuchsia" />
 				
-					<!-- begin first pull -->
-					<!-- INSERT YOUR CODE HERE -->
+					<!-- Run to the ledge and jump off -->
+					<RunTo X="1857.026" Y="618.4034" Z="176.6819" />
+					<CustomBehavior File="MyCTM" X="1839.638" Y="634.4341" Z="126.1585" />
+					<RunTo X="1837.183" Y="623.5241" Z="126.2935" />
+					<CustomBehavior File="MyCTM" X="1830.323" Y="624.0729" Z="129.3011" />
 					
-					<!-- go back to quest giver to tag rafs 1 -->
+					<!-- Kill all the adds before Slad'ran -->
+					<RunTo X="1811.376" Y="632.9578" Z="129.1981" />
+					<RunTo X="1790.206" Y="641.4708" Z="124.4763" />
+					<RunTo X="1789.044" Y="624.9609" Z="124.4733" />
+					<RunTo X="1775.299" Y="607.9982" Z="124.4716" />
+					<RunTo X="1762.73" Y="614.4566" Z="124.4782" />
+					<RunTo X="1757.066" Y="638.2103" Z="124.4805" />
+					<RunTo X="1773.585" Y="645.26" Z="124.2089" />
+					<RunTo X="1775.979" Y="609.8439" Z="124.4654" />
+					
+					<!-- Forces kill of Slad'ran  -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="29304"
+									EventX="1775.129" EventY="674.9809" EventZ="129.2167"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="1775.129" Y="674.9809" Z="129.2167" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Profile message, interacting -->
 					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
+									Text="Interacting with the obelisk."
+									LogColor="Fuchsia" />
+					
+					<!-- Interact with the first obelisk -->
+					<Runto X="1775.366" Y="671.7501" Z="129.2167" />
+					<CustomBehavior File="InteractWith" 
+									MobId="192518" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									X="1775.293" Y="679.6804" Z="129.236084" />
+									
+					<!-- Run to the door after Slad'ran -->
+					<RunTo X="1737.802" Y="633.0138" Z="129.1983" />
+					
+					<!-- Clear to the door entering x -->
+					<RunTo X="1700.976" Y="632.3005" Z="129.2314" />
+					<RunTo X="1690.753" Y="640.9648" Z="126.4197" />
+					<RunTo X="1688.854" Y="629.6217" Z="126.5443" />
+					<RunTo X="1676.708" Y="632.4106" Z="125.6404" />
+					<RunTo X="1657.005" Y="623.0805" Z="126.4998" />
+					<RunTo X="1639.774" Y="642.5118" Z="125.5164" />
+					<RunTo X="1647.918" Y="657.1669" Z="125.0769" />
+					<RunTo X="1671.869" Y="647.1873" Z="125.8966" />
+					<RunTo X="1670.649" Y="636.584" Z="128.6234" />
+					<RunTo X="1636.065" Y="657.1959" Z="125.4581" />
+					<RunTo X="1615.621" Y="655.5247" Z="125.8833" />
+					<RunTo X="1625.777" Y="688.074" Z="140.4599" />
+					<RunTo X="1639.106" Y="672.9377" Z="129.9648" />
+					<RunTo X="1625.178" Y="694.1734" Z="142.1721" />
+					
+					<!-- Runlikehell to pull all the mobs and Drakkari Colossus -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1624.948" Y="726.7209" Z="142.7859" />
+						<Hotspot X="1576.562" Y="725.4336" Z="142.7838" />
+						<Hotspot X="1576.599" Y="718.4056" Z="143.2023" />
+						<Hotspot X="1576.508" Y="726.7797" Z="142.7838" />
+						<Hotspot X="1616.145" Y="727.1915" Z="142.7909" />
+						<Hotspot X="1624.451" Y="740.2593" Z="142.7861" />
+						<Hotspot X="1624.257" Y="750.5721" Z="142.7861" />
+						<Hotspot X="1614.405" Y="750.5915" Z="142.786" />
+						<Hotspot X="1625.068" Y="759.5494" Z="142.786" />
+						<Hotspot X="1638.933" Y="745.1208" Z="142.786" />
+						<Hotspot X="1652.602" Y="743.5309" Z="142.7862" />
+						<Hotspot X="1683.83" Y="743.9588" Z="142.7862" />
+						<Hotspot X="1657.214" Y="743.4971" Z="142.7862" />
+					</CustomBehavior>
+					<RunTo X="1687.152" Y="733.5574" Z="142.7834" />
+					
+					<!-- Wait 5 seconds to be sure we dont't have aggro -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+					
+					<!-- Profile message, interacting -->
+					<CustomBehavior File="Message" 
+									Text="Interacting with the obelisk."
+									LogColor="Fuchsia" />
+					
+					<!-- Interact with the second obelisk -->
+					<Runto X="1687.152" Y="733.5574" Z="142.7834" />
+					
+					<CustomBehavior File="InteractWith" 
+									MobId="192520" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									X="1693.50891" Y="743.595032" Z="142.787628" />	
+					
+					<!-- Runlikehell to pull all the mobs and Moorabi -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1625.461" Y="743.7809" Z="142.7862" />
+						<Hotspot X="1624.417" Y="790.9982" Z="142.8913" />
+						<Hotspot X="1614.124" Y="798.3552" Z="144.4347" />
+						<Hotspot X="1590.203" Y="816.8816" Z="149.9689" />
+						<Hotspot X="1588.647" Y="836.8569" Z="152.4988" />
+						<Hotspot X="1578.028" Y="852.036" Z="155.2586" />
+						<Hotspot X="1574.42" Y="839.3851" Z="153.8132" />
+						<Hotspot X="1584.553" Y="881.2468" Z="151.9548" />
+						<Hotspot X="1599.821" Y="881.199" Z="149.6592" />
+						<Hotspot X="1639.432" Y="901.5551" Z="144.8192" />
+						<Hotspot X="1646.697" Y="893.3649" Z="142.8833" />
+						<Hotspot X="1651.085" Y="875.5968" Z="140.0464" />
+						<Hotspot X="1661.09" Y="874.621" Z="138.6253" />
+						<Hotspot X="1672.862" Y="890.8247" Z="136.2415" />
+						<Hotspot X="1689.002" Y="894.3154" Z="133.3939" />
+						<Hotspot X="1705.674" Y="882.7559" Z="131.7498" />
+						<Hotspot X="1709.441" Y="853.3079" Z="129.2954" />
+						<Hotspot X="1733.426" Y="852.2704" Z="129.1985" />
+						<Hotspot X="1747.568" Y="849.5594" Z="129.1971" />
+						<Hotspot X="1748.632" Y="873.4047" Z="129.2188" />
+						<Hotspot X="1773.177" Y="863.0111" Z="123.2072" />
+						<Hotspot X="1794.798" Y="871.7225" Z="129.2377" />
+						<Hotspot X="1800.909" Y="864.5731" Z="129.1893" />
+						<Hotspot X="1797.899" Y="846.2651" Z="129.1964" />
+						<Hotspot X="1798.229" Y="873.4232" Z="129.2306" />
+						<Hotspot X="1790.868" Y="870.2498" Z="129.1824" />
+						<Hotspot X="1773.017" Y="850.6104" Z="123.1926" />
+						<Hotspot X="1772.877" Y="808.0297" Z="129.2175" />
+						<Hotspot X="1773.165" Y="830.3094" Z="124.4835" />
+					</CustomBehavior>
+					<RunTo X="1772.77" Y="850.9585" Z="123.1926" />
+					
+					<!-- Wait 5 seconds to be sure we dont't have aggro -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+					
+					<!-- Profile message, interacting -->
+					<CustomBehavior File="Message" 
+									Text="Interacting with the obelisk."
+									LogColor="Fuchsia" />
+									
+					<!-- Interact with the third obelisk -->
+					<Runto X="1772.11" Y="811.5032" Z="129.2166" />
+					
+					<CustomBehavior File="InteractWith" 
+									MobId="192519" 
+									ObjectType="Gameobject" 
+									Range="4.75" 
+									NumOfTimes="1"  
+									X="1772.21936" Y="804.9631" Z="129.236084" />
+					
+					<!-- Move to the turnstyle -->
+					<Runto X="1765.841" Y="804.9095" Z="129.2168" />
+					<Runto X="1772.478" Y="800.9999" Z="129.2179" />
+					<CustomBehavior File="MyCTM" X="1739.701" Y="759.9081" Z="112.5232" />
+					<CustomBehavior File="MyCTM" X="1744.518" Y="744.1716" Z="118.7643" />
+					<CustomBehavior File="MyCTM" X="1730.354" Y="743.5052" Z="122.0944" />
+					
+					<!-- Clear target -->
+					<CustomBehavior File="RunMacro" 
+									Macro="/cleartarget" 
+									NumOfTimes="1" 
+									WaitTime="1000"/>
+									
+					<!-- Pull all the mobs past the turnstyle -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="1774.275" Y="743.2242" Z="119.4398" />
+						<Hotspot X="1827.943" Y="743.3499" Z="125.1599" />
+						<Hotspot X="1845.91" Y="743.9644" Z="135.9928" />
+						<Hotspot X="1881.838" Y="727.7587" Z="135.9411" />
+						<Hotspot X="1881.688" Y="757.6944" Z="135.9547" />
+						<Hotspot X="1869.571" Y="743.542" Z="136.4103" />
+					</CustomBehavior>
+					<RunTo X="1869.571" Y="743.542" Z="136.4103" />
+					
+					<!-- Forces kill of Gal'darah  -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="29306"
+									EventX="1914.748" EventY="743.6536" EventZ="136.4952"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="1914.748" Y="743.6536" Z="136.4952" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- go back to the first obelisk to tag rafs 1 -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the first obelisk."
 									LogColor="Fuchsia" />
 									
 					<!-- tag rafs -->
-					<RunTo X="1860.535" Y="644.4813" Z="176.6775" />				
+					<Runto X="1775.79" Y="685.7617" Z="129.2165" />				
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -191,7 +384,7 @@
 				</If> <!-- GD -->
 				
 				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4350 &amp;&amp; Me.Y &lt; -4450" >
+				<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
 					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
 					<CustomBehavior File="Message" 
 									Text="Resetting instance, 1 of 2." 
@@ -293,7 +486,7 @@
 				</If> <!-- GD -->
 			
 				<!-- If we are not in the box, load the movement profile -->
-				<If Condition="Me.X &lt; 6900 || Me.X &gt; 7000 || Me.Y &lt; -4350 || Me.Y &gt; -4450" >
+				<If Condition="Me.X &lt; 6900 || Me.X &gt; 7000 || Me.Y &lt; -4516 || Me.Y &gt; -4316" >
 					<CustomBehavior File="Message" 
 									Text="Distance from portal is not within our proximity, initializing movement to get there."
 									LogColor="Fuchsia" />	
@@ -303,7 +496,7 @@
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
-				<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4350 &amp;&amp; Me.Y &lt; -4450" >
+				<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
 					<CustomBehavior File="Message" 
 									Text="Portal detected nearby."
 									LogColor="Fuchsia" />	
@@ -356,11 +549,61 @@
 									LogColor="Yellow" />				
 					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="60000" />
+									WaitTime="20000" />
+														
+					<!-- Run to the ledge and jump off -->
+					<RunTo X="1857.026" Y="618.4034" Z="176.6819" />
+					<CustomBehavior File="MyCTM" X="1839.638" Y="634.4341" Z="126.1585" />
+					<RunTo X="1837.183" Y="623.5241" Z="126.2935" />
+					<CustomBehavior File="MyCTM" X="1835.118" Y="623.8137" Z="127.4097" />				
 					
+					<!-- Wait for Slad'ran to die -->
+					<CustomBehavior File="Message" 
+									Text="Waiting for the Booster to kill Slad'ran."
+									LogColor="Fuchsia" />
+					
+					<!-- Forces raf to stay put until Slad'ran is dead -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="29304"
+									EventX="1830.323" EventY="624.0729" EventZ="129.3011"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="1830.323" Y="624.0729" Z="129.3011" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- Profile message - waiting for the booster to interact with the first obelisk -->
+					<CustomBehavior File="Message" 
+									Text="Waiting for the Booster to interact with the first obelisk."
+									LogColor="Fuchsia" />
+									
+					<!-- Wait 20 seconds for the booster to trigger the obelisk before the rafs run down -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="20000"
+										VariantTime="20000" />
+
+					<!-- Profile message - RAF safe spot -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the RAF safe spot at the first obelisk."
+									LogColor="Fuchsia" />			
+					
+					<!-- run to RAF safe spot first obelisk-->
+					<Runto X="1775.79" Y="685.7617" Z="129.2165" />
+											
+					<!-- Print message, waiting to be tagged -->				
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster."
+									LogColor="Fuchsia" />				
+									
+					<!-- Continue when tagged -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />	
+										
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="75" 

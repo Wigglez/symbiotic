@@ -209,7 +209,7 @@
 					<!-- Profile message - RAF safe spot -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the RAF safe spot."
-									LogColor="Lime" />				
+									LogColor="Fuchsia" />				
 									
 					<!-- Move to the RAF safe spot -->	
 					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />
@@ -220,7 +220,7 @@
 					<!-- Profile message - RAF safe spot -->
 					<CustomBehavior File="Message" 
 									Text="Moving to Trollgore."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 					
 					<!-- Move to Trollgore -->			
 					<RunTo X="-268.2876" Y="-659.0545" Z="26.50841" />
@@ -568,7 +568,7 @@
 					<!-- Profile message - RAF safe spot -->
 					<CustomBehavior File="Message" 
 									Text="Moving to the RAF safe spot."
-									LogColor="Lime" />				
+									LogColor="Fuchsia" />				
 									
 					<!-- Move to the RAF safe spot -->
 					<CustomBehavior File="MyCTM" X="-520.3536" Y="-528.2415" Z="11.01161" />

@@ -87,7 +87,7 @@
 				<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
 				
 				<!-- Make sure we run to the right spot outside the potral -->
-				<RunTo X="6955.24" Y="-4416.92" Z="450.0226" />	
+				<RunTo X="6911.331" Y="-4456.147" Z="451.7355" />	
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
@@ -163,13 +163,7 @@
 										X="8426.41" Y="-355.5836" Z="906.4028" />
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="1000" />
-										
-						<!-- Front doorway of inn -->
-						<RunTo X="8446.114" Y="-333.7011" Z="906.6091" />
-							
-						<!-- Hover point -->
-						<CustomBehavior File="FlyTo" X="8471.806" Y="-301.3479" Z="976.4656" />
-						
+																
 						<CustomBehavior File="Message" 
 										Text="We are in Bouldercrag's Refuge." 
 										LogColor="Fuchsia" />
@@ -315,7 +309,6 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 			
-			<!-- Gundrak -->
 			<If Condition="Me.ZoneId == 4416">
 				<CustomBehavior File="Message" 
 								Text="Gundrak detected. Running out."
@@ -328,7 +321,7 @@
 				<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
 				
 				<!-- Make sure we run to the right spot outside the potral -->
-				<RunTo X="6955.24" Y="-4416.92" Z="450.0226" />	
+				<RunTo X="6911.331" Y="-4456.147" Z="451.7355" />	
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
