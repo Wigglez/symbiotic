@@ -187,22 +187,9 @@
 					</CustomBehavior>
 					<RunTo X="-192.3704" Y="-449.936" Z="54.43877" />
 					
-					
-					
-					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="3000" />	
-									
-					<!-- Tag the rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."  
-									LogColor="Fuchsia" />
-									
-					<RunTo X="-74.5433" Y="-377.6173" Z="54.88211" />
-
-					
-					
-					
+						
 					<!-- Clearing the cave bunny + monkey room -->
 					<RunTo X="-189.784" Y="-467.1871" Z="54.14226" />
 					<RunTo X="-188.2088" Y="-477.5831" Z="54.04776" />
@@ -239,22 +226,9 @@
 									WaitTime="1" 
 									X="-262.713745" Y="-482.361084" Z="49.43531" />
 									
-					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="1000" />
-					
-					
-					
-					
-					<!-- Tag the rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."  
-									LogColor="Fuchsia" />
-									
-					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />	
-					
-					
-					
+
 					<!-- ENTER HELIX'S ROOM -->
 					<RunTo X="-267.4973" Y="-481.8291" Z="49.25309" />
 										
@@ -304,20 +278,7 @@
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="1000" />
-									
-									
-									
-									
-					<!-- Tag the rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."  
-									LogColor="Fuchsia" />
-					
-					<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
-					
-					
-					
-					
+
 					<!-- moving to the exit door -->
 					<RunTo X="-289.9005" Y="-544.0559" Z="49.44535" />
 					
@@ -355,22 +316,9 @@
 									WaitTime="1" 
 									X="-242.96521" Y="-578.561035" Z="51.1366043" />
 					
-					
-					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="1000" />	
-									
-					<!-- Tag the rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."  
-									LogColor="Fuchsia" />
-					
-					<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
-					
-					
-					
-					
-					
+
 					<!-- Clearing the foundry -->
 					<CustomBehavior File="RunLikeHell" 
 									NumOfTimes="1" 
@@ -402,29 +350,21 @@
 						<Hotspot X="-218.7984" Y="-561.6298" Z="19.66751" />
 						<Hotspot X="-210.18" Y="-568.1779" Z="20.97696" />
 					</CustomBehavior>
-					<RunTo X="-210.2982" Y="-568.5117" Z="20.97688" />
 					
-					<CustomBehavior File="Message" 
-									Text="We are waiting to get the boss to aggro. Blame Botanist if this fucks up." 
-									LogColor="Fuchsia" />
-									
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="45000" />
+					<!-- Move away from spawn location to trigger the getoutofgroundeffects -->
+					<RunTo X="-234.7856" Y="-577.5735" Z="19.30651" />
 					
-					
-					
-					
-					
-					<!-- Tag the rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."  
-									LogColor="Fuchsia" />
-					
-					<RunTo X="-232.6577" Y="-578.0146" Z="51.22633" />
-					
-					
-					
-					
+					<!-- Forces Booster to kill Foe Reaper 5000 -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="43778"
+									EventX="-209.837" EventY="-568.622" EventZ="20.97682"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-209.837" Y="-568.622" Z="20.97682" />
+						</Safespots>
+					</CustomBehavior>
 					
 					<!-- clearing the path to the big cannon -->
 					<RunTo X="-171.5674" Y="-580.0723" Z="19.31439" />
@@ -468,23 +408,10 @@
 					
 					<!-- moving to the door and waiting for the entrance guards -->
 					<RunTo X="-101.284" Y="-653.9721" Z="7.422448" />
-					
-					
-					
-					
+
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="10000" />	
-									
-					<!-- Tag the rafs -->
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."  
-									LogColor="Fuchsia" />
-									
-					<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
-									
-									
-									
-					
+							
 					<!-- clearing the path to the gangplank -->
 					<CustomBehavior File="RunLikeHell" 
 									NumOfTimes="1" 
@@ -567,10 +494,7 @@
 						<Hotspot X="-65.21016" Y="-782.4417" Z="17.76253" />
 					</CustomBehavior>
 					<Runto X="-65.21016" Y="-782.4417" Z="17.76253" />
-						
-						
-						
-						
+
 					<!-- Tag the rafs -->
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs."  
@@ -787,171 +711,95 @@
 									LogColor="Fuchsia" />
 							
 					<CustomBehavior File="Message" 
+									Text="Moving to the safespot." 
+									LogColor="Fuchsia" />		
+							
+					<!-- Run to a safe spot near entrance -->
+					<RunTo X="-62.90265" Y="-380.8474" Z="53.92384" />				
+							
+					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
+
+					<!-- Triggers RAFs to advance after Glubtok dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="47162"
+									EventX="-72.46748" EventY="-381.0429" EventZ="54.9753"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-72.46748" Y="-381.0429" Z="54.9753" />
+						</Safespots>
+					</CustomBehavior>
+
+					<CustomBehavior File="Message" 
+									Text="Moving to the next safespot." 
+									LogColor="Fuchsia" />	
 					
-					<!-- waiting near the entrance for the booster to clear the way -->
+					<!-- Moving to Glubtok 's room -->
+					<RunTo X="-193.3947" Y="-442.2317" Z="53.67666" />
+					
+					<!-- Triggers RAFs to advance after Helix Gearbreaker dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="47296"
+									EventX="-191.8431" EventY="-451.9727" EventZ="54.43726"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-191.8431" Y="-451.9727" Z="54.43726" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to the next safespot." 
+									LogColor="Fuchsia" />	
+					
+					<!-- Moving to Helix Gearbreaker's room -->
+					<RunTo X="-289.9657" Y="-526.7321" Z="49.70089" />
+					
+					<!-- Triggers RAFs to advance after Foe Reaper 5000 dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="43778"
+									EventX="-289.8125" EventY="-532.3017" EventZ="49.41389"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-289.8125" Y="-532.3017" Z="49.41389" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<CustomBehavior File="Message" 
+									Text="Moving to the next safespot." 
+									LogColor="Fuchsia" />	
+					
+					 <!-- Moving to Foe Reaper 5000's room -  bottom door -->
+					<RunTo X="-176.0377" Y="-579.8438" Z="19.31051" />
+					
+					<!-- Profile message - Waiting 30 seconds for the Booster the clear the cave -->
+					<CustomBehavior File="Message" 
+									Text="Waiting 30 seconds for the Booster the clear the cave." 
+									LogColor="Fuchsia" />
+									
+					<!-- Wait 30 seconds for Booster to clear to the big cannon -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />
 									
-									
-									
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- moving closer to the first pull -->
-					<RunTo X="-74.5433" Y="-377.6173" Z="54.88211" />
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- Moving to the first boss room -->
-					<RunTo X="-190.0196" Y="-464.4203" Z="54.26894" />
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- Moving to Helix's door -->
-					<RunTo X="-258.7878" Y="-482.9946" Z="49.44712" />
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					 <!-- Moving to the exit Helix door -->
-					<RunTo X="-289.9587" Y="-534.3184" Z="49.43781" />
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- Moving to the foundry door -->
-					<RunTo X="-232.6577" Y="-578.0146" Z="51.22633" />
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-						
-						
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- Moving to the lower foundry door -->
-					<RunTo X="-172.945" Y="-580.1882" Z="19.3131" />
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-					
-					<!-- When the booster tags us again, we can move forward -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
-					
-					
-					
-					
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to next safespot." 
-									LogColor="Fuchsia" />	
-					
-					<!-- Running to the big cannon -->
-					<RunTo X="-99.24007" Y="-650.1745" Z="6.978131" />
+					<!-- Run to the big cannon -->
+					<RunTo X="-99.6212" Y="-657.9174" Z="7.423793" />
 					<RunTo X="-100.5887" Y="-668.5515" Z="7.422379" />
 					
-					
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
+					<!-- Profile message - Waiting 30 seconds for the Booster the clear the cave -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster." 
+									LogColor="Fuchsia" />
 					
 					<!-- When the booster tags us again, we can move forward -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
-									
+													
 					<!-- If we are high enough to go to the next instance, do so -->	
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="17" 

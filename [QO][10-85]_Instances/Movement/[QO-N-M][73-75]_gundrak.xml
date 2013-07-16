@@ -99,9 +99,9 @@
 								LogColor="Cyan" />
 								
 				<!-- If our hearthstone is set here, use it -->
-				<If Condition="Me.HearthstoneAreaId == 4323">
+				<If Condition="Me.HearthstoneAreaId == 4275">
 					<CustomBehavior File="Message" 
-									Text="Our Innkeeper is set at Zim'Torga." 
+									Text="Our Innkeeper is set at The Argent Stand." 
 									LogColor="Cyan" />
 										
 					<!-- Have hearthstone -->
