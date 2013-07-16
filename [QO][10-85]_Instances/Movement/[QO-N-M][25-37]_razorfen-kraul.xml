@@ -368,20 +368,40 @@
 						<CustomBehavior File="WaitTimer"
 										WaitTime="1000" />				
 						
-						<!-- Level 20 or higher and no riding skill -->
-						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0" >	
-							<CustomBehavior File="InteractWith" 
-											MobId="43769" 
-											WaitTime="1000"
-											CollectionDistance="50" 
-											X="-8845.4" Y="502.653" Z="109.617" />
+						<!-- Have gold -->
+						<If Condition="(Me.Gold &gt;= 5)" >
+							<!-- If we are 20 -->
+							<If Condition="Me.Level &gt;= 20" >	
+								<!-- Buy mount training until we've reached our needed skill -->
+								<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 75">
+									
+									<CustomBehavior File="InteractWith" 
+													MobId="43769" 
+													WaitTime="1000"
+													CollectionDistance="50" 
+													X="-8845.4" Y="502.653" Z="109.617" />
 											
-							<CustomBehavior File="ForceTrainRiding" 
-											MobId="43769" />
+									<CustomBehavior File="ForceTrainRiding" 
+													MobId="43769" />
+									
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									
+								</While> <!-- Loop mount purchasing -->
+								
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="We are not level 20. You are wanting to train riding below 20? Are you mental?" 
+													LogColor="Red" />	
+								</Else>
+							</If> <!-- Level check -->
 							
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="1000" />
-						</If> <!-- Mount training -->
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="You have insufficient gold for training. You require 5g or more to be able to train." 
+												LogColor="Red" />	
+							</Else>
+						</If> <!-- Have gold -->
 						
 						<!-- Run to the flight master in stormwind -->
 						<RunTo X="-8838.393" Y="489.0495" Z="109.6092" />
@@ -395,8 +415,8 @@
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 										Title="WARNING" />	
 						
-						<!-- Level 20 and trained -->
-						<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 1" >
+						<!-- trained -->
+						<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 75" >
 							<CustomBehavior File="Message" 
 											Text="Moving to Gol'Bolar Quarry."
 											LogColor="Lime" />
@@ -579,20 +599,40 @@
 							<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
 							
 							<CustomBehavior File="WaitTimer" WaitTime="1000" />
+							
+							<!-- Have gold -->
+							<If Condition="(Me.Gold &gt;= 5)" >
+								<!-- If we are 20 -->
+								<If Condition="Me.Level &gt;= 20" >	
+									<!-- Buy mount training until we've reached our needed skill -->
+									<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 75">
+										
+										<CustomBehavior File="InteractWith" 
+														MobId="44919" 
+														WaitTime="1000"
+														CollectionDistance="50" 
+														X="1799.54" Y="-4357.09" Z="102.4019" />
+														
+										<CustomBehavior File="ForceTrainRiding" MobId="44919" />
+										
+										<CustomBehavior File="WaitTimer" WaitTime="1000" />
+										
+									</While> <!-- Loop mount purchasing -->
+									
+									<Else>
+										<CustomBehavior File="Message" 
+														Text="We are not level 20. You are wanting to train riding below 20? Are you mental?" 
+														LogColor="Red" />	
+									</Else>
+								</If> <!-- Level check -->
 								
-							<!-- Mount training -->
-							<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">				
-								<CustomBehavior File="InteractWith" 
-												MobId="44919" 
-												WaitTime="1000"
-												CollectionDistance="50" 
-												X="1799.54" Y="-4357.09" Z="102.4019" />
-												
-								<CustomBehavior File="ForceTrainRiding" MobId="44919" />
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="You have insufficient gold for training. You require 5g or more to be able to train." 
+													LogColor="Red" />	
+								</Else>
+							</If> <!-- Have gold -->
 								
-								<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							</If> <!-- Mount training -->
-						
 							<CustomBehavior File="UserDialog" 
 											AllowBotStop="False" 
 											SoundCue="Exclamation" 
@@ -602,8 +642,8 @@
 											Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 											Title="WARNING" />
 							
-							<!-- Level 20 or higher, have riding -->
-							<If Condition="Me.Level &gt;= 20 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 1" >
+							<!-- trained -->
+							<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 75" >
 								<CustomBehavior File="Message" 
 												Text="Moving to The Crossroads."
 												LogColor="Lime" />
@@ -626,13 +666,11 @@
 											Text="Moving to the west of Crossroads to make our way around the gap."
 											LogColor="Lime" />
 
-							<RunTo X="-291.735" Y="-2062.072" Z="95.79191" />
-							<RunTo X="-270.7715" Y="-1768.253" Z="95.83463" />
-							<RunTo X="-71.04088" Y="-1605.581" Z="97.32648" />
-							<RunTo X="-9.204671" Y="-1402.146" Z="91.80239" />
+							<!-- Edge of northern barrens -->
+							<CustomBehavior File="NoCombatMoveTo" X="-40.85432" Y="-1371.105" Z="92.10313" />
 							
 							<!-- Run into Southern Barrens -->
-							<RunTo X="-91.56789" Y="-1286.982" Z="84.63313" />
+							<CustomBehavior File="NoCombatMoveTo" X="-100.2644" Y="-1279.025" Z="82.82246" />
 						</If> <!-- Northern Barrens -->
 						
 						<!-- Southern Barrens -->
@@ -649,36 +687,23 @@
 												
 								<!-- If we are above the overgrowth -->
 								<If Condition="Me.X &gt;= -800">
+									<CustomBehavior File="ForcedMount"
+													MountType="Ground" />
+								
 									<!-- Run into southern barrens -->
-									<RunTo X="-91.56789" Y="-1286.982" Z="84.63313" />
+									<CustomBehavior File="NoCombatMoveTo" X="-100.2644" Y="-1279.025" Z="82.82246" />
 									
 									<CustomBehavior File="Message" 
 													Text="Moving to Hunter's Hill."
 													LogColor="Lime" />
 													
+									<CustomBehavior File="NoCombatMoveTo" X="-130.4653" Y="-1191.24" Z="69.42342" />
+													
 									<!-- Run to the hill -->
-									<CustomBehavior File="RunLikeHell" 
-													NumOfTimes="1" 
-													AllowCombat="false">
-										<RunTo X="-138.733" Y="-1178.23" Z="61.87024" />
-										<RunTo X="-126.0643" Y="-1061.741" Z="39.69526" />
-										<RunTo X="-129.822" Y="-999.6619" Z="25.88475" />
-										<RunTo X="-211.8003" Y="-952.6852" Z="13.75357" />
-										<RunTo X="-266.6029" Y="-903.3438" Z="7.958317" />
-										<RunTo X="-332.9369" Y="-916.8609" Z="22.71449" />
-									</CustomBehavior>
+									<CustomBehavior File="NoCombatMoveTo" X="-450.7377" Y="-971.5682" Z="95.21753" />
 								
 									<!-- Run up the hill and to Hunter's Hill -->
-									<CustomBehavior File="RunLikeHell" 
-													NumOfTimes="1" 
-													AllowCombat="false">
-										<Hotspot X="-444.9638" Y="-963.3548" Z="93.11694" />
-										<Hotspot X="-417.9307" Y="-1154.785" Z="174.0163" />
-										<Hotspot X="-500.5322" Y="-1264.065" Z="151.0279" />
-										<Hotspot X="-641.03" Y="-1422.205" Z="153.4749" />
-										<Hotspot X="-688.2819" Y="-1542.067" Z="147.044" />
-										<Hotspot X="-788.4403" Y="-1577.425" Z="140.7583" />
-									</CustomBehavior>
+									<CustomBehavior File="NoCombatMoveTo" X="-793.7448" Y="-1580.115" Z="140.5937" />
 									
 									<CustomBehavior File="Message" 
 													Text="We are in Hunter's Hill."
@@ -693,6 +718,9 @@
 									
 								<!-- If we are between the Hunter's Hill and Desolation Hold -->
 								<If Condition="Me.X &lt; -800 &amp;&amp; Me.X &gt;= -3400" >	
+									<CustomBehavior File="ForcedMount"
+													MountType="Ground" />
+													
 									<CustomBehavior File="Message" 
 													Text="We are between Hunter's Hill and Desolation Hold."
 													LogColor="Cyan" />
@@ -701,7 +729,7 @@
 													Text="Moving to Desolation Hold."
 													LogColor="Lime" />
 												
-									<!-- Runlikehell to desolation hold -->
+									<!-- Runlikehell to desolation hold 
 									<CustomBehavior File="RunLikeHell" 
 													NumOfTimes="1" 
 													AllowCombat="false">
@@ -717,9 +745,9 @@
 										<Hotspot X="-1334.425" Y="-1985.688" Z="79.20429" />
 										<Hotspot X="-1403.174" Y="-2013.388" Z="79.4622" />
 										<Hotspot X="-1499.383" Y="-2085.054" Z="85.31062" />
-										<Hotspot X="-1521.668" Y="-2139.468" Z="88.78976" />
+										<Hotspot X="-1521.668" Y="-2139.468" Z="88.78976" /> -->
 										
-										<!-- Overgrowth graveyard -->
+										<!-- Overgrowth graveyard 
 										<Hotspot X="-1568.421" Y="-2168.616" Z="90.85735" />
 										<Hotspot X="-1609.582" Y="-2201.561" Z="91.99497" />
 										<Hotspot X="-1586.721" Y="-2255.016" Z="96.93446" />
@@ -745,7 +773,9 @@
 										<Hotspot X="-3251.308" Y="-1752.039" Z="91.81739" />
 										<Hotspot X="-3302.897" Y="-1767.592" Z="109.542" />
 										<Hotspot X="-3314.967" Y="-1714.101" Z="120.3568" />
-									</CustomBehavior>
+									</CustomBehavior> -->
+									
+									<CustomBehavior File="NoCombatMoveTo" X="-3314.967" Y="-1714.101" Z="120.3568" />
 									
 									<!-- Pick up the fp -->
 									<RunTo X="-3294.295" Y="-1698.981" Z="122.6187" />
@@ -762,6 +792,9 @@
 								
 								<!-- Below Desolation Hold -->
 								<If Condition="Me.X &lt; -3400" >	
+									<CustomBehavior File="ForcedMount"
+													MountType="Ground" />
+								
 									<CustomBehavior File="Message" 
 													Text="We are below Desolation Hold."
 													LogColor="Cyan" />
@@ -770,7 +803,7 @@
 													Text="Moving to the rendezvous point."
 													LogColor="Lime" />
 								
-									<!-- Runlikehell to the rendezvous -->
+									<!-- Runlikehell to the rendezvous
 									<CustomBehavior File="RunLikeHell" 
 													NumOfTimes="1" 
 													AllowCombat="false">
@@ -783,7 +816,9 @@
 										<Hotspot X="-3833.667" Y="-2048.382" Z="91.66864" />
 										<Hotspot X="-4072.45" Y="-2051.2" Z="91.66689" />
 										<Hotspot X="-4120.38" Y="-1999.253" Z="91.66689" />
-									</CustomBehavior>
+									</CustomBehavior> -->
+									
+									<CustomBehavior File="NoCombatMoveTo" X="-4120.38" Y="-1999.253" Z="91.66689" />
 								</If> <!-- Below Desolation Hold -->
 							</If> <!-- Not in box -->
 						</If> <!-- Southern Barrens -->
