@@ -170,91 +170,6 @@
 						</If> <!-- In Rut'theran box -->
 					</If> <!-- Alliance -->
 					
-					<If Condition="Me.IsHorde">
-						<CustomBehavior File="Message" 
-										Text="We are Horde." 
-										LogColor="Cyan" />
-										
-						<!-- If we are south of Crossroads, clear the wailing caverns -->
-						<If Condition="Me.X &lt;= 70" >
-							<CustomBehavior File="Message" 
-											Text="We are outside the Wailing Caverns portal, clearing the mobs as we exit the cave." 
-											LogColor="Cyan" />
-											
-							<RunTo X="-726.9633" Y="-2224.307" Z="17.26443" />
-							<RunTo X="-726.8185" Y="-2247.23" Z="16.44253" />
-							<RunTo X="-712.9393" Y="-2256.297" Z="15.1138" />
-							<RunTo X="-725.0109" Y="-2260.703" Z="14.70996" />
-							<RunTo X="-724.5492" Y="-2275.722" Z="15.42311" />
-							<RunTo X="-707.563" Y="-2275.634" Z="15.10036" />
-							<RunTo X="-700.3744" Y="-2262.825" Z="15.9973" />
-							<RunTo X="-689.3337" Y="-2250.1" Z="17.0749" />
-							<RunTo X="-687.5347" Y="-2240.536" Z="17.14232" />
-							<RunTo X="-698.6352" Y="-2235.84" Z="17.4777" />
-							<RunTo X="-711.5023" Y="-2229.3" Z="18.128" />
-							<RunTo X="-717.5408" Y="-2216.135" Z="18.88663" />
-							<RunTo X="-715.8046" Y="-2200.085" Z="22.90345" />
-							<RunTo X="-694.7987" Y="-2192.413" Z="30.72397" />
-							<RunTo X="-679.2072" Y="-2191.557" Z="35.19562" />
-							<RunTo X="-661.7793" Y="-2188.625" Z="40.09943" />
-							<RunTo X="-637.7533" Y="-2185.496" Z="46.14281" />
-							<RunTo X="-624.033" Y="-2185.214" Z="48.97122" />
-							<RunTo X="-617.7794" Y="-2198.889" Z="49.77479" />
-							<RunTo X="-606.6382" Y="-2204.14" Z="47.32564" />
-							<RunTo X="-596.2405" Y="-2197.311" Z="46.48972" />
-							<RunTo X="-594.3687" Y="-2183.651" Z="48.2122" />
-							<RunTo X="-603.0956" Y="-2171.851" Z="51.51985" />
-							<RunTo X="-602.1108" Y="-2161.135" Z="52.09389" />
-							<RunTo X="-592.9149" Y="-2160.29" Z="52.5627" />
-							<RunTo X="-588.7336" Y="-2170.653" Z="50.77856" />
-							<RunTo X="-592.3964" Y="-2180.988" Z="48.42519" />
-							<RunTo X="-602.5879" Y="-2178.14" Z="49.73956" />
-							<RunTo X="-606.1158" Y="-2162.58" Z="52.21634" />
-							<RunTo X="-607.5574" Y="-2151.058" Z="51.01653" />
-							<RunTo X="-591.7418" Y="-2129.349" Z="51.09421" />				
-
-							<!-- CTM across the water -->
-							<CustomBehavior File="MyCTM" 
-											X="-587.9206" Y="-2118.487" Z="49.14761" />
-							<CustomBehavior File="MyCTM" 
-											X="-587.1134" Y="-2111.844" Z="41.52058" />
-							<CustomBehavior File="MyCTM" 
-											X="-578.241" Y="-2115.329" Z="39.71338" />
-							<CustomBehavior File="MyCTM" 
-											X="-578.3994" Y="-2104.447" Z="49.18365" />
-							<CustomBehavior File="MyCTM"
-											X="-572.1486" Y="-2086.887" Z="51.72983" />
-											
-							<!-- Run to the cave exit -->
-							<RunTo X="-576.1733" Y="-2075.927" Z="54.16796" />
-							<RunTo X="-584.249" Y="-2048.218" Z="57.32582" />
-							<RunTo X="-591.7911" Y="-2037.656" Z="57.53141" />
-							<RunTo X="-613.0547" Y="-2027.226" Z="61.66275" />
-							<RunTo X="-642.8391" Y="-2025.529" Z="65.00465" />
-							<RunTo X="-657.7106" Y="-2031.885" Z="66.21774" />
-							<RunTo X="-681.2185" Y="-2046.327" Z="66.0127" />
-							<RunTo X="-696.0775" Y="-2049.908" Z="65.42136" />
-							<RunTo X="-697.9214" Y="-2067.416" Z="66.41071" />
-							<RunTo X="-701.7302" Y="-2036.456" Z="65.67265" />
-							<RunTo X="-695.1204" Y="-2025.84" Z="66.15623" />
-							<RunTo X="-709.8243" Y="-2045.756" Z="65.66882" />
-							<RunTo X="-731.9542" Y="-2053.947" Z="68.51969" />
-							<RunTo X="-751.3676" Y="-2065.491" Z="71.06351" />
-							<RunTo X="-753.1743" Y="-2076.498" Z="73.06252" />
-							<RunTo X="-740.1805" Y="-2091.469" Z="74.53552" />
-							<RunTo X="-767.8809" Y="-2061.284" Z="74.61649" />
-							<RunTo X="-770.0547" Y="-2039.808" Z="75.51975" />
-							<RunTo X="-772.5418" Y="-2022.529" Z="76.17165" />
-							<RunTo X="-785.4886" Y="-2024.678" Z="78.41845" />
-							<RunTo X="-791.869" Y="-2033.076" Z="79.64075" />
-							<RunTo X="-780.0822" Y="-2043.26" Z="77.17861" />
-							<RunTo X="-794.2064" Y="-2025.048" Z="79.9267" />
-							<RunTo X="-822.6498" Y="-2031.171" Z="80.70004" />
-							<RunTo X="-853.4038" Y="-2039.224" Z="81.26646" />
-							<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
-						</If> <!-- Wailing Caverns -->
-					</If> <!-- Horde -->
-					
 					<!-- If our hearthstone is set here, use it -->
 					<If Condition="(Me.HearthstoneAreaId == 415) || (Me.HearthstoneAreaId == 2897)" >
 						<CustomBehavior File="Message" 
@@ -519,15 +434,15 @@
 									UseMount="True" />
 									
 					<!-- force flying mount, go tag rafs -->
-							<CustomBehavior File="ForcedMount"
-											MountType="Flying" />
+					<CustomBehavior File="ForcedMount"
+									MountType="Flying" />
 											
 					<!-- Flying to tag rafs -->
 					<CustomBehavior File="FlyTo" 
 									X="3870.062" Y="539.0946" Z="6.604815" />
 									
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="5000" />
+									WaitTime="5000" />
 
 					<!-- Flying back to bfd entrance -->
 					<CustomBehavior File="FlyTo" 
@@ -543,7 +458,7 @@
 					<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 
 					<!-- move beneath the water to the other side -->
-				 <RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 					
 					<!-- Runto the first mob past the water pool -->
 					<RunTo X="4163.732" Y="935.7171" Z="-18.1932" />
@@ -553,16 +468,16 @@
 					
 					<!-- profile message - Waiting to be tagged by the Booster -->				
 					<CustomBehavior File="Message" 
-										Text="Waiting to be tagged by the RAFs."
-										LogColor="Cyan" />				
+									Text="Waiting to be tagged by the RAFs."
+									LogColor="Cyan" />				
 					
 					<!-- Starts clearing when all party members are present -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
+									CheckRange="5" />
 								
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="5000" />
+									WaitTime="5000" />
 					
 					<!-- Clear ahead 100 yrds then come back to tag rafs -->
 					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
@@ -578,8 +493,8 @@
 					
 					<!-- profile message - Backtracking to tag the RAF's -->				
 					<CustomBehavior File="Message" 
-										Text="Backtracking to tag the RAF's at the waters edge."
-										LogColor="Cyan" />
+									Text="Backtracking to tag the RAF's at the waters edge."
+									LogColor="Cyan" />
 					
 					<!-- Backtrack to tag rafs at the water -->
 					<RunTo X="4265.676" Y="901.0992" Z="-14.67517" />
@@ -595,7 +510,7 @@
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="5000" />
+									WaitTime="5000" />
 					
 					<!-- Return to tag last priestest on the right before sharp right turn -->
 					<RunTo X="4164.11" Y="935.1759" Z="-18.14566" />
@@ -621,8 +536,8 @@
 					
 					<!-- profile message - Backtracking to tag the RAF's -->				
 					<CustomBehavior File="Message" 
-										Text="Backtracking to tag the RAF's at the priestes."
-										LogColor="Cyan" />
+									Text="Backtracking to tag the RAF's at the priestes."
+									LogColor="Cyan" />
 					
 					<!-- Backtrack to tag rafs at the priestess before the water poolswater -->
 					<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
@@ -637,7 +552,7 @@
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="5000" />
+									WaitTime="5000" />
 					
 					<!-- Return to the battle standards -->
 					<RunTo X="4324.075" Y="917.1221" Z="-16.68373" />
@@ -660,8 +575,8 @@
 					
 					<!-- profile message - Backtracking to tag the RAF's -->				
 					<CustomBehavior File="Message" 
-										Text="Backtracking to tag the RAF's at the battlestandards."
-										LogColor="Cyan" />
+									Text="Backtracking to tag the RAF's at the battlestandards."
+									LogColor="Cyan" />
 					
 					<!-- Backtrack to tag rafs at the battlestandards -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -675,7 +590,7 @@
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer" 
-										WaitTime="5000" />
+									WaitTime="5000" />
 					
 					<!-- Return to the instance box -->
 					<RunTo X="4235.422" Y="793.0779" Z="-16.49667" />
@@ -959,11 +874,8 @@
 											Text="We are moving to The Eye of the Vortex." 
 											LogColor="Lime" />
 										
-							<!-- Run in front of the mountain -->
-							<RunTo X="6032.907" Y="256.3611" Z="24.09209" />
-	
 							<!-- Run past the mountain -->
-							<RunTo X="5789.486" Y="282.5884" Z="21.9652" />
+							<CustomBehavior File="NoCombatMoveTo" X="5789.486" Y="282.5884" Z="21.9652" />
 						</If> <!-- Lor'danel -->
 			
 						
@@ -984,7 +896,7 @@
 											LogColor="Lime" />
 						
 							<!-- Ashenvale -->
-							<RunTo X="4104.732" Y="22.3274" Z="17.77499" />
+							<CustomBehavior File="NoCombatMoveTo" X="4104.732" Y="22.3274" Z="17.77499" />
 						</If> <!-- Grove of the Ancients -->
 					</If> <!-- Darkshore -->
 					
@@ -999,12 +911,7 @@
 											LogColor="Cyan" />
 											
 							<!-- RunLikeHell to force movement to the rendezvous -->
-							<CustomBehavior File="RunLikeHell" 
-											UseCTM="false" 
-											NumOfTimes="1" 
-											AllowCombat="false">		
-								<Hotspot X="3870.062" Y="539.0946" Z="6.604815" />
-							</CustomBehavior>	
+							<CustomBehavior File="NoCombatMoveTo" X="3870.062" Y="539.0946" Z="6.604815" />
 							
 							<CustomBehavior File="Message" 
 											Text="We are at the rendezvous point." 
@@ -1016,6 +923,20 @@
 						<CustomBehavior File="Message" 
 										Text="We are Horde." 
 										LogColor="Cyan" />
+					
+						<!-- Orgrimmar -->
+						<If Condition="Me.ZoneId == 1637">
+							<CustomBehavior File="Message" 
+											Text="We are in Orgrimmar." 
+											LogColor="Cyan" />
+											
+							<CustomBehavior File="Message" 
+											Text="Moving to The Crossroads." 
+											LogColor="Lime" />
+						
+							<!-- Crossroads fp -->
+							<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
+						</If> <!-- Orgrimmar -->
 					
 						<!-- If we are in the Northern Barrens -->
 						<If Condition="Me.ZoneId == 17">
@@ -1029,47 +950,12 @@
 												Text="We are south of the tower that is north of The Crossroads." 
 												LogColor="Cyan" />
 							
-								<!-- If we are in the box -->
-								<If Condition="Me.X &gt; -750 &amp;&amp; Me.X &lt; -700 &amp;&amp; Me.Y &lt; -2190 &amp;&amp; Me.Y &gt; -2240" >
-									<CustomBehavior File="Message" 
-												Text="We are in the box. Sitting still until the booster has cleared the path for us."
-												LogColor="Cyan" />
-									
-									<CustomBehavior File="Message" 
-													Text="Waiting 120 seconds for the booster to kill the mobs exiting the cave." 
-													LogColor="Cyan" />				
-													
-									<!-- Wait timer to give the 90 time to clear the mobs exiting the cave -->
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="120000" />
-
-									<!-- Run to the water -->	
-									<RunTo X="-593.6287" Y="-2129.372" Z="50.93468" />
-									
-									<CustomBehavior File="Message" 
-													Text="Waiting 120 seconds for the booster to kill the mobs past the water." 
-													LogColor="Cyan" />		
-									<!-- Wait at the water -->
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="120000" />
-									
-									<!-- CTM across the water -->
-									<CustomBehavior File="MyCTM"
-													X="-572.1486" Y="-2086.887" Z="51.72983" />
-													
-									<CustomBehavior File="MyCTM"
-													X="-585.9764" Y="-2042.767" Z="57.58044" />				
-									
-									<!-- Run to the cave exit -->
-									<RunTo X="-874.5588" Y="-2060.832" Z="82.22447" />
-								</If> <!-- In box -->
-								
 								<CustomBehavior File="Message" 
 												Text="Moving to The Crossroads."
 												LogColor="Lime" />
 													
 								<!-- Moving to Crossroads flight master -->
-								<RunTo X="-439.4449" Y="-2598.785" Z="95.84019" />
+								<CustomBehavior File="NoCombatMoveTo" X="-439.4449" Y="-2598.785" Z="95.84019" />
 								
 								<CustomBehavior File="Message" 
 												Text="We are in The Crossroads." 
@@ -1080,19 +966,19 @@
 												LogColor="Lime" />
 												
 								<!-- Run to the tower intersection to stay on the road -->
-								<RunTo X="42.21896" Y="-2717.489" Z="91.66673" />
+								<CustomBehavior File="NoCombatMoveTo" X="42.21896" Y="-2717.489" Z="91.66673" />
 								
 								<CustomBehavior File="Message" 
 												Text="We are at the tower." 
 												LogColor="Cyan" />
 												
 								<!-- Run past the next check -->
-								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
+								<CustomBehavior File="NoCombatMoveTo" X="93.25973" Y="-2710.727" Z="91.69537" />
 							</If> <!-- Tower and lower -->
 							
 							<!-- Between the tower north of crossroads and the gates entering ashenvale, move to Mor'shan Rampart -->
 							<If Condition="Me.X &gt; 40 &amp;&amp; Me.X &lt;= 1260" >
-								<RunTo X="93.25973" Y="-2710.727" Z="91.69537" />
+								<CustomBehavior File="NoCombatMoveTo" X="93.25973" Y="-2710.727" Z="91.69537" />
 							
 								<CustomBehavior File="Message" 
 												Text="We are between the tower and the gates of Ashenvale."
@@ -1103,19 +989,19 @@
 												LogColor="Lime" />
 							
 								<!-- Moving to the dead tree to stay on the road -->
-								<RunTo X="574.6573" Y="-2568.682" Z="95.80037" />
+								<CustomBehavior File="NoCombatMoveTo" X="574.6573" Y="-2568.682" Z="95.80037" />
 							
 								<!-- Moving to the huggy bear to avoid getting killed -->
-								<RunTo X="755.0905" Y="-2391.459" Z="91.66711" />
+								<CustomBehavior File="NoCombatMoveTo" X="755.0905" Y="-2391.459" Z="91.66711" />
 							
 								<!-- Moving to the huggy bear 2 to avoid getting killed -->
-								<RunTo X="954.4182" Y="-2359.165" Z="91.7278" />
+								<CustomBehavior File="NoCombatMoveTo" X="954.4182" Y="-2359.165" Z="91.7278" />
 							
 								<!-- Moving back to the road -->
-								<RunTo X="1100.294" Y="-2318.211" Z="91.70042" />
+								<CustomBehavior File="NoCombatMoveTo" X="1100.294" Y="-2318.211" Z="91.70042" />
 							
 								<!-- Moving to Mor'shan Rampart flight master-->
-								<RunTo X="1206.031" Y="-2209.855" Z="92.1406" />
+								<CustomBehavior File="NoCombatMoveTo" X="1206.031" Y="-2209.855" Z="92.1406" />
 								
 								<CustomBehavior File="Message" 
 												Text="We are in Mor'shan Rampart." 
@@ -1126,7 +1012,7 @@
 												Text="Moving to Splintertree Post."
 												LogColor="Lime" />
 												
-								<RunTo X="1202.344" Y="-2306.263" Z="91.69298" />
+								<CustomBehavior File="NoCombatMoveTo" X="1202.344" Y="-2306.263" Z="91.69298" />
 				
 								<!-- RunLikeHell to bypass the gate guards -->
 								<CustomBehavior File="RunLikeHell" 
@@ -1202,7 +1088,7 @@
 								</CustomBehavior>
 								
 								<!-- Run past the next check -->
-								<RunTo X="2014.13" Y="-1899.615" Z="98.50292" />
+								<CustomBehavior File="NoCombatMoveTo" X="2014.13" Y="-1899.615" Z="98.50292" />
 							</If> <!-- Splintertree Post -->
 							
 							<!-- North of the gates entering ashenvale and west of the bridge between silverwind refuge and splintertree outpost and east of the atranaar and hellscream's reach path convergence -->
@@ -1229,19 +1115,19 @@
 												LogColor="Lime" />
 								
 								<!-- Run past the next check -->
-								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
+								<CustomBehavior File="NoCombatMoveTo" X="2818.664" Y="28.33277" Z="95.37694" />
 							</If> <!-- Hellscream's Watch -->
 							
 							<!-- North of the gates entering ashenvale and west of the atranaar and hellscream's reach path convergence -->
 							<If Condition="Me.Y &gt; -15" >
-								<RunTo X="2818.664" Y="28.33277" Z="95.37694" />
+								<CustomBehavior File="NoCombatMoveTo" X="2818.664" Y="28.33277" Z="95.37694" />
 								
 								<CustomBehavior File="Message" 
 												Text="We are west of Astranaar and Hellscream's Watch."
 												LogColor="Cyan" />
 							
 								<!-- Moving to Zoram'gar flight master -->
-								<RunTo X="3351.82" Y="1052.3" Z="3.07" />
+								<CustomBehavior File="NoCombatMoveTo" X="3351.82" Y="1052.3" Z="3.07" />
 								
 								<CustomBehavior File="Message" 
 												Text="We are in Zoram'gar Outpost." 
@@ -1252,7 +1138,7 @@
 												LogColor="Lime" />
 								
 								<!-- Moving to the intersection sign post -->
-								<RunTo X="3520.993" Y="554.2925" Z="5.413744" />
+								<CustomBehavior File="NoCombatMoveTo" X="3520.993" Y="554.2925" Z="5.413744" />
 								
 								<!-- Moving to the rendezvous -->
 								<CustomBehavior File="RunLikeHell" 
@@ -1273,7 +1159,7 @@
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
-				<RunTo X="3868.379" Y="542.9993" Z="6.771335" />	
+				<CustomBehavior File="NoCombatMoveTo" X="3868.379" Y="542.9993" Z="6.771335" />	
 				
 				<!-- Begin the randezvous once all party members are within range -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
@@ -1282,8 +1168,8 @@
 				<!-- Wait timer to allow wait 25 seconds for tag to reset -->
 				<CustomBehavior File="Message" 
 								Text="Waiting 25 seconds to reset the tag." 
-								
 								LogColor="Cyan" />	
+								
 				<CustomBehavior File="WaitTimer" 
 								WaitTime="25000" />
 				
@@ -1329,7 +1215,7 @@
 				</CustomBehavior>
 						
 				<!-- move beneath the water to the other side -->
-				 <RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+				<CustomBehavior File="NoCombatMoveTo" X="4160.37" Y="916.4307" Z="-16.98774" />
 								
 				<!-- Booster starts clearing when all party members are present -->				
 				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
@@ -1340,55 +1226,55 @@
 											
 				<!-- Wait 15 seconds -->
 				<CustomBehavior File="WaitTimer" 
-											WaitTime="15000" />
+								WaitTime="15000" />
 											
 				<!-- profile message - Waiting to be tagged by the Booster -->				
 				<CustomBehavior File="Message" 
-									Text="Waiting at the waters edge to be tagged by the Booster."
-									LogColor="Cyan" />											
+								Text="Waiting at the waters edge to be tagged by the Booster."
+								LogColor="Cyan" />											
 								
 				<!-- 3rd tag move to the priestess -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="30" />
 								
 				<!-- Wait 20 seconds -->
-					<CustomBehavior File="WaitTimer" 
-										WaitTime="20000" />				
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="20000" />				
 								
 				<!-- Priestess -->				
-				<RunTo X="4291.086" Y="897.1267" Z="-12.03782" />
+				<CustomBehavior File="NoCombatMoveTo" X="4291.086" Y="897.1267" Z="-12.03782" />
 				
 				<!-- profile message - Waiting to be tagged by the Booster -->				
 				<CustomBehavior File="Message" 
-									Text="Waiting at the priestess to be tagged by the Booster."
-									LogColor="Cyan" />				
+								Text="Waiting at the priestess to be tagged by the Booster."
+								LogColor="Cyan" />				
 				
 				<!-- 4th tag move to the battle standars -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
 								
 				<!-- Wait 20 seconds -->
-					<CustomBehavior File="WaitTimer" 
-										WaitTime="25000" />					
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="25000" />					
 								
 				<!-- battle standard -->				
-				<RunTo X="4252.153" Y="821.1868" Z="-7.261003" />
+				<CustomBehavior File="NoCombatMoveTo" X="4252.153" Y="821.1868" Z="-7.261003" />
 				
 				<!-- profile message - Waiting to be tagged by the Booster -->				
 				<CustomBehavior File="Message" 
-									Text="Waiting at the battlestandard to be tagged by the Booster."
-									LogColor="Cyan" />				
+								Text="Waiting at the battlestandard to be tagged by the Booster."
+								LogColor="Cyan" />				
 				
 				<!-- 5th tag move to the instance box -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
 								
 				<!-- Wait 25 seconds -->
-					<CustomBehavior File="WaitTimer" 
-										WaitTime="25000" />					
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="25000" />					
 								
 				<!-- Run to the instance box -->				
-				<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
+				<CustomBehavior File="NoCombatMoveTo" X="4248.14" Y="745.047" Z="-24.4963" />
 
 				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
 				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
