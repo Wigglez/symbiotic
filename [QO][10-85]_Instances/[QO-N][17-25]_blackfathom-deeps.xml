@@ -284,6 +284,9 @@
 					<!-- continue when tagged  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />					
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="2000" />
 										
 					<!-- Run to the sandy beach -->					
 					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />
@@ -767,8 +770,8 @@
 							
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-				<!-- If we are inside Deadmines, run out to go to the next instance -->
-				<If Condition="Me.MapId == 36">
+				<!-- If we are inside Deadmines or Wailing Caverns, run out to go to the next instance -->
+				<If Condition="Me.MapId == 36 || Me.MapId == 43">
 					<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
 						<CustomBehavior File="Message" 
 										Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
@@ -804,23 +807,6 @@
 					</If> <!-- Hearth check -->
 				</If>
 				
-				<!-- If we are inside Wailing Caverns, run out to go to the next instance -->
-				<If Condition="Me.MapId == 43">
-					<CustomBehavior File="Message" 
-									Text="Wailing Caverns detected. Running out to go to Blackfathom Deeps." 
-									LogColor="Fuchsia" />
-					
-					<!-- Run to the instance entrance -->
-					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-164.336" Y="134.6021" Z="-73.50945" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
-				</If>	
-			
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
