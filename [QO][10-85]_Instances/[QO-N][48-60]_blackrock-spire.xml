@@ -142,7 +142,8 @@
 										LogColor="Fuchsia" />
 									
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" />
+										WaitTime="20000" 
+										VariantTime="20000" />	
 										
 						<!-- If we still aren't in, we're locked out -->
 						<If Condition="Me.ZoneId != 1583">
@@ -892,7 +893,8 @@
 										LogColor="Fuchsia" />
 									
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" />
+										WaitTime="20000" 
+										VariantTime="20000" />	
 										
 						<!-- If we still aren't in, we're locked out -->
 						<If Condition="Me.ZoneId != 1583">

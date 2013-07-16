@@ -217,8 +217,8 @@
 										LogColor="Fuchsia" />			
 									
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" 
-										VariantTime="2000" />
+										WaitTime="20000" 
+										VariantTime="20000" />	
 									
 						<If Condition="Me.MapId != 48">
 							<CustomBehavior File="Message" 
@@ -880,8 +880,8 @@
 										LogColor="Fuchsia" />
 										
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" 
-										VariantTime="2000" />
+										WaitTime="20000" 
+										VariantTime="20000" />	
 						
 						<!-- If we still aren't in, we're locked out -->
 						<If Condition="Me.MapId != 48">

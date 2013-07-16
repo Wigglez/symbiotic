@@ -123,8 +123,8 @@
 										LogColor="Fuchsia" />
 										
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" 
-										VariantTime="2000" />
+										WaitTime="20000" 
+										VariantTime="20000" />	
 										
 						<!-- If we still aren't in, we're locked out -->
 						<If Condition="Me.ZoneId != 718">
@@ -142,7 +142,7 @@
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
 					<!-- Run to quest givers -->
-					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />
+					<RunTo X="-153.1192" Y="121.2448" Z="-75.33085" />
 				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -484,7 +484,7 @@
 									LogColor="Fuchsia" />
 										
 					<!-- Tag rafs -->
-					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />	
+					<RunTo X="-153.1192" Y="121.2448" Z="-75.33085" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -654,8 +654,8 @@
 									LogColor="Fuchsia" />
 									
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="10000" 
-										VariantTime="2000" />	
+										WaitTime="20000" 
+										VariantTime="20000" />	
 							
 						<If Condition="Me.ZoneId != 718">
 							<CustomBehavior File="Message" 
@@ -671,7 +671,7 @@
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
 					<!-- Run to quest givers -->
-					<RunTo X="-153.5393" Y="123.8885" Z="-75.51387" />		
+					<RunTo X="-153.1192" Y="121.2448" Z="-75.33085" />
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -701,15 +701,8 @@
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 									
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
-									
-					<CustomBehavior File="Message" 
-									Text="Allowing the booster to clear the exterior for our own safety. Waiting 120 seconds." 
-									LogColor="Fuchsia" />					
-					
-					<CustomBehavior File="WaitTimer"
-									WaitTime="120000" />
-									
+									WaitTime="30000" />
+								
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- Wailing Caverns -->
 			</While> <!-- Infinite loop -->

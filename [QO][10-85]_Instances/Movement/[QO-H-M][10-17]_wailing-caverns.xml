@@ -446,21 +446,7 @@
 				<CustomBehavior File="Message" 
 									Text="We are not in the box." 
 									LogColor="Cyan" />
-									
-				<!-- Not in durotar -->			
-				<If Condition="Me.ZoneId != 14">
-					<CustomBehavior File="Message" 
-										Text="We are not in Durotar." 
-										LogColor="Cyan" />
-				
-						<CustomBehavior File="Message" 
-										Text="Moving to Razor Hill." 
-										LogColor="Lime" />
-										
-						<!-- Run to Razor Hill to ensure we are on the road -->
-						<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
-				</If> <!-- Not in durotar -->
-					
+							
 				<!-- If we are in Durotar -->
 				<If Condition="Me.ZoneId == 14">
 					<CustomBehavior File="Message" 
@@ -557,7 +543,7 @@
 										LogColor="Lime" />
 										
 						<!-- Moving out of crossroads -->
-						<RunTo X="-335.1192" Y="-2356.557" Z="91.85287" />
+						<CustomBehavior File="NoCombatMoveto" X="-649.8635" Y="-2176.162" Z="210.0945" />
 					</If> <!-- In The Crossroads -->
 					
 					<!-- West of the Crossroads -->
@@ -566,7 +552,9 @@
 										Text="We are west of The Crossroads." 
 										LogColor="Cyan" />
 										
-						<!-- Moving to the top of the mountain -->
+						<CustomBehavior File="NoCombatMoveto" X="-649.8635" Y="-2176.162" Z="210.0945" />
+						
+						<!-- Moving to the top of the mountain 
 						<CustomBehavior File="MyCTM" 
 										X="-403.7427" Y="-2285.069" Z="94.53511" />
 						<CustomBehavior File="MyCTM" 
@@ -592,7 +580,7 @@
 						<CustomBehavior File="MyCTM" 
 										X="-587.4248" Y="-2190.49" Z="211.3356" />
 						<CustomBehavior File="MyCTM" 
-										X="-649.8635" Y="-2176.162" Z="210.0945" />
+										X="-649.8635" Y="-2176.162" Z="210.0945" /> -->
 					</If>
 						
 					<!-- If we are between the top of the mountain and the skull -->
@@ -601,7 +589,7 @@
 										Text="We are between the top of the mountain and the Wailing Caverns skull." 
 										LogColor="Cyan" />
 										
-						<!-- Moving to the skull  -->
+						<!-- Moving to the skull  
 						<CustomBehavior File="MyCTM" 
 										X="-682.7202" Y="-2126.432" Z="183.4675" />
 						<CustomBehavior File="MyCTM" 
@@ -611,9 +599,12 @@
 						<CustomBehavior File="MyCTM" 
 										X="-738.9916" Y="-2049.278" Z="131.6281" />
 						<CustomBehavior File="MyCTM" 
-										X="-767.28" Y="-2016.178" Z="132.9215" />
-						<CustomBehavior File="MyCTM" 
-										X="-812.3369" Y="-2052.22" Z="115.4197" />
+										X="-767.28" Y="-2016.178" Z="132.9215" /> 
+						<CustomBehavior File="MyCTM" X="-812.3369" Y="-2052.22" Z="115.4197" /> -->
+										
+						<CustomBehavior File="NoCombatMoveto" X="-819.8129" Y="-2025.358" Z="117.2773" />
+						
+						
 					</If>
 					
 					<!-- We should be on the skull at this point -->
@@ -622,8 +613,7 @@
 										Text="We are on the Wailing Caverns skull or beyond it." 
 										LogColor="Cyan" />
 										
-						<CustomBehavior File="MyCTM" 
-										X="-819.8129" Y="-2025.358" Z="117.2773" />
+						<CustomBehavior File="NoCombatMoveto" X="-819.8129" Y="-2025.358" Z="117.2773" />
 										
 						<!-- Begin the randezvous once all party members are within range -->
 						<CustomBehavior File="Misc\LoadProfileOn" 
@@ -644,7 +634,7 @@
 						<CustomBehavior File="MyCTM" 
 										X="-851.8849" Y="-2019.86" Z="86.17676" />
 						
-						<!-- Running up to the water pool -->
+						<!-- Running up to the water pool 
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-842.419" Y="-2036.363" Z="80.08213" />
 						<CustomBehavior File="NoCombatMoveTo" 
@@ -666,7 +656,7 @@
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-584.3104" Y="-2042.518" Z="57.56756" />
 						<CustomBehavior File="NoCombatMoveTo" 
-										X="-580.8381" Y="-2064.165" Z="56.05159" />
+										X="-580.8381" Y="-2064.165" Z="56.05159" /> -->
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-574.7474" Y="-2078.626" Z="53.81164" />
 
@@ -682,7 +672,7 @@
 						<CustomBehavior File="MyCTM" 
 										X="-592.1352" Y="-2129.417" Z="51.1222" />
 						
-						<!-- Running past the water pool and into the instance box -->
+						<!-- Running past the water pool and into the instance box 
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-607.9849" Y="-2151.013" Z="51.03981" />
 						<CustomBehavior File="NoCombatMoveTo" 
@@ -698,7 +688,7 @@
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-720.6035" Y="-2221.531" Z="17.36246" />
 						<CustomBehavior File="NoCombatMoveTo" 
-										X="-728.4053" Y="-2225.891" Z="17.30907" />
+										X="-728.4053" Y="-2225.891" Z="17.30907" /> -->
 						<CustomBehavior File="NoCombatMoveTo" 
 										X="-738.462" Y="-2217.8" Z="16.66931" />
 					</If> <!-- On the skull -->
