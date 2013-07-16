@@ -1,11 +1,11 @@
-<HBProfile creator="Botanist" version="1.0">
+<HBProfile creator="Botanist and Wigglez" version="1.0">
 	<Name>[QO-A][1-10]_northshire</Name>
    
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
    
-	<MinDurability>0.1</MinDurability>
-	<MinFreeBagSlots>1</MinFreeBagSlots>
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
 	<MailGrey>False</MailGrey>
 	<MailWhite>False</MailWhite>
@@ -22,345 +22,731 @@
 	<TargetElites></TargetElites>
 	
 	<AvoidMobs>
-		<AvoidMob Name="Young Wolf" Entry="299" />
-		<AvoidMob Name="Training Dummy" Entry="44548" />
-		<AvoidMob Name="Thuros Lightfingers" Entry="61" />
-		<AvoidMob Name="Ritualist Tarak" Entry="43363" />
-		<AvoidMob Name="Overlord Barbarius" Entry="43369" />
-		 
 	</AvoidMobs>
 	
 	<Blackspots>
-		<Blackspot X="-9081.34" Y="-291.8128" Z="73.36083" Radius="2" />
-		<Blackspot X="-8822.764" Y="-163.3534" Z="81.14428" Radius="10" />
-		<Blackspot X="-8844.336" Y="-814.5883" Z="70.87008" Radius="25" />
-		<Blackspot X="-8981.872" Y="-829.892" Z="70.21148" Radius="30" />
-		<Blackspot X="-8884.25" Y="-772.7573" Z="69.28152" Radius="30" />
-		<Blackspot X="-8836.673" Y="-871.6455" Z="75.33536" Radius="30" />
-		<Blackspot X="-8973.318" Y="-1197.923" Z="71.55486" Radius="20" />
-		<Blackspot X="-9015.228" Y="-1219.213" Z="71.9147" Radius="20" />
-		<Blackspot X="-9452.162" Y="-544.9297" Z="65.2808" Radius="30" />
-		<Blackspot X="-9305.92" Y="-286.9963" Z="70.56631" Radius="30" />
-		<Blackspot X="-9248.439" Y="-711.4159" Z="62.8551" Radius="30" />
-		<Blackspot X="-9071.035" Y="-545.8985" Z="59.22443" Radius="15" />
-		<Blackspot X="-9051.178" Y="-620.4839" Z="53.44584" Radius="30" />
-		<Blackspot X="-9472.578" Y="-383.022" Z="57.63217" Radius="15" />
-		<Blackspot X="-9482.172" Y="-343.8348" Z="59.23666" Radius="30" />
-		<Blackspot X="-9150.801" Y="87.64457" Z="75.77811" Radius="35" />
-		<Blackspot X="-9932.51" Y="-780.6526" Z="19.11119" Radius="50" />
-		<Blackspot X="-9966.533" Y="-139.4156" Z="24.45829" Radius="30" />
-		<Blackspot X="-12701.32" Y="-467.7607" Z="30.16452" Radius="30" />
-		<Blackspot X="-12535.61" Y="-726.2294" Z="38.94665" Radius="30" />	
-		<Blackspot X="-11933.08" Y="348.2443" Z="3.286081" Radius="30" />
-		<Blackspot X="-11649.4" Y="459.6832" Z="42.65691" Radius="30" />
-		<Blackspot X="-11832.98" Y="66.4188" Z="14.05773" Radius="30" />
-		<Blackspot X="-11896.36" Y="104.3578" Z="18.07331" Radius="30" />
-		<Blackspot X="-8819.688" Y="-2184.872" Z="138.845" Radius="25" />
-		<Blackspot X="-8694.362" Y="-2154.265" Z="157.2943" Radius="10" />
-		<Blackspot X="-8978.348" Y="-2009.766" Z="135.9593" Radius="15" />
-		<Blackspot X="-9159.795" Y="-2727.358" Z="88.68489" Radius="65" />
-		<Blackspot X="-11046.93" Y="900.192" Z="36.02385" Radius="5" />
-		<Blackspot X="-11129.44" Y="938.5775" Z="36.69337" Radius="5" />
-		<Blackspot X="-11132.55" Y="884.6815" Z="38.9172" Radius="5" />
-		<Blackspot X="-11039.22" Y="784.0526" Z="37.83578" Radius="5" />
-		<Blackspot X="-11102.37" Y="790.5021" Z="37.67649" Radius="5" />
-		<Blackspot X="-11154.74" Y="735.8597" Z="32.57186" Radius="5" />
-		<Blackspot X="-10417.03" Y="1107.214" Z="35.8898" Radius="35" />
-		<Blackspot X="-10666.08" Y="1227.45" Z="34.72566" Radius="20" />
-		<Blackspot X="-10640.97" Y="1245.051" Z="34.86412" Radius="20" />
-		<Blackspot X="-10604.72" Y="1248.582" Z="33.43493" Radius="25" />
-		<Blackspot X="-8967.969" Y="-152.5323" Z="81.50369" Radius="60" />
-		<Blackspot X="-9862.049" Y="-222.6463" Z="36.1132" Radius="70" />
-		<Blackspot X="-9492.25" Y="-436.826" Z="59.14622" Radius="30" />
-		<Blackspot X="-10630.92" Y="1118.568" Z="33.69128" Radius="3" />
 	</Blackspots>
 
-	<Mailboxes></Mailboxes>
+	<Mailboxes>
+	</Mailboxes>
  
-	<Vendors></Vendors>
+	<Vendors>
+	</Vendors>
 
-	<Factions></Factions>
+	<Factions>
+	</Factions>
 	
-	<ProtectedItems></ProtectedItems>
+	<ProtectedItems>
+	</ProtectedItems>
 	
-	<ClearVendor /><ClearMailbox />
+	<ClearVendor />
+	<ClearMailbox />
 		
 	<QuestOrder>
-	
-			<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-				Text="RAF Character -This is a short grinding profile used to level your RAF character(s) from level 1-10. To use this profile, you must manually move your characters to the human starting area in Northsire - Eastern Kingdoms." Title="WARNING" />
-						
-		<While Condition="Me.Level &gt;= 1 &amp;&amp; Me.Level &lt;= 3" >
-	
-				<CustomBehavior File="UserSettings" MountDistance="30"  UseFlightPaths="True" LootMobs="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="30" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LootRadius="50" LogoutForInactivity="True" />
-				<CustomBehavior File="Message" Text="Checking my current level.." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				<CustomBehavior File="Message" Text="I am in the  1 to 4 bracket." LogColor="Lime" />
-		
-				<CustomBehavior File="Message" Text="Position check, Northshire Valley" LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<If Condition="Me.X &gt; -9051.969 &amp;&amp; Me.Y &gt; -490.9697" > 
-						<CustomBehavior File="Message" Text="I'm in Northshire Valley. Moving to the first farming location." LogColor="Lime" />					
-							<RunTo X="-8854.119" Y="-109.3343" Z="80.58908" />
-					</If>
-	 
-					<CustomBehavior File="Message" Text="I have reached the farming location. I'll farm this location until I reach level 5." LogColor="Lime" />				
-						<SetGrindArea><GrindArea>
-							<Factions>32,7</Factions>
-								<Hotspots>
-									<Hotspot X="-8854.119" Y="-109.3343" Z="80.58908" />
-									<Hotspot X="-8834.542" Y="-47.76368" Z="89.04072" />
-									<Hotspot X="-8773.873" Y="-124.6106" Z="83.2557" />
-									<Hotspot X="-8773.714" Y="-241.6339" Z="83.9351" />
-								</Hotspots>
-						</GrindArea></SetGrindArea>					
-					<GrindTo Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; .30) || (Me.Level &gt;= 4)" GoalText="Farming" />
-
-
-				<CustomBehavior File="Message" Text="Checking my free bag slots and gear's durability." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="2000" />
-					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.3)" > 					
-						<CustomBehavior File="Message" Text="I have determined that I have less than 4 empty bag slots left or my gear is below 30% durability. Going to hearth, repair and mail." LogColor="Lime" />																			
-						<SetVendor>
-							<Vendors>
-								<Vendor Name="Godric Rothgar" Entry="1213" Type="Repair" X="-8898.231" Y="-119.8379" Z="81.83279" />
-							</Vendors>
-						</SetVendor>
-						<SetMailbox>
-							<Mailboxes>
-								<Mailbox X="-8907.727" Y="-129.1731" Z="81.02128" />
-							</Mailboxes>
-						</SetMailbox>				
-						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-					</If>
-					
-		</While>				
-				
-				<If Condition="Me.Level &gt;= 4 &amp;&amp; Me.Level &lt;= 5" >
-					<CustomBehavior File="Message" Text="Checking my current level.." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<CustomBehavior File="Message" Text="I am in the 4 to 6 bracket, changing to a new farming location." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				</If>	
-				
-		<While Condition="Me.Level &gt;= 4 &amp;&amp; Me.Level &lt;= 5" >
-				<CustomBehavior File="UserSettings" MountDistance="30"  UseFlightPaths="True" LootMobs="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="25" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LootRadius="50" LogoutForInactivity="True" />				
-				<CustomBehavior File="Message" Text="Position check, Northshire Valley." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<If Condition="Me.X &gt; -9051.969 &amp;&amp; Me.Y &gt; -490.9697" >  
-						<CustomBehavior File="Message" Text="I'm in Northshire Valley. Moving to the new farming location.." LogColor="Lime" />
-						<CustomBehavior File="RunLikeHell" UseCTM="false" NumOfTimes="1" AllowCombat="false">
-							<Hotspot X="-8872.962" Y="-365.5877" Z="72.62656" />
-						</CustomBehavior>
-					</If>
-		 
-					<CustomBehavior File="Message" Text="I have reached the farming location. I'll farm this location until I reach level 6." LogColor="Lime" />				
-						<SetGrindArea><GrindArea>
-							<Factions>14</Factions>
-								<Hotspots>
-									<Hotspot X="-8872.962" Y="-365.5877" Z="72.62656" />
-									<Hotspot X="-8920.73" Y="-436.9445" Z="74.06651" />
-									<Hotspot X="-8980.402" Y="-408.1364" Z="73.8721" />
-									<Hotspot X="-9053.797" Y="-443.3011" Z="71.89072" />
-									<Hotspot X="-9085.205" Y="-339.9972" Z="73.45287" />
-									<Hotspot X="-8971.717" Y="-338.9282" Z="73.78485" />
-								</Hotspots>
-						</GrindArea></SetGrindArea>					
-					<GrindTo Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; .30) || (Me.Level &gt;= 6)" GoalText="Farming" />
-
-
-				<CustomBehavior File="Message" Text="Checking my free bag slots and gear's durability." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.3)" > 					
-						<CustomBehavior File="Message" Text="I have determined that I have less than 4 empty bag slots left or my gear is below 30% durability. Going to hearth, repair and mail." LogColor="Lime" />													
-						<SetVendor>
-							<Vendors>
-								<Vendor Name="Ot-Temmdo" Entry="56693" Type="Repair" X="-253.8247" Y="-2732.106" Z="-0.3309349" />
-							</Vendors>
-						</SetVendor>
-						<SetMailbox>
-							<Mailboxes>
-								<Mailbox X="-8907.727" Y="-129.1731" Z="81.02128" />
-							</Mailboxes>
-						</SetMailbox>				
-						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-					</If>
-					
-		</While>				
-				
-				<If Condition="Me.Level &gt;= 6 &amp;&amp; Me.Level &lt; 7" >
-					<CustomBehavior File="Message" Text="Checking my current level.." LogColor="Lime" />			
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<CustomBehavior File="Message" Text="I am in the 6 to 8 bracket." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				</If>
+		<!-- *******************************************************  RAF Toons ************************************************************** -->
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Cyan" />
+							
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
 			
-			                             <!-- Elwyn forest -->
-
-		<While Condition="Me.Level &gt;= 6 &amp;&amp; Me.Level &lt; 7" >		
-				<CustomBehavior File="UserSettings" MountDistance="30"  UseFlightPaths="True" LootMobs="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="25" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LootRadius="50" LogoutForInactivity="True" />				
-				<CustomBehavior File="Message" Text="Position check, Goldshire in Elwynn Forest" LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				<CustomBehavior File="Message" Text="Moving to the innkeep at Goldshire in Elwynn Forest." LogColor="Lime" />
-					<RunTo X="-9458.809" Y="46.44289" Z="56.60699" />
-					<RunTo X="-9465.371" Y="15.71644" Z="56.96337" />
-				<CustomBehavior File="Message" Text="I have reached the innkeeper." LogColor="Lime" />
-				<CustomBehavior File="Message" Text="Setting my Heartstone." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				<CustomBehavior File="SetHearthstone" MobId="295"  X="-9462.663" Y="16.19151" Z="56.96373" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				<CustomBehavior File="Message" Text="Moving to the new farming location." LogColor="Lime" />
-					<RunTo X="-9458.809" Y="46.44289" Z="56.60699" />
-					<RunTo X="-9285.815" Y="-634.7894" Z="65.0575" />
-								 
-					<CustomBehavior File="Message" Text="I have reached the farming location. I'll farm this location until I reach level 7." LogColor="Lime" />				
-						<SetGrindArea><GrindArea>
-							<Factions>26</Factions>
-								<Hotspots>
-									<Hotspot X="-9285.815" Y="-634.7894" Z="65.0575" />
-									<Hotspot X="-9254.754" Y="-586.5178" Z="64.75307" />
-									<Hotspot X="-9201.84" Y="-615.8048" Z="60.61244" />
-									<Hotspot X="-9154.105" Y="-592.6997" Z="58.70868" />
-									<Hotspot X="-9121.61" Y="-585.1757" Z="58.47857" />
-									<Hotspot X="-9102.945" Y="-598.575" Z="56.74937" />
-									<Hotspot X="-9091.901" Y="-564.3274" Z="61.65646" />
-								</Hotspots>
-						</GrindArea></SetGrindArea>					
-					<GrindTo Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; .30) || (Me.Level &gt;= 7)" GoalText="Farming" />
-
-
-				<CustomBehavior File="Message" Text="Checking my free bag slots and gear's durability." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="2000" />
-					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.3)" > 					
-						<CustomBehavior File="Message" Text="I have determined that I have less than 4 empty bag slots left or my gear is below 30% durability. Going to hearth, repair and mail." LogColor="Lime" />
-					<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
-					<CustomBehavior File="WaitTimer" WaitTime="15000" GoalText="Waiting for hearth*{TimeRemaining}" />													
-						<SetVendor>
-							<Vendors>
-								<Vendor Name="Corina Steele" Entry="54" Type="Repair" X="-9463.897" Y="94.90453" Z="58.32516" />
-							</Vendors>
-						</SetVendor>
-						<SetMailbox>
-							<Mailboxes>
-								<Mailbox X="-9455.414" Y="47.95955" Z="56.60914" />
-							</Mailboxes>
-						</SetMailbox>				
-						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-					</If>
-					
-		</While>				
+			<!-- Ammen Vale / Azuremyst Isle / Bloodmyst Isle / The Exodar -->
+			<If Condition="Me.ZoneId == 6456 || Me.ZoneId == 3524 || Me.ZoneId == 3525 || Me.ZoneId == 3557">
+				<CustomBehavior File="Message" 
+								Text="We are in Ammen Vale, Azuremyst Isle, Bloodmyst Isle or The Exodar." 
+								LogColor="Cyan" />
+								
+				<CustomBehavior File="Message" 
+								Text="Moving to The Exodar boat." 
+								LogColor="Lime" />
 				
-				<If Condition="Me.Level &gt;= 7 &amp;&amp; Me.Level &lt; 8" >
-					<CustomBehavior File="Message" Text="Checking my current level.." LogColor="Lime" />						
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<CustomBehavior File="Message" Text="I am in the 7 to 8 bracket, changing to the new farming location." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				</If>
-
-		<While Condition="Me.Level &gt;= 7 &amp;&amp; Me.Level &lt; 8" >		
-				<CustomBehavior File="UserSettings" MountDistance="30"  UseFlightPaths="True" LootMobs="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="25" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LootRadius="50" LogoutForInactivity="True" />				
-				<CustomBehavior File="Message" Text="Position check, Goldshire in Elwynn Forest" LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />				
-				<CustomBehavior File="Message" Text="Moving to the new farming location." LogColor="Lime" />
-					<RunTo X="-9458.842" Y="-252.141" Z="61.34885" />
-								 
-					<CustomBehavior File="Message" Text="I have reached the farming location. I'll farm this location until I reach level 8." LogColor="Lime" />				
-						<SetGrindArea><GrindArea>
-							<Factions>38,44</Factions>
-								<Hotspots>
-									<Hotspot X="-9389.148" Y="-508.6504" Z="69.0319" />
-									<Hotspot X="-9576.975" Y="-589.4595" Z="57.20224" />
-									<Hotspot X="-9471.132" Y="-704.2524" Z="62.95879" />
-									<Hotspot X="-9488.115" Y="-913.5182" Z="55.80943" />
-									<Hotspot X="-9393.678" Y="-1034.214" Z="63.55297" />
-									<Hotspot X="-9308.406" Y="-789.4948" Z="66.11687" />
-								</Hotspots>
-						</GrindArea></SetGrindArea>					
-					<GrindTo Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; .30) || (Me.Level &gt;= 8)" GoalText="Farming" />
-
-				<CustomBehavior File="Message" Text="Checking my free bag slots and gear's durability." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="2000" />
-					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.3)" > 					
-						<CustomBehavior File="Message" Text="I have determined that I have less than 4 empty bag slots left or my gear is below 30% durability. Going to hearth, repair and mail." LogColor="Lime" />
-					<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
-					<CustomBehavior File="WaitTimer" WaitTime="15000" GoalText="Waiting for hearth*{TimeRemaining}" />													
-						<SetVendor>
-							<Vendors>
-								<Vendor Name="Corina Steele" Entry="54" Type="Repair" X="-9463.897" Y="94.90453" Z="58.32516" />
-							</Vendors>
-						</SetVendor>
-						<SetMailbox>
-							<Mailboxes>
-								<Mailbox X="-9455.414" Y="47.95955" Z="56.60914" />
-							</Mailboxes>
-						</SetMailbox>				
-						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-					</If>
-					
-		</While>
-				<If Condition="Me.Level &gt;= 8 &amp;&amp; Me.Level &lt;= 9" >
-					<CustomBehavior File="Message" Text="Checking my current level.." LogColor="Lime" />						
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-					<CustomBehavior File="Message" Text="I am in the  8 to 10 bracket, changing to the new farming location." LogColor="Lime" />
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
-				</If>
-
-		<While Condition="Me.Level &gt;= 8 &amp;&amp; Me.Level &lt;= 9" >		
-				<CustomBehavior File="UserSettings" MountDistance="30"  UseFlightPaths="True" LootMobs="False" HarvestHerbs="False" HarvestMinerals="False" PullDistance="25" KillBetweenHotspots="True" RessAtSpiritHealers="False" FindVendorsAutomatically="True" LootRadius="50" LogoutForInactivity="True" />				
-				<CustomBehavior File="Message" Text="Position check, Goldshire in Elwynn Forest" LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="1000" />				
-				<CustomBehavior File="Message" Text="Moving to the new farming location." LogColor="Lime" />
-					<RunTo X="-9085.971" Y="-937.3108" Z="69.09873" />
-								 
-					<CustomBehavior File="Message" Text="I have reached the farming location. I'll farm this location until I reach level 10." LogColor="Lime" />				
-						<SetGrindArea><GrindArea>
-							<Factions>20,38</Factions>
-								<Hotspots>
-									<Hotspot X="-9104.942" Y="-824.2734" Z="70.44572" />
-									<Hotspot X="-8962.647" Y="-780.8445" Z="70.64178" />
-									<Hotspot X="-8907.889" Y="-828.8187" Z="70.52354" />
-									<Hotspot X="-8838.916" Y="-950.3338" Z="74.52327" />
-									<Hotspot X="-8840.439" Y="-1064.221" Z="75.87361" />
-									<Hotspot X="-8869.06" Y="-1139.966" Z="76.17569" />
-									<Hotspot X="-8840.902" Y="-944.7762" Z="74.62317" />
-									<Hotspot X="-8916.054" Y="-834.6081" Z="69.98306" />
-									<Hotspot X="-9066.95" Y="-845.7288" Z="67.4153" />
-								</Hotspots>
-						</GrindArea></SetGrindArea>					
-					<GrindTo Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; .30) || (Me.Level &gt;= 10)" GoalText="Farming" />
-
-
-				<CustomBehavior File="Message" Text="Checking my free bag slots and gear's durability." LogColor="Lime" />
-				<CustomBehavior File="WaitTimer" WaitTime="2000" />
-					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.3)" > 					
-						<CustomBehavior File="Message" Text="I have determined that I have less than 4 empty bag slots left or my gear is below 30% durability. Going to hearth, repair and mail." LogColor="Lime" />
-					<CustomBehavior File="Misc\RunLua" Lua="UseItemByName(6948)" WaitTime="1000" />
-					<CustomBehavior File="WaitTimer" WaitTime="15000" GoalText="Waiting for hearth*{TimeRemaining}" />													
-						<SetVendor>
-							<Vendors>
-								<Vendor Name="Corina Steele" Entry="54" Type="Repair" X="-9463.897" Y="94.90453" Z="58.32516" />
-							</Vendors>
-						</SetVendor>
-						<SetMailbox>
-							<Mailboxes>
-								<Mailbox X="-9455.414" Y="47.95955" Z="56.60914" />
-							</Mailboxes>
-						</SetMailbox>				
-						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />
-					</If>
-					
-		</While>
+				<!-- Exodar boat -->
+				<CustomBehavior File="NoCombatMoveTo" X="-4262.176" Y="-11356.22" Z="4.91829" />
 				
-				 <If Condition="Me.Level &gt;= 10" >
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />				 
-						<RunTo X="-9460.552" Y="93.91264" Z="58.32882" />
-						<If Condition="Me.Level &gt;= 10" >
-							<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							<CustomBehavior File="UserDialog" AllowBotStop="False" SoundCue="Exclamation" SoundCueInterval="15" ExpiryAction="InputEnabled_Continue" 
-							Text="RAF Character - This character has reached the appropriate level to run Deadmines. Please stop the bot, select the Main Deadmine profile for the Main Character. Select the RAF Deadmine profile for the RAF Character. Then start the bots." Title="WARNING" />
+				<CustomBehavior File="Message" 
+								Text="We are waiting for the Rut'theran Village boat." 
+								LogColor="Cyan" />
+				
+				<!-- Exodar to Rut'Theran Village -->
+				<CustomBehavior File="UseTransport"
+								TransportId="181646"
+								WaitAtX="-4264.057" 
+								WaitAtY="-11336.88" 
+								WaitAtZ="5.708655" 
+								TransportStartX="-4264.996" 
+								TransportStartY="-11317.2" 
+								TransportStartZ="0.04936332"
+								StandOnX="-4264.091" 
+								StandOnY="-11320.19" 
+								StandOnZ="4.821304" 
+								TransportEndX="8346.647" 
+								TransportEndY="1177.085" 
+								TransportEndZ="-0.001599779"
+								GetOffX="8343.929"
+								GetOffY="1159.283" 
+								GetOffZ="4.697421" />
+								
+				<RunTo X="8345.085" Y="1136.488" Z="4.534335" />
+			</If> <!-- Draenei -->
+			
+			<!-- Teldrassil box -->
+			<If Condition="Me.X &gt; 8720 &amp;&amp; Me.X &lt; 11100 &amp;&amp; Me.Y &gt; 50 &amp;&amp; Me.Y &lt; 2890" >
+				<CustomBehavior File="Message" 
+								Text="We are in Teldrassil." 
+								LogColor="Cyan" />
+								
+				<CustomBehavior File="Message" 
+								Text="Moving to Rut'theran Village." 
+								LogColor="Lime" />
+				
+				<!-- Move to Darnassus portal to Rut'Theran Village -->
+				<CustomBehavior File="NoCombatMoveTo" X="9945.765" Y="2609.881" Z="1316.247" />
+				
+				<CustomBehavior File="Message" 
+								Text="Going through portal." 
+								LogColor="Lime" />
+				
+				<!-- Go through portal to Rut'Theran Village -->
+				<CustomBehavior File="MyCTM" X="9946.528" Y="2624.601" Z="1318.094" />
+				
+				<!-- Other side of portal -->
+				<RunTo X="8373.343" Y="994.6566" Z="26.88291" />
+				
+				<CustomBehavior File="Message" 
+								Text="We went through the portal." 
+								LogColor="Cyan" />
+			</If> <!-- Night Elves -->
+			
+			<!-- Rut'theran Village box -->
+			<If Condition="Me.X &gt; 8145 &amp;&amp; Me.X &lt; 8600 &amp;&amp; Me.Y &gt; 735 &amp;&amp; Me.Y &lt; 1225" >
+				<CustomBehavior File="Message" 
+								Text="We are in Rut'theran Village." 
+								LogColor="Cyan" />
+								
+				<CustomBehavior File="Message" 
+								Text="Moving to Stormwind City boat." 
+								LogColor="Lime" />
+								
+				<!-- Stormwind boat -->
+				<CustomBehavior File="NoCombatMoveTo" X="8205.569" Y="996.0475" Z="7.06425" />
+				
+				<CustomBehavior File="Message" 
+								Text="We are waiting for the Stormwind City boat." 
+								LogColor="Cyan" />
+								
+				<!-- Rut'Theran Village to Stormwind -->
+				<CustomBehavior File="UseTransport"
+								TransportId="176310"
+								WaitAtX="8189.782" 
+								WaitAtY="999.8093" 
+								WaitAtZ="7.246328" 
+								TransportStartX="8162.587" 
+								TransportStartY="1005.365" 
+								TransportStartZ="0.02870555"
+								StandOnX="8165.577" 
+								StandOnY="1011.032" 
+								StandOnZ="6.03505" 
+								TransportEndX="-8650.719" 
+								TransportEndY="1346.051" 
+								TransportEndZ="-0.01186119"
+								GetOffX="-8641.491"
+								GetOffY="1323.008" 
+								GetOffZ="5.537506" />
+								
+				<RunTo X="-8631.93" Y="1305.265" Z="5.536911" />
+			</If> <!-- Rut'Theran Village -->
+			
+			<!-- Coldridge Valley / New Tinkertown / Dun Morogh / Loch Modan-->
+			<If Condition="Me.ZoneId == 6176 || Me.ZoneId == 6457 || Me.ZoneId == 1 || Me.ZoneId == 38">
+				<CustomBehavior File="Message" 
+								Text="We are in Coldridge Valley, New Tinkertown, Dun Morogh, or Loch Modan." 
+								LogColor="Cyan" />
+			
+				<CustomBehavior File="Message" 
+								Text="Moving to Kharanos." 
+								LogColor="Lime" />
+			
+				<!-- Kharanos fp -->
+				<CustomBehavior File="NoCombatMoveTo" X="-5660.8" Y="-494.851" Z="397.008" />
+				
+				<CustomBehavior File="Message" 
+								Text="We are in Kharanos." 
+								LogColor="Cyan" />
+				
+				<CustomBehavior File="Message" 
+								Text="Moving to Stormwind City." 
+								LogColor="Lime" />
+				
+				<!-- Stormwind fp -->
+				<RunTo X="-8836.29" Y="489.0551" Z="109.6133" />	
+			</If> <!-- Dun Morogh -->
+			
+			<!-- Stormwind -->
+			<If Condition="Me.ZoneId == 1519">
+				<CustomBehavior File="Message" 
+								Text="We are in Stormwind City." 
+								LogColor="Cyan" />
+								
+				<!-- Hearth -->
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+									LogColor="Lime" />
+									
+					<!-- Front doorway of the inn -->	
+					<RunTo X="-8857.621" Y="658.7326" Z="96.65752" />	
+
+					<!-- Run inside -->
+					<RunTo X="-8867.013" Y="672.4894" Z="97.90373" />
+					
+					<!-- Set hearthstone -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
+					<CustomBehavior File="Message" 
+									Text="Setting my Hearthstone." 
+									LogColor="Lime" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
+					<CustomBehavior File="SetHearthstone" 
+									MobId="6740" 
+									X="-8867.786" Y="673.6729" Z="97.90305" />
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="1000" />
+				</If> <!-- Hearth -->
+				
+				<CustomBehavior File="Message" 
+								Text="Moving to Goldshire." 
+								LogColor="Lime" />
+						
+				<!-- Stormwind fp -->
+				<RunTo X="-8836.29" Y="489.0551" Z="109.6133" />	
+
+				<!-- Goldshire fp -->
+				<RunTo X="-9433.99" Y="85.1493" Z="56.734" />
+			</If> <!-- Stormwind -->
+							
+			<!-- Elwynn Forest / Westfall -->
+			<If Condition="Me.ZoneId == 12 || Me.ZoneId == 40">
+				<CustomBehavior File="Message" 
+								Text="We are in Elwynn Forest or Westfall." 
+								LogColor="Cyan" />
+								
+				<CustomBehavior File="Message" 
+								Text="Moving to Goldshire square." 
+								LogColor="Lime" />
+								
+				<!-- Get to Goldshire -->
+				<CustomBehavior File="NoCombatMoveTo" X="-9459.73" Y="64.00458" Z="55.88485" />
+				
+				<!-- Gold -->
+				<If Condition="Me.Gold &lt; 5">
+					<CustomBehavior File="Message" 
+									Text="You need at least 5 gold in order to utilize this profile's armor/weapon purchasing." 
+									LogColor="Red" />
+									
+					<CustomBehavior File="UserSettings" 
+									StopBot="true" />
+				</If> <!-- Gold -->
+			</If> <!-- Human -->
+			
+			<CustomBehavior File="UserSettings"
+							PullDistance="30" />
+			
+			<!-- Infinite loop -->
+			<While Condition="true">
+				<!-- 1-3 -->
+				<If Condition="Me.Level &gt;= 1 &amp;&amp; Me.Level &lt; 3">
+					<CustomBehavior File="Message" 
+									Text="We are level 1-3." 
+									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to LOCATION HERE." 
+									LogColor="Lime" />	
+						
+					<!-- Go to MOB NAME -->
+					<CustomBehavior File="NoCombatMoveTo" 
+					
+					<SetGrindArea>
+						<GrindArea>
+							<Factions></Factions>
+							
+							<Hotspots>
+								
+							</Hotspots>
+						</GrindArea>
+					</SetGrindArea>		
+					
+					<GrindTo Condition="Me.Level == 3" />
+				</If> <!-- 1-3 -->
+				
+				<!-- 3-6 -->
+				<If Condition="Me.Level &gt;= 3 &amp;&amp; Me.Level &lt; 6">
+					<CustomBehavior File="Message" 
+									Text="We are level 3-6." 
+									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to LOCATION HERE." 
+									LogColor="Lime" />	
+							
+					<!-- Go to MOB NAME -->
+					<CustomBehavior File="NoCombatMoveTo" 
+					
+					<SetGrindArea>
+						<GrindArea>
+							<Factions>
+								
+							</Factions>
+							
+							<Hotspots>
+								
+							</Hotspots>
+						</GrindArea>
+					</SetGrindArea>	
+
+					<GrindTo Condition="Me.Level == 6" />
+				</If> <!-- 3-6 -->
+				
+				<!-- 6-8 -->
+				<If Condition="Me.Level &gt;= 6 &amp;&amp; Me.Level &lt; 8">
+					<CustomBehavior File="Message" 
+									Text="We are level 6-8." 
+									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to Goldshire to purchase equipment." 
+									LogColor="Lime" />	
+									
+					<!-- Go to Goldshire to buy some gear -->
+					<CustomBehavior File="NoCombatMoveTo" 
+					
+					<!-- 
+						3166	Cutac 						
+						<Cloth & Leather Armor Merchant>
+						X="367.8849" Y="-4770.914" Z="12.4702" />
+						
+						2364	Woven Vest					441
+						3606	Woven Belt					221
+						2366	Woven Pants					444
+						2367	Woven Boots					334
+						3607	Woven Bracers				221
+						2369	Woven Gloves				226
+						2370	Battered Leather Harness	450
+						2371	Battered Leather Belt		227
+						2372	Battered Leather Pants		410
+						2373	Battered Leather Boots		308
+						2374	Battered Leather Bracers	208
+						2375	Battered Leather Gloves		209
+						
+						
+						3167	Wuark
+						<Armorer and Shieldcrafter>
+						X="358.1284" Y="-4706.727" Z="14.39389" />
+						
+						2398	Light Chain Armor			431
+						2399	Light Chain Belt			217
+						2400	Light Chain Leggings		434
+						2401	Light Chain Boots			326
+						2402	Light Chain Bracers			220
+						2403	Light Chain Gloves			221
+						17185	Round Buckler				221
+						2376	Worn Heater Shield			381
+						2901	Mining Pick					69
+						30746	Mining Sack					85000
+						2880	Weak Flux					85
+						3466	Strong Flux					1700
+						3857	Coal						425
+						20815	Jeweler's Kit				680
+						
+						
+						3163	Uhgar						
+						<Weaponsmith>
+						X="381.653" Y="-4712.06" Z="16.03346" />
+						
+						2489	Two-Handed Sword			292
+						2492	Cudgel						243
+						2491	Large Axe					412
+						2494	Stiletto					342
+						2495	Walking Stick				430
+						2488	Gladius						456
+						2490	Tomahawk					459
+						2493	Wooden Mallet				596
+						
+						
+						3165	Ghrawt						
+						<Bowyer>
+						X="362.1046" Y="-4763.842" Z="12.46934" />
+						
+						2506	Hornwood Recurve Bow		243
+						2507	Laminated Recurve Bow		1490
+						
+					-->
+						
+					<!-- Cloth wearers -->
+					<If Condition="Me.Class == WoWClass.Mage || Me.Class == WoWClass.Priest || Me.Class == WoWClass.Warlock">
+						<If Condition="!HasItem(2364)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2364" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
-				</If>
+						
+						<If Condition="!HasItem(3606)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="3606" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2366)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2366" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2367)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2367" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(3607)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="3607"
+											BuyItemCount="1"											
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2369)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2369" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						
+						
+						<If Condition="!HasItem(2495)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3163" 
+											BuyItemId="2495" 
+											BuyItemCount="1"
+											X="381.653" Y="-4712.06" Z="16.03346" />
+						</If>
+						
+					</If> <!-- Cloth wearers -->
+					
+					<!-- Leather wearers -->
+					<If Condition="Me.Class == WoWClass.Rogue || Me.Class == WoWClass.Monk || Me.Class == WoWClass.Druid || Me.Class == WoWClass.Shaman || Me.Class == WoWClass.Hunter">
+						<If Condition="!HasItem(2370)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2370"
+											BuyItemCount="1"											
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2371)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2371" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2372)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2372" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2373)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2373" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2374)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2374" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+						<If Condition="!HasItem(2375)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3166" 
+											BuyItemId="2375" 
+											BuyItemCount="1"
+											X="367.8849" Y="-4770.914" Z="12.4702" />
+						</If>
+						
+					
+					
+						<If Condition="Me.Class == WoWClass.Rogue">
+							<If Condition="!HasItem(2494)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2494" 
+												BuyItemCount="2"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If> 
+						
+						<If Condition="Me.Class == WoWClass.Monk">
+							<If Condition="!HasItem(2492)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2492" 
+												BuyItemCount="2"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If> 
+						
+						<If Condition="Me.Class == WoWClass.Druid">
+							<If Condition="!HasItem(2495)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2495" 
+												BuyItemCount="1"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If>
+						
+						<If Condition="Me.Class == WoWClass.Shaman">
+							<If Condition="!HasItem(2492)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3163" 
+												BuyItemId="2492" 
+												BuyItemCount="2"
+												X="381.653" Y="-4712.06" Z="16.03346" />
+							</If>
+						</If>
+						
+						<If Condition="Me.Class == WoWClass.Hunter">
+							<If Condition="!HasItem(2506)">
+								<CustomBehavior File="InteractWith" 
+												MobId="3165" 
+												BuyItemId="2506" 
+												BuyItemCount="1"
+												X="362.1046" Y="-4763.842" Z="12.46934" />
+							</If>
+						</If>
+					</If> <!-- Leather wearers -->
+					
+					<!-- Mail wearers -->
+					<If Condition="Me.Class == WoWClass.Paladin || Me.Class == WoWClass.Warrior">
+						<If Condition="!HasItem(2398)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2398" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2399)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2399" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2400)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2400" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2401)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2401" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2402)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2402" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2403)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2403" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2376)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3167" 
+											BuyItemId="2376" 
+											BuyItemCount="1"
+											X="358.1284" Y="-4706.727" Z="14.39389" />
+						</If>
+						
+						<If Condition="!HasItem(2488)">
+							<CustomBehavior File="InteractWith" 
+											MobId="3163" 
+											BuyItemId="2488" 
+											BuyItemCount="1"
+											X="381.653" Y="-4712.06" Z="16.03346" />
+						</If>
+					</If> <!-- Mail wearers -->
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to LOCATION HERE." 
+									LogColor="Lime" />	
+									
+					<!-- Go to MOB NAME -->
+					<CustomBehavior File="NoCombatMoveTo" 
+					
+					<SetGrindArea>
+						<GrindArea>
+							<Factions>
+								
+							</Factions>
+							
+							<Hotspots>
+								
+							</Hotspots>
+						</GrindArea>
+					</SetGrindArea>		
+
+					<GrindTo Condition="Me.Level == 8" />	
+				</If> <!-- 6-8 -->
 				
+				<!-- 8-10 -->
+				<If Condition="Me.Level &gt;= 8 &amp;&amp; Me.Level &lt; 10">
+					<CustomBehavior File="Message" 
+									Text="We are level 8-10." 
+									LogColor="Cyan" />
+									
+					<CustomBehavior File="Message" 
+									Text="Moving to LOCATION HERE." 
+									LogColor="Lime" />
+							
+					<!-- Go to MOB NAME -->
+					<CustomBehavior File="NoCombatMoveTo" 
+					
+					<SetGrindArea>
+						<GrindArea>
+							<Factions>
+								
+							</Factions>
+							
+							<Hotspots>
+								
+							</Hotspots>
+						</GrindArea>
+					</SetGrindArea>	
+					
+					<GrindTo Condition="Me.Level == 10" />
+				</If> <!-- 8-10 -->
+				
+				<!-- 10+ -->
+				<If Condition="Me.Level &gt;= 10">
+					<CustomBehavior File="Message" 
+									Text="We are level 10 or above." 
+									LogColor="Cyan" />
+						
+					<!-- Hearth -->
+					<If Condition="Me.HearthstoneAreaId != 5148">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+									
+						<CustomBehavior File="Message" 
+										Text="Moving to Stormwind City." 
+										LogColor="Lime" />
+							
+						<!-- Front doorway of the inn -->	
+						<CustomBehavior File="NoCombatMoveTo" X="-8857.621" Y="658.7326" Z="96.65752" />	
+
+						<!-- Stormwind -->
+						<If Condition="Me.ZoneId == 1519">
+							<CustomBehavior File="Message" 
+											Text="We are in Stormwind City." 
+											LogColor="Cyan" />
+							
+							<!-- Run inside -->
+							<RunTo X="-8867.013" Y="672.4894" Z="97.90373" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="6740" 
+											X="-8867.786" Y="673.6729" Z="97.90305" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+										
+							<CustomBehavior File="Message" 
+											Text="Moving to Goldshire." 
+											LogColor="Lime" />
+							
+							<!-- Stormwind fp -->
+							<RunTo X="-8836.29" Y="489.0551" Z="109.6133" />	
+
+							<!-- Goldshire fp -->
+							<RunTo X="-9433.99" Y="85.1493" Z="56.734" />		
+										
+						</If> <!-- Stormwind -->
+					</If> <!-- Hearth -->
+						
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
+				</If> <!-- 10+ -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- RAF -->
 	</QuestOrder >			
-  
  </HBProfile>

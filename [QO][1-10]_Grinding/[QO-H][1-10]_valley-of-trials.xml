@@ -55,7 +55,7 @@
 		<If Condition="Me.Level &lt;= 85">
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
-							LogColor="Fuchsia" />
+							LogColor="Cyan" />
 							
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
@@ -88,7 +88,7 @@
 								LogColor="Cyan" />
 								
 				<CustomBehavior File="Message" 
-								Text="Moving to Silvermoon City." 
+								Text="Moving to Orb of Translocation in Silvermoon City." 
 								LogColor="Lime" />
 				
 				<!-- Orb of Translocation -->
@@ -108,6 +108,14 @@
 				<!-- Orb of Translocation -->
 				<CustomBehavior File="NoCombatMoveTo" X="10039.99" Y="-7001.027" Z="61.98234" />	
 
+				<CustomBehavior File="Message" 
+								Text="We are at the Orb of Translocation." 
+								LogColor="Cyan" />
+							
+				<CustomBehavior File="Message" 
+								Text="Using the Orb of Translocation." 
+								LogColor="Lime" />			
+									
 				<!-- Orb of translocation -->
 				<CustomBehavior File="InteractWith" 
 								MobId="184502"
@@ -121,13 +129,13 @@
 			
 			<!-- Undercity -->
 			<If Condition="Me.ZoneId == 1497">
-				<!-- Orb of Translocation -->
-				<RunTo X="1805" Y="327" Z="70.39766" />
-				
 				<CustomBehavior File="Message" 
 								Text="We are in Undercity." 
 								LogColor="Cyan" />
-								
+				
+				<!-- Orb of Translocation -->
+				<RunTo X="1805" Y="327" Z="70.39766" />
+				
 				<CustomBehavior File="Message" 
 								Text="Moving to Tirisfal Glades." 
 								LogColor="Lime" />
@@ -244,11 +252,7 @@
 					<CustomBehavior File="Message" 
 									Text="Moving to Razor Hill." 
 									LogColor="Lime" />
-							
-					<!-- Run to Razor Hill to ensure we are on the road -->
-					<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
 				</If> <!-- Hearth -->
-				
 				
 							
 				<CustomBehavior File="Message" 
@@ -289,7 +293,9 @@
 					
 					<SetGrindArea>
 						<GrindArea>
-							<Factions>189</Factions>
+							<Factions>
+								189
+							</Factions>
 							
 							<Hotspots>
 								<Hotspot X="-453.8467" Y="-4279.513" Z="42.86316" />
@@ -734,7 +740,7 @@
 										LogColor="Lime" />
 										
 						<!-- Front doorway of the inn -->	
-						<RunTo X="1569.392" Y="-4426.286" Z="14.43938" />					
+						<CustomBehavior File="NoCombatMoveTo" X="1569.392" Y="-4426.286" Z="14.43938" />					
 										
 						<!-- Orgrimmar -->
 						<If Condition="Me.ZoneId == 1637">
@@ -760,7 +766,7 @@
 											LogColor="Lime" />
 									
 							<!-- Run to Razor Hill to ensure we are on the road -->
-							<RunTo X="316.9291" Y="-4740.251" Z="9.559894" />
+							<CustomBehavior File="NoCombatMoveTo" X="316.9291" Y="-4740.251" Z="9.559894" />
 						</If> <!-- Orgrimmar -->
 					</If> <!-- Hearth -->
 				
