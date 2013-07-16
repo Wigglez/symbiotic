@@ -214,18 +214,19 @@
 						
 					<!-- Runlikehell to pull the Unyielding Garrison to the first platform and back -->	
 					<CustomBehavior File="RunLikeHell" 
-									UseCTM="false" 
+									UseCTM="true" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<Hotspot X="1375.678" Y="46.07968" Z="50.03823" />
-						<Hotspot X="1338.006" Y="84.0086" Z="40.1797" />
-						<Hotspot X="1346.132" Y="92.1354" Z="40.1797" />
-						<Hotspot X="1388.045" Y="50.8756" Z="50.03885" />
-						<Hotspot X="1439.636" Y="30.27378" Z="56.66923" />
-						<Hotspot X="1431.05" Y="37.02348" Z="56.66696" />
-						<Hotspot X="1394.672" Y="36.37199" Z="50.03869" />
+						<Hotspot X="1376.603" Y="45.38057" Z="50.0383" />
+						<Hotspot X="1341.149" Y="81.93388" Z="40.17981" />
+						<Hotspot X="1348.616" Y="89.87563" Z="40.17981" />
+						<Hotspot X="1355.207" Y="85.64785" Z="40.17981" />
+						<Hotspot X="1370.422" Y="68.28822" Z="46.5434" />   <!-- top left ramp -->
+						<Hotspot X="1379.36" Y="51.26277" Z="50.03828" />   <!-- center top of the ramp -->
+						<Hotspot X="1441.873" Y="28.89459" Z="56.66949" />	<!-- Top right -->
+						<Hotspot X="1435.227" Y="44.53588" Z="56.66731" />	<!-- left of top platform -->
 					</CustomBehavior>
-					<RunTo X="1394.672" Y="36.37199" Z="50.03869" />					
+					<RunTo X="1395.11" Y="36.16037" Z="50.03894" />						
 					
 					<!-- profile message - Going to tag the RAF toons at the entrance -->
 					<CustomBehavior File="Message" 
@@ -263,7 +264,7 @@
 					</CustomBehavior>
 					<RunTo X="1331.48" Y="-230.4692" Z="37.78723" />							
 								
-					<!-- Runlikehell from Iron Crucible to  right before Volkhan -->
+					<!-- Runlikehell from Iron Crucible to right before Volkhan -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
@@ -291,17 +292,18 @@
 					</CustomBehavior>
 					<RunTo X="1367.033" Y="-133.9456" Z="56.06025" />	
 						
-					<!-- Runlikehell from to Volkhan -->
-					<CustomBehavior File="RunLikeHell" 
-									UseCTM="false" 
-									NumOfTimes="1" 
-									AllowCombat="false">	
-						<Hotspot X="1351.913" Y="-131.0931" Z="54.13743" />
-						<Hotspot X="1341.724" Y="-124.0294" Z="56.71812" />
-						<Hotspot X="1332.457" Y="-101.8592" Z="56.71789" />
-					</CustomBehavior>
-					<RunTo X="1332.457" Y="-101.8592" Z="56.71789" />			
-								
+					<!-- Forces Booster to kill Volkhan -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="28587"
+									EventX="1332.382" EventY="-102.078" EventZ="56.71782"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="1332.382" Y="-102.078" Z="56.71782" />
+						</Safespots>
+					</CustomBehavior>	
+														
 					<!-- Runlikehell from Volkhan to Ionar -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
@@ -373,17 +375,10 @@
 					<!-- Run to safe spot in front of Loken -->
 					<RunTo X="1117.443" Y="34.00689" Z="56.05835" />
 					
-					<!-- Forces kill of Loken -->
-					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
-									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="28923"
-									EventX="1186.47" EventY="33.83051" EventZ="60.73"
-									MoveOutOfGroundEffectAuraId1="111111"
-									MoveAwayFromMobCastingSpellId1="111111"
-									MoveAwayFromMobWithAuraId1="111111">
-						<Safespots>
-							<Hotspot X="1186.47" Y="33.83051" Z="60.73" />
-						</Safespots>
-					</CustomBehavior>			
+					<!-- Avoid Loken -->
+					<CustomBehavior File="MyCTM" X="1157.873" Y="-2.948992" Z="60.54504" />
+					<CustomBehavior File="MyCTM" X="1175.42" Y="1.121407" Z="60.71124" />
+					<CustomBehavior File="MyCTM" X="1210.768" Y="26.30729" Z="60.728" />
 										
 					<!-- Run to the jump off behind Loken -->			
 					<RunTo X="1249.04" Y="33.34788" Z="57.02382" />
@@ -616,9 +611,9 @@
 									Text="Waiting to be tagged by the Booster."
 									LogColor="Fuchsia" />
 										
-					<!-- Forces kill of Loken -->
+					<!-- Forces RAF toons to stay put until after Ionar is dead -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
-									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="28923"
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="28546"
 									EventX="1249.532" EventY="-37.96432" EventZ="33.50579"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
