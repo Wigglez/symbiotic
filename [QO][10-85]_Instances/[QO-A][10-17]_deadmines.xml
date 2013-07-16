@@ -752,6 +752,10 @@
 						</Safespots>
 					</CustomBehavior>
 					
+					<!-- Ten second delay before entering Helix Gearbreaker's room -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
 					<CustomBehavior File="Message" 
 									Text="Moving to the next safespot." 
 									LogColor="Fuchsia" />	
