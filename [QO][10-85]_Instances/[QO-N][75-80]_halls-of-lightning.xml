@@ -374,9 +374,9 @@
 
 					<!-- Run to safe spot in front of Loken -->
 					<RunTo X="1117.443" Y="34.00689" Z="56.05835" />
+					<RunTo X="1157.873" Y="-2.948992" Z="60.54504" />
 					
 					<!-- Avoid Loken -->
-					<CustomBehavior File="MyCTM" X="1157.873" Y="-2.948992" Z="60.54504" />
 					<CustomBehavior File="MyCTM" X="1175.42" Y="1.121407" Z="60.71124" />
 					<CustomBehavior File="MyCTM" X="1210.768" Y="26.30729" Z="60.728" />
 										
