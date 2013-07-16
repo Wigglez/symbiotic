@@ -923,7 +923,7 @@
 									
 					<!-- Let the booster clear the entrance for us -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />				
+									WaitTime="60000" />				
 									
 					<!-- move to the sandy beach -->
 					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />				
