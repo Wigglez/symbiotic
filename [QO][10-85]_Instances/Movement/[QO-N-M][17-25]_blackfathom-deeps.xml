@@ -471,7 +471,14 @@
 					<!-- Begin the escort once all party members are within range -->
 					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
 
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+											WaitTime="5000" />
+											
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
+					<CustomBehavior File="FlyTo" 
+									X="3907.067" Y="562.1359" Z="30.94373" />
+					
 					<CustomBehavior File="FlyTo" 
 									X="3930.243" Y="564.4576" Z="8.414933" />
 									
