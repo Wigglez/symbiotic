@@ -139,14 +139,14 @@
 										LogColor="Lime" />
 					
 						<CustomBehavior File="Message" 
-										Text="Flying to Zim'Torga." 
+										Text="Flying to The Argent Stand." 
 										LogColor="Lime" />
 					
 						<!-- Fly to the hover point -->
-						<CustomBehavior File="FlyTo" X="5772.159" Y="-3553.918" Z="404.8273" />
+						<CustomBehavior File="FlyTo" X="5369.718" Y="-2601.758" Z="366.4612" />
 
 						<!-- Front doorway of the inn -->
-						<CustomBehavior File="FlyTo" X="5761.089" Y="-3562.489" Z="387.1455" />
+						<CustomBehavior File="FlyTo" X="5419.954" Y="-2632.746" Z="307.0394" />
 
 						<!-- Set hearthstone -->
 						<CustomBehavior File="WaitTimer" 
@@ -157,16 +157,19 @@
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="1000" />
 						<CustomBehavior File="SetHearthstone" 
-										MobId="29583" 
-										X="5761.111" Y="-3562.792" Z="387.0504" />
+										MobId="28791" 
+										X="5462.965" Y="-2639.05" Z="306.5508" />
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="1000" />
-							
+
+						<!-- Front doorway of the inn -->
+						<RunTo X="5419.954" Y="-2632.746" Z="307.0394" />										
+						
 						<!-- Hover point -->
 						<CustomBehavior File="FlyTo" X="5772.159" Y="-3553.918" Z="404.8273" />
 						
 						<CustomBehavior File="Message" 
-										Text="We are in Zim'Torga." 
+										Text="We are in The Argent Stand." 
 										LogColor="Fuchsia" />
 
 					</Else> <!-- Set hearth -->
@@ -175,7 +178,7 @@
 				<!-- Repair if necessary -->
 				<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
 				
-					<CustomBehavior File="FlyTo" X="5769.963" Y="-3573.138" Z="388.2055" />
+					<CustomBehavior File="FlyTo" X="5407.229" Y="-2658.342" Z="303.9541" />
 					
 					<CustomBehavior File="Message" 
 									Text="Our durability is less than 80%, we need to repair." 
@@ -189,11 +192,11 @@
 					
 					<SetVendor>
 						<Vendors>
-							<!-- Zim'Torga -->
-							<Vendor Name="Ba'kari" 
-									Entry="28855" 
+							<!-- The Argent Stand -->
+							<Vendor Name="Arlen Brighthammer" 
+									Entry="28796" 
 									Type="Repair" 
-									X="5769.661" Y="-3572.947" Z="387.2394" />
+									X="5409.303" Y="-2655.896" Z="303.9539" />
 						</Vendors>
 					</SetVendor>
 				
@@ -206,7 +209,7 @@
 					
 					
 					<!-- Hover point -->
-					<CustomBehavior File="FlyTo" X="5772.159" Y="-3553.918" Z="404.8273" />
+					<CustomBehavior File="FlyTo" X="5369.718" Y="-2601.758" Z="366.4612" />
 				
 				</If> <!-- Repairing -->
 				
