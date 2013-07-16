@@ -701,7 +701,7 @@
 									ProfileName="[QO-N][17-25]_blackfathom-deeps.xml"  />
 									
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
+									WaitTime="120000" />
 								
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- Wailing Caverns -->
