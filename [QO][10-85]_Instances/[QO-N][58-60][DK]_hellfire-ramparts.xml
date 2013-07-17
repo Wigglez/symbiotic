@@ -121,7 +121,7 @@
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][58-61]_hellfire-ramparts" />
+									ProfileName="Movement\[QO-N-M][58-60][DK]_hellfire-ramparts" />
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
@@ -258,8 +258,8 @@
 									
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="61" 
-									ProfileName="[QO-N][61-63]_blood-furnace.xml"  />
+									MinLevel="60" 
+									ProfileName="[QO-N][60-63]_blood-furnace.xml"  />
 									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -412,7 +412,7 @@
 									LogColor="Fuchsia" />	
 									
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="Movement\[QO-N-M][58-61]_hellfire-ramparts" />
+									ProfileName="Movement\[QO-N-M][58-60][DK]_hellfire-ramparts" />
 				</If> <!-- Not in box -->
 				
 				<!-- If we are in the box -->
@@ -479,8 +479,8 @@
 									
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="61" 
-									ProfileName="[QO-N][61-63]_blood-furnace.xml"  />
+									MinLevel="60" 
+									ProfileName="[QO-N][60-63]_blood-furnace.xml"  />
 								
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 

@@ -564,6 +564,14 @@
 					<If Condition="(Me.Gold &gt;= 250)" >
 						<!-- If we are 60 -->
 						<If Condition="Me.Level &gt;= 60" >	
+							<!-- Turn in flight quest -->
+							<If Condition="((HasQuest(32674)) &amp;&amp; (IsQuestCompleted(32674)))" >
+								<TurnIn QuestName="I Believe You Can Fly" 
+										QuestId="32674" 
+										TurnInName="Maztha" 
+										TurnInId="44919" />
+							</If> <!-- Turn in flight quest -->
+						
 							<!-- Buy mount training until we've reached our needed skill -->
 							<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
 								<CustomBehavior File="InteractWith" 
@@ -649,7 +657,7 @@
 				<CustomBehavior File="ForcedMount"
 								MountType="Ground" />
 			
-				<RunTo X="-11901.27" Y="-3207.707" Z="-14.77159" />
+				<CustomBehavior File="NoCombatMoveTo" X="-11901.27" Y="-3207.707" Z="-14.77159" />
 					
 				<CustomBehavior File="MyCTM" X="-11911.1" Y="-3207.676" Z="-14.74713" />
 
@@ -664,7 +672,7 @@
 				<CustomBehavior File="FlyTo" X="-217.1329" Y="3043.892" Z="144.3637" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+								CheckRange="5" />
 									
 				<CustomBehavior File="WaitTimer"
 								WaitTime="10000" />

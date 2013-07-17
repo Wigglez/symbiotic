@@ -78,6 +78,21 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >
 				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3562">
+					<CustomBehavior File="Message" 
+									Text="Hellfire Ramparts detected. Running out."
+									LogColor="Fuchsia" />
+									
+					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
+				</If> <!-- HR -->
+			
+				<!-- If we are inside -->
 				<If Condition="Me.ZoneId == 3713">
 					<CustomBehavior File="Message" 
 									Text="Blood Furnace detected. Running out."
@@ -482,6 +497,47 @@
 						</If> <!-- Have Innkeeper's Daughter -->
 					</If> <!-- Hearth check -->
 				</If> <!-- BRS -->		
+				
+				<!-- Hellfire Ramparts -->
+				<If Condition="Me.ZoneId == 3562">
+					<CustomBehavior File="Message" 
+									Text="Hellfire Ramparts detected.."
+									LogColor="Lime" />
+									
+					<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)" >
+						<CustomBehavior File="Message" 
+										Text="Our Innkeeper is set at Stormwind City or Orgrimmar." 
+										LogColor="Cyan" />
+										
+						<!-- Have hearthstone -->
+						<If Condition="HasItem(6948)">
+							<CustomBehavior File="Message" 
+											Text="Using Hearthstone." 
+											LogColor="Lime" />
+											
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(6948)" 
+											WaitTime="1000" />
+											
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />				
+						</If> <!-- Have hearthstone -->
+					
+						<!-- Have Innkeeper's Daughter -->
+						<If Condition="HasItem(64488)">
+							<CustomBehavior File="Message" 
+											Text="Using Innkeeper's Daughter." 
+											LogColor="Lime" />
+												
+							<CustomBehavior File="Misc\RunLua" 
+											Lua="UseItemByName(64488)" 
+											WaitTime="1000" />
+								
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+						</If> <!-- Have Innkeeper's Daughter -->
+					</If> <!-- Hearth check -->
+				</If> <!-- HR -->		
 				
 				<!-- If we are inside -->
 				<If Condition="Me.ZoneId == 3713">
