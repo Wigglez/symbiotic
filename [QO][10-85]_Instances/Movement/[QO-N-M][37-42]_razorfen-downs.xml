@@ -469,7 +469,7 @@
 					<CustomBehavior File="ForcedMount"
 									MountType="Ground" />
 							
-					<!-- runlikehell to the rendezvous -->
+					<!-- runlikehell to the rendezvous 
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="false" 
 									NumOfTimes="1" 
@@ -491,7 +491,9 @@
 						<Hotspot X="-4459.414" Y="-1968.857" Z="116.8864" />
 						<Hotspot X="-4447.057" Y="-1974.393" Z="107.0061" />
 						<Hotspot X="-4442.853" Y="-1986.486" Z="105.6165" />
-					</CustomBehavior>	
+					</CustomBehavior>	-->
+					
+					<CustomBehavior File="NoCombatMoveTo" X="-4442.853" Y="-1986.486" Z="105.6165" />
 				</If>
 					
 				<!-- Southern Barrens -->
@@ -528,6 +530,7 @@
 									
 					<CustomBehavior File="MyCTM" X="-4499.696" Y="-2023.434" Z="83.55048" />
 					
+					<!-- Move to the instance -->
 					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
 						<Hotspot X="-4504.419" Y="-2015.987" Z="84.48018" />
 						<Hotspot X="-4536.773" Y="-2083.285" Z="85.65292" />
@@ -553,7 +556,9 @@
 						<Hotspot X="-4644.707" Y="-2495.303" Z="82.91087" />
 						<Hotspot X="-4650.273" Y="-2507.573" Z="81.32278" />
 						<Hotspot X="-4659.44" Y="-2527.94" Z="81.6564" />
-					</CustomBehavior>
+					</CustomBehavior> 
+					
+					<CustomBehavior File="NoCombatMoveTo" X="-4659.44" Y="-2527.94" Z="81.6564" />
 					
 					<!-- Moving to the instance box -->
 					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
