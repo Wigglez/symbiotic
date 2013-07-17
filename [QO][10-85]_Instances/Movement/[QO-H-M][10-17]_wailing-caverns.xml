@@ -531,6 +531,16 @@
 						<!-- We're in the center of Crossroads -->
 						<RunTo X="-455.7527" Y="-2647.999" Z="95.46925" />
 						
+						<!-- User Dialog - All your Characters must be in a party at this time -->	
+						<CustomBehavior File="UserDialog"
+										AllowBotStop="False"
+										SoundCue="Exclamation"
+										SoundCueInterval="15"
+										ExpiryTime="300"
+										ExpiryAction="InputEnabled_Continue"
+										Text="RAF - All your characters must be in a party at this time. You have 5 minutes to assemble your party before the RAF toons run to Deadmines on their own	. The Booster must be the party leader."
+										Title="WARNING" />
+						
 						<CustomBehavior File="Message" 
 										Text="We are in The Crossroads." 
 										LogColor="Cyan" />

@@ -25,6 +25,7 @@
 	</AvoidMobs>
 	
 	<Blackspots>
+		<Blackspot X="-8885.638" Y="-126.084" Z="81.16523" Radius="15.36972" />
 	</Blackspots>
 
 	<Mailboxes>
@@ -48,7 +49,10 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Cyan" />
-							
+			
+			<!-- Initialize timer to test run time -->			
+			<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
+					
 			<!-- Gold -->
 			<If Condition="Me.Gold &lt; 5">
 				<CustomBehavior File="Message" 
@@ -90,9 +94,46 @@
 								LogColor="Cyan" />
 								
 				<CustomBehavior File="Message" 
-								Text="Moving to The Exodar boat." 
+								Text="Moving to The Exodar." 
 								LogColor="Lime" />
-				
+								
+				<CustomBehavior File="RunLikeHell"
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+					<Hotspot X="-4245.167" Y="-13039.33" Z="-0.2642073" />
+					<Hotspot X="-4249.162" Y="-12959.28" Z="4.095366" />
+					<Hotspot X="-4250.786" Y="-12879.19" Z="12.53499" />
+					<Hotspot X="-4247.048" Y="-12799.19" Z="18.07117" />
+					<Hotspot X="-4218.878" Y="-12724.51" Z="24.46045" />
+					<Hotspot X="-4200.279" Y="-12646.6" Z="30.87532" />
+					<Hotspot X="-4194.804" Y="-12567.11" Z="38.04573" />
+					<Hotspot X="-4191.221" Y="-12504.15" Z="44.36043" />
+					<Hotspot X="-4225.309" Y="-12492.89" Z="43.58985" />
+					<Hotspot X="-4284.501" Y="-12469.54" Z="25.07286" />
+					<Hotspot X="-4289.326" Y="-12449.62" Z="22.35756" />
+					<Hotspot X="-4246.581" Y="-12382.1" Z="12.78259" />
+					<Hotspot X="-4209.735" Y="-12311.48" Z="1.544059" />
+					<Hotspot X="-4159.852" Y="-12248.49" Z="-0.8782614" />
+					<Hotspot X="-4128.423" Y="-12174.6" Z="-1.291989" />
+					<Hotspot X="-4109.088" Y="-12136.37" Z="-1.590225" />
+					<Hotspot X="-4092.973" Y="-12113.7" Z="-1.012078" />
+					<Hotspot X="-4086.169" Y="-12105.7" Z="-0.5736895" />
+					<Hotspot X="-4071.892" Y="-12026.94" Z="-1.444251" />
+					<Hotspot X="-4067.476" Y="-11995.82" Z="-0.4426771" />
+					<Hotspot X="-4053.182" Y="-11948.81" Z="0.4012946" />
+					<Hotspot X="-4053.182" Y="-11948.81" Z="0.4012946" />
+					<Hotspot X="-4029" Y="-11906.58" Z="-2.488779" />
+					<Hotspot X="-4056.336" Y="-11891.97" Z="-2.030734" />
+					<Hotspot X="-4088.357" Y="-11876.29" Z="-1.527449" />
+					<Hotspot X="-4114.865" Y="-11800.58" Z="1.890253" />
+					<Hotspot X="-4114.9" Y="-11789.49" Z="1.948019" />
+					<Hotspot X="-4135" Y="-11692.7" Z="2.524203" />
+					<Hotspot X="-4185.887" Y="-11655.12" Z="6.077805" />
+					<Hotspot X="-4217.727" Y="-11606.7" Z="11.32405" />
+				</CustomBehavior>
+					<RunTo X="-4217.727" Y="-11606.7" Z="11.32405" />
+					
 				<!-- Exodar boat -->
 				<CustomBehavior File="NoCombatMoveTo" X="-4262.176" Y="-11356.22" Z="4.91829" />
 				
@@ -133,7 +174,8 @@
 								LogColor="Lime" />
 				
 				<!-- Move to Darnassus portal to Rut'Theran Village -->
-				<CustomBehavior File="NoCombatMoveTo" X="9945.765" Y="2609.881" Z="1316.247" />
+				<CustomBehavior File="NoCombatMoveTo" X="9873.1" Y="977.698" Z="1309.976" />
+				<RunTo X="9945.765" Y="2609.881" Z="1316.247" />
 				
 				<CustomBehavior File="Message" 
 								Text="Going through portal." 
@@ -751,10 +793,12 @@
 							<RunTo X="-8836.29" Y="489.0551" Z="109.6133" />	
 
 							<!-- Goldshire fp -->
-							<RunTo X="-9433.99" Y="85.1493" Z="56.734" />		
-										
+							<RunTo X="-9433.99" Y="85.1493" Z="56.734" />								
 						</If> <!-- Stormwind -->
 					</If> <!-- Hearth -->
+					
+					<!-- Print run time in HB console -->
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 						
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
