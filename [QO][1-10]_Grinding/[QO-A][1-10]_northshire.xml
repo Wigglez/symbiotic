@@ -49,10 +49,7 @@
 			<CustomBehavior File="Message" 
 							Text="We are a RAF." 
 							LogColor="Cyan" />
-			
-			<!-- Initialize timer to test run time -->			
-			<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
-					
+								
 			<!-- Gold -->
 			<If Condition="Me.Gold &lt; 5">
 				<CustomBehavior File="Message" 
@@ -796,9 +793,6 @@
 							<RunTo X="-9433.99" Y="85.1493" Z="56.734" />								
 						</If> <!-- Stormwind -->
 					</If> <!-- Hearth -->
-					
-					<!-- Print run time in HB console -->
-					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
 						
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="..\[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
