@@ -206,7 +206,7 @@
 					
 							<!-- Land at innkeeper -->
 							<CustomBehavior File="FlyTo" 
-											X="-7083.119" Y="-1201.846" Z="324.2862" />
+											X="-7114.271" Y="-1202.76" Z="306.3051" />
 							<CustomBehavior File="ForcedDismount" />
 							
 							<!-- Set hearthstone -->
@@ -422,21 +422,18 @@
 									Text="Flying to Lothos (rendezvous location)." 
 									LogColor="Lime" />
 											
-					<CustomBehavior File="FlyTo" 
-									X="-7354.575" Y="-1100.917" Z="288.4781" />
-					<CustomBehavior File="FlyTo" 
-									X="-7407.077" Y="-1099.617" Z="281.1333" />
-					<CustomBehavior File="FlyTo" 
-									X="-7420.879" Y="-1062.756" Z="275.9349" />
-					<CustomBehavior File="FlyTo" 
-									X="-7462.554" Y="-1064.136" Z="267.4344" />
-					<CustomBehavior File="FlyTo" 
-									X="-7497.953" Y="-1077.667" Z="265.7343" />
-					<CustomBehavior File="FlyTo"
-									X="-7537.636" Y="-1096.551" Z="260.2551" />
-					<CustomBehavior File="FlyTo" 
-									X="-7556.436" Y="-1054.003" Z="223.244" />
+					<CustomBehavior File="FlyTo" X="-7331.136" Y="-1088.396" Z="277.2122" />
+					<CustomBehavior File="ForcedDismount" />				
 									
+					<RunTo X="-7409.485" Y="-1101.124" Z="278.0751" />
+					
+					<CustomBehavior File="FlyTo" X="-7421.067" Y="-1067.105" Z="275.0394" />
+					<CustomBehavior File="FlyTo" X="-7481.689" Y="-1071.609" Z="265.2473" />
+					<CustomBehavior File="FlyTo" X="-7504.1" Y="-1080.878" Z="264.6431" />
+					<CustomBehavior File="FlyTo" X="-7528.098" Y="-1090.198" Z="288.5237" />
+					<CustomBehavior File="FlyTo" X="-7553.941" Y="-1048.866" Z="234.4292" />
+					
+					
 					<!-- Lothos -->
 					<CustomBehavior File="FlyTo" 
 									X="-7515.52" Y="-1045.57" Z="182.3" />
@@ -667,20 +664,41 @@
 						<!-- Moving to riding trainer -->
 						<RunTo X="1799.227" Y="-4360.222" Z="102.4608" />
 					
-						<!-- Mount training -->
-						<If Condition="Me.Level &gt;= 40 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">				
-							<CustomBehavior File="InteractWith" 
-											MobId="44919" 
-											WaitTime="1000"
-											CollectionDistance="50" 
-											X="1799.54" Y="-4357.09" Z="102.4019" />
-											
-							<CustomBehavior File="ForceTrainRiding" 
-											MobId="44919" />
+						<!-- Have gold -->
+						<If Condition="(Me.Gold &gt;= 50)" >
+							<!-- If we are 40 -->
+							<If Condition="Me.Level &gt;= 40" >	
+								<!-- Buy mount training until we've reached our needed skill -->
+								<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 150">
+									
+									<CustomBehavior File="InteractWith" 
+													MobId="44919" 
+													WaitTime="1000"
+													CollectionDistance="50" 
+													X="1799.54" Y="-4357.09" Z="102.4019" />
+										
+									<CustomBehavior File="ForceTrainRiding" 
+													MobId="44919" />
+									
+									<CustomBehavior File="WaitTimer" 
+													WaitTime="1000" />
+									
+								</While> <!-- Loop mount purchasing -->
+								
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="We are not level 40. You are wanting to train riding below 40? Are you mental?" 
+													LogColor="Red" />	
+								</Else>
+							</If> <!-- Level check -->
 							
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="1000" />
-						</If> <!-- Mount training -->
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="You have insufficient gold for training. You require 50g or more to be able to train." 
+												LogColor="Red" />	
+							</Else>
+						</If> <!-- Have gold -->				
+										
 						
 						<CustomBehavior File="UserDialog" 
 										AllowBotStop="False" 
@@ -689,47 +707,50 @@
 										ExpiryTime="600"
 										ExpiryAction="InputEnabled_Continue" 
 										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
-										Title="WARNING" />	
-						
-						<!-- Board zeppelin to Undercity -->
-						<RunTo X="1868.267" Y="-4417.384" Z="135.233" />
-						
-						<!-- Orgrimmar to Undercity 
-						<CustomBehavior File="UseTransport" 
-										TransportId="164871" 
-										WaitAtX="1840.103" 
-										WaitAtY="-4387.908" 
-										WaitAtZ="135.2331"								
-										TransportStartX="1833.509" 
-										TransportStartY="-4391.543" 
-										TransportStartZ="152.7679"								
-										StandOnX="1838.313" 
-										StandOnY="-4377.212" 
-										StandOnZ="136.4679"
-										TransportEndX="2062.376" 
-										TransportEndY="292.998" 
-										TransportEndZ="114.973"	
-										GetOffX="2066.693" 
-										GetOffY="287.1619" 
-										GetOffZ="97.03147" />	-->
+										Title="WARNING" />
 										
-						<CustomBehavior File="UseTransport"
-										TransportId="164871"
-										WaitAtX="1838.7" 
-										WaitAtY="-4386.035"
-										WaitAtZ="135.2322" 
-										TransportStartX="1833.509" 
-										TransportStartY="-4391.543"
-										TransportStartZ="152.7679"
-										TransportEndX="2062.376" 
-										TransportEndY="292.998047" 
-										TransportEndZ="114.670547"
-										StandOnX="1835.301" 
-										StandOnY="-4390" 
-										StandOnZ="135.8167" 
-										GetOffX="2068.327" 
-										GetOffY="286.5359" 
-										GetOffZ="97.0316" />
+						<!-- trained -->
+						<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 150" >
+							<!-- Board zeppelin to Undercity -->
+							<RunTo X="1868.267" Y="-4417.384" Z="135.233" />
+							
+							<!-- Orgrimmar to Undercity 
+							<CustomBehavior File="UseTransport" 
+											TransportId="164871" 
+											WaitAtX="1840.103" 
+											WaitAtY="-4387.908" 
+											WaitAtZ="135.2331"								
+											TransportStartX="1833.509" 
+											TransportStartY="-4391.543" 
+											TransportStartZ="152.7679"								
+											StandOnX="1838.313" 
+											StandOnY="-4377.212" 
+											StandOnZ="136.4679"
+											TransportEndX="2062.376" 
+											TransportEndY="292.998" 
+											TransportEndZ="114.973"	
+											GetOffX="2066.693" 
+											GetOffY="287.1619" 
+											GetOffZ="97.03147" />	-->
+											
+							<CustomBehavior File="UseTransport"
+											TransportId="164871"
+											WaitAtX="1838.7" 
+											WaitAtY="-4386.035"
+											WaitAtZ="135.2322" 
+											TransportStartX="1833.509" 
+											TransportStartY="-4391.543"
+											TransportStartZ="152.7679"
+											TransportEndX="2062.376" 
+											TransportEndY="292.998047" 
+											TransportEndZ="114.670547"
+											StandOnX="1835.301" 
+											StandOnY="-4390" 
+											StandOnZ="135.8167" 
+											GetOffX="2068.327" 
+											GetOffY="286.5359" 
+											GetOffZ="97.0316" />
+						</If> <!-- Trained riding -->
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->
 			</If> <!-- Kalimdor -->
@@ -765,22 +786,43 @@
 							<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
 
 							<CustomBehavior File="WaitTimer"
-											WaitTime="1000" />						
-											
-							<!-- Level 40 or higher and apprentice riding skill -->
-							<If Condition="Me.Level &gt;= 40 &amp;&amp; Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 0">	
-								<CustomBehavior File="InteractWith" 
-												MobId="43769" 
-												WaitTime="1000"
-												CollectionDistance="50" 
-												X="-8845.4" Y="502.653" Z="109.617" />
-												
-								<CustomBehavior File="ForceTrainRiding" 
-												MobId="43769" />
+											WaitTime="1000" />		
+
+							<!-- Have gold -->
+							<If Condition="(Me.Gold &gt;= 50)" >
+								<!-- If we are 40 -->
+								<If Condition="Me.Level &gt;= 40" >	
+									<!-- Buy mount training until we've reached our needed skill -->
+									<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 150">
+										
+										<CustomBehavior File="InteractWith" 
+														MobId="43769" 
+														WaitTime="1000"
+														CollectionDistance="50" 
+														X="-8845.4" Y="502.653" Z="109.617" />
+														
+										<CustomBehavior File="ForceTrainRiding" 
+														MobId="43769" />
+										
+										<CustomBehavior File="WaitTimer" 
+														WaitTime="1000" />
+										
+									</While> <!-- Loop mount purchasing -->
+									
+									<Else>
+										<CustomBehavior File="Message" 
+														Text="We are not level 40. You are wanting to train riding below 40? Are you mental?" 
+														LogColor="Red" />	
+									</Else>
+								</If> <!-- Level check -->
 								
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="1000" />
-							</If> <!-- Mount training -->
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="You have insufficient gold for training. You require 50g or more to be able to train." 
+													LogColor="Red" />	
+								</Else>
+							</If> <!-- Have gold -->				
+											
 							
 							<CustomBehavior File="UserDialog" 
 											AllowBotStop="False" 
@@ -791,16 +833,18 @@
 											Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
 											Title="WARNING" />
 											
-							<!-- Stormwind fp -->
-							<RunTo X="-8837.592" Y="488.6579" Z="109.6119" />
+							<!-- trained -->
+							<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 150" >
+								<!-- Stormwind fp -->
+								<RunTo X="-8837.592" Y="488.6579" Z="109.6119" />
 
-							<CustomBehavior File="Message" 
-											Text="Moving to Gol'bolar Quarry."
-											LogColor="Lime" /> 
-											
-							<!-- Gol'bolar quarry flightmaster -->
-							<RunTo X="-5714.14" Y="-1578.64" Z="383.204" />
-							
+								<CustomBehavior File="Message" 
+												Text="Moving to Gol'bolar Quarry."
+												LogColor="Lime" /> 
+												
+								<!-- Gol'bolar quarry flightmaster -->
+								<RunTo X="-5714.14" Y="-1578.64" Z="383.204" />
+							</If> <!-- Trained riding -->
 						</If> <!-- Stormwind -->
 						
 
@@ -868,10 +912,10 @@
 												LogColor="Lime" /> 	
 
 								<!-- Move to the entrance to Hillsbrad Foothills -->
-								<RunTo X="-560.6682" Y="678.5583" Z="90.49583" />
+								<CustomBehavior File="NoCombatMoveTo" X="-560.6682" Y="678.5583" Z="90.49583" />
 								
 								<!-- Move through Hillsbrad Foothills gates -->
-								<RunTo X="-585.7101" Y="398.7853" Z="77.72025" />
+								<CustomBehavior File="NoCombatMoveTo" X="-585.7101" Y="398.7853" Z="77.72025" />
 							</If> <!-- Silverpine Forest -->
 							
 							<!-- Hillsbrad Foothills -->
@@ -885,10 +929,10 @@
 												LogColor="Lime" /> 	
 
 								<!-- Move to the entrance to Arathi Highlands -->
-								<RunTo X="-778.9217" Y="-1500.877" Z="58.15192" />
+								<CustomBehavior File="NoCombatMoveTo" X="-778.9217" Y="-1500.877" Z="58.15192" />
 
 								<!-- Move through Arathi Highlands gates -->
-								<RunTo X="-880.8386" Y="-1633.709" Z="50.34073" />
+								<CustomBehavior File="NoCombatMoveTo" X="-880.8386" Y="-1633.709" Z="50.34073" />
 							</If> <!-- Hillsbrad Foothills -->
 							
 							<!-- Arathi Highlands -->
@@ -902,10 +946,10 @@
 												LogColor="Lime" /> 
 												
 								<!-- Move to the entrance to Wetlands -->
-								<RunTo X="-2215.341" Y="-2450.933" Z="81.3135" />
+								<CustomBehavior File="NoCombatMoveTo" X="-2215.341" Y="-2450.933" Z="81.3135" />
 								
 								<!-- Move across bridge to Wetlands -->
-								<RunTo X="-2530.88" Y="-2482.252" Z="81.43133" />
+								<CustomBehavior File="NoCombatMoveTo" X="-2530.88" Y="-2482.252" Z="81.43133" />
 							</If> <!-- Arathi Highlands -->
 							
 							<!-- Wetlands -->
@@ -919,28 +963,28 @@
 												LogColor="Lime" /> 
 												
 								<!-- Move to the entrance to Dun Algaz tunnels -->
-								<RunTo X="-4085.718" Y="-2677.171" Z="31.81686" />
+								<CustomBehavior File="NoCombatMoveTo" X="-4085.718" Y="-2677.171" Z="31.81686" />
 								
-								<!-- End of first tunnel -->
-								<RunTo X="-4090.652" Y="-2417.568" Z="98.33003" />
+								<!-- End of first tunnel 
+								<CustomBehavior File="NoCombatMoveTo" X="-4090.652" Y="-2417.568" Z="98.33003" /> -->
 								
-								<!-- Beginning of second tunnel -->
-								<RunTo X="-4114.106" Y="-2463.127" Z="158.2226" />
+								<!-- Beginning of second tunnel 
+								<CustomBehavior File="NoCombatMoveTo" X="-4114.106" Y="-2463.127" Z="158.2226" /> -->
 								
-								<!-- End of second tunnel -->
-								<RunTo X="-4315.315" Y="-2464.123" Z="212.2026" />
+								<!-- End of second tunnel 
+								<CustomBehavior File="NoCombatMoveTo" X="-4315.315" Y="-2464.123" Z="212.2026" /> -->
 								
-								<!-- Beginning of third tunnel -->
-								<RunTo X="-4423.617" Y="-2477.55" Z="212.2037" />
+								<!-- Beginning of third tunnel  
+								<RunTo X="-4423.617" Y="-2477.55" Z="212.2037" /> -->
 								
-								<!-- End of third tunnel -->
-								<RunTo X="-4452.036" Y="-2675.168" Z="266.0332" />
+								<!-- End of third tunnel 
+								<RunTo X="-4452.036" Y="-2675.168" Z="266.0332" /> -->
 								
-								<!-- Beginning of fourth tunnel -->
-								<RunTo X="-4483.914" Y="-2690.475" Z="266.0371" />
+								<!-- Beginning of fourth tunnel 
+								<RunTo X="-4483.914" Y="-2690.475" Z="266.0371" /> -->
 								
 								<!-- End of fourth tunnel -->
-								<RunTo X="-4683.442" Y="-2698.826" Z="319.0988" />
+								<CustomBehavior File="NoCombatMoveTo" X="-4683.442" Y="-2698.826" Z="319.0988" />
 							</If> <!-- Wetlands -->
 							
 							<!-- Loch Modan -->
@@ -1103,6 +1147,8 @@
 					
 						<!-- Move to Lothos -->
 						<RunTo X="-7515.52" Y="-1045.57" Z="182.3" />
+						
+						<CustomBehavior File="ForcedDismount" />
 						
 						<!-- Run through lothos door -->
 						<CustomBehavior File="MyCTM" 
