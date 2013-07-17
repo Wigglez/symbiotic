@@ -167,7 +167,7 @@
 									CheckRange="1" />
 									
 					<CustomBehavior File="WaitTimer"
-									WaitTime="1000" />
+									WaitTime="5000" />
 									
 					<CustomBehavior File="Message" 
 									Text="Blackrock Spire initialized."  
@@ -444,7 +444,7 @@
 									ObjectType="Gameobject" 
 									Range="55.1" 
 									NumOfTimes="1"
-									WaitTime="10000" 
+									WaitTime="15000" 
 									X="146.0885" Y="-279.2306" Z="91.54841" />
 													
 					<RunTo X="162.247" Y="-276.4363" Z="91.61311" />								
@@ -455,7 +455,7 @@
 									ObjectType="Gameobject" 
 									Range="55.1" 
 									NumOfTimes="1"
-									WaitTime="10000" 
+									WaitTime="15000" 
 									X="146.0885" Y="-279.2306" Z="91.54841" />
 									
 					<!-- Stand on a channeler -->
