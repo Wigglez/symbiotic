@@ -57,6 +57,16 @@
 							Text="We are a RAF." 
 							LogColor="Cyan" />
 							
+			<!-- Gold -->
+			<If Condition="Me.Gold &lt; 5">
+				<CustomBehavior File="Message" 
+								Text="You need at least 5 gold in order to utilize this profile's armor/weapon purchasing." 
+								LogColor="Red" />
+								
+				<CustomBehavior File="UserSettings" 
+								StopBot="true" />
+			</If> <!-- Gold -->
+							
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
 							FindMountAutomatically="True"
@@ -262,16 +272,6 @@
 				<!-- Run to Razor Hill to ensure we are on the road -->				
 				<CustomBehavior File="NoCombatMoveTo" X="316.9291" Y="-4740.251" Z="9.559894" />
 			</If> <!-- Orgrimmar -->
-			
-			<!-- Gold -->
-			<If Condition="Me.Gold &lt; 5">
-				<CustomBehavior File="Message" 
-								Text="You need at least 5 gold in order to utilize this profile's armor/weapon purchasing." 
-								LogColor="Red" />
-								
-				<CustomBehavior File="UserSettings" 
-								StopBot="true" />
-			</If> <!-- Gold -->
 
 			<CustomBehavior File="UserSettings"
 							PullDistance="30" />
@@ -420,6 +420,9 @@
 						
 					<!-- Cloth wearers -->
 					<If Condition="Me.Class == WoWClass.Mage || Me.Class == WoWClass.Priest || Me.Class == WoWClass.Warlock">
+						<!-- Armor -->
+						
+						<!-- Woven Vest -->
 						<If Condition="!HasItem(2364)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -428,6 +431,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Woven Belt -->
 						<If Condition="!HasItem(3606)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -436,6 +440,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Woven Pants -->
 						<If Condition="!HasItem(2366)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -444,6 +449,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Woven Boots -->
 						<If Condition="!HasItem(2367)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -452,6 +458,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Woven Bracers -->
 						<If Condition="!HasItem(3607)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -460,6 +467,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Woven Gloves -->
 						<If Condition="!HasItem(2369)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -469,7 +477,9 @@
 						</If>
 						
 						
+						<!-- Weapons -->
 						
+						<!-- Walking Stick -->
 						<If Condition="!HasItem(2495)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3163" 
@@ -482,6 +492,9 @@
 					
 					<!-- Leather wearers -->
 					<If Condition="Me.Class == WoWClass.Rogue || Me.Class == WoWClass.Monk || Me.Class == WoWClass.Druid || Me.Class == WoWClass.Shaman || Me.Class == WoWClass.Hunter">
+						<!-- Armor -->
+						
+						<!-- Battered Leather Harness -->
 						<If Condition="!HasItem(2370)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -490,6 +503,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Battered Leather Belt -->
 						<If Condition="!HasItem(2371)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -498,6 +512,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Battered Leather Pants -->
 						<If Condition="!HasItem(2372)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -506,6 +521,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Battered Leather Boots -->
 						<If Condition="!HasItem(2373)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -514,6 +530,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Battered Leather Bracers -->
 						<If Condition="!HasItem(2374)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -522,6 +539,7 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
+						<!-- Battered Leather Gloves -->
 						<If Condition="!HasItem(2375)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3166" 
@@ -530,8 +548,9 @@
 											X="367.8849" Y="-4770.914" Z="12.4702" />
 						</If>
 						
-					
-					
+						<!-- Weapons -->
+						
+						<!-- Stiletto -->
 						<If Condition="Me.Class == WoWClass.Rogue">
 							<If Condition="!HasItem(2494)">
 								<CustomBehavior File="InteractWith" 
@@ -542,7 +561,8 @@
 							</If>
 						</If> 
 						
-						<If Condition="Me.Class == WoWClass.Monk">
+						<!-- Cudgel -->
+						<If Condition="Me.Class == WoWClass.Monk || Me.Class == WoWClass.Shaman">
 							<If Condition="!HasItem(2492)">
 								<CustomBehavior File="InteractWith" 
 												MobId="3163" 
@@ -552,6 +572,7 @@
 							</If>
 						</If> 
 						
+						<!-- Walking Stick -->
 						<If Condition="Me.Class == WoWClass.Druid">
 							<If Condition="!HasItem(2495)">
 								<CustomBehavior File="InteractWith" 
@@ -562,16 +583,7 @@
 							</If>
 						</If>
 						
-						<If Condition="Me.Class == WoWClass.Shaman">
-							<If Condition="!HasItem(2492)">
-								<CustomBehavior File="InteractWith" 
-												MobId="3163" 
-												BuyItemId="2492" 
-												BuyItemCount="2"
-												X="381.653" Y="-4712.06" Z="16.03346" />
-							</If>
-						</If>
-						
+						<!-- Hornwood Recurve Bow -->
 						<If Condition="Me.Class == WoWClass.Hunter">
 							<If Condition="!HasItem(2506)">
 								<CustomBehavior File="InteractWith" 
@@ -585,6 +597,17 @@
 					
 					<!-- Mail wearers -->
 					<If Condition="Me.Class == WoWClass.Paladin || Me.Class == WoWClass.Warrior">
+						2398				431
+						2399				217
+						2400			434
+						2401				326
+						2402				220
+						2403	s			221
+						17185	Round Buckler				221
+						2376				381
+						<!-- Armor -->
+						
+						<!-- Light Chain Armor -->
 						<If Condition="!HasItem(2398)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -593,6 +616,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Light Chain Belt -->
 						<If Condition="!HasItem(2399)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -601,6 +625,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Light Chain Leggings -->
 						<If Condition="!HasItem(2400)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -609,6 +634,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Light Chain Boots -->
 						<If Condition="!HasItem(2401)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -617,6 +643,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Light Chain Bracers -->
 						<If Condition="!HasItem(2402)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -625,6 +652,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Light Chain Gloves -->
 						<If Condition="!HasItem(2403)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -633,6 +661,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Worn Heater Shield -->
 						<If Condition="!HasItem(2376)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3167" 
@@ -641,6 +670,7 @@
 											X="358.1284" Y="-4706.727" Z="14.39389" />
 						</If>
 						
+						<!-- Gladius -->
 						<If Condition="!HasItem(2488)">
 							<CustomBehavior File="InteractWith" 
 											MobId="3163" 

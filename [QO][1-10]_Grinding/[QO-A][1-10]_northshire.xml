@@ -49,6 +49,16 @@
 							Text="We are a RAF." 
 							LogColor="Cyan" />
 							
+			<!-- Gold -->
+			<If Condition="Me.Gold &lt; 5">
+				<CustomBehavior File="Message" 
+								Text="You need at least 5 gold in order to utilize this profile's armor/weapon purchasing." 
+								LogColor="Red" />
+								
+				<CustomBehavior File="UserSettings" 
+								StopBot="true" />
+			</If> <!-- Gold -->	
+							
 			<CustomBehavior File="UserSettings"
 							AdvancedSettingsMode="True"
 							FindMountAutomatically="True"
@@ -66,7 +76,7 @@
 							MountName=""
 							NinjaSkin="False"
 							ProfileDebuggingMode="False"
-							PullDistance="1"
+							PullDistance="45"
 							RessAtSpiritHealers="False"
 							SkinMobs="False"
 							UseFlightPaths="True"
@@ -260,16 +270,6 @@
 								
 				<!-- Get to Goldshire -->
 				<CustomBehavior File="NoCombatMoveTo" X="-9459.73" Y="64.00458" Z="55.88485" />
-				
-				<!-- Gold -->
-				<If Condition="Me.Gold &lt; 5">
-					<CustomBehavior File="Message" 
-									Text="You need at least 5 gold in order to utilize this profile's armor/weapon purchasing." 
-									LogColor="Red" />
-									
-					<CustomBehavior File="UserSettings" 
-									StopBot="true" />
-				</If> <!-- Gold -->
 			</If> <!-- Human -->
 			
 			<CustomBehavior File="UserSettings"
@@ -277,6 +277,11 @@
 			
 			<!-- Infinite loop -->
 			<While Condition="true">
+			
+				<!-- Usersetting - pull range -->
+				<CustomBehavior File="UserSettings"
+							PullDistance="45" />
+							
 				<!-- 1-3 -->
 				<If Condition="Me.Level &gt;= 1 &amp;&amp; Me.Level &lt; 3">
 					<CustomBehavior File="Message" 
@@ -284,18 +289,23 @@
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
-									Text="Moving to LOCATION HERE." 
+									Text="Moving to the wolves." 
 									LogColor="Lime" />	
 						
-					<!-- Go to MOB NAME -->
-					<CustomBehavior File="NoCombatMoveTo" 
+					<!-- Go to wolves -->
+					<CustomBehavior File="NoCombatMoveTo" X="-8850.859" Y="-113.4503" Z="80.38333" />
 					
 					<SetGrindArea>
 						<GrindArea>
-							<Factions></Factions>
-							
+							<Factions>
+								32,7
+							</Factions>
 							<Hotspots>
-								
+								<Hotspot X="-8865.809" Y="-91.41676" Z="82.0264" />
+								<Hotspot X="-8917.386" Y="-64.30447" Z="87.72102" />
+								<Hotspot X="-8827.659" Y="-58.24278" Z="88.12476" />
+								<Hotspot X="-8754.399" Y="-135.7833" Z="82.53074" />
+								<Hotspot X="-8758.051" Y="-189.1792" Z="85.15105" />
 							</Hotspots>
 						</GrindArea>
 					</SetGrindArea>		
@@ -303,38 +313,45 @@
 					<GrindTo Condition="Me.Level == 3" />
 				</If> <!-- 1-3 -->
 				
-				<!-- 3-6 -->
-				<If Condition="Me.Level &gt;= 3 &amp;&amp; Me.Level &lt; 6">
+				<!-- 3-5 -->
+				<If Condition="Me.Level &gt;= 3 &amp;&amp; Me.Level &lt; 5">
 					<CustomBehavior File="Message" 
-									Text="We are level 3-6." 
+									Text="We are level 3-5." 
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
-									Text="Moving to LOCATION HERE." 
+									Text="Moving to the vineyards." 
 									LogColor="Lime" />	
 							
 					<!-- Go to MOB NAME -->
-					<CustomBehavior File="NoCombatMoveTo" 
+					<CustomBehavior File="NoCombatMoveTo" X="-8998.942" Y="-309.1467" Z="72.09138" />
 					
 					<SetGrindArea>
 						<GrindArea>
 							<Factions>
-								
+								17
 							</Factions>
-							
 							<Hotspots>
-								
+								<Hotspot X="-8981.384" Y="-341.2075" Z="74.28262" />
+								<Hotspot X="-8892.023" Y="-395.6154" Z="69.00227" />
+								<Hotspot X="-8911.044" Y="-444.8151" Z="74.15931" />
+								<Hotspot X="-8973.005" Y="-411.5932" Z="73.1554" />
+								<Hotspot X="-9064.029" Y="-404.3354" Z="72.81442" />
+								<Hotspot X="-9012.571" Y="-380.1343" Z="74.50159" />
+								<Hotspot X="-9083.65" Y="-343.7723" Z="73.45254" />
+								<Hotspot X="-9103.313" Y="-286.0128" Z="72.60744" />
+								<Hotspot X="-9047.483" Y="-285.3326" Z="73.66786" />
 							</Hotspots>
 						</GrindArea>
 					</SetGrindArea>	
 
-					<GrindTo Condition="Me.Level == 6" />
+					<GrindTo Condition="Me.Level == 5" />
 				</If> <!-- 3-6 -->
 				
 				<!-- 6-8 -->
-				<If Condition="Me.Level &gt;= 6 &amp;&amp; Me.Level &lt; 8">
+				<If Condition="Me.Level &gt;= 5 &amp;&amp; Me.Level &lt; 7">
 					<CustomBehavior File="Message" 
-									Text="We are level 6-8." 
+									Text="We are level 5-7." 
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
@@ -342,345 +359,341 @@
 									LogColor="Lime" />	
 									
 					<!-- Go to Goldshire to buy some gear -->
-					<CustomBehavior File="NoCombatMoveTo" 
+					<CustomBehavior File="NoCombatMoveTo" X="-9457.95" Y="65.2571" Z="55.99697" />
 					
 					<!-- 
-						3166	Cutac 						
+						74	Kurran Steele 						
 						<Cloth & Leather Armor Merchant>
-						X="367.8849" Y="-4770.914" Z="12.4702" />
+						X="-9457.64" Y="99.6884" Z="58.3441" />
 						
-						2364	Woven Vest					441
-						3606	Woven Belt					221
-						2366	Woven Pants					444
-						2367	Woven Boots					334
-						3607	Woven Bracers				221
-						2369	Woven Gloves				226
-						2370	Battered Leather Harness	450
-						2371	Battered Leather Belt		227
-						2372	Battered Leather Pants		410
-						2373	Battered Leather Boots		308
-						2374	Battered Leather Bracers	208
-						2375	Battered Leather Gloves		209
+						795		Knitted Tunic				467
+						3602	Knitted Belt				244
+						794		Knitted Pants				466
+						792		Knitted Sandals				346
+						3603	Knitted Bracers				244
+						793		Knitted Gloves				233
+						799		Rough Leather Vest			475
+						1839	Rough Leather Belt			247
+						798		Rough Leather Pants			473
+						796		Rough Leather Boots			351
 						
 						
-						3167	Wuark
+						2046	Andrew Krighton
 						<Armorer and Shieldcrafter>
-						X="358.1284" Y="-4706.727" Z="14.39389" />
+						X="-9464.16" Y="87.8281" Z="58.34372" />
 						
-						2398	Light Chain Armor			431
-						2399	Light Chain Belt			217
-						2400	Light Chain Leggings		434
-						2401	Light Chain Boots			326
-						2402	Light Chain Bracers			220
-						2403	Light Chain Gloves			221
-						17185	Round Buckler				221
-						2376	Worn Heater Shield			381
-						2901	Mining Pick					69
-						30746	Mining Sack					85000
-						2880	Weak Flux					85
-						3466	Strong Flux					1700
-						3857	Coal						425
-						20815	Jeweler's Kit				680
+						2392	Light Mail Armor			458
+						2393	Light Mail Belt				231
+						2394	Light Mail Leggings			462
+						2395	Light Mail Boots			357
+						2396	Light Mail Bracers			241
+						2397	Light Mail Gloves			242
+						17186	Small Targe					248
+						1201	Dull Heater Shield			450
 						
 						
-						3163	Uhgar						
+						54	Corina Steele						
 						<Weaponsmith>
-						X="381.653" Y="-4712.06" Z="16.03346" />
+						X="-9464.4" Y="94.0174" Z="58.34198" />
 						
-						2489	Two-Handed Sword			292
-						2492	Cudgel						243
-						2491	Large Axe					412
-						2494	Stiletto					342
-						2495	Walking Stick				430
-						2488	Gladius						456
-						2490	Tomahawk					459
-						2493	Wooden Mallet				596
-						
-						
-						3165	Ghrawt						
-						<Bowyer>
-						X="362.1046" Y="-4763.842" Z="12.46934" />
-						
-						2506	Hornwood Recurve Bow		243
-						2507	Laminated Recurve Bow		1490
-						
+						2489	Two-Handed Sword			326
+						2492	Cudgel						271
+						2491	Large Axe					460
+						2494	Stiletto					382
+						2495	Walking Stick				480
+						2488	Gladius						510
+						2490	Tomahawk					513
+						2493	Wooden Mallet				666
 					-->
 						
 					<!-- Cloth wearers -->
 					<If Condition="Me.Class == WoWClass.Mage || Me.Class == WoWClass.Priest || Me.Class == WoWClass.Warlock">
-						<If Condition="!HasItem(2364)">
+						<!-- Armor -->
+						
+						<!-- Knitted Tunic -->
+						<If Condition="!HasItem(795)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2364" 
+											MobId="74" 
+											BuyItemId="795" 
 											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(3606)">
+						<!-- Knitted Belt -->
+						<If Condition="!HasItem(3602)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="3606" 
+											MobId="74" 
+											BuyItemId="3602" 
 											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(2366)">
+						<!-- Knitted Pants -->
+						<If Condition="!HasItem(794)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2366" 
+											MobId="74" 
+											BuyItemId="794" 
 											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(2367)">
+						<!-- Knitted Sandals -->
+						<If Condition="!HasItem(792)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2367" 
+											MobId="74" 
+											BuyItemId="792" 
 											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(3607)">
+						<!-- Knitted Bracers -->
+						<If Condition="!HasItem(3603)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="3607"
-											BuyItemCount="1"											
-											X="367.8849" Y="-4770.914" Z="12.4702" />
-						</If>
-						
-						<If Condition="!HasItem(2369)">
-							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2369" 
+											MobId="74" 
+											BuyItemId="3603" 
 											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
+						<!-- Knitted Gloves -->
+						<If Condition="!HasItem(793)">
+							<CustomBehavior File="InteractWith" 
+											MobId="74" 
+											BuyItemId="793" 
+											BuyItemCount="1"
+											X="-9457.64" Y="99.6884" Z="58.3441" />
+						</If>
 						
+						<!-- Weapons -->
 						
+						<!-- Walking Stick -->
 						<If Condition="!HasItem(2495)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3163" 
+											MobId="54" 
 											BuyItemId="2495" 
 											BuyItemCount="1"
-											X="381.653" Y="-4712.06" Z="16.03346" />
+											X="-9464.4" Y="94.0174" Z="58.34198" />
 						</If>
-						
+												
 					</If> <!-- Cloth wearers -->
 					
 					<!-- Leather wearers -->
 					<If Condition="Me.Class == WoWClass.Rogue || Me.Class == WoWClass.Monk || Me.Class == WoWClass.Druid || Me.Class == WoWClass.Shaman || Me.Class == WoWClass.Hunter">
-						<If Condition="!HasItem(2370)">
+						<!-- Armor -->
+						
+						<!-- Rough Leather Vest -->
+						<If Condition="!HasItem(799)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2370"
+											MobId="74" 
+											BuyItemId="799"
 											BuyItemCount="1"											
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(2371)">
+						<!-- Rough Leather Belt -->
+						<If Condition="!HasItem(1839)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2371" 
-											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											MobId="74" 
+											BuyItemId="1839"
+											BuyItemCount="1"											
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(2372)">
+						<!-- Rough Leather Pants -->
+						<If Condition="!HasItem(798)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2372" 
-											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											MobId="74" 
+											BuyItemId="798"
+											BuyItemCount="1"											
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(2373)">
+						<!-- Rough Leather Boots -->
+						<If Condition="!HasItem(796)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2373" 
-											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
+											MobId="74" 
+											BuyItemId="796"
+											BuyItemCount="1"											
+											X="-9457.64" Y="99.6884" Z="58.3441" />
 						</If>
 						
-						<If Condition="!HasItem(2374)">
-							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2374" 
-											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
-						</If>
+						<!-- Weapons -->
 						
-						<If Condition="!HasItem(2375)">
-							<CustomBehavior File="InteractWith" 
-											MobId="3166" 
-											BuyItemId="2375" 
-											BuyItemCount="1"
-											X="367.8849" Y="-4770.914" Z="12.4702" />
-						</If>
-						
-					
-					
+						<!-- Stiletto -->
 						<If Condition="Me.Class == WoWClass.Rogue">
 							<If Condition="!HasItem(2494)">
 								<CustomBehavior File="InteractWith" 
-												MobId="3163" 
+												MobId="54" 
 												BuyItemId="2494" 
 												BuyItemCount="2"
-												X="381.653" Y="-4712.06" Z="16.03346" />
+												X="-9464.4" Y="94.0174" Z="58.34198" />
 							</If>
 						</If> 
 						
-						<If Condition="Me.Class == WoWClass.Monk">
+						<!-- Cudgel -->
+						<If Condition="Me.Class == WoWClass.Monk || Me.Class == WoWClass.Shaman">
 							<If Condition="!HasItem(2492)">
 								<CustomBehavior File="InteractWith" 
-												MobId="3163" 
+												MobId="54" 
 												BuyItemId="2492" 
 												BuyItemCount="2"
-												X="381.653" Y="-4712.06" Z="16.03346" />
+												X="-9464.4" Y="94.0174" Z="58.34198" />
 							</If>
 						</If> 
 						
+						<!-- Walking Stick -->
 						<If Condition="Me.Class == WoWClass.Druid">
 							<If Condition="!HasItem(2495)">
 								<CustomBehavior File="InteractWith" 
-												MobId="3163" 
+												MobId="54" 
 												BuyItemId="2495" 
 												BuyItemCount="1"
-												X="381.653" Y="-4712.06" Z="16.03346" />
-							</If>
-						</If>
-						
-						<If Condition="Me.Class == WoWClass.Shaman">
-							<If Condition="!HasItem(2492)">
-								<CustomBehavior File="InteractWith" 
-												MobId="3163" 
-												BuyItemId="2492" 
-												BuyItemCount="2"
-												X="381.653" Y="-4712.06" Z="16.03346" />
-							</If>
-						</If>
-						
-						<If Condition="Me.Class == WoWClass.Hunter">
-							<If Condition="!HasItem(2506)">
-								<CustomBehavior File="InteractWith" 
-												MobId="3165" 
-												BuyItemId="2506" 
-												BuyItemCount="1"
-												X="362.1046" Y="-4763.842" Z="12.46934" />
+												X="-9464.4" Y="94.0174" Z="58.34198" />
 							</If>
 						</If>
 					</If> <!-- Leather wearers -->
 					
 					<!-- Mail wearers -->
 					<If Condition="Me.Class == WoWClass.Paladin || Me.Class == WoWClass.Warrior">
-						<If Condition="!HasItem(2398)">
+						<!-- Armor -->
+						
+						<!-- Light Mail Armor -->
+						<If Condition="!HasItem(2392)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2398" 
+											MobId="2046" 
+											BuyItemId="2392" 
 											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 						
-						<If Condition="!HasItem(2399)">
+						<!-- Light Mail Belt -->
+						<If Condition="!HasItem(2393)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2399" 
+											MobId="2046" 
+											BuyItemId="2393" 
 											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 						
-						<If Condition="!HasItem(2400)">
+						<!-- Light Mail Leggings -->
+						<If Condition="!HasItem(2394)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2400" 
+											MobId="2046" 
+											BuyItemId="2394" 
 											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 						
-						<If Condition="!HasItem(2401)">
+						<!-- Light Mail Boots -->
+						<If Condition="!HasItem(2395)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2401" 
+											MobId="2046" 
+											BuyItemId="2395" 
 											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 						
-						<If Condition="!HasItem(2402)">
+						<!-- Light Mail Bracers -->
+						<If Condition="!HasItem(2396)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2402" 
+											MobId="2046" 
+											BuyItemId="2396" 
 											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 						
-						<If Condition="!HasItem(2403)">
+						<!-- Light Mail Gloves -->
+						<If Condition="!HasItem(2397)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2403" 
+											MobId="2046" 
+											BuyItemId="2397" 
 											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 						
-						<If Condition="!HasItem(2376)">
-							<CustomBehavior File="InteractWith" 
-											MobId="3167" 
-											BuyItemId="2376" 
-											BuyItemCount="1"
-											X="358.1284" Y="-4706.727" Z="14.39389" />
-						</If>
+						<!-- Weapons -->
 						
+						<!-- Gladius -->
 						<If Condition="!HasItem(2488)">
 							<CustomBehavior File="InteractWith" 
-											MobId="3163" 
+											MobId="54" 
 											BuyItemId="2488" 
 											BuyItemCount="1"
-											X="381.653" Y="-4712.06" Z="16.03346" />
+											X="-9464.4" Y="94.0174" Z="58.34198" />
+						</If>
+						
+						<!-- Shields -->
+						<!-- Dull Heater -->
+						<If Condition="!HasItem(1201)">
+							<CustomBehavior File="InteractWith" 
+											MobId="2046" 
+											BuyItemId="1201" 
+											BuyItemCount="1"
+											X="-9464.16" Y="87.8281" Z="58.34372" />
 						</If>
 					</If> <!-- Mail wearers -->
 									
 					<CustomBehavior File="Message" 
-									Text="Moving to LOCATION HERE." 
+									Text="Moving to spiders." 
 									LogColor="Lime" />	
 									
-					<!-- Go to MOB NAME -->
-					<CustomBehavior File="NoCombatMoveTo" 
+					<!-- Move to the bridge going towards westfall -->					
+					<CustomBehavior File="NoCombatMoveTo" X="-9499.526" Y="207.9992" Z="53.67423" />
+					<CustomBehavior File="NoCombatMoveTo" X="-9665.323" Y="264.3304" Z="46.44166" />
+					<CustomBehavior File="NoCombatMoveTo" X="-9736.42" Y="358.5188" Z="42.25502" />
+					<CustomBehavior File="NoCombatMoveTo" X="-9746.805" Y="497.9545" Z="34.26561" />
 					
 					<SetGrindArea>
 						<GrindArea>
 							<Factions>
-								
+							22,17,189,38	
 							</Factions>
-							
 							<Hotspots>
-								
+								<Hotspot X="-9708.132" Y="431.8545" Z="38.8169" />
+								<Hotspot X="-9683.056" Y="369.9208" Z="42.61026" />
+								<Hotspot X="-9636.437" Y="311.9971" Z="46.73973" />
+								<Hotspot X="-9559.797" Y="308.1863" Z="54.51963" />
+								<Hotspot X="-9417.378" Y="323.1451" Z="56.64996" />
+								<Hotspot X="-9386.077" Y="274.372" Z="63.1695" />
+								<Hotspot X="-9446.828" Y="234.6482" Z="59.41433" />
+								<Hotspot X="-9619.496" Y="68.64299" Z="62.65695" />
+								<Hotspot X="-9701.234" Y="130.6588" Z="47.26487" />
+								<Hotspot X="-9723.994" Y="236.3377" Z="48.84429" />
+								<Hotspot X="-9752.957" Y="327.5891" Z="44.05083" />
+								<Hotspot X="-9722.79" Y="370.1118" Z="43.37259" />
 							</Hotspots>
 						</GrindArea>
 					</SetGrindArea>		
 
-					<GrindTo Condition="Me.Level == 8" />	
+					<GrindTo Condition="Me.Level == 7" />	
 				</If> <!-- 6-8 -->
 				
 				<!-- 8-10 -->
-				<If Condition="Me.Level &gt;= 8 &amp;&amp; Me.Level &lt; 10">
+				<If Condition="Me.Level &gt;= 7 &amp;&amp; Me.Level &lt; 10">
 					<CustomBehavior File="Message" 
-									Text="We are level 8-10." 
+									Text="We are level 7-10." 
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
-									Text="Moving to LOCATION HERE." 
+									Text="Moving to the Tower of Azora." 
 									LogColor="Lime" />
 							
 					<!-- Go to MOB NAME -->
-					<CustomBehavior File="NoCombatMoveTo" 
+					<CustomBehavior File="NoCombatMoveTo" X="-9622.867" Y="-621.6269" Z="51.92301" />
 					
 					<SetGrindArea>
 						<GrindArea>
 							<Factions>
-								
+							38,44,14	
 							</Factions>
-							
 							<Hotspots>
-								
+								<Hotspot X="-9570.001" Y="-609.4218" Z="58.27692" />
+								<Hotspot X="-9466.521" Y="-578.5791" Z="67.64523" />
+								<Hotspot X="-9355.258" Y="-586.4263" Z="70.04424" />
+								<Hotspot X="-9394.249" Y="-1048.125" Z="61.61045" />
+								<Hotspot X="-9406.659" Y="-1174.292" Z="59.96231" />
+								<Hotspot X="-9500.788" Y="-1075.564" Z="51.59076" />
+								<Hotspot X="-9453.333" Y="-970.799" Z="55.68548" />
 							</Hotspots>
 						</GrindArea>
 					</SetGrindArea>	
