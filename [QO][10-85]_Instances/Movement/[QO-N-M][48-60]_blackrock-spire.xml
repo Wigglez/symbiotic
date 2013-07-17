@@ -157,28 +157,6 @@
 							<!-- At Lothos -->
 							<RunTo X="-7516.15" Y="-1045.365" Z="182.2999" />
 						</If> <!-- IN BRD BOX -->
-					
-						<!-- Fly outside of Blackrock mountain just in case we don't have our hearth set in order to set it -->
-						<CustomBehavior File="FlyTo" 
-										X="-7562.834" Y="-1062.404" Z="231.615" />
-						<CustomBehavior File="FlyTo" 
-										X="-7535.617" Y="-1099.259" Z="276.5862" />
-						<CustomBehavior File="FlyTo" 
-										X="-7484.508" Y="-1071.724" Z="265.4083" />
-						<CustomBehavior File="FlyTo" 
-										X="-7428.28" Y="-1058.494" Z="273.2607" />
-						<CustomBehavior File="FlyTo" 
-										X="-7401.982" Y="-1105.873" Z="278.0755" />
-										
-						<CustomBehavior File="ForcedDismount" />
-						
-						<!-- MyCTM through gates -->
-						<CustomBehavior File="MyCTM" 
-										X="-7372.676" Y="-1096.317" Z="277.8396" />
-						<CustomBehavior File="MyCTM" 
-										X="-7355.349" Y="-1105.106" Z="277.8396" />
-						<CustomBehavior File="MyCTM" 
-										X="-7327.033" Y="-1086.471" Z="277.1177" />
 					</If> <!-- Blackrock Mountain -->
 				
 					<!-- If our hearthstone is set here, use it -->
@@ -224,6 +202,31 @@
 							<CustomBehavior File="Message" 
 											Text="Flying to Iron Summit." 
 											LogColor="Lime" />
+											
+							<!-- Blackrock Mountain -->
+							<If Condition="Me.ZoneId == 25">
+								<!-- Fly outside of Blackrock mountain just in case we don't have our hearth set in order to set it -->
+								<CustomBehavior File="FlyTo" 
+												X="-7562.834" Y="-1062.404" Z="231.615" />
+								<CustomBehavior File="FlyTo" 
+												X="-7535.617" Y="-1099.259" Z="276.5862" />
+								<CustomBehavior File="FlyTo" 
+												X="-7484.508" Y="-1071.724" Z="265.4083" />
+								<CustomBehavior File="FlyTo" 
+												X="-7428.28" Y="-1058.494" Z="273.2607" />
+								<CustomBehavior File="FlyTo" 
+												X="-7401.982" Y="-1105.873" Z="278.0755" />
+												
+								<CustomBehavior File="ForcedDismount" />
+								
+								<!-- MyCTM through gates -->
+								<CustomBehavior File="MyCTM" 
+												X="-7372.676" Y="-1096.317" Z="277.8396" />
+								<CustomBehavior File="MyCTM" 
+												X="-7355.349" Y="-1105.106" Z="277.8396" />
+								<CustomBehavior File="MyCTM" 
+												X="-7327.033" Y="-1086.471" Z="277.1177" />
+							</If> <!-- BRM -->
 					
 							<!-- Fly to the hover point above the innkeep in Iron Summit -->
 							<CustomBehavior File="FlyTo" 
@@ -476,7 +479,7 @@
 										Text="Moving to Lothos."
 										LogColor="Lime" />
 											
-							<RunTo X="-7516.15" Y="-1045.365" Z="182.2999" />
+							<CustomBehavior File="NoCombatMoveTo" X="-7516.15" Y="-1045.365" Z="182.2999" />
 						</If> <!-- IN BRD BOX -->
 										
 						<CustomBehavior File="ForcedMount"
