@@ -399,7 +399,7 @@
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="80" 
+									MinLevel="77" 
 									ProfileName="[QO-N][80-83]_blackrock-caverns.xml"  />
 				</If> <!-- HoL -->
 				
@@ -635,7 +635,7 @@
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="80" 
+									MinLevel="77" 
 									ProfileName="[QO-N][80-83]_blackrock-caverns.xml"  />
 				
 					<!-- Wait so the main can get away from us -->
