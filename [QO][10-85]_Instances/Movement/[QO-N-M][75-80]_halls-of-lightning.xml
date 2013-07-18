@@ -87,7 +87,7 @@
 				<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
 				
 				<!-- Make sure we run to the right spot outside the potral -->
-				<RunTo X="6911.331" Y="-4456.147" Z="451.7355" />	
+				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
@@ -321,7 +321,7 @@
 				<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
 				
 				<!-- Make sure we run to the right spot outside the potral -->
-				<RunTo X="6911.331" Y="-4456.147" Z="451.7355" />	
+				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
