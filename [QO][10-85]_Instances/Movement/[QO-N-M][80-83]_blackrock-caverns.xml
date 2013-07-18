@@ -78,7 +78,7 @@
 			<If Condition="Me.ZoneId == 4272">
 				<CustomBehavior File="Message" 
 								Text="Halls of Lightning detected. Running out."
-								LogColor="Fuchsia" />
+								LogColor="Lime" />
 					
 				<!-- Make our way to the exit -->
 				<RunTo X="1331.41" Y="241.904" Z="52.5046" />
@@ -159,8 +159,8 @@
 							<CustomBehavior File="InteractWith" 
 											MobId="190960" 
 											ObjectType="Gameobject" 
-											Range="4.75" N
-											umOfTimes="1"  
+											Range="4.75"
+											NumOfTimes="1"  
 											X="5719.184" Y="719.6667" Z="641.727844" />
 							
 							<!-- Wait timer for game to load -->
@@ -227,7 +227,7 @@
 																
 						<CustomBehavior File="Message" 
 										Text="We are in Iron Summit." 
-										LogColor="Fuchsia" />
+										LogColor="Lime" />
 
 					</Else> <!-- Set hearth -->
 				</If> <!-- Check hearthstone -->
@@ -244,7 +244,7 @@
 					
 						<CustomBehavior File="Message" 
 										Text="Our durability is less than 80%, we need to repair." 
-										LogColor="Fuchsia" />
+										LogColor="Lime" />
 									
 						<CustomBehavior File="ForceSetVendor" 
 										DoMail="False" 
@@ -266,10 +266,14 @@
 						<If Condition="Me.DurabilityPercent &gt;= 0.8" >
 							<CustomBehavior File="Message" 
 											Text="Repairing complete." 
-											LogColor="Fuchsia" />
+											LogColor="Lime" />
 						</If> <!-- repaired -->
 					</If> <!-- Repairing -->
 					
+					<!-- Profile message - Flying to the rendzvous -->
+					<CustomBehavior File="Message" 
+										Text="Flying to the rendzvous point.." 
+										LogColor="Lime" />
 					
 					<!-- Fly to the hover/rendezvous point -->
 					<CustomBehavior File="FlyTo" X="8471.806" Y="-301.3479" Z="976.4656" />
@@ -281,8 +285,6 @@
 				<!-- Wait 20 seconds -->
 				<CustomBehavior File="WaitTimer" 
 										WaitTime="5000" />
-				
-				</If> <!-- Repairing -->
 				
 				<CustomBehavior File="Message" 
 								Text="Flying to Blackrock Caverns." 
@@ -384,10 +386,11 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 			
+			<!-- If we are in HOL, hearth -->
 			<If Condition="Me.ZoneId == 4272">
 				<CustomBehavior File="Message" 
 								Text="Halls of Lightning detected. hearthing out."
-								LogColor="Fuchsia" />
+								LogColor="Lime" />
 								
 				<!-- Use our hearthstone -->
 				<If Condition="HasItem(6948)">
@@ -439,7 +442,12 @@
 								X="1768.45" Y="-4325.86" Z="-8.3711" />
 			</If>
 			
-			<!-- If we aren't in the instance box, fly the hover point at Iron Summit -->
+			<!-- Profile message - Flying to the rendzvous -->
+					<CustomBehavior File="Message" 
+										Text="Flying to the rendzvous point." 
+										LogColor="Lime" />
+										
+			<!-- Fly to the rendzvous at Iron Summit -->
 			<CustomBehavior File="FlyTo" X="-7070.313" Y="-1215.361" Z="336.248" />
 			
 			<!-- Continue when tagged by the Booster -->
@@ -474,7 +482,7 @@
 			<!-- In box -->
 			<If Condition="Me.X &gt; 9100 &amp;&amp; Me.X &lt; 9200 &amp;&amp; Me.Y &gt; -1400 &amp;&amp; Me.Y &lt; -1300" >
 				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][80-83]_blackrock-caverns />
+								ProfileName="..\[QO-N][80-83]_blackrock-caverns" />
 			</If> <!-- In box -->		
 		</If> <!-- RAF toons -->
 	</QuestOrder>

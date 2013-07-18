@@ -338,6 +338,13 @@
 						<Hotspot X="1101.031" Y="-140.362" Z="61.22274" />
 						<Hotspot X="1062.114" Y="-158.3543" Z="58.29954" />
 						<Hotspot X="1055.725" Y="-175.954" Z="56.64872" />
+					</CustomBehavior>
+					<RunTo X="1055.725" Y="-175.954" Z="56.64872" />
+					
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="false" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
 						<Hotspot X="1044.641" Y="-144.3857" Z="61.21116" />
 						<Hotspot X="1049.295" Y="-124.631" Z="61.24968" />
 						<Hotspot X="1030.777" Y="-111.7629" Z="61.22894" />
