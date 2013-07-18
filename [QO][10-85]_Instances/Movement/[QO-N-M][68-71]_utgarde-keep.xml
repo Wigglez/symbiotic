@@ -269,18 +269,21 @@
 										Text="We are Horde." 
 										LogColor="Cyan" />
 									
-						<!-- Take zeppelin to Vengeance Landing, Howling Fjord -->
-						<CustomBehavior File="FlyTo" X="2130.206" Y="358.567" Z="139.7405" />
+						<!-- Bottom of zeppelin tower (Org/STV) -->
+						<RunTo X="2044.838" Y="284.2488" Z="56.00068" />
 						
-						<CustomBehavior File="MyCTM" X="2061.187" Y="365.3284" Z="82.52013" />
-						<CustomBehavior File="ForcedDismount" />
+						<!-- Bottom of zeppelin tower (Howling Fjord) -->
+						<RunTo X="2058.653" Y="311.7207" Z="54.22321" />
 						
+						<!-- Top of zep tower (howling fjord) -->
+						<RunTo X="2062.118" Y="358.4322" Z="82.47268" />
+									
 						<!-- Undercity to Howling Fjord -->
 						<CustomBehavior File="UseTransport"
 										TransportId="181689"
-										WaitAtX="2061.187" 
-										WaitAtY="365.3284" 
-										WaitAtZ="82.52013" 
+										WaitAtX="2062.118" 
+										WaitAtY="358.4322" 
+										WaitAtZ="82.47268" 
 										TransportStartX="2056.4926" 
 										TransportStartY="381.6347" 
 										TransportStartZ="100.3620"
@@ -827,19 +830,22 @@
 						<CustomBehavior File="Message" 
 										Text="We are Horde." 
 										LogColor="Cyan" />
+								
+						<!-- Bottom of zeppelin tower (Org/STV) -->
+						<RunTo X="2044.838" Y="284.2488" Z="56.00068" />
+						
+						<!-- Bottom of zeppelin tower (Howling Fjord) -->
+						<RunTo X="2058.653" Y="311.7207" Z="54.22321" />
+						
+						<!-- Top of zep tower (howling fjord) -->
+						<RunTo X="2062.118" Y="358.4322" Z="82.47268" />
 									
-						<!-- Take zeppelin to Vengeance Landing, Howling Fjord -->
-						<RunTo X="2130.206" Y="358.567" Z="139.7405" />
-						
-						<CustomBehavior File="MyCTM" X="2061.187" Y="365.3284" Z="82.52013" />
-						<CustomBehavior File="ForcedDismount" />
-						
 						<!-- Undercity to Howling Fjord -->
 						<CustomBehavior File="UseTransport"
 										TransportId="181689"
-										WaitAtX="2061.187" 
-										WaitAtY="365.3284" 
-										WaitAtZ="82.52013" 
+										WaitAtX="2062.118" 
+										WaitAtY="358.4322" 
+										WaitAtZ="82.47268" 
 										TransportStartX="2056.4926" 
 										TransportStartY="381.6347" 
 										TransportStartZ="100.3620"
@@ -861,7 +867,10 @@
 				<CustomBehavior File="Message" 
 								Text="We are in Northrend." 
 								LogColor="Cyan" />
-				
+						
+				<!-- Run to the other side of the building off the zep -->
+				<RunTo X="1958.926" Y="-6119.656" Z="61.81112" />
+
 				<CustomBehavior File="Message" 
 								Text="Flying to the rendezvous location." 
 								LogColor="Lime" />
