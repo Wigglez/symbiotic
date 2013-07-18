@@ -482,7 +482,7 @@
 					
 					<If Condition="Me.IsHorde">
 						<!-- Hover point -->
-						<CustomBehavior File="FlyTo" X="-2633.392" Y="4387.538" Z="93.16135" />
+						<CustomBehavior File="FlyTo" X="1914.416" Y="-6129.678" Z="64.02445" />
 					</If>
 				</If> <!-- Repairing -->
 				
