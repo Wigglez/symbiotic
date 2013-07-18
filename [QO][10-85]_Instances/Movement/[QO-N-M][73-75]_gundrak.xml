@@ -173,7 +173,7 @@
 						<RunTo X="5419.954" Y="-2632.746" Z="307.0394" />										
 						
 						<!-- Hover point -->
-						<CustomBehavior File="FlyTo" X="5772.159" Y="-3553.918" Z="404.8273" />
+						<CustomBehavior File="FlyTo" X="5369.718" Y="-2601.758" Z="366.4612" />
 						
 						<CustomBehavior File="Message" 
 										Text="We are in The Argent Stand." 
