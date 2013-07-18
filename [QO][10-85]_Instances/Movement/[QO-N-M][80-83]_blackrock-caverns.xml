@@ -270,9 +270,9 @@
 						</If>
 					</Else> 
 				</If>	<!-- hearth -->		
-			</IF>	<!-- Northrend -->			
+			</If>	<!-- Northrend -->			
 						
-			<If Condition="Me.MapId == 1">
+			<If Condition="Me.MapId == 0">
 				<If Condition="Me.HearthstoneAreaId == 5628">
 				
 					<!-- Profile message - Flying to the rendzvous -->
