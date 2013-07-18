@@ -88,8 +88,15 @@
 				<!-- Make sure we run to the right spot outside the potral -->
 				<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
 				
-				<!-- Run out the front of DTK -->
-				<RunTo X="4514.181" Y="-2026.416" Z="160.823" />
+				<!-- Run out the back of DTK -->
+				
+				<CustomBehavior File="MyCTM" X="4774.504" Y="-2037.159" Z="229.3893" />
+				<CustomBehavior File="MyCTM" X="4803.765" Y="-2046.188" Z="238.2983" />
+				<CustomBehavior File="MyCTM" X="4833.138" Y="-2054.709" Z="250.0727" />
+				<CustomBehavior File="MyCTM" X="4858.173" Y="-2060.801" Z="250.0414" />
+				<CustomBehavior File="MyCTM" X="4890.869" Y="-2064.121" Z="248.3107" />
+				<CustomBehavior File="MyCTM" X="4889.271" Y="-2080.337" Z="249.9111" />
+		
 			</If> <!-- DK -->
 
 			<!-- Northrend -->
