@@ -154,6 +154,7 @@
 							<CustomBehavior File="FlyTo" X="5763.367" Y="710.6233" Z="643.6194" />
 							<CustomBehavior File="FlyTo" X="5732.852" Y="735.7708" Z="644.6849" />
 							<CustomBehavior File="FlyTo" X="5720.347" Y="721.5897" Z="643.5318" />
+							<CustomBehavior File="ForcedDismount" />
 							
 							<!-- Interact with the portal to Stormwind -->
 							<CustomBehavior File="InteractWith" 
@@ -177,6 +178,7 @@
 							<CustomBehavior File="FlyTo" X="5864.578" Y="584.0018" Z="725.4819" />
 							<CustomBehavior File="FlyTo" X="5897.451" Y="565.5864" Z="648.7625" />
 							<CustomBehavior File="FlyTo" X="5923.795" Y="590.6122" Z="641.8165" />
+							<CustomBehavior File="ForcedDismount" />
 							
 							<!-- Interact with the portal to Orgrimmar -->
 							<CustomBehavior File="InteractWith" 
@@ -200,9 +202,8 @@
 											Range="4.75" 
 											NumOfTimes="1"  
 											X="1768.45" Y="-4325.86" Z="-8.3711" />
-						</If>
-					
-						<!-- Fly to the hover point above the innkeep in Iron Summit -->
+											
+							<!-- Fly to the hover point above the innkeep in Iron Summit -->
 							<CustomBehavior File="FlyTo" 
 											X="-7070.313" Y="-1215.361" Z="336.248" />
 					
@@ -225,88 +226,201 @@
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="1000" />
 																
-						<CustomBehavior File="Message" 
+							<CustomBehavior File="Message" 
 										Text="We are in Iron Summit." 
 										LogColor="Lime" />
 
-					</Else> <!-- Set hearth -->
-				</If> <!-- Check hearthstone -->
+							<!-- Fly to the hover point above the innkeep in Iron Summit -->
+							<CustomBehavior File="FlyTo" 
+											X="-7070.313" Y="-1215.361" Z="336.248" />
 				
-				<!-- Fly to the hover point above the innkeep in Iron Summit -->
-					<CustomBehavior File="FlyTo" 
-									X="-7070.313" Y="-1215.361" Z="336.248" />
-				
-				<!-- Repair if necessary -->
-					<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
-						<CustomBehavior File="FlyTo"  
-										X="-7095.479" Y="-1266.96" Z="270.4855" />
-						<CustomBehavior File="ForcedDismount" />
-					
-						<CustomBehavior File="Message" 
-										Text="Our durability is less than 80%, we need to repair." 
-										LogColor="Lime" />
-									
-						<CustomBehavior File="ForceSetVendor" 
-										DoMail="False" 
-										DoRepair="True" 
-										DoSell="False" 
-										DoTrain="False" />
+							<!-- Repair if necessary -->
+							<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+								<CustomBehavior File="FlyTo"  
+												X="-7095.479" Y="-1266.96" Z="270.4855" />
+								<CustomBehavior File="ForcedDismount" />
+							
+								<CustomBehavior File="Message" 
+												Text="Our durability is less than 80%, we need to repair." 
+												LogColor="Lime" />
+											
+								<CustomBehavior File="ForceSetVendor" 
+												DoMail="False" 
+												DoRepair="True" 
+												DoSell="False" 
+												DoTrain="False" />
+								
+								<SetVendor>
+									<Vendors>
+										<!-- Iron Summit -->
+										<Vendor Name="Fergus Gravelsmash" 
+												Entry="47937" 
+												Type="Repair" 
+												X="-7093.68" Y="-1268.31" Z="270.4849" />
+									</Vendors>
+								</SetVendor>
+							
+								<!-- We are done repairing -->
+								<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+									<CustomBehavior File="Message" 
+													Text="Repairing complete." 
+													LogColor="Lime" />
+								</If> <!-- repaired -->
+							</If> <!-- Repairing -->			
+						</If>
+					</Else> 
+				</If>	<!-- hearth -->		
+			</IF>	<!-- Northrend -->			
 						
-						<SetVendor>
-							<Vendors>
-								<!-- Iron Summit -->
-								<Vendor Name="Fergus Gravelsmash" 
-										Entry="47937" 
-										Type="Repair" 
-										X="-7093.68" Y="-1268.31" Z="270.4849" />
-							</Vendors>
-						</SetVendor>
-					
-						<!-- We are done repairing -->
-						<If Condition="Me.DurabilityPercent &gt;= 0.8" >
-							<CustomBehavior File="Message" 
-											Text="Repairing complete." 
-											LogColor="Lime" />
-						</If> <!-- repaired -->
-					</If> <!-- Repairing -->
-					
+			<If Condition="Me.MapId == 1">
+				<If Condition="Me.HearthstoneAreaId == 5628">
+				
 					<!-- Profile message - Flying to the rendzvous -->
 					<CustomBehavior File="Message" 
 										Text="Flying to the rendzvous point.." 
 										LogColor="Lime" />
 					
 					<!-- Fly to the hover/rendezvous point -->
-					<CustomBehavior File="FlyTo" X="8471.806" Y="-301.3479" Z="976.4656" />
+					<CustomBehavior File="FlyTo" X="-7038.787" Y="-1230.125" Z="390.7811" />
 					
 					<!-- Continue when tagged by the RAFs -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 											CheckRange="5" />
 									
-				<!-- Wait 20 seconds -->
-				<CustomBehavior File="WaitTimer" 
-										WaitTime="5000" />
+					<!-- Wait 20 seconds -->
+					<CustomBehavior File="WaitTimer" 
+											WaitTime="5000" />
+					
+					<CustomBehavior File="Message" 
+									Text="Flying to Blackrock Caverns." 
+									LogColor="Lime" />
+					
+					<CustomBehavior File="FlyTo" X="-7056.178" Y="-1135.619" Z="367.9378" />
+					<CustomBehavior File="FlyTo" X="-7330.418" Y="-1124.455" Z="359.2787" />
+					
+					<CustomBehavior File="MyCTM" X="-7363.104" Y="-1102.565" Z="280.0103" />
+					<CustomBehavior File="MyCTM" X="-7376.134" Y="-1094.168" Z="280.9006" />
+					<CustomBehavior File="MyCTM" X="-7409.696" Y="-1101.115" Z="280.6046" />
+					<CustomBehavior File="MyCTM" X="-7420.444" Y="-1069.138" Z="279.7732" />
+					<CustomBehavior File="MyCTM" X="-7430.155" Y="-1058.552" Z="275.2509" />
+					<CustomBehavior File="MyCTM" X="-7481.438" Y="-1070.679" Z="265.6658" />
+					<CustomBehavior File="MyCTM" X="-7593.228" Y="-1162.036" Z="298.1223" />
+					<CustomBehavior File="MyCTM" X="-7612.961" Y="-1233.647" Z="236.3418" />
+					<CustomBehavior File="MyCTM" X="-7615.291" Y="-1271.456" Z="238.1814" />
+					
+					<!-- Run to the instance box -->
+					<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
+					
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+						
+						<!-- Fly to the hover point above the innkeep in Iron Summit -->
+						<CustomBehavior File="FlyTo" 
+										X="-7070.313" Y="-1215.361" Z="336.248" />
 				
-				<CustomBehavior File="Message" 
-								Text="Flying to Blackrock Caverns." 
-								LogColor="Lime" />
-				
-				<CustomBehavior File="FlyTo" X="-7056.178" Y="-1135.619" Z="367.9378" />
-				<CustomBehavior File="FlyTo" X="-7330.418" Y="-1124.455" Z="359.2787" />
-				
-				<CustomBehavior File="MyCTM" X="-7363.104" Y="-1102.565" Z="280.0103" />
-				<CustomBehavior File="MyCTM" X="-7376.134" Y="-1094.168" Z="280.9006" />
-				<CustomBehavior File="MyCTM" X="-7409.696" Y="-1101.115" Z="280.6046" />
-				<CustomBehavior File="MyCTM" X="-7420.444" Y="-1069.138" Z="279.7732" />
-				<CustomBehavior File="MyCTM" X="-7430.155" Y="-1058.552" Z="275.2509" />
-				<CustomBehavior File="MyCTM" X="-7481.438" Y="-1070.679" Z="265.6658" />
-				<CustomBehavior File="MyCTM" X="-7593.228" Y="-1162.036" Z="298.1223" />
-				<CustomBehavior File="MyCTM" X="-7612.961" Y="-1233.647" Z="236.3418" />
-				<CustomBehavior File="MyCTM" X="-7615.291" Y="-1271.456" Z="238.1814" />
-				
-				<!-- Run to the instance box -->
-				<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
+						<!-- Land at innkeeper -->
+						<CustomBehavior File="FlyTo" 
+										X="-7083.119" Y="-1201.846" Z="324.2862" />
+						<CustomBehavior File="ForcedDismount" />
+						
+						<!-- Set hearthstone -->
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="Message" 
+										Text="Setting my Hearthstone." 
+										LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" 
+										MobId="47942" 
+										X="-7085.53" Y="-1202.19" Z="323.9885" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+															
+						<CustomBehavior File="Message" 
+									Text="We are in Iron Summit." 
+									LogColor="Lime" />
 
-			</If> <!-- Northrend -->
+						<!-- Fly to the hover point above the innkeep in Iron Summit -->
+						<CustomBehavior File="FlyTo" 
+										X="-7070.313" Y="-1215.361" Z="336.248" />
+			
+						<!-- Repair if necessary -->
+						<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+							<CustomBehavior File="FlyTo"  
+											X="-7095.479" Y="-1266.96" Z="270.4855" />
+							<CustomBehavior File="ForcedDismount" />
+						
+							<CustomBehavior File="Message" 
+											Text="Our durability is less than 80%, we need to repair." 
+											LogColor="Lime" />
+										
+							<CustomBehavior File="ForceSetVendor" 
+											DoMail="False" 
+											DoRepair="True" 
+											DoSell="False" 
+											DoTrain="False" />
+							
+							<SetVendor>
+								<Vendors>
+									<!-- Iron Summit -->
+									<Vendor Name="Fergus Gravelsmash" 
+											Entry="47937" 
+											Type="Repair" 
+											X="-7093.68" Y="-1268.31" Z="270.4849" />
+								</Vendors>
+							</SetVendor>
+						
+							<!-- We are done repairing -->
+							<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+								<CustomBehavior File="Message" 
+												Text="Repairing complete." 
+												LogColor="Lime" />
+							</If> <!-- repaired -->
+						</If> <!-- Repairing -->
+						
+						<!-- Profile message - Flying to the rendzvous -->
+						<CustomBehavior File="Message" 
+											Text="Flying to the rendzvous point.." 
+											LogColor="Lime" />
+						
+						<!-- Fly to the hover/rendezvous point -->
+						<CustomBehavior File="FlyTo" X="-7038.787" Y="-1230.125" Z="390.7811" />
+						
+						<!-- Continue when tagged by the RAFs -->
+						<CustomBehavior File="Misc\LoadProfileOn" 
+												CheckRange="5" />
+										
+						<!-- Wait 20 seconds -->
+						<CustomBehavior File="WaitTimer" 
+												WaitTime="5000" />
+						
+						<CustomBehavior File="Message" 
+										Text="Flying to Blackrock Caverns." 
+										LogColor="Lime" />
+						
+						<CustomBehavior File="FlyTo" X="-7056.178" Y="-1135.619" Z="367.9378" />
+						<CustomBehavior File="FlyTo" X="-7330.418" Y="-1124.455" Z="359.2787" />
+						
+						<CustomBehavior File="MyCTM" X="-7363.104" Y="-1102.565" Z="280.0103" />
+						<CustomBehavior File="MyCTM" X="-7376.134" Y="-1094.168" Z="280.9006" />
+						<CustomBehavior File="MyCTM" X="-7409.696" Y="-1101.115" Z="280.6046" />
+						<CustomBehavior File="MyCTM" X="-7420.444" Y="-1069.138" Z="279.7732" />
+						<CustomBehavior File="MyCTM" X="-7430.155" Y="-1058.552" Z="275.2509" />
+						<CustomBehavior File="MyCTM" X="-7481.438" Y="-1070.679" Z="265.6658" />
+						<CustomBehavior File="MyCTM" X="-7593.228" Y="-1162.036" Z="298.1223" />
+						<CustomBehavior File="MyCTM" X="-7612.961" Y="-1233.647" Z="236.3418" />
+						<CustomBehavior File="MyCTM" X="-7615.291" Y="-1271.456" Z="238.1814" />
+						
+						<!-- Run to the instance box -->
+						<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
+					</Else>		
+				</If>
+			</If>
+			
 			
 			<!-- In box -->
 			<If Condition="Me.X &lt; -7565.834 &amp;&amp; Me.X &gt; -7582.962 &amp;&amp; Me.Y &lt; -1297.568 &amp;&amp; Me.Y &gt; -1328.157" >
@@ -448,7 +562,7 @@
 										LogColor="Lime" />
 										
 			<!-- Fly to the rendzvous at Iron Summit -->
-			<CustomBehavior File="FlyTo" X="-7070.313" Y="-1215.361" Z="336.248" />
+			<CustomBehavior File="FlyTo" X="-7038.787" Y="-1230.125" Z="390.7811" />
 			
 			<!-- Continue when tagged by the Booster -->
 			<CustomBehavior File="Misc\LoadProfileOn" 
@@ -480,7 +594,7 @@
 				<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
 				
 			<!-- In box -->
-			<If Condition="Me.X &gt; 9100 &amp;&amp; Me.X &lt; 9200 &amp;&amp; Me.Y &gt; -1400 &amp;&amp; Me.Y &lt; -1300" >
+			<If Condition="Me.X &lt; -7565.834 &amp;&amp; Me.X &gt; -7582.962 &amp;&amp; Me.Y &lt; -1297.568 &amp;&amp; Me.Y &gt; -1328.157" >
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][80-83]_blackrock-caverns" />
 			</If> <!-- In box -->		
