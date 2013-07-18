@@ -840,7 +840,7 @@
 									
 					<!-- Continue when tagged -->					
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />				
+									CheckRange="2" />				
 										
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
