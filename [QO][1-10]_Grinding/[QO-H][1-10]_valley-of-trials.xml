@@ -270,6 +270,11 @@
 								LogColor="Lime" />
 								
 				<!-- Run to Razor Hill to ensure we are on the road -->				
+				<CustomBehavior File="NoCombatMoveTo" X="1164.529" Y="-4410.611" Z="21.32653" />
+				<CustomBehavior File="NoCombatMoveTo" X="1007.436" Y="-4451.329" Z="10.9557" />
+				<CustomBehavior File="NoCombatMoveTo" X="798.8926" Y="-4537.703" Z="5.385346" />
+
+
 				<CustomBehavior File="NoCombatMoveTo" X="316.9291" Y="-4740.251" Z="9.559894" />
 			</If> <!-- Orgrimmar -->
 
@@ -307,10 +312,10 @@
 					<GrindTo Condition="Me.Level == 3" />
 				</If> <!-- 1-3 -->
 				
-				<!-- 3-6 -->
-				<If Condition="Me.Level &gt;= 3 &amp;&amp; Me.Level &lt; 6">
+				<!-- 3-5 -->
+				<If Condition="Me.Level &gt;= 3 &amp;&amp; Me.Level &lt; 5">
 					<CustomBehavior File="Message" 
-									Text="We are level 3-6." 
+									Text="We are level 3-5." 
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
@@ -340,13 +345,13 @@
 						</GrindArea>
 					</SetGrindArea>	
 
-					<GrindTo Condition="Me.Level == 6" />
-				</If> <!-- 3-6 -->
+					<GrindTo Condition="Me.Level == 5" />
+				</If> <!-- 3-5 -->
 				
-				<!-- 6-8 -->
-				<If Condition="Me.Level &gt;= 6 &amp;&amp; Me.Level &lt; 8">
+				<!-- 5-8 -->
+				<If Condition="Me.Level &gt;= 5 &amp;&amp; Me.Level &lt; 8">
 					<CustomBehavior File="Message" 
-									Text="We are level 6-8." 
+									Text="We are level 5-8." 
 									LogColor="Cyan" />
 									
 					<CustomBehavior File="Message" 
@@ -597,14 +602,6 @@
 					
 					<!-- Mail wearers -->
 					<If Condition="Me.Class == WoWClass.Paladin || Me.Class == WoWClass.Warrior">
-						2398				431
-						2399				217
-						2400			434
-						2401				326
-						2402				220
-						2403	s			221
-						17185	Round Buckler				221
-						2376				381
 						<!-- Armor -->
 						
 						<!-- Light Chain Armor -->
@@ -709,7 +706,7 @@
 					</SetGrindArea>		
 
 					<GrindTo Condition="Me.Level == 8" />	
-				</If> <!-- 6-8 -->
+				</If> <!-- 5-8 -->
 				
 				<!-- 8-10 -->
 				<If Condition="Me.Level &gt;= 8 &amp;&amp; Me.Level &lt; 10">
