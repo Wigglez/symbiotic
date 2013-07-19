@@ -13,13 +13,13 @@
 	<MailBlue>False</MailBlue>
 	<MailPurple>False</MailPurple>
    
-	<SellGrey>False</SellGrey>
-	<SellWhite>False</SellWhite>
-	<SellGreen>False</SellGreen>
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
 	<SellBlue>False</SellBlue>
 	<SellPurple>False</SellPurple>
    
-	<TargetElites>True</TargetElites>
+	<TargetElites>False</TargetElites>
 	
 	<AvoidMobs>
 		<Mob Name="Summon Enabler Stalker" Entry="53488" />	

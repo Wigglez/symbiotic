@@ -13,14 +13,14 @@
 	<MailBlue>False</MailBlue>
 	<MailPurple>False</MailPurple>
    
-	<SellGrey>False</SellGrey>
-	<SellWhite>False</SellWhite>
-	<SellGreen>False</SellGreen>
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
 	<SellBlue>False</SellBlue>
 	<SellPurple>False</SellPurple>
    
-	<TargetElites>True</TargetElites>
-	
+	<TargetElites>False</TargetElites>
+   	
 	<AvoidMobs>
 		<Mob Name="Summon Enabler Stalker" Entry="53488" />	
 		<Mob Name="Mankrik" Entry="37847" />
@@ -354,10 +354,33 @@
 									Text="We are Alliance." 
 									LogColor="Cyan" />
 									
-					<If Condition="Me.ZoneId == 1519" >
+					<!-- Stormwind -->
+					<If Condition="Me.ZoneId == 1519">
 						<CustomBehavior File="Message" 
 										Text="We are in Stormwind City." 
 										LogColor="Cyan" />
+										
+						<!-- Bag space and Durabilty check -->
+						<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+							<SetVendor>
+								<Vendors>
+									<Vendor Name="Gunther Weller" 
+											Entry="1289" 
+											Type="Repair" 
+											X="-8790.421" Y="607.3484" Z="96.77297" />
+								</Vendors>
+							</SetVendor>
+							<SetMailbox>
+								<Mailboxes>
+									<Mailbox X="-8862.369" Y="639.4135" Z="96.18259" />
+								</Mailboxes>
+							</SetMailbox>				
+							<CustomBehavior File="ForceSetVendor" 
+											DoMail="True" 
+											DoRepair="True" 
+											DoSell="True" 
+											DoTrain="False" />	
+						</If>			
 										
 						<CustomBehavior File="Message" 
 										Text="Moving to the riding trainer."
