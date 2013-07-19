@@ -1126,13 +1126,6 @@
 												Text="We are west of Astranaar and Hellscream's Watch."
 												LogColor="Cyan" />
 							
-								<!-- Moving to Zoram'gar flight master -->
-								<CustomBehavior File="NoCombatMoveTo" X="3351.82" Y="1052.3" Z="3.07" />
-								
-								<CustomBehavior File="Message" 
-												Text="We are in Zoram'gar Outpost." 
-												LogColor="Cyan" />
-								
 								<CustomBehavior File="Message" 
 												Text="Moving to the rendezvous point."
 												LogColor="Lime" />
