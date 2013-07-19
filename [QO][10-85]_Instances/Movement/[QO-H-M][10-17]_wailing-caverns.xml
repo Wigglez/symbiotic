@@ -538,7 +538,7 @@
 										SoundCueInterval="15"
 										ExpiryTime="300"
 										ExpiryAction="InputEnabled_Continue"
-										Text="RAF - All your characters must be in a party at this time. You have 5 minutes to assemble your party before the RAF toons run to Deadmines on their own	. The Booster must be the party leader."
+										Text="RAF - All your characters must be in a party at this time. You have 5 minutes to assemble your party before the RAF toons run to Wailing Caverns on their own. The Booster must be the party leader."
 										Title="WARNING" />
 						
 						<CustomBehavior File="Message" 
