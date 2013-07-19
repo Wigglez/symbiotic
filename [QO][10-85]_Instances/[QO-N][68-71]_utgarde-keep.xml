@@ -13,7 +13,7 @@
 	<MailBlue>False</MailBlue>
 	<MailPurple>False</MailPurple>
    
-	<SellGrey>False</SellGrey>
+	<SellGrey>True</SellGrey>
 	<SellWhite>False</SellWhite>
 	<SellGreen>False</SellGreen>
 	<SellBlue>False</SellBlue>
@@ -64,7 +64,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""

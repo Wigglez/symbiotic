@@ -7,7 +7,7 @@
 	<MinDurability>-1</MinDurability>
 	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
-	<MailGrey>False</MailGrey>
+	<MailGrey>True</MailGrey>
 	<MailWhite>False</MailWhite>
 	<MailGreen>False</MailGreen>
 	<MailBlue>False</MailBlue>
@@ -743,7 +743,7 @@
 						</Safespots>
 					</CustomBehavior>
 
-					<!-- 30 second delay -->
+					<!-- 60 second delay -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="60000" />
 					
@@ -755,9 +755,9 @@
 					<!-- Run to Corla, Herald of Twilight -->
 					<CustomBehavior File="NoCombatMoveTo" X="573.5693" Y="985.1115" Z="155.3528" />
 													
-					<!-- 35 second delay -->
+					<!-- 50 second delay -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="60000" />
+									WaitTime="50000" />
 													
 					<!-- Profile message - Moving to the deadend-bridge entrance -->
 					<CustomBehavior File="Message" 
