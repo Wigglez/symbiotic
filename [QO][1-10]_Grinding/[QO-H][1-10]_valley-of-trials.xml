@@ -756,7 +756,11 @@
 									LogColor="Cyan" />
 					
 					<!-- Durotar -->
-					<If Condition="Me.ZoneId == 14">
+					<If Condition="Me.ZoneId == 14 &amp;&amp; Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+											
 						<!-- razor hill fp -->
 						<RunTo X="269.917" Y="-4766.76" Z="11.4946" />	
 						
@@ -766,46 +770,42 @@
 					
 					<!-- Orgrimmar -->
 					<If Condition="Me.ZoneId == 1637">
-						<If Condition="Me.HearthstoneAreaId != 5170">
-							<CustomBehavior File="Message" 
-											Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
-											LogColor="Lime" />
-											
-							<!-- Front doorway of the inn -->	
-							<RunTo X="1569.392" Y="-4426.286" Z="14.43938" />			
-							
-							<!-- Run inside -->
-							<RunTo X="1572.79" Y="-4437.783" Z="16.05454" />
-							
-							<!-- Set hearthstone -->
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="1000" />
-							<CustomBehavior File="Message" 
-											Text="Setting my Hearthstone." 
-											LogColor="Lime" />
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="1000" />
-							<CustomBehavior File="SetHearthstone" 
-											MobId="6929" 
-											X="1573.266" Y="-4439.158" Z="16.0564" />
-							<CustomBehavior File="WaitTimer" 
-											WaitTime="1000" />
-										
-						</If> <!-- Hearth -->
-										
-						<!-- Move to orgrimmar fp -->
-						<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
+						<!-- Front doorway of the inn -->	
+						<RunTo X="1569.392" Y="-4426.286" Z="14.43938" />			
 						
+						<!-- Run inside -->
+						<RunTo X="1572.79" Y="-4437.783" Z="16.05454" />
+						
+						<!-- Set hearthstone -->
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
 						<CustomBehavior File="Message" 
-										Text="Moving to Razor Hill." 
+										Text="Setting my Hearthstone." 
 										LogColor="Lime" />
-						
-						<!-- razor hill fp -->
-						<RunTo X="269.917" Y="-4766.76" Z="11.4946" />				
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" 
+										MobId="6929" 
+										X="1573.266" Y="-4439.158" Z="16.0564" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+								
+						<!-- hearth is set -->
+						<If Condition="Me.HearthstoneAreaId == 5170">
+							<!-- Move to orgrimmar fp -->
+							<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
+							
+							<CustomBehavior File="Message" 
+											Text="Moving to Razor Hill." 
+											LogColor="Lime" />
+							
+							<!-- razor hill fp -->
+							<RunTo X="269.917" Y="-4766.76" Z="11.4946" />	
+						</If> <!-- hearth is set -->
 					</If> <!-- Orgrimmar -->
 					
 					<!-- Durotar -->
-					<If Condition="Me.ZoneId == 14">
+					<If Condition="Me.ZoneId == 14 &amp;&amp; Me.HearthstoneAreaId == 5170">
 						<CustomBehavior File="LoadProfile" 
 										ProfileName="..\[QO][10-85]_Instances\[QO-H][10-17]_wailing-caverns" />
 					</If> <!-- Durotar -->
