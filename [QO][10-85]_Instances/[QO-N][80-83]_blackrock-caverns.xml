@@ -1,5 +1,5 @@
 ﻿<HBProfile creator="Botanist" version="1.0">
-	<Name>[QO-N][75-80]_halls-of-lightning</Name>
+	<Name>[QO-N][80-83]_blackrock-caverns</Name>
    
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
@@ -22,15 +22,13 @@
 	<TargetElites>True</TargetElites>
 	
 	<AvoidMobs>		
-		<Mob Name="Bellows Slave" Entry="40084" />
-		<Mob Name="Twilight Zealot" Entry="50284" />
 		<Mob Name="Summon Enabler Stalker" Entry="53488" />
-		<Mob Name="Conflagration" Entry="39994" />
 		<Mob Name="Karsh Steelbender" Entry="39698" />
 		<Mob Name="Shadow of Obsidius" Entry="40817" />
 	</AvoidMobs>
 	
 	<Blackspots>
+
 	</Blackspots>
 
 	<Mailboxes>
@@ -42,7 +40,7 @@
 	<ProtectedItems>
 	</ProtectedItems>
 
-	<Factions>16</Factions>
+	<Factions></Factions>
 	
 	<QuestOrder>
 		<ClearVendor />
@@ -51,7 +49,7 @@
 		<!-- *******************************************************  Booster ************************************************************** -->
 		<If Condition="Me.Level &gt;= 90">
 			<CustomBehavior File="Message" 
-							Text="We are a booster." 
+							Text="We are a Booster." 
 							LogColor="Fuchsia" />
 		
 		 	<!-- Booster UserSettings -->
@@ -66,7 +64,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -88,7 +86,7 @@
 									LogColor="Fuchsia" />
 						
 					<!-- Make our way to the exit -->
-					<RunTo X="210.0881" Y="1117.478" Z="206.6087" />
+					<RunTo X="209.903" Y="1133.02" Z="205.569" />
 
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />
@@ -119,7 +117,7 @@
 						<RunTo X="-7571.14" Y="-1324.96" Z="245.538" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="-7568.929" Y="-1330.149" Z="245.5389" />
+						<CustomBehavior File="MyCTM" X="-7568.929" Y="-1331.5" Z="245.5389" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -146,6 +144,10 @@
 					<!-- Run to quest giver -->
 					<RunTo X="236.7661" Y="1123.584" Z="205.5914" />
 				
+					<CustomBehavior File="Message" 
+									Text="Waiting for the tag."  
+									LogColor="Fuchsia" />
+				
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
@@ -157,17 +159,310 @@
 									Text="Blackrock Caverns initialized."  
 									LogColor="Fuchsia" />
 									
-					<!-- insert BRC internal here -->
-					<!-- insert BRC internal here -->
-					<!-- insert BRC internal here -->
-					<!-- insert BRC internal here -->					
+									
+					<!-- Run to the center of the bridge -->
+					<RunTo X="209.903" Y="1133.02" Z="205.569" />
 					
-									
-					<!-- tag rafs -->
-					<RunTo X="236.7661" Y="1123.584" Z="205.5914" />		
-									
-					<CustomBehavior File="WaitTimer" 
+					<!-- Clear entrance to the first boss -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="208.0068" Y="1079.296" Z="205.7374" />
+						<Hotspot X="207.7405" Y="1043.464" Z="203.9828" />
+						<Hotspot X="198.3378" Y="1024.971" Z="200.627" />
+						<Hotspot X="203.0913" Y="979.0555" Z="191.9614" />
+						<Hotspot X="219.8102" Y="978.5244" Z="190.9932" />
+						<Hotspot X="254.1688" Y="996.5801" Z="191.1321" />
+						<Hotspot X="180.2927" Y="955.6257" Z="190.7555" />
+						<Hotspot X="202.7873" Y="999.7837" Z="195.4422" />
+					</CustomBehavior>
+					<RunTo X="202.7873" Y="999.7837" Z="195.4422" />
+					
+					<!-- Profile message - Tagging the RAFs to send them out of the instance to keep them from dying -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs to send them out of the instance, to keep them from dying." 
+									LogColor="Fuchsia" />
+					
+					<!-- go tag RAF's to send them out of the instance -->
+					<RunTo X="210.1629" Y="1055.366" Z="205.6857" />
+					
+					<!-- Wait 5 seconds -->
+					<CustomBehavior File="WaitTimer"
 									WaitTime="5000" />
+									
+					<!-- Run to the bottom of the ramp before Rom'ogg Bonecrusher -->
+					<RunTo X="209.6951" Y="987.1261" Z="192.2647" />				
+									
+					<!-- Forces kill of Rom'ogg Bonecrusher -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="39665"
+									EventX="228.863" EventY="949.4379" EventZ="192.7163"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="228.863" Y="949.4379" Z="192.7163" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Wait 25 seconds for RAZ to clear the bridge -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="25000" />
+					
+					<!-- Run to the bridge and wait to be tagged by the RAFs -->
+					<RunTo X="287.1887" Y="950.391" Z="190.8872" />
+				
+					<!-- Profile message - Waiting to be tagged by the RAFs -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the RAFs." 
+									LogColor="Fuchsia" />
+									
+					<!-- Continue when tagged by the RAFs -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+														
+					<!-- Clear to the first Evolved Twilight Zealot -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="345.0215" Y="948.0812" Z="190.9144" />
+						<Hotspot X="424.9935" Y="948.9799" Z="196.036" />
+						<Hotspot X="466.0282" Y="950.0486" Z="190.7391" />
+						<Hotspot X="482.82" Y="940.5496" Z="183.5998" />
+						<Hotspot X="481.9302" Y="925.592" Z="182.4322" />
+						<Hotspot X="500.6617" Y="908.5054" Z="181.4732" />
+						<Hotspot X="549.0616" Y="908.6523" Z="169.5618" />
+						<Hotspot X="548.7725" Y="860.4545" Z="175.5456" />
+					</CustomBehavior>
+					<RunTo X="548.7725" Y="860.4545" Z="175.5456" />
+					
+					<!-- Clear to the second Evolved Twilight Zealot -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="574.8755" Y="851.4679" Z="175.5456" />
+						<Hotspot X="580.1284" Y="859.2444" Z="175.5456" />
+						<Hotspot X="598.3541" Y="859.212" Z="175.5456" />
+						<Hotspot X="597.5239" Y="954.351" Z="156.3674" />
+					</CustomBehavior>
+					<RunTo X="597.5239" Y="954.351" Z="156.3674" />
+					
+					<!-- Run to safe spot to trigger GOOGE -->
+					<RunTo X="601.4186" Y="964.4424" Z="155.3351" />
+					
+					<!-- Forces kill of Corla, Herald of Twilight -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="39679"
+									EventX="573.4445" EventY="987.6875" EventZ="155.3536"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="573.4445" Y="987.6875" Z="155.3536" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Clear to the third Evolved Twilight Zealot -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="573.3239" Y="955.3749" Z="155.3321" />
+						<Hotspot X="573.3153" Y="906.8375" Z="155.3729" />
+						<Hotspot X="580.5384" Y="910.5027" Z="155.3732" />
+						<Hotspot X="558.4578" Y="898.9658" Z="155.3738" />
+						<Hotspot X="578.1385" Y="896.8558" Z="155.3738" />
+						<Hotspot X="577.4852" Y="885.9351" Z="155.386" />
+						<Hotspot X="584.5026" Y="871.0023" Z="155.4893" />
+						<Hotspot X="583.4907" Y="861.1248" Z="155.5001" />
+					</CustomBehavior>
+					<RunTo X="583.4907" Y="861.1248" Z="155.5001" />	
+						
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="541.9354" Y="863.7007" Z="137.6407" />
+						<Hotspot X="480.9472" Y="863.6453" Z="126.4319" />
+						<Hotspot X="482.0894" Y="852.6588" Z="126.0298" />
+						<Hotspot X="474.0341" Y="833.883" Z="118.0362" />
+						<Hotspot X="486.9538" Y="833.4984" Z="118.5158" />
+						<Hotspot X="488.1595" Y="858.2145" Z="126.4318" />
+					</CustomBehavior>
+					<RunTo X="488.1595" Y="858.2145" Z="126.4318" />
+					
+					<!-- Run to the bridge with the group of Evolved Twilight Zealot -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="481.6275" Y="842.8574" Z="121.1656" />
+						<Hotspot X="480.2812" Y="810.2173" Z="113.8426" />
+						<Hotspot X="463.4814" Y="812.9572" Z="113.6956" />
+						<Hotspot X="434.0395" Y="820.4582" Z="107.7298" />
+						<Hotspot X="407.1458" Y="815.4103" Z="103.0102" />
+						<Hotspot X="418.181" Y="816.6245" Z="104.1876" />
+						<Hotspot X="414.9142" Y="816.55" Z="103.4985" />
+					</CustomBehavior>
+					<RunTo X="414.9142" Y="816.55" Z="103.4985" />
+					
+					<!-- Profile message - Tagging the RAFs at the third Evolved Twilight Zealot -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the deadend-bridge entrance." 
+									LogColor="Fuchsia" />
+					
+					<!-- Tag the RAFs at the deadend bridge entrance -->
+					<RunTo X="543.8633" Y="893.7067" Z="156.5036" />
+					
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+				
+					<!-- CTM to jump off the ramp -->
+					<CustomBehavior File="MyCTM" X="567.2651" Y="889.2255" Z="155.3758" />
+					<CustomBehavior File="MyCTM" X="574.4493" Y="879.248" Z="155.4369" />
+					<CustomBehavior File="MyCTM" X="553.8444" Y="872.6533" Z="155.3782" />
+					<CustomBehavior File="MyCTM" X="532.644" Y="863.4484" Z="135.2909" />
+				
+					<!-- Run to ramp before Karsh Steelbender -->
+					<RunTo X="303.4512" Y="809.5098" Z="103.5507" />
+										
+					<!-- Profile message - Waiting to be tagged by the RAFs -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the RAFs." 
+									LogColor="Fuchsia" />
+									
+					<!-- Continue when tagged by the RAFs -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />			
+
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									PullDistance="1" />				
+									
+					<!-- Profile message - Waiting to be tagged by the RAFs -->
+					<CustomBehavior File="Message" 
+									Text="Testing run to's, remove after testing." 
+									LogColor="Fuchsia" />				
+									
+					<!-- Clear the outter ring of mobs around Karsh Steelbender -->
+					<RunTo X="273.2226" Y="805.5837" Z="95.95056" />
+					<RunTo X="278.2598" Y="790.1213" Z="95.95056" />
+					<RunTo X="299.9683" Y="774.6124" Z="95.94902" />
+					<RunTo X="285.6858" Y="756.9952" Z="95.94845" />
+					<RunTo X="265.503" Y="733.3455" Z="95.95042" />
+					<RunTo X="243.6597" Y="740.8462" Z="96.09502" />
+					<RunTo X="199.1507" Y="756.7471" Z="95.95054" />
+					<RunTo X="190.2889" Y="773.2955" Z="95.95054" />
+					<RunTo X="191.0102" Y="798.1328" Z="95.95049" />
+					<RunTo X="203.1817" Y="823.6068" Z="95.95049" />
+					<RunTo X="217.0404" Y="835.2582" Z="95.87733" />
+					
+					<!-- Clear the inner ring of mobs around Karsh Steelbender -->
+					<RunTo X="200.0816" Y="790.3179" Z="95.36829" />
+					<RunTo X="213.297" Y="812.3091" Z="95.36402" />
+					<RunTo X="236.7907" Y="822.5761" Z="95.36798" />
+					<RunTo X="260.4509" Y="814.4053" Z="95.36801" />
+					<RunTo X="274.4688" Y="790.8687" Z="95.36639" />
+					<RunTo X="270.6737" Y="766.017" Z="95.36821" />
+					<RunTo X="249.8357" Y="748.989" Z="95.36703" />
+					<RunTo X="224.1964" Y="749.6323" Z="95.36648" />
+					<RunTo X="204.8467" Y="765.7599" Z="95.36665" />
+					<RunTo X="213.9157" Y="750.2722" Z="95.95047" />
+												
+					<!-- Profile message - Tagging the RAFs at the ramp before Karsh Steelbender -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs at the the ramp before Karsh Steelbender." 
+									LogColor="Fuchsia" />
+					
+					<!-- Tag the RAFs at the ramp before Karsh Steelbender -->
+					<CustomBehavior File="NoCombatMoveTo" X="239.2164" Y="736.8478" Z="98.52115" />
+					<CustomBehavior File="NoCombatMoveTo" X="275.747" Y="755.0926" Z="95.96084" />
+					<CustomBehavior File="NoCombatMoveTo" X="287.374" Y="779.6713" Z="95.95043" />
+					<CustomBehavior File="NoCombatMoveTo" X="270.0732" Y="807.1972" Z="95.95043" />
+					<CustomBehavior File="NoCombatMoveTo" X="280.6186" Y="810.6912" Z="97.91369" />
+					<CustomBehavior File="NoCombatMoveTo" X="303.4512" Y="809.5098" Z="103.5507" />
+					
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+				
+					<!-- Run to the high ground -->
+					<CustomBehavior File="NoCombatMoveTo" X="280.6186" Y="810.6912" Z="97.91369" />
+					<CustomBehavior File="NoCombatMoveTo" X="270.0732" Y="807.1972" Z="95.95043" />
+					<CustomBehavior File="NoCombatMoveTo" X="287.374" Y="779.6713" Z="95.95043" />
+					<CustomBehavior File="NoCombatMoveTo" X="275.747" Y="755.0926" Z="95.96084" />
+					<CustomBehavior File="NoCombatMoveTo" X="239.2164" Y="736.8478" Z="98.52115" />
+
+					<!-- Clear to the last group of mobs before Ascendant Lord Obsidius -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="224.0524" Y="712.5077" Z="107.6434" />
+						<Hotspot X="194.0921" Y="702.6265" Z="108.5901" />
+						<Hotspot X="208.7549" Y="699.0745" Z="103.1397" />
+						<Hotspot X="210.7356" Y="668.6187" Z="93.88123" />
+						<Hotspot X="210.7411" Y="632.9362" Z="82.60561" />
+					</CustomBehavior>
+					<RunTo X="210.7411" Y="632.9362" Z="82.60561" />	
+						
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="213.5707" Y="588.789" Z="75.4063" />			
+						<Hotspot X="238.046" Y="582.2173" Z="74.72882" />			
+						<Hotspot X="219.3986" Y="558.6043" Z="75.41354" />
+						<Hotspot X="273.4715" Y="557.7598" Z="69.69287" />
+						<Hotspot X="276.7416" Y="543.6827" Z="69.72833" />
+					</CustomBehavior>
+					<RunTo X="276.7416" Y="543.6827" Z="69.72833" />
+
+					<!-- Run to trigger location for the GOOGE - Beauty -->
+					<RunTo X="218.9807" Y="576.328" Z="75.18961" />
+					<RunTo X="198.9481" Y="583.9549" Z="76.00745" />
+					<RunTo X="170.8229" Y="589.2766" Z="76.58402" />
+
+					<!-- Forces kill of Beauty -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="39700"
+									EventX="112.5171" EventY="596.0133" EventZ="76.22354"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="112.5171" Y="596.0133" Z="76.22354" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- Profile message - Tagging the RAFs on the high ground -->
+					<CustomBehavior File="Message" 
+									Text="Tagging the RAFs on the high ground." 
+									LogColor="Fuchsia" />
+					
+					<!-- Move to the high ground to tag the RAFs -->
+					<RunTo X="207.0881" Y="706.7676" Z="105.3263" />
+					
+					<!-- Move to the teleporter -->
+					<CustomBehavior File="NoCombatMoveTo" X="240.0988" Y="736.6404" Z="98.24742" />
+					<CustomBehavior File="NoCombatMoveTo" X="282.5539" Y="772.4562" Z="95.94919" />
+					<CustomBehavior File="NoCombatMoveTo" X="282.4271" Y="791.4763" Z="95.94919" />
+					<CustomBehavior File="NoCombatMoveTo" X="273.466" Y="801.5067" Z="95.94919" />
+					<CustomBehavior File="NoCombatMoveTo" X="273.641" Y="829.7171" Z="95.94136" />
+					<Runto X="251.3698" Y="841.7483" Z="95.87498" />
+					<CustomBehavior File="NoCombatMoveTo" X="273.641" Y="829.7171" Z="95.94136" />
+					<CustomBehavior File="NoCombatMoveTo" X="285.7425" Y="841.1832" Z="95.92287" />
+					
+					<!-- Ineract with the telport -->
+					<CustomBehavior File="InteractWith" MobId="51340" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -182,7 +477,7 @@
 									LogColor="Fuchsia" />
 						
 					<!-- Make our way to the exit -->
-					<RunTo X="210.0881" Y="1117.478" Z="206.6087" />
+					<RunTo X="209.903" Y="1133.02" Z="205.569" />
 
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />
@@ -287,7 +582,7 @@
 									LogColor="Fuchsia" />
 						
 					<!-- Make our way to the exit -->
-					<RunTo X="210.0881" Y="1117.478" Z="206.6087" />
+					<RunTo X="209.903" Y="1133.02" Z="205.569" />
 
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />
@@ -318,7 +613,7 @@
 						<RunTo X="-7571.14" Y="-1324.96" Z="245.538" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="-7568.929" Y="-1330.149" Z="245.5389" />
+						<CustomBehavior File="MyCTM" X="-7568.929" Y="-1331.5" Z="245.5389" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -362,18 +657,210 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="20000" />
 									
-					<!-- Move to RAF tag spot at the entrance -->
-					<RunTo X="236.7661" Y="1123.584" Z="205.5914" />
-					
-					<!-- insert BRC internal here -->
-					<!-- insert BRC internal here -->
-					<!-- insert BRC internal here -->
-					<!-- insert BRC internal here -->
+					<!-- Run to the safe spot before Rom'ogg Bonecrusher -->
+					<CustomBehavior File="NoCombatMoveTo" X="209.903" Y="1133.02" Z="205.569" />
+					<CustomBehavior File="NoCombatMoveTo" X="210.1629" Y="1055.366" Z="205.6857" />				
+									
+					<!-- Profile message - Waiting to be tagged by the Booster -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster." 
+									LogColor="Fuchsia" />
+									
+					<!-- Exit the instance after being tagged to avoid dying -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<!-- Make our way to the exit -->
+					<CustomBehavior File="NoCombatMoveTo" X="209.903" Y="1133.02" Z="205.569" />
 
+					<!-- Go through the portal -->
+					<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />
+					
+					<!-- Make sure we run to the right spot outside the potral -->
+					<CustomBehavior File="NoCombatMoveTo" X="-7571.14" Y="-1324.96" Z="245.538" />				
+					
+					<!-- Wait 80 seconds for the Booster to kill Rom'ogg Bonecrusher -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="60000" />
+									
+					<!-- Re enter Blackrock Caverns -->
+					<If Condition="Me.X &lt; -7565.834 &amp;&amp; Me.X &gt; -7582.962 &amp;&amp; Me.Y &lt; -1297.568 &amp;&amp; Me.Y &gt; -1328.157" >
+						<CustomBehavior File="Message" 
+										Text="Portal detected nearby."
+										LogColor="Fuchsia" />	
+							
+						<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+						<While Condition="Me.ZoneId != 4926">
+							<!-- Make sure we run to the right spot outside the portal -->
+							<CustomBehavior File="NoCombatMoveTo" X="-7571.14" Y="-1324.96" Z="245.538" />
+
+							<!-- Run back in the portal -->
+							<CustomBehavior File="MyCTM" X="-7568.929" Y="-1331.5" Z="245.5389" />
+											
+							<CustomBehavior File="Message" 
+											Text="Waiting for the dungeon to load." 
+											LogColor="Fuchsia" />
+										
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="10000"
+											VariantTime="5000" />
+											
+							<!-- If we still aren't in, we're locked out -->
+							<If Condition="Me.ZoneId != 4926">
+								<CustomBehavior File="Message" 
+												Text="We are locked out. Waiting and trying again." 
+												LogColor="Fuchsia" />
+							</If> <!-- Locked -->
+						</While> <!-- While we aren't in the instance -->
+					</If> <!-- In box -->
+					
+					<!-- Run to tag the Booster at the first bridge -->
+					<CustomBehavior File="NoCombatMoveTo" X="287.1887" Y="950.391" Z="190.8872" />
+					
+					<!-- LPO to tag or be tagged at the first bridge -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<!-- Wait 40 seconds -->				
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="40000" />
+
+					<!-- Run to safe place above Corla, Herald of Twilight -->
+					<CustomBehavior File="NoCombatMoveTo" X="538.1785" Y="908.9689" Z="169.5619" />
+									
+					<!-- Forces RAF to stay put until Corla, Herald of Twilight dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="39679"
+									EventX="538.1785" EventY="908.9689" EventZ="169.5619"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="538.1785" Y="908.9689" Z="169.5619" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- 30 second delay -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="60000" />
+					
+					<!-- Profile message - Moving to Corla, Herald of Twilight -->
+					<CustomBehavior File="Message" 
+									Text="Moving to Corla, Herald of Twilight." 
+									LogColor="Fuchsia" />
+					
+					<!-- Run to Corla, Herald of Twilight -->
+					<CustomBehavior File="NoCombatMoveTo" X="573.5693" Y="985.1115" Z="155.3528" />
+													
+					<!-- 35 second delay -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="60000" />
+													
+					<!-- Profile message - Moving to the deadend-bridge entrance -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the deadend-bridge entrance." 
+									LogColor="Fuchsia" />
+					
+					<!-- Move to the deadend bridge entrance -->
+					<RunTo X="543.8633" Y="893.7067" Z="156.5036" />
+					
+					<!-- Profile message - Waiting to be tagged by the Booster -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster." 
+									LogColor="Fuchsia" />
+					
+					<!-- Continue when tagged -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+
+					<!-- Profile message - Moving to the ramp before Karsh Steelbender -->
+					<CustomBehavior File="Message" 
+									Text="Moving to the ramp before Karsh Steelbender to tag the Booster." 
+									LogColor="Fuchsia" />
+
+					<!-- CTM to jump off the ramp -->
+					<CustomBehavior File="MyCTM" X="567.2651" Y="889.2255" Z="155.3758" />
+					<CustomBehavior File="MyCTM" X="574.4493" Y="879.248" Z="155.4369" />
+					<CustomBehavior File="MyCTM" X="553.8444" Y="872.6533" Z="155.3782" />
+					<CustomBehavior File="MyCTM" X="532.644" Y="863.4484" Z="135.2909" />
+										
+					<!-- Run to ramp before Karsh Steelbender -->
+					<CustomBehavior File="NoCombatMoveTo" X="303.4512" Y="809.5098" Z="103.5507" />
+					
+					<!-- 20 second delay to allow the Booster to move before initializing the LPO -->
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+									
+					<!-- Profile message - Waiting to be tagged by the Booster -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster." 
+									LogColor="Fuchsia" />
+									
+					<!-- Continue when tagged -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<!-- 30 second delay -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="30000" />				
+	
+					<!-- Move around the left side of Karsh Steelbender to the high ground - to avoid aggro -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
+						<Hotspot X="290.3506" Y="807.6854" Z="102.4854" />
+						<Hotspot X="285.9135" Y="796.3237" Z="95.95033" />
+						<Hotspot X="290.9302" Y="774.8517" Z="95.94892" />
+						<Hotspot X="280.3079" Y="757.8284" Z="95.94892" />
+						<Hotspot X="255.2782" Y="741.4924" Z="95.9551" />
+						<Hotspot X="236.1026" Y="741.3215" Z="96.83544" />
+						<Hotspot X="207.0881" Y="706.7676" Z="105.3263" />
+					</CustomBehavior>
+					<RunTo X="207.0881" Y="706.7676" Z="105.3263" />
+ 
+					<!-- Forces RAF to stay put until Beauty dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="39700"
+									EventX="207.0881" EventY="706.7676" EventZ="105.3263"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="207.0881" Y="706.7676" Z="105.3263" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- Profile message - Waiting to be tagged by the Booster -->
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster." 
+									LogColor="Fuchsia" />
+					
+					<!-- Continue when tagged -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+										
+					<!-- 10 second delay -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="15000" />						
+					
+					<!-- Run to the teleport -->
+					<CustomBehavior File="NoCombatMoveTo" X="240.0988" Y="736.6404" Z="98.24742" />
+					<CustomBehavior File="NoCombatMoveTo" X="282.5539" Y="772.4562" Z="95.94919" />
+					<CustomBehavior File="NoCombatMoveTo" X="282.4271" Y="791.4763" Z="95.94919" />
+					<CustomBehavior File="NoCombatMoveTo" X="273.466" Y="801.5067" Z="95.94919" />
+					<CustomBehavior File="NoCombatMoveTo" X="273.641" Y="829.7171" Z="95.94136" />
+					<CustomBehavior File="NoCombatMoveTo" X="285.7425" Y="841.1832" Z="95.92287" />
+					
+					<!-- Ineract with the telport -->
+					<CustomBehavior File="InteractWith" MobId="51340" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="80" 
+									MinLevel="83" 
 									ProfileName="[QO-N-M][83-85]_lost-city-of-the-tol'vir.xml"  />
 				
 					<!-- Wait so the main can get away from us -->
@@ -390,13 +877,13 @@
 									LogColor="Fuchsia" />
 						
 					<!-- Make our way to the exit -->
-					<RunTo X="210.0881" Y="1117.478" Z="206.6087" />
+					<CustomBehavior File="NoCombatMoveTo" X="209.903" Y="1133.02" Z="205.569" />
 
 					<!-- Go through the portal -->
 					<CustomBehavior File="MyCTM" X="215.7276" Y="1140.736" Z="206.7795" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
-					<RunTo X="-7571.14" Y="-1324.96" Z="245.538" /> 
+					<CustomBehavior File="NoCombatMoveTo" X="-7571.14" Y="-1324.96" Z="245.538" /> 
 				</If> <!-- BRC -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

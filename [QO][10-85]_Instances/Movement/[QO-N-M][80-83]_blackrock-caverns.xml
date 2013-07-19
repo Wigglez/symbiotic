@@ -538,7 +538,7 @@
 			<If Condition="Me.IsAlliance">
 				
 				<!-- Run outside the inn in Stormwind -->
-				<RunTo X="-8852.768" Y="656.5248" Z="96.74419" />
+				<CustomBehavior File="FlyTo" X="-8839.209" Y="629.257" Z="133.6664" />
 			</If>
 			
 			<!-- IF we are Horde, take the portal to Blastedlands -->
