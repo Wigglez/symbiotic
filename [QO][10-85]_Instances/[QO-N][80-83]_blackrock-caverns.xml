@@ -140,7 +140,7 @@
 				<If Condition="Me.ZoneId == 4926">
 					<!-- Entrance -->
 					<RunTo X="209.903" Y="1133.02" Z="205.569" />
-				
+									
 					<!-- Run to quest giver -->
 					<RunTo X="236.7661" Y="1123.584" Z="205.5914" />
 				
@@ -159,18 +159,42 @@
 									Text="Blackrock Caverns initialized."  
 									LogColor="Fuchsia" />
 									
+					<!-- Run to beginning of the bridge -->				
+					<RunTo X="209.4919" Y="1130.522" Z="205.5689" />				
 									
 					<!-- Run to the center of the bridge -->
-					<RunTo X="209.903" Y="1133.02" Z="205.569" />
+					<RunTo X="210.028" Y="1103.455" Z="208.9138" />
+					
+					<!-- Run to the beginning of the cavern -->
+					<RunTo X="211.3296" Y="1059.533" Z="205.8165" />
+					
+					<!-- Kill the right Twilight Flame Caller at the entrance -->
+					<RunTo X="174.1338" Y="1085.822" Z="206.1631" />
+					
+					<!-- wait 3 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="3000" />
+										
+					<!-- Kill the left Twilight Flame Caller at the entrance -->
+					<RunTo X="247.5741" Y="1081.536" Z="206.3522" />
+					
+					<!-- wait 3 seconds -->
+					<CustomBehavior File="WaitTimer" 
+										WaitTime="3000" />
+
+					<!-- Kill the 2 patrolling Twilight Flame Caller -->
+					<RunTo X="210.0458" Y="1073.61" Z="205.762" />
+					<RunTo X="210.8416" Y="1052.479" Z="205.2726" />
+					<RunTo X="199.4007" Y="1032.16" Z="201.782" />
+					<RunTo X="199.3868" Y="1017.479" Z="198.9978" />
+					<RunTo X="200.7049" Y="996.3988" Z="194.627" />
 					
 					<!-- Clear entrance to the first boss -->
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="true" 
 									NumOfTimes="1" 
 									AllowCombat="false">
-						<Hotspot X="208.0068" Y="1079.296" Z="205.7374" />
-						<Hotspot X="207.7405" Y="1043.464" Z="203.9828" />
-						<Hotspot X="198.3378" Y="1024.971" Z="200.627" />
+						<Hotspot X="200.7049" Y="996.3988" Z="194.627" />
 						<Hotspot X="203.0913" Y="979.0555" Z="191.9614" />
 						<Hotspot X="219.8102" Y="978.5244" Z="190.9932" />
 						<Hotspot X="254.1688" Y="996.5801" Z="191.1321" />
@@ -185,7 +209,7 @@
 									LogColor="Fuchsia" />
 					
 					<!-- go tag RAF's to send them out of the instance -->
-					<RunTo X="210.1629" Y="1055.366" Z="205.6857" />
+					<RunTo X="210.239" Y="1103.664" Z="208.8924" />
 					
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer"
@@ -209,8 +233,10 @@
 					<!-- Wait 25 seconds for RAZ to clear the bridge -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="25000" />
-					
+									
 					<!-- Run to the bridge and wait to be tagged by the RAFs -->
+					<RunTo X="200.8218" Y="911.8002" Z="190.7966" />
+					<RunTo X="254.055" Y="903.6288" Z="191.2343" />
 					<RunTo X="287.1887" Y="950.391" Z="190.8872" />
 				
 					<!-- Profile message - Waiting to be tagged by the RAFs -->
@@ -658,11 +684,11 @@
 									LogColor="Yellow" />				
 					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="20000" />
+									WaitTime="60000" />
 									
 					<!-- Run to the safe spot before Rom'ogg Bonecrusher -->
 					<CustomBehavior File="NoCombatMoveTo" X="209.903" Y="1133.02" Z="205.569" />
-					<CustomBehavior File="NoCombatMoveTo" X="210.1629" Y="1055.366" Z="205.6857" />				
+					<CustomBehavior File="NoCombatMoveTo" X="210.239" Y="1103.664" Z="208.8924" />				
 									
 					<!-- Profile message - Waiting to be tagged by the Booster -->
 					<CustomBehavior File="Message" 
