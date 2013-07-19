@@ -88,17 +88,35 @@
 									Text="We are Alliance." 
 									LogColor="SeaGreen" />
 									
-					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
+					<!-- Elwynn Forest -->
+					<If Condition="Me.ZoneId == 12">
+						<CustomBehavior File="LoadProfile" 
+										ProfileName="[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
+										
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="You must be in Elwynn Forest to run this profile automatically." 
+											LogColor="Red" />
+						</Else> 
+					</If> <!-- Elwynn Forest -->
 					
 					<!-- Horde -->
 					<ElseIf Condition="Me.IsHorde">
 						<CustomBehavior File="Message" 
 										Text="We are Horde." 
 										LogColor="SeaGreen" />
-									
-						<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-H][10-17]_wailing-caverns" />
+										
+						<!-- Durotar -->
+						<If Condition="Me.ZoneId == 12">			
+							<CustomBehavior File="LoadProfile" 
+										ProfileName="[QO][10-85]_Instances\[QO-H][10-17]_wailing-caverns" />
+										
+							<Else>
+								<CustomBehavior File="Message" 
+												Text="You must be in Durotar to run this profile automatically." 
+												LogColor="Red" />
+							</Else> 
+						</If> <!-- Durotar -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 			</If> <!-- 10-17 -->
@@ -109,8 +127,17 @@
 								Text="We are between 17-25." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][17-25]_blackfathom-deeps" />
+				<!-- Stormwind or Orgrimmar -->
+				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][17-25]_blackfathom-deeps" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Stormwind or Orgrimmar -->
 			</If> <!-- 17-25 -->
 		
 			<!-- 25-37 Razorfen Kraul -->
@@ -119,8 +146,17 @@
 								Text="We are between 25-37." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][25-37]_razorfen-kraul" />
+				<!-- Stormwind or Orgrimmar -->
+				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][25-37]_razorfen-kraul" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Stormwind or Orgrimmar -->
 			</If> <!-- 25-37 -->
 			
 			<!-- 37-42 Razorfen Downs -->
@@ -129,8 +165,17 @@
 								Text="We are between 37-42." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][37-42]_razorfen-downs" />
+				<!-- Razorfen Kraul -->
+				<If Condition="Me.ZoneId == 491">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][37-42]_razorfen-downs" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Razorfen Kraul to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Razorfen Kraul -->
 			</If> <!-- 37-42 -->
 			
 			<!-- 42-48 Blackrock Depths -->
@@ -139,18 +184,36 @@
 								Text="We are between 42-48." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][42-48]_blackrock-depths" />
+				<!-- Stormwind or Orgrimmar -->
+				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][42-48]_blackrock-depths" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Stormwind or Orgrimmar -->
 			</If> <!-- 42-48 -->
 			
 			<!-- 48-60 Blackrock Spire -->
-			<If Condition="Me.Level &gt;= 48 &amp;&amp; Me.Level &lt; 60">
+			<If Condition="Me.Level &gt;= 48 &amp;&amp; Me.Level &lt; 60 &amp;&amp; Me.Class != WoWClass.DeathKnight">
 				<CustomBehavior File="Message" 
 								Text="We are between 48-60." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][48-60]_blackrock-spire" />
+				<!-- Blackrock Depths -->
+				<If Condition="Me.ZoneId == 1584">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][48-60]_blackrock-spire" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Blackrock Depths to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Blackrock Depths -->		
 			</If> <!-- 48-60 -->
 			
 			<!-- DK -->
@@ -164,9 +227,18 @@
 					<CustomBehavior File="Message" 
 									Text="We are between 58-60." 
 									LogColor="SeaGreen" />
-								
-					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][58-60][DK]_hellfire-ramparts" />
+									
+					<!-- Stormwind or Orgrimmar -->
+					<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+						<CustomBehavior File="LoadProfile" 
+										ProfileName="[QO][10-85]_Instances\[QO-N][58-60][DK]_hellfire-ramparts" />
+									
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
+											LogColor="Red" />
+						</Else> 
+					</If> <!-- Stormwind or Orgrimmar -->
 				</If> <!-- 58-60 -->
 			</If> <!-- DK -->
 			
@@ -176,8 +248,17 @@
 								Text="We are between 60-63." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][60-63]_blood-furnace" />
+				<!-- Stormwind or Orgrimmar -->
+				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][60-63]_blood-furnace" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Stormwind or Orgrimmar -->
 			</If> <!-- 60-63 -->
 			
 			<!-- 63-68 Sethekk Halls -->
@@ -186,8 +267,17 @@
 								Text="We are between 63-68." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][63-68]_sethekk-halls" />
+				<!-- Blood Furnace -->
+				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][63-68]_sethekk-halls" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Blood Furnace to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Blood Furnace -->
 			</If> <!-- 63-68 -->
 			
 			<!-- 68-71 Utgarde Keep -->
@@ -196,8 +286,19 @@
 								Text="We are between 68-71." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][68-71]_utgarde-keep" />
+				<!-- Stormwind or Orgrimmar -->
+				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][68-71]_utgarde-keep" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Stormwind or Orgrimmar -->				
+								
+				
 			</If> <!-- 68-71 -->
 			
 			<!-- 71-73 Drak'tharon Keep -->
@@ -206,8 +307,17 @@
 								Text="We are between 71-73." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][71-73]_drak'tharon-keep" />
+				<!-- Utgarde Keep -->
+				<If Condition="Me.ZoneId == 206">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][71-73]_drak'tharon-keep" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Utgarde Keep to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Utgarde Keep -->			
 			</If> <!-- 71-73 -->
 			
 			<!-- 73-75 Gundrak -->
@@ -216,8 +326,17 @@
 								Text="We are between 73-75." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][73-75]_gundrak" />
+				<!-- Drak'tharon Keep -->
+				<If Condition="Me.ZoneId == 4196">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][73-75]_gundrak" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Drak'tharon Keep to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Drak'tharon Keep -->					
 			</If> <!-- 73-75 -->
 			
 			<!-- 75-80 Halls of Lightning -->
@@ -226,8 +345,17 @@
 								Text="We are between 75-80." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][75-80]_halls-of-lightning" />
+				<!-- Gundrak -->
+				<If Condition="Me.ZoneId == 4416">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][75-80]_halls-of-lightning" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Gundrak to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Gundrak -->		
 			</If> <!-- 75-80 -->
 			
 			<!-- 80-83 Blackrock Caverns -->
@@ -236,8 +364,17 @@
 								Text="We are between 80-83." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][80-83]_blackrock-caverns" />
+				<!-- Halls of Lightning -->
+				<If Condition="Me.ZoneId == 4272">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][80-83]_blackrock-caverns" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Halls of Lightning to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Halls of Lightning -->		
 			</If> <!-- 80-83 -->
 			
 			<!-- 83-85 Lost City of the Tol'vir -->
@@ -246,8 +383,17 @@
 								Text="We are between 83-85." 
 								LogColor="SeaGreen" />
 								
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="[QO][10-85]_Instances\[QO-N][83-85]_lost-city-of-the-tol'vir" />
+				<!-- Blackrock Caverns -->
+				<If Condition="Me.ZoneId == 4926">
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="[QO][10-85]_Instances\[QO-N][83-85]_lost-city-of-the-tol'vir" />
+								
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="You must be in Blackrock Caverns to run this profile automatically." 
+										LogColor="Red" />
+					</Else> 
+				</If> <!-- Blackrock Caverns -->	
 			</If> <!-- 83-85 -->
 		</If> <!-- RAF -->
 	</QuestOrder>
