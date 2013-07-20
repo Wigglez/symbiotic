@@ -283,7 +283,10 @@
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="1" />
 
-					<CustomBehavior File="ForcedDismount" />				
+					<CustomBehavior File="ForcedDismount" />	
+
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 									
 					<!-- Booster UserSettings -->
 					<CustomBehavior File="UserSettings"
