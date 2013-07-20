@@ -277,7 +277,7 @@
 									
 					<!-- We are in Searing Gorge and have set our hearth, move to the rendezvous at the end of the stonewrought pass -->
 					<CustomBehavior File="FlyTo" 
-									X="-6361.987" Y="-2071.4" Z="243.0217" />
+									X="-6373.169" Y="-2079.885" Z="245.483" />
 					
 					<!-- Rendezvous to tag rafs before clearing a path to blackrock mountain -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -320,7 +320,7 @@
 					
 					<!-- Tag rafs at stonewrought pass -->
 					<CustomBehavior File="FlyTo" 
-									X="-6361.987" Y="-2071.4" Z="243.0217" />
+									X="-6373.169" Y="-2079.885" Z="245.483" />
 					<CustomBehavior File="ForcedDismount" />
 					
 					<CustomBehavior File="WaitTimer" 
@@ -1063,7 +1063,7 @@
 										LogColor="Cyan" /> 
 										
 						<!-- Run to the exit of the stonewrought pass tunnel -->
-						<RunTo X="-6361.987" Y="-2071.4" Z="243.0217" />
+						<RunTo X="-6373.169" Y="-2079.885" Z="245.483" />
 										
 						<!-- Tag for booster to clear the way to blackrock mountain -->				
 						<CustomBehavior File="Misc\LoadProfileOn" 
