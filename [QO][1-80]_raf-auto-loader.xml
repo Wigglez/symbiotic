@@ -107,7 +107,7 @@
 										LogColor="SeaGreen" />
 										
 						<!-- Durotar -->
-						<If Condition="Me.ZoneId == 12">			
+						<If Condition="Me.ZoneId == 14">			
 							<CustomBehavior File="LoadProfile" 
 										ProfileName="[QO][10-80]_Instances\[QO-H][10-17]_wailing-caverns" />
 										
