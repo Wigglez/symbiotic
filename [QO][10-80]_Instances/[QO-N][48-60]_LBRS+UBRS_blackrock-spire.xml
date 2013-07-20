@@ -101,6 +101,7 @@
 									Text="Blackrock Spire detected. Running out."
 									LogColor="Fuchsia" />
 									
+					<RunTo X="80.01283" Y="-319.1052" Z="65.46481" />
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
@@ -390,6 +391,332 @@
 					
 					<!-- ***** LBRS END ***** -->
 									
+									
+					<!-- get to the entrance of UBRS -->
+					<RunTo X="129.4753" Y="-319.0146" Z="70.9553" />
+					
+					<!-- rape the cages -->
+					<RunTo X="135.0979" Y="-318.649" Z="70.95529" />
+					<RunTo X="150.1211" Y="-315.0961" Z="70.95529" />
+					<RunTo X="162.7554" Y="-323.7038" Z="70.95529" />
+					<RunTo X="151.1041" Y="-333.7703" Z="70.95529" />
+					<RunTo X="136.4913" Y="-329.359" Z="70.95529" />
+					<RunTo X="131.253" Y="-344.0386" Z="70.95302" />
+					<RunTo X="116.2862" Y="-341.9961" Z="70.96864" />
+					<RunTo X="124.8731" Y="-328.8789" Z="70.95445" />
+					<RunTo X="139.7766" Y="-333.7325" Z="70.95506" />
+					<RunTo X="153.8421" Y="-338.98" Z="70.93157" />
+					<RunTo X="162.9655" Y="-351.7698" Z="70.93221" />
+					<RunTo X="150.8285" Y="-360.5981" Z="70.94476" />
+					<RunTo X="154.263" Y="-345.2738" Z="70.91992" />
+					<RunTo X="160.2128" Y="-331.0029" Z="70.95544" />
+					<RunTo X="165.1591" Y="-316.8094" Z="70.95544" />
+					<RunTo X="150.5662" Y="-311.8062" Z="70.95544" />
+					<RunTo X="135.8303" Y="-307.2675" Z="70.95544" />
+					<RunTo X="121.0777" Y="-303.9181" Z="70.95515" />
+					<RunTo X="122.5704" Y="-288.8521" Z="70.97744" />
+					<RunTo X="131.1224" Y="-301.7337" Z="70.94709" />
+					<RunTo X="145.1648" Y="-307.8895" Z="70.9547" />
+					<RunTo X="155.448" Y="-296.7869" Z="70.9547" />
+					<RunTo X="147.0532" Y="-283.9568" Z="70.97102" />
+					<RunTo X="162.0407" Y="-283.2543" Z="70.96642" />
+					<RunTo X="155.5694" Y="-297.0999" Z="70.95464" />
+					<RunTo X="165.8807" Y="-308.034" Z="70.95464" />
+					<RunTo X="179.4585" Y="-315.1558" Z="74.75516" />
+					<RunTo X="193.4169" Y="-320.6319" Z="76.93613" />
+					<RunTo X="207.2964" Y="-327.2217" Z="76.9183" />
+					<RunTo X="222.4272" Y="-331.5773" Z="76.92217" />
+					<RunTo X="209.2596" Y="-340.0883" Z="76.92398" />
+					<RunTo X="207.9499" Y="-329.8595" Z="76.90917" />
+					<RunTo X="209.4488" Y="-314.2997" Z="76.92876" />
+					<RunTo X="218.1068" Y="-301.5876" Z="76.96402" />
+					<RunTo X="232.5721" Y="-296.13" Z="76.95737" />
+					<RunTo X="225.5627" Y="-309.4755" Z="76.96883" />
+					<RunTo X="214.1317" Y="-299.1227" Z="76.95135" />
+					<RunTo X="205.4423" Y="-286.4093" Z="76.94595" />
+					<RunTo X="195.3852" Y="-274.6694" Z="76.94595" />
+					<RunTo X="193.7886" Y="-258.1429" Z="76.92991" />
+					<RunTo X="193.8725" Y="-255.8268" Z="76.93257" />
+					<RunTo X="191.8488" Y="-278.2495" Z="76.94637" />
+					<RunTo X="199.4134" Y="-291.2329" Z="76.94637" />
+
+					<!-- Get up to first boss room -->
+					<RunTo X="169.9326" Y="-258.5764" Z="91.54351" />
+
+					<!-- Interact with Blackrock Altar -->
+					<CustomBehavior File="InteractWith" 
+									MobId="175706" 
+									ObjectType="Gameobject" 
+									Range="55.1" 
+									NumOfTimes="1"
+									WaitTime="15000" 
+									X="146.0885" Y="-279.2306" Z="91.54841" />
+													
+					<RunTo X="162.247" Y="-276.4363" Z="91.61311" />								
+											
+					<!-- Interact with Blackrock Altar 2nd time -->						
+					<CustomBehavior File="InteractWith" 
+									MobId="175706" 
+									ObjectType="Gameobject" 
+									Range="55.1" 
+									NumOfTimes="1"
+									WaitTime="15000" 
+									X="146.0885" Y="-279.2306" Z="91.54841" />
+									
+					<!-- Stand on a channeler -->
+					<RunTo X="162.247" Y="-276.4363" Z="91.61311" />
+						
+					<!-- Stand on the boss -->
+					<RunTo X="144.4706" Y="-259.8817" Z="96.32327" />
+					
+					<CustomBehavior File="Message" 
+									Text="Waiting for Pyroguard Emberseer to aggro." 
+									LogColor="Fuchsia" />
+									
+					<!-- Forces kill of Pyroguard Emberseer -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="9816"
+									EventX="144.3508" EventY="-260.1181" EventZ="96.32332"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="144.3508" Y="-260.1181" Z="96.32332" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- Run down ramp -->
+					<RunTo X="144.6243" Y="-271.891" Z="91.55032" />
+											
+					<!-- Run to the door -->
+					<RunTo X="132.4519" Y="-270.5671" Z="91.55063" />
+					
+					<!-- Runlikehell to get rafs the jenkins title -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="118.3939" Y="-259.2853" Z="91.54865" />
+						<Hotspot X="109.2505" Y="-259.1037" Z="91.54636" />
+						<Hotspot X="96.12272" Y="-257.6723" Z="91.45435" />
+						<Hotspot X="96.51201" Y="-266.512" Z="91.45007" />
+						<Hotspot X="105.1868" Y="-271.2195" Z="91.48599" />
+						<Hotspot X="106.0602" Y="-335.7478" Z="91.51539" />
+						<Hotspot X="75.47658" Y="-332.9345" Z="91.49285" />
+						<Hotspot X="51.40618" Y="-334.7823" Z="91.50513" />
+						<Hotspot X="50.40245" Y="-314.3291" Z="91.52908" />
+						<Hotspot X="84.57114" Y="-307.7042" Z="91.44164" />
+						<Hotspot X="82.58939" Y="-271.5783" Z="91.46381" />
+						<Hotspot X="57.73808" Y="-270.4369" Z="93.66634" />
+						<Hotspot X="59.31611" Y="-243.6781" Z="97.83611" />
+						<Hotspot X="74.24448" Y="-239.4006" Z="100.4035" />
+						<Hotspot X="94.20014" Y="-240.8621" Z="105.9667" />
+						<Hotspot X="98.06045" Y="-244.8904" Z="106.4356" />
+						<Hotspot X="103.8587" Y="-250.5575" Z="106.4356" />
+						<Hotspot X="103.2486" Y="-333.3083" Z="106.4356" />
+						<Hotspot X="89.80052" Y="-331.3927" Z="106.4356" />
+						<Hotspot X="80.36891" Y="-323.4751" Z="91.44549" />
+						<Hotspot X="89.46883" Y="-310.3313" Z="91.44427" />
+						<Hotspot X="83.49399" Y="-281.3575" Z="91.71304" />
+						<Hotspot X="83.05643" Y="-265.9047" Z="91.46568" />
+						<Hotspot X="106.0249" Y="-258.8137" Z="91.50407" />
+					</CustomBehavior>	
+					<RunTo X="104.7602" Y="-326.5967" Z="106.4356" />
+					
+					<!-- Move back upstairs -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="74.23923" Y="-261.1749" Z="92.21323" />
+						<Hotspot X="65.34846" Y="-255.3676" Z="96.3856" />
+						<Hotspot X="63.17698" Y="-245.4888" Z="98.19624" />
+						<Hotspot X="74.88843" Y="-241.4169" Z="100.62" />
+						<Hotspot X="98.47463" Y="-241.6524" Z="106.4356" />
+						<Hotspot X="102.9723" Y="-250.4283" Z="106.4356" />
+						<Hotspot X="106.1496" Y="-311.7242" Z="106.4356" />
+					</CustomBehavior>	
+					<RunTo X="106.1496" Y="-311.7242" Z="106.4356" />
+					
+	
+					<!-- doorway exiting the rookery on the 2nd floor closes to the arena -->
+					<RunTo X="127.5671" Y="-309.9382" Z="110.9507" />
+					<RunTo X="140.5712" Y="-317.4511" Z="110.9558" />
+					<RunTo X="141.3562" Y="-332.7097" Z="110.9501" />
+					<RunTo X="138.5474" Y="-347.4937" Z="110.9713" />
+					<RunTo X="137.9718" Y="-361.9071" Z="116.8391" />
+					<RunTo X="152.4703" Y="-366.0186" Z="116.8411" />
+					<RunTo X="168.205" Y="-366.6088" Z="116.8411" />
+					<RunTo X="165.3983" Y="-351.9965" Z="112.9827" />
+					<RunTo X="161.6772" Y="-337.3039" Z="110.9536" />
+					<RunTo X="148.4358" Y="-329.7644" Z="110.9493" />
+	
+					<RunTo X="158.1601" Y="-318.3447" Z="110.6517" />
+					<RunTo X="161.5602" Y="-303.6236" Z="110.9416" />
+					<RunTo X="164.6892" Y="-288.7896" Z="110.9416" />
+					<RunTo X="160.6032" Y="-273.9512" Z="110.947" />
+					<RunTo X="161.889" Y="-258.5736" Z="110.8963" />
+					<RunTo X="155.4121" Y="-244.5478" Z="110.9004" />
+					<RunTo X="146.9875" Y="-257.3218" Z="110.8513" />
+					<RunTo X="143.7224" Y="-272.4677" Z="110.9426" />
+					<RunTo X="144.2904" Y="-287.581" Z="110.6528" />
+					<RunTo X="141.4853" Y="-302.6525" Z="110.9506" />
+					<RunTo X="140.1827" Y="-318.3911" Z="110.9579" />
+					<RunTo X="144.6894" Y="-333.3195" Z="111.9033" />
+					<RunTo X="145.3051" Y="-335.6094" Z="110.9525" />
+					
+					<RunTo X="162.8532" Y="-341.9648" Z="110.9543" />
+					<RunTo X="165.4341" Y="-393.2388" Z="121.9753" />
+					<RunTo X="151.9176" Y="-391.1501" Z="121.9753" />
+					<RunTo X="138.9528" Y="-395.2441" Z="121.9753" />
+					<RunTo X="138.1182" Y="-367.2014" Z="116.8412" />
+					<RunTo X="183.3356" Y="-365.461" Z="117.4288" />
+					<RunTo X="81.19869" Y="-366.8816" Z="116.8424" />
+					<RunTo X="92.94347" Y="-377.1324" Z="116.8424" />
+					<RunTo X="93.13277" Y="-419.8449" Z="110.9228" />
+					<RunTo X="87.12276" Y="-419.9743" Z="110.9241" />
+					
+					<!-- enters arena -->
+					<RunTo X="113.4873" Y="-420.6095" Z="110.8856" />
+					
+					<!--Moves to gate where mobs spawn -->
+					<RunTo X="179.6093" Y="-418.1441" Z="110.4723" />
+
+					<!-- Forces kill of Gyth -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="10339"
+									EventX="163.032" EventY="-420.3748" EventZ="110.4724"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="163.032" Y="-420.3748" Z="110.4724" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="3000" />
+					
+					<!-- exit arena -->
+					<RunTo X="113.4873" Y="-420.6095" Z="110.8856" />
+	
+					<RunTo X="105.0844" Y="-420.0851" Z="110.9228" />
+					<RunTo X="93.15945" Y="-429.9217" Z="110.9228" />
+					<RunTo X="93.18846" Y="-445.1909" Z="113.4575" />
+					<RunTo X="93.01685" Y="-460.5223" Z="116.8424" />
+					<RunTo X="87.92336" Y="-474.7803" Z="116.8424" />
+					<RunTo X="93.06255" Y="-489.2765" Z="116.8424" />
+					<RunTo X="98.5507" Y="-475.1038" Z="116.8424" />
+					
+					<!-- Pulling mobs near BWL into xp range -->
+					<CustomBehavior File="RunLikeHell"
+									UseCTM="true"
+									NumOfTimes="1"
+									AllowCombat="false">
+						<Hotspot X="108.1728" Y="-475.8545" Z="116.8424" />
+						<Hotspot X="124.1348" Y="-476.0379" Z="116.8424" />
+						<Hotspot X="171.5421" Y="-477.4745" Z="116.8424" />
+						<Hotspot X="170.9973" Y="-471.445" Z="116.8376" />
+						<Hotspot X="131.0083" Y="-472.8877" Z="116.841" />
+						<Hotspot X="108.1706" Y="-473.4006" Z="116.841" />
+						<Hotspot X="83.6724" Y="-474.7226" Z="116.841" />
+					</CustomBehavior>
+					<RunTo X="83.6724" Y="-474.7226" Z="116.841" />			
+					
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1"
+									AllowCombat="false">
+						<Hotspot X="64.82417" Y="-474.9625" Z="113.9505" />
+						<Hotspot X="49.89436" Y="-475.0841" Z="110.9219" />
+						<Hotspot X="40.24094" Y="-488.1618" Z="110.9429" />
+						<Hotspot X="9.453765" Y="-485.7973" Z="110.9327" />
+						<Hotspot X="12.37006" Y="-454.8495" Z="110.9403" />
+						<Hotspot X="25.51032" Y="-467.858" Z="110.955" />
+					</CustomBehavior>
+					<RunTo X="25.51032" Y="-467.858" Z="110.955" />
+					
+					
+					<!-- Pulling the beast into XP range -->
+					<RunTo X="33.31978" Y="-500.8174" Z="110.9511" />
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1"
+									AllowCombat="false">
+						<Hotspot X="32.89931" Y="-509.6993" Z="110.9491" />
+						<Hotspot X="52.5339" Y="-532.7266" Z="110.9388" />
+					</CustomBehavior>
+					
+					
+					<!-- Targetandmoveto the beast -->
+					<CustomBehavior File="TargetAndMoveToMob" 
+									MobId="10430" 
+									MoveWithinMaxRangeOfMob="1" 
+									WaitForNpcs="true"
+									X="52.5339" Y="-532.7266" Z="110.9388" />
+									
+					<RunTo X="33.2668" Y="-511.2289" Z="110.9463" />
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1"
+									AllowCombat="false">	
+						<Hotspot X="33.2668" Y="-511.2289" Z="110.9463" />
+						<Hotspot X="33.90994" Y="-451.8149" Z="110.9505" />
+					</CustomBehavior>
+					<RunTo X="33.90994" Y="-451.8149" Z="110.9505" />
+					
+					<RunTo X="33.96633" Y="-448.988" Z="110.9518" />	
+					<CustomBehavior File="RunLikeHell"
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="33.94608" Y="-438.2022" Z="110.9667" />
+						<Hotspot X="36.67104" Y="-384.9553" Z="110.7002" />
+						<Hotspot X="33.22215" Y="-372.6989" Z="110.6841" />
+						<Hotspot X="40.7423" Y="-325.9267" Z="110.9435" />
+						<Hotspot X="-17.367" Y="-349.7576" Z="110.9435" />
+						<Hotspot X="1.489895" Y="-316.2935" Z="110.942" />
+						<Hotspot X="-10.85174" Y="-257.2399" Z="110.9421" />
+						<Hotspot X="33.50239" Y="-284.1214" Z="110.9476" />
+					</CustomBehavior>
+					<RunTo X="33.50239" Y="-284.1214" Z="110.9476" />
+					
+					<RunTo X="51.36369" Y="-261.0725" Z="106.4356" />
+						
+					<CustomBehavior File="MyCTM" 
+									X="65.36284" Y="-258.3469" Z="95.84463" />
+					
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="65.36284" Y="-258.3469" Z="95.84463" />
+						<Hotspot X="80.00848" Y="-257.4753" Z="91.47844" />
+						<Hotspot X="95.12875" Y="-260.4346" Z="91.45147" />
+						<Hotspot X="110.5465" Y="-259.6317" Z="91.54787" />
+						<Hotspot X="125.6874" Y="-263.1545" Z="91.203" />
+						<Hotspot X="138.9716" Y="-270.8987" Z="91.5518" />
+						<Hotspot X="154.0306" Y="-270.3019" Z="91.5506" />
+						<Hotspot X="166.561" Y="-261.4195" Z="91.53895" />
+						<Hotspot X="181.5069" Y="-258.6498" Z="91.54626" />
+						<Hotspot X="196.9293" Y="-258.7891" Z="91.54626" />
+						<Hotspot X="212.3362" Y="-258.9492" Z="82.08907" />
+						<Hotspot X="226.4855" Y="-264.5026" Z="82.11736" />
+						<Hotspot X="226.7629" Y="-279.7489" Z="77.02317" />
+						<Hotspot X="213.0592" Y="-286.4794" Z="76.9482" />
+						<Hotspot X="197.9205" Y="-290.5512" Z="76.9482" />
+						<Hotspot X="189.2149" Y="-303.1257" Z="76.9453" />
+						<Hotspot X="175.3775" Y="-309.2928" Z="72.93228" />
+						<Hotspot X="160.4436" Y="-313.7487" Z="70.95634" />
+						<Hotspot X="145.3512" Y="-316.7889" Z="70.95634" />
+						<Hotspot X="130.1019" Y="-318.7517" Z="70.95634" />
+						<Hotspot X="114.7634" Y="-319.0132" Z="67.39499" />
+						<Hotspot X="99.23085" Y="-319.3178" Z="65.46458" />
+						<Hotspot X="95.36435" Y="-304.8703" Z="63.52349" />
+						<Hotspot X="91.1964" Y="-290.7125" Z="60.63515" />
+						<Hotspot X="83.27309" Y="-277.8457" Z="60.66858" />
+						<Hotspot X="80.67532" Y="-262.7831" Z="60.70461" />
+						<Hotspot X="79.65969" Y="-248.035" Z="60.22824" />
+					</CustomBehavior>
+					<RunTo X="79.65969" Y="-248.035" Z="60.22824" />
+					
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs." 
 									LogColor="Fuchsia" />
