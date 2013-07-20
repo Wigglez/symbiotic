@@ -795,7 +795,7 @@
 					</If> <!-- Hearth -->
 						
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="..\[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
+									ProfileName="..\[QO][10-80]_Instances\[QO-A][10-17]_deadmines" />
 				</If> <!-- 10+ -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

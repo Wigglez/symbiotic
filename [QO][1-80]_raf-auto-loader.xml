@@ -91,7 +91,7 @@
 					<!-- Elwynn Forest -->
 					<If Condition="Me.ZoneId == 12">
 						<CustomBehavior File="LoadProfile" 
-										ProfileName="[QO][10-85]_Instances\[QO-A][10-17]_deadmines" />
+										ProfileName="[QO][10-80]_Instances\[QO-A][10-17]_deadmines" />
 										
 						<Else>
 							<CustomBehavior File="Message" 
@@ -109,7 +109,7 @@
 						<!-- Durotar -->
 						<If Condition="Me.ZoneId == 12">			
 							<CustomBehavior File="LoadProfile" 
-										ProfileName="[QO][10-85]_Instances\[QO-H][10-17]_wailing-caverns" />
+										ProfileName="[QO][10-80]_Instances\[QO-H][10-17]_wailing-caverns" />
 										
 							<Else>
 								<CustomBehavior File="Message" 
@@ -130,7 +130,7 @@
 				<!-- Stormwind or Orgrimmar -->
 				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][17-25]_blackfathom-deeps" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][17-25]_blackfathom-deeps" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -149,7 +149,7 @@
 				<!-- Stormwind or Orgrimmar -->
 				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][25-37]_razorfen-kraul" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][25-37]_razorfen-kraul" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -168,7 +168,7 @@
 				<!-- Razorfen Kraul -->
 				<If Condition="Me.ZoneId == 491">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][37-42]_razorfen-downs" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][37-42]_razorfen-downs" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -187,7 +187,7 @@
 				<!-- Stormwind or Orgrimmar -->
 				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][42-48]_blackrock-depths" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][42-48]_blackrock-depths" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -206,7 +206,7 @@
 				<!-- Blackrock Depths -->
 				<If Condition="Me.ZoneId == 1584">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][48-60]_blackrock-spire" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][48-60]_blackrock-spire" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -231,7 +231,7 @@
 					<!-- Stormwind or Orgrimmar -->
 					<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 						<CustomBehavior File="LoadProfile" 
-										ProfileName="[QO][10-85]_Instances\[QO-N][58-60][DK]_hellfire-ramparts" />
+										ProfileName="[QO][10-80]_Instances\[QO-N][58-60][DK]_hellfire-ramparts" />
 									
 						<Else>
 							<CustomBehavior File="Message" 
@@ -251,7 +251,7 @@
 				<!-- Stormwind or Orgrimmar -->
 				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][60-63]_blood-furnace" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][60-63]_blood-furnace" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -270,7 +270,7 @@
 				<!-- Blood Furnace -->
 				<If Condition="Me.ZoneId == 3713">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][63-68]_sethekk-halls" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][63-68]_sethekk-halls" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -289,7 +289,7 @@
 				<!-- Stormwind or Orgrimmar -->
 				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][68-71]_utgarde-keep" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][68-71]_utgarde-keep" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -308,7 +308,7 @@
 				<!-- Drak'tharon Keep -->
 				<If Condition="Me.ZoneId == 206">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][71-73]_drak'tharon-keep" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][71-73]_drak'tharon-keep" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -327,7 +327,7 @@
 				<!-- Gundrak -->
 				<If Condition="Me.ZoneId == 4196">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][73-75]_gundrak" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][73-75]_gundrak" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -346,7 +346,7 @@
 				<!-- Halls of Lightning -->
 				<If Condition="Me.ZoneId == 4416">
 					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][75-80]_halls-of-lightning" />
+									ProfileName="[QO][10-80]_Instances\[QO-N][75-80]_halls-of-lightning" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
