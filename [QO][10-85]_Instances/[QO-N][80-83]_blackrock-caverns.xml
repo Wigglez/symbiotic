@@ -495,6 +495,10 @@
 					<!-- Ineract with the telport -->
 					<CustomBehavior File="InteractWith" MobId="51340" />
 					
+					<!-- Wait for instance to load -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
+					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="83" 
@@ -689,7 +693,7 @@
 									LogColor="Yellow" />				
 					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="80000" />
+									WaitTime="90000" />
 									
 					<!-- Run to the safe spot before Rom'ogg Bonecrusher -->
 					<CustomBehavior File="NoCombatMoveTo" X="209.903" Y="1133.02" Z="205.569" />
@@ -891,6 +895,10 @@
 					
 					<!-- Ineract with the telport -->
 					<CustomBehavior File="InteractWith" MobId="51340" />
+					
+					<!-- Wait for instance to load -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="10000" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
