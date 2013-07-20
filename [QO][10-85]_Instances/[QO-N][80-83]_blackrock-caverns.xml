@@ -689,7 +689,7 @@
 									LogColor="Yellow" />				
 					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="60000" />
+									WaitTime="80000" />
 									
 					<!-- Run to the safe spot before Rom'ogg Bonecrusher -->
 					<CustomBehavior File="NoCombatMoveTo" X="209.903" Y="1133.02" Z="205.569" />
