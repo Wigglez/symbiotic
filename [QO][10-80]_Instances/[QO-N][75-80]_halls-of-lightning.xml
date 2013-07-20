@@ -74,15 +74,6 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
-			<CustomBehavior File="UserDialog" 
-							AllowBotStop="False" 
-							SoundCue="Exclamation" 
-							SoundCueInterval="15" 
-							ExpiryTime="600"
-							ExpiryAction="InputEnabled_Continue" 
-							Text="Booster - When your RAF characters reach level 77 and if they have Cataclysm, you may stop this profile and manually change to Blackrock Caverns for a faster experience gain. Otherwise, the profile will continue to run Halls of Lightning until level 80 and take you to Blackrock Caverns at that time." 	
-							Title="WARNING" />	
-						
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- Halls of Lightning -->
@@ -524,15 +515,6 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 							
-			<CustomBehavior File="UserDialog" 
-							AllowBotStop="False" 
-							SoundCue="Exclamation" 
-							SoundCueInterval="15" 
-							ExpiryTime="600"
-							ExpiryAction="InputEnabled_Continue" 
-							Text="RAF - When these characters reach level 77 and if they have Cataclysm, you may stop this profile and manually change to Blackrock Caverns for a faster experience gain. Otherwise, the profile will continue to run Halls of Lightning until level 80 and take you to Blackrock Caverns at that time." 	
-							Title="WARNING" />	
-		
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- Halls of Lightning -->
