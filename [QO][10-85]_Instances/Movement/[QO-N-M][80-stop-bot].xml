@@ -1,0 +1,84 @@
+﻿<HBProfile creator="Botanist" version="1.0">
+	<Name>[QO-N-M][80-stop-bot]</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>True</MailPurple>
+   
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
+	<SellBlue>True</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>	
+	</ProtectedItems>
+
+	<Factions>16</Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+		<!-- *******************************************************  Booster ************************************************************** -->
+		
+		<!-- Profile message - We are a Booster -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a Booster." 
+							LogColor="Cyan" />
+							
+			<!-- Profile message - All the RAF toons have reach level 80. Stopping the bot -->				
+			<CustomBehavior File="Message" 
+							Text="All the RAF toons have reach level 80. Stopping the bot." 
+							LogColor="Cyan" />				
+							
+			<CustomBehavior File="UserSettings" StopBot="true" />				
+		</If>
+		
+				
+		<!-- ******************************************************* RAF Toons *************************************************************** -->			
+				
+	
+	
+		
+		<!-- Profile message - We are a RAF -->	
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Cyan" />
+		
+			<!-- Profile message - All the RAF toons have reach level 80. Stopping the bot -->				
+			<CustomBehavior File="Message" 
+							Text="All the RAF toons have reach level 80. Stopping the bot." 
+							LogColor="Cyan" />				
+							
+			<CustomBehavior File="UserSettings" StopBot="true" />				
+		</If>
+			
+	</QuestOrder>
+</HBProfile>
+

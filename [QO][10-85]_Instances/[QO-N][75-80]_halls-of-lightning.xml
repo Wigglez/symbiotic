@@ -421,7 +421,7 @@
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="80" 
-									ProfileName="[QO-N][80-83]_blackrock-caverns.xml"  />
+									ProfileName="Movement\[QO-N-M][80-stop-bot].xml"  />
 				</If> <!-- HoL -->
 				
 				<!-- Halls of Lightning -->
@@ -666,7 +666,7 @@
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="80" 
-									ProfileName="[QO-N][80-83]_blackrock-caverns.xml"  />
+									ProfileName="Movement\[QO-N-M][80-stop-bot].xml"  />
 				
 					<!-- Wait so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 

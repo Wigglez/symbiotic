@@ -296,9 +296,7 @@
 										Text="You must be in Stormwind City or Orgrimmar to run this profile automatically." 
 										LogColor="Red" />
 					</Else> 
-				</If> <!-- Stormwind or Orgrimmar -->				
-								
-				
+				</If> <!-- Utgarde Keep -->				
 			</If> <!-- 68-71 -->
 			
 			<!-- 71-73 Drak'tharon Keep -->
@@ -307,7 +305,7 @@
 								Text="We are between 71-73." 
 								LogColor="SeaGreen" />
 								
-				<!-- Utgarde Keep -->
+				<!-- Drak'tharon Keep -->
 				<If Condition="Me.ZoneId == 206">
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="[QO][10-85]_Instances\[QO-N][71-73]_drak'tharon-keep" />
@@ -317,7 +315,7 @@
 										Text="You must be in Utgarde Keep to run this profile automatically." 
 										LogColor="Red" />
 					</Else> 
-				</If> <!-- Utgarde Keep -->			
+				</If> <!-- Drak'tharon Keep -->			
 			</If> <!-- 71-73 -->
 			
 			<!-- 73-75 Gundrak -->
@@ -326,7 +324,7 @@
 								Text="We are between 73-75." 
 								LogColor="SeaGreen" />
 								
-				<!-- Drak'tharon Keep -->
+				<!-- Gundrak -->
 				<If Condition="Me.ZoneId == 4196">
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="[QO][10-85]_Instances\[QO-N][73-75]_gundrak" />
@@ -336,7 +334,7 @@
 										Text="You must be in Drak'tharon Keep to run this profile automatically." 
 										LogColor="Red" />
 					</Else> 
-				</If> <!-- Drak'tharon Keep -->					
+				</If> <!-- Gundrak -->					
 			</If> <!-- 73-75 -->
 			
 			<!-- 75-80 Halls of Lightning -->
@@ -345,29 +343,10 @@
 								Text="We are between 75-80." 
 								LogColor="SeaGreen" />
 								
-				<!-- Gundrak -->
+				<!-- Halls of Lightning -->
 				<If Condition="Me.ZoneId == 4416">
 					<CustomBehavior File="LoadProfile" 
 									ProfileName="[QO][10-85]_Instances\[QO-N][75-80]_halls-of-lightning" />
-								
-					<Else>
-						<CustomBehavior File="Message" 
-										Text="You must be in Gundrak to run this profile automatically." 
-										LogColor="Red" />
-					</Else> 
-				</If> <!-- Gundrak -->		
-			</If> <!-- 75-80 -->
-			
-			<!-- 80-83 Blackrock Caverns -->
-			<If Condition="Me.Level &gt;= 75 &amp;&amp; Me.Level &lt; 80">
-				<CustomBehavior File="Message" 
-								Text="We are between 80-83." 
-								LogColor="SeaGreen" />
-								
-				<!-- Halls of Lightning -->
-				<If Condition="Me.ZoneId == 4272">
-					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][80-83]_blackrock-caverns" />
 								
 					<Else>
 						<CustomBehavior File="Message" 
@@ -375,26 +354,16 @@
 										LogColor="Red" />
 					</Else> 
 				</If> <!-- Halls of Lightning -->		
-			</If> <!-- 80-83 -->
+			</If> <!-- 75-80 -->
 			
-			<!-- 83-85 Lost City of the Tol'vir -->
-			<If Condition="Me.Level &gt;= 83 &amp;&amp; Me.Level &lt; 85">
+			<!-- Level 80 -->
+			<If Condition="Me.Level &gt;= 80">
 				<CustomBehavior File="Message" 
-								Text="We are between 83-85." 
+								Text="We are level 80. Stopping the bot." 
 								LogColor="SeaGreen" />
 								
-				<!-- Blackrock Caverns -->
-				<If Condition="Me.ZoneId == 4926">
-					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][10-85]_Instances\[QO-N][83-85]_lost-city-of-the-tol'vir" />
-								
-					<Else>
-						<CustomBehavior File="Message" 
-										Text="You must be in Blackrock Caverns to run this profile automatically." 
-										LogColor="Red" />
-					</Else> 
-				</If> <!-- Blackrock Caverns -->	
-			</If> <!-- 83-85 -->
+				<CustomBehavior File="UserSettings" StopBot="true" />	
+			</If> <!-- Level 80 -->
 		</If> <!-- RAF -->
 	</QuestOrder>
 </HBProfile>
