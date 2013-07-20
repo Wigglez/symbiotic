@@ -205,11 +205,11 @@
 											
 							<!-- Fly to the hover point above the innkeep in Iron Summit -->
 							<CustomBehavior File="FlyTo" 
-											X="-7070.313" Y="-1215.361" Z="336.248" />
+											X="-7150.475" Y="-1190.795" Z="350.2637" />
 					
 							<!-- Land at innkeeper -->
 							<CustomBehavior File="FlyTo" 
-											X="-7083.119" Y="-1201.846" Z="324.2862" />
+											X="-7115.658" Y="-1201.668" Z="305.9886" />
 							<CustomBehavior File="ForcedDismount" />
 							
 							<!-- Set hearthstone -->
@@ -229,11 +229,10 @@
 							<CustomBehavior File="Message" 
 										Text="We are in Iron Summit." 
 										LogColor="Lime" />
+										
+							<!-- Run outside the tower -->
+							<RunTo X="-7115.658" Y="-1201.668" Z="305.9886" />
 
-							<!-- Fly to the hover point above the innkeep in Iron Summit -->
-							<CustomBehavior File="FlyTo" 
-											X="-7070.313" Y="-1215.361" Z="336.248" />
-				
 							<!-- Repair if necessary -->
 							<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
 								<CustomBehavior File="FlyTo"  
@@ -266,7 +265,12 @@
 													Text="Repairing complete." 
 													LogColor="Lime" />
 								</If> <!-- repaired -->
-							</If> <!-- Repairing -->			
+							</If> <!-- Repairing -->
+
+							<!-- Fly to the hover point above the innkeep in Iron Summit -->
+							<CustomBehavior File="FlyTo" 
+											X="-7150.475" Y="-1190.795" Z="350.2637" />
+							
 						</If>
 					</Else> 
 				</If>	<!-- hearth -->		
@@ -319,12 +323,15 @@
 						
 						<!-- Fly to the hover point above the innkeep in Iron Summit -->
 						<CustomBehavior File="FlyTo" 
-										X="-7070.313" Y="-1215.361" Z="336.248" />
+										X="-7137.243" Y="-1246.774" Z="331.2783" />
 				
 						<!-- Land at innkeeper -->
 						<CustomBehavior File="FlyTo" 
-										X="-7083.119" Y="-1201.846" Z="324.2862" />
+										X="-7112.388" Y="-1203.264" Z="306.6949" />
 						<CustomBehavior File="ForcedDismount" />
+						
+						<!-- Run to innkeeper -->
+						<RunTo X="-7085.188" Y="-1202.098" Z="324.0319" />
 						
 						<!-- Set hearthstone -->
 						<CustomBehavior File="WaitTimer" 
