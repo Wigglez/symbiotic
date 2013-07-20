@@ -145,6 +145,11 @@
 				<!-- If we are inside and have checked our reset -->
 				<If Condition="Me.ZoneId == 4272">
 					<!-- Entrance -->
+					
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+									
 					<RunTo X="1331.41" Y="241.904" Z="52.5046" />
 				
 					<!-- Run to quest giver -->

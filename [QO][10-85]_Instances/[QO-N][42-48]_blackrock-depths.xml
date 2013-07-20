@@ -63,7 +63,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -175,6 +175,11 @@
 				
 				<!-- If we are inside Blackrock Depths and have checked our reset -->
 				<If Condition="Me.ZoneId == 1584">
+				
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+				
 					<!-- Entrance -->
 					<RunTo X="456.929" Y="34.0923" Z="-69.56168" />
 				

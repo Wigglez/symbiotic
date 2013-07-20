@@ -63,7 +63,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -189,6 +189,11 @@
 
                 <!-- If we are inside Razorfen Kraul and have checked our reset -->
 				<If Condition="Me.MapId == 47">
+				
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+				
 					<!-- Entrance -->
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 		

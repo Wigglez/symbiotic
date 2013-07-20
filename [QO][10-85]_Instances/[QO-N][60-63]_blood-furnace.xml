@@ -62,7 +62,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -151,6 +151,11 @@
 				<!-- If we are inside Blood Furnace and have checked our reset -->
 				<If Condition="Me.ZoneId == 3713">
 					<!-- Entrance -->
+					
+						<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+					
 					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
 				
 					<!-- Run to quest givers -->

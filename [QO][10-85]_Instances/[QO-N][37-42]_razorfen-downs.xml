@@ -76,7 +76,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -167,6 +167,11 @@
 				
 				<!-- If we are inside Razorfen Downs and have checked our reset -->
 				<If Condition="Me.MapId == 129">
+				
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+				
 					<!-- Entrance -->
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 				

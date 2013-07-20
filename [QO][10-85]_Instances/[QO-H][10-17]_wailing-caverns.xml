@@ -62,7 +62,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -138,6 +138,10 @@
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.ZoneId == 718">
+				
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
 					<!-- Entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					

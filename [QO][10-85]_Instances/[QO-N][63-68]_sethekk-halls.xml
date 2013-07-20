@@ -63,7 +63,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -159,7 +159,11 @@
 				
 				<!-- If we are inside Sethekk Halls and have checked our reset -->
 				<If Condition="Me.ZoneId == 3791">
-				
+					
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+									
 					<!-- Entrance -->
 					<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
 				

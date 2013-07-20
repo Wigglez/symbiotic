@@ -67,7 +67,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -230,6 +230,11 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
+				
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+				
 					<!-- Entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					

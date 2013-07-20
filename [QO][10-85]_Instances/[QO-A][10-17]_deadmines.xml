@@ -66,7 +66,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -140,6 +140,11 @@
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36">
+				
+				<!-- Run macro to pass on loot -->
+				<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+									
 					<!-- Entrance -->
 					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 				

@@ -62,7 +62,7 @@
 							LogoutForInactivity="False"
 							LogoutInactivityUseForceQuit="False"
 							LootChests="False"
-							LootMobs="False"
+							LootMobs="True"
 							LootRadius="1"
 							MountDistance="75"
 							MountName=""
@@ -158,6 +158,11 @@
 				<!-- If we are inside Hellfire Ramparts and have checked our reset -->
 				<If Condition="Me.ZoneId == 3562">
 					<!-- Entrance -->
+					
+						<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+					
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
 					<!-- Run to side -->
