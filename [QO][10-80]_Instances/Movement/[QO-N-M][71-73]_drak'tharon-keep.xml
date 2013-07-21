@@ -90,8 +90,11 @@
 				<!-- Go through the portal -->
 				<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
 								
+				<!-- Outside portal -->
+				<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />						
+								
 				<!-- run outside Utgarde Keep -->
-				<RunTo X="1181.553" Y="-5062.561" Z="23.57866" />
+				<RunTo X="1213.57" Y="-5184.801" Z="132.5065" />
 				
 			</If> <!-- UK -->
 
@@ -394,15 +397,18 @@
 				<!-- Go through the portal -->
 				<CustomBehavior File="MyCTM" X="147.1626" Y="-87.67013" Z="12.55168" />
 								
+				<!-- Outside portal -->
+				<RunTo X="1221.63" Y="-4864.75" Z="41.2481" />				
+								
 				<!-- run outside Utgarde Keep -->
-				<RunTo X="1181.553" Y="-5062.561" Z="23.57866" />
+				<RunTo X="1213.57" Y="-5184.801" Z="132.5065" />
 				
 			</If> <!-- UK -->
 
 			<!-- Northrend -->
 			<If Condition="Me.MapId == 571">
 			
-				<!-- Fly to the  Utgarde Keep hover point -->
+				<!-- Fly to the  Drak'tharon Keep hover point -->
 				<CustomBehavior File="FlyTo" X="3444.486" Y="-2777.132" Z="282.1241" />	
 			
 				<CustomBehavior File="Message" 

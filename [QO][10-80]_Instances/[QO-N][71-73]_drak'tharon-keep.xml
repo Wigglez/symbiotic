@@ -277,12 +277,8 @@
 						<Hotspot X="-540.4228" Y="-671.2149" Z="30.28136" />
 						<Hotspot X="-555.6962" Y="-682.506" Z="30.59302" />
 						<Hotspot X="-553.4617" Y="-691.8896" Z="30.65157" />
-						<Hotspot X="-542.6622" Y="-697.3996" Z="30.2464" />
-						<Hotspot X="-511.0499" Y="-731.1823" Z="30.24639" />
-						<Hotspot X="-501.748" Y="-724.097" Z="30.24639" />
-						<Hotspot X="-477.8475" Y="-712.5348" Z="30.24638" />
 					</CustomBehavior>
-					<RunTo X="-477.8475" Y="-712.5348" Z="30.24638" />
+					<RunTo X="-553.4617" Y="-691.8896" Z="30.65157" />
 					
 					<!-- Clear all the trolls after the stairs -->
 					<CustomBehavior File="RunLikeHell" 
@@ -581,9 +577,10 @@
 					<CustomBehavior File="MyCTM" X="-540.0514" Y="-571.1459" Z="2.484182" />
 					<RunTo X="-415.2246" Y="-602.2709" Z="1.02492" />
 					
-					<!-- Forces RAFs to stay put durring the King Dread pull -->
+					<!-- Forces kill of The Prophet Tharon'ja -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
-									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="27483"
+									EventCompleteWhen="SpecificMobsDead" 
+									EventCompleteDeadMobId="26632"
 									EventX="-408.0617" EventY="-602.2345" EventZ="1.024964"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
