@@ -207,13 +207,13 @@
 					<CustomBehavior File="FlyTo" X="1842.819" Y="-4392.633" Z="168.825" />
 					<CustomBehavior File="FlyTo" X="1842.819" Y="-4392.633" Z="135.2332" />
 					<CustomBehavior File="ForcedDismount" />
-				
+		
 					<!-- Take zeppelin to undercity -->
 					<CustomBehavior File="UseTransport"
 									TransportId="164871"
-									WaitAtX="1838.7" 
-									WaitAtY="-4386.035"
-									WaitAtZ="135.2322" 
+									WaitAtX="1841.336" 
+									WaitAtY="-4388.688"
+									WaitAtZ="135.2331" 
 									TransportStartX="1833.509" 
 									TransportStartY="-4391.543"
 									TransportStartZ="152.7679"
@@ -660,12 +660,12 @@
 						
 						<CustomBehavior File="WaitTimer" WaitTime="1000" />
 							
-						<!-- Have gold -->
-						<If Condition="(Me.Gold &gt;= 500)" >
-							<!-- Have level -->
-							<If Condition="Me.Level &gt;= 68" >	
-								<!-- Buy cold weather flying -->
-								<While Condition="!HasSpell(54197)" >
+						<!-- Have level -->
+						<If Condition="Me.Level &gt;= 68" >	
+							<!-- Buy cold weather flying -->
+							<While Condition="!HasSpell(54197)" >
+								<!-- Have gold -->
+								<If Condition="(Me.Gold &gt;= 500)" >
 									<CustomBehavior File="InteractWith" 
 													MobId="44919" 
 													WaitTime="1000"
@@ -677,21 +677,21 @@
 									
 									<CustomBehavior File="WaitTimer" 
 													WaitTime="1000" />
-								</While> <!-- Loop mount purchasing -->
-								
-								<Else>
-									<CustomBehavior File="Message" 
-													Text="We are not level 68. You are wanting to train Cold Weather Flying below 68? Are you mental?" 
-													LogColor="Red" />	
-								</Else>
-							</If> <!-- Level check -->
+													
+									<Else>
+										<CustomBehavior File="Message" 
+														Text="You have insufficient gold for training. You require 500g to be able to train Cold Weather Flying. If you continue without it, expect issues." 
+														LogColor="Red" />	
+									</Else>		
+								</If> <!-- Have gold -->	
+							</While> <!-- Loop mount purchasing -->
 							
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="You have insufficient gold for training. You require 500g to be able to train Cold Weather Flying. If you continue without it, expect issues." 
+												Text="We are not level 68. You are wanting to train Cold Weather Flying below 68? Are you mental?" 
 												LogColor="Red" />	
 							</Else>
-						</If> <!-- Have gold -->	
+						</If> <!-- Level check -->
 							
 						<!-- trained -->
 						<If Condition="HasSpell(54197)" >
@@ -702,13 +702,13 @@
 							<!-- Run to zeppelin dock -->
 							<RunTo X="1842.819" Y="-4392.633" Z="135.2332" />
 							<CustomBehavior File="ForcedDismount" />
-						
+													
 							<!-- Take zeppelin to undercity -->
 							<CustomBehavior File="UseTransport"
 											TransportId="164871"
-											WaitAtX="1838.7" 
-											WaitAtY="-4386.035"
-											WaitAtZ="135.2322" 
+											WaitAtX="1841.336" 
+											WaitAtY="-4388.688"
+											WaitAtZ="135.2331" 
 											TransportStartX="1833.509" 
 											TransportStartY="-4391.543"
 											TransportStartZ="152.7679"
@@ -775,25 +775,32 @@
 						<CustomBehavior File="WaitTimer"
 										WaitTime="1000" />				
 						
-						<!-- Have gold -->
-						<If Condition="(Me.Gold &gt;= 500)" >
+						
 							<!-- If we are 68 -->
 							<If Condition="Me.Level &gt;= 60" >	
 								<!-- Buy cold weather flying -->
 								<While Condition="!HasSpell(54197)">
+									<!-- Have gold -->
+									<If Condition="(Me.Gold &gt;= 500)" >
+						
+										<CustomBehavior File="InteractWith" 
+														MobId="43769" 
+														WaitTime="1000"
+														CollectionDistance="50" 
+														X="-8845.4" Y="502.653" Z="109.617" />
+														
+										<CustomBehavior File="ForceTrainRiding" 
+														MobId="43769" />
+										
+										<CustomBehavior File="WaitTimer" 
+														WaitTime="1000" />
 									
-									<CustomBehavior File="InteractWith" 
-													MobId="43769" 
-													WaitTime="1000"
-													CollectionDistance="50" 
-													X="-8845.4" Y="502.653" Z="109.617" />
-													
-									<CustomBehavior File="ForceTrainRiding" 
-													MobId="43769" />
-									
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-									
+										<Else>
+											<CustomBehavior File="Message" 
+															Text="You have insufficient gold for training. You require 500g to be able to train Cold Weather Flying. If you continue without it, expect issues." 
+															LogColor="Red" />	
+										</Else>
+									</If> <!-- Have gold -->
 								</While> <!-- Loop mount purchasing -->
 								
 								<Else>
@@ -803,13 +810,6 @@
 								</Else>
 							</If> <!-- Level check -->
 							
-							<Else>
-								<CustomBehavior File="Message" 
-												Text="You have insufficient gold for training. You require 500g to be able to train Cold Weather Flying. If you continue without it, expect issues." 
-												LogColor="Red" />	
-							</Else>
-						</If> <!-- Have gold -->
-										
 						<!-- trained -->
 						<If Condition="HasSpell(54197)" >
 							<CustomBehavior File="Message" 
