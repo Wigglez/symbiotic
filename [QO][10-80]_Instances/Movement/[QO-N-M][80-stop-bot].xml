@@ -53,10 +53,34 @@
 							
 			<!-- Profile message - All the RAF toons have reach level 80. Stopping the bot -->				
 			<CustomBehavior File="Message" 
-							Text="All the RAF toons have reach level 80. Stopping the bot." 
+							Text="All the RAF toons have reach level 80. Stopping the bot when we get to Dalaran." 
 							LogColor="Cyan" />				
 							
-			<CustomBehavior File="UserSettings" StopBot="true" />				
+			<!-- Halls of Lightning -->
+			<If Condition="Me.ZoneId == 4272">
+				<CustomBehavior File="Message" 
+								Text="Halls of Lightning detected. Running out."
+								LogColor="Fuchsia" />
+					
+				<!-- Make our way to the exit -->
+				<RunTo X="1331.41" Y="241.904" Z="52.5046" />
+
+				<!-- Go through the portal -->
+				<CustomBehavior File="MyCTM" X="1333.524" Y="275.7161" Z="52.81057" />
+				
+				<!-- Make sure we run to the right spot outside the potral -->
+				<RunTo X="9175.68" Y="-1378.8" Z="1103.57" />
+			</If> <!-- HoL -->			
+
+			<!-- Northrend -->
+			<If Condition="Me.MapId == 571">
+				<!-- Fly to Dalaran -->
+				<CustomBehavior File="FlyTo" X="5868.804" Y="425.1747" Z="779.3643" />
+				<CustomBehavior File="FlyTo" X="5814.038" Y="448.8576" Z="658.7518" />
+				<CustomBehavior File="ForcedDismount" />
+				
+				<CustomBehavior File="UserSettings" StopBot="true" />	
+			</If> <!-- Northrend -->
 		</If>
 		
 				
@@ -73,10 +97,47 @@
 		
 			<!-- Profile message - All the RAF toons have reach level 80. Stopping the bot -->				
 			<CustomBehavior File="Message" 
-							Text="All the RAF toons have reach level 80. Stopping the bot." 
-							LogColor="Cyan" />				
+							Text="All the RAF toons have reach level 80. Stopping the bot when we are in Stormwind City or Orgrimmar." 
+							LogColor="Cyan" />		
+
+			<If Condition="(Me.HearthstoneAreaId == 5148) || (Me.HearthstoneAreaId == 5170)">
+				<CustomBehavior File="Message" 
+								Text="Our Innkeeper is set at Stormwind or Orgrimmar." 
+								LogColor="Cyan" />
+								
+				<!-- Have hearthstone -->
+				<If Condition="HasItem(6948)">
+					<CustomBehavior File="Message" 
+									Text="Using Hearthstone." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(6948)" 
+									WaitTime="1000" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+				</If> <!-- Have hearthstone -->
+			
+				<!-- Have Innkeeper's Daughter -->
+				<If Condition="HasItem(64488)">
+					<CustomBehavior File="Message" 
+									Text="Using Innkeeper's Daughter." 
+									LogColor="Lime" />
+										
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(64488)" 
+									WaitTime="1000" />
+						
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+				</If> <!-- Have Innkeeper's Daughter -->
+			</If> <!-- Hearth check -->				
 							
-			<CustomBehavior File="UserSettings" StopBot="true" />				
+			<!-- Stormwind City or Orgrimmar -->
+			<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
+				<CustomBehavior File="UserSettings" StopBot="true" />		
+			</If> <!-- Stormwind City or Orgrimmar -->
 		</If>
 			
 	</QuestOrder>
