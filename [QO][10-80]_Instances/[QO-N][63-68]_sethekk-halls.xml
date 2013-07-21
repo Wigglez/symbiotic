@@ -539,6 +539,9 @@
 					<!-- Run to first boss -->
 					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
 					
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="68" 
