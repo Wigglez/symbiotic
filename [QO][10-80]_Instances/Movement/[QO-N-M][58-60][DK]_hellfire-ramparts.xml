@@ -526,6 +526,30 @@
 					<CustomBehavior File="Message" 
 									Text="We are in Orgrimmar." 
 									LogColor="Cyan" />
+									
+					<!-- Bag space and Durabilty check -->
+					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+						<SetVendor>
+							<Vendors>
+								<Vendor Name="Sana" 
+										Entry="3319" 
+										Type="Repair"
+										X="1583.74" Y="-4288.98" Z="21.54101" />
+							</Vendors>
+						</SetVendor>
+						
+						<SetMailbox>
+							<Mailboxes>
+								<Mailbox X="1606.27" Y="-4383.281" Z="20.70483" />
+							</Mailboxes>
+						</SetMailbox>				
+						
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="True" 
+										DoRepair="True" 
+										DoSell="True" 
+										DoTrain="False" />	
+					</If>						
 					
 					<CustomBehavior File="Message" 
 									Text="Moving to Blasted Lands portal." 
