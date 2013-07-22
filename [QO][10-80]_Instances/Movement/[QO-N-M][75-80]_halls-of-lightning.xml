@@ -88,6 +88,9 @@
 				
 				<!-- Make sure we run to the right spot outside the potral -->
 				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
+				
+				<!-- Run around the corner -->
+				<RunTo X="6931.205" Y="-4395.055" Z="454.8268" />
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
@@ -322,6 +325,9 @@
 				
 				<!-- Make sure we run to the right spot outside the potral -->
 				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
+				
+				<!-- Run around the corner -->
+				<RunTo X="6931.205" Y="-4395.055" Z="454.8268" />
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
