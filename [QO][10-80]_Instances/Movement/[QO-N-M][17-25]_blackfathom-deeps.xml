@@ -1254,7 +1254,7 @@
 				</CustomBehavior>
 						
 				<!-- move beneath the water to the other side -->
-				<CustomBehavior File="NoCombatMoveTo" X="4160.37" Y="916.4307" Z="-16.98774" />
+				<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 								
 				<!-- Booster starts clearing when all party members are present -->				
 				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
