@@ -381,8 +381,7 @@
 											DoSell="True" 
 											DoTrain="False" />	
 						</If>			
-										
-						
+									
 						<!-- If we are 20 -->
 						<If Condition="Me.Level &gt;= 20" >	
 							<!-- Buy mount training until we've reached our needed skill -->
@@ -395,10 +394,6 @@
 											
 									<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
 
-									<CustomBehavior File="WaitTimer"
-													WaitTime="1000" />		
-									
-									
 									<CustomBehavior File="InteractWith" 
 													MobId="43769" 
 													WaitTime="1000"
@@ -408,9 +403,6 @@
 									<CustomBehavior File="ForceTrainRiding" 
 													MobId="43769" />
 									
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-												
 									<Else>
 										<CustomBehavior File="Message" 
 														Text="You have insufficient gold for training. You require 5g or more to be able to train." 
@@ -645,8 +637,6 @@
 										<!-- move to riding trainer -->
 										<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
 										
-										<CustomBehavior File="WaitTimer" WaitTime="1000" />
-										
 										<CustomBehavior File="InteractWith" 
 														MobId="44919" 
 														WaitTime="1000"
@@ -654,8 +644,6 @@
 														X="1799.54" Y="-4357.09" Z="102.4019" />
 														
 										<CustomBehavior File="ForceTrainRiding" MobId="44919" />
-										
-										<CustomBehavior File="WaitTimer" WaitTime="1000" />
 										
 										<Else>
 											<CustomBehavior File="Message" 

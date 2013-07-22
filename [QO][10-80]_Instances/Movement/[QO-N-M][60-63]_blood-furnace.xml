@@ -464,52 +464,39 @@
 							</Mailboxes>
 						</SetMailbox>				
 						<CustomBehavior File="ForceSetVendor" DoMail="True" DoRepair="True" DoSell="True" DoTrain="False" />	
-					</If>				
-									
-					<CustomBehavior File="Message" 
-									Text="Moving to the riding trainer."
-									LogColor="Orange" />
-											
-					<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
-
-					<CustomBehavior File="WaitTimer"
-									WaitTime="1000" />				
+					</If>		
 					
-					<!-- Have gold -->
-					<If Condition="(Me.Gold &gt;= 250)" >
-						<!-- If we are 60 -->
-						<If Condition="Me.Level &gt;= 60" >	
-							<!-- Buy mount training until we've reached our needed skill -->
-							<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
-								
-								<CustomBehavior File="InteractWith" 
-												MobId="43769" 
-												WaitTime="1000"
-												CollectionDistance="50" 
-												X="-8845.4" Y="502.653" Z="109.617" />
-												
-								<CustomBehavior File="ForceTrainRiding" 
-												MobId="43769" />
-								
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="1000" />
-								
-							</While> <!-- Loop mount purchasing -->
-							
-							<Else>
-								<CustomBehavior File="Message" 
-												Text="We are not level 60. You are wanting to train flying below 60? Are you mental?" 
-												LogColor="Red" />	
-							</Else>
-						</If> <!-- Level check -->
+					<!-- If we are 60 -->
+					<If Condition="Me.Level &gt;= 60" >	
+						<!-- Buy mount training until we've reached our needed skill -->
+						<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
+							<!-- Have gold -->
+							<If Condition="(Me.Gold &gt;= 250)" >
 						
-						<Else>
-							<CustomBehavior File="Message" 
-											Text="You have insufficient gold for training. You require 250g or more to be able to train." 
-											LogColor="Red" />	
-						</Else>
-					</If> <!-- Have gold -->
+									<CustomBehavior File="Message" 
+													Text="Moving to the riding trainer."
+													LogColor="Orange" />
+															
+									<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
 									
+									<CustomBehavior File="InteractWith" 
+													MobId="43769" 
+													WaitTime="1000"
+													CollectionDistance="50" 
+													X="-8845.4" Y="502.653" Z="109.617" />
+													
+									<CustomBehavior File="ForceTrainRiding" 
+													MobId="43769" />
+									
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="You have insufficient gold for training. You require 250g or more to be able to train." 
+													LogColor="Red" />	
+								</Else>
+							</If> <!-- Have gold -->
+						</While> <!-- Loop mount purchasing -->
+					</If> <!-- Level check -->
+						
 					<CustomBehavior File="UserDialog" 
 									AllowBotStop="False" 
 									SoundCue="Exclamation" 
@@ -565,30 +552,52 @@
 					<CustomBehavior File="Message" 
 									Text="We are in Orgrimmar." 
 									LogColor="Cyan" />
-					
-					<CustomBehavior File="Message" 
-									Text="Moving to the riding trainer." 
-									LogColor="Orange" />
-											
-					<!-- move to riding trainer -->
-					<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
-					
-					<CustomBehavior File="WaitTimer" WaitTime="1000" />
+									
+					<!-- Bag space and Durabilty check -->
+					<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+						<SetVendor>
+							<Vendors>
+								<Vendor Name="Sana" 
+										Entry="3319" 
+										Type="Repair"
+										X="1583.74" Y="-4288.98" Z="21.54101" />
+							</Vendors>
+						</SetVendor>
 						
-					<!-- Have gold -->
-					<If Condition="(Me.Gold &gt;= 250)" >
-						<!-- If we are 60 -->
-						<If Condition="Me.Level &gt;= 60" >	
-							<!-- Turn in flight quest -->
-							<If Condition="((HasQuest(32674)) &amp;&amp; (IsQuestCompleted(32674)))" >
-								<TurnIn QuestName="I Believe You Can Fly" 
-										QuestId="32674" 
-										TurnInName="Maztha" 
-										TurnInId="44919" />
-							</If> <!-- Turn in flight quest -->
+						<SetMailbox>
+							<Mailboxes>
+								<Mailbox X="1606.27" Y="-4383.281" Z="20.70483" />
+							</Mailboxes>
+						</SetMailbox>				
 						
-							<!-- Buy mount training until we've reached our needed skill -->
-							<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="True" 
+										DoRepair="True" 
+										DoSell="True" 
+										DoTrain="False" />	
+					</If>						
+					
+					<!-- If we are 60 -->
+					<If Condition="Me.Level &gt;= 60" >	
+						<!-- Buy mount training until we've reached our needed skill -->
+						<While Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &lt; 225">
+							<!-- Have gold -->
+							<If Condition="(Me.Gold &gt;= 250)" >
+								<CustomBehavior File="Message" 
+												Text="Moving to the riding trainer." 
+												LogColor="Orange" />
+														
+								<!-- move to riding trainer -->
+								<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
+								
+								<!-- Turn in flight quest -->
+								<If Condition="((HasQuest(32674)) &amp;&amp; (IsQuestCompleted(32674)))" >
+									<TurnIn QuestName="I Believe You Can Fly" 
+											QuestId="32674" 
+											TurnInName="Maztha" 
+											TurnInId="44919" />
+								</If> <!-- Turn in flight quest -->
+					
 								<CustomBehavior File="InteractWith" 
 												MobId="44919" 
 												WaitTime="1000"
@@ -597,24 +606,15 @@
 												
 								<CustomBehavior File="ForceTrainRiding" 
 												MobId="44919" />
-								
-								<CustomBehavior File="WaitTimer" 
-												WaitTime="1000" />
-							</While> <!-- Loop mount purchasing -->
-							
-							<Else>
-								<CustomBehavior File="Message" 
-												Text="We are not level 60. You are wanting to train flying below 60? Are you mental?" 
-												LogColor="Red" />	
-							</Else>
-						</If> <!-- Level check -->
-						
-						<Else>
-							<CustomBehavior File="Message" 
-											Text="You have insufficient gold for training. You require 250g or more to be able to train." 
-											LogColor="Red" />	
-						</Else>
-					</If> <!-- Have gold -->	
+													
+								<Else>
+									<CustomBehavior File="Message" 
+													Text="You have insufficient gold for training. You require 250g or more to be able to train." 
+													LogColor="Red" />	
+								</Else>
+							</If> <!-- Have gold -->	
+						</While> <!-- Loop mount purchasing -->
+					</If> <!-- Level check -->
 						
 					<CustomBehavior File="UserDialog" 
 									AllowBotStop="False" 

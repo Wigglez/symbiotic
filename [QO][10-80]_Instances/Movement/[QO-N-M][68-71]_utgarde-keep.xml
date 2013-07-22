@@ -647,6 +647,30 @@
 						<CustomBehavior File="Message" 
 										Text="We are in Orgrimmar." 
 										LogColor="Cyan" />
+										
+						<!-- Bag space and Durabilty check -->
+						<If Condition="(Me.FreeBagSlots &lt;= 4) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+							<SetVendor>
+								<Vendors>
+									<Vendor Name="Sana" 
+											Entry="3319" 
+											Type="Repair"
+											X="1583.74" Y="-4288.98" Z="21.54101" />
+								</Vendors>
+							</SetVendor>
+							
+							<SetMailbox>
+								<Mailboxes>
+									<Mailbox X="1606.27" Y="-4383.281" Z="20.70483" />
+								</Mailboxes>
+							</SetMailbox>				
+							
+							<CustomBehavior File="ForceSetVendor" 
+											DoMail="True" 
+											DoRepair="True" 
+											DoSell="True" 
+											DoTrain="False" />	
+						</If>						
 						
 						<!-- Have level -->
 						<If Condition="Me.Level &gt;= 68" >	
@@ -660,9 +684,7 @@
 															
 									<!-- move to riding trainer -->
 									<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
-									
-									<CustomBehavior File="WaitTimer" WaitTime="1000" />
-								
+
 									<CustomBehavior File="InteractWith" 
 													MobId="44919" 
 													WaitTime="1000"
@@ -672,9 +694,6 @@
 									<CustomBehavior File="ForceTrainRiding" 
 													MobId="44919" />
 									
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-													
 									<Else>
 										<CustomBehavior File="Message" 
 														Text="You have insufficient gold for training. You require 500g to be able to train Cold Weather Flying." 
@@ -769,9 +788,6 @@
 												
 									<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
 
-									<CustomBehavior File="WaitTimer"
-													WaitTime="1000" />		
-					
 									<CustomBehavior File="InteractWith" 
 													MobId="43769" 
 													WaitTime="1000"
@@ -781,9 +797,6 @@
 									<CustomBehavior File="ForceTrainRiding" 
 													MobId="43769" />
 									
-									<CustomBehavior File="WaitTimer" 
-													WaitTime="1000" />
-								
 									<Else>
 										<CustomBehavior File="Message" 
 														Text="You have insufficient gold for training. You require 500g to be able to train Cold Weather Flying." 
