@@ -13,10 +13,10 @@
 	<MailBlue>False</MailBlue>
 	<MailPurple>False</MailPurple>
    
-	<SellGrey>False</SellGrey>
-	<SellWhite>False</SellWhite>
-	<SellGreen>False</SellGreen>
-	<SellBlue>False</SellBlue>
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
+	<SellBlue>True</SellBlue>
 	<SellPurple>False</SellPurple>
    
 	<TargetElites>True</TargetElites>
@@ -711,6 +711,7 @@
 														Text="You have insufficient gold for training. You require 50g or more to be able to train." 
 														LogColor="Red" />	
 									</Else>
+								</If> <!-- Have gold -->
 							</While> <!-- Loop mount purchasing -->
 						</If> <!-- Level check -->
 										
