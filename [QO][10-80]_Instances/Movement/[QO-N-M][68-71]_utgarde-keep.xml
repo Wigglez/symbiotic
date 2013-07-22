@@ -648,21 +648,21 @@
 										Text="We are in Orgrimmar." 
 										LogColor="Cyan" />
 						
-						<CustomBehavior File="Message" 
-										Text="Moving to the riding trainer." 
-										LogColor="Orange" />
-												
-						<!-- move to riding trainer -->
-						<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
-						
-						<CustomBehavior File="WaitTimer" WaitTime="1000" />
-							
 						<!-- Have level -->
 						<If Condition="Me.Level &gt;= 68" >	
 							<!-- Buy cold weather flying -->
 							<While Condition="!HasSpell(54197)" >
 								<!-- Have gold -->
 								<If Condition="(Me.Gold &gt;= 500)" >
+									<CustomBehavior File="Message" 
+													Text="Moving to the riding trainer." 
+													LogColor="Orange" />
+															
+									<!-- move to riding trainer -->
+									<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
+									
+									<CustomBehavior File="WaitTimer" WaitTime="1000" />
+								
 									<CustomBehavior File="InteractWith" 
 													MobId="44919" 
 													WaitTime="1000"
@@ -757,22 +757,20 @@
 											DoTrain="False" />	
 						</If>				
 										
-						<CustomBehavior File="Message" 
-										Text="Moving to the riding trainer."
-										LogColor="Orange" />
-												
-						<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
-
-						<CustomBehavior File="WaitTimer"
-										WaitTime="1000" />				
-						
-						
 						<!-- If we are 68 -->
 						<If Condition="Me.Level &gt;= 68" >	
 							<!-- Buy cold weather flying -->
 							<While Condition="!HasSpell(54197)">
 								<!-- Have gold -->
 								<If Condition="(Me.Gold &gt;= 500)" >
+									<CustomBehavior File="Message" 
+													Text="Moving to the riding trainer."
+													LogColor="Orange" />
+												
+									<RunTo X="-8847.744" Y="500.6151" Z="109.6094" />	
+
+									<CustomBehavior File="WaitTimer"
+													WaitTime="1000" />		
 					
 									<CustomBehavior File="InteractWith" 
 													MobId="43769" 
