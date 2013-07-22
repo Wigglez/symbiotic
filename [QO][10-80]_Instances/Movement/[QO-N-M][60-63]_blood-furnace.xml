@@ -495,6 +495,12 @@
 								</Else>
 							</If> <!-- Have gold -->
 						</While> <!-- Loop mount purchasing -->
+						
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="You are not level 60." 
+											LogColor="Red" />	
+						</Else>
 					</If> <!-- Level check -->
 						
 					<CustomBehavior File="UserDialog" 
@@ -614,6 +620,12 @@
 								</Else>
 							</If> <!-- Have gold -->	
 						</While> <!-- Loop mount purchasing -->
+						
+						<Else>
+							<CustomBehavior File="Message" 
+											Text="You are not level 60." 
+											LogColor="Red" />	
+						</Else>
 					</If> <!-- Level check -->
 						
 					<CustomBehavior File="UserDialog" 
