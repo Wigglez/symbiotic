@@ -1268,7 +1268,8 @@
 						
 								
 				<!-- Booster starts clearing when all party members are present -->				
-				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								CheckRange="5" />
 				
 				<!-- Wait timer to allow wait 15 seconds for tag to reset -->
 				<CustomBehavior File="Message" 
@@ -1285,7 +1286,7 @@
 								
 				<!-- 3rd tag move to the priestess -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="30" />
+								CheckRange="5" />
 								
 				<!-- Wait 20 seconds -->
 				<CustomBehavior File="WaitTimer" 
