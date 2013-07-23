@@ -458,6 +458,11 @@
 					<RunTo X="4154.427" Y="869.0259" Z="-18.11682" />
 
 					<!-- move beneath the water to the other side -->
+					<CustomBehavior File="MyCTM" X="4159.544" Y="888.356" Z="-22.5494" />
+					<CustomBehavior File="MyCTM" X="4161.715" Y="903.9572" Z="-20.88942" />
+					<CustomBehavior File="MyCTM" X="4164.328" Y="913.8588" Z="-17.61661" />
+					
+					<!-- First point on other side -->
 					<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
 					
 					<!-- Runto the first mob past the water pool -->
@@ -1252,9 +1257,15 @@
 					<Hotspot X="4117.665" Y="872.9206" Z="-12.56279" />
 					<Hotspot X="4154.427" Y="869.0259" Z="-18.11682" />
 				</CustomBehavior>
-						
+				
 				<!-- move beneath the water to the other side -->
+				<CustomBehavior File="MyCTM" X="4159.544" Y="888.356" Z="-22.5494" />
+				<CustomBehavior File="MyCTM" X="4161.715" Y="903.9572" Z="-20.88942" />
+				<CustomBehavior File="MyCTM" X="4164.328" Y="913.8588" Z="-17.61661" />
+				
+				<!-- First point on other side -->
 				<RunTo X="4160.37" Y="916.4307" Z="-16.98774" />
+						
 								
 				<!-- Booster starts clearing when all party members are present -->				
 				<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />

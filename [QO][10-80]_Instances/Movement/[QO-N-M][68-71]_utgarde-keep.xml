@@ -704,7 +704,7 @@
 							
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="You are not level 60." 
+												Text="You are not level 68." 
 												LogColor="Red" />	
 							</Else>
 						</If> <!-- Level check -->
@@ -813,7 +813,7 @@
 							
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="You are not level 60." 
+												Text="You are not level 68." 
 												LogColor="Red" />	
 							</Else>
 						</If> <!-- Level check -->

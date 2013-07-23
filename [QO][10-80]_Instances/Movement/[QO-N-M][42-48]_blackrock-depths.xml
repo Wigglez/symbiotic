@@ -716,7 +716,7 @@
 							
 							<Else>
 								<CustomBehavior File="Message" 
-												Text="You are not level 60." 
+												Text="You are not level 40." 
 												LogColor="Red" />	
 							</Else>
 						</If> <!-- Level check -->
@@ -735,24 +735,29 @@
 							<!-- Board zeppelin to Undercity -->
 							<RunTo X="1868.267" Y="-4417.384" Z="135.233" />
 							
-							<!-- Orgrimmar to Undercity -->
-							<CustomBehavior File="UseTransport"
-											TransportId="164871"
-											WaitAtX="1838.7" 
-											WaitAtY="-4386.035"
-											WaitAtZ="135.2322" 
-											TransportStartX="1833.509" 
-											TransportStartY="-4391.543"
-											TransportStartZ="152.7679"
-											TransportEndX="2062.376" 
-											TransportEndY="292.998047" 
-											TransportEndZ="114.670547"
-											StandOnX="1835.301" 
-											StandOnY="-4390" 
-											StandOnZ="135.8167" 
-											GetOffX="2068.327" 
-											GetOffY="286.5359" 
-											GetOffZ="97.0316" />
+							<!--
+											WaitAtX="1839.515" 
+											WaitAtY="-4390.29"
+											WaitAtZ="135.2314"  -->
+							
+							<!-- Orgrimmar to Grom'gol Base Camp -->
+							<CustomBehavior File="UseTransport" 
+											TransportId="175080" 
+											WaitAtX="1869.635" 
+											WaitAtY="-4419.227" 
+											WaitAtZ="135.2332"								
+											TransportStartX="1880.818" 
+											TransportStartY="-4435.269" 
+											TransportStartZ="152.8608"								
+											StandOnX="1883.553" 
+											StandOnY="-4419.312" 
+											StandOnZ="136.8681"
+											TransportEndX="-12464.34" 
+											TransportEndY="233.1597" 
+											TransportEndZ="49.53437"	
+											GetOffX="-12445.94" 
+											GetOffY="218.9818" 
+											GetOffZ="31.86087" />	
 						</If> <!-- Trained riding -->
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->
@@ -835,7 +840,7 @@
 								
 								<Else>
 									<CustomBehavior File="Message" 
-													Text="You are not level 60." 
+													Text="You are not level 40." 
 													LogColor="Red" />	
 								</Else>
 							</If> <!-- Level check -->
@@ -899,6 +904,31 @@
 							<CustomBehavior File="Message" 
 											Text="We are Horde."
 											LogColor="Cyan" /> 
+						
+							<!-- Northern Stranglethorn -->
+							<If Condition="Me.ZoneId == 33">
+								<RunTo X="-12419.65" Y="207.0982" Z="31.29228" />
+					
+
+								<!-- Grom'gol Base Camp to Undercity -->
+								<CustomBehavior File="UseTransport" 
+												TransportId="176495" 
+												WaitAtX="-12410.23" 
+												WaitAtY="201.9959" 
+												WaitAtZ="31.79083"								
+												TransportStartX="-12407.18" 
+												TransportStartY="225.9438" 
+												TransportStartZ="50.73914"								
+												StandOnX="-12404.03" 
+												StandOnY="206.7104" 
+												StandOnZ="31.9611"
+												TransportEndX="2062.599" 
+												TransportEndY="235.2645" 
+												TransportEndZ="117.7336"	
+												GetOffX="2058.145" 
+												GetOffY="242.224" 
+												GetOffZ="99.76736" />	
+							</If> <!-- Northern Stranglethorn -->
 						
 							<!-- Tirisfal Glades -->
 							<If Condition="Me.ZoneId == 85">
