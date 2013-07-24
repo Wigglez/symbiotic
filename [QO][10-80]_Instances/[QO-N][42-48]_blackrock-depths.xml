@@ -300,6 +300,9 @@
 									
 					<!-- Tag RAFs -->
 					<RunTo X="459.7507" Y="18.36356" Z="-70.99839" />
+					
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
 
 					<!-- Donut -->
 					<CustomBehavior File="RunLikeHell"
