@@ -1066,7 +1066,7 @@
 										WaitTime="20000"  />
 									
 						<!-- Stonewrought and Badlands -->			
-						<If Condition="Me.X &lt -6323 &amp;&amp; Me.X &gt;= -6733">
+						<If Condition="Me.X &gt;= -6733 &amp;&amp; Me.X &lt; -6323">
 							<!-- Move to the road entering searing gorge from badlands -->						
 							<CustomBehavior File="RunLikeHell"
 											UseCTM="false" 
@@ -1087,7 +1087,7 @@
 						</If> <!-- Stonewrought and Badlands -->	
 						
 						<!-- Badlands and Iron Summit -->
-						<If Condition="Me.X &gt;= -6963 &amp;&amp; Me.X &lt -6323 ">
+						<If Condition="Me.X &gt;= -6963 &amp;&amp; Me.X &lt; -6323 ">
 							<CustomBehavior File="Message" 
 										Text="Moving to Iron Summit."
 										LogColor="Lime" /> 
@@ -1108,7 +1108,7 @@
 						</If> <!-- Badlands and Iron Summit -->
 						
 						<!-- Iron Summit and Blackrock Mountain -->
-						<If Condition="Me.X &gt;= -7227 &amp;&amp; Me.X &lt -6963 ">
+						<If Condition="Me.X &gt;= -7227 &amp;&amp; Me.X &lt; -6963 ">
 							<CustomBehavior File="RunLikeHell"
 											UseCTM="false" 
 											NumOfTimes="1" 
