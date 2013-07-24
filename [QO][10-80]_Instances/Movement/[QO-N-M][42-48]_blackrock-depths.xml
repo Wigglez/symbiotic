@@ -712,6 +712,15 @@
 														LogColor="Red" />	
 									</Else>
 								</If> <!-- Have gold -->
+								
+								<CustomBehavior File="UserDialog" 
+												AllowBotStop="False" 
+												SoundCue="Exclamation" 
+												SoundCueInterval="15" 
+												ExpiryTime="600"
+												ExpiryAction="InputEnabled_Continue" 
+												Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
+												Title="WARNING" />
 							</While> <!-- Loop mount purchasing -->
 							
 							<Else>
@@ -721,44 +730,22 @@
 							</Else>
 						</If> <!-- Level check -->
 										
-						<CustomBehavior File="UserDialog" 
-										AllowBotStop="False" 
-										SoundCue="Exclamation" 
-										SoundCueInterval="15" 
-										ExpiryTime="600"
-										ExpiryAction="InputEnabled_Continue" 
-										Text="RAF - We suggest you have a ground mount beyond this level. Press continue if you already have a ground mount. Otherwise stop the bot, go purchase a mount and return to this location before restarting the bot" 	
-										Title="WARNING" />
-										
 						<!-- trained -->
 						<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 150" >
 							<!-- Board zeppelin to Undercity -->
-							<RunTo X="1868.267" Y="-4417.384" Z="135.233" />
+							<RunTo X="1839.144" Y="-4390.119" Z="135.2312" />
 							
-							<!--
-											WaitAtX="1839.515" 
-											WaitAtY="-4390.29"
-											WaitAtZ="135.2314"  -->
+							<CustomBehavior File="Message" 
+											Text="We are on the Orgrimmar to Undercity zeppelin dock." 
+											LogColor="Cyan" />
 							
-							<!-- Orgrimmar to Grom'gol Base Camp -->
-							<CustomBehavior File="UseTransport" 
-											TransportId="175080" 
-											WaitAtX="1869.635" 
-											WaitAtY="-4419.227" 
-											WaitAtZ="135.2332"								
-											TransportStartX="1880.818" 
-											TransportStartY="-4435.269" 
-											TransportStartZ="152.8608"								
-											StandOnX="1883.553" 
-											StandOnY="-4419.312" 
-											StandOnZ="136.8681"
-											TransportEndX="-12464.34" 
-											TransportEndY="233.1597" 
-											TransportEndZ="49.53437"	
-											GetOffX="-12445.94" 
-											GetOffY="218.9818" 
-											GetOffZ="31.86087" />	
-						</If> <!-- Trained riding -->
+							<CustomBehavior File="Message" 
+											Text="The zeppelin to Undercity has issues. You are to put yourself onto the zeppelin and start this instance profile again when you arrive on the Undercity zeppelin dock." 
+											LogColor="Red" />
+											
+							<CustomBehavior File="UserSettings" 
+											StopBot="true" />
+						</If> <!-- Trained -->
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->
 			</If> <!-- Kalimdor -->
@@ -904,31 +891,6 @@
 							<CustomBehavior File="Message" 
 											Text="We are Horde."
 											LogColor="Cyan" /> 
-						
-							<!-- Northern Stranglethorn -->
-							<If Condition="Me.ZoneId == 33">
-								<RunTo X="-12419.65" Y="207.0982" Z="31.29228" />
-					
-
-								<!-- Grom'gol Base Camp to Undercity -->
-								<CustomBehavior File="UseTransport" 
-												TransportId="176495" 
-												WaitAtX="-12410.23" 
-												WaitAtY="201.9959" 
-												WaitAtZ="31.79083"								
-												TransportStartX="-12407.18" 
-												TransportStartY="225.9438" 
-												TransportStartZ="50.73914"								
-												StandOnX="-12404.03" 
-												StandOnY="206.7104" 
-												StandOnZ="31.9611"
-												TransportEndX="2062.599" 
-												TransportEndY="235.2645" 
-												TransportEndZ="117.7336"	
-												GetOffX="2058.145" 
-												GetOffY="242.224" 
-												GetOffZ="99.76736" />	
-							</If> <!-- Northern Stranglethorn -->
 						
 							<!-- Tirisfal Glades -->
 							<If Condition="Me.ZoneId == 85">
@@ -1102,80 +1064,95 @@
 										
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="20000"  />
-												
-						<!-- Move to the road entering searing gorge from badlands -->						
-						<CustomBehavior File="RunLikeHell"
-										UseCTM="false" 
-										NumOfTimes="1" 
-										AllowCombat="false">
+									
+						<!-- Stonewrought and Badlands -->			
+						<If Condition="Me.X &lt -6323 &amp;&amp; Me.X &gt;= -6733">
+							<!-- Move to the road entering searing gorge from badlands -->						
+							<CustomBehavior File="RunLikeHell"
+											UseCTM="false" 
+											NumOfTimes="1" 
+											AllowCombat="false">
+								
+								<Hotspot X="-6428.804" Y="-1993.341" Z="244.7461" />
+								<Hotspot X="-6560.358" Y="-1927.546" Z="244.2066" />
+								<Hotspot X="-6846.725" Y="-1840.728" Z="243.4146" />
+							</CustomBehavior>
 							
-							<Hotspot X="-6428.804" Y="-1993.341" Z="244.7461" />
-							<Hotspot X="-6560.358" Y="-1927.546" Z="244.2066" />
-							<Hotspot X="-6846.725" Y="-1840.728" Z="243.4146" />
-						</CustomBehavior>
-						
-						<!-- Let the booster tag us to move forward to iron summit -->				
-						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="2" />	
-										
-						<CustomBehavior File="WaitTimer" 
+							<!-- Let the booster tag us to move forward to iron summit -->				
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="2" />	
+											
+							<CustomBehavior File="WaitTimer" 
 										WaitTime="20000"  />
+						</If> <!-- Stonewrought and Badlands -->	
 						
-						<CustomBehavior File="Message" 
+						<!-- Badlands and Iron Summit -->
+						<If Condition="Me.X &gt;= -6963 &amp;&amp; Me.X &lt -6323 ">
+							<CustomBehavior File="Message" 
 										Text="Moving to Iron Summit."
 										LogColor="Lime" /> 
 																	
-						<CustomBehavior File="RunLikeHell"
-										UseCTM="false" 
-										NumOfTimes="1" 
-										AllowCombat="false">
-							<Hotspot X="-6900.842" Y="-1803.549" Z="240.7439" />
-							<Hotspot X="-6900.225" Y="-1726.74" Z="242.4881" />
-							<Hotspot X="-6997.099" Y="-1554.417" Z="241.7663" />
-							<Hotspot X="-7043.844" Y="-1518.928" Z="243.2525" />
-							<Hotspot X="-7062.45" Y="-1431.453" Z="242.0233" />
-							<Hotspot X="-7107.212" Y="-1336.38" Z="243.8344" />
-							<Hotspot X="-7087.606" Y="-1301.57" Z="261.5045" />
-							<Hotspot X="-7103.172" Y="-1263.081" Z="271.5759" />
-						</CustomBehavior>
+							<CustomBehavior File="RunLikeHell"
+											UseCTM="false" 
+											NumOfTimes="1" 
+											AllowCombat="false">
+								<Hotspot X="-6900.842" Y="-1803.549" Z="240.7439" />
+								<Hotspot X="-6900.225" Y="-1726.74" Z="242.4881" />
+								<Hotspot X="-6997.099" Y="-1554.417" Z="241.7663" />
+								<Hotspot X="-7043.844" Y="-1518.928" Z="243.2525" />
+								<Hotspot X="-7062.45" Y="-1431.453" Z="242.0233" />
+								<Hotspot X="-7107.212" Y="-1336.38" Z="243.8344" />
+								<Hotspot X="-7087.606" Y="-1301.57" Z="261.5045" />
+								<Hotspot X="-7103.172" Y="-1263.081" Z="271.5759" />
+							</CustomBehavior>
+						</If> <!-- Badlands and Iron Summit -->
 						
-						<CustomBehavior File="Message" 
+						<!-- Iron Summit and Blackrock Mountain -->
+						<If Condition="Me.X &gt;= -7227 &amp;&amp; Me.X &lt -6963 ">
+							<CustomBehavior File="RunLikeHell"
+											UseCTM="false" 
+											NumOfTimes="1" 
+											AllowCombat="false">
+								<Hotspot X="-7103.172" Y="-1263.081" Z="271.5759" />
+							</CustomBehavior>
+							<CustomBehavior File="Message" 
 										Text="We are in Iron Summit."
 										LogColor="Cyan" /> 
 						
-						<!-- Let the booster tag us to move forward to blackrock mountain -->				
-						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="2" />	
-										
-						<CustomBehavior File="WaitTimer" 
-										WaitTime="20000"  />
+							<!-- Let the booster tag us to move forward to blackrock mountain -->				
+							<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="2" />	
 											
-						<CustomBehavior File="ForcedMount"
-										MountType="Ground" />
-						
-						<CustomBehavior File="Message" 
-										Text="Moving to Blackrock Mountain."
-										LogColor="Lime" /> 
-										
-						<RunTo X="-7103.172" Y="-1263.081" Z="271.5759" />				
-										
-						<CustomBehavior File="RunLikeHell"
-										UseCTM="false" 
-										NumOfTimes="1" 
-										AllowCombat="false">
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000"  />
+												
+							<CustomBehavior File="ForcedMount"
+											MountType="Ground" />
 							
-							<Hotspot X="-7096.932" Y="-1287.883" Z="264.9058" />
-							<Hotspot X="-7172.023" Y="-1322.176" Z="245.5945" />
-							<Hotspot X="-7192.887" Y="-1231.302" Z="246.1976" />
-							<Hotspot X="-7198.388" Y="-1159.72" Z="248.2891" />
-							<Hotspot X="-7184.917" Y="-1100.892" Z="242.1992" />
-							<Hotspot X="-7207.204" Y="-1073.342" Z="242.8684" />
-							<Hotspot X="-7286.402" Y="-1071.193" Z="272.4984" />
-							<Hotspot X="-7364.705" Y="-1101.888" Z="277.8402" />
-						</CustomBehavior>	
+							<CustomBehavior File="Message" 
+											Text="Moving to Blackrock Mountain."
+											LogColor="Lime" /> 
+											
+							<RunTo X="-7103.172" Y="-1263.081" Z="271.5759" />				
+											
+							<CustomBehavior File="RunLikeHell"
+											UseCTM="false" 
+											NumOfTimes="1" 
+											AllowCombat="false">
+								
+								<Hotspot X="-7096.932" Y="-1287.883" Z="264.9058" />
+								<Hotspot X="-7172.023" Y="-1322.176" Z="245.5945" />
+								<Hotspot X="-7192.887" Y="-1231.302" Z="246.1976" />
+								<Hotspot X="-7198.388" Y="-1159.72" Z="248.2891" />
+								<Hotspot X="-7184.917" Y="-1100.892" Z="242.1992" />
+								<Hotspot X="-7207.204" Y="-1073.342" Z="242.8684" />
+								<Hotspot X="-7286.402" Y="-1071.193" Z="272.4984" />
+								<Hotspot X="-7364.705" Y="-1101.888" Z="277.8402" />
+							</CustomBehavior>	
+						
 							<!-- Run into Blackrock Mountain -->
 							<RunTo X="-7493.929" Y="-1076.466" Z="265.0071" />
-						
+						</If> <!-- Iron Summit and Blackrock Mountain -->
 					</If> <!-- Searing Gorge -->
 					
 					<!-- Blackrock Mountain -->
