@@ -273,6 +273,7 @@
 									NumOfTimes="1" 
 									X="456.0855" Y="60.3489151" Z="9.47833" />
 					
+					<!--
 					<CustomBehavior File="RunLikeHell" 
 									UseCTM="true" 
 									NumOfTimes="1" 
@@ -280,7 +281,7 @@
 						<Hotspot X="455.834" Y="67.86392" Z="9.615004" />
 						<Hotspot X="444.6729" Y="67.52101" Z="9.61554" />
 						<Hotspot X="435.347" Y="51.74779" Z="9.61925" />
-					</CustomBehavior>
+					</CustomBehavior> -->
 					
 					<!-- Forces kill of Broggok -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
@@ -342,25 +343,35 @@
 					<RunTo X="269.5512" Y="-126.7503" Z="-25.16308" />
 					<RunTo X="-2.869573" Y="-108.3897" Z="-41.34134" />
 					<RunTo X="5.557644" Y="-92.14471" Z="-41.33173" />
-					<RunTo X="255.5342" Y="-84.35275" Z="9.617249" />
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-									
-					<!-- If we are high enough to go to the next instance, do so -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									MinLevel="63" 
-									ProfileName="[QO-N][63-68]_sethekk-halls.xml"  />
-									
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
-									
+					
 					<!-- Targetandmoveto a rogue on the way out to keep the rafs safe -->
 					<CustomBehavior File="TargetAndMoveToMob" 
 									MobId="17491" 
 									MoveWithinMaxRangeOfMob="1" 
 									WaitForNpcs="false"
-									TargetOnlyIfHealthPercentAbove="5"
-									X="126.2709" Y="-89.65224" Z="-5.40417" />
+									TargetOnlyIfHealthPercentAbove="5" >
+						<HuntingGrounds>
+							<Hotspot X="39.68888" Y="-90.90694" Z="-40.3112" />
+							<Hotspot X="71.40977" Y="-90.55445" Z="-30.75352" />
+							<Hotspot X="92.67647" Y="-90.57298" Z="-20.91614" />
+							<Hotspot X="109.828" Y="-91.10783" Z="-12.9884" />
+							<Hotspot X="127.5249" Y="-91.95583" Z="-4.815488" />
+							<Hotspot X="145.4841" Y="-91.54672" Z="3.341417" />
+							<Hotspot X="162.3682" Y="-91.31461" Z="9.602009" />
+							<Hotspot X="180.3887" Y="-93.06388" Z="9.610572" />
+						</HuntingGrounds>	
+					</CustomBehavior>
+					
+					<!-- Tag the rafs -->
+					<RunTo X="255.5342" Y="-84.35275" Z="9.617249" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="63" 
+									ProfileName="[QO-N][63-68]_sethekk-halls.xml"  />
 					<!-- Run out -->
 				</If> <!-- HR -->
 				

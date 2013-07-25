@@ -260,7 +260,7 @@
 					
 					<!-- Fly to the rendezvous location -->
 					<CustomBehavior File="FlyTo" 
-									X="-11065.5" Y="1530.04" Z="43.20776" />	
+									X="-11047.48" Y="1512.795" Z="43.16088" />	
 					<CustomBehavior File="ForcedDismount" />
 					
 					<!-- Begin the randezvous once all party members are within range -->
@@ -496,7 +496,7 @@
 										LogColor="Lime" />
 										
 						<!-- Move to rendezvous -->
-						<CustomBehavior File="NoCombatMoveTo" X="-11065.5" Y="1530.04" Z="43.20776" />
+						<CustomBehavior File="NoCombatMoveTo" X="-11047.48" Y="1512.795" Z="43.16088" />	
 					</If> <!-- Bridge area -->
 					
 					<If Condition="Me.ZoneId == 40">
@@ -514,7 +514,7 @@
 											LogColor="Lime" />
 							
 							<!-- We're at the rendezvous no matter what -->
-							<CustomBehavior File="NoCombatMoveTo" X="-11065.5" Y="1530.04" Z="43.20776" />
+							<CustomBehavior File="NoCombatMoveTo" X="-11047.48" Y="1512.795" Z="43.16088" />	
 						
 							<!-- Rendezvous location -->
 							<CustomBehavior File="Misc\LoadProfileOn" 
@@ -524,17 +524,6 @@
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="40000" />
 											
-							<!-- Run through caverns to Deadmines 
-							<RunTo X="-11088.26" Y="1498.584" Z="48.72324" />
-							<RunTo X="-11121.01" Y="1481.248" Z="33.35756" />
-							<RunTo X="-11107.92" Y="1519.643" Z="30.61022" />
-							<RunTo X="-11139" Y="1543.302" Z="20.01213" />
-							<RunTo X="-11168" Y="1570.847" Z="22.32095" />
-							<RunTo X="-11207.21" Y="1575.018" Z="29.26582" />
-							<RunTo X="-11242.41" Y="1555.996" Z="33.92076" />
-							<RunTo X="-11229.63" Y="1594.055" Z="32.26101" />
-							<RunTo X="-11225.81" Y="1634.064" Z="34.34218" />
-							<RunTo X="-11208.98" Y="1669.187" Z="24.73553" /> -->
 							<CustomBehavior File="NoCombatMoveTo" X="-11208" Y="1676.41" Z="24.5716" />
 						</If> <!-- Sentinel Hill and below -->
 					</If> <!-- Westfall -->
