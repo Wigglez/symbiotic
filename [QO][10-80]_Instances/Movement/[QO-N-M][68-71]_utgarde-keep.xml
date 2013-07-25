@@ -208,24 +208,19 @@
 					<CustomBehavior File="FlyTo" X="1842.819" Y="-4392.633" Z="135.2332" />
 					<CustomBehavior File="ForcedDismount" />
 		
-					<!-- Take zeppelin to undercity -->
-					<CustomBehavior File="UseTransport"
-									TransportId="164871"
-									WaitAtX="1841.336" 
-									WaitAtY="-4388.688"
-									WaitAtZ="135.2331" 
-									TransportStartX="1833.509" 
-									TransportStartY="-4391.543"
-									TransportStartZ="152.7679"
-									TransportEndX="2062.376" 
-									TransportEndY="292.998047" 
-									TransportEndZ="114.670547"
-									StandOnX="1835.301" 
-									StandOnY="-4390" 
-									StandOnZ="135.8167" 
-									GetOffX="2068.327" 
-									GetOffY="286.5359" 
-									GetOffZ="97.0316" />
+					<!-- Board zeppelin to Undercity -->
+					<RunTo X="1839.144" Y="-4390.119" Z="135.2312" />
+					
+					<CustomBehavior File="Message" 
+									Text="We are on the Orgrimmar to Undercity zeppelin dock." 
+									LogColor="Cyan" />
+					
+					<CustomBehavior File="Message" 
+									Text="The zeppelin to Undercity has issues. You are to put yourself onto the zeppelin and start this instance profile again when you arrive on the Undercity zeppelin dock." 
+									LogColor="Red" />
+									
+					<CustomBehavior File="UserSettings" 
+									StopBot="true" />
 				</If> <!-- Horde -->
 			</If> <!-- Kalimdor -->
 			
@@ -711,33 +706,19 @@
 							
 						<!-- trained -->
 						<If Condition="HasSpell(54197)" >
-							<CustomBehavior File="Message" 
-											Text="Moving to Undercity zeppelin." 
-											LogColor="Lime" />
-											
-							<!-- Run to zeppelin dock -->
-							<RunTo X="1842.819" Y="-4392.633" Z="135.2332" />
-							<CustomBehavior File="ForcedDismount" />
-													
-							<!-- Take zeppelin to undercity -->
-							<CustomBehavior File="UseTransport"
-											TransportId="164871"
-											WaitAtX="1841.336" 
-											WaitAtY="-4388.688"
-											WaitAtZ="135.2331" 
-											TransportStartX="1833.509" 
-											TransportStartY="-4391.543"
-											TransportStartZ="152.7679"
-											TransportEndX="2062.376" 
-											TransportEndY="292.998047" 
-											TransportEndZ="114.670547"
-											StandOnX="1835.301" 
-											StandOnY="-4390" 
-											StandOnZ="135.8167" 
-											GetOffX="2068.327" 
-											GetOffY="286.5359" 
-											GetOffZ="97.0316" />
+							<!-- Board zeppelin to Undercity -->
+							<RunTo X="1839.144" Y="-4390.119" Z="135.2312" />
 							
+							<CustomBehavior File="Message" 
+											Text="We are on the Orgrimmar to Undercity zeppelin dock." 
+											LogColor="Cyan" />
+							
+							<CustomBehavior File="Message" 
+											Text="The zeppelin to Undercity has issues. You are to put yourself onto the zeppelin and start this instance profile again when you arrive on the Undercity zeppelin dock." 
+											LogColor="Red" />
+											
+							<CustomBehavior File="UserSettings" 
+											StopBot="true" />
 						</If> <!-- Trained riding -->
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->
