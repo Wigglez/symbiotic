@@ -1,0 +1,89 @@
+[SIZE=5][COLOR="#FFA500"]Updates[/COLOR][/SIZE]
+[code]
+Symbiotic is now available for testing to those who have donated to Botanist. 
+If you have not donated to him and wish for access to this code, please donate to [url="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBDWX3RDKP6M6"]Botanist[/url] and contact him on [URL="skype:Botanist68?add"]Skype[/url].
+[/code]
+
+[SIZE=5][COLOR="#FFA500"]FAQ[/COLOR][/SIZE]
+[code]
+[SIZE=4][COLOR="#FFA500"][CENTER]*** ABOUT THE AUTHORS ***[/CENTER][/COLOR][/SIZE]
+[list]
+[*][COLOR="#FF0000"]Q: I like your work! Can I donate?[/COLOR]
+[COLOR="#0000FF"]A: Yes you can! Since this project has two authors, you can donate to either one of us (or if you're nice enough, both of us!).
+[url="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBDWX3RDKP6M6"]Donate to Botanist[/url] and/or [url="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7MKPHYTZBSCE"]donate to Wigglez[/url].[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Can you help me set up something on my computer?[/COLOR]
+[COLOR="#0000FF"]A: Botanist and I are busy people who have lives and other priorities outside of making Symbiotic. 
+If you need help setting up the bot, setting up our profiles, or other inquiries that cost us time, we require that you give us a 
+donation to make our time worth spending. 
+You can either [url="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBDWX3RDKP6M6"]donate to Botanist[/url] or you can [url="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7MKPHYTZBSCE"]donate to Wigglez[/url] to help you out. 
+You can contact us on Skype to get things squared away. [URL="skype:Botanist68?add"]Click this to add Botanist[/url] or [URL="skype:wigglezrodriguez?add"]click this to add Wigglez[/url] to Skype.[/COLOR]
+[/list]
+
+[SIZE=4][COLOR="#FFA500"][CENTER]*** ABOUT THE CODE ***[/CENTER][/COLOR][/SIZE]
+[list]
+[*][COLOR="#FF0000"]Q: Why is this being released to the public? This is very powerful code![/COLOR]
+[COLOR="#0000FF"]A: Botanist and I are fully aware of the power that this code contains. We feel that this code would cause too much controversy 
+if it was private for purchase and people would find ways around it to sell it to people at a cheaper price than we are. Overall, we have ulterior 
+motives for making this code public that don't pertain to you as the botter, so use it and abuse it (but don't get caught playing for too long!).[/COLOR]
+[/list]
+
+[SIZE=4][COLOR="#FFA500"][CENTER]*** GENERAL INQUIRIES ***[/CENTER][/COLOR][/SIZE]
+[list]
+[*][COLOR="#FF0000"]Q: Honorbuddy is stopping the bot but not telling me why. Why is it not taking me to the place I'm supposed to go?[/COLOR]
+[COLOR="#0000FF"]A: As developers, we are limited by time to implement every single scenario of where your character can possibly be. 
+To handle this situation at its core, we have guidelines set in place that you can follow in order to make the bot start automating. 
+Refer to Botanist's post above in the Instructions section for where to go if you are within a certain level bracket.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: I stopped the booster inside the instance. When I start it again, it keeps doing dumb shit. Why?[/COLOR]
+[COLOR="#0000FF"]A: Most (if not all) of the instances utilize the RunLikeHell custom behavior. You must close the bot, 
+take your toon out of the instance and restart the bot.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Honorbuddy is stopping the bot but not telling me why. Why is it not taking me to the place I'm supposed to go?[/COLOR]
+[COLOR="#0000FF"]A: As developers, we are limited by time to implement every single scenario of where your character can possibly be. 
+To handle this situation at its core, we have guidelines set in place that you can follow in order to make the bot start automating. 
+Refer to Botanist's post above in the Instructions section for where to go if you are within a certain level bracket.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Why is my character not being recognized as a booster?[/COLOR]
+[COLOR="#0000FF"]A: The booster must be level 90 in order to be considered a booster character.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Why are my instances not resetting?[/COLOR]
+[COLOR="#0000FF"]A: The booster must be the leader of your party in order to get reset functionality.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Why is my booster looting?[/COLOR]
+[COLOR="#0000FF"]A: The booster loots in order to provide the RAF characters some gear for increased survival.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Why are my RAF characters not rolling on loot?[/COLOR]
+[COLOR="#0000FF"]A: You need to enable AutoEquip2 and select a weapon type in order for the looting to take effect.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: The RAF characters are sitting around inside the instance and the booster already reset and is in the next one! OH MY GOD! WHY IS THIS HAPPENING?![/COLOR]
+[COLOR="#0000FF"]A: Don't panic. This is coded by design and is fully intended. What will happen is that after the booster tags the RAF characters to initiate 
+a "run out to reset" sequence, the RAF characters use a custom behavior called InstanceTimer to do a timer check to see if the instance took 
+12 minutes 30 seconds to clear. If it took less than that time, it will utilize an extra timer to fill in that gap to allow the instance not to lock us out. 
+If the timer was over 12 minutes 30 seconds, then it will immediately run out after a short delay.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Why is "LoadProfileOn" telling me that "Someone in my party is below X level."?[/COLOR]
+[COLOR="#0000FF"]A: This system is in place to tell the booster and RAF characters when to switch profiles automatically to the next instance so that
+no user interaction is necessary. This message will continue to pop up until your entire party reaches that level, and then the profile will automatically 
+switch to the next one in line.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: Why is my booster sometimes getting stuck and not moving?[/COLOR]
+[COLOR="#0000FF"]A: Recently, Honorbuddy has been having some shit-fits in our RunLikeHells. You can get the character to move again by moving it slightly.[/COLOR]
+
+[*][COLOR="#FF0000"]Q: What is this horse shit about "GetOutOfGroundEffectsandAuras"?[/COLOR]
+[COLOR="#0000FF"]A: We've found it to be a good custom behavior for getting your characters to stay in one spot in the event that a boss uses a global instance-wide ability. 
+The event will finish at a safe point where the RAF characters will return to their original spot as to keep the tagging in a consistent state.[/COLOR]
+[/list]
+
+
+[SIZE=4][COLOR="#FFA500"][CENTER]*** SPECIFIC INQUIRIES ***[/CENTER][/COLOR][/SIZE]
+[list]
+[SIZE=4][COLOR="#FFA500"]RAZORFEN KRAUL[/COLOR][/SIZE]
+[INDENT]
+[COLOR="#FF0000"]Q: Why is my Horde character dying in transit to Razorfen Kraul?[/COLOR]
+[COLOR="#0000FF"]A: The only convenient way of getting into the Southern Barrens is by going around the divider that seperates Northern and Southern Barrens 
+and following the path from Hunter's Hill. Unfortunately, we have to use a NoCombatMoveTo here to make sure you continue on your way 
+if you die, so you should expect deaths as this area was coded with deaths in mind.[/COLOR]
+[/INDENT]
+[/list]
+[/code]
