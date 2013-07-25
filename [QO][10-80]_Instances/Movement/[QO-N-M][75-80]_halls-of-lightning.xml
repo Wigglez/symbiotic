@@ -4,8 +4,8 @@
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
    
-	<MinDurability>0.2</MinDurability>
-	<MinFreeBagSlots>0</MinFreeBagSlots>
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
 	
 	<MailGrey>False</MailGrey>
 	<MailWhite>False</MailWhite>
@@ -77,20 +77,17 @@
 			<!-- Gundrak -->
 			<If Condition="Me.ZoneId == 4416">
 				<CustomBehavior File="Message" 
-								Text="Gundrak detected. Running out."
+								Text="Gundrak detected. Running out to reset."
 								LogColor="Fuchsia" />
 					
 				<!-- Make our way to the exit -->
-				<RunTo X="1891.823" Y="649.8093" Z="176.6732" />
+				<RunTo X="1969.795" Y="833.3107" Z="135.2538" />
 
 				<!-- Go through the portal -->
-				<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
+				<CustomBehavior File="MyCTM" X="1979.768" Y="840.1291" Z="135.2121" />
 				
 				<!-- Make sure we run to the right spot outside the potral -->
-				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
-				
-				<!-- Run around the corner -->
-				<RunTo X="6931.205" Y="-4395.055" Z="454.8268" />
+				<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
@@ -312,22 +309,20 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 			
+			<!-- Gundrak -->
 			<If Condition="Me.ZoneId == 4416">
 				<CustomBehavior File="Message" 
 								Text="Gundrak detected. Running out."
 								LogColor="Fuchsia" />
 					
 				<!-- Make our way to the exit -->
-				<RunTo X="1891.823" Y="649.8093" Z="176.6732" />
+				<RunTo X="1887.432" Y="839.571" Z="176.6754" />
 
 				<!-- Go through the portal -->
-				<CustomBehavior File="MyCTM" X="1897.433" Y="657.5444" Z="176.6386" />
+				<CustomBehavior File="MyCTM" X="1892.536" Y="826.8542" Z="176.637" />
 				
 				<!-- Make sure we run to the right spot outside the potral -->
-				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
-				
-				<!-- Run around the corner -->
-				<RunTo X="6931.205" Y="-4395.055" Z="454.8268" />
+				<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
 			</If> <!-- GD -->
 
 			<!-- Northrend -->
