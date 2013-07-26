@@ -825,7 +825,7 @@
 					<!-- Durotar -->
 					<If Condition="Me.ZoneId == 14 &amp;&amp; Me.HearthstoneAreaId == 5170">
 						<CustomBehavior File="LoadProfile" 
-										ProfileName="..\[QO][10-85]_Instances\[QO-H][10-17]_wailing-caverns" />
+										ProfileName="..\[QO][10-80]_Instances\[QO-H][10-17]_wailing-caverns" />
 					</If> <!-- Durotar -->
 				</If> <!-- 10+ -->
 			</While> <!-- Infinite loop -->
