@@ -329,18 +329,21 @@
 					</CustomBehavior>
 					
 					<!-- Run to jump off -->
-					<RunTo X="-248.1425" Y="-619.7181" Z="115.0385" />
+					<RunTo X="-241.2161" Y="-619.4562" Z="116.4731" />
 					
-					<!-- CTM through the jumps -->
-					<CustomBehavior File="MyCTM" X="-270.4458" Y="-619.6866" Z="88.94628" />
-					<CustomBehavior File="MyCTM" X="-245.0662" Y="-620.4287" Z="90.78272" />
-					<CustomBehavior File="MyCTM" X="-240.3" Y="-628.9109" Z="90.78272" />
-					<CustomBehavior File="MyCTM" X="-240.3948" Y="-643.9131" Z="62.09402" />
-					<CustomBehavior File="MyCTM" X="-240.0644" Y="-619.6091" Z="65.70299" />
+					<CustomBehavior File="MyCTM" X="-270.8818" Y="-617.9888" Z="89.14006" />
+					<CustomBehavior File="MyCTM" X="-252.4394" Y="-620.541" Z="90.78624" />
 					
-					<CustomBehavior File="MyCTM" X="-239.7152" Y="-608.5162" Z="8.55882" />
-					<CustomBehavior File="MyCTM" X="-237.3228" Y="-587.3304" Z="11.03301" />
-					<CustomBehavior File="MyCTM" X="-243.8241" Y="-579.5286" Z="11.0418" />
+					<!-- Run to jump off -->
+					<RunTo X="-239.8299" Y="-629.4651" Z="90.78271" />
+					
+					<CustomBehavior File="MyCTM" X="-240.2014" Y="-642.7293" Z="62.23345" />
+					
+					<!-- Run to jump off -->
+					<CustomBehavior File="MyCTM" X="-240.137" Y="-619.55" Z="65.70298" />
+					
+					<CustomBehavior File="MyCTM" X="-240.0958" Y="-609.7836" Z="8.657261" />
+					<CustomBehavior File="MyCTM" X="-237.7089" Y="-589.3581" Z="11.02358" />
 					
 					<!-- tag the RAF's at the safe spot -->
 					<CustomBehavior File="Message" 
