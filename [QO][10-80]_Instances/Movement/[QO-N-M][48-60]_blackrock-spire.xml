@@ -331,6 +331,8 @@
 									X="-7559.865" Y="-1166.235" Z="300.4927" />
 					<CustomBehavior File="FlyTo" 
 									X="-7529.142" Y="-1222.366" Z="285.7316" />
+									
+					<CustomBehavior File="ForcedDismount" />
 					
 					<!-- Moving to the instance box -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
