@@ -349,19 +349,9 @@
 									MobId="17491" 
 									MoveWithinMaxRangeOfMob="1" 
 									WaitForNpcs="false"
-									TargetOnlyIfHealthPercentAbove="5" >
-						<HuntingGrounds>
-							<Hotspot X="39.68888" Y="-90.90694" Z="-40.3112" />
-							<Hotspot X="71.40977" Y="-90.55445" Z="-30.75352" />
-							<Hotspot X="92.67647" Y="-90.57298" Z="-20.91614" />
-							<Hotspot X="109.828" Y="-91.10783" Z="-12.9884" />
-							<Hotspot X="127.5249" Y="-91.95583" Z="-4.815488" />
-							<Hotspot X="145.4841" Y="-91.54672" Z="3.341417" />
-							<Hotspot X="162.3682" Y="-91.31461" Z="9.602009" />
-							<Hotspot X="180.3887" Y="-93.06388" Z="9.610572" />
-						</HuntingGrounds>	
-					</CustomBehavior>
-					
+									TargetOnlyIfHealthPercentAbove="5" 
+									X="162.3682" Y="-91.31461" Z="9.602009" />
+						
 					<!-- Tag the rafs -->
 					<RunTo X="255.5342" Y="-84.35275" Z="9.617249" />
 					
