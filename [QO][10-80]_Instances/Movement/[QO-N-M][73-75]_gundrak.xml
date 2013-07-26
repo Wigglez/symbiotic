@@ -225,7 +225,7 @@
 								LogColor="Lime" />
 				
 				<!-- Fly outside of Gundrak at rendezvous -->
-				<CustomBehavior File="FlyTo" X="6938.209" Y="-4433.214" Z="582.6476" />
+				<CustomBehavior File="FlyTo" X="6703.916" Y="-4621.991" Z="621.5901" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
@@ -234,14 +234,14 @@
 								WaitTime="10000" />
 								
 				<!-- Fly down -->
-				<CustomBehavior File="FlyTo" X="6955.24" Y="-4416.92" Z="450.0224" />
+				<CustomBehavior File="FlyTo" X="6717.32" Y="-4645.55" Z="450.017" />
 				<CustomBehavior File="ForcedDismount" />
 				
-				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
+				<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
 			</If> <!-- Northrend -->
 			
 			<!-- In box -->
-			<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
+			<If Condition="Me.X &gt; 6650 &amp;&amp; Me.X &lt; 6750 &amp;&amp; Me.Y &gt; -4700 &amp;&amp; Me.Y &lt; -4600" >
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][73-75]_gundrak" />
 			</If> <!-- In box -->		
@@ -333,8 +333,13 @@
 				<!-- Make sure we run to the right spot outside the potral -->
 				<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
 				
-				<!-- Run out the front of DTK -->
-				<RunTo X="4514.181" Y="-2026.416" Z="160.823" />
+				<!-- Run out the back of DTK -->
+				<CustomBehavior File="MyCTM" X="4774.504" Y="-2037.159" Z="229.3893" />
+				<CustomBehavior File="MyCTM" X="4803.765" Y="-2046.188" Z="238.2983" />
+				<CustomBehavior File="MyCTM" X="4833.138" Y="-2054.709" Z="250.0727" />
+				<CustomBehavior File="MyCTM" X="4858.173" Y="-2060.801" Z="250.0414" />
+				<CustomBehavior File="MyCTM" X="4890.869" Y="-2064.121" Z="248.3107" />
+				<CustomBehavior File="MyCTM" X="4889.271" Y="-2080.337" Z="249.9111" />
 			</If> <!-- DK -->
 
 			<!-- Northrend -->
@@ -344,7 +349,7 @@
 								LogColor="Lime" />
 				
 				<!-- Fly outside of Gundrak at rendezvous -->
-				<CustomBehavior File="FlyTo" X="6938.209" Y="-4433.214" Z="582.6476" />
+				<CustomBehavior File="FlyTo" X="6703.916" Y="-4621.991" Z="621.5901" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
@@ -353,14 +358,14 @@
 								WaitTime="10000" />
 								
 				<!-- Fly down -->
-				<CustomBehavior File="FlyTo" X="6955.24" Y="-4416.92" Z="450.0224" />
+				<CustomBehavior File="FlyTo" X="6717.32" Y="-4645.55" Z="450.017" />
 				<CustomBehavior File="ForcedDismount" />
 				
-				<RunTo X="6955.24" Y="-4416.92" Z="450.0224" />
+				<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
 			</If> <!-- Northrend -->
 			
 			<!-- In box -->
-			<If Condition="Me.X &gt; 6900 &amp;&amp; Me.X &lt; 7000 &amp;&amp; Me.Y &gt; -4516 &amp;&amp; Me.Y &lt; -4316" >
+			<If Condition="Me.X &gt; 6650 &amp;&amp; Me.X &lt; 6750 &amp;&amp; Me.Y &gt; -4700 &amp;&amp; Me.Y &lt; -4600" >
 				<CustomBehavior File="LoadProfile" 
 								ProfileName="..\[QO-N][73-75]_gundrak" />
 			</If> <!-- In box -->		
