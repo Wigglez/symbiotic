@@ -212,19 +212,6 @@
 					<RunTo X="-111.2075" Y="173.6179" Z="0.009348463" />
 					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
 					
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
-									LogColor="Fuchsia" />	
-					
-					<!-- tag rafs -->
-					<RunTo X="5.315711" Y="7.259143" Z="0.006508276" />
-					
-					<CustomBehavior File="WaitTimer"
-									WaitTime="2000" />
-					
-					<!-- run back to first boss -->
-					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
-					
 					<!-- clear last room on the ground floor and stair-door guards of the second floor -->
 					<RunTo X="-204.9517" Y="176.3423" Z="0.01093201" />
 					<RunTo X="-243.9381" Y="159.8705" Z="0.06504456" />
@@ -267,32 +254,29 @@
 					<!-- Run to last bosses room -->
 					<RunTo X="-21.41718" Y="286.436" Z="26.72997" />
 									
-					<!-- Forces kill of Talon King Ikiss -->
+					<!-- Forces kill of Talon King Ikiss 
 					<RunTo X="44.48698" Y="286.1454" Z="25.0139" />
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
-									
-					<!-- run to the boss exit door -->
-					<RunTo X="44.61202" Y="139.9013" Z="0.01621437" />
+									WaitTime="5000" /> -->
 					
-					
-					<CustomBehavior File="Message" 
-									Text="Tagging RAFs."
-									LogColor="Fuchsia" />	
-					
-					<!-- tag rafs -->
-					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
-					
-					<CustomBehavior File="WaitTimer"  
-									WaitTime="2000" /> 
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="18473"
+									EventX="44.56851" EventY="286.1446" EventZ="25.01321"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111" >
+						<Safespots>
+							<Hotspot X="44.56851" Y="286.1446" Z="25.01321" />
+						</Safespots>
+					</CustomBehavior>
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="68" 
 									ProfileName="[QO-N][68-71]_utgarde-keep.xml"  />
 									
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
+					<!-- run to the boss exit door -->
+					<RunTo X="44.61202" Y="139.9013" Z="0.01621437" />
 				</If> <!-- SH -->
 				
 				<!-- Sethekk Halls -->
@@ -527,27 +511,36 @@
 					<!-- Run to quest givers -->
 					<RunTo X="5.315711" Y="7.259143" Z="0.006508276" />
 
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
-									
-					<CustomBehavior File="WaitTimer"
-									WaitTime="20000" />				
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="18472"
+									EventX="5.315711" EventY="7.259143" EventZ="0.006508276"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111" >
+						<Safespots>
+							<Hotspot X="5.315711" Y="7.259143" Z="0.006508276" />
+						</Safespots>
+					</CustomBehavior>
 					
 					<!-- Run to first boss -->
 					<RunTo X="-143.9473" Y="173.6023" Z="1.685322" />
 					
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="18473"
+									EventX="-143.9473" EventY="173.6023" EventZ="1.685322"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111" >
+						<Safespots>
+							<Hotspot X="-143.9473" Y="173.6023" Z="1.685322" />
+						</Safespots>
+					</CustomBehavior>
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="68" 
 									ProfileName="[QO-N][68-71]_utgarde-keep.xml"  />
 								
-					<!-- Wait so the main can get away from us -->
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="30000" />
-									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- SH -->
 				
