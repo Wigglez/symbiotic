@@ -89,7 +89,7 @@
 					<RunTo X="1887.432" Y="839.571" Z="176.6754" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="1892.536" Y="826.8542" Z="176.637" />
+					<CustomBehavior File="Misc\InInstance" X="1892.536" Y="826.8542" Z="176.637" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
@@ -117,7 +117,7 @@
 						<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="6696.202" Y="-4658.903" Z="441.5623" />
+						<CustomBehavior File="Misc\InInstance" X="6696.202" Y="-4658.903" Z="441.5623" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -360,7 +360,7 @@
 					<RunTo X="1969.795" Y="833.3107" Z="135.2538" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="1979.768" Y="840.1291" Z="135.2121" />
+					<CustomBehavior File="Misc\InInstance" X="1979.768" Y="840.1291" Z="135.2121" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
@@ -462,7 +462,7 @@
 					<RunTo X="1887.432" Y="839.571" Z="176.6754" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="1892.536" Y="826.8542" Z="176.637" />
+					<CustomBehavior File="Misc\InInstance" X="1892.536" Y="826.8542" Z="176.637" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
@@ -490,7 +490,7 @@
 						<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="6696.202" Y="-4658.903" Z="441.5623" />
+						<CustomBehavior File="Misc\InInstance" X="6696.202" Y="-4658.903" Z="441.5623" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -584,7 +584,7 @@
 					<RunTo X="1887.432" Y="839.571" Z="176.6754" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="1892.536" Y="826.8542" Z="176.637" />
+					<CustomBehavior File="Misc\InInstance" X="1892.536" Y="826.8542" Z="176.637" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
