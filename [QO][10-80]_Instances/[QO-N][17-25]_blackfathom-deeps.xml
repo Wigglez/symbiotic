@@ -228,7 +228,6 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48">
-				
 					<!-- Run macro to pass on loot -->
 					<CustomBehavior File="RunMacro"
 									Macro="/run SetOptOutOfLoot(1)" />
@@ -283,13 +282,9 @@
 										
 					<!-- tag rafs at the quest givers -->
 					<RunTo X="-160.0652" Y="77.27363" Z="-46.05556" />					
-											
-					<!-- continue when tagged  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />					
-									
+												
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="2000" />
+									WaitTime="5000" />
 										
 					<!-- Run to the sandy beach -->					
 					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />
@@ -645,7 +640,7 @@
 					</If> <!-- Above jumps -->
 					
 					<!-- Tag rafs at sandy beach -->
-					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />
+					<RunTo X="-260.1388" Y="58.08689" Z="-55.31565" />
 					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -677,7 +672,7 @@
 					
 					<!-- Run to the instance entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
-						
+					
 					<!-- Go through the portal -->									
 					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" />				
 					
@@ -914,7 +909,7 @@
 									WaitTime="70000" />				
 									
 					<!-- move to the sandy beach -->
-					<RunTo X="-273.7754" Y="73.3363" Z="-58.73845" />				
+					<RunTo X="-260.1388" Y="58.08689" Z="-55.31565" />			
 					
 					<!-- Run back out the instance when the booster runs next to us  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -925,12 +920,9 @@
 									MinLevel="25" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 									
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
-									
 					<!-- Waiting 30 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
 					<CustomBehavior File="WaitTimer"
-									WaitTime="30000" />			
+									WaitTime="50000" />			
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- Inside BFD -->	
