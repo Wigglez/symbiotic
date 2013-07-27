@@ -88,8 +88,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
@@ -104,8 +103,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
@@ -133,8 +131,7 @@
 						<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
 
 						<!-- Run back in the Blackrock Spire portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-7522.342" Y="-1233.354" Z="285.7441" />
+						<CustomBehavior File="Misc\InInstance" X="-7522.342" Y="-1233.354" Z="285.7441" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -414,8 +411,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
@@ -517,8 +513,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
@@ -533,8 +528,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
@@ -562,8 +556,7 @@
 						<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
 
 						<!-- Run back in the Blackrock Spire portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-7522.342" Y="-1233.354" Z="285.7441" />
+						<CustomBehavior File="Misc\InInstance" X="-7522.342" Y="-1233.354" Z="285.7441" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -650,8 +643,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	

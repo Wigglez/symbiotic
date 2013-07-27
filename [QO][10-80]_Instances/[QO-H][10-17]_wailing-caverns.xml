@@ -87,8 +87,7 @@
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-164.336" Y="134.6021" Z="-73.50945" />
+					<CustomBehavior File="Misc\InInstance" X="-164.336" Y="134.6021" Z="-73.50945" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
@@ -115,8 +114,7 @@
 						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 						
 						<!-- Run back in the Wailing Caverns portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-744.4048" Y="-2216.026" Z="15.71743" />
+						<CustomBehavior File="Misc\InInstance" X="-744.4048" Y="-2216.026" Z="15.71743" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -509,8 +507,7 @@
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-164.336" Y="134.6021" Z="-73.50945" />
+					<CustomBehavior File="Misc\InInstance" X="-164.336" Y="134.6021" Z="-73.50945" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
@@ -622,8 +619,7 @@
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-164.336" Y="134.6021" Z="-73.50945" />
+					<CustomBehavior File="Misc\InInstance" X="-164.336" Y="134.6021" Z="-73.50945" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
@@ -650,8 +646,7 @@
 						<RunTo X="-738.462" Y="-2217.8" Z="16.66946" />	
 					
 						<!-- Go inside the Wailing Caverns portal -->
-						<CustomBehavior File="MyCTM"
-										X="-744.4048" Y="-2216.026" Z="15.71743" />
+						<CustomBehavior File="Misc\InInstance" X="-744.4048" Y="-2216.026" Z="15.71743" />
 					
 						<CustomBehavior File="Message" 
 									Text="Waiting for the dungeon to load." 

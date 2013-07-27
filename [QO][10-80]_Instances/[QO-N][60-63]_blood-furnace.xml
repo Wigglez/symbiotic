@@ -86,7 +86,7 @@
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+					<CustomBehavior File="Misc\InInstance" X="-1360.037" Y="1635.543" Z="68.49658" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
@@ -101,7 +101,7 @@
 					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					<CustomBehavior File="Misc\InInstance" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
@@ -129,7 +129,7 @@
 						<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="-306.4335" Y="3169.2" Z="29.85552" />
+						<CustomBehavior File="Misc\InInstance" X="-306.4335" Y="3169.2" Z="29.85552" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -374,7 +374,7 @@
 					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					<CustomBehavior File="Misc\InInstance" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
@@ -554,7 +554,7 @@
 					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					<CustomBehavior File="Misc\InInstance" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
@@ -582,7 +582,7 @@
 						<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="MyCTM" X="-306.4335" Y="3169.2" Z="29.85552" />
+						<CustomBehavior File="Misc\InInstance" X="-306.4335" Y="3169.2" Z="29.85552" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -659,7 +659,7 @@
 					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-0.4589169" Y="25.4346" Z="-44.8006" />
+					<CustomBehavior File="Misc\InInstance" X="-0.4589169" Y="25.4346" Z="-44.8006" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />

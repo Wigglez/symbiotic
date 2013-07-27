@@ -179,8 +179,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 						
 					<!-- Go through the portal -->									
-					<CustomBehavior File="MyCTM" 
-									X="-149.7285" Y="113.4777" Z="-40.73384" />				
+					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -209,8 +208,7 @@
 						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					
 						<!-- Run back in the Blackfathom Deeps portal -->
-						<CustomBehavior File="MyCTM" 
-										X="4250.304" Y="749.9905" Z="-23.02605" />
+						<CustomBehavior File="Misc\InInstance" X="4250.304" Y="749.9905" Z="-23.02605" />
 									
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -681,8 +679,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 						
 					<!-- Go through the portal -->									
-					<CustomBehavior File="MyCTM" 
-									X="-149.7285" Y="113.4777" Z="-40.73384" />				
+					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -835,8 +832,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-149.7285" Y="113.4777" Z="-40.73384" /> 
+					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" /> 
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -863,8 +859,7 @@
 						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					
 						<!-- Go inside the Blackfathom Deeps portal -->
-						<CustomBehavior File="MyCTM" 
-										X="4250.304" Y="749.9905" Z="-23.02605" />
+						<CustomBehavior File="Misc\InInstance" X="4250.304" Y="749.9905" Z="-23.02605" />
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 

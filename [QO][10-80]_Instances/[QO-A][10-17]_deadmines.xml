@@ -91,8 +91,7 @@
 					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					<CustomBehavior File="Misc\InInstance" X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
 					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
@@ -119,8 +118,7 @@
 						<RunTo X="-11208" Y="1676.41" Z="24.5716" />
 					
 						<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-11208.34" Y="1680.56" Z="23.87232" />
+						<CustomBehavior File="Misc\InInstance" X="-11208.34" Y="1680.56" Z="23.87232" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -545,8 +543,7 @@
 					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					<CustomBehavior File="Misc\InInstance" X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
 					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
@@ -649,8 +646,7 @@
 					<RunTo X="-14.45693" Y="-385.494" Z="62.4785" />
 						
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="-14.50672" Y="-389.0634" Z="63.28239" />
+					<CustomBehavior File="Misc\InInstance" X="-14.50672" Y="-389.0634" Z="63.28239" />
 					
 					<!-- Make sure we ran to the right spot outside the portal -->
 					<RunTo X="-11208" Y="1676.41" Z="24.5716" />
@@ -677,8 +673,7 @@
 						<RunTo X="-11208" Y="1676.41" Z="24.5716" />
 					
 						<!-- Run back in the Deadmines portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-11208.34" Y="1680.56" Z="23.87232" />
+						<CustomBehavior File="Misc\InInstance" X="-11208.34" Y="1680.56" Z="23.87232" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 

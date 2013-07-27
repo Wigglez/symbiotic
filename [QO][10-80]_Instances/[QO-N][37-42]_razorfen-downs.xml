@@ -100,8 +100,7 @@
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -116,8 +115,7 @@
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="2592.638" Y="1116.691" Z="50.39219" />
+					<CustomBehavior File="Misc\InInstance" X="2592.638" Y="1116.691" Z="50.39219" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
@@ -145,8 +143,7 @@
 						<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
 						
 						<!-- Run back in the Razorfen Downs portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4661.966" Y="-2531.649" Z="82.09726" />
+						<CustomBehavior File="Misc\InInstance" X="-4661.966" Y="-2531.649" Z="82.09726" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -392,8 +389,7 @@
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="2592.638" Y="1116.691" Z="50.39219" />
+					<CustomBehavior File="Misc\InInstance" X="2592.638" Y="1116.691" Z="50.39219" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
@@ -495,8 +491,7 @@
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" 
-									X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -509,7 +504,7 @@
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="2592.638" Y="1116.691" Z="50.39219" />
+					<CustomBehavior File="Misc\InInstance" X="2592.638" Y="1116.691" Z="50.39219" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />	
@@ -537,8 +532,7 @@
 						<RunTo X="-4659.44" Y="-2527.94" Z="81.6564" />
 						
 						<!-- Run back in the Razorfen Downs portal -->
-						<CustomBehavior File="MyCTM" 
-										X="-4661.966" Y="-2531.649" Z="82.09726" />
+						<CustomBehavior File="Misc\InInstance" X="-4661.966" Y="-2531.649" Z="82.09726" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
