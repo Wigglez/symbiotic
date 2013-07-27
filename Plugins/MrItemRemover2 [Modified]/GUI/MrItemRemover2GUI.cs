@@ -36,8 +36,8 @@ namespace MrItemRemover2.GUI
 
         }
 
-        private string refreshImangePathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"C:/Users/Wigglez/Documents/Honorbuddy/Plugins/MrItemRemover2/ref.bmp"));
-        private string GoldImangePathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"C:/Users/Wigglez/Documents/Honorbuddy/Plugins/MrItemRemover2/Gold2.bmp"));
+        private string refreshImangePathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"Plugins/MrItemRemover2/ref.bmp"));
+        private string GoldImangePathName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"Plugins/MrItemRemover2/Gold2.bmp"));
         private void MrItemRemover2GUI_Load(object sender, EventArgs e)
         {
             Bitmap refresh = new Bitmap(refreshImangePathName);
