@@ -344,7 +344,7 @@
 					<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
 
 					<!-- Run back in the portal -->
-					<CustomBehavior File="MyCTM" X="-364.7503" Y="3083.706" Z="-14.68035" />
+					<CustomBehavior File="Misc\InInstance" X="-364.514" Y="3088.31" Z="-15.02338" />
 									
 					<CustomBehavior File="Message" 
 									Text="Waiting for the dungeon to load." 
@@ -371,7 +371,7 @@
 				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
 				<!-- Go through the portal -->
-				<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+				<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
 				
 				<!-- Make sure we run to the right spot outside the portal -->
 				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
@@ -456,6 +456,8 @@
 							UseMount="True" 
 							UseRandomMount="False" />
 					
+			<!-- Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0">
 				<!-- Stormwind -->
 				<If Condition="Me.ZoneId == 1519">
 					<CustomBehavior File="Message" 
@@ -642,7 +644,7 @@
 					<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
 
 					<!-- Run back in the portal -->
-					<CustomBehavior File="MyCTM" X="-364.7503" Y="3083.706" Z="-14.68035" />
+					<CustomBehavior File="Misc\InInstance" X="-364.514" Y="3088.31" Z="-15.02338" />
 									
 					<CustomBehavior File="Message" 
 									Text="Waiting for the dungeon to load." 
@@ -669,7 +671,7 @@
 				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
 				<!-- Go through the portal -->
-				<CustomBehavior File="MyCTM" X="-1360.037" Y="1635.543" Z="68.49658" />
+				<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
 				
 				<!-- Make sure we run to the right spot outside the portal -->
 				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
