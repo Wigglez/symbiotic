@@ -118,7 +118,7 @@
 				<If Condition="Me.ZoneId == 3562">
 					<CustomBehavior File="Message" 
 									Text="Hellfire Ramparts detected. Running out."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 					
@@ -423,7 +423,7 @@
 				<If Condition="Me.ZoneId == 3562">
 					<CustomBehavior File="Message" 
 									Text="Hellfire Ramparts detected. Running out."
-									LogColor="Lime" />
+									LogColor="Fuchsia" />
 									
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 					
