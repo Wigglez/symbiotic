@@ -337,45 +337,9 @@
 				<!-- Land in the box -->
 				<CustomBehavior File="FlyTo" X="-363.436" Y="3078.43" Z="-15.00165" />
 				<CustomBehavior File="ForcedDismount" />
-			
-				<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-				<While Condition="Me.ZoneId != 3562">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
-
-					<!-- Run back in the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-364.514" Y="3088.31" Z="-15.02338" />
-									
-					<CustomBehavior File="Message" 
-									Text="Waiting for the dungeon to load." 
-									LogColor="Cyan" />
-								
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-									
-					<!-- If we still aren't in, we're locked out -->
-					<If Condition="Me.ZoneId != 3562">
-						<CustomBehavior File="Message" 
-										Text="We are locked out. Waiting and trying again." 
-										LogColor="Cyan" />
-					</If> <!-- Locked -->
-				</While> <!-- While we aren't in the instance -->
+				
+				<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
 			</If> <!-- Outlands -->
-			
-			<!-- If we are inside -->
-			<If Condition="Me.ZoneId == 3562">
-				<CustomBehavior File="Message" 
-								Text="Hellfire Ramparts detected. Running out."
-								LogColor="Lime" />
-								
-				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
-				
-				<!-- Go through the portal -->
-				<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
-				
-				<!-- Make sure we run to the right spot outside the portal -->
-				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-			</If> <!-- HR -->
 			
 			<!-- In box -->
 			<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
@@ -385,7 +349,7 @@
 		</If> <!-- Booster -->
 						
 		
-		<!-- <If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" > -->
+		
 		
 		
 		
@@ -637,51 +601,15 @@
 								AllowCombat="false">										
 					<Hotspot X="-363.436" Y="3078.43" Z="-15.00165" />
 				</CustomBehavior>
+				
+				<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
 			
-				<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
-				<While Condition="Me.ZoneId != 3562">
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.00165" />
-
-					<!-- Run back in the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-364.514" Y="3088.31" Z="-15.02338" />
-									
-					<CustomBehavior File="Message" 
-									Text="Waiting for the dungeon to load." 
-									LogColor="Cyan" />
-								
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="10000" />
-									
-					<!-- If we still aren't in, we're locked out -->
-					<If Condition="Me.ZoneId != 3562">
-						<CustomBehavior File="Message" 
-										Text="We are locked out. Waiting and trying again." 
-										LogColor="Cyan" />
-					</If> <!-- Locked -->
-				</While> <!-- While we aren't in the instance -->
+				<!-- In box -->
+				<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="..\[QO-N][58-60][DK]_hellfire-ramparts" />
+				</If> <!-- In box -->
 			</If> <!-- Outland -->
-			
-			<!-- If we are inside -->
-			<If Condition="Me.ZoneId == 3562">
-				<CustomBehavior File="Message" 
-								Text="Hellfire Ramparts detected. Running out."
-								LogColor="Lime" />
-								
-				<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
-				
-				<!-- Go through the portal -->
-				<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
-				
-				<!-- Make sure we run to the right spot outside the portal -->
-				<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
-			</If> <!-- HR -->
-			
-			<!-- In box -->
-			<If Condition="Me.X &gt; -400 &amp;&amp; Me.X &lt; -300 &amp;&amp; Me.Y &gt; 3000 &amp;&amp; Me.Y &lt; 3100" >
-				<CustomBehavior File="LoadProfile" 
-								ProfileName="..\[QO-N][58-60][DK]_hellfire-ramparts" />
-			</If> <!-- In box -->
 		</If> <!-- RAF toons -->
 	</QuestOrder>
 </HBProfile>

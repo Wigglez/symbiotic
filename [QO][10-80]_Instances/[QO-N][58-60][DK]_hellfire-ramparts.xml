@@ -114,6 +114,21 @@
 					</If> <!-- Hearth check -->
 				</If> <!-- BRS -->		
 			
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3562">
+					<CustomBehavior File="Message" 
+									Text="Hellfire Ramparts detected. Running out."
+									LogColor="Lime" />
+									
+					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
+				</If> <!-- HR -->
+				
 				<!-- If we are not in the box, load the movement profile -->
 				<If Condition="Me.X &lt; -400 || Me.X &gt; -300 || Me.Y &lt; 3000 || Me.Y &gt; 3100" >
 					<CustomBehavior File="Message" 
@@ -157,12 +172,10 @@
 				
 				<!-- If we are inside Hellfire Ramparts and have checked our reset -->
 				<If Condition="Me.ZoneId == 3562">
-					<!-- Entrance -->
-					
 						<!-- Run macro to pass on loot -->
-					<CustomBehavior File="RunMacro"
-									Macro="/run SetOptOutOfLoot(1)" />
-					
+					<CustomBehavior File="RunMacro" Macro="/run SetOptOutOfLoot(1)" />
+									
+					<!-- Entrance -->
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
 					<!-- Run to side -->
@@ -405,6 +418,21 @@
 						</If> <!-- Have Innkeeper's Daughter -->
 					</If> <!-- Hearth check -->
 				</If> <!-- BRS -->		
+				
+				<!-- If we are inside -->
+				<If Condition="Me.ZoneId == 3562">
+					<CustomBehavior File="Message" 
+									Text="Hellfire Ramparts detected. Running out."
+									LogColor="Lime" />
+									
+					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
+					
+					<!-- Make sure we run to the right spot outside the portal -->
+					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
+				</If> <!-- HR -->
 			
 				<!-- If we are not in the box, load the movement profile -->
 				<If Condition="Me.X &lt; -400 || Me.X &gt; -300 || Me.Y &lt; 3000 || Me.Y &gt; 3100" >
@@ -488,21 +516,6 @@
 									WaitTime="30000" />
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-				</If> <!-- HR -->
-				
-				<!-- If we are inside -->
-				<If Condition="Me.ZoneId == 3562">
-					<CustomBehavior File="Message" 
-									Text="Hellfire Ramparts detected. Running out to reset."
-									LogColor="Fuchsia" />
-									
-					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-1358.403" Y="1649.539" Z="68.55495" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-363.436" Y="3078.43" Z="-15.0013" />
 				</If> <!-- HR -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
