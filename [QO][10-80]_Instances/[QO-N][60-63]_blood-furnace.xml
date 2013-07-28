@@ -599,6 +599,10 @@
 				
 				<!-- If we are inside Blood Furnace and have checked our reset -->
 				<If Condition="Me.ZoneId == 3713">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+									
 					<!-- Entrance -->
 					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
 				
@@ -615,10 +619,6 @@
 									Text="Blood Furnace initialized."  
 									LogColor="Fuchsia" />
 									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />				
-					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="20000" />
 									

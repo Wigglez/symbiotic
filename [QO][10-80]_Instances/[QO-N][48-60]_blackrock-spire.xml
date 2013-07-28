@@ -573,6 +573,10 @@
 				
 				<!-- If we are inside Blackrock Spire and have checked our reset -->
 				<If Condition="Me.ZoneId == 1583">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 				
@@ -588,10 +592,6 @@
 					<CustomBehavior File="Message" 
 									Text="Blackrock Spire initialized."  
 									LogColor="Fuchsia" />
-									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />	
 									
 					<CustomBehavior File="WaitTimer"
 									WaitTime="15000" />

@@ -549,6 +549,10 @@
 				
 				<!-- If we are inside Razorfen Downs and have checked our reset -->
 				<If Condition="Me.MapId == 129">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="2593.68" Y="1111.23" Z="50.9518" />
 					
@@ -566,10 +570,6 @@
 									Text="Razorfen Downs initialized."  
 									LogColor="Fuchsia" />
 									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />	
-					
 					<!-- Wait 30 seconds so the main can get away from us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="30000" />

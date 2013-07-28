@@ -449,6 +449,10 @@
 				
 				<!-- If we are inside Hellfire Ramparts and have checked our reset -->
 				<If Condition="Me.ZoneId == 3562">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="-1355.28" Y="1641.57" Z="68.274" />
 				
@@ -464,11 +468,7 @@
 					<CustomBehavior File="Message" 
 									Text="Hellfire Ramparts initialized."  
 									LogColor="Fuchsia" />
-									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />				
-					
+												
 					<CustomBehavior File="WaitTimer"
 									WaitTime="50000" />
 									

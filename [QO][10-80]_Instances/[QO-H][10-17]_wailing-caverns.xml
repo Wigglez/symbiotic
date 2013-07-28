@@ -662,6 +662,10 @@
 				
 				<!-- If we are inside Wailing Caverns and have checked our reset -->
 				<If Condition="Me.ZoneId == 718">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
@@ -679,10 +683,6 @@
 									Text="Wailing Caverns initialized."  
 									LogColor="Fuchsia" />
 								
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />	
-					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="60000" />
 						

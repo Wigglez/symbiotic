@@ -689,6 +689,10 @@
 				
 				<!-- If we are inside Deadmines and have checked our reset -->
 				<If Condition="Me.MapId == 36" >
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="-14.5732" Y="-385.475" Z="62.4561" />
 				
@@ -713,10 +717,6 @@
 					<!-- Run to a safe spot near entrance -->
 					<RunTo X="-62.90265" Y="-380.8474" Z="53.92384" />				
 							
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />	
-
 					<!-- Triggers RAFs to advance after Glubtok dies -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="47162"

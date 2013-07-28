@@ -507,6 +507,10 @@
 				
 				<!-- If we are inside and have checked our reset -->
 				<If Condition="Me.ZoneId == 4416">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="1880.74" Y="853.76" Z="176.696" />
 				
@@ -523,10 +527,6 @@
 									Text="Gundrak initialized."  
 									LogColor="Fuchsia" />
 									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />				
-					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="20000" />
 												

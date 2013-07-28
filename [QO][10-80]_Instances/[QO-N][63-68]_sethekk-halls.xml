@@ -481,6 +481,10 @@
 				
 				<!-- If we are inside Sethekk Halls and have checked our reset -->
 				<If Condition="Me.ZoneId == 3791">
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+				
 					<!-- Entrance -->
 					<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
 				
@@ -497,10 +501,6 @@
 									Text="Sethekk Halls initialized."  
 									LogColor="Fuchsia" />
 									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />				
-					
 					<CustomBehavior File="WaitTimer"
 									WaitTime="40000" />
 					
