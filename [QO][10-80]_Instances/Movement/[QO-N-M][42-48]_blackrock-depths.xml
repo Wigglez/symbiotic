@@ -276,15 +276,15 @@
 									LogColor="Cyan" />
 									
 					<!-- We are in Searing Gorge and have set our hearth, move to the rendezvous at the end of the stonewrought pass -->
-					<CustomBehavior File="FlyTo" 
-									X="-6373.169" Y="-2079.885" Z="245.483" />
-					
+					<CustomBehavior File="FlyTo" X="-6373.169" Y="-2079.885" Z="245.483" />
+					<CustomBehavior File="ForcedDismount" />
+							
+					<RunTo X="-6373.169" Y="-2079.885" Z="245.483" />
+									
 					<!-- Rendezvous to tag rafs before clearing a path to blackrock mountain -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-
-					<CustomBehavior File="ForcedDismount" />	
-
+									CheckRange="5" />
+									
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
 									
@@ -322,16 +322,16 @@
 									UseMount="True" />	
 					
 					<!-- Tag rafs at stonewrought pass -->
-					<CustomBehavior File="FlyTo" 
-									X="-6373.169" Y="-2079.885" Z="245.483" />
+					<CustomBehavior File="FlyTo" X="-6373.169" Y="-2079.885" Z="245.483" />
 					<CustomBehavior File="ForcedDismount" />
+					
+					<RunTo X="-6373.169" Y="-2079.885" Z="245.483" />
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="2000" />
 					
 					<!-- Go back to our last leave spot and start killing again -->
-					<CustomBehavior File="FlyTo" 
-									X="-6849.487" Y="-1839.765" Z="243.1271" />
+					<CustomBehavior File="FlyTo" X="-6849.487" Y="-1839.765" Z="243.1271" />
 					<CustomBehavior File="ForcedDismount" />
 					
 					<!-- Booster UserSettings -->
@@ -370,20 +370,22 @@
 					
 					<!-- Tag rafs at badlands camp -->
 					<CustomBehavior File="FlyTo" 
-									X="-6846.725" Y="-1840.728" Z="243.4146" />
+									X="-6893.585" Y="-1852.941" Z="250.685" />
 					<CustomBehavior File="ForcedDismount" />
+					
+					<RunTo X="-6893.585" Y="-1852.941" Z="250.685" />
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="2000" />
-					
-					<!-- Booster UserSettings -->
-					<CustomBehavior File="UserSettings"
-									UseMount="False" />	
 					
 					<!-- Go back to our last leave spot and start killing again -->
 					<CustomBehavior File="FlyTo" 
 									X="-7143.572" Y="-1308.579" Z="246.7252" />
 					<CustomBehavior File="ForcedDismount" />
+					
+					<!-- Booster UserSettings -->
+					<CustomBehavior File="UserSettings"
+									UseMount="False" />	
 					
 					<RunTo X="-7143.572" Y="-1308.579" Z="246.7252" />
 					<RunTo X="-7169.964" Y="-1330.564" Z="247.5242" />
@@ -410,32 +412,25 @@
 									UseMount="True" />				
 									
 					<!-- Tag rafs -->
-					<CustomBehavior File="FlyTo" 
-									X="-7123.381" Y="-1242.08" Z="289.7586" />
+					<CustomBehavior File="FlyTo" X="-7122.62" Y="-1236.388" Z="290.09" />
 					<CustomBehavior File="ForcedDismount" />
 					
-					<CustomBehavior File="FlyTo" 
-									X="-7103.172" Y="-1263.081" Z="271.5759" />
-					<CustomBehavior File="ForcedDismount" />
-									
+					<RunTo X="-7122.62" Y="-1236.388" Z="290.09" />
+					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="2000" />
+									WaitTime="5000" />
 									
 					<CustomBehavior File="Message" 
-									Text="Flying to Lothos (rendezvous location)." 
+									Text="Flying to Lothos." 
 									LogColor="Lime" />
-											
+									
 					<CustomBehavior File="FlyTo" X="-7331.136" Y="-1088.396" Z="277.2122" />
 					<CustomBehavior File="ForcedDismount" />				
 									
-					<RunTo X="-7409.485" Y="-1101.124" Z="278.0751" />
-					
-					<CustomBehavior File="FlyTo" X="-7421.067" Y="-1067.105" Z="275.0394" />
-					<CustomBehavior File="FlyTo" X="-7481.689" Y="-1071.609" Z="265.2473" />
-					<CustomBehavior File="FlyTo" X="-7504.1" Y="-1080.878" Z="264.6431" />
-					<CustomBehavior File="FlyTo" X="-7528.098" Y="-1090.198" Z="288.5237" />
-					<CustomBehavior File="FlyTo" X="-7553.941" Y="-1048.866" Z="234.4292" />
-					
+					<RunTo X="-7496.008" Y="-1077.208" Z="264.9117" />
+
+					<CustomBehavior File="FlyTo" X="-7545.021" Y="-1100.068" Z="281.5943" />
+					<CustomBehavior File="FlyTo" X="-7562.541" Y="-1050.832" Z="251.9265" />
 					
 					<!-- Lothos -->
 					<CustomBehavior File="FlyTo" 
@@ -693,6 +688,8 @@
 									<CustomBehavior File="Message" 
 													Text="Moving to the riding trainer."
 													LogColor="Orange" />
+													
+									<RunTo X="1762.213" Y="-4407.147" Z="42.50801" />
 												
 									<!-- Moving to riding trainer -->
 									<RunTo X="1799.227" Y="-4360.222" Z="102.4608" />
@@ -732,19 +729,31 @@
 										
 						<!-- trained -->
 						<If Condition="Me.GetSkill(Styx.SkillLine.Riding).CurrentValue &gt;= 150" >
-							<!-- Board zeppelin to Undercity -->
-							<RunTo X="1839.144" Y="-4390.119" Z="135.2312" />
 							
-							<CustomBehavior File="Message" 
-											Text="We are on the Orgrimmar to Undercity zeppelin dock." 
-											LogColor="Cyan" />
-							
-							<CustomBehavior File="Message" 
-											Text="The zeppelin to Undercity has issues. You are to put yourself onto the zeppelin and start this instance profile again when you arrive on the Undercity zeppelin dock." 
-											LogColor="Red" />
-											
-							<CustomBehavior File="UserSettings" 
-											StopBot="true" />
+							<!-- Run to the deck -->
+							<RunTo X="1868.09" Y="-4417.422" Z="135.232" />
+
+							<!-- Orgrimmar to Grom'gol Base Camp -->
+							<CustomBehavior File="UseTransport"
+								TransportId="175080"
+								WaitAtX="1869.635"
+								WaitAtY="-4419.227"
+								WaitAtZ="135.2332"
+								TransportStartX="1880.818"
+								TransportStartY="-4435.269"
+								TransportStartZ="152.8608"
+								StandOnX="1883.553"
+								StandOnY="-4419.312"
+								StandOnZ="136.8681"
+								TransportEndX="-12464.34"
+								TransportEndY="233.1597"
+								TransportEndZ="49.53437"
+								GetOffX="-12445.94"
+								GetOffY="218.9818"
+								GetOffZ="31.86087" />
+
+							<!-- Run to the western side of the deck -->
+							<RunTo X="-12424.07" Y="225.4187" Z="32.17282" />
 						</If> <!-- Trained -->
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->
@@ -892,6 +901,38 @@
 											Text="We are Horde."
 											LogColor="Cyan" /> 
 						
+							<!-- Northern Stranglethorn -->
+							<If Condition="Me.ZoneId == 33">
+								<CustomBehavior File="Message" 
+												Text="We are in Northern Stranglethorn."
+												LogColor="Cyan" />
+							
+								<!-- Run to the deck -->
+								<RunTo X="-12407.97" Y="200.2348" Z="31.8366" />
+
+								<!-- Grom'gol Base Camp to Undercity -->
+								<CustomBehavior File="UseTransport"
+												TransportId="176495"
+												WaitAtX="-12407.97"
+												WaitAtY="200.2348"
+												WaitAtZ="31.8366"
+												TransportStartX="-12406.8906"
+												TransportStartY="211.837677"
+												TransportStartZ="49.6984367"
+												StandOnX="-12398.64"
+												StandOnY="197.7412"
+												StandOnZ="33.84207"
+												TransportEndX="2062.59888"
+												TransportEndY="235.264465"
+												TransportEndZ="117.733627"
+												GetOffX="2057.45"
+												GetOffY="238.7743"
+												GetOffZ="99.76712" />
+												
+								<!-- Run to the doorway -->
+								<RunTo X="2060.382" Y="254.9573" Z="99.76746" />
+							</If> <!-- Northern Stranglethorn -->
+
 							<!-- Tirisfal Glades -->
 							<If Condition="Me.ZoneId == 85">
 								<CustomBehavior File="Message" 
@@ -1007,27 +1048,28 @@
 							
 								<!-- Run like hell through Loch Modan -->
 								<CustomBehavior File="RunLikeHell"
-											UseCTM="false" 
-											NumOfTimes="1" 
-											AllowCombat="false">
-									<Hotspot X="-4734.587" Y="-2787.607" Z="321.2563" />
-									<Hotspot X="-4820.684" Y="-2802.235" Z="322.3975" />
-									<Hotspot X="-4952.08" Y="-2760.865" Z="326.0595" />
-									<Hotspot X="-4999.264" Y="-2788.133" Z="326.0581" />
-									<Hotspot X="-5184.995" Y="-2848.211" Z="335.3937" />
-									<Hotspot X="-5273.833" Y="-2825.728" Z="349.0385" />
-									<Hotspot X="-5387.264" Y="-2806.93" Z="360.7226" />
-									<Hotspot X="-5582.702" Y="-2812.915" Z="366.3179" />
-									<Hotspot X="-5692.782" Y="-2767.788" Z="362.3757" />
-									<Hotspot X="-5764.716" Y="-2652.199" Z="330.4999" />
-									<Hotspot X="-5873.091" Y="-2556.498" Z="307.2704" />
+												UseCTM="false" 
+												NumOfTimes="1" 
+												AllowCombat="false">
+									<Hotspot X="-4972.612" Y="-2773.73" Z="325.6504" />
+									<Hotspot X="-4698.287" Y="-2715.208" Z="318.942" />
+									<Hotspot X="-4707.727" Y="-2779.172" Z="326.9927" />
+									<Hotspot X="-4774.192" Y="-2809.863" Z="321.4973" />
+									<Hotspot X="-4857.682" Y="-2815.592" Z="326.4279" />
+									<Hotspot X="-4939.003" Y="-2795.119" Z="324.3677" />
+									<Hotspot X="-5065.949" Y="-2779.55" Z="326.6977" />
+									<Hotspot X="-5292.8" Y="-2787.869" Z="351.9522" />
+									<Hotspot X="-5407.474" Y="-2802.177" Z="359.5936" />
+									<Hotspot X="-5496.726" Y="-2827.83" Z="354.5455" />
+									<Hotspot X="-5616.906" Y="-2795.188" Z="365.604" />
+									<Hotspot X="-5868.492" Y="-2555.946" Z="307.2147" />
 								</CustomBehavior>	
 									
 								<!-- 80 yards before entering the stonewrought pass tunnel -->
 								<CustomBehavior File="RunLikeHell"
-											UseCTM="false" 
-											NumOfTimes="1" 
-											AllowCombat="false">	
+												UseCTM="false" 
+												NumOfTimes="1" 
+												AllowCombat="false">	
 									<Hotspot X="-5892.741" Y="-2541.248" Z="307.2173" />
 									<Hotspot X="-5945.028" Y="-2544.952" Z="309.0778" />
 									<!-- Entrance to the stonewrought pass -->
@@ -1051,16 +1093,19 @@
 						<!-- Run to the exit of the stonewrought pass tunnel -->
 						<RunTo X="-6373.169" Y="-2079.885" Z="245.483" />
 										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+										
 						<!-- Tag for booster to clear the way to blackrock mountain -->				
 						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="2" />				
+										CheckRange="5" />				
 									
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="20000"  />				
 
 						<!-- Let the booster tag us to move forward to badlands entrance -->				
 						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="2" />	
+										CheckRange="5" />	
 										
 						<CustomBehavior File="WaitTimer" 
 										WaitTime="20000"  />
@@ -1075,12 +1120,12 @@
 								
 								<Hotspot X="-6428.804" Y="-1993.341" Z="244.7461" />
 								<Hotspot X="-6560.358" Y="-1927.546" Z="244.2066" />
-								<Hotspot X="-6846.725" Y="-1840.728" Z="243.4146" />
+								<Hotspot X="-6893.585" Y="-1852.941" Z="250.685" />
 							</CustomBehavior>
 							
 							<!-- Let the booster tag us to move forward to iron summit -->				
 							<CustomBehavior File="Misc\LoadProfileOn" 
-											CheckRange="2" />	
+											CheckRange="5" />	
 											
 							<CustomBehavior File="WaitTimer" 
 										WaitTime="20000"  />
@@ -1113,15 +1158,18 @@
 											UseCTM="false" 
 											NumOfTimes="1" 
 											AllowCombat="false">
-								<Hotspot X="-7103.172" Y="-1263.081" Z="271.5759" />
+								<Hotspot X="-7122.62" Y="-1236.388" Z="290.09" />
 							</CustomBehavior>
+							
 							<CustomBehavior File="Message" 
-										Text="We are in Iron Summit."
-										LogColor="Cyan" /> 
+											Text="We are in Iron Summit."
+											LogColor="Cyan" /> 
 						
+							<RunTo X="-7122.62" Y="-1236.388" Z="290.09" />
+							
 							<!-- Let the booster tag us to move forward to blackrock mountain -->				
 							<CustomBehavior File="Misc\LoadProfileOn" 
-											CheckRange="2" />	
+											CheckRange="5" />	
 											
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="20000"  />
