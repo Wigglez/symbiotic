@@ -19,7 +19,7 @@ namespace MrItemRemover2
             [Setting, Styx.Helpers.DefaultValue(5)]
             public int Time { get; set; }
 
-            [Setting, Styx.Helpers.DefaultValue(false)]
+            [Setting, Styx.Helpers.DefaultValue(true)]
             public bool EnableRemove { get; set; }
 
             [Setting, Styx.Helpers.DefaultValue(false)]

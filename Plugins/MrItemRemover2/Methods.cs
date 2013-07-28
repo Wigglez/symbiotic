@@ -153,7 +153,7 @@ namespace MrItemRemover2
                 }
 				
 				 //Process all White Items if enabled. 
-                if (DeleteAllWhite && item.Quality == WoWItemQuality.Common && !_KeepList.Contains(item.Name))
+                if (DeleteAllWhite && item.Quality == WoWItemQuality.Common && !item.IsSoulbound && !_KeepList.Contains(item.Name))
                 {
                     if (item != null)
                     {

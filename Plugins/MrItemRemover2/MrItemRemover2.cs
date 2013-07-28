@@ -37,7 +37,7 @@ namespace MrItemRemover2
     {
         //Normal Stuff.
         public override string Name { get { return "Mr.ItemRemover2"; } }
-        public override string Author { get { return "CnG"; } }
+        public override string Author { get { return "CnG (Modified by Wigglez)"; } }
         public override Version Version { get { return new Version(1, 4); } }
         public override bool WantButton { get { return true; } }
         public override string ButtonText { get { return "Mr.ItemRemover2"; } }
