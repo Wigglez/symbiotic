@@ -88,7 +88,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />	
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
@@ -500,7 +500,7 @@
 		
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-				<!-- BRD -->
+				<<!-- If we are inside Blackrock Depths -->
 				<If Condition="Me.ZoneId == 1584">
 					<CustomBehavior File="Message" 
 									Text="Blackrock Depths detected. Running out."
@@ -509,7 +509,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />	
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	

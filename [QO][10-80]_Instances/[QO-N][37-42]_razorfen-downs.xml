@@ -94,13 +94,13 @@
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Kraul detected. Running out to go to Razorfen Downs." 
+									Text="Razorfen Kraul detected. Running out." 
 									LogColor="Fuchsia" />	
 									
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1530.371" Z="82.28316" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -481,13 +481,13 @@
 				<!-- If we are inside Razorfen Kraul, run out to reset -->
 				<If Condition="Me.MapId == 47">
 					<CustomBehavior File="Message" 
-									Text="Razorfen Kraul detected. Running out to go to Razorfen Downs." 
+									Text="Razorfen Kraul detected. Running out." 
 									LogColor="Fuchsia" />	
-										
+									
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1530.371" Z="82.28316" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
