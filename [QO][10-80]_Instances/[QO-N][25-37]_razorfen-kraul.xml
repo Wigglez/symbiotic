@@ -139,7 +139,7 @@
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1530.371" Z="82.28316" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -166,7 +166,7 @@
 						<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 						
 						<!-- Go inside the Razorfen Kraul portal -->
-						<CustomBehavior File="Misc\InInstance" X="-4458.964" Y="-1658.854" Z="81.5267" />
+						<CustomBehavior File="Misc\InInstance" X="-4458.964" Y="-1650.854" Z="81.5267" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -584,7 +584,7 @@
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1530.371" Z="82.28316" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -719,7 +719,7 @@
 					<RunTo X="1942.27" Y="1544.23" Z="81.80499" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1539.371" Z="82.28316" />
+					<CustomBehavior File="Misc\InInstance" X="1939.09" Y="1530.371" Z="82.28316" />
 						
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -746,7 +746,7 @@
 						<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
 						
 						<!-- Go inside the Razorfen Kraul portal -->
-						<CustomBehavior File="Misc\InInstance" X="-4458.964" Y="-1658.854" Z="81.5267" />
+						<CustomBehavior File="Misc\InInstance" X="-4458.964" Y="-1650.854" Z="81.5267" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
