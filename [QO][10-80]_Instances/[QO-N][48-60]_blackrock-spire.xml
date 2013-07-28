@@ -103,7 +103,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="77.31385" Y="-210.969" Z="49.81922" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
@@ -131,7 +131,7 @@
 						<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
 
 						<!-- Run back in the Blackrock Spire portal -->
-						<CustomBehavior File="Misc\InInstance" X="-7522.342" Y="-1233.354" Z="285.7441" />
+						<CustomBehavior File="Misc\InInstance" X="-7523.075" Y="-1245.195" Z="285.7318" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -187,7 +187,7 @@
 					<RunTo X="79.2363" Y="-241.2068" Z="56.4171" />
 					
 					<CustomBehavior File="WaitTimer"
-									WaitTime="2000" />
+									WaitTime="5000" />
 					
 					<!-- Bridge and under bridge -->
 					<RunTo X="87.05316" Y="-300.0131" Z="59.2604" />
@@ -220,7 +220,7 @@
 					<RunTo X="71.09921" Y="-259.7567" Z="60.70417" />
 					
 					<CustomBehavior File="WaitTimer"
-									WaitTime="2000" />
+									WaitTime="5000" />
 									
 					<!-- Run to LBRS entrance -->
 					<RunTo X="43.10189" Y="-327.0879" Z="53.81178" />
@@ -411,7 +411,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="77.31385" Y="-210.969" Z="49.81922" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
@@ -524,8 +524,8 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
-					
+					<CustomBehavior File="Misc\InInstance" X="77.31385" Y="-210.969" Z="49.81922" />
+
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
 				</If> <!-- BRS -->
@@ -552,7 +552,7 @@
 						<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />
 
 						<!-- Run back in the Blackrock Spire portal -->
-						<CustomBehavior File="Misc\InInstance" X="-7522.342" Y="-1233.354" Z="285.7441" />
+						<CustomBehavior File="Misc\InInstance" X="-7523.075" Y="-1245.195" Z="285.7318" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -585,7 +585,7 @@
 					
 					<!-- Begin the instance once all party members are within range  -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="2" />
+									CheckRange="5" />
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Start" /> 
 					
@@ -594,13 +594,13 @@
 									LogColor="Fuchsia" />
 									
 					<CustomBehavior File="WaitTimer"
-									WaitTime="15000" />
+									WaitTime="20000" />
 									
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
 									
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="15000" />
+									WaitTime="20000" />
 									
 					<!-- quest giver -->
 					<RunTo X="80.11361" Y="-257.3969" Z="60.70204" />
@@ -639,7 +639,7 @@
 					<RunTo X="78.3534" Y="-226.841" Z="49.7662" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="76.13" Y="-223.305" Z="49.84028" />
+					<CustomBehavior File="Misc\InInstance" X="77.31385" Y="-210.969" Z="49.81922" />
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7524.65" Y="-1229.13" Z="285.731" />	
