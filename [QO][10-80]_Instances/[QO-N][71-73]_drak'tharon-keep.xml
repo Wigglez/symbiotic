@@ -97,7 +97,7 @@
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-481.8023" Z="10.98073" />
+					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-460.8023" Z="10.98073" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
@@ -125,7 +125,7 @@
 						<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="Misc\InInstance" X="4775.576" Y="-2021.473" Z="229.3535" />
+						<CustomBehavior File="Misc\InInstance" X="4775.576" Y="-2010.473" Z="229.3535" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -380,7 +380,7 @@
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-481.8023" Z="10.98073" />
+					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-460.8023" Z="10.98073" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
@@ -486,7 +486,7 @@
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-481.8023" Z="10.98073" />
+					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-460.8023" Z="10.98073" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
@@ -514,7 +514,7 @@
 						<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="Misc\InInstance" X="4775.576" Y="-2021.473" Z="229.3535" />
+						<CustomBehavior File="Misc\InInstance" X="4775.576" Y="-2010.473" Z="229.3535" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -623,7 +623,7 @@
 					<RunTo X="-517.15" Y="-489.201" Z="11.01775" />
 
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-481.8023" Z="10.98073" />
+					<CustomBehavior File="Misc\InInstance" X="-518.2795" Y="-460.8023" Z="10.98073" />
 					
 					<!-- Make sure we run to the right spot outside the potral -->
 					<RunTo X="4774.44" Y="-2030.03" Z="229.38" />	
