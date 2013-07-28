@@ -358,6 +358,8 @@
 				
 				<!-- Fly into box -->
 				<CustomBehavior File="FlyTo" X="-302.408" Y="3162.92" Z="31.7273" />	
+				
+				<CustomBehavior File="ForcedDismount" />
 			</If> <!-- Outland -->
 			
 			<!-- In box -->
@@ -705,6 +707,8 @@
 								WaitTime="10000" />
 								
 				<CustomBehavior File="FlyTo" X="-302.408" Y="3162.92" Z="31.7273" />	
+				
+				<CustomBehavior File="ForcedDismount" />
 			</If> <!-- Outland -->
 			
 			<!-- In box -->
