@@ -579,7 +579,7 @@
 						<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
 
 						<!-- Run back in the portal -->
-						<CustomBehavior File="Misc\InInstance" X="-304.8059" Y="3163.918" Z="31.7268" />
+						<CustomBehavior File="Misc\InInstance" X="-304.8059" Y="3173.918" Z="31.7268" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
