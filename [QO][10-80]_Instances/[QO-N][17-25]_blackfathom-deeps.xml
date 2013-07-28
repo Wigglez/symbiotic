@@ -179,7 +179,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 						
 					<!-- Go through the portal -->									
-					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" />				
+					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="125.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -208,8 +208,8 @@
 						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					
 						<!-- Run back in the Blackfathom Deeps portal -->
-						<CustomBehavior File="Misc\InInstance" X="4250.304" Y="749.9905" Z="-23.02605" />
-									
+						<CustomBehavior File="Misc\InInstance" X="4249.571" Y="760.4624" Z="-23.82422" />
+
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
 										LogColor="Fuchsia" />			
@@ -639,16 +639,10 @@
 										X="-273.533" Y="71.30302" Z="-58.51636" />
 					</If> <!-- Above jumps -->
 					
-					<!-- Tag rafs at sandy beach -->
-					<RunTo X="-260.1388" Y="58.08689" Z="-55.31565" />
-					
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="25" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
-									
-					<CustomBehavior File="WaitTimer" 
-									WaitTime="5000" />
 				</If> <!-- Inside BFD -->
 				
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
@@ -674,7 +668,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
 					<!-- Go through the portal -->									
-					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" />				
+					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="125.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -687,10 +681,8 @@
 									Text="Resetting instance, 1 of 2." 
 									LogColor="Fuchsia" />
 					
-					<CustomBehavior File="RunMacro" 
-									Macro="/script ResetInstances()" />
-					<CustomBehavior File="RunMacro"
-									Macro="/script SetDungeonDifficulty(1)" />
+					<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficultyID(1)" />
 					
 					<!-- Allow for an Honorbuddy pulse -->
 					<CustomBehavior File="WaitTimer" 
@@ -700,10 +692,8 @@
 					<CustomBehavior File="Message" 
 									Text="Resetting instance, 2 of 2." 
 									LogColor="Fuchsia" />
-					<CustomBehavior File="RunMacro" 
-									Macro="/script ResetInstances()" />
-					<CustomBehavior File="RunMacro" 
-									Macro="/script SetDungeonDifficulty(1)" />
+					<CustomBehavior File="RunMacro" Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" Macro="/script SetDungeonDifficultyID(1)" />
 					
 					<CustomBehavior File="Message" 
 									Text="Instance reset." 
@@ -827,7 +817,7 @@
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="113.4777" Z="-40.73384" /> 
+					<CustomBehavior File="MyCTM" X="-149.7285" Y="113.4777" Z="-40.73384" /> 
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
@@ -854,7 +844,7 @@
 						<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
 					
 						<!-- Go inside the Blackfathom Deeps portal -->
-						<CustomBehavior File="Misc\InInstance" X="4250.304" Y="749.9905" Z="-23.02605" />
+						<CustomBehavior File="Misc\InInstance" X="4249.571" Y="760.4624" Z="-23.82422" />
 						
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -875,6 +865,10 @@
 				
 				<!-- If we are inside Blackfathom Deeps and have checked our reset -->
 				<If Condition="Me.MapId == 48" >
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />	
+					
 					<!-- Entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
@@ -892,10 +886,6 @@
 									Text="Blackfathom Deeps initialized."  
 									LogColor="Fuchsia" />
 									
-					<CustomBehavior File="Message" 
-									Text="Avoiding instance lock from this point, do not touch." 
-									LogColor="Yellow" />	
-									
 					<!-- Let the booster clear the entrance for us -->
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="20000" />
@@ -911,18 +901,24 @@
 					<!-- move to the sandy beach -->
 					<RunTo X="-260.1388" Y="58.08689" Z="-55.31565" />			
 					
-					<!-- Run back out the instance when the booster runs next to us  -->
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="5" />
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="4887"
+									EventX="-260.1388" EventY="58.08689" EventZ="9.614821"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-260.1388" Y="58.08689" Z="9.614821" />
+						</Safespots>
+					</CustomBehavior>				
 									
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									MinLevel="25" 
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
-									
-					<!-- Waiting 30 seconds after the booster triggers the loadprofileon to have the RAFs exit -->				
+												
 					<CustomBehavior File="WaitTimer"
-									WaitTime="50000" />			
+									WaitTime="120000" />			
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- Inside BFD -->	
