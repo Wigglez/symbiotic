@@ -124,7 +124,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />	
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
@@ -152,7 +152,7 @@
 						<RunTo X="-7178.41" Y="-922.152" Z="166.092" />
 
 						<!-- Run back in the Blackrock Depths portal -->
-						<CustomBehavior File="Misc\InInstance" X="-7177.727" Y="-927.1953" Z="166.9945" />
+						<CustomBehavior File="Misc\InInstance" X="-7179.068" Y="-937.434" Z="166.4007" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -562,7 +562,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />	
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
@@ -698,7 +698,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />		
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
@@ -728,7 +728,7 @@
 						<RunTo X="-7178.41" Y="-922.152" Z="166.092" />
 
 						<!-- Run back in the Blackrock Depths portal -->
-						<CustomBehavior File="Misc\InInstance" X="-7177.727" Y="-927.1953" Z="166.9945" />
+						<CustomBehavior File="Misc\InInstance" X="-7179.068" Y="-937.434" Z="166.4007" />
 										
 						<CustomBehavior File="Message" 
 										Text="Waiting for the dungeon to load." 
@@ -826,7 +826,7 @@
 					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
 					
 					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="454.8344" Y="38.78323" Z="-68.91302" />		
+					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />	
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
