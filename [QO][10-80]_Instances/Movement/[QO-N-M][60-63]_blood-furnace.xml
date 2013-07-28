@@ -131,11 +131,11 @@
 				<CustomBehavior File="FlyTo" 
 								X="-11851.95" Y="-3196.791" Z="17.13597" />
 
-				<CustomBehavior File="MyCTM" X="-11911.02" Y="-3209.082" Z="-2.757394" />
+				<CustomBehavior File="Misc\InInstance" X="-11913.26" Y="-3209.328" Z="-14.68666" />
 
 				<CustomBehavior File="WaitTimer" WaitTime="15000" />	
 				
-				<RunTo X="-248.113" Y="922.9" Z="84.3497" />
+				<CustomBehavior File="MyCTM" X="-248.113" Y="922.9" Z="84.3497" />
 			</If> <!-- Eastern Kingdoms -->
 			
 			
@@ -351,7 +351,7 @@
 				<CustomBehavior File="FlyTo" X="-217.1329" Y="3043.892" Z="144.3637" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
+								CheckRange="10" />
 									
 				<CustomBehavior File="WaitTimer"
 								WaitTime="10000" />
@@ -686,11 +686,11 @@
 			
 				<CustomBehavior File="NoCombatMoveTo" X="-11901.27" Y="-3207.707" Z="-14.77159" />
 					
-				<CustomBehavior File="MyCTM" X="-11911.1" Y="-3207.676" Z="-14.74713" />
+				<CustomBehavior File="Misc\InInstance" X="-11913.26" Y="-3209.328" Z="-14.68666" />
 
 				<CustomBehavior File="WaitTimer" WaitTime="15000" />
 
-				<RunTo X="-248.113" Y="922.9" Z="84.3497" />
+				<CustomBehavior File="MyCTM" X="-248.113" Y="922.9" Z="84.3497" />
 			</If> <!-- Blasted Lands -->
 			
 			<!-- Outland -->
@@ -699,7 +699,7 @@
 				<CustomBehavior File="FlyTo" X="-217.1329" Y="3043.892" Z="144.3637" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
+								CheckRange="10" />
 									
 				<CustomBehavior File="WaitTimer"
 								WaitTime="10000" />
