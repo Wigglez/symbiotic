@@ -215,7 +215,7 @@
 							<!-- Hover point -->
 							<CustomBehavior File="FlyTo" 
 											X="-455.4241" Y="-2651.979" Z="142.298" />
-											
+										
 							<CustomBehavior File="Message" 
 											Text="We are in The Crossroads." 
 											LogColor="Cyan" />
@@ -228,10 +228,13 @@
 							<CustomBehavior File="FlyTo" 
 											X="-819.8129" Y="-2025.358" Z="117.2773" />
 											
+							<CustomBehavior File="ForcedDismount" />
+
+							<RunTo X="-819.8129" Y="-2025.358" Z="117.2773" />
+											
 							<!-- Begin the randezvous once all party members are within range -->
 							<CustomBehavior File="Misc\LoadProfileOn" 
 											CheckRange="1" /> 
-											
 											
 							<CustomBehavior File="WaitTimer" 
 											WaitTime="5000" />
@@ -624,6 +627,8 @@
 										LogColor="Cyan" />
 										
 						<CustomBehavior File="NoCombatMoveto" X="-819.8129" Y="-2025.358" Z="117.2773" />
+										
+						<RunTo X="-819.8129" Y="-2025.358" Z="117.2773" />
 										
 						<!-- Begin the randezvous once all party members are within range -->
 						<CustomBehavior File="Misc\LoadProfileOn" 
