@@ -188,8 +188,8 @@
 								GetOffY="-4393.583" 
 								GetOffZ="135.233" />
 				
-				<!-- Orgrimmar dock -->
-				<RunTo X="1841.82" Y="-4393.583" Z="135.233" />
+				<!-- Orgrimmar fp -->
+				<RunTo X="1801.861" Y="-4368.239" Z="102.6186" />
 			</If> <!-- Tirisfal Glades -->
 			
 			<!-- Camp Narache / Mulgore -->
@@ -273,10 +273,6 @@
 				
 				<!-- razor hill fp -->
 				<RunTo X="269.917" Y="-4766.76" Z="11.4946" />
-							
-				<CustomBehavior File="Message" 
-								Text="Moving to Durotar." 
-								LogColor="Lime" />
 			</If> <!-- Orgrimmar -->
 
 			<CustomBehavior File="UserSettings"
