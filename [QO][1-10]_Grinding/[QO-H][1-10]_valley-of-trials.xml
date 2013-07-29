@@ -735,7 +735,7 @@
 									LogColor="Lime" />
 							
 					<!-- Go to elementals -->
-					<CustomBehavior File="NoCombatMoveTo" X="1237.555" Y="-4196.477" Z="25.02902" />
+					<CustomBehavior File="NoCombatMoveTo" X="1240.841" Y="-4253.781" Z="23.98017" />
 
 					<!-- If we have party members, wait for them to catch up to us -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
