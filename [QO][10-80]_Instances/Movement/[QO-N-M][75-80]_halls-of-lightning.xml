@@ -219,13 +219,13 @@
 				<CustomBehavior File="FlyTo" X="9067.207" Y="-1353.584" Z="1197.683" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
+								CheckRange="10" />
 									
 				<CustomBehavior File="WaitTimer"
 								WaitTime="10000" />
 								
 				<!-- Fly down -->
-				<CustomBehavior File="FlyTo" X="9140.729" Y="-1356.245" Z="1140.377" />
+				<CustomBehavior File="FlyTo" X="9175.68" Y="-1378.8" Z="1103.57" />
 				<CustomBehavior File="ForcedDismount" />
 				
 				<RunTo X="9175.68" Y="-1378.8" Z="1103.57" />
@@ -335,13 +335,13 @@
 				<CustomBehavior File="FlyTo" X="9067.207" Y="-1353.584" Z="1197.683" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
-								CheckRange="5" />
+								CheckRange="10" />
 									
 				<CustomBehavior File="WaitTimer"
 								WaitTime="10000" />
 								
 				<!-- Fly down -->
-				<CustomBehavior File="FlyTo" X="9140.729" Y="-1356.245" Z="1140.377" />
+				<CustomBehavior File="FlyTo" X="9175.68" Y="-1378.8" Z="1103.57" />
 				<CustomBehavior File="ForcedDismount" />
 				
 				<RunTo X="9175.68" Y="-1378.8" Z="1103.57" />
