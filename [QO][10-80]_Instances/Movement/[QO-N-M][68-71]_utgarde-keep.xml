@@ -681,9 +681,6 @@
 											DoTrain="False" />	
 						</If>						
 						
-						<!-- Elevator -->
-						<RunTo X="1762.213" Y="-4407.147" Z="42.50801" />
-						
 						<!-- Have level -->
 						<If Condition="Me.Level &gt;= 68" >	
 							<!-- Buy cold weather flying -->
@@ -693,6 +690,9 @@
 									<CustomBehavior File="Message" 
 													Text="Moving to the riding trainer." 
 													LogColor="Orange" />
+															
+									<!-- Elevator -->
+									<RunTo X="1762.213" Y="-4407.147" Z="42.50801" />						
 															
 									<!-- move to riding trainer -->
 									<RunTo X="1802.374" Y="-4368.528" Z="102.6684" />
