@@ -260,19 +260,17 @@
 									X="1573.266" Y="-4439.158" Z="16.0564" />
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="1000" />
-									
-					
 				</If> <!-- Hearth -->
 				
 				<CustomBehavior File="Message" 
-									Text="Moving to Razor Hill." 
-									LogColor="Lime" />
+								Text="Moving to Sen'jin Village." 
+								LogColor="Lime" />
 									
 				<!-- Move to orgrimmar fp -->
 				<RunTo X="1798.27" Y="-4363.27" Z="102.5216" />
 				
-				<!-- razor hill fp -->
-				<RunTo X="269.917" Y="-4766.76" Z="11.4946" />
+				<!-- Sen'jin fp -->
+				<RunTo X="-780.267" Y="-4890.28" Z="19.6215" />
 			</If> <!-- Orgrimmar -->
 
 			<CustomBehavior File="UserSettings"
@@ -289,7 +287,7 @@
 					<CustomBehavior File="Message" 
 									Text="Moving to boars." 
 									LogColor="Lime" />	
-						
+									
 					<!-- Go to boars -->
 					<CustomBehavior File="NoCombatMoveTo" X="-496.0468" Y="-4304.235" Z="41.63905" />
 					
