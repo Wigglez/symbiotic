@@ -293,6 +293,13 @@
 					<!-- Go to boars -->
 					<CustomBehavior File="NoCombatMoveTo" X="-496.0468" Y="-4304.235" Z="41.63905" />
 					
+					<!-- If we have party members, wait for them to catch up to us -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />		
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+					
 					<SetGrindArea>
 						<GrindArea>
 							<Factions>
@@ -321,6 +328,13 @@
 							
 					<!-- Go to imps -->
 					<CustomBehavior File="NoCombatMoveTo" X="-332.7863" Y="-4300.681" Z="56.38295" />
+					
+					<!-- If we have party members, wait for them to catch up to us -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />		
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 					
 					<SetGrindArea>
 						<GrindArea>
@@ -681,6 +695,13 @@
 					<!-- Go to guards -->
 					<CustomBehavior File="NoCombatMoveTo" X="-250.4299" Y="-4918.466" Z="26.3126" />
 					
+					<!-- If we have party members, wait for them to catch up to us -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />		
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+					
 					<SetGrindArea>
 						<GrindArea>
 							<Factions>
@@ -718,6 +739,13 @@
 					<!-- Go to elementals -->
 					<CustomBehavior File="NoCombatMoveTo" X="1237.555" Y="-4196.477" Z="25.02902" />
 
+					<!-- If we have party members, wait for them to catch up to us -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />		
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
+					
 					<SetGrindArea>
 						<GrindArea>
 							<Factions>
