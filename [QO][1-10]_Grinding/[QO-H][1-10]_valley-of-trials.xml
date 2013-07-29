@@ -291,6 +291,10 @@
 					<!-- Go to boars -->
 					<CustomBehavior File="NoCombatMoveTo" X="-496.0468" Y="-4304.235" Z="41.63905" />
 					
+					<CustomBehavior File="Message" 
+									Text="Waiting for party members to meet us here."  
+									LogColor="Cyan" />
+					
 					<!-- If we have party members, wait for them to catch up to us -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />		
@@ -326,6 +330,10 @@
 							
 					<!-- Go to imps -->
 					<CustomBehavior File="NoCombatMoveTo" X="-332.7863" Y="-4300.681" Z="56.38295" />
+					
+					<CustomBehavior File="Message" 
+									Text="Waiting for party members to meet us here."  
+									LogColor="Cyan" />
 					
 					<!-- If we have party members, wait for them to catch up to us -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -693,6 +701,10 @@
 					<!-- Go to guards -->
 					<CustomBehavior File="NoCombatMoveTo" X="-250.4299" Y="-4918.466" Z="26.3126" />
 					
+					<CustomBehavior File="Message" 
+									Text="Waiting for party members to meet us here."  
+									LogColor="Cyan" />
+					
 					<!-- If we have party members, wait for them to catch up to us -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />		
@@ -737,6 +749,10 @@
 					<!-- Go to elementals -->
 					<CustomBehavior File="NoCombatMoveTo" X="1240.841" Y="-4253.781" Z="23.98017" />
 
+					<CustomBehavior File="Message" 
+									Text="Waiting for party members to meet us here."  
+									LogColor="Cyan" />
+					
 					<!-- If we have party members, wait for them to catch up to us -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />		
