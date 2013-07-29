@@ -203,24 +203,38 @@
 						<CustomBehavior File="FlyTo" X="1751.324" Y="-4230.846" Z="147.3718" />
 					</If> <!-- Cleft of Shadows -->
 					
-					<!-- Fly to zeppelin dock -->
-					<CustomBehavior File="FlyTo" X="1842.819" Y="-4392.633" Z="168.825" />
-					<CustomBehavior File="FlyTo" X="1842.819" Y="-4392.633" Z="135.2332" />
-					<CustomBehavior File="ForcedDismount" />
-		
-					<!-- Board zeppelin to Undercity -->
-					<RunTo X="1839.144" Y="-4390.119" Z="135.2312" />
-					
-					<CustomBehavior File="Message" 
-									Text="We are on the Orgrimmar to Undercity zeppelin dock." 
-									LogColor="Cyan" />
-					
-					<CustomBehavior File="Message" 
-									Text="The zeppelin to Undercity has issues. You are to put yourself onto the zeppelin and start this instance profile again when you arrive on the Undercity zeppelin dock." 
-									LogColor="Red" />
+					<!-- Fly to the zeppelin hover point -->
+					<CustomBehavior File="FlyTo"
+									X="1853.863" Y="-4404.338" Z="188.4067" />
 									
-					<CustomBehavior File="UserSettings" 
-									StopBot="true" />
+					<!-- Land on the deck -->
+					<CustomBehavior File="MyCTM"
+									X="1868.09" Y="-4417.422" Z="135.232" />				
+							
+					<!-- Forced dismount -->		
+					<CustomBehavior File="ForcedDismount" />						
+						
+					<!-- Orgrimmar to Grom'gol Base Camp -->
+					<CustomBehavior File="UseTransport" 
+						TransportId="175080" 
+						WaitAtX="1869.635" 
+						WaitAtY="-4419.227" 
+						WaitAtZ="135.2332"								
+						TransportStartX="1880.818" 
+						TransportStartY="-4435.269" 
+						TransportStartZ="152.8608"								
+						StandOnX="1883.553" 
+						StandOnY="-4419.312" 
+						StandOnZ="136.8681"
+						TransportEndX="-12464.34" 
+						TransportEndY="233.1597" 
+						TransportEndZ="49.53437"	
+						GetOffX="-12445.94" 
+						GetOffY="218.9818" 
+						GetOffZ="31.86087" />	
+						
+					<!-- Run to the western side of the deck -->
+					<RunTo X="-12424.07" Y="225.4187" Z="32.17282" />
 				</If> <!-- Horde -->
 			</If> <!-- Kalimdor -->
 			
@@ -667,6 +681,9 @@
 											DoTrain="False" />	
 						</If>						
 						
+						<!-- Elevator -->
+						<RunTo X="1762.213" Y="-4407.147" Z="42.50801" />
+						
 						<!-- Have level -->
 						<If Condition="Me.Level &gt;= 68" >	
 							<!-- Buy cold weather flying -->
@@ -706,19 +723,30 @@
 							
 						<!-- trained -->
 						<If Condition="HasSpell(54197)" >
-							<!-- Board zeppelin to Undercity -->
-							<RunTo X="1839.144" Y="-4390.119" Z="135.2312" />
-							
-							<CustomBehavior File="Message" 
-											Text="We are on the Orgrimmar to Undercity zeppelin dock." 
-											LogColor="Cyan" />
-							
-							<CustomBehavior File="Message" 
-											Text="The zeppelin to Undercity has issues. You are to put yourself onto the zeppelin and start this instance profile again when you arrive on the Undercity zeppelin dock." 
-											LogColor="Red" />
-											
-							<CustomBehavior File="UserSettings" 
-											StopBot="true" />
+							<!-- Run to the deck -->
+							<RunTo X="1868.09" Y="-4417.422" Z="135.232" />
+
+							<!-- Orgrimmar to Grom'gol Base Camp -->
+							<CustomBehavior File="UseTransport"
+								TransportId="175080"
+								WaitAtX="1869.635"
+								WaitAtY="-4419.227"
+								WaitAtZ="135.2332"
+								TransportStartX="1880.818"
+								TransportStartY="-4435.269"
+								TransportStartZ="152.8608"
+								StandOnX="1883.553"
+								StandOnY="-4419.312"
+								StandOnZ="136.8681"
+								TransportEndX="-12464.34"
+								TransportEndY="233.1597"
+								TransportEndZ="49.53437"
+								GetOffX="-12445.94"
+								GetOffY="218.9818"
+								GetOffZ="31.86087" />
+
+							<!-- Run to the western side of the deck -->
+							<RunTo X="-12424.07" Y="225.4187" Z="32.17282" />
 						</If> <!-- Trained riding -->
 					</If> <!-- Orgrimmar -->
 				</If> <!-- Horde -->

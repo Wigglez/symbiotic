@@ -679,6 +679,9 @@
 											DoTrain="False" />	
 						</If>				
 					
+						<!-- Elevator -->
+						<RunTo X="1762.213" Y="-4407.147" Z="42.50801" />
+						
 						<!-- If we are 40 -->
 						<If Condition="Me.Level &gt;= 40" >	
 							<!-- Buy mount training until we've reached our needed skill -->
@@ -689,8 +692,6 @@
 													Text="Moving to the riding trainer."
 													LogColor="Orange" />
 													
-									<RunTo X="1762.213" Y="-4407.147" Z="42.50801" />
-												
 									<!-- Moving to riding trainer -->
 									<RunTo X="1799.227" Y="-4360.222" Z="102.4608" />
 									
