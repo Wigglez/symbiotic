@@ -278,11 +278,11 @@
 										Text="We are Horde." 
 										LogColor="Cyan" />
 									
-						<!-- Bottom of zeppelin tower (Org/STV) -->
-						<RunTo X="2044.838" Y="284.2488" Z="56.00068" />
+						<CustomBehavior File="FlyTo" X="2075.285" Y="349.3864" Z="118.7071" />
 						
-						<!-- Bottom of zeppelin tower (Howling Fjord) -->
-						<RunTo X="2058.653" Y="311.7207" Z="54.22321" />
+						<CustomBehavior File="FlyTo" X="2061.812" Y="357.9389" Z="82.46954" />
+
+						<CustomBehavior File="ForcedDismount" />
 						
 						<!-- Top of zep tower (howling fjord) -->
 						<RunTo X="2062.118" Y="358.4322" Z="82.47268" />
@@ -305,6 +305,9 @@
 										GetOffX="1973.536"
 										GetOffY="-6099.92" 
 										GetOffZ="67.15816" />
+										
+						<!-- Run to the other side of the building off the zep -->
+						<RunTo  X="1959.064" Y="-6118.095" Z="27.84882" />
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 			</If> <!-- Eastern Kingdoms -->
@@ -501,6 +504,10 @@
 				
 				<!-- Fly outside of Utgarde Keep at rendezvous -->
 				<CustomBehavior File="FlyTo" X="1213.57" Y="-5184.801" Z="132.5065" />
+				
+				<CustomBehavior File="ForcedDismount" />
+				
+				<RunTo X="1213.57" Y="-5184.801" Z="132.5065" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
@@ -912,13 +919,6 @@
 											Text="Moving to Howling Fjord zeppelin."
 											LogColor="Lime" />
 											
-											
-							<!-- Bottom of zeppelin tower (Org/STV) -->
-							<RunTo X="2044.838" Y="284.2488" Z="56.00068" />
-							
-							<!-- Bottom of zeppelin tower (Howling Fjord) -->
-							<RunTo X="2058.653" Y="311.7207" Z="54.22321" />
-							
 							<!-- Top of zep tower (howling fjord) -->
 							<RunTo X="2062.118" Y="358.4322" Z="82.47268" />
 										
@@ -939,7 +939,10 @@
 											StandOnZ="82.48199" 
 											GetOffX="1973.536"
 											GetOffY="-6099.92" 
-											GetOffZ="67.15816" />					
+											GetOffZ="67.15816" />		
+
+							<!-- Run to the other side of the building off the zep -->
+							<RunTo  X="1959.064" Y="-6118.095" Z="27.84882" />
 						</If> <!-- Tirisfal Glades -->
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
@@ -951,15 +954,16 @@
 								Text="We are in Northrend." 
 								LogColor="Cyan" />
 						
-				<!-- Run to the other side of the building off the zep 
-				<RunTo X="1958.926" Y="-6119.656" Z="61.81112" /> -->
-
 				<CustomBehavior File="Message" 
 								Text="Flying to the rendezvous location." 
 								LogColor="Lime" />
 				
 				<!-- Fly outside of Utgarde Keep at rendezvous -->
 				<CustomBehavior File="FlyTo" X="1213.57" Y="-5184.801" Z="132.5065" />
+				
+				<CustomBehavior File="ForcedDismount" />
+				
+				<RunTo X="1213.57" Y="-5184.801" Z="132.5065" />
 
 				<CustomBehavior File="Misc\LoadProfileOn" 
 								CheckRange="5" />
