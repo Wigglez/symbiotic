@@ -80,7 +80,7 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- Utgarde Keep -->
-				<If Condition="Me.ZoneId == 206">
+				<If Condition="Me.MapId == 574">
 					<CustomBehavior File="Message" 
 									Text="Utgarde Keep detected. Running out."
 									LogColor="Fuchsia" />
@@ -137,7 +137,7 @@
 				</If> <!-- In box -->
 				
 				<!-- If we are inside and have checked our reset -->
-				<If Condition="Me.ZoneId == 206">
+				<If Condition="Me.MapId == 574">
 					<!-- Entrance -->
 					<RunTo X="157.878" Y="-84.7025" Z="12.55168" />
 					
@@ -297,7 +297,7 @@
 				</If> <!-- UK -->
 				
 				<!-- Utgarde Keep -->
-				<If Condition="Me.ZoneId == 206">
+				<If Condition="Me.MapId == 574">
 					<CustomBehavior File="Message" 
 									Text="Utgarde Keep detected. Running out to reset."
 									LogColor="Fuchsia" />
@@ -396,7 +396,7 @@
 			<!-- Infinite loop -->
 			<While Condition="true" >	
 				<!-- Utgarde Keep -->
-				<If Condition="Me.ZoneId == 206">
+				<If Condition="Me.MapId == 574">
 					<CustomBehavior File="Message" 
 									Text="Utgarde Keep detected. Running out."
 									LogColor="Fuchsia" />
@@ -453,7 +453,7 @@
 				</If> <!-- In box -->
 				
 				<!-- If we are inside and have checked our reset -->
-				<If Condition="Me.ZoneId == 206">
+				<If Condition="Me.MapId == 574">
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
@@ -497,7 +497,7 @@
 				</If> <!-- UK -->
 				
 				<!-- Utgarde Keep -->
-				<If Condition="Me.ZoneId == 206">
+				<If Condition="Me.MapId == 574">
 					<CustomBehavior File="Message" 
 									Text="Utgarde Keep detected. Running out."
 									LogColor="Fuchsia" />
