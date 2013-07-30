@@ -212,11 +212,14 @@
 									Text="Flying to the rendezvous location." 
 									LogColor="Lime" />
 											
-					<CustomBehavior File="FlyTo" 
-									X="-4120.178" Y="-1999.181" Z="91.66761" />
+					<CustomBehavior File="FlyTo" X="-4120.178" Y="-1999.181" Z="91.66761" />
+									
+					<CustomBehavior File="ForcedDismount" />
+					
+					<RunTo X="-4120.178" Y="-1999.181" Z="91.66761" />
 					
 					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
+									CheckRange="5" />
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
@@ -259,6 +262,18 @@
 					<RunTo X="-4475.263" Y="-1696" Z="82.32021" />
 					<RunTo X="-4473.421" Y="-1688.759" Z="81.30132" />
 					<RunTo X="-4468.679" Y="-1673.395" Z="81.81928" />
+					
+					<!-- Tag the rafs -->
+					<CustomBehavior File="FlyTo" X="-4120.178" Y="-1999.181" Z="91.66761" />
+					
+					<CustomBehavior File="ForcedDismount" />
+					
+					<RunTo X="-4120.178" Y="-1999.181" Z="91.66761" />
+					
+					<!-- fly back to where we left off -->
+					<CustomBehavior File="FlyTo" X="-4468.679" Y="-1673.395" Z="81.81928" />
+					
+					<CustomBehavior File="ForcedDismount" />
 					
 					<!-- Moving to the instance box -->
 					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
@@ -765,52 +780,6 @@
 													Text="Moving to Desolation Hold."
 													LogColor="Lime" />
 												
-									<!-- Runlikehell to desolation hold 
-									<CustomBehavior File="RunLikeHell" 
-													NumOfTimes="1" 
-													AllowCombat="false">
-										<Hotspot X="-846.6653" Y="-1546.151" Z="140.3311" />
-										<Hotspot X="-896.9531" Y="-1598.085" Z="91.71769" />
-										<Hotspot X="-869.7988" Y="-1671.154" Z="81.23268" />
-										<Hotspot X="-880.6182" Y="-1748.222" Z="84.31326" />
-										<Hotspot X="-926.3045" Y="-1778.713" Z="85.96878" />
-										<Hotspot X="-1017.297" Y="-1791.701" Z="82.12331" />
-										<Hotspot X="-1119.711" Y="-1825.682" Z="78.76051" />
-										<Hotspot X="-1206.737" Y="-1832.337" Z="81.74682" />
-										<Hotspot X="-1274.033" Y="-1905.808" Z="77.26405" />
-										<Hotspot X="-1334.425" Y="-1985.688" Z="79.20429" />
-										<Hotspot X="-1403.174" Y="-2013.388" Z="79.4622" />
-										<Hotspot X="-1499.383" Y="-2085.054" Z="85.31062" />
-										<Hotspot X="-1521.668" Y="-2139.468" Z="88.78976" /> -->
-										
-										<!-- Overgrowth graveyard 
-										<Hotspot X="-1568.421" Y="-2168.616" Z="90.85735" />
-										<Hotspot X="-1609.582" Y="-2201.561" Z="91.99497" />
-										<Hotspot X="-1586.721" Y="-2255.016" Z="96.93446" />
-										<Hotspot X="-1587.763" Y="-2310.901" Z="96.55188" />
-										<Hotspot X="-1658.156" Y="-2327.435" Z="93.6016" />
-										<Hotspot X="-1691.375" Y="-2358.844" Z="91.33656" />
-										<Hotspot X="-1739.581" Y="-2353.603" Z="92.22349" />
-										<Hotspot X="-1799.316" Y="-2412.272" Z="92.72615" />
-										<Hotspot X="-1852.542" Y="-2409.487" Z="95.45154" />
-										<Hotspot X="-1905.258" Y="-2379.059" Z="96.78234" />
-										<Hotspot X="-1985.887" Y="-2305.903" Z="94.18427" />
-										<Hotspot X="-2096.629" Y="-2226.227" Z="95.78815" />
-										<Hotspot X="-2289.82" Y="-2183.993" Z="95.81048" />
-										<Hotspot X="-2445.037" Y="-2153.769" Z="95.78551" />
-										<Hotspot X="-2613.845" Y="-2178.521" Z="95.78332" />
-										<Hotspot X="-2736.457" Y="-2176.928" Z="96.10219" />
-										<Hotspot X="-2819.231" Y="-2068.073" Z="93.78932" />
-										<Hotspot X="-2973.927" Y="-2022.875" Z="95.69009" />
-										<Hotspot X="-3065.574" Y="-1984.784" Z="96.84196" />
-										<Hotspot X="-3166.888" Y="-1901.199" Z="102.2642" />
-										<Hotspot X="-3192.564" Y="-1861.503" Z="94.93256" />
-										<Hotspot X="-3214.907" Y="-1769.927" Z="92.30494" />
-										<Hotspot X="-3251.308" Y="-1752.039" Z="91.81739" />
-										<Hotspot X="-3302.897" Y="-1767.592" Z="109.542" />
-										<Hotspot X="-3314.967" Y="-1714.101" Z="120.3568" />
-									</CustomBehavior> -->
-									
 									<CustomBehavior File="NoCombatMoveTo" X="-3314.967" Y="-1714.101" Z="120.3568" />
 									
 									<!-- Pick up the fp -->
@@ -839,21 +808,6 @@
 													Text="Moving to the rendezvous point."
 													LogColor="Lime" />
 								
-									<!-- Runlikehell to the rendezvous
-									<CustomBehavior File="RunLikeHell" 
-													NumOfTimes="1" 
-													AllowCombat="false">
-										<Hotspot X="-3407.712" Y="-1887.552" Z="95.4744" />
-										<Hotspot X="-3485.411" Y="-1902.714" Z="95.75129" />
-										<Hotspot X="-3535.718" Y="-1952.355" Z="92.95523" />
-										<Hotspot X="-3564.011" Y="-2012.729" Z="92.44183" />
-										<Hotspot X="-3720.309" Y="-2033.237" Z="91.66701" />
-										<Hotspot X="-3765.667" Y="-2054.45" Z="91.66701" />
-										<Hotspot X="-3833.667" Y="-2048.382" Z="91.66864" />
-										<Hotspot X="-4072.45" Y="-2051.2" Z="91.66689" />
-										<Hotspot X="-4120.38" Y="-1999.253" Z="91.66689" />
-									</CustomBehavior> -->
-									
 									<CustomBehavior File="NoCombatMoveTo" X="-4120.38" Y="-1999.253" Z="91.66689" />
 								</If> <!-- Below Desolation Hold -->
 							</If> <!-- Not in box -->
@@ -872,30 +826,21 @@
 											
 					<!-- Wait timer to allow the booster to clear a path to RFK -->
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="140000" />
+									WaitTime="20000" />
+									
+					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 									
 					<CustomBehavior File="Message" 
 									Text="Moving to Razorfen Kraul."
 									LogColor="Lime" />
-								
-					<!-- Run to RFK -->			
-					<RunTo X="-4178.496" Y="-1925.295" Z="92.06425" />
-					<RunTo X="-4213.072" Y="-1903.469" Z="91.62788" />
-					<RunTo X="-4251.952" Y="-1892.341" Z="91.9197" />
-					<RunTo X="-4291.976" Y="-1885.601" Z="91.60086" />
-					<RunTo X="-4332.393" Y="-1887.926" Z="90.64131" />
-					<RunTo X="-4373.323" Y="-1885.988" Z="88.06911" />
-					<RunTo X="-4413.368" Y="-1879.237" Z="85.94349" />
-					<RunTo X="-4452.659" Y="-1869.67" Z="85.87335" />
-					<RunTo X="-4477.539" Y="-1837.625" Z="86.05878" />
-					<RunTo X="-4478.687" Y="-1797.054" Z="86.13054" />
-					<RunTo X="-4483.206" Y="-1756.551" Z="86.10867" />
-					<RunTo X="-4478.805" Y="-1716.675" Z="86.29526" />
-					<RunTo X="-4470.549" Y="-1676.721" Z="81.741" />
-					<RunTo X="-4469.222" Y="-1674.093" Z="81.84492" />
-					
+									
 					<!-- Moving to the instance box -->
-					<RunTo X="-4462" Y="-1663.06" Z="81.8912" />
+					<CustomBehavior File="NoCombatMoveTo" X="-4462" Y="-1663.06" Z="81.8912" />
+					
+					<CustomBehavior File="ForcedDismount" />
 					
 					<!-- Inside the instance box, load the profile -->
 					<If Condition="Me.X &gt; -4500 &amp;&amp; Me.X &lt; -4440 &amp;&amp; Me.Y &lt; -1650 &amp;&amp; Me.Y &gt; -1700" >
