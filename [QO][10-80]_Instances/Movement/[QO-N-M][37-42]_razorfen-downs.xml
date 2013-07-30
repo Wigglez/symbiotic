@@ -117,16 +117,14 @@
 										LogColor="Lime" />
 										
 						<!-- Trigger rafs -->
-						<CustomBehavior File="FlyTo" 
-										X="-4473.001" Y="-1690.047" Z="81.50154" />
-										
-						<CustomBehavior File="Misc\LoadProfileOn" 
-										CheckRange="1" />
+						<CustomBehavior File="FlyTo" X="-4473.001" Y="-1690.047" Z="81.50154" />
 										
 						<CustomBehavior File="ForcedDismount" />
 						
+						<RunTo X="-4473.001" Y="-1690.047" Z="81.50154" />
+						
 						<CustomBehavior File="WaitTimer" 
-										WaitTime="2000" />
+										WaitTime="5000" />
 					</If>
 					
 					<!-- If our hearthstone is set here, use it -->
@@ -251,16 +249,14 @@
 									Text="Flying to the rendezvous location." 
 									LogColor="Lime" />
 											
-					<CustomBehavior File="FlyTo" 
-									X="-4442.822" Y="-1982.253" Z="107.0457" />
-					
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
+					<CustomBehavior File="FlyTo" X="-4442.853" Y="-1986.486" Z="105.6165" />
 					
 					<CustomBehavior File="ForcedDismount" />
 					
+					<RunTo X="-4442.853" Y="-1986.486" Z="105.6165" />
+					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="2000" />
+									WaitTime="5000" />
 					
 					<CustomBehavior File="UserSettings" 
 									UseMount="False" />	
@@ -334,22 +330,20 @@
 									UseMount="True" />	
 					
 					<!-- Trigger RAFs at rendezvous -->
-					<CustomBehavior File="FlyTo" 
-									X="-4442.853" Y="-1986.486" Z="105.6165" />
+					<CustomBehavior File="FlyTo" X="-4442.853" Y="-1986.486" Z="105.6165" />
 					
-					<CustomBehavior File="Misc\LoadProfileOn" 
-									CheckRange="1" />
-									
+					<CustomBehavior File="ForcedDismount" />
+					
+					<RunTo X="-4442.822" Y="-1982.253" Z="107.0457" />
+					
 					<CustomBehavior File="WaitTimer" 
-									WaitTime="2000" />
+									WaitTime="5000" />
 					
 					<!-- Fly above RFD -->
-					<CustomBehavior File="FlyTo" 
-									X="-4639.8" Y="-2452.013" Z="128.0884" />
+					<CustomBehavior File="FlyTo" X="-4639.8" Y="-2452.013" Z="128.0884" />
 									
 					<!-- Fly to the ground -->
-					<CustomBehavior File="FlyTo" 
-									X="-4644.762" Y="-2497.573" Z="82.52825" />
+					<CustomBehavior File="FlyTo" X="-4644.762" Y="-2497.573" Z="82.52825" />
 								
 					<CustomBehavior File="ForcedDismount" />
 									
@@ -469,30 +463,6 @@
 					<CustomBehavior File="ForcedMount"
 									MountType="Ground" />
 							
-					<!-- runlikehell to the rendezvous 
-					<CustomBehavior File="RunLikeHell" 
-									UseCTM="false" 
-									NumOfTimes="1" 
-									AllowCombat="false">
-						<Hotspot X="-4480.512" Y="-1716.913" Z="86.31829" />
-						<Hotspot X="-4483.787" Y="-1760.208" Z="86.10979" />
-						<Hotspot X="-4476.93" Y="-1811.237" Z="86.42976" />
-						<Hotspot X="-4477.361" Y="-1854.272" Z="86.2253" />
-						<Hotspot X="-4462.123" Y="-1868.262" Z="85.99934" />
-						<Hotspot X="-4428.218" Y="-1875.081" Z="86.07804" />
-						<Hotspot X="-4400.749" Y="-1886.37" Z="86.4381" />
-						<Hotspot X="-4384" Y="-1900.651" Z="86.69883" />
-						<Hotspot X="-4390.081" Y="-1927.972" Z="86.3273" />
-						<Hotspot X="-4408.464" Y="-1920.733" Z="88.13195" />
-						<Hotspot X="-4431.479" Y="-1919.449" Z="107.1228" />
-						<Hotspot X="-4438.96" Y="-1922.365" Z="111.3707" />
-						<Hotspot X="-4470.064" Y="-1943.868" Z="118.3732" />
-						<Hotspot X="-4467.201" Y="-1958.038" Z="110.5741" />
-						<Hotspot X="-4459.414" Y="-1968.857" Z="116.8864" />
-						<Hotspot X="-4447.057" Y="-1974.393" Z="107.0061" />
-						<Hotspot X="-4442.853" Y="-1986.486" Z="105.6165" />
-					</CustomBehavior>	-->
-					
 					<CustomBehavior File="NoCombatMoveTo" X="-4442.853" Y="-1986.486" Z="105.6165" />
 				</If>
 					
@@ -502,7 +472,7 @@
 									Text="We are in Southern Barrens." 
 									LogColor="Cyan" />
 					
-					<RunTo X="-4442.853" Y="-1986.486" Z="105.6165" />
+					<CustomBehavior File="NoCombatMoveTo" X="-4442.853" Y="-1986.486" Z="105.6165" />
 					
 					<!-- Begin the escort once all party members are within range -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -519,6 +489,9 @@
 					<!-- Get tagged by booster -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
 									CheckRange="5" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />
 					
 					<!-- ForcedMount, and fly above the village -->
 					<CustomBehavior File="ForcedMount"
@@ -531,7 +504,9 @@
 					<CustomBehavior File="MyCTM" X="-4499.696" Y="-2023.434" Z="83.55048" />
 					
 					<!-- Move to the instance -->
-					<CustomBehavior File="RunLikeHell" NumOfTimes="1" AllowCombat="false">	
+					<CustomBehavior File="RunLikeHell" 
+									NumOfTimes="1" 
+									AllowCombat="false">	
 						<Hotspot X="-4504.419" Y="-2015.987" Z="84.48018" />
 						<Hotspot X="-4536.773" Y="-2083.285" Z="85.65292" />
 						<Hotspot X="-4582.11" Y="-2107.229" Z="89.01717" />
