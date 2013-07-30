@@ -238,8 +238,7 @@
 					</If> <!-- Repairing -->
 					
 					<!-- fly to hover point -->
-					<CustomBehavior File="FlyTo" 
-									X="-4561.028" Y="-3169.96" Z="62.55063" />
+					<CustomBehavior File="FlyTo" X="-4561.028" Y="-3169.96" Z="62.55063" />
 									
 					<CustomBehavior File="Message" 
 									Text="We are in Mudsprocket." 
@@ -334,7 +333,7 @@
 					
 					<CustomBehavior File="ForcedDismount" />
 					
-					<RunTo X="-4442.822" Y="-1982.253" Z="107.0457" />
+					<RunTo X="-4442.853" Y="-1986.486" Z="105.6165" />
 					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
