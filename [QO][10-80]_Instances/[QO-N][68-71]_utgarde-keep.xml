@@ -477,6 +477,18 @@
 					<CustomBehavior File="WaitTimer"
 									WaitTime="40000" />
 					
+					<!-- Forces us to sit still until Dalronn dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="24201"
+									EventX="182.4236" EventY="-76.84211" EventZ="15.31155"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="182.4236" Y="-76.84211" Z="15.31155" />
+						</Safespots>
+					</CustomBehavior>
+					
 					<!-- Run to quest givers, wait to be tagged -->
 					<RunTo X="182.4236" Y="-76.84211" Z="15.31155" />
 					
