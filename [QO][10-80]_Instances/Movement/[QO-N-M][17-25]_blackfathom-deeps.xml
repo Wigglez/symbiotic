@@ -372,18 +372,20 @@
 						</If> <!-- repaired -->
 					</If> <!-- Repairing -->
 					
-					
-					<CustomBehavior File="Message" 
-									Text="Flying to the rendezvous location." 
-									LogColor="Lime" />
+					<!-- Not at rendezvous -->
+					<If Condition="Me.X != 3817 &amp;&amp; Me.Y != 513">
+						<CustomBehavior File="Message" 
+										Text="Flying to the rendezvous location." 
+										LogColor="Lime" />
 											
-					<!-- Fly to the rendezvous location -->
-					<CustomBehavior File="FlyTo" 
-									X="3868.379" Y="542.9993" Z="6.771335" />	
-									
-					<CustomBehavior File="ForcedDismount" />
-									
-					<RunTo X="3868.379" Y="542.9993" Z="6.771335" />	
+						<!-- Fly to the rendezvous location -->
+						<CustomBehavior File="FlyTo" 
+										X="3817.794" Y="513.2227" Z="30.93373" />
+										
+						<CustomBehavior File="ForcedDismount" />
+										
+						<RunTo X="3817.794" Y="513.2227" Z="30.93373" />
+					</If> <!-- Not in rendezvous box -->
 					
 					<!-- Begin the escort once all party members are within range -->
 					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
@@ -392,9 +394,9 @@
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
 											
-					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
+					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs 
 					<CustomBehavior File="FlyTo" 
-									X="3907.067" Y="562.1359" Z="30.94373" />
+									X="3907.067" Y="562.1359" Z="30.94373" /> -->
 					
 					<CustomBehavior File="FlyTo" 
 									X="3930.243" Y="564.4576" Z="8.414933" />
@@ -441,8 +443,12 @@
 											
 					<!-- Flying to tag rafs -->
 					<CustomBehavior File="FlyTo" 
-									X="3870.062" Y="539.0946" Z="6.604815" />
+									X="3817.794" Y="513.2227" Z="30.93373" />
 									
+					<CustomBehavior File="ForcedDismount" />
+									
+					<RunTo X="3817.794" Y="513.2227" Z="30.93373" />
+					
 					<CustomBehavior File="WaitTimer" 
 									WaitTime="5000" />
 
@@ -613,7 +619,7 @@
 			<!-- Inside the instance box, load the BFD profile -->
 			<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 				<CustomBehavior File="Message" 
-								Text="We are in the box." 
+								Text="We are in the Blackfathom Deeps box." 
 								LogColor="Cyan" />
 				
 				<CustomBehavior File="LoadProfile" 
@@ -1172,7 +1178,7 @@
 							</If> <!-- Hellscream's Watch -->
 							
 							<!-- North of the gates entering ashenvale and west of the atranaar and hellscream's reach path convergence -->
-							<If Condition="Me.Y &gt; -15" >
+							<If Condition="Me.Y &gt; -15 &amp;&amp; Me.X &lt; 3700" >
 								<CustomBehavior File="NoCombatMoveTo" X="2818.664" Y="28.33277" Z="95.37694" />
 								
 								<CustomBehavior File="Message" 
@@ -1205,7 +1211,14 @@
 					</ElseIf> <!-- Horde -->
 				</If> <!-- Alliance -->
 				
-				<CustomBehavior File="NoCombatMoveTo" X="3868.379" Y="542.9993" Z="6.771335" />	
+				<!-- Not at rendezvous -->
+				<If Condition="Me.X != 3817 &amp;&amp; Me.Y != 513">
+					<CustomBehavior File="Message" 
+									Text="Moving to the rendezvous point."
+									LogColor="Lime" />
+				
+					<CustomBehavior File="NoCombatMoveTo" X="3817.794" Y="513.2227" Z="30.93373" />
+				</If> <!-- Not at rendezvous -->
 				
 				<!-- Begin the randezvous once all party members are within range -->
 				<CustomBehavior File="Misc\LoadProfileOn" 
@@ -1328,11 +1341,11 @@
 								
 				<!-- Run to the instance box -->				
 				<CustomBehavior File="NoCombatMoveTo" X="4248.14" Y="745.047" Z="-24.4963" />
-
+				
 				<!-- Inside the instance box, load the Blackfathom Deeps profile -->
 				<If Condition="Me.X &gt; 4230 &amp;&amp; Me.X &lt; 4270 &amp;&amp; Me.Y &lt; 760 &amp;&amp; Me.Y &gt; 720" >
 					<CustomBehavior File="Message" 
-									Text="We are in the box."
+									Text="We are in the Blackfathom Deeps box." 
 									LogColor="Cyan" />
 					
 					<CustomBehavior File="LoadProfile" 
