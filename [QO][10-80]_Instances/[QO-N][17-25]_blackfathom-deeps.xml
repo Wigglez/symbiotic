@@ -334,6 +334,20 @@
 					<RunTo X="-327.5833" Y="122.4001" Z="-49.16407" />
 					<RunTo X="-346.868" Y="128.8755" Z="-50.96721" />
 					<RunTo X="-365.4253" Y="136.56" Z="-51.97074" />
+					
+					<!-- Kill Ghamoo-Ra -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="4887"
+									EventX="-445.5298" EventY="212.8439" EventZ="-52.81867"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-445.5298" Y="212.8439" Z="-52.81867" />	
+						</Safespots>
+					</CustomBehavior>				
+						
+					<RunTo X="-382.5011" Y="147.2178" Z="-55.66775" />
 						
 					<!-- Pull the instance -->
 					<CustomBehavior File="RunLikeHell" 
@@ -621,10 +635,15 @@
 						<Hotspot X="-412.8685" Y="193.4555" Z="-53.78661" />	
 					</CustomBehavior>
 					
-					<!-- Profile message - tag rafs at sandy beach -->
+					<!-- Profile message - tag rafs  -->
 					<CustomBehavior File="Message" 
-									Text="Tagging the RAFs at the sandy beach."
-									LogColor="Fuchsia" />					
+									Text="Tagging the RAFs."
+									LogColor="Fuchsia" />			
+
+					<RunTo X="-344.8963" Y="130.5512" Z="-50.45934" />
+					
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />	
 																			
 					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
@@ -797,14 +816,14 @@
 				<!-- If we are inside Blackfathom Deeps, run out to reset -->
 				<If Condition="Me.MapId == 48">
 					<CustomBehavior File="Message" 
-									Text="Blackfathom Deeps detected. Running out."
+									Text="Blackfathom Deeps detected. Running out." 
 									LogColor="Fuchsia" />
 						
 					<If Condition="Me.X &lt; -270 &amp;&amp; Me.Y &gt;= 75" >
 						<CustomBehavior File="Message" 
-										Text="We are above the jumping platforms. Running down." 
+										Text="We are above the jumping platforms."
 										LogColor="Fuchsia" />
-							
+										
 						<!-- Run to the edge of the platform -->
 						<RunTo X="-288.5186" Y="82.56316" Z="-52.22119" />
 						
@@ -816,12 +835,12 @@
 					<!-- Run to the instance entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
-					<!-- Go through the portal -->
-					<CustomBehavior File="MyCTM" X="-149.7285" Y="113.4777" Z="-40.73384" /> 
+					<!-- Go through the portal -->									
+					<CustomBehavior File="Misc\InInstance" X="-149.7285" Y="125.4777" Z="-40.73384" />				
 					
 					<!-- Make sure we run to the right spot outside the portal -->
 					<RunTo X="4248.14" Y="745.047" Z="-24.4963" />
-				</If> <!-- Inside BFD -->
+				</If> <!-- BFD -->
 				
 				<!-- If we are not in the box, load the movement profile -->
 				<If Condition="Me.X &lt; 4230 || Me.X &gt; 4270 || Me.Y &gt; 760 || Me.Y &lt; 720" >
@@ -901,16 +920,44 @@
 					<!-- move to the sandy beach -->
 					<RunTo X="-260.1388" Y="58.08689" Z="-55.31565" />			
 					
+					<!-- Trigger after Ghamoo-Ra -->
 					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
 									EventCompleteWhen="SpecificMobsDead" EventCompleteDeadMobId="4887"
-									EventX="-260.1388" EventY="58.08689" EventZ="9.614821"
+									EventX="-260.1388" EventY="58.08689" EventZ="-55.31565"
 									MoveOutOfGroundEffectAuraId1="111111"
 									MoveAwayFromMobCastingSpellId1="111111"
 									MoveAwayFromMobWithAuraId1="111111">
 						<Safespots>
-							<Hotspot X="-260.1388" Y="58.08689" Z="9.614821" />
+							<Hotspot X="-260.1388" Y="58.08689" Z="-55.31565" />		
 						</Safespots>
-					</CustomBehavior>				
+					</CustomBehavior>		
+					
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true"
+									NumOfTimes="1" 
+									AllowCombat="false">			
+									
+						<!-- In water -->
+						<Hotspot X="-299.6261" Y="65.33854" Z="-59.68586" />
+						<Hotspot X="-317.8293" Y="64.4877" Z="-59.73279" />
+						<Hotspot X="-337.0407" Y="68.17602" Z="-59.77076" />
+						
+						<!-- on land -->
+						<Hotspot X="-359.8245" Y="72.11115" Z="-57.74928" />
+						<Hotspot X="-356.6548" Y="73.96896" Z="-58.16689" />
+						<Hotspot X="-354.3861" Y="85.91518" Z="-50.8546" />
+						<Hotspot X="-350.4613" Y="90.59668" Z="-46.50981" />
+						<Hotspot X="-351.8185" Y="96.67211" Z="-42.88773" />
+						<Hotspot X="-353.7418" Y="101.9532" Z="-45.69148" />
+						<Hotspot X="-343.1473" Y="109.0681" Z="-50.93742" />	
+						
+					</CustomBehavior>
+					
+					<RunTo X="-344.8963" Y="130.5512" Z="-50.45934" />
+					
+					<!-- Continue when tagged  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
 									
 					<!-- If we are high enough to go to the next instance, do so -->
 					<CustomBehavior File="Misc\LoadProfileOn" 
@@ -918,7 +965,7 @@
 									ProfileName="[QO-N][25-37]_razorfen-kraul.xml"  />
 												
 					<CustomBehavior File="WaitTimer"
-									WaitTime="120000" />			
+									WaitTime="60000" />			
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
 				</If> <!-- Inside BFD -->	
