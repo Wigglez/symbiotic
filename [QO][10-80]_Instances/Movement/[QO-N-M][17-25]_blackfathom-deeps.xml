@@ -381,14 +381,16 @@
 					<CustomBehavior File="FlyTo" 
 									X="3870.062" Y="539.0946" Z="6.604815" />
 									
-					<RunTo X="3868.379" Y="542.9993" Z="6.771335" />
+					<CustomBehavior File="ForcedDismount" />
+									
+					<RunTo X="3870.062" Y="539.0946" Z="6.604815" />
 					
 					<!-- Begin the escort once all party members are within range -->
 					<CustomBehavior File="Misc\LoadProfileOn" CheckRange="5" /> 
 
 					<!-- Wait 5 seconds -->
 					<CustomBehavior File="WaitTimer" 
-											WaitTime="5000" />
+									WaitTime="5000" />
 											
 					<!-- Landing and clearing a path to the the water pool at the bottom of the stairs -->
 					<CustomBehavior File="FlyTo" 
