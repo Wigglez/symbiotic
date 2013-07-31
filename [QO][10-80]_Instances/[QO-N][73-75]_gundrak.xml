@@ -511,6 +511,9 @@
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 				
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />
+				
 					<!-- Entrance -->
 					<RunTo X="1880.74" Y="853.76" Z="176.696" />
 				
@@ -568,22 +571,9 @@
 									ProfileName="[QO-N][75-80]_halls-of-lightning.xml"  />
 								
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-				</If> <!-- GD -->
-				
-				<!-- Gundrak -->
-				<If Condition="Me.ZoneId == 4416">
-					<CustomBehavior File="Message" 
-									Text="Gundrak detected. Running out."
-									LogColor="Fuchsia" />
-						
-					<!-- Make our way to the exit -->
-					<RunTo X="1887.432" Y="839.571" Z="176.6754" />
-
-					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="1900.536" Y="815.8542" Z="176.637" />
 					
-					<!-- Make sure we run to the right spot outside the potral -->
-					<RunTo X="6717.32" Y="-4645.55" Z="450.017" />
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- GD -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

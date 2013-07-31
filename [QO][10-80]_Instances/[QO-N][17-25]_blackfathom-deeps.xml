@@ -888,6 +888,9 @@
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 					
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />
+					
 					<!-- Entrance -->
 					<RunTo X="-150.234" Y="106.594" Z="-39.779" />
 					
@@ -968,6 +971,9 @@
 									WaitTime="60000" />			
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
+					
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- Inside BFD -->	
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

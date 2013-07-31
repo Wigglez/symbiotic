@@ -752,6 +752,9 @@
 					<CustomBehavior File="Message" 
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
+									
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />				
 				
 					<!-- Entrance -->
 					<RunTo X="456.929" Y="34.0923" Z="-69.56172" />
@@ -815,21 +818,9 @@
 					<RunTo X="567.4936" Y="-10.46224" Z="-70.13719" />
 					<RunTo X="541.0748" Y="5.988479" Z="-69.68866" />
 					<RunTo X="496.5298" Y="14.01889" Z="-70.13716" />	
-				</If> <!-- BRD -->
-				
-				<!-- If we are inside Blackrock Depths -->
-				<If Condition="Me.ZoneId == 1584">
-					<CustomBehavior File="Message" 
-									Text="Blackrock Depths detected. Running out."
-									LogColor="Fuchsia" />
 					
-					<RunTo X="460.6402" Y="15.41037" Z="-71.11736" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="456.6543" Y="46.70397" Z="-69.00373" />	
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-7178.41" Y="-922.152" Z="166.092" />	
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- BRD -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

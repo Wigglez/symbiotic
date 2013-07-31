@@ -506,22 +506,9 @@
 									WaitTime="30000" />
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-				</If> <!-- UK -->
-				
-				<!-- Utgarde Keep -->
-				<If Condition="Me.MapId == 574">
-					<CustomBehavior File="Message" 
-									Text="Utgarde Keep detected. Running out."
-									LogColor="Fuchsia" />
-				
-					<!-- Make our way to the exit -->
-					<RunTo X="155.1128" Y="-86.14938" Z="12.55292" />
-
-					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="125.1626" Y="-87.67013" Z="12.55168" />
 					
-					<!-- Make sure we run to the right spot outside the potral -->
-					<Runto X="1221.63" Y="-4864.75" Z="41.2481" />
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- UK -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

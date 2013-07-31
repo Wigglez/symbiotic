@@ -485,6 +485,9 @@
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 				
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />
+				
 					<!-- Entrance -->
 					<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
 				
@@ -541,45 +544,9 @@
 									WaitTime="30000" />
 								
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
-				</If> <!-- SH -->
-				
-				<!-- Sethekk Halls -->
-				<If Condition="Me.ZoneId == 3791">
-					<CustomBehavior File="Message" 
-									Text="Sethekk Halls detected. Running out."
-									LogColor="Fuchsia" />
-				
-					<!-- Floors -->
-					<If Condition="Me.Z &gt; 10 " >
-						<!-- Make our way to the exit from the top floor -->
-						<RunTo X="44.45738" Y="286.3805" Z="25.0132" />
-						
-						<RunTo X="44.72137" Y="142.0625" Z="0.02178714" />
-						
-						<RunTo X="47.88029" Y="97.99895" Z="0.1508283" />
-						<RunTo X="43.62694" Y="62.81333" Z="0.008441973" />
-						<RunTo X="43.03834" Y="7.287698" Z="0.007048465" />
-						<RunTo X="31.01099" Y="1.044048" Z="0.005493299" />
-						<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
-						
-						<!-- Go through the portal -->
-						<CustomBehavior File="Misc\InInstance" X="-20.722509" Y="0.3174916" Z="0.005990623" />
-						
-						<!-- Make sure we run to the right spot outside the portal -->
-						<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-						
-						<Else>
-							<!-- Make our way to the exit from the ground floor -->
-							<RunTo X="31.01099" Y="1.044048" Z="0.005493299" />
-							<RunTo X="2.63209" Y="-0.209401" Z="0.005755" />
-
-							<!-- Go through the portal -->
-							<CustomBehavior File="Misc\InInstance" X="-20.722509" Y="0.3174916" Z="0.005990623" />
-							
-							<!-- Make sure we run to the right spot outside the potral -->
-							<RunTo X="-3362.1" Y="4668.9" Z="-101.048" />
-						</Else>
-					</If> <!-- Floors -->
+					
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- SH -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

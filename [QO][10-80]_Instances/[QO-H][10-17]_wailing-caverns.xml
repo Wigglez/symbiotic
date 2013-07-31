@@ -666,6 +666,9 @@
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 				
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />
+				
 					<!-- Entrance -->
 					<RunTo X="-158.441" Y="131.601" Z="-74.2552" />
 					
@@ -699,6 +702,9 @@
 									WaitTime="120000" />
 								
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
+					
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- Wailing Caverns -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->

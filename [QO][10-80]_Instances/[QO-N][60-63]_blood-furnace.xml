@@ -604,6 +604,9 @@
 									Text="Avoiding instance lock from this point, do not touch." 
 									LogColor="Yellow" />	
 									
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />	
+									
 					<!-- Entrance -->
 					<RunTo X="-2.73782" Y="19.8424" Z="-44.79826" />
 				
@@ -645,22 +648,10 @@
 									WaitTime="45000" />
 									
 					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />  
+					
+					<!-- Enable combat -->
+					<EnableBehavior Name="Combat" />
 				</If> <!-- HR -->
-				
-				<!-- If we are inside -->
-				<If Condition="Me.ZoneId == 3713">
-					<CustomBehavior File="Message" 
-									Text="Blood Furnace detected. Running out."
-									LogColor="Fuchsia" />
-									
-					<RunTo X="-4.093049" Y="17.00105" Z="-44.78368" />
-					
-					<!-- Go through the portal -->
-					<CustomBehavior File="Misc\InInstance" X="0.3497318" Y="33.50735" Z="-44.84385" />
-					
-					<!-- Make sure we run to the right spot outside the portal -->
-					<RunTo X="-302.408" Y="3162.92" Z="31.7273" />
-				</If> <!-- BF -->
 			</While> <!-- Infinite loop -->
 		</If> <!-- RAF -->
 	</QuestOrder>
