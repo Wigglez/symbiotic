@@ -500,7 +500,7 @@
 		
 			<!-- Infinite loop -->
 			<While Condition="true" >	
-				<<!-- If we are inside Blackrock Depths -->
+				<!-- If we are inside Blackrock Depths -->
 				<If Condition="Me.ZoneId == 1584">
 					<CustomBehavior File="Message" 
 									Text="Blackrock Depths detected. Running out."
