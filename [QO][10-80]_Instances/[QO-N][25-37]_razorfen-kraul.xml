@@ -556,9 +556,6 @@
 					<!-- Line of sight around the corner -->
 					<RunTo X="2174.044" Y="1576.671" Z="76.14131" />
 					
-					<!-- Kill last guy -->
-					<RunTo X="2156.663" Y="1554.236" Z="72.01718" />
-					
 					<CustomBehavior File="Message" 
 									Text="Tagging RAFs." 
 									LogColor="Fuchsia" />
