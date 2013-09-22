@@ -688,7 +688,7 @@
 			
 				<CustomBehavior File="NoCombatMoveTo" X="-11901.27" Y="-3207.707" Z="-14.77159" />
 					
-				<CustomBehavior File="Misc\InInstance" X="-11913.26" Y="-3209.328" Z="-14.68666" />
+				<CustomBehavior File="Misc\InInstance" X="-11909.92" Y="-3208.872" Z="-14.77969" />
 
 				<CustomBehavior File="WaitTimer" WaitTime="15000" />
 
