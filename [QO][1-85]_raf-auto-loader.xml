@@ -1,5 +1,5 @@
 ﻿<HBProfile creator="Botanist and Wigglez" version="1.0">
-	<Name>[QO][1-80]_raf-auto-loader</Name>
+	<Name>[QO][1-85]_raf-auto-loader</Name>
    
 	<MinLevel>1</MinLevel>
 	<MaxLevel>101</MaxLevel>
@@ -42,6 +42,17 @@
 	<QuestOrder>
 		<ClearVendor />
 		<ClearMailbox />
+		
+		<!-- Booster -->
+		<If Condition="Me.Level &gt; 85">
+			<CustomBehavior File="Message" 
+							Text="We are a booster." 
+							LogColor="SeaGreen" />
+							
+			<CustomBehavior File="Message" 
+							Text="This auto loader is not for booster characters. Load the RAF characters with this and determine where they are going, and then load whichever profile they load." 
+							LogColor="Red" />				
+		</If> <!-- Booster -->
 		
 		<!-- *******************************************************  RAF Toons ************************************************************** -->
 		<If Condition="Me.Level &lt;= 85">
