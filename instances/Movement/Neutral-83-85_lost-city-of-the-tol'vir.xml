@@ -1,0 +1,578 @@
+﻿<HBProfile creator="Botanist" version="1.0">
+	<Name>[QO-N-M][83-85]_lost-city-of-the-tol'vir</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
+	<SellBlue>True</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>	
+	</ProtectedItems>
+
+	<Factions>16</Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a booster." 
+							LogColor="Cyan" />
+							
+			<!-- Booster UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="45"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+							
+			<!-- Blackrock Caverns -->
+			<If Condition="Me.ZoneId == 4926">
+				<CustomBehavior File="Message" 
+								Text="Blackrock Caverns detected. Hearthing out."
+								LogColor="Fuchsia" />
+					
+				<!-- Make our way to the exit -->
+				<RunTo X="209.903" Y="1133.02" Z="205.569" />
+
+				<!-- Have hearthstone -->
+				<If Condition="HasItem(6948)">
+					<CustomBehavior File="Message" 
+									Text="Using Hearthstone." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(6948)" 
+									WaitTime="1000" />
+									
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+				</If> <!-- Have hearthstone -->
+			
+				<!-- Have Innkeeper's Daughter -->
+				<If Condition="HasItem(64488)">
+					<CustomBehavior File="Message" 
+									Text="Using Innkeeper's Daughter." 
+									LogColor="Lime" />
+										
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(64488)" 
+									WaitTime="1000" />
+						
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />
+				</If> <!-- Have Innkeeper's Daughter -->
+				
+			</If> <!-- BRC -->
+
+			<!-- Eastern Kingdoms -->
+			<If Condition="Me.MapId == 0">
+				<CustomBehavior File="Message" 
+								Text="We are in Eastern Kingdoms." 
+								LogColor="Cyan" />
+								
+				<!-- If our hearthstone is set here, use it -->
+				<If Condition="Me.HearthstoneAreaId == 5466 ">
+					<CustomBehavior File="Message" 
+									Text="Our Innkeeper is set at Ramkahen." 
+									LogColor="Cyan" />
+										
+					<!-- Have hearthstone -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have hearthstone -->
+				
+					<!-- Have Innkeeper's Daughter -->
+					<If Condition="HasItem(64488)">
+						<CustomBehavior File="Message" 
+										Text="Using Innkeeper's Daughter." 
+										LogColor="Lime" />
+											
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(64488)" 
+										WaitTime="1000" />
+							
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have Innkeeper's Daughter -->
+						
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+		
+						<!-- Profile message - Flying to Booty Bay -->
+						<CustomBehavior File="Message" 
+											Text="Flying to Booty Bay." 
+											LogColor="Lime" />
+											
+						<!-- Fly to Booty Bay -->
+						<CustomBehavior File="FlyTo" 
+										X="-10353.59" Y="-7.647873" Z="284.1171" />
+										
+						<CustomBehavior File="FlyTo" 
+										X="-14281.86" Y="564.9252" Z="7.45587" />
+						<CustomBehavior File="ForcedDismount" />
+						
+						<!-- Profile message - Waiting on the boat to Ratchet -->
+						<CustomBehavior File="Message" 
+											Text="Waiting on the boat to Ratchet." 
+											LogColor="Lime" />
+										
+						<!-- Take boat from Booty Bay to ratchet -->
+						<CustomBehavior File="UseTransport" 
+										TransportId="20808" 
+										WaitAtX="-14281.86" 
+										WaitAtY="564.9252" 
+										WaitAtZ="7.45587"
+										TransportStartX="-14277.74" 
+										TransportStartY="582.86" 
+										TransportStartZ="0.015"
+										StandOnX="-14271.49" 
+										StandOnY="581.3417" 
+										StandOnZ="6.019351"
+										TransportEndX="-1005.613" 
+										TransportEndY="-3841.648" 
+										TransportEndZ="0.03330701"	
+										GetOffX="-997.8598" 
+										GetOffY="-3824.981" 
+										GetOffZ="5.466243" />								
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+										
+						<RunTo X="-984.0112" Y="-3801.92" Z="5.412419" />
+					</Else> 
+				</If>	<!-- hearth -->		
+			</If>	<!-- Eastern Kingdoms -->			
+					
+			<If Condition="Me.MapId == 1">	<!-- Kalimdor -->
+				<If Condition="Me.HearthstoneAreaId == 5466">	<!-- hearth -->
+				
+					<!-- Profile message - Flying to the rendzvous -->
+						<CustomBehavior File="Message" 
+											Text="Flying to the rendzvous point.." 
+											LogColor="Lime" />
+						
+						<!-- Fly to the rendezvous point above Tol'vir-->
+						<CustomBehavior File="FlyTo" X="-10590.88" Y="-1267.251" Z="144.9051" />
+						
+						<!-- Continue when tagged by the RAFs -->
+						<CustomBehavior File="Misc\LoadProfileOn" 
+												CheckRange="5" />
+										
+						<!-- Wait 20 seconds -->
+						<CustomBehavior File="WaitTimer" 
+												WaitTime="5000" />
+						
+						<CustomBehavior File="Message" 
+										Text="Flying to Lost City of the Tol'vir." 
+										LogColor="Lime" />
+						
+						<CustomBehavior File="MyCTM" X="-10679.7" Y="-1307.1" Z="17.34266" />
+						<CustomBehavior File="ForcedDismount" />	
+						
+						<!-- Run to the instance box -->
+						<Runto X="-10679.7" Y="-1307.1" Z="17.34266" />
+					
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+						
+						<!-- Fly to the hover point above the innkeep in Ramkahen -->
+						<CustomBehavior File="FlyTo" 
+										X="-9453.837" Y="-962.6011" Z="139.4122" />
+										
+						<!-- Land at innkeeper -->
+						<CustomBehavior File="FlyTo" 
+										X="-9418.183" Y="-959.1581" Z="113.5946" />
+						<CustomBehavior File="ForcedDismount" />
+						
+						<RunTo X="-9390.605" Y="-947.8786" Z="113.7644" />
+						
+						<!-- Set hearthstone -->										
+						<CustomBehavior File="Message" 
+										Text="Setting my Hearthstone." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="SetHearthstone" 
+										MobId="48886" 
+										X="-9389.101" Y="-944.342" Z="113.765" />
+																									
+						<!-- Run outside the innkeep -->
+						<RunTo X="-9418.183" Y="-959.1581" Z="113.5946" />
+						
+						<!-- Repair if necessary -->
+						<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+							<CustomBehavior File="Message" 
+											Text="Our durability is less than 80%, we need to repair." 
+											LogColor="Lime" />
+											
+							<RunTo X="-9409.512" Y="-911.5088" Z="112.5401" />
+
+							<SetVendor>
+								<Vendors>
+									<!-- Ramkahen  -->
+									<Vendor Name="Blacksmith Abasi" 
+											Entry="48617" 
+											Type="Repair" 
+											X="-9404.68" Y="-906.438" Z="112.5411" />
+								</Vendors>
+							</SetVendor>
+							
+							<CustomBehavior File="ForceSetVendor" 
+											DoMail="False" 
+											DoRepair="True" 
+											DoSell="True" 
+											DoTrain="False" />
+						
+							<!-- We are done repairing -->
+							<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+								<CustomBehavior File="Message" 
+												Text="Repairing complete." 
+												LogColor="Lime" />
+							</If> <!-- repaired -->
+						</If> <!-- Repairing -->			
+						
+					
+						<!-- Profile message - Flying to the rendzvous -->
+						<CustomBehavior File="Message" 
+											Text="Flying to the rendzvous point.." 
+											LogColor="Lime" />
+						
+						<!-- Fly to the rendezvous point above Tol'vir-->
+						<CustomBehavior File="FlyTo" X="-10590.88" Y="-1267.251" Z="144.9051" />
+						
+						<!-- Continue when tagged by the RAFs -->
+						<CustomBehavior File="Misc\LoadProfileOn" 
+												CheckRange="5" />
+										
+						<!-- Wait 20 seconds -->
+						<CustomBehavior File="WaitTimer" 
+												WaitTime="5000" />
+						
+						<CustomBehavior File="Message" 
+										Text="Flying to Lost City of the Tol'vir." 
+										LogColor="Lime" />
+						
+						<CustomBehavior File="MyCTM" X="-10679.7" Y="-1307.1" Z="17.34266" />
+						<CustomBehavior File="ForcedDismount" />	
+						
+						<!-- Run to the instance box -->
+						<Runto X="-10679.7" Y="-1307.1" Z="17.34266" />
+					</Else>
+				</If>	<!-- hearth -->	
+			</If>	<!-- Kalimdor -->
+	
+
+			
+			
+			<!-- In box -->
+			<If Condition="Me.X &lt; -10658.9 &amp;&amp; Me.X &gt; -10684.36 &amp;&amp; Me.Y &gt; -1320.377 &amp;&amp; Me.Y &lt; -1291.219" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][83-85]_lost-city-of-the-tol'vir" />
+			</If> <!-- In box -->		
+		</If> <!-- Booster -->
+		
+		
+		
+		
+		
+		
+		
+		
+				
+		<!-- ******************************************************* RAF Toons *************************************************************** -->			
+				
+	
+	
+		
+		
+		
+		
+		
+		
+		<!-- RAF Toons -->		
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Cyan" />
+		
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
+			
+			<!-- RAF UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+			
+			<!-- If we are in BRC, hearth -->
+			<If Condition="Me.ZoneId == 4926">
+				<CustomBehavior File="Message" 
+								Text="Blackrock Caverns detected. hearthing out."
+								LogColor="Lime" />
+								
+				<!-- Use our hearthstone -->
+				<If Condition="HasItem(6948)">
+					<CustomBehavior File="Message" 
+									Text="Using Hearthstone." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(6948)" 
+									WaitTime="1000" />
+				</If> <!-- Have hearthstone -->
+			
+				<!-- Have Innkeeper's Daughter -->
+				<If Condition="HasItem(64488)">
+					<CustomBehavior File="Message" 
+									Text="Using Innkeeper's Daughter." 
+									LogColor="Lime" />
+										
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(64488)" 
+									WaitTime="1000" />
+				</If> <!-- Have Innkeeper's Daughter -->
+
+				<!-- Wait for the game to load -->
+				<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />	
+					
+			</If> <!-- BRC -->
+
+			<!-- Stormwind -->
+			<If Condition="Me.ZoneId == 1519">
+				<CustomBehavior File="Message" 
+								Text="We are in Stormwind City." 
+								LogColor="Cyan" />
+								
+				<!-- Bag space and Durabilty check -->
+				<If Condition="(Me.FreeBagSlots &lt;= 10) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+					<SetVendor>
+						<Vendors>
+							<Vendor Name="Gunther Weller" 
+									Entry="1289" 
+									Type="Repair" 
+									X="-8790.421" Y="607.3484" Z="96.77297" />
+						</Vendors>
+					</SetVendor>
+					<SetMailbox>
+						<Mailboxes>
+							<Mailbox X="-8862.369" Y="639.4135" Z="96.18259" />
+						</Mailboxes>
+					</SetMailbox>				
+					<CustomBehavior File="ForceSetVendor" 
+									DoMail="True" 
+									DoRepair="True" 
+									DoSell="True" 
+									DoTrain="False" />	
+				</If>
+				
+				<!-- Fly to the hover point in Stormwind -->
+				<CustomBehavior File="FlyTo" X="-8839.209" Y="629.257" Z="133.6664" />
+				
+				<!-- Profile message - Flying to Booty Bay -->
+				<CustomBehavior File="Message" 
+									Text="Flying to Booty Bay." 
+									LogColor="Lime" />
+											
+				<!-- Fly to Booty Bay -->
+				<CustomBehavior File="FlyTo" 
+								X="-10353.59" Y="-7.647873" Z="284.1171" />
+								
+				<CustomBehavior File="FlyTo" 
+								X="-14281.86" Y="564.9252" Z="7.45587" />
+				<CustomBehavior File="ForcedDismount" />
+				
+				<!-- Profile message - Waiting on the boat to Ratchet -->
+				<CustomBehavior File="Message" 
+									Text="Waiting on the boat to Ratchet." 
+									LogColor="Lime" />
+								
+				<!-- Take boat from Booty Bay to ratchet -->
+				<CustomBehavior File="UseTransport" 
+								TransportId="20808" 
+								WaitAtX="-14281.86" 
+								WaitAtY="564.9252" 
+								WaitAtZ="7.45587"
+								TransportStartX="-14277.74" 
+								TransportStartY="582.86" 
+								TransportStartZ="0.015"
+								StandOnX="-14271.49" 
+								StandOnY="581.3417" 
+								StandOnZ="6.019351"
+								TransportEndX="-1005.613" 
+								TransportEndY="-3841.648" 
+								TransportEndZ="0.03330701"	
+								GetOffX="-997.8598" 
+								GetOffY="-3824.981" 
+								GetOffZ="5.466243" />								
+				<CustomBehavior File="WaitTimer" 
+								WaitTime="1000" />
+								
+				<RunTo X="-984.0112" Y="-3801.92" Z="5.412419" />
+			</If>
+			
+			<!-- IF we are in Kalimdor -->
+			<If Condition="Me.MapId == 1">
+				<!-- If we are horde RAF -->
+				<If Condition="Me.IsHorse">
+				<!-- Bag space and Durabilty check -->
+					<If Condition="(Me.FreeBagSlots &lt;= 10) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+						<SetVendor>
+							<Vendors>
+								<Vendor Name="Punra" 
+										Entry="46359" 
+										Type="Repair" 
+										X="1596.22" Y="-4288.39" Z="21.51565" />
+							</Vendors>
+						</SetVendor>
+						<SetMailbox>
+							<Mailboxes>
+								<Mailbox X="1550.043" Y="-4363.695" Z="17.54109" />
+							</Mailboxes>
+						</SetMailbox>				
+						<CustomBehavior File="ForceSetVendor" 
+										DoMail="True" 
+										DoRepair="True" 
+										DoSell="True" 
+										DoTrain="False" />	
+					</If>
+				</If>
+				
+				<!-- Profile message - Flying to the rendzvous -->
+				<CustomBehavior File="Message" 
+									Text="Flying to the rendzvous point." 
+									LogColor="Lime" />
+											
+				<!-- Fly to the rendzvous at Tol'vir -->
+				<CustomBehavior File="FlyTo" X="-10590.88" Y="-1267.251" Z="144.9051" />
+				
+				<!-- Continue when tagged by the Booster -->
+				<CustomBehavior File="Misc\LoadProfileOn" 
+										CheckRange="5" />
+										
+				<!-- Wait 20 seconds -->
+				<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />	
+				
+				<!-- Fly to the tol'vir instance box -->
+				<CustomBehavior File="Message" 
+										Text="Flying to Lost City of the Tol'vir." 
+										LogColor="Lime" />
+						
+				<CustomBehavior File="MyCTM" X="-10679.7" Y="-1307.1" Z="17.34266" />
+				
+				<CustomBehavior File="ForcedDismount" />	
+				
+				<!-- Run to the instance box -->
+				<Runto X="-10679.7" Y="-1307.1" Z="17.34266" />
+				
+			</If>	<!-- Kalimdor -->
+			<!-- In box -->
+			<If Condition="Me.X &lt; -10658.9 &amp;&amp; Me.X &gt; -10684.36 &amp;&amp; Me.Y &gt; -1320.377 &amp;&amp; Me.Y &lt; -1291.219" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][83-85]_lost-city-of-the-tol'vir" />
+			</If> <!-- In box -->		
+		</If> <!-- RAF toons -->
+	</QuestOrder>
+</HBProfile>
+

@@ -1,0 +1,808 @@
+﻿<HBProfile creator="Botanist" version="1.0">
+	<Name>[QO-N][83-85]_lost-city-of-the-tol'vir</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>True</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>False</SellGrey>
+	<SellWhite>False</SellWhite>
+	<SellGreen>False</SellGreen>
+	<SellBlue>False</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>		
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+		<Mob Name="Karsh Steelbender" Entry="39698" />
+		<Mob Name="Shadow of Obsidius" Entry="40817" />
+	</AvoidMobs>
+	
+	<Blackspots>
+
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>
+	</ProtectedItems>
+
+	<Factions></Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a Booster." 
+							LogColor="Fuchsia" />
+		
+		 	<!-- Booster UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="True"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="25"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+						
+			<!-- Infinite loop -->
+			<While Condition="true" >	
+				<!-- Lost City of the Tol'vir -->
+				<If Condition="Me.MapId == 755">
+					<CustomBehavior File="Message" 
+									Text="Lost City of the Tol'vir detected. Running out."
+									LogColor="Fuchsia" />
+						
+					<!-- Make our way to the exit -->
+					<RunTo X="-10720.71" Y="-1318.306" Z="17.34324" />
+					<CustomBehavior File="MyCTM" X="-10700.4" Y="-1312.69" Z="17.6029" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="Misc\InInstance" X="-10687.9" Y="-1309.086" Z="17.65984" />
+					
+					<!-- Make sure we run to the right spot outside the potral -->
+					<RunTo X="-10679.7" Y="-1307.1" Z="17.34246" />
+				</If> <!-- Tol'vir -->
+				
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &gt; -10658.9 || Me.X &lt; -10684.36 ||Me.Y &lt; -1320.377 || Me.Y &gt; -1291.219 " >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there."
+									LogColor="Fuchsia" />	
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][83-85]_lost-city-of-the-tol'vir" />
+				</If> <!-- Not in box -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &lt; -10658.9 &amp;&amp; Me.X &gt; -10684.36 &amp;&amp; Me.Y &gt; -1320.377 &amp;&amp; Me.Y &lt; -1291.219" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+						
+					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+					<While Condition="Me.MapId != 755">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-10679.7" Y="-1307.1" Z="17.3427" />
+
+						<!-- Run back in the portal -->
+						<CustomBehavior File="Misc\InInstance" X="-10687.6" Y="-1309.67" Z="17.8213" /> 
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000"
+										VariantTime="20000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.MapId != 755">
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
+				
+				<!-- If we are inside and have checked our reset -->
+				<If Condition="Me.MapId == 755">
+					<!-- Entrance -->
+					
+					<!-- Run macro to pass on loot -->
+					<CustomBehavior File="RunMacro"
+									Macro="/run SetOptOutOfLoot(1)" />
+									
+					<RunTo X="-10700.4" Y="-1312.69" Z="17.6029" />
+									
+					<!-- Run to left corner of the room -->
+					<RunTo X="-10703.34" Y="-1325.496" Z="17.6029" />
+				
+					<CustomBehavior File="Message" 
+									Text="Waiting for the tag."  
+									LogColor="Fuchsia" />
+				
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<!-- Wait timer to delay movement for 5 seconds -->				
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<!-- Profile message - Lost City of the Tol'vir initialized -->				
+					<CustomBehavior File="Message" 
+									Text="Lost City of the Tol'vir initialized."  
+									LogColor="Fuchsia" />
+					
+					<!-- Run to the door to begin the pull -->
+					<RunTo X="-10732.83" Y="-1321.775" Z="15.35452" />
+					
+					<!-- Clear entrance to 2nd pack on right side -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10737.01" Y="-1309.616" Z="15.3546" />
+						<Hotspot X="-10731" Y="-1296.197" Z="15.3546" />
+						<Hotspot X="-10730.38" Y="-1282.971" Z="15.3546" />
+						<Hotspot X="-10787.44" Y="-1293.37" Z="15.3546" />
+					</CustomBehavior>
+					<RunTo X="-10787.44" Y="-1293.37" Z="15.3546" />
+					
+					<!-- Clear Oathsworn Captain right side -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10811.53" Y="-1292.857" Z="15.3546" />
+						<Hotspot X="-10839.92" Y="-1300.09" Z="15.3546" />
+						<Hotspot X="-10858.71" Y="-1309.724" Z="15.35332" />
+					</CustomBehavior>
+					<RunTo X="-10858.71" Y="-1309.724" Z="15.35332" />
+					
+					<!-- Clear right hand group before General Husam -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10874.28" Y="-1327.075" Z="15.35277" />
+						<Hotspot X="-10894.54" Y="-1327.155" Z="15.35277" />
+					</CustomBehavior>
+					<RunTo X="-10894.54" Y="-1327.155" Z="15.35277" />
+					
+					<!-- Clear left hand group before General Husam -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10900.66" Y="-1351.677" Z="15.35277" />
+						<Hotspot X="-10889.97" Y="-1399.381" Z="15.35277" />
+						<Hotspot X="-10858.64" Y="-1405.723" Z="15.35277" />
+					</CustomBehavior>
+					<RunTo X="-10858.64" Y="-1405.723" Z="15.35277" />
+					
+					<!-- Clear Oathsworn Captain left side -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10828.09" Y="-1416.627" Z="15.35277" />
+						<Hotspot X="-10796.72" Y="-1410.974" Z="15.35277" />
+						<Hotspot X="-10775.93" Y="-1388.068" Z="15.35277" />
+						<Hotspot X="-10754.61" Y="-1372.136" Z="15.35277" />
+					</CustomBehavior>
+					<RunTo X="-10754.61" Y="-1372.136" Z="15.35277" />
+					
+					<!-- Clear remaining mobs left side -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10742.91" Y="-1383.457" Z="15.35277" />
+						<Hotspot X="-10735.62" Y="-1404.351" Z="15.35277" />
+						<Hotspot X="-10751.22" Y="-1365.787" Z="15.35277" />
+						<Hotspot X="-10739.79" Y="-1358.733" Z="15.35277" />
+						<Hotspot X="-10715.99" Y="-1352.579" Z="15.35277" />
+					</CustomBehavior>
+					<RunTo X="-10715.99" Y="-1352.579" Z="15.35277" />
+					
+					<!-- Run to GOOGE for General Husam --> 
+					<RunTo X="-10747.51" Y="-1361.732" Z="15.35277" />
+					<RunTo X="-10737.2" Y="-1410.362" Z="15.35277" />
+					<RunTo X="-10767.14" Y="-1419.262" Z="15.35277" />
+					<RunTo X="-10852.51" Y="-1402.272" Z="15.35277" />
+					
+					<!-- GOOGE to force kill of General Husam -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" 
+									EventCompleteDeadMobId="44577"
+									EventX="-10859.91" EventY="-1367.498" EventZ="15.35374"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-10859.91" Y="-1367.498" Z="15.35374" />
+						</Safespots>
+					</CustomBehavior>
+					
+					<!-- Profile message - General Husam has been killed moving to the Trappers Enclave -->			
+					<CustomBehavior File="Message" 
+									Text="General Husam has been killed moving to the Trappers Enclave." 
+									LogColor="Fuchsia" />
+									
+					<!-- Run to the Trappers Enclave -->
+					<RunTo X="-10869.08" Y="-1470.705" Z="17.06604" />
+
+					<!-- Clear 1st group of mobs in the to the Trappers Enclave -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10874.28" Y="-1500.611" Z="6.677361" />
+						<Hotspot X="-10907.64" Y="-1495.254" Z="6.675658" />
+					</CustomBehavior>
+					<RunTo X="-10907.64" Y="-1495.254" Z="6.675658" />
+					
+					<!-- Clear to the pygmies in the to the Trappers Enclave -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10941.34" Y="-1487.067" Z="6.75834" />
+						<Hotspot X="-10962.35" Y="-1487.888" Z="6.676704" />
+						<Hotspot X="-10962.64" Y="-1508.688" Z="11.26413" />
+						<Hotspot X="-10962.84" Y="-1555.12" Z="11.29965" />
+						<Hotspot X="-10963" Y="-1519.558" Z="11.29905" />
+					</CustomBehavior>
+					<RunTo X="-10963" Y="-1519.558" Z="11.29905" />
+					
+					<!-- Clear groups 3-4 of the mobs in the trappers enclave left side -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10962.86" Y="-1491.472" Z="6.676955" />
+						<Hotspot X="-10980.4" Y="-1491.409" Z="6.677298" />
+						<Hotspot X="-11002.94" Y="-1508.987" Z="6.675812" />
+						<Hotspot X="-11028.6" Y="-1514.369" Z="6.675812" />
+					</CustomBehavior>
+					<RunTo X="-11028.6" Y="-1514.369" Z="6.675812" />
+					
+					<!-- Clear groups 5-6 of the mobs in the trappers enclave right side -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-11040.59" Y="-1495.314" Z="6.675812" />
+						<Hotspot X="-11022.29" Y="-1483.492" Z="6.66067" />
+						<Hotspot X="-11016.51" Y="-1475.491" Z="6.673557" />
+						<Hotspot X="-11030.38" Y="-1485.774" Z="6.674917" />
+						<Hotspot X="-11068.65" Y="-1486.19" Z="6.67663" />
+						<Hotspot X="-11085.76" Y="-1494.391" Z="6.67663" />
+						<Hotspot X="-11037.43" Y="-1482.349" Z="6.677882" />
+						<Hotspot X="-11019.7" Y="-1479.225" Z="6.669669" />
+					</CustomBehavior>
+					<RunTo X="-11019.7" Y="-1479.225" Z="6.669669" />
+					
+					<!-- Profile message - Going to tag the RAFs at the entrance to the Trappers Enclave -->			
+					<CustomBehavior File="Message" 
+									Text="Going to tag the RAFs at the entrance to the Trappers Enclave." 
+									LogColor="Fuchsia" />
+					
+					<!-- Run the entrance to the Trappers Enclave -->
+					<RunTo X="-10869.08" Y="-1470.705" Z="17.06604" />
+					
+					<!-- Continue when tagged-->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<!-- Wait timer to delay movement 5 seconds -->
+					<CustomBehavior File="WaitTimer"
+									WaitTime="5000" />
+									
+					<!-- Run to Augh -->				
+					<RunTo X="-10963.23" Y="-1534.619" Z="11.27699" />
+					
+					<!-- Clear Pygmy Firebreathers around Augh -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-10963.58" Y="-1576.184" Z="6.228039" />
+						<Hotspot X="-10997.49" Y="-1582.173" Z="6.476259" />
+						<Hotspot X="-10981.58" Y="-1590.645" Z="6.228289" />
+						<Hotspot X="-10978.15" Y="-1604.185" Z="6.540036" />
+						<Hotspot X="-10981.78" Y="-1592.037" Z="6.228981" />
+						<Hotspot X="-11008.85" Y="-1614.662" Z="0.7457293" />
+						<Hotspot X="-11023.47" Y="-1627.308" Z="0.7457293" />
+						<Hotspot X="-11008.85" Y="-1614.662" Z="0.7457293" />
+					</CustomBehavior>
+					<RunTo X="-11008.85" Y="-1614.662" Z="0.7457293" />
+					
+					<!-- Run to the trigger for the GOOGE for Lockmaw -->
+					<RunTo X="-11023.47" Y="-1627.308" Z="0.7457293" />
+					
+					<!-- GOOGE to force kill of Lockmaw -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" 
+									EventCompleteDeadMobId="43614"
+									EventX="-11056.11" EventY="-1655.071" EventZ="0.7451913"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-11056.11" Y="-1655.071" Z="0.7451913" />
+						</Safespots>
+					</CustomBehavior>
+					
+					
+					<!-- Profile message - Lockmaw has been killed moving to group 7 of the mobs in the Trappers Enclave left side -->			
+					<CustomBehavior File="Message" 
+									Text="Lockmaw has been killed moving to group 7 of the mobs in the Trappers Enclave left side." 
+									LogColor="Fuchsia" />
+									
+					<!-- Run to group 7 of the mobs in the Trappers Enclave left side-->				
+					<RunTo X="-11110.55" Y="-1553.276" Z="6.677913" />			
+									
+					<!-- Profile message - Moving to the entrance of Terrace of the Augurs -->			
+					<CustomBehavior File="Message" 
+									Text="Moving to the entrance of Terrace of the Augurs, for the first tag." 
+									LogColor="Fuchsia" />					
+									
+					<!-- Run to the entrance of the Terrace of the Augurs - 1st tag-->				
+					<RunTo X="-11088.71" Y="-1474.98" Z="12.61511" />
+					
+					<!-- Clear 1st group of mobs in the Terrace of the Augurs -->
+					<CustomBehavior File="RunLikeHell" 
+									UseCTM="true" 
+									NumOfTimes="1" 
+									AllowCombat="false">
+						<Hotspot X="-11112.42" Y="-1433.231" Z="12.61459" />
+						<Hotspot X="-11117.11" Y="-1424.236" Z="10.80789" />
+						<Hotspot X="-11130.23" Y="-1406.202" Z="10.80712" />
+						<Hotspot X="-11112.64" Y="-1399.586" Z="10.80712" />
+						<Hotspot X="-11091.08" Y="-1405.511" Z="10.80783" />
+					</CustomBehavior>
+					<RunTo X="-11091.08" Y="-1405.511" Z="10.80783" />
+					
+					<!-- Clear all remaining mobs on the right hand side of the Terrace of the Augurs -->
+					<RunTo X="-11081.22" Y="-1402.58" Z="10.80603" />
+					<RunTo X="-11074.7" Y="-1391.984" Z="10.80603" />
+					<RunTo X="-11058.86" Y="-1388.226" Z="10.80794" />
+					<RunTo X="-11061.31" Y="-1379.932" Z="10.80794" />
+					<RunTo X="-11052.04" Y="-1388.747" Z="10.80774" />
+					<RunTo X="-11032.25" Y="-1381.052" Z="10.80705" />
+					<RunTo X="-11033.36" Y="-1374.063" Z="10.80705" />
+					<RunTo X="-11029.74" Y="-1380.113" Z="10.80705" />
+					<RunTo X="-11018.53" Y="-1375.496" Z="10.80705" />
+					<RunTo X="-11014.56" Y="-1368.456" Z="10.80705" />
+					<RunTo X="-10987.95" Y="-1375.601" Z="10.8062" />
+					<RunTo X="-11005.11" Y="-1382.926" Z="10.8062" />
+					<RunTo X="-11004.55" Y="-1389.605" Z="10.8062" />
+
+					
+					<!-- run around the northern end the Terrace of the Augurs-->
+					<RunTo X="-10987.48" Y="-1362.463" Z="10.80402" />
+					<RunTo X="-10987.55" Y="-1316.83" Z="10.81958" />
+					
+					<!-- Clear all remaining mobs on the left hand side of the Terrace of the Augurs -->
+					<RunTo X="-11014.45" Y="-1306.849" Z="10.80848" />
+					<RunTo X="-11024.97" Y="-1308.089" Z="10.80694" />
+					<RunTo X="-11021.72" Y="-1316.39" Z="10.80694" />
+					<RunTo X="-11030.15" Y="-1309.784" Z="10.88062" />
+					<RunTo X="-11049.19" Y="-1313.076" Z="10.80799" />
+					<RunTo X="-11046.18" Y="-1321.989" Z="10.80799" />
+					<RunTo X="-11049.73" Y="-1313.029" Z="10.80799" />
+					<RunTo X="-11071.34" Y="-1323.113" Z="10.80637" />
+					<RunTo X="-11069" Y="-1328.995" Z="10.80637" />
+					<RunTo X="-11070.75" Y="-1322.338" Z="10.80641" />
+					<RunTo X="-11098.38" Y="-1328.948" Z="10.80718" />
+					<RunTo X="-11094.5" Y="-1336.21" Z="10.80686" />
+					
+					<!-- Clear all remaining mobs on the southern end of the Terrace of the Augurs -->
+					<RunTo X="-11109.07" Y="-1329.075" Z="10.80536" />
+					<RunTo X="-11137.9" Y="-1353.675" Z="10.80517" />
+					<RunTo X="-11158.52" Y="-1387.761" Z="10.80775" />
+					<RunTo X="-11144.21" Y="-1372.289" Z="10.80642" />
+					<RunTo X="-11124.46" Y="-1364.195" Z="10.79222" />
+					<RunTo X="-11098.66" Y="-1365.003" Z="10.80542" />
+					
+					<!-- Profile message - All the mobs in the Terrace of the Augurs have been cleared. Moving to High Prophet Barim -->		
+					<CustomBehavior File="Message" 
+									Text="All the mobs in the Terrace of the Augurs have been cleared." 
+									LogColor="Fuchsia" />
+									
+					<!-- Profile message - Moving to the entrance of Terrace of the Augurs -->			
+					<CustomBehavior File="Message" 
+									Text="Moving to the entrance of Terrace of the Augurs, for the second tag." 
+									LogColor="Fuchsia" />					
+									
+					<!-- Run to the entrance of the Terrace of the Augurs -->				
+					<RunTo X="-11101" Y="-1453.877" Z="12.40634" />
+										
+					<!-- Run to the beginning of the instance  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+
+					<!-- Wait timer to delay movement for 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />				
+										
+					<!-- Run to the beginning of the instance  -->					
+					<RunTo X="-10731.67" Y="-1321.519" Z="15.35385" />					
+										
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="85" 
+									ProfileName="Movement\[QO-N-M][85-stop-bot].xml"  />
+									
+					<!-- Wait timer to delay movement for 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="5000" />				
+									
+					<!-- Run to the exit -->
+					<RunTo X="-10718.35" Y="-1317.63" Z="17.46929" />
+				</If> <!-- BRC -->
+				
+				<!-- Lost City of the Tol'vir -->
+				<If Condition="Me.ZoneId == 5396">
+					<CustomBehavior File="Message" 
+									Text="Lost City of the Tol'vir detected. Running out."
+									LogColor="Fuchsia" />
+						
+					<!-- Make our way to the exit -->
+					<RunTo X="-10718.35" Y="-1317.63" Z="17.46929" />
+					<CustomBehavior File="MyCTM" X="-10700.4" Y="-1312.69" Z="17.6029" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="Misc\InInstance" X="-10687.9" Y="-1309.086" Z="17.65984" />
+					
+					<!-- Make sure we run to the right spot outside the potral -->
+					<RunTo X="-10679.7" Y="-1307.1" Z="17.34246" />
+				</If> <!-- Tol'vir -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &lt; -10658.9 &amp;&amp; Me.X &gt; -10684.36 &amp;&amp; Me.Y &gt; -1320.377 &amp;&amp; Me.Y &lt; -1291.219" >
+					<!-- First reset isn't enough to get a fresh instance if toons are still inside -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 1 of 2." 
+									LogColor="Fuchsia" />
+					
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+									
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficultyID(1);" />
+					
+					<!-- Allow for an Honorbuddy pulse -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="200" />
+					
+					<!-- The second reset confirms we are safe to enter the instance -->
+					<CustomBehavior File="Message" 
+									Text="Resetting instance, 2 of 2." 
+									LogColor="Fuchsia" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script ResetInstances()" />
+					<CustomBehavior File="RunMacro" 
+									Macro="/script SetDungeonDifficulty(1)" />
+					
+					<CustomBehavior File="Message" 
+									Text="Instance reset." 
+									LogColor="Fuchsia" />
+				</If> <!-- In box -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- Booster -->	
+		
+		
+		<!-- *******************************************************  RAF Toons ************************************************************** -->
+		
+		
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Fuchsia" />
+							
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Fuchsia" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Fuchsia" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
+
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+		
+			<!-- Infinite loop -->
+			<While Condition="true" >	
+				<!-- Lost City of the Tol'vir -->
+				<If Condition="Me.MapId == 755">
+					<CustomBehavior File="Message" 
+									Text="Lost City of the Tol'vir detected. Running out."
+									LogColor="Fuchsia" />
+						
+					<!-- Make our way to the exit -->
+					<RunTo X="-10720.71" Y="-1318.306" Z="17.34324" />
+					<CustomBehavior File="MyCTM" X="-10700.4" Y="-1312.69" Z="17.6029" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="Misc\InInstance" X="-10687.9" Y="-1309.086" Z="17.65984" />
+					
+					<!-- Make sure we run to the right spot outside the potral -->
+					<RunTo X="-10679.7" Y="-1307.1" Z="17.34246" />
+				</If> <!-- Tol'vir -->
+			
+				<!-- If we are not in the box, load the movement profile -->
+				<If Condition="Me.X &gt; -10658.9 || Me.X &lt; -10684.36 ||Me.Y &lt; -1320.377 || Me.Y &gt; -1291.219 " >
+					<CustomBehavior File="Message" 
+									Text="Distance from portal is not within our proximity, initializing movement to get there."
+									LogColor="Fuchsia" />	
+									
+					<CustomBehavior File="LoadProfile" 
+									ProfileName="Movement\[QO-N-M][83-85]_lost-city-of-the-tol'vir" />
+				</If> <!-- Not in box -->
+				
+				<!-- If we are in the box -->
+				<If Condition="Me.X &lt; -10658.9 &amp;&amp; Me.X &gt; -10684.36 &amp;&amp; Me.Y &gt; -1320.377 &amp;&amp; Me.Y &lt; -1291.219" >
+					<CustomBehavior File="Message" 
+									Text="Portal detected nearby."
+									LogColor="Fuchsia" />	
+						
+					<!-- If we didn't enter the instance, wait 20 seconds then attempt to enter again -->
+					<While Condition="Me.MapId != 755">
+						<!-- Make sure we run to the right spot outside the portal -->
+						<RunTo X="-10679.7" Y="-1307.1" Z="17.3427" />
+
+						<!-- Run back in the portal -->
+						<CustomBehavior File="Misc\InInstance" X="-10687.6" Y="-1309.67" Z="17.8213" /> 
+										
+						<CustomBehavior File="Message" 
+										Text="Waiting for the dungeon to load." 
+										LogColor="Fuchsia" />
+									
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000"
+										VariantTime="20000" />
+										
+						<!-- If we still aren't in, we're locked out -->
+						<If Condition="Me.MapId != 755">
+							<CustomBehavior File="Message" 
+											Text="We are locked out. Waiting and trying again." 
+											LogColor="Fuchsia" />
+						</If> <!-- Locked -->
+					</While> <!-- While we aren't in the instance -->
+				</If> <!-- In box -->
+				
+				<!-- If we are inside and have checked our reset -->
+				<If Condition="Me.MapId == 755">
+					<!-- Entrance -->
+					<RunTo X="-10700.4" Y="-1312.69" Z="17.6029" />
+							
+					<!-- Disable combat -->
+					<DisableBehavior Name="Combat" />
+					
+					<!-- Profile message - Avoiding instance lock from this point, do not touch -->
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />
+									
+					<!-- Go to activate spot, NOTE this can not be the quest giver -->
+					<RunTo X="-10703.34" Y="-1325.496" Z="17.6029" />
+				
+					<!-- Profile message - Waiting for all party members to be present -->
+					<CustomBehavior File="Message" 
+									Text="Waiting for all party members to be present."  
+									LogColor="Fuchsia" />
+				
+					<!-- Begin the instance once all party members are within range  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+									
+					<!-- Profile message - Lost City of the Tol'vir initialized -->					
+					<CustomBehavior File="Message" 
+									Text="Lost City of the Tol'vir initialized."  
+									LogColor="Fuchsia" />				
+																						
+					<!-- Profile message - Avoiding instance lock from this point, do not touch -->			
+					<CustomBehavior File="Message" 
+									Text="Avoiding instance lock from this point, do not touch." 
+									LogColor="Yellow" />				
+					
+					<!-- Wait timer to delay movement for 20 seconds -->				
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+									
+					<!-- Run to the door entering the instance -->
+					<RunTo X="-10716.44" Y="-1316.862" Z="18.13643" />
+									
+					<!-- Profile message - Waiting for General Husam to die -->			
+					<CustomBehavior File="Message" 
+									Text="Waiting for General Husam to die." 
+									LogColor="Fuchsia" />				
+									
+					<!-- GOOGE to force the RAFs to stay put until General Husam dies -->
+					<CustomBehavior File="GetOutOfGroundEffectAndAuras" 
+									EventCompleteWhen="SpecificMobsDead" 
+									EventCompleteDeadMobId="44577"
+									EventX="-10716.44" EventY="-1316.862" EventZ="18.13643"
+									MoveOutOfGroundEffectAuraId1="111111"
+									MoveAwayFromMobCastingSpellId1="111111"
+									MoveAwayFromMobWithAuraId1="111111">
+						<Safespots>
+							<Hotspot X="-10716.44" Y="-1316.862" Z="18.13643" />
+						</Safespots>
+					</CustomBehavior>
+
+					<!-- Profile message - General Husam has been killed moving to the first bridge -->			
+					<CustomBehavior File="Message" 
+									Text="General Husam has been killed moving to the entrance of the Trappers Enclave." 
+									LogColor="Fuchsia" />
+									
+					<!-- Run the entrance to the Trappers Enclave -->
+					<RunTo X="-10869.08" Y="-1470.705" Z="17.06604" />				
+									
+					<!-- Profile message - Waiting to be tagged by the Booster -->			
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster." 
+									LogColor="Fuchsia" />				
+									
+					<!-- Continue when tagged-->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<!-- Wait timer to delay movement 5 seconds -->
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+					
+					<!-- Profile message - Moving to the entrance of Terrace of the Augurs -->			
+					<CustomBehavior File="Message" 
+									Text="Moving to the entrance of Terrace of the Augurs, for the first tag." 
+									LogColor="Fuchsia" />					
+									
+					<!-- Run to the entrance of the Terrace of the Augurs - 1st tag-->				
+					<RunTo X="-11088.71" Y="-1474.98" Z="12.61511" />
+
+					<!-- Profile message - Waiting to be tagged by the Booster, 1st tag -->			
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster, 1st tag." 
+									LogColor="Fuchsia" />
+					
+					<!-- Continue when tagged-->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+					
+					<!-- Wait timer to delay movement 5 seconds -->
+					<CustomBehavior File="WaitTimer"
+									WaitTime="20000" />
+									
+					<!-- Profile message - Moving to the entrance of Terrace of the Augurs -->			
+					<CustomBehavior File="Message" 
+									Text="Moving to the entrance of Terrace of the Augurs, for the second tag." 
+									LogColor="Fuchsia" />					
+									
+					<!-- Run to the entrance of the Terrace of the Augurs -->				
+					<RunTo X="-11101" Y="-1453.877" Z="12.40634" />
+
+					<!-- Profile message - Waiting to be tagged by the Booster, 2nd tag -->			
+					<CustomBehavior File="Message" 
+									Text="Waiting to be tagged by the Booster, 2nd tag." 
+									LogColor="Fuchsia" />
+									
+					<!-- Run to the beginning of the instance  -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="1" />
+
+					<!-- Wait timer to delay movement for 5 seconds -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />				
+										
+					<!-- Run to the beginning of the instance  -->					
+					<RunTo X="-10731.67" Y="-1321.519" Z="15.35385" />				
+									
+					<!-- If we are high enough to go to the next instance, do so -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									MinLevel="85" 
+									ProfileName="Movement\[QO-N-M][85-stop-bot].xml"  />
+				
+					<!-- Wait so the main can get away from us -->
+					<CustomBehavior File="WaitTimer" 
+									WaitTime="30000" />
+									
+					<CustomBehavior File="Misc\InstanceTimer" Timer="Check" />
+
+					<!-- Run to the exit -->
+					<RunTo X="-10718.35" Y="-1317.63" Z="17.46929" />
+				</If> <!-- Tol'vir -->
+				
+				<!-- Lost City of the Tol'vir -->
+				<If Condition="Me.ZoneId == 5396">
+					<CustomBehavior File="Message" 
+									Text="Lost City of the Tol'vir detected. Running out."
+									LogColor="Fuchsia" />
+						
+					<!-- Make our way to the exit -->
+					<RunTo X="-10718.35" Y="-1317.63" Z="17.46929" />
+					<CustomBehavior File="MyCTM" X="-10700.4" Y="-1312.69" Z="17.6029" />
+					
+					<!-- enableable combat -->
+					<EnableBehavior Name="Combat" />
+					
+					<!-- Go through the portal -->
+					<CustomBehavior File="Misc\InInstance" X="-10687.9" Y="-1309.086" Z="17.65984" />
+					
+					<!-- Make sure we run to the right spot outside the potral -->
+					<RunTo X="-10679.7" Y="-1307.1" Z="17.34246" />
+				</If> <!-- Tol'vir -->
+			</While> <!-- Infinite loop -->
+		</If> <!-- RAF -->
+	</QuestOrder>
+</HBProfile>

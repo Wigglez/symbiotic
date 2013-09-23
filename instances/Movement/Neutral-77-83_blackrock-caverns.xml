@@ -1,0 +1,651 @@
+﻿<HBProfile creator="Botanist" version="1.0">
+	<Name>[QO-N-M][80-83]_blackrock-caverns</Name>
+   
+	<MinLevel>1</MinLevel>
+	<MaxLevel>101</MaxLevel>
+   
+	<MinDurability>-1</MinDurability>
+	<MinFreeBagSlots>-1</MinFreeBagSlots>
+	
+	<MailGrey>False</MailGrey>
+	<MailWhite>False</MailWhite>
+	<MailGreen>False</MailGreen>
+	<MailBlue>False</MailBlue>
+	<MailPurple>False</MailPurple>
+   
+	<SellGrey>True</SellGrey>
+	<SellWhite>True</SellWhite>
+	<SellGreen>True</SellGreen>
+	<SellBlue>True</SellBlue>
+	<SellPurple>False</SellPurple>
+   
+	<TargetElites>True</TargetElites>
+	
+	<AvoidMobs>
+		<Mob Name="Summon Enabler Stalker" Entry="53488" />
+	</AvoidMobs>
+	
+	<Blackspots>
+	</Blackspots>
+
+	<Mailboxes>
+	</Mailboxes>
+ 
+	<Vendors>
+	</Vendors>
+	
+	<ProtectedItems>	
+	</ProtectedItems>
+
+	<Factions>16</Factions>
+	
+	<QuestOrder>
+		<ClearVendor />
+		<ClearMailbox />
+
+		<!-- *******************************************************  Booster ************************************************************** -->
+		<If Condition="Me.Level &gt;= 90">
+			<CustomBehavior File="Message" 
+							Text="We are a booster." 
+							LogColor="Cyan" />
+							
+			<!-- Booster UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="True"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="45"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+							
+			<!-- Halls of Lightning -->
+			<If Condition="Me.ZoneId == 4272">
+				<CustomBehavior File="Message" 
+								Text="Halls of Lightning detected. Running out."
+								LogColor="Lime" />
+					
+				<!-- Make our way to the exit -->
+				<RunTo X="1331.41" Y="241.904" Z="52.5046" />
+
+				<!-- Go through the portal -->
+				<CustomBehavior File="MyCTM" X="1333.524" Y="275.7161" Z="52.81057" />
+				
+				<!-- Make sure we run to the right spot outside the potral -->
+				<RunTo X="9175.68" Y="-1378.8" Z="1103.57" />
+			</If> <!-- HoL -->
+
+			<!-- Northrend -->
+			<If Condition="Me.MapId == 571">
+				<CustomBehavior File="Message" 
+								Text="We are in Northrend." 
+								LogColor="Cyan" />
+								
+				<!-- If our hearthstone is set here, use it -->
+				<If Condition="Me.HearthstoneAreaId == 5628">
+					<CustomBehavior File="Message" 
+									Text="Our Innkeeper is set at Iron Summit." 
+									LogColor="Cyan" />
+										
+					<!-- Have hearthstone -->
+					<If Condition="HasItem(6948)">
+						<CustomBehavior File="Message" 
+										Text="Using Hearthstone." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(6948)" 
+										WaitTime="1000" />
+										
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have hearthstone -->
+				
+					<!-- Have Innkeeper's Daughter -->
+					<If Condition="HasItem(64488)">
+						<CustomBehavior File="Message" 
+										Text="Using Innkeeper's Daughter." 
+										LogColor="Lime" />
+											
+						<CustomBehavior File="Misc\RunLua" 
+										Lua="UseItemByName(64488)" 
+										WaitTime="1000" />
+							
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="20000" />
+					</If> <!-- Have Innkeeper's Daughter -->
+						
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+					
+						<CustomBehavior File="Message" 
+										Text="Flying to Dalaran Portals." 
+										LogColor="Lime" />
+					
+						<!-- Fly to last hilltop before Dalaran -->
+						<CustomBehavior File="FlyTo" X="6238.808" Y="-155.1916" Z="603.1764" />
+					
+						<!-- CTM to the same altitude as the hover point in Dalaran -->
+						<CustomBehavior File="MyCTM" X="6195.48" Y="-80.85192" Z="816.6508" />
+						
+						<!-- CTM to the hover point in Dalaran -->
+						<CustomBehavior File="MyCTM" X="5804.329" Y="640.8198" Z="816.6508" />
+					
+						<!-- If we are Alliance, use the portal to Stormwind -->
+						<If Condition="Me.IsAlliance">
+							<CustomBehavior File="FlyTo" X="5763.367" Y="710.6233" Z="643.6194" />
+							<CustomBehavior File="FlyTo" X="5732.852" Y="735.7708" Z="644.6849" />
+							<CustomBehavior File="FlyTo" X="5720.347" Y="721.5897" Z="643.5318" />
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Interact with the portal to Stormwind -->
+							<CustomBehavior File="InteractWith" 
+											MobId="190960" 
+											ObjectType="Gameobject" 
+											Range="4.75"
+											NumOfTimes="1"  
+											X="5719.184" Y="719.6667" Z="641.727844" />
+							
+							<!-- Wait timer for game to load -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+
+							<!-- Run to the exit of the mage tower -->
+							<RunTo X="-8989.28" Y="860.5299" Z="125.8689" />
+							
+						</If>
+					
+						<!-- If we are Horde, use the portal to Orgrimmar -->
+						<If Condition="Me.IsHorde">
+							<CustomBehavior File="FlyTo" X="5864.578" Y="584.0018" Z="725.4819" />
+							<CustomBehavior File="FlyTo" X="5897.451" Y="565.5864" Z="648.7625" />
+							<CustomBehavior File="FlyTo" X="5923.795" Y="590.6122" Z="641.8165" />
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Interact with the portal to Orgrimmar -->
+							<CustomBehavior File="InteractWith" 
+											MobId="191009" 
+											ObjectType="Gameobject" 
+											Range="4.75" 
+											NumOfTimes="1"  
+											X="5925.874" Y="593.1875" Z="640.5933" />
+							
+							<!-- Wait timer for game to load -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="20000" />
+
+							<!-- Run to the Blastedlands portal -->
+							<RunTo X="1771.456" Y="-4326.629" Z="-8.225829" />
+							
+							<!-- Interact with the portal to Blastedlands -->
+							<CustomBehavior File="InteractWith" 
+											MobId="195142" 
+											ObjectType="Gameobject" 
+											Range="4.75" 
+											NumOfTimes="1"  
+											X="1768.45" Y="-4325.86" Z="-8.3711" />
+											
+							<!-- Fly to the hover point above the innkeep in Iron Summit -->
+							<CustomBehavior File="FlyTo" 
+											X="-7070.313" Y="-1215.361" Z="336.248" />
+					
+							<!-- Land at innkeeper -->
+							<CustomBehavior File="FlyTo" 
+											X="-7083.119" Y="-1201.846" Z="324.2862" />
+							<CustomBehavior File="ForcedDismount" />
+							
+							<!-- Set hearthstone -->
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="Message" 
+											Text="Setting my Hearthstone." 
+											LogColor="Lime" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+							<CustomBehavior File="SetHearthstone" 
+											MobId="47942" 
+											X="-7085.53" Y="-1202.19" Z="323.9885" />
+							<CustomBehavior File="WaitTimer" 
+											WaitTime="1000" />
+																
+							<CustomBehavior File="Message" 
+										Text="We are in Iron Summit." 
+										LogColor="Lime" />
+
+							<!-- Fly to the hover point above the innkeep in Iron Summit -->
+							<CustomBehavior File="FlyTo" 
+											X="-7070.313" Y="-1215.361" Z="336.248" />
+				
+							<!-- Repair if necessary -->
+							<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+								<CustomBehavior File="FlyTo"  
+												X="-7095.479" Y="-1266.96" Z="270.4855" />
+								<CustomBehavior File="ForcedDismount" />
+							
+								<CustomBehavior File="Message" 
+												Text="Our durability is less than 80%, we need to repair." 
+												LogColor="Lime" />
+											
+								<CustomBehavior File="ForceSetVendor" 
+												DoMail="False" 
+												DoRepair="True" 
+												DoSell="False" 
+												DoTrain="False" />
+								
+								<SetVendor>
+									<Vendors>
+										<!-- Iron Summit -->
+										<Vendor Name="Fergus Gravelsmash" 
+												Entry="47937" 
+												Type="Repair" 
+												X="-7093.68" Y="-1268.31" Z="270.4849" />
+									</Vendors>
+								</SetVendor>
+							
+								<!-- We are done repairing -->
+								<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+									<CustomBehavior File="Message" 
+													Text="Repairing complete." 
+													LogColor="Lime" />
+								</If> <!-- repaired -->
+							</If> <!-- Repairing -->			
+						</If>
+					</Else> 
+				</If>	<!-- hearth -->		
+			</If>	<!-- Northrend -->			
+						
+			<If Condition="Me.MapId == 0">
+				<If Condition="Me.HearthstoneAreaId == 5628">
+				
+					<!-- Profile message - Flying to the rendzvous -->
+					<CustomBehavior File="Message" 
+										Text="Flying to the rendzvous point.." 
+										LogColor="Lime" />
+					
+					<!-- Fly to the hover/rendezvous point -->
+					<CustomBehavior File="FlyTo" X="-7038.787" Y="-1230.125" Z="390.7811" />
+					
+					<!-- Continue when tagged by the RAFs -->
+					<CustomBehavior File="Misc\LoadProfileOn" 
+											CheckRange="5" />
+									
+					<!-- Wait 20 seconds -->
+					<CustomBehavior File="WaitTimer" 
+											WaitTime="5000" />
+					
+					<CustomBehavior File="Message" 
+									Text="Flying to Blackrock Caverns." 
+									LogColor="Lime" />
+					
+					<CustomBehavior File="FlyTo" X="-7056.178" Y="-1135.619" Z="367.9378" />
+					<CustomBehavior File="FlyTo" X="-7330.418" Y="-1124.455" Z="359.2787" />
+					
+					<CustomBehavior File="MyCTM" X="-7363.104" Y="-1102.565" Z="280.0103" />
+					<CustomBehavior File="MyCTM" X="-7376.134" Y="-1094.168" Z="280.9006" />
+					<CustomBehavior File="MyCTM" X="-7409.696" Y="-1101.115" Z="280.6046" />
+					<CustomBehavior File="MyCTM" X="-7420.444" Y="-1069.138" Z="279.7732" />
+					<CustomBehavior File="MyCTM" X="-7430.155" Y="-1058.552" Z="275.2509" />
+					<CustomBehavior File="MyCTM" X="-7481.438" Y="-1070.679" Z="265.6658" />
+					<CustomBehavior File="MyCTM" X="-7593.228" Y="-1162.036" Z="298.1223" />
+					<CustomBehavior File="MyCTM" X="-7612.961" Y="-1233.647" Z="236.3418" />
+					<CustomBehavior File="MyCTM" X="-7615.291" Y="-1271.456" Z="238.1814" />
+					
+					<!-- Run to the instance box -->
+					<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
+					
+					<!-- Our hearth isn't set, we need to go to the zone -->
+					<Else>
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the proper location. Moving to set it." 
+										LogColor="Lime" />
+						
+						<!-- Fly to the hover point above the innkeep in Iron Summit -->
+						<CustomBehavior File="FlyTo" 
+										X="-7070.313" Y="-1215.361" Z="336.248" />
+				
+						<!-- Land at innkeeper -->
+						<CustomBehavior File="FlyTo" 
+										X="-7083.119" Y="-1201.846" Z="324.2862" />
+						<CustomBehavior File="ForcedDismount" />
+						
+						<!-- Set hearthstone -->
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="Message" 
+										Text="Setting my Hearthstone." 
+										LogColor="Lime" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+						<CustomBehavior File="SetHearthstone" 
+										MobId="47942" 
+										X="-7085.53" Y="-1202.19" Z="323.9885" />
+						<CustomBehavior File="WaitTimer" 
+										WaitTime="1000" />
+															
+						<CustomBehavior File="Message" 
+									Text="We are in Iron Summit." 
+									LogColor="Lime" />
+
+						<!-- Fly to the hover point above the innkeep in Iron Summit -->
+						<CustomBehavior File="FlyTo" 
+										X="-7070.313" Y="-1215.361" Z="336.248" />
+			
+						<!-- Repair if necessary -->
+						<If Condition="Me.LowestDurabilityPercent &lt; 0.8" >
+							<CustomBehavior File="FlyTo"  
+											X="-7095.479" Y="-1266.96" Z="270.4855" />
+							<CustomBehavior File="ForcedDismount" />
+						
+							<CustomBehavior File="Message" 
+											Text="Our durability is less than 80%, we need to repair." 
+											LogColor="Lime" />
+										
+							<CustomBehavior File="ForceSetVendor" 
+											DoMail="False" 
+											DoRepair="True" 
+											DoSell="False" 
+											DoTrain="False" />
+							
+							<SetVendor>
+								<Vendors>
+									<!-- Iron Summit -->
+									<Vendor Name="Fergus Gravelsmash" 
+											Entry="47937" 
+											Type="Repair" 
+											X="-7093.68" Y="-1268.31" Z="270.4849" />
+								</Vendors>
+							</SetVendor>
+						
+							<!-- We are done repairing -->
+							<If Condition="Me.DurabilityPercent &gt;= 0.8" >
+								<CustomBehavior File="Message" 
+												Text="Repairing complete." 
+												LogColor="Lime" />
+							</If> <!-- repaired -->
+						</If> <!-- Repairing -->
+						
+						<!-- Profile message - Flying to the rendzvous -->
+						<CustomBehavior File="Message" 
+											Text="Flying to the rendzvous point.." 
+											LogColor="Lime" />
+						
+						<!-- Fly to the hover/rendezvous point -->
+						<CustomBehavior File="FlyTo" X="-7038.787" Y="-1230.125" Z="390.7811" />
+						
+						<!-- Continue when tagged by the RAFs -->
+						<CustomBehavior File="Misc\LoadProfileOn" 
+												CheckRange="5" />
+										
+						<!-- Wait 20 seconds -->
+						<CustomBehavior File="WaitTimer" 
+												WaitTime="5000" />
+						
+						<CustomBehavior File="Message" 
+										Text="Flying to Blackrock Caverns." 
+										LogColor="Lime" />
+						
+						<CustomBehavior File="FlyTo" X="-7056.178" Y="-1135.619" Z="367.9378" />
+						<CustomBehavior File="FlyTo" X="-7330.418" Y="-1124.455" Z="359.2787" />
+						
+						<CustomBehavior File="MyCTM" X="-7363.104" Y="-1102.565" Z="280.0103" />
+						<CustomBehavior File="MyCTM" X="-7376.134" Y="-1094.168" Z="280.9006" />
+						<CustomBehavior File="MyCTM" X="-7409.696" Y="-1101.115" Z="280.6046" />
+						<CustomBehavior File="MyCTM" X="-7420.444" Y="-1069.138" Z="279.7732" />
+						<CustomBehavior File="MyCTM" X="-7430.155" Y="-1058.552" Z="275.2509" />
+						<CustomBehavior File="MyCTM" X="-7481.438" Y="-1070.679" Z="265.6658" />
+						<CustomBehavior File="MyCTM" X="-7593.228" Y="-1162.036" Z="298.1223" />
+						<CustomBehavior File="MyCTM" X="-7612.961" Y="-1233.647" Z="236.3418" />
+						<CustomBehavior File="MyCTM" X="-7615.291" Y="-1271.456" Z="238.1814" />
+						
+						<!-- Run to the instance box -->
+						<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
+					</Else>		
+				</If>
+			</If>
+			
+			
+			<!-- In box -->
+			<If Condition="Me.X &lt; -7565.834 &amp;&amp; Me.X &gt; -7582.962 &amp;&amp; Me.Y &lt; -1297.568 &amp;&amp; Me.Y &gt; -1328.157" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][77-83]_blackrock-caverns" />
+			</If> <!-- In box -->		
+		</If> <!-- Booster -->
+		
+		
+		
+		
+		
+		
+		
+		
+				
+		<!-- ******************************************************* RAF Toons *************************************************************** -->			
+				
+	
+	
+		
+		
+		
+		
+		
+		
+		<!-- RAF Toons -->		
+		<If Condition="Me.Level &lt;= 85">
+			<CustomBehavior File="Message" 
+							Text="We are a RAF." 
+							LogColor="Cyan" />
+		
+			<If Condition="Me.IsAlliance">
+				<If Condition="Me.HearthstoneAreaId != 5148">
+					<CustomBehavior File="Message" 
+									Text="Our Hearthstone isn't set in the Trade District in Stormwind. Stopping profile." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+				</If>
+				
+				<ElseIf Condition="Me.IsHorde">
+					<If Condition="Me.HearthstoneAreaId != 5170">
+						<CustomBehavior File="Message" 
+										Text="Our Hearthstone isn't set in the Valley of Strength in Orgrimmar. Stopping profile." 
+										LogColor="Lime" />
+										
+						<CustomBehavior File="UserSettings" 
+										StopBot="true" />
+					</If>
+				</ElseIf>
+			</If>
+			
+			<!-- RAF UserSettings -->
+			<CustomBehavior File="UserSettings"
+							AdvancedSettingsMode="True"
+							FindMountAutomatically="True"
+							FindVendorsAutomatically="False"
+							GroundMountFarmingMode="False"
+							HarvestHerbs="False"
+							HarvestMinerals="False"
+							KillBetweenHotspots="False"
+							LogoutForInactivity="False"
+							LogoutInactivityUseForceQuit="False"
+							LootChests="False"
+							LootMobs="False"
+							LootRadius="1"
+							MountDistance="75"
+							MountName=""
+							NinjaSkin="False"
+							ProfileDebuggingMode="False"
+							PullDistance="1"
+							RessAtSpiritHealers="False"
+							SkinMobs="False"
+							UseFlightPaths="True"
+							UseMount="True" 
+							UseRandomMount="False" />
+			
+			<!-- If we are in HOL, hearth -->
+			<If Condition="Me.ZoneId == 4272">
+				<CustomBehavior File="Message" 
+								Text="Halls of Lightning detected. hearthing out."
+								LogColor="Lime" />
+								
+				<!-- Use our hearthstone -->
+				<If Condition="HasItem(6948)">
+					<CustomBehavior File="Message" 
+									Text="Using Hearthstone." 
+									LogColor="Lime" />
+									
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(6948)" 
+									WaitTime="1000" />
+				</If> <!-- Have hearthstone -->
+			
+				<!-- Have Innkeeper's Daughter -->
+				<If Condition="HasItem(64488)">
+					<CustomBehavior File="Message" 
+									Text="Using Innkeeper's Daughter." 
+									LogColor="Lime" />
+										
+					<CustomBehavior File="Misc\RunLua" 
+									Lua="UseItemByName(64488)" 
+									WaitTime="1000" />
+				</If> <!-- Have Innkeeper's Daughter -->
+
+				<!-- Wait for the game to load -->
+				<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />	
+					
+			</If> <!-- HoL -->
+
+			<!-- Stormwind -->
+			<If Condition="Me.ZoneId == 1519">
+				<CustomBehavior File="Message" 
+								Text="We are in Stormwind City." 
+								LogColor="Cyan" />
+								
+				<!-- Bag space and Durabilty check -->
+				<If Condition="(Me.FreeBagSlots &lt;= 10) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+					<SetVendor>
+						<Vendors>
+							<Vendor Name="Gunther Weller" 
+									Entry="1289" 
+									Type="Repair" 
+									X="-8790.421" Y="607.3484" Z="96.77297" />
+						</Vendors>
+					</SetVendor>
+					<SetMailbox>
+						<Mailboxes>
+							<Mailbox X="-8862.369" Y="639.4135" Z="96.18259" />
+						</Mailboxes>
+					</SetMailbox>				
+					<CustomBehavior File="ForceSetVendor" 
+									DoMail="True" 
+									DoRepair="True" 
+									DoSell="True" 
+									DoTrain="False" />	
+				</If>
+				
+				<!-- Fly to the hover point in Stormwind -->
+				<CustomBehavior File="FlyTo" X="-8839.209" Y="629.257" Z="133.6664" />
+			</If>
+			
+			<!-- IF we are Horde, take the portal to Blastedlands -->
+			<If Condition="Me.IsHorde">
+				
+				<!-- Bag space and Durabilty check -->
+				<If Condition="(Me.FreeBagSlots &lt;= 10) || (Me.LowestDurabilityPercent &lt; 0.8)" >
+					<SetVendor>
+						<Vendors>
+							<Vendor Name="Punra" 
+									Entry="46359" 
+									Type="Repair" 
+									X="1596.22" Y="-4288.39" Z="21.51565" />
+						</Vendors>
+					</SetVendor>
+					<SetMailbox>
+						<Mailboxes>
+							<Mailbox X="1550.043" Y="-4363.695" Z="17.54109" />
+						</Mailboxes>
+					</SetMailbox>				
+					<CustomBehavior File="ForceSetVendor" 
+									DoMail="True" 
+									DoRepair="True" 
+									DoSell="True" 
+									DoTrain="False" />	
+				</If>
+				
+				<!-- Run to the Blastedlands portal -->
+				<RunTo X="1771.456" Y="-4326.629" Z="-8.225829" />
+				
+				<!-- Interact with the portal to Blastedlands -->
+				<CustomBehavior File="InteractWith" 
+								MobId="195142" 
+								ObjectType="Gameobject" 
+								Range="4.75" 
+								NumOfTimes="1"  
+								X="1768.45" Y="-4325.86" Z="-8.3711" />
+			</If>
+			
+			<!-- Profile message - Flying to the rendzvous -->
+					<CustomBehavior File="Message" 
+										Text="Flying to the rendzvous point." 
+										LogColor="Lime" />
+										
+			<!-- Fly to the rendzvous at Iron Summit -->
+			<CustomBehavior File="FlyTo" X="-7038.787" Y="-1230.125" Z="390.7811" />
+			
+			<!-- Continue when tagged by the Booster -->
+			<CustomBehavior File="Misc\LoadProfileOn" 
+									CheckRange="5" />
+									
+			<!-- Wait 20 seconds -->
+			<CustomBehavior File="WaitTimer" 
+									WaitTime="20000" />	
+			
+			<!-- Fly to the BRC instance box -->
+			<CustomBehavior File="Message" 
+								Text="Flying to Blackrock Caverns." 
+								LogColor="Lime" />
+				
+				<CustomBehavior File="FlyTo" X="-7056.178" Y="-1135.619" Z="367.9378" />
+				<CustomBehavior File="FlyTo" X="-7330.418" Y="-1124.455" Z="359.2787" />
+				
+				<CustomBehavior File="MyCTM" X="-7363.104" Y="-1102.565" Z="280.0103" />
+				<CustomBehavior File="MyCTM" X="-7376.134" Y="-1094.168" Z="280.9006" />
+				<CustomBehavior File="MyCTM" X="-7409.696" Y="-1101.115" Z="280.6046" />
+				<CustomBehavior File="MyCTM" X="-7420.444" Y="-1069.138" Z="279.7732" />
+				<CustomBehavior File="MyCTM" X="-7430.155" Y="-1058.552" Z="275.2509" />
+				<CustomBehavior File="MyCTM" X="-7481.438" Y="-1070.679" Z="265.6658" />
+				<CustomBehavior File="MyCTM" X="-7593.228" Y="-1162.036" Z="298.1223" />
+				<CustomBehavior File="MyCTM" X="-7612.961" Y="-1233.647" Z="236.3418" />
+				<CustomBehavior File="MyCTM" X="-7615.291" Y="-1271.456" Z="238.1814" />
+				
+				<!-- Run to the instance box -->
+				<Runto X="-7571.14" Y="-1324.96" Z="245.538" />
+				
+			<!-- In box -->
+			<If Condition="Me.X &lt; -7565.834 &amp;&amp; Me.X &gt; -7582.962 &amp;&amp; Me.Y &lt; -1297.568 &amp;&amp; Me.Y &gt; -1328.157" >
+				<CustomBehavior File="LoadProfile" 
+								ProfileName="..\[QO-N][77-83]_blackrock-caverns" />
+			</If> <!-- In box -->		
+		</If> <!-- RAF toons -->
+	</QuestOrder>
+</HBProfile>
+
