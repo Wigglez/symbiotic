@@ -71,9 +71,11 @@
 					<CustomBehavior File="Message" 
 									Text="We are Alliance." 
 									LogColor="SeaGreen" />
-							
-					<CustomBehavior File="LoadProfile" 
-									ProfileName="[QO][1-10]_Grinding\[QO-A][1-10]_northshire" />
+					
+					<CustomBehavior File="Misc\LoadProfileOn" 
+									RemotePath="http://botanist-hb-profiles.googlecode.com/svn/trunk/Symbiotic/1-85%20Cataclysm/%5bQO%5d%5b1-10%5d_Grinding/"
+									ProfileName="%5bQO-A%5d%5b1-10%5d_northshire.xml" />
+					
 					
 					<!-- Horde -->
 					<ElseIf Condition="Me.IsHorde">
@@ -296,7 +298,11 @@
 				<CustomBehavior File="Message" 
 								Text="We are between 68-71." 
 								LogColor="SeaGreen" />
-								
+				
+				<CustomBehavior File="Misc\LoadProfileOn" 
+								RemotePath="http://botanist-hb-profiles.googlecode.com/svn/trunk/Symbiotic/1-85%20Cataclysm/%5bQO%5d%5b10-85%5d_Instances/"
+								ProfileName="%5bQO-N%5d%5b68-71%5d_utgarde-keep.xml" />
+				
 				<!-- Stormwind or Orgrimmar -->
 				<If Condition="Me.ZoneId == 1519 || Me.ZoneId == 1637">
 					<CustomBehavior File="LoadProfile" 
